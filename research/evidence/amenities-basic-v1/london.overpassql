@@ -1,0 +1,1 @@
+[out:json][timeout:30][maxsize:16777216];(nwr[amenity=hospital](around:3000,51.5246,-0.1339);nwr[healthcare=hospital](around:3000,51.5246,-0.1339);nwr[shop=convenience](around:3000,51.5246,-0.1339);nwr[shop=mall](around:3000,51.5246,-0.1339););out tags center;

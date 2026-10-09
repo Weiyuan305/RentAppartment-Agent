@@ -1,0 +1,122 @@
+{
+  "hong-kong-1": {
+    "durationSeconds": 754.975,
+    "distanceMeters": 800
+  },
+  "hong-kong-2": {
+    "durationSeconds": 890.015,
+    "distanceMeters": 1096
+  },
+  "hong-kong-3": {
+    "durationSeconds": 1745.46,
+    "distanceMeters": 1997
+  },
+  "hong-kong-4": {
+    "durationSeconds": 954.394,
+    "distanceMeters": 1155
+  },
+  "hong-kong-5": {
+    "durationSeconds": 2307.797,
+    "distanceMeters": 2927
+  },
+  "hong-kong-6": {
+    "durationSeconds": 1593.872,
+    "distanceMeters": 1768
+  },
+  "kuala-lumpur-1": {
+    "durationSeconds": 857.277,
+    "distanceMeters": 1160
+  },
+  "kuala-lumpur-2": {
+    "durationSeconds": 1190.171,
+    "distanceMeters": 1540
+  },
+  "kuala-lumpur-3": {
+    "durationSeconds": 2885.558,
+    "distanceMeters": 3397
+  },
+  "kuala-lumpur-4": {
+    "durationSeconds": 745.237,
+    "distanceMeters": 978
+  },
+  "kuala-lumpur-5": {
+    "durationSeconds": 2009.117,
+    "distanceMeters": 2476
+  },
+  "kuala-lumpur-6": {
+    "durationSeconds": 1687.993,
+    "distanceMeters": 2120
+  },
+  "london-1": {
+    "durationSeconds": 544.213,
+    "distanceMeters": 741
+  },
+  "london-2": {
+    "durationSeconds": 610.717,
+    "distanceMeters": 844
+  },
+  "london-3": {
+    "durationSeconds": 981.703,
+    "distanceMeters": 1329
+  },
+  "london-4": {
+    "durationSeconds": 717.593,
+    "distanceMeters": 1004
+  },
+  "london-5": {
+    "durationSeconds": 1129.073,
+    "distanceMeters": 1576
+  },
+  "london-6": {
+    "durationSeconds": 963.393,
+    "distanceMeters": 1284
+  },
+  "singapore-1": {
+    "durationSeconds": 906.168,
+    "distanceMeters": 1064
+  },
+  "singapore-2": {
+    "durationSeconds": 1254.984,
+    "distanceMeters": 1521
+  },
+  "singapore-3": {
+    "durationSeconds": 1969.359,
+    "distanceMeters": 2517
+  },
+  "singapore-4": {
+    "durationSeconds": 1139.925,
+    "distanceMeters": 1227
+  },
+  "singapore-5": {
+    "durationSeconds": 2131.194,
+    "distanceMeters": 2411
+  },
+  "singapore-6": {
+    "durationSeconds": 2175.827,
+    "distanceMeters": 2823
+  },
+  "sydney-1": {
+    "durationSeconds": 648.938,
+    "distanceMeters": 866
+  },
+  "sydney-2": {
+    "durationSeconds": 794.739,
+    "distanceMeters": 1091
+  },
+  "sydney-3": {
+    "durationSeconds": 1171.392,
+    "distanceMeters": 1557
+  },
+  "sydney-4": {
+    "durationSeconds": 618.866,
+    "distanceMeters": 867
+  },
+  "sydney-5": {
+    "durationSeconds": 1968.799,
+    "distanceMeters": 2611
+  },
+  "sydney-6": {
+    "durationSeconds": 1315.097,
+    "distanceMeters": 1701
+  }
+}

@@ -1,0 +1,930 @@
+[
+  {
+    "name": ".circleci",
+    "path": ".circleci",
+    "sha": "3c9a79de27777397b618173a91c7a7595f992e80",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/.circleci?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/.circleci",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/3c9a79de27777397b618173a91c7a7595f992e80",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/.circleci?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/3c9a79de27777397b618173a91c7a7595f992e80",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/.circleci"
+    }
+  },
+  {
+    "name": ".dockerignore",
+    "path": ".dockerignore",
+    "sha": "de26f0deda9cbcc81a7ae02d52295d79a285bfc0",
+    "size": 1140,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/.dockerignore?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/.dockerignore",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/de26f0deda9cbcc81a7ae02d52295d79a285bfc0",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/.dockerignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/.dockerignore?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/de26f0deda9cbcc81a7ae02d52295d79a285bfc0",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/.dockerignore"
+    }
+  },
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "e560847293b29cd5ab5f59280d87a3474eeaa19d",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/.github?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/.github",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/e560847293b29cd5ab5f59280d87a3474eeaa19d",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/.github?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/e560847293b29cd5ab5f59280d87a3474eeaa19d",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "43e4d0717aba71d9f88a020e8ae24bdf1e424308",
+    "size": 1217,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/.gitignore?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/.gitignore",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/43e4d0717aba71d9f88a020e8ae24bdf1e424308",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/.gitignore?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/43e4d0717aba71d9f88a020e8ae24bdf1e424308",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/.gitignore"
+    }
+  },
+  {
+    "name": ".node-version",
+    "path": ".node-version",
+    "sha": "6d80269a4f04adb39604e8186baf6b7f62eef1b2",
+    "size": 8,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/.node-version?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/.node-version",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/6d80269a4f04adb39604e8186baf6b7f62eef1b2",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/.node-version",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/.node-version?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/6d80269a4f04adb39604e8186baf6b7f62eef1b2",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/.node-version"
+    }
+  },
+  {
+    "name": ".nvmrc",
+    "path": ".nvmrc",
+    "sha": "6d80269a4f04adb39604e8186baf6b7f62eef1b2",
+    "size": 8,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/.nvmrc?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/.nvmrc",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/6d80269a4f04adb39604e8186baf6b7f62eef1b2",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/.nvmrc",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/.nvmrc?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/6d80269a4f04adb39604e8186baf6b7f62eef1b2",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/.nvmrc"
+    }
+  },
+  {
+    "name": ".pryrc",
+    "path": ".pryrc",
+    "sha": "58a7f8e81c563c1fa8e3b33fc78f83c19e263bc3",
+    "size": 298,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/.pryrc?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/.pryrc",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/58a7f8e81c563c1fa8e3b33fc78f83c19e263bc3",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/.pryrc",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/.pryrc?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/58a7f8e81c563c1fa8e3b33fc78f83c19e263bc3",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/.pryrc"
+    }
+  },
+  {
+    "name": ".rspec",
+    "path": ".rspec",
+    "sha": "53607ea52b7fbb70f3a402736dbe7e6041557b49",
+    "size": 9,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/.rspec?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/.rspec",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/53607ea52b7fbb70f3a402736dbe7e6041557b49",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/.rspec",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/.rspec?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/53607ea52b7fbb70f3a402736dbe7e6041557b49",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/.rspec"
+    }
+  },
+  {
+    "name": ".rubocop.yml",
+    "path": ".rubocop.yml",
+    "sha": "7fe03fb7eef9d054c71d2d0c97dacbd8b1998c98",
+    "size": 1364,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/.rubocop.yml?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/.rubocop.yml",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/7fe03fb7eef9d054c71d2d0c97dacbd8b1998c98",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/.rubocop.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/.rubocop.yml?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/7fe03fb7eef9d054c71d2d0c97dacbd8b1998c98",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/.rubocop.yml"
+    }
+  },
+  {
+    "name": ".rubocop_todo.yml",
+    "path": ".rubocop_todo.yml",
+    "sha": "ff9e4f4c125b3724e7fe16e1d00371f6194f2b00",
+    "size": 69467,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/.rubocop_todo.yml?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/.rubocop_todo.yml",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/ff9e4f4c125b3724e7fe16e1d00371f6194f2b00",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/.rubocop_todo.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/.rubocop_todo.yml?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/ff9e4f4c125b3724e7fe16e1d00371f6194f2b00",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/.rubocop_todo.yml"
+    }
+  },
+  {
+    "name": ".ruby-version",
+    "path": ".ruby-version",
+    "sha": "7921bd0c89272351705e94c90dda8c38db8e58c7",
+    "size": 6,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/.ruby-version?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/.ruby-version",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/7921bd0c89272351705e94c90dda8c38db8e58c7",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/.ruby-version",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/.ruby-version?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/7921bd0c89272351705e94c90dda8c38db8e58c7",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/.ruby-version"
+    }
+  },
+  {
+    "name": ".slugignore",
+    "path": ".slugignore",
+    "sha": "69f5e7169e69c0b872aa6917311f1e607df0fd6c",
+    "size": 33,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/.slugignore?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/.slugignore",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/69f5e7169e69c0b872aa6917311f1e607df0fd6c",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/.slugignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/.slugignore?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/69f5e7169e69c0b872aa6917311f1e607df0fd6c",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/.slugignore"
+    }
+  },
+  {
+    "name": ".wti",
+    "path": ".wti",
+    "sha": "ef4b02b3eb8a17befcf92cd01da0bb1ec037b37b",
+    "size": 1404,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/.wti?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/.wti",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/ef4b02b3eb8a17befcf92cd01da0bb1ec037b37b",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/.wti",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/.wti?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/ef4b02b3eb8a17befcf92cd01da0bb1ec037b37b",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/.wti"
+    }
+  },
+  {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "sha": "f39f165f60818a9a997d561849208b895edc66a1",
+    "size": 78217,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/CHANGELOG.md?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/CHANGELOG.md",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/f39f165f60818a9a997d561849208b895edc66a1",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/CHANGELOG.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/CHANGELOG.md?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/f39f165f60818a9a997d561849208b895edc66a1",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/CHANGELOG.md"
+    }
+  },
+  {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "sha": "c3a39bae5087bb56e59eff7420a4d6e2c5d6408a",
+    "size": 3592,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/CONTRIBUTING.md?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/CONTRIBUTING.md",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/c3a39bae5087bb56e59eff7420a4d6e2c5d6408a",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/CONTRIBUTING.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/CONTRIBUTING.md?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/c3a39bae5087bb56e59eff7420a4d6e2c5d6408a",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/CONTRIBUTING.md"
+    }
+  },
+  {
+    "name": "Dockerfile",
+    "path": "Dockerfile",
+    "sha": "c68d32c01942fe20a335bb6494ff2b24d821ccc4",
+    "size": 3685,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/Dockerfile?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/Dockerfile",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/c68d32c01942fe20a335bb6494ff2b24d821ccc4",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/Dockerfile",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/Dockerfile?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/c68d32c01942fe20a335bb6494ff2b24d821ccc4",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/Dockerfile"
+    }
+  },
+  {
+    "name": "Gemfile",
+    "path": "Gemfile",
+    "sha": "5897a37dbfd563cc7f975e40cc53adac83c23742",
+    "size": 5022,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/Gemfile?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/Gemfile",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/5897a37dbfd563cc7f975e40cc53adac83c23742",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/Gemfile",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/Gemfile?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/5897a37dbfd563cc7f975e40cc53adac83c23742",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/Gemfile"
+    }
+  },
+  {
+    "name": "Gemfile.lock",
+    "path": "Gemfile.lock",
+    "sha": "72f8663c928ae0f01fde725624be7effe7937c38",
+    "size": 22872,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/Gemfile.lock?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/Gemfile.lock",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/72f8663c928ae0f01fde725624be7effe7937c38",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/Gemfile.lock",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/Gemfile.lock?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/72f8663c928ae0f01fde725624be7effe7937c38",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/Gemfile.lock"
+    }
+  },
+  {
+    "name": "Guardfile",
+    "path": "Guardfile",
+    "sha": "b65b87438d9b1814fd0d3f34706273b24e50976f",
+    "size": 1240,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/Guardfile?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/Guardfile",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/b65b87438d9b1814fd0d3f34706273b24e50976f",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/Guardfile",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/Guardfile?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/b65b87438d9b1814fd0d3f34706273b24e50976f",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/Guardfile"
+    }
+  },
+  {
+    "name": "ISSUE_EXAMPLE.md",
+    "path": "ISSUE_EXAMPLE.md",
+    "sha": "c04877ac75a86e86d7db2b0a1a5a908470b4e5c5",
+    "size": 1613,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/ISSUE_EXAMPLE.md?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/ISSUE_EXAMPLE.md",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/c04877ac75a86e86d7db2b0a1a5a908470b4e5c5",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/ISSUE_EXAMPLE.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/ISSUE_EXAMPLE.md?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/c04877ac75a86e86d7db2b0a1a5a908470b4e5c5",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/ISSUE_EXAMPLE.md"
+    }
+  },
+  {
+    "name": "ISSUE_TEMPLATE.md",
+    "path": "ISSUE_TEMPLATE.md",
+    "sha": "af3dbf9e429515327ad68cfd1a98dccaad6a3d8a",
+    "size": 1271,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/ISSUE_TEMPLATE.md?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/ISSUE_TEMPLATE.md",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/af3dbf9e429515327ad68cfd1a98dccaad6a3d8a",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/ISSUE_TEMPLATE.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/ISSUE_TEMPLATE.md?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/af3dbf9e429515327ad68cfd1a98dccaad6a3d8a",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/ISSUE_TEMPLATE.md"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "0c9734868dd0110d1d7ab6b4228172617a48bd0d",
+    "size": 6158,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/LICENSE?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/LICENSE",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/0c9734868dd0110d1d7ab6b4228172617a48bd0d",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/LICENSE?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/0c9734868dd0110d1d7ab6b4228172617a48bd0d",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/LICENSE"
+    }
+  },
+  {
+    "name": "Procfile",
+    "path": "Procfile",
+    "sha": "9708a8a271f659d6660c239e48c5a7826b80686c",
+    "size": 164,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/Procfile?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/Procfile",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/9708a8a271f659d6660c239e48c5a7826b80686c",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/Procfile",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/Procfile?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/9708a8a271f659d6660c239e48c5a7826b80686c",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/Procfile"
+    }
+  },
+  {
+    "name": "Procfile.client-hot",
+    "path": "Procfile.client-hot",
+    "sha": "73435311c900ad65cc72db62554d5c76d5298418",
+    "size": 425,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/Procfile.client-hot?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/Procfile.client-hot",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/73435311c900ad65cc72db62554d5c76d5298418",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/Procfile.client-hot",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/Procfile.client-hot?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/73435311c900ad65cc72db62554d5c76d5298418",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/Procfile.client-hot"
+    }
+  },
+  {
+    "name": "Procfile.client-static",
+    "path": "Procfile.client-static",
+    "sha": "c9f9cb9f1497b5962ccbcc60c74d86df343df129",
+    "size": 335,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/Procfile.client-static?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/Procfile.client-static",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/c9f9cb9f1497b5962ccbcc60c74d86df343df129",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/Procfile.client-static",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/Procfile.client-static?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/c9f9cb9f1497b5962ccbcc60c74d86df343df129",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/Procfile.client-static"
+    }
+  },
+  {
+    "name": "Procfile.hot",
+    "path": "Procfile.hot",
+    "sha": "6176f084a16d0fa6f1bffe2dbf4e238c0c31d909",
+    "size": 552,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/Procfile.hot?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/Procfile.hot",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/6176f084a16d0fa6f1bffe2dbf4e238c0c31d909",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/Procfile.hot",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/Procfile.hot?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/6176f084a16d0fa6f1bffe2dbf4e238c0c31d909",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/Procfile.hot"
+    }
+  },
+  {
+    "name": "Procfile.spec",
+    "path": "Procfile.spec",
+    "sha": "ef889ddf1645e8cdaf3944b27667a9b0de366636",
+    "size": 528,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/Procfile.spec?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/Procfile.spec",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/ef889ddf1645e8cdaf3944b27667a9b0de366636",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/Procfile.spec",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/Procfile.spec?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/ef889ddf1645e8cdaf3944b27667a9b0de366636",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/Procfile.spec"
+    }
+  },
+  {
+    "name": "Procfile.static",
+    "path": "Procfile.static",
+    "sha": "b594e6695622599cc6112a3d4f97fe1198eaf38a",
+    "size": 444,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/Procfile.static?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/Procfile.static",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/b594e6695622599cc6112a3d4f97fe1198eaf38a",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/Procfile.static",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/Procfile.static?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/b594e6695622599cc6112a3d4f97fe1198eaf38a",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/Procfile.static"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "0b4fea4cad650220763f70b297ccaf8c1f7d1af6",
+    "size": 19623,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/README.md?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/README.md",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/0b4fea4cad650220763f70b297ccaf8c1f7d1af6",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/README.md?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/0b4fea4cad650220763f70b297ccaf8c1f7d1af6",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/README.md"
+    }
+  },
+  {
+    "name": "RELEASE.md",
+    "path": "RELEASE.md",
+    "sha": "f229a273459abdd7c32740197379605ef7b607b7",
+    "size": 2735,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/RELEASE.md?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/RELEASE.md",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/f229a273459abdd7c32740197379605ef7b607b7",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/RELEASE.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/RELEASE.md?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/f229a273459abdd7c32740197379605ef7b607b7",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/RELEASE.md"
+    }
+  },
+  {
+    "name": "Rakefile",
+    "path": "Rakefile",
+    "sha": "387ecbbb3fd9800cf41f35037126fd28b6f6a0f1",
+    "size": 368,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/Rakefile?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/Rakefile",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/387ecbbb3fd9800cf41f35037126fd28b6f6a0f1",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/Rakefile",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/Rakefile?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/387ecbbb3fd9800cf41f35037126fd28b6f6a0f1",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/Rakefile"
+    }
+  },
+  {
+    "name": "UPGRADE.md",
+    "path": "UPGRADE.md",
+    "sha": "d4cf2fc156643ddc66f80f0ec69f0d90fd62f026",
+    "size": 19654,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/UPGRADE.md?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/UPGRADE.md",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/d4cf2fc156643ddc66f80f0ec69f0d90fd62f026",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/UPGRADE.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/UPGRADE.md?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/d4cf2fc156643ddc66f80f0ec69f0d90fd62f026",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/UPGRADE.md"
+    }
+  },
+  {
+    "name": "VERSION",
+    "path": "VERSION",
+    "sha": "4b964e965400d541bf60329f063e1e999d14b3ec",
+    "size": 7,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/VERSION?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/VERSION",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/4b964e965400d541bf60329f063e1e999d14b3ec",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/VERSION",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/VERSION?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/4b964e965400d541bf60329f063e1e999d14b3ec",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/VERSION"
+    }
+  },
+  {
+    "name": "Vagrantfile",
+    "path": "Vagrantfile",
+    "sha": "c170e65a0765ff475bf9a0aad7ba012a66c4aa2e",
+    "size": 4871,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/Vagrantfile?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/Vagrantfile",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/c170e65a0765ff475bf9a0aad7ba012a66c4aa2e",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/Vagrantfile",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/Vagrantfile?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/c170e65a0765ff475bf9a0aad7ba012a66c4aa2e",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/Vagrantfile"
+    }
+  },
+  {
+    "name": "app",
+    "path": "app",
+    "sha": "2b7f0457c0b0bd05e250c058abb1d029c4560ec5",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/app?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/app",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/2b7f0457c0b0bd05e250c058abb1d029c4560ec5",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/app?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/2b7f0457c0b0bd05e250c058abb1d029c4560ec5",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/app"
+    }
+  },
+  {
+    "name": "autotest",
+    "path": "autotest",
+    "sha": "e6d1b5e8fbd04a2d80055530784c959beb70adf5",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/autotest?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/autotest",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/e6d1b5e8fbd04a2d80055530784c959beb70adf5",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/autotest?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/e6d1b5e8fbd04a2d80055530784c959beb70adf5",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/autotest"
+    }
+  },
+  {
+    "name": "bin",
+    "path": "bin",
+    "sha": "43863246acae646727ebcf24510c3958aa7d168e",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/bin?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/bin",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/43863246acae646727ebcf24510c3958aa7d168e",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/bin?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/43863246acae646727ebcf24510c3958aa7d168e",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/bin"
+    }
+  },
+  {
+    "name": "client",
+    "path": "client",
+    "sha": "f6231492736695c4d83e80bf54670974de9012fe",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/client?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/client",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/f6231492736695c4d83e80bf54670974de9012fe",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/client?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/f6231492736695c4d83e80bf54670974de9012fe",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/client"
+    }
+  },
+  {
+    "name": "config.ru",
+    "path": "config.ru",
+    "sha": "cc8ee5e1c6b7d0cd63ca76dd906fe9578cc0e26e",
+    "size": 270,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/config.ru?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/config.ru",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/cc8ee5e1c6b7d0cd63ca76dd906fe9578cc0e26e",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/config.ru",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/config.ru?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/cc8ee5e1c6b7d0cd63ca76dd906fe9578cc0e26e",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/config.ru"
+    }
+  },
+  {
+    "name": "config",
+    "path": "config",
+    "sha": "1e88b67e9b479012782a82131caf0fa6c33989a5",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/config?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/config",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/1e88b67e9b479012782a82131caf0fa6c33989a5",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/config?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/1e88b67e9b479012782a82131caf0fa6c33989a5",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/config"
+    }
+  },
+  {
+    "name": "convox.yml",
+    "path": "convox.yml",
+    "sha": "808d99d77414b2117e21d84c6816bccd04265b87",
+    "size": 1616,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/convox.yml?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/convox.yml",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/808d99d77414b2117e21d84c6816bccd04265b87",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/convox.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/convox.yml?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/808d99d77414b2117e21d84c6816bccd04265b87",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/convox.yml"
+    }
+  },
+  {
+    "name": "custom_plan.rb",
+    "path": "custom_plan.rb",
+    "sha": "7d452f04b39b176d973960c0a90ee82a9a26cd2a",
+    "size": 1301,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/custom_plan.rb?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/custom_plan.rb",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/7d452f04b39b176d973960c0a90ee82a9a26cd2a",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/custom_plan.rb",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/custom_plan.rb?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/7d452f04b39b176d973960c0a90ee82a9a26cd2a",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/custom_plan.rb"
+    }
+  },
+  {
+    "name": "db",
+    "path": "db",
+    "sha": "3021128dffe029c9d3b8bddb60dfd878cf63a5c7",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/db?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/db",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/3021128dffe029c9d3b8bddb60dfd878cf63a5c7",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/db?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/3021128dffe029c9d3b8bddb60dfd878cf63a5c7",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/db"
+    }
+  },
+  {
+    "name": "docker-compose.app.yml",
+    "path": "docker-compose.app.yml",
+    "sha": "54b2fce9cb14eaab13ba6fdf4800b0649bdfd1d9",
+    "size": 1291,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/docker-compose.app.yml?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/docker-compose.app.yml",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/54b2fce9cb14eaab13ba6fdf4800b0649bdfd1d9",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/docker-compose.app.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/docker-compose.app.yml?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/54b2fce9cb14eaab13ba6fdf4800b0649bdfd1d9",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/docker-compose.app.yml"
+    }
+  },
+  {
+    "name": "docker-compose.yml",
+    "path": "docker-compose.yml",
+    "sha": "5833e91272b4358b2b347f4d734cd7a7eb4ea9a9",
+    "size": 386,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/docker-compose.yml?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/docker-compose.yml",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/5833e91272b4358b2b347f4d734cd7a7eb4ea9a9",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/docker-compose.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/docker-compose.yml?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/5833e91272b4358b2b347f4d734cd7a7eb4ea9a9",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/docker-compose.yml"
+    }
+  },
+  {
+    "name": "docs",
+    "path": "docs",
+    "sha": "dc5785eada4df6032a994d052c393b92c699a700",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/docs?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/docs",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/dc5785eada4df6032a994d052c393b92c699a700",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/docs?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/dc5785eada4df6032a994d052c393b92c699a700",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/docs"
+    }
+  },
+  {
+    "name": "features",
+    "path": "features",
+    "sha": "5941189ccba642a48c17764f899730e4c54809da",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/features?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/features",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/5941189ccba642a48c17764f899730e4c54809da",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/features?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/5941189ccba642a48c17764f899730e4c54809da",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/features"
+    }
+  },
+  {
+    "name": "fig.yml",
+    "path": "fig.yml",
+    "sha": "490d22202f978f9f800944ad6e2da83f98823bdb",
+    "size": 1286,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/fig.yml?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/fig.yml",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/490d22202f978f9f800944ad6e2da83f98823bdb",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/fig.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/fig.yml?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/490d22202f978f9f800944ad6e2da83f98823bdb",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/fig.yml"
+    }
+  },
+  {
+    "name": "lib",
+    "path": "lib",
+    "sha": "cf70b123c0251046d7ae62b45b1b745aae5dcc0c",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/lib?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/lib",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/cf70b123c0251046d7ae62b45b1b745aae5dcc0c",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/lib?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/cf70b123c0251046d7ae62b45b1b745aae5dcc0c",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/lib"
+    }
+  },
+  {
+    "name": "log",
+    "path": "log",
+    "sha": "5649d955f4177e0ac8ab96682491ce0a86a204ee",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/log?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/log",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/5649d955f4177e0ac8ab96682491ce0a86a204ee",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/log?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/5649d955f4177e0ac8ab96682491ce0a86a204ee",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/log"
+    }
+  },
+  {
+    "name": "package-lock.json",
+    "path": "package-lock.json",
+    "sha": "06dac9c33b08990b9c3ba86041537c3a81654573",
+    "size": 5874,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/package-lock.json?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/package-lock.json",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/06dac9c33b08990b9c3ba86041537c3a81654573",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/package-lock.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/package-lock.json?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/06dac9c33b08990b9c3ba86041537c3a81654573",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/package-lock.json"
+    }
+  },
+  {
+    "name": "package.json",
+    "path": "package.json",
+    "sha": "25e713374566d2a3fa73963210dac18d1f05a462",
+    "size": 331,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/package.json?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/package.json",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/25e713374566d2a3fa73963210dac18d1f05a462",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/package.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/package.json?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/25e713374566d2a3fa73963210dac18d1f05a462",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/package.json"
+    }
+  },
+  {
+    "name": "public",
+    "path": "public",
+    "sha": "6cf3bfd5837746943261853aeedee9e8260bab88",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/public?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/public",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/6cf3bfd5837746943261853aeedee9e8260bab88",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/public?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/6cf3bfd5837746943261853aeedee9e8260bab88",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/public"
+    }
+  },
+  {
+    "name": "script",
+    "path": "script",
+    "sha": "44b0c6cbc5d0b86f4aa24f0806bf4a0b8281d126",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/script?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/script",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/44b0c6cbc5d0b86f4aa24f0806bf4a0b8281d126",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/script?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/44b0c6cbc5d0b86f4aa24f0806bf4a0b8281d126",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/script"
+    }
+  },
+  {
+    "name": "spec",
+    "path": "spec",
+    "sha": "0485643bad3630bf2be5c2a73d66600cebb21116",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/spec?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/spec",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/0485643bad3630bf2be5c2a73d66600cebb21116",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/spec?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/0485643bad3630bf2be5c2a73d66600cebb21116",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/spec"
+    }
+  },
+  {
+    "name": "test",
+    "path": "test",
+    "sha": "71c30d61eb340fb0f140bdd80b7e91f5509149d2",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/test?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/test",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/71c30d61eb340fb0f140bdd80b7e91f5509149d2",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/test?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/71c30d61eb340fb0f140bdd80b7e91f5509149d2",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/test"
+    }
+  },
+  {
+    "name": "vendor",
+    "path": "vendor",
+    "sha": "50ea484b06db1a5dc04cb6124003289e0e371ff2",
+    "size": 0,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/vendor?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/tree/master/vendor",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/50ea484b06db1a5dc04cb6124003289e0e371ff2",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/vendor?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/trees/50ea484b06db1a5dc04cb6124003289e0e371ff2",
+      "html": "https://github.com/sharetribe/sharetribe/tree/master/vendor"
+    }
+  },
+  {
+    "name": "zeus.json",
+    "path": "zeus.json",
+    "sha": "76e83a5bf363bc2b000d6cdc37f7ef9d3071b030",
+    "size": 527,
+    "url": "https://api.github.com/repos/sharetribe/sharetribe/contents/zeus.json?ref=master",
+    "html_url": "https://github.com/sharetribe/sharetribe/blob/master/zeus.json",
+    "git_url": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/76e83a5bf363bc2b000d6cdc37f7ef9d3071b030",
+    "download_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/zeus.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/sharetribe/sharetribe/contents/zeus.json?ref=master",
+      "git": "https://api.github.com/repos/sharetribe/sharetribe/git/blobs/76e83a5bf363bc2b000d6cdc37f7ef9d3071b030",
+      "html": "https://github.com/sharetribe/sharetribe/blob/master/zeus.json"
+    }
+  }
+]

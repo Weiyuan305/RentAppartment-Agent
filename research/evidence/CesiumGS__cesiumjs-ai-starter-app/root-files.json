@@ -1,0 +1,402 @@
+[
+  {
+    "name": ".dockerignore",
+    "path": ".dockerignore",
+    "sha": "befeaf22f0f29b00128dcd70a0e20b1249580d1e",
+    "size": 337,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/.dockerignore?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/.dockerignore",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/befeaf22f0f29b00128dcd70a0e20b1249580d1e",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/.dockerignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/.dockerignore?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/befeaf22f0f29b00128dcd70a0e20b1249580d1e",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/.dockerignore"
+    }
+  },
+  {
+    "name": ".editorconfig",
+    "path": ".editorconfig",
+    "sha": "c3d1a7bcad3f275052734bc2103f917bcf358751",
+    "size": 220,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/.editorconfig?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/.editorconfig",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/c3d1a7bcad3f275052734bc2103f917bcf358751",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/.editorconfig",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/.editorconfig?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/c3d1a7bcad3f275052734bc2103f917bcf358751",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/.editorconfig"
+    }
+  },
+  {
+    "name": ".env.example",
+    "path": ".env.example",
+    "sha": "37d2cda372affdb514be9ddc9fc7950a4dbc8688",
+    "size": 8446,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/.env.example?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/.env.example",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/37d2cda372affdb514be9ddc9fc7950a4dbc8688",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/.env.example",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/.env.example?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/37d2cda372affdb514be9ddc9fc7950a4dbc8688",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/.env.example"
+    }
+  },
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "d216d0adfff5f929e63609fd747c052d4038460a",
+    "size": 0,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/.github?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/.github",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/d216d0adfff5f929e63609fd747c052d4038460a",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/.github?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/d216d0adfff5f929e63609fd747c052d4038460a",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "b294e91b8763c5047bb4b55b6ed3b19301bcffa5",
+    "size": 891,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/.gitignore?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/.gitignore",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/b294e91b8763c5047bb4b55b6ed3b19301bcffa5",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/.gitignore?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/b294e91b8763c5047bb4b55b6ed3b19301bcffa5",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/.gitignore"
+    }
+  },
+  {
+    "name": ".prettierignore",
+    "path": ".prettierignore",
+    "sha": "0892a198d214f50ffabb9e6a4a1ea5f6eefa69a5",
+    "size": 242,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/.prettierignore?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/.prettierignore",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/0892a198d214f50ffabb9e6a4a1ea5f6eefa69a5",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/.prettierignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/.prettierignore?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/0892a198d214f50ffabb9e6a4a1ea5f6eefa69a5",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/.prettierignore"
+    }
+  },
+  {
+    "name": ".prettierrc.json",
+    "path": ".prettierrc.json",
+    "sha": "de753c537d23c0e1d512153827c8f36d2adda4a6",
+    "size": 24,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/.prettierrc.json?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/.prettierrc.json",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/de753c537d23c0e1d512153827c8f36d2adda4a6",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/.prettierrc.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/.prettierrc.json?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/de753c537d23c0e1d512153827c8f36d2adda4a6",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/.prettierrc.json"
+    }
+  },
+  {
+    "name": "CODE_OF_CONDUCT.md",
+    "path": "CODE_OF_CONDUCT.md",
+    "sha": "54058b8ccccda3e7b78b327e0ea82b83e5889bda",
+    "size": 703,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/CODE_OF_CONDUCT.md?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/CODE_OF_CONDUCT.md",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/54058b8ccccda3e7b78b327e0ea82b83e5889bda",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/CODE_OF_CONDUCT.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/CODE_OF_CONDUCT.md?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/54058b8ccccda3e7b78b327e0ea82b83e5889bda",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/CODE_OF_CONDUCT.md"
+    }
+  },
+  {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "sha": "860edae2a9775ef4fd06b48cf17d02be1c0f3bce",
+    "size": 1964,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/CONTRIBUTING.md?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/CONTRIBUTING.md",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/860edae2a9775ef4fd06b48cf17d02be1c0f3bce",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/CONTRIBUTING.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/CONTRIBUTING.md?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/860edae2a9775ef4fd06b48cf17d02be1c0f3bce",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/CONTRIBUTING.md"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+    "size": 11357,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/LICENSE?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/LICENSE",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/LICENSE?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/LICENSE"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "3a9d5488c01580d64753ad790c54101acb8822e5",
+    "size": 18834,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/README.md?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/README.md",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/3a9d5488c01580d64753ad790c54101acb8822e5",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/README.md?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/3a9d5488c01580d64753ad790c54101acb8822e5",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/README.md"
+    }
+  },
+  {
+    "name": "backend",
+    "path": "backend",
+    "sha": "1a812f5a4ef4772da6a90fc7948c2e198d863fe0",
+    "size": 0,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/backend?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/backend",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/1a812f5a4ef4772da6a90fc7948c2e198d863fe0",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/backend?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/1a812f5a4ef4772da6a90fc7948c2e198d863fe0",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/backend"
+    }
+  },
+  {
+    "name": "compose.yaml",
+    "path": "compose.yaml",
+    "sha": "9b0295b0cd33da8a070b466f3bd2e0109befe756",
+    "size": 4728,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/compose.yaml?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/compose.yaml",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/9b0295b0cd33da8a070b466f3bd2e0109befe756",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/compose.yaml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/compose.yaml?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/9b0295b0cd33da8a070b466f3bd2e0109befe756",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/compose.yaml"
+    }
+  },
+  {
+    "name": "docs",
+    "path": "docs",
+    "sha": "4765b61492ec7020411f0d05c0c218cb2f4950f4",
+    "size": 0,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/docs?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/docs",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/4765b61492ec7020411f0d05c0c218cb2f4950f4",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/docs?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/4765b61492ec7020411f0d05c0c218cb2f4950f4",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/docs"
+    }
+  },
+  {
+    "name": "e2e",
+    "path": "e2e",
+    "sha": "271734220eacc847722b087b0032127244893681",
+    "size": 0,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/e2e?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/e2e",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/271734220eacc847722b087b0032127244893681",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/e2e?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/271734220eacc847722b087b0032127244893681",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/e2e"
+    }
+  },
+  {
+    "name": "frontend",
+    "path": "frontend",
+    "sha": "3169f395153b446ec8a443164e2487f15312221e",
+    "size": 0,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/frontend?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/frontend",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/3169f395153b446ec8a443164e2487f15312221e",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/frontend?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/3169f395153b446ec8a443164e2487f15312221e",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/frontend"
+    }
+  },
+  {
+    "name": "mcp.config.json.example",
+    "path": "mcp.config.json.example",
+    "sha": "60b98d6955e1be224cb8b7ef61540abbd24eb266",
+    "size": 420,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/mcp.config.json.example?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/mcp.config.json.example",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/60b98d6955e1be224cb8b7ef61540abbd24eb266",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/mcp.config.json.example",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/mcp.config.json.example?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/60b98d6955e1be224cb8b7ef61540abbd24eb266",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/mcp.config.json.example"
+    }
+  },
+  {
+    "name": "mkdocs.yml",
+    "path": "mkdocs.yml",
+    "sha": "80cd105e2fd7372ac41aac98dc9164e7ddff6951",
+    "size": 3364,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/mkdocs.yml?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/mkdocs.yml",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/80cd105e2fd7372ac41aac98dc9164e7ddff6951",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/mkdocs.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/mkdocs.yml?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/80cd105e2fd7372ac41aac98dc9164e7ddff6951",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/mkdocs.yml"
+    }
+  },
+  {
+    "name": "overrides",
+    "path": "overrides",
+    "sha": "36d4aa08102a141e072301d9e66121e9f031fdd8",
+    "size": 0,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/overrides?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/overrides",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/36d4aa08102a141e072301d9e66121e9f031fdd8",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/overrides?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/36d4aa08102a141e072301d9e66121e9f031fdd8",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/overrides"
+    }
+  },
+  {
+    "name": "package-lock.json",
+    "path": "package-lock.json",
+    "sha": "8d680f10e8d42cd0546929a173f2dbf8d53efcd2",
+    "size": 210893,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/package-lock.json?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/package-lock.json",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/8d680f10e8d42cd0546929a173f2dbf8d53efcd2",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/package-lock.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/package-lock.json?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/8d680f10e8d42cd0546929a173f2dbf8d53efcd2",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/package-lock.json"
+    }
+  },
+  {
+    "name": "package.json",
+    "path": "package.json",
+    "sha": "cc5641837f7eb2c3e0f089574b34450f0517140c",
+    "size": 3014,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/package.json?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/package.json",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/cc5641837f7eb2c3e0f089574b34450f0517140c",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/package.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/package.json?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/cc5641837f7eb2c3e0f089574b34450f0517140c",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/package.json"
+    }
+  },
+  {
+    "name": "packages",
+    "path": "packages",
+    "sha": "de21e7d2266ca2317e94924e67e7a1ded9396188",
+    "size": 0,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/packages?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/packages",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/de21e7d2266ca2317e94924e67e7a1ded9396188",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/packages?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/de21e7d2266ca2317e94924e67e7a1ded9396188",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/packages"
+    }
+  },
+  {
+    "name": "playwright.config.ts",
+    "path": "playwright.config.ts",
+    "sha": "ba9fb96fd90bf697b54fcee391f9bb8b176c4716",
+    "size": 622,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/playwright.config.ts?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/playwright.config.ts",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/ba9fb96fd90bf697b54fcee391f9bb8b176c4716",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/playwright.config.ts",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/playwright.config.ts?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/ba9fb96fd90bf697b54fcee391f9bb8b176c4716",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/playwright.config.ts"
+    }
+  },
+  {
+    "name": "shared",
+    "path": "shared",
+    "sha": "b43aed407af01d522c7368ee4ccfcfaa36527eec",
+    "size": 0,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/shared?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/shared",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/b43aed407af01d522c7368ee4ccfcfaa36527eec",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/shared?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/trees/b43aed407af01d522c7368ee4ccfcfaa36527eec",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/tree/main/shared"
+    }
+  },
+  {
+    "name": "vitest.config.ts",
+    "path": "vitest.config.ts",
+    "sha": "037b1c79535de4b5738ef79c9c8ba4e7d6eb1b44",
+    "size": 883,
+    "url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/vitest.config.ts?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/vitest.config.ts",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/037b1c79535de4b5738ef79c9c8ba4e7d6eb1b44",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/vitest.config.ts",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/contents/vitest.config.ts?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesiumjs-ai-starter-app/git/blobs/037b1c79535de4b5738ef79c9c8ba4e7d6eb1b44",
+      "html": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/vitest.config.ts"
+    }
+  }
+]

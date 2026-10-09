@@ -1,0 +1,611 @@
+{
+  "checked_at_utc": "2026-09-21T08:23:16.708790+00:00",
+  "note": "READMEs are upstream claims, not runtime verification; licenses may have package-specific exceptions.",
+  "repositories": [
+    {
+      "repository": "maplibre/maplibre-gl-js",
+      "files": [
+        {
+          "path": "LICENSE.txt",
+          "url": "https://github.com/maplibre/maplibre-gl-js/blob/main/LICENSE.txt",
+          "raw_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/LICENSE.txt",
+          "git_blob_sha": "1e8acbb54fa7baddc844377507cc5a79353174fb",
+          "sha256": "ee5fc05a0677eaf69601d2c7db0d9ecd6cc27c3abc1d0733bc9ed34707cf8ef2",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/maplibre/maplibre-gl-js/blob/main/README.md",
+          "raw_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/README.md",
+          "git_blob_sha": "ce7c551bc1ad690a3072e5eb6cedd8c60ce1cdfe",
+          "sha256": "5355f028cb286a4b9e9de227cd91bc0840687637766334570b2325cfefbf35ee",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "visgl/react-map-gl",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/visgl/react-map-gl/blob/master/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/LICENSE",
+          "git_blob_sha": "155928579bc15b503763edb8c4736e530affaaeb",
+          "sha256": "c80c7101e5039d2f5359729c5fa6b4d58c6904bf7ba75bd6cafd0078438d6634",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/visgl/react-map-gl/blob/master/README.md",
+          "raw_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/README.md",
+          "git_blob_sha": "06b1b508be2a1de9c769d2c138b1e8eb7458e922",
+          "sha256": "5432d75b162429b28c50cc598c0b4b970c8539079c9aa5245fbe27e42774e4fb",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "CesiumGS/cesium",
+      "files": [
+        {
+          "path": "LICENSE.md",
+          "url": "https://github.com/CesiumGS/cesium/blob/main/LICENSE.md",
+          "raw_url": "https://raw.githubusercontent.com/CesiumGS/cesium/main/LICENSE.md",
+          "git_blob_sha": "8e426a08213c72a1bd9a657717b9b2ec627e1983",
+          "sha256": "721844bc0cdaa9b1a9a145dbca1f981e2de15a7e200a5d1fd9f5f1eed8e5d030",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/CesiumGS/cesium/blob/main/README.md",
+          "raw_url": "https://raw.githubusercontent.com/CesiumGS/cesium/main/README.md",
+          "git_blob_sha": "7e0d6e0a3d0a2c6e1215801295399d3c042468c2",
+          "sha256": "5a4d84b37bb77b02ddb353f40b5b35839fac29705456c63f2bea7bb84b451c1f",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "CesiumGS/cesiumjs-ai-starter-app",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/LICENSE",
+          "git_blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/README.md",
+          "raw_url": "https://raw.githubusercontent.com/CesiumGS/cesiumjs-ai-starter-app/main/README.md",
+          "git_blob_sha": "3a9d5488c01580d64753ad790c54101acb8822e5",
+          "sha256": "56bc223d6c4ada727250136a79adfada23874fd05b62459b9afd74bcd33684b4",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "CesiumGS/cesium-ai-integrations",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/CesiumGS/cesium-ai-integrations/blob/main/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/CesiumGS/cesium-ai-integrations/main/LICENSE",
+          "git_blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/CesiumGS/cesium-ai-integrations/blob/main/README.md",
+          "raw_url": "https://raw.githubusercontent.com/CesiumGS/cesium-ai-integrations/main/README.md",
+          "git_blob_sha": "e87b66ca3e6df0c1e4560b62fd017f4cf82bd7be",
+          "sha256": "82df3a42bd1a0e954ba4d91bc1751b7416d42f9802607e64271fbbf972daf7ef",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "reearth/resium",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/reearth/resium/blob/main/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/reearth/resium/main/LICENSE",
+          "git_blob_sha": "bf1c7a20f8f73d056af4b88617526a7bc6ab85c7",
+          "sha256": "8a7267e6148cafb792e4ea701fe54c65e5c598fd9c922234f4381640ba621556",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/reearth/resium/blob/main/README.md",
+          "raw_url": "https://raw.githubusercontent.com/reearth/resium/main/README.md",
+          "git_blob_sha": "e159e1d2fd120e7252ebfbe75db45edbc4c353e8",
+          "sha256": "cf14942e244039d7b775dc825a98689cc905814f55b92598b99402e7297a7c8a",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "visgl/deck.gl",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/visgl/deck.gl/blob/master/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/visgl/deck.gl/master/LICENSE",
+          "git_blob_sha": "c4a81a00b36ba5e81056d51db21ec4bae1426f16",
+          "sha256": "e499a2c2ba3b9faabe91fdfddf43e329439263264b7148e5548d0ec605cce9f2",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/visgl/deck.gl/blob/master/README.md",
+          "raw_url": "https://raw.githubusercontent.com/visgl/deck.gl/master/README.md",
+          "git_blob_sha": "aa8b0cba915c1d3130a6f50a2ff0dbf45956f0cc",
+          "sha256": "4d392d6787f920f1181751dba014f520f021e4da40b0eb325d8f00a4c78524df",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "NASA-AMMOS/3DTilesRendererJS",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/NASA-AMMOS/3DTilesRendererJS/blob/master/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/NASA-AMMOS/3DTilesRendererJS/master/LICENSE",
+          "git_blob_sha": "ffd058277ffc11146cfb7bd29b0f1b9583bdfa33",
+          "sha256": "12ab00e5637ce70e16be1f6693dfa5f9b7a4fe0f5f976a0329477d0c32d53e86",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/NASA-AMMOS/3DTilesRendererJS/blob/master/README.md",
+          "raw_url": "https://raw.githubusercontent.com/NASA-AMMOS/3DTilesRendererJS/master/README.md",
+          "git_blob_sha": "86eb929a5f99874e9b27a19685d2bae6f29947d7",
+          "sha256": "c59762c6a3b45e0ae3a5e495070229bdfd440b67281fa70aa9bc947b3db4cca0",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "protomaps/PMTiles",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/protomaps/PMTiles/blob/main/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/protomaps/PMTiles/main/LICENSE",
+          "git_blob_sha": "ec3d69a55220793cb4b2074ebe202df25f9cb417",
+          "sha256": "0371c38f338835f7fc13ed71176f3d92144e22c8b736a31cced57adbbeb647b3",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/protomaps/PMTiles/blob/main/README.md",
+          "raw_url": "https://raw.githubusercontent.com/protomaps/PMTiles/main/README.md",
+          "git_blob_sha": "3684dc3d91a9839e1f0b011c97a265b53d557143",
+          "sha256": "a8551e5a81553f420bb658b846d57ffe93489c8486bf19b1d550eef89c41f301",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "maplibre/martin",
+      "files": [
+        {
+          "path": "LICENSE-APACHE",
+          "url": "https://github.com/maplibre/martin/blob/main/LICENSE-APACHE",
+          "raw_url": "https://raw.githubusercontent.com/maplibre/martin/main/LICENSE-APACHE",
+          "git_blob_sha": "11069edd79019f7dafbe3138841cf289209270dd",
+          "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90",
+          "status": "ok"
+        },
+        {
+          "path": "LICENSE-MIT",
+          "url": "https://github.com/maplibre/martin/blob/main/LICENSE-MIT",
+          "raw_url": "https://raw.githubusercontent.com/maplibre/martin/main/LICENSE-MIT",
+          "git_blob_sha": "0c6d52ad85ed1c7a2aca17775881e8f26fc9cf3e",
+          "sha256": "dba6414810a29622b35375e48932390fa3e43aa7fa65a3a8a3fdc457cfcc2d09",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/maplibre/martin/blob/main/README.md",
+          "raw_url": "https://raw.githubusercontent.com/maplibre/martin/main/README.md",
+          "git_blob_sha": "7161c1d5101502e66cf50d40230776e258194887",
+          "sha256": "a9ab917951f8e9ac8a2f46e84f3c50aaa639f8f99b7d8c7a928fc42cb324661a",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "openmaptiles/openmaptiles",
+      "files": [
+        {
+          "path": "LICENSE.md",
+          "url": "https://github.com/openmaptiles/openmaptiles/blob/master/LICENSE.md",
+          "raw_url": "https://raw.githubusercontent.com/openmaptiles/openmaptiles/master/LICENSE.md",
+          "git_blob_sha": "52c81b85e38c4aa79a0c657523dc07d0d9739b66",
+          "sha256": "6b7862d9537cd3160f10034b8bb0b8d68165da134ea2001080166aa0b624e15c",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/openmaptiles/openmaptiles/blob/master/README.md",
+          "raw_url": "https://raw.githubusercontent.com/openmaptiles/openmaptiles/master/README.md",
+          "git_blob_sha": "b5232c8efdbb6f8dd2e9839d2a3da407c796b499",
+          "sha256": "de27e88a11880a268965d22c7681c2b01a1d964a9ecbbecf768f3bca4d2e6976",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "valhalla/valhalla",
+      "files": [
+        {
+          "path": "COPYING",
+          "url": "https://github.com/valhalla/valhalla/blob/master/COPYING",
+          "raw_url": "https://raw.githubusercontent.com/valhalla/valhalla/master/COPYING",
+          "git_blob_sha": "dc630bdee599751377ef8cdc42cfc392b12c5f4b",
+          "sha256": "8bdb14aebb005ffa75ee3890aa10b242b30c840caa01b996c56338ca279f37cd",
+          "status": "ok"
+        },
+        {
+          "path": "LICENSE.md",
+          "url": "https://github.com/valhalla/valhalla/blob/master/LICENSE.md",
+          "raw_url": "https://raw.githubusercontent.com/valhalla/valhalla/master/LICENSE.md",
+          "git_blob_sha": "8e39b4f2957b4eba97e64a5277f0a5e729726c81",
+          "sha256": "b199717d0140b89f1b6bfd44f06de1610ede0bbef4b41232c04580837aeb8b13",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/valhalla/valhalla/blob/master/README.md",
+          "raw_url": "https://raw.githubusercontent.com/valhalla/valhalla/master/README.md",
+          "git_blob_sha": "5757ff2e4e071c43bf800f6b3b588fc70bf7bc53",
+          "sha256": "29b22cba0cffc934cd2e47d37633b2e3cf6e46b8c74b804b542e514a45e68cbc",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "GIScience/openrouteservice",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/GIScience/openrouteservice/blob/main/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/GIScience/openrouteservice/main/LICENSE",
+          "git_blob_sha": "0da2f519f476bded3c47ff6bae134dbdacf3abc7",
+          "sha256": "6ba8958ca511cabbea23bcb57e17376ab588d101627e18fe811d2bc901116569",
+          "status": "ok"
+        },
+        {
+          "path": "LICENSE.LESSER",
+          "url": "https://github.com/GIScience/openrouteservice/blob/main/LICENSE.LESSER",
+          "raw_url": "https://raw.githubusercontent.com/GIScience/openrouteservice/main/LICENSE.LESSER",
+          "git_blob_sha": "b5f22860735cffbdc6d1bb264d7fe86b4558a9a0",
+          "sha256": "e3f74d6997a64bdbcc391b559ea11b60b08c7b2ab1452f76a3f2934270740c59",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/GIScience/openrouteservice/blob/main/README.md",
+          "raw_url": "https://raw.githubusercontent.com/GIScience/openrouteservice/main/README.md",
+          "git_blob_sha": "c5f0531e33b9906d0bb323da101c57062ee2be70",
+          "sha256": "5f1e2d07d002445897e50bea889f1ef596a49668f1b08a4eed64b7a2f2752fd4",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "graphhopper/graphhopper",
+      "files": [
+        {
+          "path": "LICENSE.txt",
+          "url": "https://github.com/graphhopper/graphhopper/blob/master/LICENSE.txt",
+          "raw_url": "https://raw.githubusercontent.com/graphhopper/graphhopper/master/LICENSE.txt",
+          "git_blob_sha": "5471dc10377b76db85a2feca7a99a7eef4980ba8",
+          "sha256": "600cc67cc4cb2f5ea317dcfc687ad1c74dc4bec8782bbe9db0afd83513b935b7",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/graphhopper/graphhopper/blob/master/README.md",
+          "raw_url": "https://raw.githubusercontent.com/graphhopper/graphhopper/master/README.md",
+          "git_blob_sha": "32917470f1e75d4469989d419a50172af18b38f0",
+          "sha256": "b4c4469176290b90b10fd480cc23c709ba1ca96e980fa4c4fc1a6d861935b019",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "Project-OSRM/osrm-backend",
+      "files": [
+        {
+          "path": "LICENSE.TXT",
+          "url": "https://github.com/Project-OSRM/osrm-backend/blob/master/LICENSE.TXT",
+          "raw_url": "https://raw.githubusercontent.com/Project-OSRM/osrm-backend/master/LICENSE.TXT",
+          "git_blob_sha": "779b5db50b57238cb9f67d55c0252560d053036b",
+          "sha256": "df207517bc08c688bac5cfe5d4f3576546efd3e7827275efcb3550f43f88b7f5",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/Project-OSRM/osrm-backend/blob/master/README.md",
+          "raw_url": "https://raw.githubusercontent.com/Project-OSRM/osrm-backend/master/README.md",
+          "git_blob_sha": "315338a136dfedea89b050f9a39349417d7b1b62",
+          "sha256": "36ffbc34505ed337343619f1498f73c487e2774d0d389655652550d19dfbf8bd",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "postgis/postgis",
+      "files": [
+        {
+          "path": "COPYING",
+          "url": "https://github.com/postgis/postgis/blob/master/COPYING",
+          "raw_url": "https://raw.githubusercontent.com/postgis/postgis/master/COPYING",
+          "git_blob_sha": "d159169d1050894d3ea3b98e1c965c4058208fe1",
+          "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+          "status": "ok"
+        },
+        {
+          "path": "LICENSE.TXT",
+          "url": "https://github.com/postgis/postgis/blob/master/LICENSE.TXT",
+          "raw_url": "https://raw.githubusercontent.com/postgis/postgis/master/LICENSE.TXT",
+          "git_blob_sha": "403c98bb6d2c550f629a639faa63cebe14ee3111",
+          "sha256": "c6932c2f90517d5254f49c02f957d54b88b41ec662c2ca62a9488b0ab080b11d",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/postgis/postgis/blob/master/README.md",
+          "raw_url": "https://raw.githubusercontent.com/postgis/postgis/master/README.md",
+          "git_blob_sha": "2255fc92f85ecf9ca27f7b6d851eabe1cae5f63c",
+          "sha256": "b21555ee2bc6610f4fcd2f49d5d9c2e4010c1e66b301b816a256c1366bbff88e",
+          "status": "ok"
+        },
+        {
+          "path": "README.postgis",
+          "url": "https://github.com/postgis/postgis/blob/master/README.postgis",
+          "raw_url": "https://raw.githubusercontent.com/postgis/postgis/master/README.postgis",
+          "git_blob_sha": "5c463f0e51a463a1e7c26fec8683c58dd2f2f4cd",
+          "sha256": "b124faf5194727d20343c6a856cf4bc63e9e806c5e1b4ced5c03a0ad48145adf",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "Turfjs/turf",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/Turfjs/turf/blob/master/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/Turfjs/turf/master/LICENSE",
+          "git_blob_sha": "121ab5108b2a1022b0ab6e692c7cddd96e1640e6",
+          "sha256": "e3951620814e82d1fd011225da4be2071836902af9b09c30bb259f6e7fa710fe",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/Turfjs/turf/blob/master/README.md",
+          "raw_url": "https://raw.githubusercontent.com/Turfjs/turf/master/README.md",
+          "git_blob_sha": "0b5251c3f860140c872fb1c6969de08e72b485a5",
+          "sha256": "7d0fa7eca5b25ebaff6601e8c1fd84f7ee33da1c8f34cf48a93a7b8f06fef2b9",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "osm-search/Nominatim",
+      "files": [
+        {
+          "path": "COPYING",
+          "url": "https://github.com/osm-search/Nominatim/blob/master/COPYING",
+          "raw_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/COPYING",
+          "git_blob_sha": "f6cdd22a6c1fbc887e08a215cb4beb3c47048041",
+          "sha256": "fb981668c18a279e285fc4d83fba1e836cc84dd4daa73c9697d3cfd2d8aca6e0",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/osm-search/Nominatim/blob/master/README.md",
+          "raw_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/README.md",
+          "git_blob_sha": "54bdbf8efd999c43afbd31c9b748f7255e6624af",
+          "sha256": "251b6ad5d8974961a12b88f6703eda6a562beda841f232ba0e295d1f80945fa4",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "komoot/photon",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/komoot/photon/blob/master/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/komoot/photon/master/LICENSE",
+          "git_blob_sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/komoot/photon/blob/master/README.md",
+          "raw_url": "https://raw.githubusercontent.com/komoot/photon/master/README.md",
+          "git_blob_sha": "c081888d5ae014eeb245223410c3af9689b098ac",
+          "sha256": "e0406e7d729b5e4e99b3b3d8cf2b21d5cb725835b8c47b86e20fe335f59a67f5",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "vercel/ai",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/vercel/ai/blob/main/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/vercel/ai/main/LICENSE",
+          "git_blob_sha": "6c16c29f41168411dbf6e3ba3a063ce789c27334",
+          "sha256": "b4f9adb7c568904834d0dd6cc98d16c390d21ca32fc17ae7a267715269bd5529",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "assistant-ui/assistant-ui",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/assistant-ui/assistant-ui/blob/main/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/LICENSE",
+          "git_blob_sha": "1be0da052dc2f3add7a56609d310d47c29e2f1bf",
+          "sha256": "71fd4b7b76d27a09af2e8b2bedf14e51f4c229e32b59654d327cc24dc63e60d7",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/assistant-ui/assistant-ui/blob/main/README.md",
+          "raw_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/README.md",
+          "git_blob_sha": "241527fd2370331e3ae16985b9967312fbfacd7d",
+          "sha256": "bb02f7924fda9763c6bf57f562bcd3b6cd1ef90d3c9764033a42a05a0e276b64",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "langchain-ai/langgraph",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/langchain-ai/langgraph/blob/main/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/main/LICENSE",
+          "git_blob_sha": "fc0602feecdd6748623c852ab534e1ca612673c7",
+          "sha256": "d9bb52f2e3540d60ff50d8f0f5b6ba649b7fd346948c4c3d086c8afb120763c7",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/langchain-ai/langgraph/blob/main/README.md",
+          "raw_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/main/README.md",
+          "git_blob_sha": "97c31e9cb4d8fe56be8d768ce3eb5e22400e897e",
+          "sha256": "3a13e257af1216962d53d72414a7f44ac1fc5cea34d994bdff60ea2a3b045933",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "bradtraversy/property-pulse-nextjs",
+      "files": [
+        {
+          "path": "README.md",
+          "url": "https://github.com/bradtraversy/property-pulse-nextjs/blob/main/README.md",
+          "raw_url": "https://raw.githubusercontent.com/bradtraversy/property-pulse-nextjs/main/README.md",
+          "git_blob_sha": "09b58d25c4daec0105257d956666993ce5bf5c61",
+          "sha256": "3296c82a40882908dcb0281954ad8e17700b1e90cfc1a7b521cf8d9e410039aa",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "AntonioErdeljac/next13-airbnb-clone",
+      "status": "unavailable"
+    },
+    {
+      "repository": "safak/full-stack-estate",
+      "files": [],
+      "status": "ok"
+    },
+    {
+      "repository": "sharetribe/sharetribe",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/sharetribe/sharetribe/blob/master/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/LICENSE",
+          "git_blob_sha": "0c9734868dd0110d1d7ab6b4228172617a48bd0d",
+          "sha256": "de11a362ff30045e7c2f27d6fcd0f5f274d237606f183a2fbc5eea46e8af1029",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/sharetribe/sharetribe/blob/master/README.md",
+          "raw_url": "https://raw.githubusercontent.com/sharetribe/sharetribe/master/README.md",
+          "git_blob_sha": "0b4fea4cad650220763f70b297ccaf8c1f7d1af6",
+          "sha256": "b5e1f087e9d08c226e5fc2f4e266fd622a3815563841ed2cb5c1dd0bd9ab172d",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "davidjerleke/embla-carousel",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/davidjerleke/embla-carousel/blob/master/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/master/LICENSE",
+          "git_blob_sha": "2376624f527f4f1e53887552e42b004ab4056898",
+          "sha256": "992490064b90ec94c302fe5f29dcc14cb44145857064e46f9ffe6c8f511c1093",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/davidjerleke/embla-carousel/blob/master/README.md",
+          "raw_url": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/master/README.md",
+          "git_blob_sha": "dbd3462774618a267bee20c291d5c5ed3bf90143",
+          "sha256": "bfd9a086e54d98ada17a65324496c122b751af67c4dcc4028ffd5d3d2ffd4bbe",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    },
+    {
+      "repository": "pmndrs/zustand",
+      "files": [
+        {
+          "path": "LICENSE",
+          "url": "https://github.com/pmndrs/zustand/blob/main/LICENSE",
+          "raw_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/LICENSE",
+          "git_blob_sha": "a2c2649deec2aabf248294a60a6e2e63a58f4a2b",
+          "sha256": "c1e6e266563517467b1bf874817d23e426f3149252bd7d42758cd697514b8417",
+          "status": "ok"
+        },
+        {
+          "path": "README.md",
+          "url": "https://github.com/pmndrs/zustand/blob/main/README.md",
+          "raw_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/README.md",
+          "git_blob_sha": "64bfc2ef7242d37cce4dd73f6feaf6ce1efed61e",
+          "sha256": "3a53f23dae9f33f7b951cfc6eac1dbdb7def9c722d8f32a70d85190f47d11d5b",
+          "status": "ok"
+        }
+      ],
+      "status": "ok"
+    }
+  ]
+}

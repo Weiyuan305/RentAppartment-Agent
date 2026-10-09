@@ -1,0 +1,242 @@
+[
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "0477f59e04d25a3f4b3eb1e923d814e5615ca80c",
+    "size": 0,
+    "url": "https://api.github.com/repos/komoot/photon/contents/.github?ref=master",
+    "html_url": "https://github.com/komoot/photon/tree/master/.github",
+    "git_url": "https://api.github.com/repos/komoot/photon/git/trees/0477f59e04d25a3f4b3eb1e923d814e5615ca80c",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/komoot/photon/contents/.github?ref=master",
+      "git": "https://api.github.com/repos/komoot/photon/git/trees/0477f59e04d25a3f4b3eb1e923d814e5615ca80c",
+      "html": "https://github.com/komoot/photon/tree/master/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "2577ccb058a2523cb6a8d96867a431258d1f1b6d",
+    "size": 177,
+    "url": "https://api.github.com/repos/komoot/photon/contents/.gitignore?ref=master",
+    "html_url": "https://github.com/komoot/photon/blob/master/.gitignore",
+    "git_url": "https://api.github.com/repos/komoot/photon/git/blobs/2577ccb058a2523cb6a8d96867a431258d1f1b6d",
+    "download_url": "https://raw.githubusercontent.com/komoot/photon/master/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/komoot/photon/contents/.gitignore?ref=master",
+      "git": "https://api.github.com/repos/komoot/photon/git/blobs/2577ccb058a2523cb6a8d96867a431258d1f1b6d",
+      "html": "https://github.com/komoot/photon/blob/master/.gitignore"
+    }
+  },
+  {
+    "name": ".gitmodules",
+    "path": ".gitmodules",
+    "sha": "b527eb67dd7b23db3d95fcb5a11e71986e0cfd2b",
+    "size": 148,
+    "url": "https://api.github.com/repos/komoot/photon/contents/.gitmodules?ref=master",
+    "html_url": "https://github.com/komoot/photon/blob/master/.gitmodules",
+    "git_url": "https://api.github.com/repos/komoot/photon/git/blobs/b527eb67dd7b23db3d95fcb5a11e71986e0cfd2b",
+    "download_url": "https://raw.githubusercontent.com/komoot/photon/master/.gitmodules",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/komoot/photon/contents/.gitmodules?ref=master",
+      "git": "https://api.github.com/repos/komoot/photon/git/blobs/b527eb67dd7b23db3d95fcb5a11e71986e0cfd2b",
+      "html": "https://github.com/komoot/photon/blob/master/.gitmodules"
+    }
+  },
+  {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "sha": "2300c46d27a347e2de7e6dd135c48982a2b9eb90",
+    "size": 9280,
+    "url": "https://api.github.com/repos/komoot/photon/contents/CHANGELOG.md?ref=master",
+    "html_url": "https://github.com/komoot/photon/blob/master/CHANGELOG.md",
+    "git_url": "https://api.github.com/repos/komoot/photon/git/blobs/2300c46d27a347e2de7e6dd135c48982a2b9eb90",
+    "download_url": "https://raw.githubusercontent.com/komoot/photon/master/CHANGELOG.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/komoot/photon/contents/CHANGELOG.md?ref=master",
+      "git": "https://api.github.com/repos/komoot/photon/git/blobs/2300c46d27a347e2de7e6dd135c48982a2b9eb90",
+      "html": "https://github.com/komoot/photon/blob/master/CHANGELOG.md"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+    "size": 11357,
+    "url": "https://api.github.com/repos/komoot/photon/contents/LICENSE?ref=master",
+    "html_url": "https://github.com/komoot/photon/blob/master/LICENSE",
+    "git_url": "https://api.github.com/repos/komoot/photon/git/blobs/261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+    "download_url": "https://raw.githubusercontent.com/komoot/photon/master/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/komoot/photon/contents/LICENSE?ref=master",
+      "git": "https://api.github.com/repos/komoot/photon/git/blobs/261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "html": "https://github.com/komoot/photon/blob/master/LICENSE"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "c081888d5ae014eeb245223410c3af9689b098ac",
+    "size": 6335,
+    "url": "https://api.github.com/repos/komoot/photon/contents/README.md?ref=master",
+    "html_url": "https://github.com/komoot/photon/blob/master/README.md",
+    "git_url": "https://api.github.com/repos/komoot/photon/git/blobs/c081888d5ae014eeb245223410c3af9689b098ac",
+    "download_url": "https://raw.githubusercontent.com/komoot/photon/master/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/komoot/photon/contents/README.md?ref=master",
+      "git": "https://api.github.com/repos/komoot/photon/git/blobs/c081888d5ae014eeb245223410c3af9689b098ac",
+      "html": "https://github.com/komoot/photon/blob/master/README.md"
+    }
+  },
+  {
+    "name": "build.gradle",
+    "path": "build.gradle",
+    "sha": "8b623536486a0ad516e65e78265120ab086ea0d0",
+    "size": 5141,
+    "url": "https://api.github.com/repos/komoot/photon/contents/build.gradle?ref=master",
+    "html_url": "https://github.com/komoot/photon/blob/master/build.gradle",
+    "git_url": "https://api.github.com/repos/komoot/photon/git/blobs/8b623536486a0ad516e65e78265120ab086ea0d0",
+    "download_url": "https://raw.githubusercontent.com/komoot/photon/master/build.gradle",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/komoot/photon/contents/build.gradle?ref=master",
+      "git": "https://api.github.com/repos/komoot/photon/git/blobs/8b623536486a0ad516e65e78265120ab086ea0d0",
+      "html": "https://github.com/komoot/photon/blob/master/build.gradle"
+    }
+  },
+  {
+    "name": "continuously_update_from_nominatim.sh",
+    "path": "continuously_update_from_nominatim.sh",
+    "sha": "d7537e7dc675f67caf60ded8487f456e9dd1e145",
+    "size": 1120,
+    "url": "https://api.github.com/repos/komoot/photon/contents/continuously_update_from_nominatim.sh?ref=master",
+    "html_url": "https://github.com/komoot/photon/blob/master/continuously_update_from_nominatim.sh",
+    "git_url": "https://api.github.com/repos/komoot/photon/git/blobs/d7537e7dc675f67caf60ded8487f456e9dd1e145",
+    "download_url": "https://raw.githubusercontent.com/komoot/photon/master/continuously_update_from_nominatim.sh",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/komoot/photon/contents/continuously_update_from_nominatim.sh?ref=master",
+      "git": "https://api.github.com/repos/komoot/photon/git/blobs/d7537e7dc675f67caf60ded8487f456e9dd1e145",
+      "html": "https://github.com/komoot/photon/blob/master/continuously_update_from_nominatim.sh"
+    }
+  },
+  {
+    "name": "docs",
+    "path": "docs",
+    "sha": "110738b969e5978dfdb2828e1528e12a4c7507dc",
+    "size": 0,
+    "url": "https://api.github.com/repos/komoot/photon/contents/docs?ref=master",
+    "html_url": "https://github.com/komoot/photon/tree/master/docs",
+    "git_url": "https://api.github.com/repos/komoot/photon/git/trees/110738b969e5978dfdb2828e1528e12a4c7507dc",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/komoot/photon/contents/docs?ref=master",
+      "git": "https://api.github.com/repos/komoot/photon/git/trees/110738b969e5978dfdb2828e1528e12a4c7507dc",
+      "html": "https://github.com/komoot/photon/tree/master/docs"
+    }
+  },
+  {
+    "name": "gradle",
+    "path": "gradle",
+    "sha": "6d648f5e4311e04863b4a44afec3504cfa1a9270",
+    "size": 0,
+    "url": "https://api.github.com/repos/komoot/photon/contents/gradle?ref=master",
+    "html_url": "https://github.com/komoot/photon/tree/master/gradle",
+    "git_url": "https://api.github.com/repos/komoot/photon/git/trees/6d648f5e4311e04863b4a44afec3504cfa1a9270",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/komoot/photon/contents/gradle?ref=master",
+      "git": "https://api.github.com/repos/komoot/photon/git/trees/6d648f5e4311e04863b4a44afec3504cfa1a9270",
+      "html": "https://github.com/komoot/photon/tree/master/gradle"
+    }
+  },
+  {
+    "name": "gradlew",
+    "path": "gradlew",
+    "sha": "249efbb032ce46a80c687c0723eb172e85f6a136",
+    "size": 8656,
+    "url": "https://api.github.com/repos/komoot/photon/contents/gradlew?ref=master",
+    "html_url": "https://github.com/komoot/photon/blob/master/gradlew",
+    "git_url": "https://api.github.com/repos/komoot/photon/git/blobs/249efbb032ce46a80c687c0723eb172e85f6a136",
+    "download_url": "https://raw.githubusercontent.com/komoot/photon/master/gradlew",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/komoot/photon/contents/gradlew?ref=master",
+      "git": "https://api.github.com/repos/komoot/photon/git/blobs/249efbb032ce46a80c687c0723eb172e85f6a136",
+      "html": "https://github.com/komoot/photon/blob/master/gradlew"
+    }
+  },
+  {
+    "name": "gradlew.bat",
+    "path": "gradlew.bat",
+    "sha": "8508ef684d4e1f8473dcbbfdacf52a131beaee0e",
+    "size": 2848,
+    "url": "https://api.github.com/repos/komoot/photon/contents/gradlew.bat?ref=master",
+    "html_url": "https://github.com/komoot/photon/blob/master/gradlew.bat",
+    "git_url": "https://api.github.com/repos/komoot/photon/git/blobs/8508ef684d4e1f8473dcbbfdacf52a131beaee0e",
+    "download_url": "https://raw.githubusercontent.com/komoot/photon/master/gradlew.bat",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/komoot/photon/contents/gradlew.bat?ref=master",
+      "git": "https://api.github.com/repos/komoot/photon/git/blobs/8508ef684d4e1f8473dcbbfdacf52a131beaee0e",
+      "html": "https://github.com/komoot/photon/blob/master/gradlew.bat"
+    }
+  },
+  {
+    "name": "settings.gradle",
+    "path": "settings.gradle",
+    "sha": "fa2cbfe6237e81201c751332fde66d2b382c2b43",
+    "size": 104,
+    "url": "https://api.github.com/repos/komoot/photon/contents/settings.gradle?ref=master",
+    "html_url": "https://github.com/komoot/photon/blob/master/settings.gradle",
+    "git_url": "https://api.github.com/repos/komoot/photon/git/blobs/fa2cbfe6237e81201c751332fde66d2b382c2b43",
+    "download_url": "https://raw.githubusercontent.com/komoot/photon/master/settings.gradle",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/komoot/photon/contents/settings.gradle?ref=master",
+      "git": "https://api.github.com/repos/komoot/photon/git/blobs/fa2cbfe6237e81201c751332fde66d2b382c2b43",
+      "html": "https://github.com/komoot/photon/blob/master/settings.gradle"
+    }
+  },
+  {
+    "name": "src",
+    "path": "src",
+    "sha": "4788db9e4175a6472090211dd9422695f0b826e7",
+    "size": 0,
+    "url": "https://api.github.com/repos/komoot/photon/contents/src?ref=master",
+    "html_url": "https://github.com/komoot/photon/tree/master/src",
+    "git_url": "https://api.github.com/repos/komoot/photon/git/trees/4788db9e4175a6472090211dd9422695f0b826e7",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/komoot/photon/contents/src?ref=master",
+      "git": "https://api.github.com/repos/komoot/photon/git/trees/4788db9e4175a6472090211dd9422695f0b826e7",
+      "html": "https://github.com/komoot/photon/tree/master/src"
+    }
+  },
+  {
+    "name": "website",
+    "path": "website",
+    "sha": "538e717701e897db370b180d1f7d6b20538c20c0",
+    "size": 0,
+    "url": "https://api.github.com/repos/komoot/photon/contents/website?ref=master",
+    "html_url": "https://github.com/komoot/photon/tree/master/website",
+    "git_url": "https://api.github.com/repos/komoot/photon/git/trees/538e717701e897db370b180d1f7d6b20538c20c0",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/komoot/photon/contents/website?ref=master",
+      "git": "https://api.github.com/repos/komoot/photon/git/trees/538e717701e897db370b180d1f7d6b20538c20c0",
+      "html": "https://github.com/komoot/photon/tree/master/website"
+    }
+  }
+]

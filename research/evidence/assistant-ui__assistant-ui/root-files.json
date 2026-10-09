@@ -1,0 +1,498 @@
+[
+  {
+    "name": ".changeset",
+    "path": ".changeset",
+    "sha": "bd188a23ce8216bb557e63ca3d5815bc5c3d2795",
+    "size": 0,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.changeset?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/tree/main/.changeset",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/bd188a23ce8216bb557e63ca3d5815bc5c3d2795",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.changeset?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/bd188a23ce8216bb557e63ca3d5815bc5c3d2795",
+      "html": "https://github.com/assistant-ui/assistant-ui/tree/main/.changeset"
+    }
+  },
+  {
+    "name": ".claude",
+    "path": ".claude",
+    "sha": "a7b415867d1f4fa1f33151dd997c76c30c98d7a2",
+    "size": 0,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.claude?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/tree/main/.claude",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/a7b415867d1f4fa1f33151dd997c76c30c98d7a2",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.claude?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/a7b415867d1f4fa1f33151dd997c76c30c98d7a2",
+      "html": "https://github.com/assistant-ui/assistant-ui/tree/main/.claude"
+    }
+  },
+  {
+    "name": ".devcontainer",
+    "path": ".devcontainer",
+    "sha": "8e85ca1dff80b699a66e7e34c8fe027940add313",
+    "size": 0,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.devcontainer?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/tree/main/.devcontainer",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/8e85ca1dff80b699a66e7e34c8fe027940add313",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.devcontainer?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/8e85ca1dff80b699a66e7e34c8fe027940add313",
+      "html": "https://github.com/assistant-ui/assistant-ui/tree/main/.devcontainer"
+    }
+  },
+  {
+    "name": ".gitattributes",
+    "path": ".gitattributes",
+    "sha": "b9100da93e1f8ac0a711442c3945609cc4c3f4a5",
+    "size": 54,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.gitattributes?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/.gitattributes",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/b9100da93e1f8ac0a711442c3945609cc4c3f4a5",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/.gitattributes",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.gitattributes?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/b9100da93e1f8ac0a711442c3945609cc4c3f4a5",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/.gitattributes"
+    }
+  },
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "9bc82f3957f313a7c5cd42da7e6dd014ff12de5b",
+    "size": 0,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.github?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/tree/main/.github",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/9bc82f3957f313a7c5cd42da7e6dd014ff12de5b",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.github?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/9bc82f3957f313a7c5cd42da7e6dd014ff12de5b",
+      "html": "https://github.com/assistant-ui/assistant-ui/tree/main/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "f54fcaf27bddd11abc9077f71cb1c7cbeea8271e",
+    "size": 1231,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.gitignore?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/.gitignore",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/f54fcaf27bddd11abc9077f71cb1c7cbeea8271e",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.gitignore?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/f54fcaf27bddd11abc9077f71cb1c7cbeea8271e",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/.gitignore"
+    }
+  },
+  {
+    "name": ".husky",
+    "path": ".husky",
+    "sha": "bad53dbb267101c74427976ab55a6942ddf63f0f",
+    "size": 0,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.husky?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/tree/main/.husky",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/bad53dbb267101c74427976ab55a6942ddf63f0f",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.husky?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/bad53dbb267101c74427976ab55a6942ddf63f0f",
+      "html": "https://github.com/assistant-ui/assistant-ui/tree/main/.husky"
+    }
+  },
+  {
+    "name": ".oxfmtrc.json",
+    "path": ".oxfmtrc.json",
+    "sha": "da70f508b7de56a9c3ac00e33ca5e547ce9987d5",
+    "size": 1072,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.oxfmtrc.json?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/.oxfmtrc.json",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/da70f508b7de56a9c3ac00e33ca5e547ce9987d5",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/.oxfmtrc.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.oxfmtrc.json?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/da70f508b7de56a9c3ac00e33ca5e547ce9987d5",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/.oxfmtrc.json"
+    }
+  },
+  {
+    "name": ".oxlintrc.json",
+    "path": ".oxlintrc.json",
+    "sha": "7c6efdca8f6bc1ffdd51d3d36628fbe45b8defc6",
+    "size": 4650,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.oxlintrc.json?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/.oxlintrc.json",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/7c6efdca8f6bc1ffdd51d3d36628fbe45b8defc6",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/.oxlintrc.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.oxlintrc.json?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/7c6efdca8f6bc1ffdd51d3d36628fbe45b8defc6",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/.oxlintrc.json"
+    }
+  },
+  {
+    "name": ".vscode",
+    "path": ".vscode",
+    "sha": "71e078e2acf27902804c368d26da997c5ec236fe",
+    "size": 0,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.vscode?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/tree/main/.vscode",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/71e078e2acf27902804c368d26da997c5ec236fe",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/.vscode?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/71e078e2acf27902804c368d26da997c5ec236fe",
+      "html": "https://github.com/assistant-ui/assistant-ui/tree/main/.vscode"
+    }
+  },
+  {
+    "name": "AGENTS.md",
+    "path": "AGENTS.md",
+    "sha": "ea13bbb8cfb95ec105df878b295cca2658481781",
+    "size": 27230,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/AGENTS.md?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/AGENTS.md",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/ea13bbb8cfb95ec105df878b295cca2658481781",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/AGENTS.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/AGENTS.md?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/ea13bbb8cfb95ec105df878b295cca2658481781",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/AGENTS.md"
+    }
+  },
+  {
+    "name": "CLAUDE.md",
+    "path": "CLAUDE.md",
+    "sha": "43c994c2d3617f947bcb5adf1933e21dabe46bb5",
+    "size": 11,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/CLAUDE.md?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/CLAUDE.md",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/43c994c2d3617f947bcb5adf1933e21dabe46bb5",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/CLAUDE.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/CLAUDE.md?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/43c994c2d3617f947bcb5adf1933e21dabe46bb5",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/CLAUDE.md"
+    }
+  },
+  {
+    "name": "CODE_OF_CONDUCT.md",
+    "path": "CODE_OF_CONDUCT.md",
+    "sha": "baa0af35b569129f5b414757578138a18679a635",
+    "size": 7984,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/CODE_OF_CONDUCT.md?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/CODE_OF_CONDUCT.md",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/baa0af35b569129f5b414757578138a18679a635",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/CODE_OF_CONDUCT.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/CODE_OF_CONDUCT.md?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/baa0af35b569129f5b414757578138a18679a635",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/CODE_OF_CONDUCT.md"
+    }
+  },
+  {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "sha": "37d186198f13c83d3b7bd97531f263f03210e7e2",
+    "size": 3963,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/CONTRIBUTING.md?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/CONTRIBUTING.md",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/37d186198f13c83d3b7bd97531f263f03210e7e2",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/CONTRIBUTING.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/CONTRIBUTING.md?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/37d186198f13c83d3b7bd97531f263f03210e7e2",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/CONTRIBUTING.md"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "1be0da052dc2f3add7a56609d310d47c29e2f1bf",
+    "size": 1073,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/LICENSE?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/LICENSE",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/1be0da052dc2f3add7a56609d310d47c29e2f1bf",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/LICENSE?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/1be0da052dc2f3add7a56609d310d47c29e2f1bf",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/LICENSE"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "241527fd2370331e3ae16985b9967312fbfacd7d",
+    "size": 9176,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/README.md?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/README.md",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/241527fd2370331e3ae16985b9967312fbfacd7d",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/README.md?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/241527fd2370331e3ae16985b9967312fbfacd7d",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/README.md"
+    }
+  },
+  {
+    "name": "SECURITY.md",
+    "path": "SECURITY.md",
+    "sha": "e016c2737e20691b4be4cc5f9ae3f0d79a8b8361",
+    "size": 645,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/SECURITY.md?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/SECURITY.md",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/e016c2737e20691b4be4cc5f9ae3f0d79a8b8361",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/SECURITY.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/SECURITY.md?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/e016c2737e20691b4be4cc5f9ae3f0d79a8b8361",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/SECURITY.md"
+    }
+  },
+  {
+    "name": "api-surface",
+    "path": "api-surface",
+    "sha": "ffc807b3c70656a729d597b0c97de9da021e0bad",
+    "size": 0,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/api-surface?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/tree/main/api-surface",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/ffc807b3c70656a729d597b0c97de9da021e0bad",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/api-surface?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/ffc807b3c70656a729d597b0c97de9da021e0bad",
+      "html": "https://github.com/assistant-ui/assistant-ui/tree/main/api-surface"
+    }
+  },
+  {
+    "name": "apps",
+    "path": "apps",
+    "sha": "4fdff9859cc32852f370359addcc088021a17e8b",
+    "size": 0,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/apps?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/tree/main/apps",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/4fdff9859cc32852f370359addcc088021a17e8b",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/apps?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/4fdff9859cc32852f370359addcc088021a17e8b",
+      "html": "https://github.com/assistant-ui/assistant-ui/tree/main/apps"
+    }
+  },
+  {
+    "name": "evals",
+    "path": "evals",
+    "sha": "772142757088a1c006314e28a678d67476a66b1f",
+    "size": 0,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/evals?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/tree/main/evals",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/772142757088a1c006314e28a678d67476a66b1f",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/evals?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/772142757088a1c006314e28a678d67476a66b1f",
+      "html": "https://github.com/assistant-ui/assistant-ui/tree/main/evals"
+    }
+  },
+  {
+    "name": "examples",
+    "path": "examples",
+    "sha": "6e3e4635a8d398dbc81cef66a50f511032641541",
+    "size": 0,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/examples?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/tree/main/examples",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/6e3e4635a8d398dbc81cef66a50f511032641541",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/examples?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/6e3e4635a8d398dbc81cef66a50f511032641541",
+      "html": "https://github.com/assistant-ui/assistant-ui/tree/main/examples"
+    }
+  },
+  {
+    "name": "package.json",
+    "path": "package.json",
+    "sha": "3900f95dc63c53018c8447c5877602874d9a94c2",
+    "size": 3247,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/package.json?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/package.json",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/3900f95dc63c53018c8447c5877602874d9a94c2",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/package.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/package.json?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/3900f95dc63c53018c8447c5877602874d9a94c2",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/package.json"
+    }
+  },
+  {
+    "name": "packages",
+    "path": "packages",
+    "sha": "86301246de89bb7d728ce79a15162d0ae7412813",
+    "size": 0,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/packages?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/tree/main/packages",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/86301246de89bb7d728ce79a15162d0ae7412813",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/packages?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/86301246de89bb7d728ce79a15162d0ae7412813",
+      "html": "https://github.com/assistant-ui/assistant-ui/tree/main/packages"
+    }
+  },
+  {
+    "name": "pnpm-lock.yaml",
+    "path": "pnpm-lock.yaml",
+    "sha": "0d35e68ec3e59ee28ecc0e48bdde7e47757728c1",
+    "size": 1489825,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/pnpm-lock.yaml?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/pnpm-lock.yaml",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/0d35e68ec3e59ee28ecc0e48bdde7e47757728c1",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/pnpm-lock.yaml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/pnpm-lock.yaml?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/0d35e68ec3e59ee28ecc0e48bdde7e47757728c1",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/pnpm-lock.yaml"
+    }
+  },
+  {
+    "name": "pnpm-workspace.yaml",
+    "path": "pnpm-workspace.yaml",
+    "sha": "06ce71df2c9de14972a96087e8fe2973ac017be4",
+    "size": 905,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/pnpm-workspace.yaml?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/pnpm-workspace.yaml",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/06ce71df2c9de14972a96087e8fe2973ac017be4",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/pnpm-workspace.yaml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/pnpm-workspace.yaml?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/06ce71df2c9de14972a96087e8fe2973ac017be4",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/pnpm-workspace.yaml"
+    }
+  },
+  {
+    "name": "python",
+    "path": "python",
+    "sha": "3e140df785002c3a25780cd6549301a834417633",
+    "size": 0,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/python?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/tree/main/python",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/3e140df785002c3a25780cd6549301a834417633",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/python?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/3e140df785002c3a25780cd6549301a834417633",
+      "html": "https://github.com/assistant-ui/assistant-ui/tree/main/python"
+    }
+  },
+  {
+    "name": "scripts",
+    "path": "scripts",
+    "sha": "964a876d80d880eb3cf65fb16cb44d1b92827bea",
+    "size": 0,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/scripts?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/tree/main/scripts",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/964a876d80d880eb3cf65fb16cb44d1b92827bea",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/scripts?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/964a876d80d880eb3cf65fb16cb44d1b92827bea",
+      "html": "https://github.com/assistant-ui/assistant-ui/tree/main/scripts"
+    }
+  },
+  {
+    "name": "size-budgets.json",
+    "path": "size-budgets.json",
+    "sha": "92bcb5dcd1199bd492dcfd035dfb342c750d5596",
+    "size": 4919,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/size-budgets.json?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/size-budgets.json",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/92bcb5dcd1199bd492dcfd035dfb342c750d5596",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/size-budgets.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/size-budgets.json?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/92bcb5dcd1199bd492dcfd035dfb342c750d5596",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/size-budgets.json"
+    }
+  },
+  {
+    "name": "templates",
+    "path": "templates",
+    "sha": "ccfe79248fac5d2f179ef2cff5f848f53f2384d7",
+    "size": 0,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/templates?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/tree/main/templates",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/ccfe79248fac5d2f179ef2cff5f848f53f2384d7",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/templates?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/trees/ccfe79248fac5d2f179ef2cff5f848f53f2384d7",
+      "html": "https://github.com/assistant-ui/assistant-ui/tree/main/templates"
+    }
+  },
+  {
+    "name": "turbo.json",
+    "path": "turbo.json",
+    "sha": "62393f5ae144180e08ffff92d8e3550bbb0d2328",
+    "size": 1386,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/turbo.json?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/turbo.json",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/62393f5ae144180e08ffff92d8e3550bbb0d2328",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/turbo.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/turbo.json?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/62393f5ae144180e08ffff92d8e3550bbb0d2328",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/turbo.json"
+    }
+  },
+  {
+    "name": "vercel.json",
+    "path": "vercel.json",
+    "sha": "ea66c9fc67af016bbf5446a1b79de67758b44876",
+    "size": 127,
+    "url": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/vercel.json?ref=main",
+    "html_url": "https://github.com/assistant-ui/assistant-ui/blob/main/vercel.json",
+    "git_url": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/ea66c9fc67af016bbf5446a1b79de67758b44876",
+    "download_url": "https://raw.githubusercontent.com/assistant-ui/assistant-ui/main/vercel.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/assistant-ui/assistant-ui/contents/vercel.json?ref=main",
+      "git": "https://api.github.com/repos/assistant-ui/assistant-ui/git/blobs/ea66c9fc67af016bbf5446a1b79de67758b44876",
+      "html": "https://github.com/assistant-ui/assistant-ui/blob/main/vercel.json"
+    }
+  }
+]

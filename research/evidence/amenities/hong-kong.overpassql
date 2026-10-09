@@ -1,0 +1,11 @@
+[out:json][timeout:45][maxsize:67108864];(
+nwr[amenity~"^(hospital|bus_station|university|college|library|study_space|study_area|pharmacy|clinic|doctors|restaurant|fast_food|food_court|cafe|canteen|post_office|parcel_locker|parcel_pickup|post_depot)$"](22.255972972972973,114.10789176837959,22.31002702702703,114.16630823162042);
+nwr[healthcare~"^(hospital|clinic|doctor)$"](22.255972972972973,114.10789176837959,22.31002702702703,114.16630823162042);
+nwr[shop~"^(convenience|mall|supermarket|grocery|food|laundry|dry_cleaning|copyshop|printing|courier)$"](22.255972972972973,114.10789176837959,22.31002702702703,114.16630823162042);
+nwr[railway~"^(station|halt|tram_stop|subway_entrance)$"](22.255972972972973,114.10789176837959,22.31002702702703,114.16630823162042);
+nwr[public_transport=station](22.255972972972973,114.10789176837959,22.31002702702703,114.16630823162042);
+nwr[highway=bus_stop](22.255972972972973,114.10789176837959,22.31002702702703,114.16630823162042);
+nwr[building~"^(university|college)$"](22.255972972972973,114.10789176837959,22.31002702702703,114.16630823162042);
+nwr[education=university](22.255972972972973,114.10789176837959,22.31002702702703,114.16630823162042);
+nwr[leisure~"^(fitness_centre|pitch|sports_centre|track|park)$"](22.255972972972973,114.10789176837959,22.31002702702703,114.16630823162042);
+);out tags center;

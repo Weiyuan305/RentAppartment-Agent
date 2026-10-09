@@ -1,0 +1,178 @@
+[
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "748b4b61147ddbe0dac4d18b141bfe32054bd6c0",
+    "size": 0,
+    "url": "https://api.github.com/repos/langchain-ai/langgraph/contents/.github?ref=main",
+    "html_url": "https://github.com/langchain-ai/langgraph/tree/main/.github",
+    "git_url": "https://api.github.com/repos/langchain-ai/langgraph/git/trees/748b4b61147ddbe0dac4d18b141bfe32054bd6c0",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/langchain-ai/langgraph/contents/.github?ref=main",
+      "git": "https://api.github.com/repos/langchain-ai/langgraph/git/trees/748b4b61147ddbe0dac4d18b141bfe32054bd6c0",
+      "html": "https://github.com/langchain-ai/langgraph/tree/main/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "cc960f9faedb6542280ea28707d94584c7573ef5",
+    "size": 1285,
+    "url": "https://api.github.com/repos/langchain-ai/langgraph/contents/.gitignore?ref=main",
+    "html_url": "https://github.com/langchain-ai/langgraph/blob/main/.gitignore",
+    "git_url": "https://api.github.com/repos/langchain-ai/langgraph/git/blobs/cc960f9faedb6542280ea28707d94584c7573ef5",
+    "download_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/main/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/langchain-ai/langgraph/contents/.gitignore?ref=main",
+      "git": "https://api.github.com/repos/langchain-ai/langgraph/git/blobs/cc960f9faedb6542280ea28707d94584c7573ef5",
+      "html": "https://github.com/langchain-ai/langgraph/blob/main/.gitignore"
+    }
+  },
+  {
+    "name": ".markdownlint.json",
+    "path": ".markdownlint.json",
+    "sha": "1da2ca701c0809bdd63b81065b0d2ec248b9300a",
+    "size": 195,
+    "url": "https://api.github.com/repos/langchain-ai/langgraph/contents/.markdownlint.json?ref=main",
+    "html_url": "https://github.com/langchain-ai/langgraph/blob/main/.markdownlint.json",
+    "git_url": "https://api.github.com/repos/langchain-ai/langgraph/git/blobs/1da2ca701c0809bdd63b81065b0d2ec248b9300a",
+    "download_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/main/.markdownlint.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/langchain-ai/langgraph/contents/.markdownlint.json?ref=main",
+      "git": "https://api.github.com/repos/langchain-ai/langgraph/git/blobs/1da2ca701c0809bdd63b81065b0d2ec248b9300a",
+      "html": "https://github.com/langchain-ai/langgraph/blob/main/.markdownlint.json"
+    }
+  },
+  {
+    "name": "AGENTS.md",
+    "path": "AGENTS.md",
+    "sha": "5e5f0c00bf74a0b6997f94e4772fba25408bfd3f",
+    "size": 2113,
+    "url": "https://api.github.com/repos/langchain-ai/langgraph/contents/AGENTS.md?ref=main",
+    "html_url": "https://github.com/langchain-ai/langgraph/blob/main/AGENTS.md",
+    "git_url": "https://api.github.com/repos/langchain-ai/langgraph/git/blobs/5e5f0c00bf74a0b6997f94e4772fba25408bfd3f",
+    "download_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/main/AGENTS.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/langchain-ai/langgraph/contents/AGENTS.md?ref=main",
+      "git": "https://api.github.com/repos/langchain-ai/langgraph/git/blobs/5e5f0c00bf74a0b6997f94e4772fba25408bfd3f",
+      "html": "https://github.com/langchain-ai/langgraph/blob/main/AGENTS.md"
+    }
+  },
+  {
+    "name": "CLAUDE.md",
+    "path": "CLAUDE.md",
+    "sha": "e86d91eaf64bb7fb08e0e607f42e0187d5c57d98",
+    "size": 2083,
+    "url": "https://api.github.com/repos/langchain-ai/langgraph/contents/CLAUDE.md?ref=main",
+    "html_url": "https://github.com/langchain-ai/langgraph/blob/main/CLAUDE.md",
+    "git_url": "https://api.github.com/repos/langchain-ai/langgraph/git/blobs/e86d91eaf64bb7fb08e0e607f42e0187d5c57d98",
+    "download_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/main/CLAUDE.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/langchain-ai/langgraph/contents/CLAUDE.md?ref=main",
+      "git": "https://api.github.com/repos/langchain-ai/langgraph/git/blobs/e86d91eaf64bb7fb08e0e607f42e0187d5c57d98",
+      "html": "https://github.com/langchain-ai/langgraph/blob/main/CLAUDE.md"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "fc0602feecdd6748623c852ab534e1ca612673c7",
+    "size": 1072,
+    "url": "https://api.github.com/repos/langchain-ai/langgraph/contents/LICENSE?ref=main",
+    "html_url": "https://github.com/langchain-ai/langgraph/blob/main/LICENSE",
+    "git_url": "https://api.github.com/repos/langchain-ai/langgraph/git/blobs/fc0602feecdd6748623c852ab534e1ca612673c7",
+    "download_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/main/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/langchain-ai/langgraph/contents/LICENSE?ref=main",
+      "git": "https://api.github.com/repos/langchain-ai/langgraph/git/blobs/fc0602feecdd6748623c852ab534e1ca612673c7",
+      "html": "https://github.com/langchain-ai/langgraph/blob/main/LICENSE"
+    }
+  },
+  {
+    "name": "Makefile",
+    "path": "Makefile",
+    "sha": "477e03123df8ef4847a40f183fafbc6acc8eba39",
+    "size": 1403,
+    "url": "https://api.github.com/repos/langchain-ai/langgraph/contents/Makefile?ref=main",
+    "html_url": "https://github.com/langchain-ai/langgraph/blob/main/Makefile",
+    "git_url": "https://api.github.com/repos/langchain-ai/langgraph/git/blobs/477e03123df8ef4847a40f183fafbc6acc8eba39",
+    "download_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/main/Makefile",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/langchain-ai/langgraph/contents/Makefile?ref=main",
+      "git": "https://api.github.com/repos/langchain-ai/langgraph/git/blobs/477e03123df8ef4847a40f183fafbc6acc8eba39",
+      "html": "https://github.com/langchain-ai/langgraph/blob/main/Makefile"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "97c31e9cb4d8fe56be8d768ce3eb5e22400e897e",
+    "size": 6395,
+    "url": "https://api.github.com/repos/langchain-ai/langgraph/contents/README.md?ref=main",
+    "html_url": "https://github.com/langchain-ai/langgraph/blob/main/README.md",
+    "git_url": "https://api.github.com/repos/langchain-ai/langgraph/git/blobs/97c31e9cb4d8fe56be8d768ce3eb5e22400e897e",
+    "download_url": "https://raw.githubusercontent.com/langchain-ai/langgraph/main/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/langchain-ai/langgraph/contents/README.md?ref=main",
+      "git": "https://api.github.com/repos/langchain-ai/langgraph/git/blobs/97c31e9cb4d8fe56be8d768ce3eb5e22400e897e",
+      "html": "https://github.com/langchain-ai/langgraph/blob/main/README.md"
+    }
+  },
+  {
+    "name": "docs",
+    "path": "docs",
+    "sha": "50130814698cce964965a5698ed6e4da92596b5f",
+    "size": 0,
+    "url": "https://api.github.com/repos/langchain-ai/langgraph/contents/docs?ref=main",
+    "html_url": "https://github.com/langchain-ai/langgraph/tree/main/docs",
+    "git_url": "https://api.github.com/repos/langchain-ai/langgraph/git/trees/50130814698cce964965a5698ed6e4da92596b5f",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/langchain-ai/langgraph/contents/docs?ref=main",
+      "git": "https://api.github.com/repos/langchain-ai/langgraph/git/trees/50130814698cce964965a5698ed6e4da92596b5f",
+      "html": "https://github.com/langchain-ai/langgraph/tree/main/docs"
+    }
+  },
+  {
+    "name": "examples",
+    "path": "examples",
+    "sha": "77d537ba376595e6d40648635aa75e8ec659a73b",
+    "size": 0,
+    "url": "https://api.github.com/repos/langchain-ai/langgraph/contents/examples?ref=main",
+    "html_url": "https://github.com/langchain-ai/langgraph/tree/main/examples",
+    "git_url": "https://api.github.com/repos/langchain-ai/langgraph/git/trees/77d537ba376595e6d40648635aa75e8ec659a73b",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/langchain-ai/langgraph/contents/examples?ref=main",
+      "git": "https://api.github.com/repos/langchain-ai/langgraph/git/trees/77d537ba376595e6d40648635aa75e8ec659a73b",
+      "html": "https://github.com/langchain-ai/langgraph/tree/main/examples"
+    }
+  },
+  {
+    "name": "libs",
+    "path": "libs",
+    "sha": "959492cec121b1336e5c003283735b53d88201a9",
+    "size": 0,
+    "url": "https://api.github.com/repos/langchain-ai/langgraph/contents/libs?ref=main",
+    "html_url": "https://github.com/langchain-ai/langgraph/tree/main/libs",
+    "git_url": "https://api.github.com/repos/langchain-ai/langgraph/git/trees/959492cec121b1336e5c003283735b53d88201a9",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/langchain-ai/langgraph/contents/libs?ref=main",
+      "git": "https://api.github.com/repos/langchain-ai/langgraph/git/trees/959492cec121b1336e5c003283735b53d88201a9",
+      "html": "https://github.com/langchain-ai/langgraph/tree/main/libs"
+    }
+  }
+]

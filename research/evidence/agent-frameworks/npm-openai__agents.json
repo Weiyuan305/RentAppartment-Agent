@@ -1,0 +1,219 @@
+{
+  "dist": {
+    "shasum": "4e3a2ec8fea743679937b76ee8a17199888d790b",
+    "tarball": "https://registry.npmjs.org/@openai/agents/-/agents-0.20.0.tgz",
+    "fileCount": 43,
+    "integrity": "sha512-k3fm1qJ5VjYvBI1juwZGDdhtpd7CZqJlt+6zIMcmzHD1mIQoW9HhXN8Wv9G9PpemWz9ykaxj6CIQkY8kMAuWjA==",
+    "signatures": [
+      {
+        "sig": "MEUCIAOHIn6Dc9R2Xo8Ak7j73w7IMbW+ZVzn3zPgKU1jKdHqAiEA+zqcVN8UZWI6Sd8UxgPR5+ViIa8NuCVtt7FH8SeJPm0=",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      },
+      {
+        "sig": "MEQCIByTz3AeQZYuvm43TqPv18h+PHDIWVINJ89aFWsPlyXeAiAmPBK7o27+infspWz5KpdP4AbZ/4EUplujw9JqEhqCYg==",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "attestations": {
+      "url": "https://registry.npmjs.org/-/npm/v1/attestations/@openai%2fagents@0.20.0",
+      "provenance": {
+        "predicateType": "https://slsa.dev/provenance/v1"
+      }
+    },
+    "unpackedSize": 23678
+  },
+  "main": "dist/index.js",
+  "name": "@openai/agents",
+  "types": "dist/index.d.ts",
+  "author": "OpenAI <support@openai.com>",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/utils/index.mjs",
+      "require": "./dist/utils/index.js"
+    },
+    "./sandbox": {
+      "types": "./dist/sandbox/index.d.ts",
+      "import": "./dist/sandbox/index.mjs",
+      "require": "./dist/sandbox/index.js"
+    },
+    "./testing": {
+      "types": "./dist/testing/index.d.ts",
+      "import": "./dist/testing/index.mjs",
+      "require": "./dist/testing/index.js"
+    },
+    "./realtime": {
+      "types": "./dist/realtime/index.d.ts",
+      "import": "./dist/realtime/index.mjs",
+      "require": "./dist/realtime/index.js"
+    },
+    "./sandbox/local": {
+      "types": "./dist/sandbox/local.d.ts",
+      "import": "./dist/sandbox/local.mjs",
+      "require": "./dist/sandbox/local.js"
+    },
+    "./realtime/testing": {
+      "types": "./dist/realtime/testing/index.d.ts",
+      "import": "./dist/realtime/testing/index.mjs",
+      "browser": {
+        "types": "./dist/realtime/testing/index.d.ts",
+        "import": "./dist/realtime/testing/index.mjs",
+        "require": "./dist/realtime/testing/index.js"
+      },
+      "require": "./dist/realtime/testing/index.js",
+      "react-native": {
+        "types": "./dist/realtime/testing/index.d.ts",
+        "import": "./dist/realtime/testing/index.mjs",
+        "require": "./dist/realtime/testing/index.js"
+      }
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "prebuild": "node ../../scripts/embedMeta.mts",
+    "dist:check": "tsc --noEmit -p ./tsconfig.dist-check.json",
+    "build-check": "tsc --noEmit -p ./tsconfig.test.json"
+  },
+  "_npmUser": {
+    "name": "GitHub Actions",
+    "email": "npm-oidc-no-reply@github.com",
+    "trustedPublisher": {
+      "id": "github",
+      "oidcConfigId": "d0457c3d-cbdc-41cf-b31b-241779516306"
+    }
+  },
+  "homepage": "https://openai.github.io/openai-agents-js/",
+  "keywords": [
+    "openai",
+    "agents",
+    "ai",
+    "agentic"
+  ],
+  "repository": {
+    "url": "https://github.com/openai/openai-agents-js",
+    "type": "git"
+  },
+  "description": "The OpenAI Agents SDK is a lightweight yet powerful framework for building multi-agent workflows.",
+  "directories": {},
+  "maintainers": [
+    {
+      "name": "openai-publisher",
+      "email": "oai-package-publish-npm@openai.com"
+    },
+    {
+      "name": "tino-openai",
+      "email": "tino@openai.com"
+    },
+    {
+      "name": "dylan-hurd-openai",
+      "email": "dylan.hurd@openai.com"
+    },
+    {
+      "name": "moustafa-openai",
+      "email": "moustafa@openai.com"
+    },
+    {
+      "name": "tylersmith-openai",
+      "email": "tylersmith@openai.com"
+    },
+    {
+      "name": "mdangelo-openai",
+      "email": "mdangelo@openai.com"
+    },
+    {
+      "name": "victor-openai",
+      "email": "victor@openai.com"
+    },
+    {
+      "name": "jbeckwith-oai",
+      "email": "jbeckwith@openai.com"
+    },
+    {
+      "name": "wadih-openai",
+      "email": "wadih@openai.com"
+    },
+    {
+      "name": "atty-openai",
+      "email": "atty@openai.com"
+    },
+    {
+      "name": "tibo-openai",
+      "email": "tibo@openai.com"
+    },
+    {
+      "name": "dkundel-openai",
+      "email": "dkundel@openai.com"
+    },
+    {
+      "name": "mbolin-openai",
+      "email": "mbolin@openai.com"
+    },
+    {
+      "name": "fouad-openai",
+      "email": "fouad@openai.com"
+    },
+    {
+      "name": "easong-openai",
+      "email": "easong@openai.com"
+    },
+    {
+      "name": "aibrahim-openai",
+      "email": "ahmedibrhm32@gmail.com"
+    },
+    {
+      "name": "apcha-oai",
+      "email": "apcha@openai.com"
+    },
+    {
+      "name": "seratch-openai",
+      "email": "seratch@openai.com"
+    }
+  ],
+  "dependencies": {
+    "openai": "^7.2.0",
+    "@openai/agents-core": "0.20.0",
+    "@openai/agents-openai": "0.20.0",
+    "@openai/agents-realtime": "0.20.0"
+  },
+  "typesVersions": {
+    "*": {
+      "utils": [
+        "dist/utils/index.d.ts"
+      ],
+      "sandbox": [
+        "dist/sandbox/index.d.ts"
+      ],
+      "testing": [
+        "dist/testing/index.d.ts"
+      ],
+      "realtime": [
+        "dist/realtime/index.d.ts"
+      ],
+      "sandbox/local": [
+        "dist/sandbox/local.d.ts"
+      ],
+      "realtime/testing": [
+        "dist/realtime/testing/index.d.ts"
+      ]
+    }
+  },
+  "_hasShrinkwrap": false,
+  "devDependencies": {
+    "zod": "^4.3.5"
+  },
+  "peerDependencies": {
+    "zod": "^4.0.0"
+  },
+  "_npmOperationalInternal": {
+    "tmp": "tmp/agents_0.20.0_1791500677207_0.686124846271744",
+    "host": "s3://npm-registry-packages-npm-production"
+  },
+  "_id": "@openai/agents@0.20.0",
+  "version": "0.20.0"
+}

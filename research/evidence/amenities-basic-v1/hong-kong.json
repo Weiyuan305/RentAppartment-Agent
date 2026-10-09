@@ -1,0 +1,2318 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-09T03:30:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 579166058,
+  "lat": 22.2848665,
+  "lon": 114.1411993,
+  "tags": {
+    "addr:country": "HK",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 1280317651,
+  "lat": 22.2863827,
+  "lon": 114.1365719,
+  "tags": {
+    "addr:country": "HK",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 1298704426,
+  "lat": 22.2818767,
+  "lon": 114.1514878,
+  "tags": {
+    "addr:country": "HK",
+    "addr:street": "堅道 Caine Road",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "check_date:opening_hours": "2024-09-26",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "opening_hours:signed": "no",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 1298704636,
+  "lat": 22.2844386,
+  "lon": 114.1533440,
+  "tags": {
+    "addr:country": "HK",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 1298704809,
+  "lat": 22.2827270,
+  "lon": 114.1539130,
+  "tags": {
+    "addr:country": "HK",
+    "addr:housenumber": "37",
+    "addr:street": "閣麟街 Cochrane Street",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "level": "0",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "opening_hours": "24/7",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 1298704812,
+  "lat": 22.2831281,
+  "lon": 114.1525967,
+  "tags": {
+    "addr:country": "HK",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 1298704911,
+  "lat": 22.2801542,
+  "lon": 114.1507690,
+  "tags": {
+    "addr:housenumber": "1",
+    "addr:street": "西摩道 Seymour Road",
+    "addr:unit": "7",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "internet_access": "wlan",
+    "internet_access:fee": "no",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "opening_hours": "24/7",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk"
+  }
+},
+{
+  "type": "node",
+  "id": 1298704931,
+  "lat": 22.2829501,
+  "lon": 114.1496140,
+  "tags": {
+    "addr:country": "HK",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 1335238161,
+  "lat": 22.2814045,
+  "lon": 114.1561338,
+  "tags": {
+    "addr:city": "Central",
+    "addr:country": "HK",
+    "addr:housenumber": "8-12",
+    "addr:street": "德己立街 D'Aguilar Street",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "level": "0",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 2092498560,
+  "lat": 22.2878981,
+  "lon": 114.1445921,
+  "tags": {
+    "addr:city": "Hong Kong",
+    "addr:housenumber": "125",
+    "addr:street": "德輔道西 Des Voeux Road West",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "opening_hours": "24/7",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 2123565666,
+  "lat": 22.2808970,
+  "lon": 114.1557202,
+  "tags": {
+    "addr:country": "HK",
+    "addr:housenumber": "3",
+    "addr:street": "蘭桂坊 Lan Kwai Fong",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "level": "0",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk"
+  }
+},
+{
+  "type": "node",
+  "id": 2124676772,
+  "lat": 22.2806182,
+  "lon": 114.1549693,
+  "tags": {
+    "addr:housenumber": "41",
+    "addr:street": "雲咸街 Wyndham Street",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 2124676780,
+  "lat": 22.2823260,
+  "lon": 114.1549876,
+  "tags": {
+    "addr:country": "HK",
+    "addr:housenumber": "76",
+    "addr:street": "威靈頓街 Wellington Street",
+    "amenity": "restaurant",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "level": "0",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "opening_hours": "24/7",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 2394929266,
+  "lat": 22.2833825,
+  "lon": 114.1545854,
+  "tags": {
+    "addr:country": "HK",
+    "addr:housenumber": "15",
+    "addr:street": "閣麟街 Cochrane Street",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "opening_hours": "24/7",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 2556738323,
+  "lat": 22.2797578,
+  "lon": 114.1636135,
+  "tags": {
+    "addr:city:en": "Hong Kong",
+    "branch": "Food",
+    "brand": "Marks & Spencer",
+    "brand:short": "M&S",
+    "brand:wikidata": "Q714491",
+    "name": "M&S Simply Food",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3141194051,
+  "lat": 22.2868983,
+  "lon": 114.1363146,
+  "tags": {
+    "name": "名店廣場 Top-hit Plaza",
+    "name:en": "Top-hit Plaza",
+    "name:zh": "名店廣場",
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 3276856747,
+  "lat": 22.2838062,
+  "lon": 114.1304409,
+  "tags": {
+    "name": "南海商場 Nan Hai Plaza",
+    "name:en": "Nan Hai Plaza",
+    "name:zh": "南海商場",
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 3714564365,
+  "lat": 22.2802457,
+  "lon": 114.1538518,
+  "tags": {
+    "addr:country": "HK",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4075184722,
+  "lat": 22.2839975,
+  "lon": 114.1510454,
+  "tags": {
+    "addr:country": "HK",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4092054341,
+  "lat": 22.2866764,
+  "lon": 114.1509663,
+  "tags": {
+    "addr:country": "HK",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "level": "0",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "opening_hours": "24/7",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4116103533,
+  "lat": 22.2806969,
+  "lon": 114.1278849,
+  "tags": {
+    "addr:country": "HK",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "level": "0",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4116132392,
+  "lat": 22.2872913,
+  "lon": 114.1387110,
+  "tags": {
+    "addr:country": "HK",
+    "addr:street": "德輔道西 Des Voeux Road West",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "level": "0",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4118418174,
+  "lat": 22.2875782,
+  "lon": 114.1473990,
+  "tags": {
+    "brand": "VanGO",
+    "brand:en": "VanGO",
+    "brand:wikidata": "Q10853203",
+    "level": "0",
+    "name": "VanGO",
+    "name:en": "VanGO",
+    "name:zh": "VanGO便利店",
+    "operator": "華潤萬家 Vanguard",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4118418178,
+  "lat": 22.2873262,
+  "lon": 114.1471040,
+  "tags": {
+    "addr:country": "HK",
+    "addr:housenumber": "1",
+    "addr:street": "皇后街 Queen Street",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "check_date": "2023-08-18",
+    "level": "0",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "opening_hours": "24/7",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4148659709,
+  "lat": 22.2823909,
+  "lon": 114.1522355,
+  "tags": {
+    "addr:housenumber": "36",
+    "addr:street": "士丹頓街 Staunton Street",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4155282341,
+  "lat": 22.2860842,
+  "lon": 114.1518796,
+  "tags": {
+    "addr:country": "HK",
+    "addr:housenumber": "89-91",
+    "addr:street": "永樂街 Wing Lok Street",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4168535490,
+  "lat": 22.2787117,
+  "lon": 114.1651602,
+  "tags": {
+    "addr:country": "HK",
+    "brand": "OK便利店 Circle K",
+    "brand:en": "Circle K",
+    "brand:wikidata": "Q3268010",
+    "brand:wikipedia": "zh:OK便利店",
+    "brand:zh": "OK便利店",
+    "brand:zh-Hans": "OK便利店",
+    "brand:zh-Hant": "OK便利店",
+    "name": "OK便利店 Circle K",
+    "name:en": "Circle K",
+    "name:zh": "OK便利店",
+    "name:zh-Hans": "OK便利店",
+    "name:zh-Hant": "OK便利店",
+    "shop": "convenience",
+    "website": "https://www.circlek.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4508787493,
+  "lat": 22.2832200,
+  "lon": 114.1546600,
+  "tags": {
+    "addr:housenumber": "10-16",
+    "addr:street": "閣麟街 Cochrane Street",
+    "brand": "OK便利店 Circle K",
+    "brand:en": "Circle K",
+    "brand:wikidata": "Q3268010",
+    "brand:wikipedia": "zh:OK便利店",
+    "brand:zh": "OK便利店",
+    "brand:zh-Hans": "OK便利店",
+    "brand:zh-Hant": "OK便利店",
+    "name": "OK便利店 Circle K",
+    "name:en": "Circle K",
+    "name:zh": "OK便利店",
+    "name:zh-Hans": "OK便利店",
+    "name:zh-Hant": "OK便利店",
+    "opening_hours": "24/7",
+    "shop": "convenience",
+    "website": "https://www.circlek.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4770543524,
+  "lat": 22.2853304,
+  "lon": 114.1506087,
+  "tags": {
+    "addr:city": "Hong Kong",
+    "addr:country": "HK",
+    "addr:housenumber": "106",
+    "addr:street": "蘇杭街 Jervois Street",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4848432326,
+  "lat": 22.2857799,
+  "lon": 114.1387729,
+  "tags": {
+    "addr:country": "HK",
+    "addr:street": "第三街 Third Street",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4862113242,
+  "lat": 22.2872421,
+  "lon": 114.1375858,
+  "tags": {
+    "addr:street": "德輔道西 Des Voeux Road West",
+    "name": "759",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4862113249,
+  "lat": 22.2875405,
+  "lon": 114.1386245,
+  "tags": {
+    "addr:country": "HK",
+    "addr:street": "德輔道西 Des Voeux Road West",
+    "brand": "OK便利店 Circle K",
+    "brand:en": "Circle K",
+    "brand:wikidata": "Q3268010",
+    "brand:wikipedia": "zh:OK便利店",
+    "brand:zh": "OK便利店",
+    "brand:zh-Hans": "OK便利店",
+    "brand:zh-Hant": "OK便利店",
+    "name": "OK便利店 Circle K",
+    "name:en": "Circle K",
+    "name:zh": "OK便利店",
+    "name:zh-Hans": "OK便利店",
+    "name:zh-Hant": "OK便利店",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017",
+    "website": "https://www.circlek.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4862122128,
+  "lat": 22.2876933,
+  "lon": 114.1395570,
+  "tags": {
+    "addr:country": "HK",
+    "addr:street": "德輔道西 Des Voeux Road West",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4862556858,
+  "lat": 22.2865696,
+  "lon": 114.1384082,
+  "tags": {
+    "addr:street": "皇后大道西 Queen's Road West",
+    "brand": "759阿信屋 759 Store",
+    "brand:wikidata": "Q10846179",
+    "brand:wikipedia": "en:759 Store",
+    "brand:zh": "759阿信屋",
+    "brand:zh-Hans": "759阿信屋",
+    "brand:zh-Hant": "759阿信屋",
+    "name": "759阿信屋 759 Store",
+    "name:en": "759 Store",
+    "name:zh": "759阿信屋",
+    "name:zh-Hans": "759阿信屋",
+    "name:zh-Hant": "759阿信屋",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4862556869,
+  "lat": 22.2859148,
+  "lon": 114.1364355,
+  "tags": {
+    "addr:street": "皇后大道西 Queen's Road West",
+    "name": "Ameyokocho",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4862580147,
+  "lat": 22.2865602,
+  "lon": 114.1337415,
+  "tags": {
+    "addr:country": "HK",
+    "addr:street": "皇后大道西 Queen's Road West",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4862618394,
+  "lat": 22.2864430,
+  "lon": 114.1387410,
+  "tags": {
+    "addr:country": "HK",
+    "addr:housenumber": "420-424",
+    "addr:street": "皇后大道西 Queen's Road West",
+    "addr:unit": "C",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "level": "0",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "opening_hours": "24/7",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk"
+  }
+},
+{
+  "type": "node",
+  "id": 4862618397,
+  "lat": 22.2859051,
+  "lon": 114.1355700,
+  "tags": {
+    "addr:street": "皇后大道西 Queen's Road West",
+    "brand": "優品360 Best Mart 360",
+    "brand:en": "Best Mart 360",
+    "brand:wikidata": "Q65117567",
+    "brand:zh": "優品360",
+    "level": "0",
+    "name": "優品360 Best Mart 360",
+    "name:en": "Best Mart 360",
+    "name:zh": "優品360",
+    "name:zh-Hans": "优品360",
+    "name:zh-Hant": "優品360",
+    "shop": "convenience",
+    "website": "https://www.bestmart360.com"
+  }
+},
+{
+  "type": "node",
+  "id": 4862626538,
+  "lat": 22.2837777,
+  "lon": 114.1309040,
+  "tags": {
+    "addr:country": "HK",
+    "addr:street": "卑路乍街 Belcher's Street",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4862637029,
+  "lat": 22.2826641,
+  "lon": 114.1289892,
+  "tags": {
+    "addr:country": "HK",
+    "addr:street": "卑路乍街 Belcher's Street",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4862637035,
+  "lat": 22.2821844,
+  "lon": 114.1283934,
+  "tags": {
+    "addr:country": "HK",
+    "addr:street": "士美菲路 Smithfield",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "opening_hours": "24/7",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4868739491,
+  "lat": 22.2793353,
+  "lon": 114.1519999,
+  "tags": {
+    "addr:housenumber": "28",
+    "addr:street": "羅便臣道 Robinson Road",
+    "addr:unit": "A",
+    "brand": "OK便利店 Circle K",
+    "brand:en": "Circle K",
+    "brand:wikidata": "Q3268010",
+    "brand:wikipedia": "zh:OK便利店",
+    "brand:zh": "OK便利店",
+    "brand:zh-Hans": "OK便利店",
+    "brand:zh-Hant": "OK便利店",
+    "level": "0",
+    "name": "OK便利店 Circle K",
+    "name:en": "Circle K",
+    "name:zh": "OK便利店",
+    "name:zh-Hans": "OK便利店",
+    "name:zh-Hant": "OK便利店",
+    "opening_hours": "07:00-23:00",
+    "shop": "convenience",
+    "website": "https://www.circlek.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4868739494,
+  "lat": 22.2798693,
+  "lon": 114.1507257,
+  "tags": {
+    "addr:housenumber": "1",
+    "addr:street": "西摩道 Seymour Road",
+    "addr:unit": "1;2",
+    "brand": "OK便利店 Circle K",
+    "brand:en": "Circle K",
+    "brand:wikidata": "Q3268010",
+    "brand:zh": "OK便利店",
+    "brand:zh-Hans": "OK便利店",
+    "brand:zh-Hant": "OK便利店",
+    "name": "OK便利店 Circle K",
+    "name:en": "Circle K",
+    "name:zh": "OK便利店",
+    "name:zh-Hans": "OK便利店",
+    "name:zh-Hant": "OK便利店",
+    "opening_hours": "07:00-23:30",
+    "shop": "convenience",
+    "website": "https://www.circlek.hk"
+  }
+},
+{
+  "type": "node",
+  "id": 4870025962,
+  "lat": 22.2815987,
+  "lon": 114.1282511,
+  "tags": {
+    "addr:street": "科士街 Forbes Street",
+    "addr:street:en": "Forbes Street",
+    "addr:street:zh": "科士街",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4870025963,
+  "lat": 22.2823005,
+  "lon": 114.1269723,
+  "tags": {
+    "brand": "OK便利店 Circle K",
+    "brand:en": "Circle K",
+    "brand:website": "http://www.circlek.hk",
+    "brand:wikidata": "Q3268010",
+    "brand:zh": "OK便利店",
+    "brand:zh-Hans": "OK便利店",
+    "brand:zh-Hant": "OK便利店",
+    "name": "OK便利店 Circle K",
+    "name:en": "Circle K",
+    "name:zh": "OK便利店",
+    "name:zh-Hans": "OK便利店",
+    "name:zh-Hant": "OK便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4870047894,
+  "lat": 22.2877372,
+  "lon": 114.1386272,
+  "tags": {
+    "addr:housenumber": "168",
+    "addr:street": "干諾道西 Connaught Road West",
+    "name": "森永大藥房 Worthy Dispensary",
+    "name:en": "Worthy Dispensary",
+    "name:zh": "森永大藥房",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4870058231,
+  "lat": 22.2833691,
+  "lon": 114.1291641,
+  "tags": {
+    "addr:country": "HK",
+    "addr:street": "吉席街 Catchick Street",
+    "brand": "OK便利店 Circle K",
+    "brand:en": "Circle K",
+    "brand:wikidata": "Q3268010",
+    "brand:wikipedia": "zh:OK便利店",
+    "brand:zh": "OK便利店",
+    "brand:zh-Hans": "OK便利店",
+    "brand:zh-Hant": "OK便利店",
+    "name": "OK便利店 Circle K",
+    "name:en": "Circle K",
+    "name:zh": "OK便利店",
+    "name:zh-Hans": "OK便利店",
+    "name:zh-Hant": "OK便利店",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017",
+    "website": "https://www.circlek.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 4870132927,
+  "lat": 22.2849970,
+  "lon": 114.1313245,
+  "tags": {
+    "addr:street": "堅彌地城海旁 Praya, Kennedy Town",
+    "name": "Kin Hing Hong co",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4870132929,
+  "lat": 22.2848897,
+  "lon": 114.1311991,
+  "tags": {
+    "addr:street": "堅彌地城海旁 Praya, Kennedy Town",
+    "name": "Hing Tat Trading",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 4870132934,
+  "lat": 22.2838481,
+  "lon": 114.1299047,
+  "tags": {
+    "addr:street": "堅彌地城海旁 Praya, Kennedy Town",
+    "name": "Free Market",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "node",
+  "id": 5522075922,
+  "lat": 22.2860141,
+  "lon": 114.1489574,
+  "tags": {
+    "addr:floor": "G",
+    "addr:housenumber": "368",
+    "addr:street": "皇后大道中 Queen's Road Central",
+    "addr:unit": "3",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5653670117,
+  "lat": 22.2850969,
+  "lon": 114.1425717,
+  "tags": {
+    "addr:housenumber": "24",
+    "addr:street": "高街 High Street",
+    "bulk_purchase": "only",
+    "name": "Live Zero",
+    "opening_hours": "Mo-Sa 11:00-20:00; Su 11:00-18:00",
+    "shop": "convenience",
+    "website": "https://livezero.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 5711855939,
+  "lat": 22.2820015,
+  "lon": 114.1534026,
+  "tags": {
+    "addr:city": "Central",
+    "addr:country": "HK",
+    "addr:housenumber": "30",
+    "addr:street": "荷李活道 Hollywood Road",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5728751800,
+  "lat": 22.2813770,
+  "lon": 114.1560953,
+  "tags": {
+    "addr:street": "德己立街 D'Aguilar Street",
+    "brand": "OK便利店 Circle K",
+    "brand:en": "Circle K",
+    "brand:wikidata": "Q3268010",
+    "brand:zh": "OK便利店",
+    "brand:zh-Hans": "OK便利店",
+    "brand:zh-Hant": "OK便利店",
+    "level": "0",
+    "name": "OK便利店 Circle K",
+    "name:en": "Circle K",
+    "name:zh": "OK便利店",
+    "name:zh-Hans": "OK便利店",
+    "name:zh-Hant": "OK便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5824533200,
+  "lat": 22.2834063,
+  "lon": 114.1301507,
+  "tags": {
+    "name": "OK便利店 Circle K",
+    "name:en": "Circle K",
+    "name:zh": "OK便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 6183613879,
+  "lat": 22.2811274,
+  "lon": 114.1283583,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "level": "-1",
+    "name": "7-Eleven",
+    "opening_hours": "Mo-Su 07:00-24:00",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 6183614044,
+  "lat": 22.2811993,
+  "lon": 114.1287996,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "level": "-1",
+    "name": "7-Eleven",
+    "opening_hours": "Mo-Su 07:00-23:00",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 6257931386,
+  "lat": 22.2707979,
+  "lon": 114.1310254,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "name:en": "7-11",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 6419143855,
+  "lat": 22.2855297,
+  "lon": 114.1542424,
+  "tags": {
+    "addr:housenumber": "154",
+    "addr:street": "德輔道中 Des Voeux Road Central",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 6463442685,
+  "lat": 22.2868867,
+  "lon": 114.1443606,
+  "tags": {
+    "addr:housenumber": "208",
+    "addr:street": "皇后大道西 Queen's Road West",
+    "name": "金源公司",
+    "name:en": "Jin Yuan tea shop",
+    "name:ru": "Чайный магазин Дзинь Уань",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 7639850987,
+  "lat": 22.2839491,
+  "lon": 114.1308335,
+  "tags": {
+    "addr:city": "堅尼地城 Kennedy Town",
+    "addr:housenumber": "23",
+    "addr:province": "Hong Kong",
+    "addr:street": "卑路乍街 Belcher's Street",
+    "amenity": "hospital",
+    "emergency": "no",
+    "healthcare": "hospital",
+    "healthcare:speciality": "speech_therapy",
+    "name": "香港大學言語及聽覺診所",
+    "name:en": "Speech, Language and Hearing Clinic, The University of Hong Kong",
+    "name:zh": "香港大學言語及聽覺診所",
+    "operator": "Human Communication, Development and Information Sciences, Faculty of Education, The University of Hong Kong",
+    "operator:type": "private"
+  }
+},
+{
+  "type": "node",
+  "id": 8779004018,
+  "lat": 22.2841035,
+  "lon": 114.1549522,
+  "tags": {
+    "addr:country": "HK",
+    "addr:housenumber": "1",
+    "addr:street": "租庇利街 Jubilee Street",
+    "addr:unit": "C",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 8968691019,
+  "lat": 22.2857927,
+  "lon": 114.1490951,
+  "tags": {
+    "name": "偉利廣場 Welland Plaza",
+    "name:en": "Welland Plaza",
+    "name:zh": "偉利廣場",
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 8999689180,
+  "lat": 22.2826911,
+  "lon": 114.1269994,
+  "tags": {
+    "addr:street": "厚和街 Hau Wo Street",
+    "addr:street:en": "Hau Wo Street",
+    "addr:street:wikidata": "Q131611114",
+    "addr:street:zh": "厚和街",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 8999689181,
+  "lat": 22.2820126,
+  "lon": 114.1282398,
+  "tags": {
+    "addr:street": "士美菲路 Smithfield",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 8999689182,
+  "lat": 22.2823621,
+  "lon": 114.1273946,
+  "tags": {
+    "addr:street": "卑路乍街 Belcher's Street",
+    "addr:street:en": "Belcher's Street",
+    "addr:street:wikidata": "Q4882048",
+    "addr:street:zh": "卑路乍街",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9171211113,
+  "lat": 22.2857773,
+  "lon": 114.1350081,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9295851534,
+  "lat": 22.2849248,
+  "lon": 114.1552619,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9295851535,
+  "lat": 22.2831802,
+  "lon": 114.1566914,
+  "tags": {
+    "addr:housenumber": "40-42",
+    "addr:street": "德輔道中 Des Voeux Road Central",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "check_date": "2025-03-29",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10247772946,
+  "lat": 22.2873931,
+  "lon": 114.1593483,
+  "tags": {
+    "name": "Kk Store",
+    "name:en": "Kk Store",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10787281289,
+  "lat": 22.2616461,
+  "lon": 114.1296704,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10787281291,
+  "lat": 22.2616981,
+  "lon": 114.1301479,
+  "tags": {
+    "addr:housenumber": "100",
+    "addr:street": "數碼港道 Cyberport Road",
+    "addr:street:en": "Cyberport Road",
+    "addr:street:wikidata": "Q11079495",
+    "addr:street:zh": "數碼港道",
+    "name": "數碼港零售服務中心 The Annex",
+    "name:en": "The Annex",
+    "name:zh": "數碼港零售服務中心",
+    "name:zh-Hans": "数码港零售服务中心",
+    "name:zh-Hant": "數碼港零售服務中心",
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 11090962234,
+  "lat": 22.2867945,
+  "lon": 114.1433284,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11090962238,
+  "lat": 22.2877975,
+  "lon": 114.1421486,
+  "tags": {
+    "addr:housenumber": "232",
+    "addr:street": "德輔道西 Des Voeux Road West",
+    "name": "OK便利店 Circle K",
+    "name:en": "Circle K",
+    "name:zh": "OK便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11267651157,
+  "lat": 22.2814145,
+  "lon": 114.1526747,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.hk/"
+  }
+},
+{
+  "type": "node",
+  "id": 11497664151,
+  "lat": 22.2868299,
+  "lon": 114.1611191,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11497664152,
+  "lat": 22.2878456,
+  "lon": 114.1574437,
+  "tags": {
+    "brand": "OK便利店 Circle K",
+    "brand:en": "Circle K",
+    "brand:wikidata": "Q3268010",
+    "brand:zh": "OK便利店",
+    "brand:zh-Hans": "OK便利店",
+    "brand:zh-Hant": "OK便利店",
+    "level": "0",
+    "name": "OK便利店 Circle K",
+    "name:en": "Circle K",
+    "name:zh": "OK便利店",
+    "name:zh-Hans": "OK便利店",
+    "name:zh-Hant": "OK便利店",
+    "opening_hours": "Mo-Su,PH 08:00-18:00+",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11770657543,
+  "lat": 22.2705095,
+  "lon": 114.1499056,
+  "tags": {
+    "addr:unit": "G07",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "level": "0",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12153237221,
+  "lat": 22.2857134,
+  "lon": 114.1499478,
+  "tags": {
+    "addr:housenumber": "333",
+    "addr:street": "皇后大道中 Queen's Road Central",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12158072876,
+  "lat": 22.2862603,
+  "lon": 114.1505038,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:en": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12197871855,
+  "lat": 22.2862871,
+  "lon": 114.1484956,
+  "tags": {
+    "brand": "OK便利店 Circle K",
+    "brand:en": "Circle K",
+    "brand:wikidata": "Q3268010",
+    "brand:zh": "OK便利店",
+    "brand:zh-Hans": "OK便利店",
+    "brand:zh-Hant": "OK便利店",
+    "name": "OK便利店 Circle K",
+    "name:en": "Circle K",
+    "name:zh": "OK便利店",
+    "name:zh-Hans": "OK便利店",
+    "name:zh-Hant": "OK便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12566653793,
+  "lat": 22.2844551,
+  "lon": 114.1428696,
+  "tags": {
+    "addr:housenumber": "15",
+    "addr:street": "般咸道 Bonham Road",
+    "brand": "OK便利店 Circle K",
+    "brand:en": "Circle K",
+    "brand:wikidata": "Q3268010",
+    "brand:zh": "OK便利店",
+    "brand:zh-Hans": "OK便利店",
+    "brand:zh-Hant": "OK便利店",
+    "name": "OK便利店 Circle K",
+    "name:en": "Circle K",
+    "name:zh": "OK便利店",
+    "name:zh-Hans": "OK便利店",
+    "name:zh-Hant": "OK便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12579188979,
+  "lat": 22.2856060,
+  "lon": 114.1421494,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13865049581,
+  "lat": 22.2858944,
+  "lon": 114.1352505,
+  "tags": {
+    "brand": "759阿信屋 759 Store",
+    "brand:en": "759 Store",
+    "brand:wikidata": "Q10846179",
+    "brand:zh": "759阿信屋",
+    "brand:zh-Hans": "759阿信屋",
+    "brand:zh-Hant": "759阿信屋",
+    "name": "759阿信屋 759 Store",
+    "name:en": "759 Store",
+    "name:zh": "759阿信屋",
+    "name:zh-Hans": "759阿信屋",
+    "name:zh-Hant": "759阿信屋",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 26599372,
+  "center": {
+    "lat": 22.2873085,
+    "lon": 114.1503653
+  },
+  "tags": {
+    "addr:housenumber": "323",
+    "addr:street": "德輔道中 Des Voeux Road Central",
+    "addr:street:carriageway_ref:kmb": "E",
+    "addr:street:en": "Des Voeux Road Central",
+    "addr:street:ref:kmb": "DE02",
+    "addr:street:wikidata": "Q13163706",
+    "addr:street:zh": "德輔道中",
+    "building": "civic",
+    "building:use": "retail",
+    "construction_date": "1906",
+    "heritage": "3",
+    "historic": "building",
+    "landuse": "retail",
+    "name": "西港城 Western Market",
+    "name:en": "Western Market",
+    "name:zh": "西港城",
+    "protection_title": "法定古蹟 Declared Monument",
+    "protection_title:en": "Declared Monument",
+    "protection_title:wikidata": "Q1939635",
+    "protection_title:zh": "法定古蹟",
+    "ref": "M0042",
+    "ref:hk": "M0042",
+    "shop": "mall",
+    "start_date": "1991",
+    "was:name": "上環街市北座 Western Market North Block",
+    "was:name:en": "Western Market North Block",
+    "was:name:zh": "上環街市北座",
+    "wikidata": "Q3052497",
+    "wikimedia_commons": "Category:Western Market",
+    "wikipedia": "en:Western Market"
+  }
+},
+{
+  "type": "way",
+  "id": 27030088,
+  "center": {
+    "lat": 22.2576472,
+    "lon": 114.1387857
+  },
+  "tags": {
+    "building": "retail",
+    "building:levels": "5",
+    "layer": "1",
+    "name": "置富南區廣場 Chi Fu Landmark",
+    "name:en": "Chi Fu Landmark",
+    "name:zh": "置富南區廣場",
+    "name:zh-Hans": "置富南区广场",
+    "name:zh-Hant": "置富南區廣場",
+    "shop": "mall",
+    "start_date": "1981"
+  }
+},
+{
+  "type": "way",
+  "id": 41498903,
+  "center": {
+    "lat": 22.2772612,
+    "lon": 114.1654030
+  },
+  "tags": {
+    "addr:borough": "中區 Central District",
+    "addr:borough:en": "Central District",
+    "addr:borough:zh": "中區",
+    "addr:housename": "太古廣場 Pacific Place",
+    "addr:housename:en": "Pacific Place",
+    "addr:housename:zh": "太古廣場",
+    "addr:housenumber": "88",
+    "addr:street": "金鐘道 Queensway",
+    "addr:street:en": "Queensway",
+    "addr:street:zh": "金鐘道",
+    "addr:suburb": "金鐘 Admiralty",
+    "addr:suburb:en": "Admiralty",
+    "addr:suburb:zh": "金鐘",
+    "building": "retail",
+    "landuse": "commercial",
+    "layer": "2",
+    "name": "太古廣場 Pacific Place",
+    "name:en": "Pacific Place",
+    "name:zh": "太古廣場",
+    "name:zh-Hans": "太古广场",
+    "name:zh-Hant": "太古廣場",
+    "shop": "mall",
+    "website": "https://www.pacificplace.com.hk/",
+    "wikidata": "Q5292940",
+    "wikimedia_commons": "Category:Pacific Place",
+    "wikipedia": "zh:太古廣場"
+  }
+},
+{
+  "type": "way",
+  "id": 42293788,
+  "center": {
+    "lat": 22.2812223,
+    "lon": 114.1591739
+  },
+  "tags": {
+    "addr:housename": "置地廣場 LANDMARK",
+    "addr:housename:en": "LANDMARK",
+    "addr:housename:zh": "置地廣場",
+    "addr:housenumber": "10",
+    "addr:street": "遮打道 Chater Road",
+    "addr:street:en": "Chater Road",
+    "addr:street:zh": "遮打道",
+    "addr:unit": "置地太子 LANDMARK PRINCE'S",
+    "addr:unit:en": "LANDMARK PRINCE'S",
+    "addr:unit:zh": "置地太子",
+    "building": "retail",
+    "building:colour": "#DDD5CC",
+    "building:levels": "5",
+    "building:levels:underground": "1",
+    "building:material": "concrete",
+    "layer": "1",
+    "mall": "part",
+    "name": "置地太子 LANDMARK PRINCE'S",
+    "name:en": "LANDMARK PRINCE'S",
+    "name:zh": "置地太子",
+    "name:zh-Hans": "置地太子",
+    "name:zh-Hant": "置地太子",
+    "roof:material": "grass",
+    "shop": "mall",
+    "wikidata": "Q7243728",
+    "wikimedia_commons": "Category:Prince's Building",
+    "wikipedia": "zh:太子大廈"
+  }
+},
+{
+  "type": "way",
+  "id": 44627848,
+  "center": {
+    "lat": 22.2698769,
+    "lon": 114.1316863
+  },
+  "tags": {
+    "addr:housename": "瑪麗醫院 Queen Mary Hospital",
+    "addr:housename:en": "Queen Mary Hospital",
+    "addr:housename:zh": "瑪麗醫院",
+    "addr:housenumber": "102",
+    "addr:street": "薄扶林道 Pok Fu Lam Road",
+    "addr:suburb": "薄扶林 Pok Fu Lam",
+    "addr:suburb:en": "Pok Fu Lam",
+    "addr:suburb:zh": "薄扶林",
+    "amenity": "hospital",
+    "education": "yes",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "name": "瑪麗醫院 Queen Mary Hospital",
+    "name:en": "Queen Mary Hospital",
+    "name:zh": "瑪麗醫院",
+    "name:zh-Hans": "玛丽医院",
+    "name:zh-Hant": "瑪麗醫院",
+    "operator": "醫院管理局 Hospital Authority",
+    "operator:en": "Hospital Authority",
+    "operator:short": "HA",
+    "operator:type": "public",
+    "operator:wikidata": "Q5908350",
+    "operator:zh": "醫院管理局",
+    "operator:zh-Hans": "医院管理局",
+    "operator:zh-Hant": "醫院管理局",
+    "university": "yes",
+    "wikidata": "Q7270465",
+    "wikimedia_commons": "Category:Queen Mary Hospital, Hong Kong",
+    "wikipedia": "en:Queen Mary Hospital (Hong Kong)"
+  }
+},
+{
+  "type": "way",
+  "id": 112687053,
+  "center": {
+    "lat": 22.2863236,
+    "lon": 114.1368248
+  },
+  "tags": {
+    "addr:housenumber": "402-404",
+    "addr:street": "德輔道西 Des Voeux Road West",
+    "building": "retail",
+    "building:function": "podium",
+    "building:levels": "2",
+    "name": "石塘坊 The Rockpool",
+    "name:en": "The Rockpool",
+    "name:zh": "石塘坊",
+    "old_name": "創業商場 Chong Yip Shopping Centre",
+    "old_name:en": "Chong Yip Shopping Centre",
+    "old_name:zh": "創業商場",
+    "shop": "mall",
+    "wikidata": "Q10899300",
+    "wikipedia": "zh:石塘坊"
+  }
+},
+{
+  "type": "way",
+  "id": 143716612,
+  "center": {
+    "lat": 22.2712551,
+    "lon": 114.1499859
+  },
+  "tags": {
+    "addr:housenumber": "128",
+    "addr:street": "山頂道 Peak Road",
+    "building": "yes",
+    "layer": "1",
+    "name": "凌霄閣 Peak Tower",
+    "name:en": "Peak Tower",
+    "name:ko": "피크 타워",
+    "name:zh": "凌霄閣",
+    "shop": "mall",
+    "website": "https://www.thepeak.com.hk/en/1_2_1.asp",
+    "wikidata": "Q110665748",
+    "wikimedia_commons": "Category:Peak Tower (first design)",
+    "wikipedia": "zh:凌霄閣"
+  }
+},
+{
+  "type": "way",
+  "id": 156335591,
+  "center": {
+    "lat": 22.2703574,
+    "lon": 114.1500221
+  },
+  "tags": {
+    "addr:housenumber": "118",
+    "addr:street": "山頂道 Peak Road",
+    "building": "yes",
+    "layer": "2",
+    "name": "山頂廣場 The Peak Galleria",
+    "name:en": "The Peak Galleria",
+    "name:ko": "피크 갤러리아",
+    "name:zh": "山頂廣場",
+    "shop": "mall",
+    "website": "https://www.peakgalleria.com/",
+    "wikidata": "Q7756440",
+    "wikimedia_commons": "Category:The Peak Galleria",
+    "wikipedia": "en:The Peak Galleria"
+  }
+},
+{
+  "type": "way",
+  "id": 158306315,
+  "center": {
+    "lat": 22.2864115,
+    "lon": 114.1536840
+  },
+  "tags": {
+    "addr:housenumber": "199",
+    "addr:street": "德輔道中 Des Voeux Road Central",
+    "addr:street:carriageway_ref:kmb": "E",
+    "addr:street:en": "Des Voeux Road Central",
+    "addr:street:ref:kmb": "DE02",
+    "addr:street:wikidata": "Q13163706",
+    "addr:street:zh": "德輔道中",
+    "building": "commercial",
+    "building:levels": "29",
+    "landuse": "commercial",
+    "layer": "2",
+    "name": "無限極廣場 Infinitus Plaza",
+    "name:en": "Infinitus Plaza",
+    "name:zh": "無限極廣場",
+    "name:zh-Hans": "无限极广场",
+    "name:zh-Hant": "無限極廣場",
+    "old_name": "維德廣場 Vicwood Plaza",
+    "old_name:en": "Vicwood Plaza",
+    "old_name:zh": "維德廣場",
+    "shop": "mall",
+    "was:name": "維德廣場 Vicwood Plaza",
+    "was:name:en": "Vicwood Plaza",
+    "was:name:zh": "維德廣場",
+    "wikidata": "Q7220843"
+  }
+},
+{
+  "type": "way",
+  "id": 200238459,
+  "center": {
+    "lat": 22.2821805,
+    "lon": 114.1567113
+  },
+  "tags": {
+    "addr:housenumber": "1-7",
+    "addr:street": "戲院里 Theatre Lane",
+    "building": "yes",
+    "name": "陸海通大廈 LHT Tower",
+    "name:en": "LHT Tower",
+    "name:zh": "陸海通大廈",
+    "shop": "mall",
+    "wikidata": "Q6701549",
+    "wikimedia_commons": "Category:LHT Tower, Hong Kong",
+    "wikipedia": "en:LHT Tower"
+  }
+},
+{
+  "type": "way",
+  "id": 231602696,
+  "center": {
+    "lat": 22.2610498,
+    "lon": 114.1298692
+  },
+  "tags": {
+    "addr:housenumber": "100",
+    "addr:street": "數碼港道 Cyberport Road",
+    "addr:street:en": "Cyberport Road",
+    "addr:street:wikidata": "Q11079495",
+    "addr:street:zh": "數碼港道",
+    "building": "yes",
+    "layer": "1",
+    "name": "數碼港商場 The Arcade at Cyberport",
+    "name:en": "The Arcade at Cyberport",
+    "name:zh": "數碼港商場",
+    "name:zh-Hans": "数码港商场",
+    "name:zh-Hant": "數碼港商場",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 295407307,
+  "center": {
+    "lat": 22.2804917,
+    "lon": 114.1584925
+  },
+  "tags": {
+    "addr:housenumber": "9",
+    "addr:street": "皇后大道中 Queen's Road Central",
+    "addr:street:en": "Queen's Road Central",
+    "addr:street:zh": "皇后大道中",
+    "addr:unit": "嘉軒廣場 The Galleria",
+    "addr:unit:en": "The Galleria",
+    "addr:unit:zh": "嘉軒廣場",
+    "building": "retail",
+    "building:colour": "#BBAA99",
+    "building:levels": "3",
+    "name": "嘉軒廣場 The Galleria",
+    "name:en": "The Galleria",
+    "name:zh": "嘉軒廣場",
+    "name:zh-Hans": "嘉轩广场",
+    "name:zh-Hant": "嘉軒廣場",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 367544824,
+  "center": {
+    "lat": 22.2771330,
+    "lon": 114.1539525
+  },
+  "tags": {
+    "addr:city": "Mid-Levels",
+    "addr:housenumber": "1",
+    "addr:street": "舊山頂道 Old Peak Road",
+    "amenity": "hospital",
+    "emergency": "no",
+    "healthcare": "hospital",
+    "name": "嘉諾撒醫院 Canossa Hospital",
+    "name:en": "Canossa Hospital",
+    "name:zh": "嘉諾撒醫院",
+    "name:zh-Hans": "嘉诺撒医院",
+    "name:zh-Hant": "嘉諾撒醫院",
+    "operator": "香港明愛",
+    "wikidata": "Q5033461",
+    "wikimedia_commons": "Category:Canossa Hospital (Caritas)",
+    "wikipedia": "en:Canossa Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 425557574,
+  "center": {
+    "lat": 22.2850008,
+    "lon": 114.1467402
+  },
+  "tags": {
+    "addr:housenumber": "12",
+    "addr:street": "普仁街 Po Yan Street",
+    "amenity": "hospital",
+    "emergency": "no",
+    "healthcare": "hospital",
+    "name": "東華醫院 Tung Wah Hospital",
+    "name:en": "Tung Wah Hospital",
+    "name:zh": "東華醫院",
+    "operator": "醫院管理局 Hospital Authority",
+    "operator:en": "Hospital Authority",
+    "operator:short": "HA",
+    "operator:type": "public",
+    "operator:wikidata": "Q5908350",
+    "operator:zh": "醫院管理局",
+    "operator:zh-Hans": "医院管理局",
+    "operator:zh-Hant": "醫院管理局",
+    "wikidata": "Q2151127",
+    "wikimedia_commons": "Category:Tung Wah Hospital",
+    "wikipedia": "en:Tung Wah Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 445058715,
+  "center": {
+    "lat": 22.2715263,
+    "lon": 114.1241170
+  },
+  "tags": {
+    "addr:housenumber": "12",
+    "addr:street": "大口環道 Sandy Bay Road",
+    "amenity": "hospital",
+    "emergency": "no",
+    "healthcare": "hospital",
+    "name": "大口環根德公爵夫人兒童醫院 The Duchess of Kent Children's Hospital at Sandy Bay",
+    "name:en": "The Duchess of Kent Children's Hospital at Sandy Bay",
+    "name:zh": "大口環根德公爵夫人兒童醫院",
+    "name:zh-Hans": "大口环根德公爵夫人儿童医院",
+    "name:zh-Hant": "大口環根德公爵夫人兒童醫院",
+    "operator": "醫院管理局 Hospital Authority",
+    "operator:en": "Hospital Authority",
+    "operator:short": "HA",
+    "operator:type": "public",
+    "operator:wikidata": "Q5908350",
+    "operator:zh": "醫院管理局",
+    "operator:zh-Hans": "医院管理局",
+    "operator:zh-Hant": "醫院管理局",
+    "wikidata": "Q7731115",
+    "wikimedia_commons": "Category:The Duchess of Kent Children's Hospital at Sandy Bay",
+    "wikipedia": "en:The Duchess of Kent Children's Hospital at Sandy Bay"
+  }
+},
+{
+  "type": "way",
+  "id": 445058801,
+  "center": {
+    "lat": 22.2713859,
+    "lon": 114.1248852
+  },
+  "tags": {
+    "addr:housenumber": "9",
+    "addr:street": "大口環道 Sandy Bay Road",
+    "amenity": "hospital",
+    "emergency": "no",
+    "healthcare": "hospital",
+    "name": "東華三院馮堯敬醫院 TWGHs Fung Yiu King Hospital",
+    "name:en": "TWGHs Fung Yiu King Hospital",
+    "name:zh": "東華三院馮堯敬醫院",
+    "name:zh-Hans": "东华三院冯尧敬医院",
+    "name:zh-Hant": "東華三院馮堯敬醫院",
+    "operator": "醫院管理局 Hospital Authority",
+    "operator:en": "Hospital Authority",
+    "operator:short": "HA",
+    "operator:type": "public",
+    "operator:wikidata": "Q5908350",
+    "operator:zh": "醫院管理局",
+    "operator:zh-Hans": "医院管理局",
+    "operator:zh-Hant": "醫院管理局",
+    "wikidata": "Q7853013",
+    "wikimedia_commons": "Category:Tung Wah Group of Hospitals Fung Yiu King Hospital",
+    "wikipedia": "en:Tung Wah Group of Hospitals Fung Yiu King Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 445060456,
+  "center": {
+    "lat": 22.2699463,
+    "lon": 114.1242805
+  },
+  "tags": {
+    "addr:housenumber": "7",
+    "addr:street": "沙灣徑 Sha Wan Drive",
+    "amenity": "hospital",
+    "emergency": "no",
+    "healthcare": "hospital",
+    "name": "麥理浩復康院 Maclehose Medical Rehabilitation Centre",
+    "name:en": "Maclehose Medical Rehabilitation Centre",
+    "name:zh": "麥理浩復康院",
+    "name:zh-Hans": "麦理浩复康院",
+    "name:zh-Hant": "麥理浩復康院",
+    "operator": "醫院管理局 Hospital Authority",
+    "operator:en": "Hospital Authority",
+    "operator:short": "HA",
+    "operator:type": "public",
+    "operator:wikidata": "Q5908350",
+    "operator:zh": "醫院管理局",
+    "operator:zh-Hans": "医院管理局",
+    "operator:zh-Hant": "醫院管理局",
+    "wikidata": "Q6722006",
+    "wikimedia_commons": "Category:MacLehose Medical Rehabilitation Centre",
+    "wikipedia": "en:MacLehose Medical Rehabilitation Centre"
+  }
+},
+{
+  "type": "way",
+  "id": 494725658,
+  "center": {
+    "lat": 22.2622823,
+    "lon": 114.1329990
+  },
+  "tags": {
+    "brand": "Shell Select",
+    "brand:wikidata": "Q124359752",
+    "building": "yes",
+    "name": "Shell Select",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 756201201,
+  "center": {
+    "lat": 22.2857452,
+    "lon": 114.1331874
+  },
+  "tags": {
+    "addr:city": "Sai Wan",
+    "addr:housenumber": "8",
+    "addr:street": "卑路乍街 Belcher's Street",
+    "addr:street:en": "Belcher's Street",
+    "addr:street:wikidata": "Q4882048",
+    "addr:street:zh": "卑路乍街",
+    "building:part": "retail",
+    "fixme": "area",
+    "layer": "0",
+    "name": "西寶城 The Westwood",
+    "name:en": "The Westwood",
+    "name:zh": "西寶城",
+    "shop": "mall",
+    "sorting_name:en": "Westwood"
+  }
+},
+{
+  "type": "way",
+  "id": 762788090,
+  "center": {
+    "lat": 22.2816448,
+    "lon": 114.1325452
+  },
+  "tags": {
+    "brand": "uSmile 昆仑好客",
+    "brand:en": "uSmile",
+    "brand:wikidata": "Q66480830",
+    "brand:zh": "昆仑好客",
+    "building": "retail",
+    "layer": "0",
+    "name": "uSmile 昆仑好客",
+    "name:en": "uSmile",
+    "name:zh": "昆仑好客",
+    "not:brand": "uSmile 崑崙好客",
+    "not:brand:zh": "崑崙好客",
+    "not:name": "uSmile 崑崙好客",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 818043387,
+  "center": {
+    "lat": 22.2859452,
+    "lon": 114.1486455
+  },
+  "tags": {
+    "building": "yes",
+    "building:levels": "2",
+    "name": "福陞商場 Fook Shing Shopping Arcade",
+    "name:en": "Fook Shing Shopping Arcade",
+    "name:zh": "福陞商場",
+    "residential": "urban",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 948423604,
+  "center": {
+    "lat": 22.2593124,
+    "lon": 114.1492353
+  },
+  "tags": {
+    "addr:housenumber": "41",
+    "addr:street": "加列山道 Mount Kellett Road",
+    "addr:street:en": "Mount Kellett Road",
+    "addr:street:zh": "加列山道",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "明德國際醫院 Matilda International Hospital",
+    "name:en": "Matilda International Hospital",
+    "name:zh": "明德國際醫院",
+    "wikidata": "Q6787511",
+    "wikimedia_commons": "Category:Matilda International Hospital",
+    "wikipedia": "en:Matilda International Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 969248426,
+  "center": {
+    "lat": 22.2852890,
+    "lon": 114.1499168
+  },
+  "tags": {
+    "addr:housenumber": "328",
+    "addr:street": "皇后大道中 Queen's Road Central",
+    "building": "commercial",
+    "building:levels": "25",
+    "layer": "1",
+    "name": "中源廣場 Midland Plaza",
+    "name:en": "Midland Plaza",
+    "name:zh": "中源廣場",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 969277821,
+  "center": {
+    "lat": 22.2849732,
+    "lon": 114.1497161
+  },
+  "tags": {
+    "addr:housenumber": "38",
+    "addr:street": "樂古道 Lok Ku Road",
+    "building": "commercial",
+    "building:levels": "5",
+    "layer": "1",
+    "name": "嚤囉街中心 Cat Street Galleries",
+    "name:en": "Cat Street Galleries",
+    "name:zh": "嚤囉街中心",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 988672084,
+  "center": {
+    "lat": 22.2840251,
+    "lon": 114.1553841
+  },
+  "tags": {
+    "addr:housenumber": "80",
+    "addr:street": "德輔道中 Des Voeux Road Central",
+    "addr:street:en": "Des Voeux Road Central",
+    "addr:street:zh": "德輔道中",
+    "addr:suburb": "中環 Central",
+    "addr:suburb:en": "Central",
+    "addr:suburb:zh": "中環",
+    "construction_date": "1914",
+    "heritage": "3",
+    "heritage:ref": "599",
+    "historic": "marketplace",
+    "landuse": "retail",
+    "name": "中環街市 Central Market",
+    "name:en": "Central Market",
+    "name:zh": "中環街市",
+    "operation": "public",
+    "operator": "市區重建局 Urban Renewal Authority",
+    "operator:en": "Urban Renewal Authority",
+    "operator:zh": "市區重建局",
+    "ownership": "government",
+    "protection_title": "三級歷史建築 Grade III historic building",
+    "protection_title:en": "Grade III historic building",
+    "protection_title:wikidata": "Q56750552",
+    "protection_title:zh": "三級歷史建築",
+    "ref:HK": "599",
+    "shop": "mall",
+    "start_date": "2021-09",
+    "was:amenity": "marketplace",
+    "was:end_date": "2003"
+  }
+},
+{
+  "type": "way",
+  "id": 1326226144,
+  "center": {
+    "lat": 22.2863256,
+    "lon": 114.1445818
+  },
+  "tags": {
+    "addr:housenumber": "30",
+    "addr:street": "醫院道 Hospital Road",
+    "amenity": "hospital",
+    "emergency": "no",
+    "healthcare": "hospital",
+    "name": "贊育醫院 Tsan Yuk Hospital",
+    "name:en": "Tsan Yuk Hospital",
+    "name:zh": "贊育醫院",
+    "operator": "醫院管理局 Hospital Authority",
+    "operator:en": "Hospital Authority",
+    "operator:short": "HA",
+    "operator:type": "public",
+    "operator:wikidata": "Q5908350",
+    "operator:zh": "醫院管理局",
+    "operator:zh-Hans": "医院管理局",
+    "operator:zh-Hant": "醫院管理局",
+    "wheelchair": "yes",
+    "wikidata": "Q7849355",
+    "wikimedia_commons": "Category:Tsan Yuk Hospital",
+    "wikipedia": "en:Tsan Yuk Hospital"
+  }
+},
+{
+  "type": "relation",
+  "id": 2462122,
+  "center": {
+    "lat": 22.2887253,
+    "lon": 114.1520685
+  },
+  "tags": {
+    "access:ferry": "private",
+    "addr:housename": "信德中心 Shun Tak Centre",
+    "addr:housename:en": "Shun Tak Centre",
+    "addr:housename:zh": "信德中心",
+    "addr:street": "干諾道中 Connaught Road Central",
+    "addr:street:en": "Connaught Road Central",
+    "addr:street:zh": "干諾道中",
+    "amenity": "ferry_terminal",
+    "ferry": "yes",
+    "importance": "regional",
+    "name": "港澳客運碼頭 Hong Kong-Macau Ferry Terminal",
+    "name:en": "Hong Kong-Macau Ferry Terminal",
+    "name:zh": "港澳客運碼頭",
+    "nohousenumber": "separate",
+    "passenger": "international",
+    "public_transport": "station",
+    "public_transport:ferry": "yes",
+    "shop": "mall",
+    "short_name": "港澳碼頭 Macau Ferry",
+    "short_name:en": "Macau Ferry",
+    "short_name:zh": "港澳碼頭",
+    "station": "ferry",
+    "type": "multipolygon",
+    "wikidata": "Q3207485",
+    "wikipedia": "en:Hong Kong–Macau Ferry Terminal"
+  }
+},
+{
+  "type": "relation",
+  "id": 13849938,
+  "center": {
+    "lat": 22.2852191,
+    "lon": 114.1583274
+  },
+  "tags": {
+    "building": "retail",
+    "building:levels": "4",
+    "layer": "2",
+    "name": "國際金融中心商場 International Finance Centre Mall",
+    "name:en": "International Finance Centre Mall",
+    "name:zh": "國際金融中心商場",
+    "name:zh-Hans": "国际金融中心商场",
+    "name:zh-Hant": "國際金融中心商場",
+    "shop": "mall",
+    "type": "multipolygon",
+    "website": "http://ifc.com.hk/en/mall/",
+    "wikidata": "Q10927440"
+  }
+},
+{
+  "type": "relation",
+  "id": 14937822,
+  "center": {
+    "lat": 22.2879274,
+    "lon": 114.1518648
+  },
+  "tags": {
+    "addr:housename": "信德中心 Shun Tak Centre",
+    "addr:housename:en": "Shun Tak Centre",
+    "addr:housename:zh": "信德中心",
+    "addr:street": "干諾道中 Connaught Road Central",
+    "addr:street:en": "Connaught Road Central",
+    "addr:street:zh": "干諾道中",
+    "building": "retail",
+    "building:function": "podium",
+    "building:levels": "4",
+    "landmark": "motor_vehicle",
+    "layer": "1",
+    "name": "信德中心 Shun Tak Centre",
+    "name:en": "Shun Tak Centre",
+    "name:zh": "信德中心",
+    "name:zh-Hans": "信德中心",
+    "name:zh-Hant": "信德中心",
+    "nohousenumber": "separate",
+    "shop": "mall",
+    "type": "multipolygon",
+    "wikidata": "Q2753908",
+    "wikipedia": "zh:信德中心"
+  }
+},
+{
+  "type": "relation",
+  "id": 17383281,
+  "center": {
+    "lat": 22.2792492,
+    "lon": 114.1642110
+  },
+  "tags": {
+    "addr:housenumber": "93",
+    "addr:street": "金鐘道 Queensway",
+    "addr:street:en": "Queensway",
+    "addr:street:zh": "金鐘道",
+    "building": "yes",
+    "building:levels": "3",
+    "building:use": "retail",
+    "layer": "1",
+    "name": "金鐘廊 Queensway Plaza",
+    "name:en": "Queensway Plaza",
+    "name:zh": "金鐘廊",
+    "name:zh-Hans": "金钟廊",
+    "name:zh-Hant": "金鐘廊",
+    "operation": "for_profit",
+    "operator:ownership": "private",
+    "operator:type": "private",
+    "ownership": "government",
+    "shop": "mall",
+    "type": "multipolygon",
+    "wikidata": "Q15906060"
+  }
+},
+{
+  "type": "relation",
+  "id": 17417565,
+  "center": {
+    "lat": 22.2814089,
+    "lon": 114.1584103
+  },
+  "tags": {
+    "addr:housename": "置地廣場 LANDMARK",
+    "addr:housename:en": "LANDMARK",
+    "addr:housename:zh": "置地廣場",
+    "addr:suburb": "中環 Central",
+    "addr:suburb:en": "Central",
+    "addr:suburb:zh": "中環",
+    "landuse": "commercial",
+    "name": "置地廣場 LANDMARK",
+    "name:en": "LANDMARK",
+    "name:zh": "置地廣場",
+    "nohousenumber": "separate",
+    "office": "complex",
+    "shop": "mall",
+    "type": "multipolygon",
+    "website": "https://www.landmark.hk/",
+    "wikidata": "Q8015602",
+    "wikimedia_commons": "Category:The Landmark (Hong Kong)",
+    "wikipedia": "zh:置地廣場"
+  }
+}
+
+  ]
+}
+
+
+

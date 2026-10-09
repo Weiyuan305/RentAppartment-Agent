@@ -1,0 +1,137 @@
+{
+  "sha": "55902f308249f5e3a11c0404c51d8831a53df5fc",
+  "node_id": "C_kwDOLCxMKdoAKDU1OTAyZjMwODI0OWY1ZTNhMTFjMDQwNGM1MWQ4ODMxYTUzZGY1ZmM",
+  "commit": {
+    "author": {
+      "name": "Baihao Wang",
+      "email": "25713361+byhow@users.noreply.github.com",
+      "date": "2026-10-08T17:39:52Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-10-08T17:39:52Z"
+    },
+    "message": "fix(checkpoint): validate namespace delimiters before store dispatch (#2957)\n\n- Reject namespace labels that are empty, non-string or contain `.` in\n`BaseStore` gets, deletes and namespace-listing filters, matching\nsearch. Stores that use these methods, such as `MongoDBStore`, now throw\n`InvalidNamespaceError` for such labels instead of returning no results.\n- `AsyncBatchedStore` validates in each method before queueing, so a\nnamespace that fails these checks rejects only its own call. Gets,\ndeletes and searches get the label checks; puts follow `BaseStore.put`,\nso in-graph puts now also reject a `langgraph` root label (and an empty\nnamespace) even if the wrapped store would accept it.\n- Preserve hierarchical search, empty-prefix search and\nnamespace-listing wildcards.\n\nThe `:` separator checks in `InMemoryStore` and the Postgres store\n(#2828, #2825) are unchanged and still run inside the wrapped store's\n`batch()`, so a `:` label can still fail other calls in the same batch.\nFixing that, and Mongo's `/` separator, are follow-ups; this PR does not\nchange the abstract `batch` contract or retrofit third-party stores.\n\n---------\n\nCo-authored-by: Baihao Wang <byhow@users.noreply.github.com>\nCo-authored-by: open-swe[bot] <open-swe@users.noreply.github.com>",
+    "tree": {
+      "sha": "f9d65c587aa2165fec1aeabb1511e16bd328232e",
+      "url": "https://api.github.com/repos/langchain-ai/langgraphjs/git/trees/f9d65c587aa2165fec1aeabb1511e16bd328232e"
+    },
+    "url": "https://api.github.com/repos/langchain-ai/langgraphjs/git/commits/55902f308249f5e3a11c0404c51d8831a53df5fc",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqx9VoCRC1aQ7uu5UhlAAAiBQQAJ2vYwxCGv/gyMEM62G/Tmu0\nly+I3BgSgp73eKwbAcA3VKr7E1azvFzOhFJXGyoXx/htQeo4zhyiQIyIArsegEmO\nw2vzASXF0PhVcgtCyzhcJepqSh9E9Fs1SUX0ehngQL6+8dvjo9ir+lAQUTYp9P/P\nKqagRlHsl2WE7GPaKeaLotD94YVakyP+I58AWEDKUEgrDoD0X5iLa75lsmJQyCQ/\nPOxJJAUoLKhXLBd291mrdM9om7dgoQ/3fxLeG83x1/Kux802nHxOiCijkc/y/3R5\nsP2N2vRtObDLavsRz2Sca/CC4/eZxOp79Cz1O5NcHv9097n885JHTXYV62bYwCpn\nZx2ZkdyxYSfuIa6HPP7CMGrKSMYF4r+/yW6gSu+f9YaJA33itzbDUg1EX2Vu2ClI\nOwRPy5BFBi3qCIiu/GoFsOpjUxXqI5+QrYtq5ulh/udRxs+0xAvIl9VGIRICYYJh\nAwrjfTlG8WKlYrO4p3b8nFzA662TSuEy+7f6kQqBC442KnhTZNzr0DQh9LhmDl4R\nBBGWBZMHaTXoavnxRnEl9Zaru4pJt0Vn3+t+5k337GIG+KNDRJBljwPXGPziydg3\n3W91PgeneyHZfM+y2n305HAbsk0UHmpIJVZvnY/1Qjhz89Y+t5tvJPSjXGxwv72c\nM6y4S/bRGeaXBBjqB7Bu\n=CplV\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree f9d65c587aa2165fec1aeabb1511e16bd328232e\nparent 1631fd895723c4553345ceb5d9fc425b68bda959\nauthor Baihao Wang <25713361+byhow@users.noreply.github.com> 1791481192 -0700\ncommitter GitHub <noreply@github.com> 1791481192 -0700\n\nfix(checkpoint): validate namespace delimiters before store dispatch (#2957)\n\n- Reject namespace labels that are empty, non-string or contain `.` in\n`BaseStore` gets, deletes and namespace-listing filters, matching\nsearch. Stores that use these methods, such as `MongoDBStore`, now throw\n`InvalidNamespaceError` for such labels instead of returning no results.\n- `AsyncBatchedStore` validates in each method before queueing, so a\nnamespace that fails these checks rejects only its own call. Gets,\ndeletes and searches get the label checks; puts follow `BaseStore.put`,\nso in-graph puts now also reject a `langgraph` root label (and an empty\nnamespace) even if the wrapped store would accept it.\n- Preserve hierarchical search, empty-prefix search and\nnamespace-listing wildcards.\n\nThe `:` separator checks in `InMemoryStore` and the Postgres store\n(#2828, #2825) are unchanged and still run inside the wrapped store's\n`batch()`, so a `:` label can still fail other calls in the same batch.\nFixing that, and Mongo's `/` separator, are follow-ups; this PR does not\nchange the abstract `batch` contract or retrofit third-party stores.\n\n---------\n\nCo-authored-by: Baihao Wang <byhow@users.noreply.github.com>\nCo-authored-by: open-swe[bot] <open-swe@users.noreply.github.com>",
+      "verified_at": "2026-10-08T17:39:52Z"
+    }
+  },
+  "url": "https://api.github.com/repos/langchain-ai/langgraphjs/commits/55902f308249f5e3a11c0404c51d8831a53df5fc",
+  "html_url": "https://github.com/langchain-ai/langgraphjs/commit/55902f308249f5e3a11c0404c51d8831a53df5fc",
+  "comments_url": "https://api.github.com/repos/langchain-ai/langgraphjs/commits/55902f308249f5e3a11c0404c51d8831a53df5fc/comments",
+  "author": {
+    "login": "byhow",
+    "id": 25713361,
+    "node_id": "MDQ6VXNlcjI1NzEzMzYx",
+    "avatar_url": "https://avatars.githubusercontent.com/u/25713361?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/byhow",
+    "html_url": "https://github.com/byhow",
+    "followers_url": "https://api.github.com/users/byhow/followers",
+    "following_url": "https://api.github.com/users/byhow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/byhow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/byhow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/byhow/subscriptions",
+    "organizations_url": "https://api.github.com/users/byhow/orgs",
+    "repos_url": "https://api.github.com/users/byhow/repos",
+    "events_url": "https://api.github.com/users/byhow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/byhow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "1631fd895723c4553345ceb5d9fc425b68bda959",
+      "url": "https://api.github.com/repos/langchain-ai/langgraphjs/commits/1631fd895723c4553345ceb5d9fc425b68bda959",
+      "html_url": "https://github.com/langchain-ai/langgraphjs/commit/1631fd895723c4553345ceb5d9fc425b68bda959"
+    }
+  ],
+  "stats": {
+    "total": 183,
+    "additions": 183,
+    "deletions": 0
+  },
+  "files": [
+    {
+      "sha": "1323d90c4578debe83d077a4bc8b3c184002bb96",
+      "filename": ".changeset/store-delimiter-validation.md",
+      "status": "added",
+      "additions": 5,
+      "deletions": 0,
+      "changes": 5,
+      "blob_url": "https://github.com/langchain-ai/langgraphjs/blob/55902f308249f5e3a11c0404c51d8831a53df5fc/.changeset%2Fstore-delimiter-validation.md",
+      "raw_url": "https://github.com/langchain-ai/langgraphjs/raw/55902f308249f5e3a11c0404c51d8831a53df5fc/.changeset%2Fstore-delimiter-validation.md",
+      "contents_url": "https://api.github.com/repos/langchain-ai/langgraphjs/contents/.changeset%2Fstore-delimiter-validation.md?ref=55902f308249f5e3a11c0404c51d8831a53df5fc",
+      "patch": "@@ -0,0 +1,5 @@\n+---\n+\"@langchain/langgraph-checkpoint\": patch\n+---\n+\n+Reject namespace labels that are empty, non-string or contain a period in `BaseStore` gets, deletes and namespace-listing filters, matching search. Stores that use these `BaseStore` methods, such as `MongoDBStore`, now throw `InvalidNamespaceError` for such labels instead of returning no results. `AsyncBatchedStore` (the store graph nodes receive) runs the same checks before queueing, so a namespace that fails them rejects only its own call; checks specific to the wrapped store, such as the `:` separator check in `InMemoryStore` and the Postgres store, still run inside its batch. Its puts follow `BaseStore.put`, so in-graph puts now reject a `langgraph` root label (and an empty namespace) even if the wrapped store would accept it; for `InMemoryStore` only the `langgraph` root is newly rejected. Hierarchical prefix search, empty-prefix search and `*` namespace-listing wildcards are unchanged."
+    },
+    {
+      "sha": "80c628359b9c9b8a06aa11fab3e122c3fad41d3d",
+      "filename": "libs/checkpoint/src/store/base.ts",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "blob_url": "https://github.com/langchain-ai/langgraphjs/blob/55902f308249f5e3a11c0404c51d8831a53df5fc/libs%2Fcheckpoint%2Fsrc%2Fstore%2Fbase.ts",
+      "raw_url": "https://github.com/langchain-ai/langgraphjs/raw/55902f308249f5e3a11c0404c51d8831a53df5fc/libs%2Fcheckpoint%2Fsrc%2Fstore%2Fbase.ts",
+      "contents_url": "https://api.github.com/repos/langchain-ai/langgraphjs/contents/libs%2Fcheckpoint%2Fsrc%2Fstore%2Fbase.ts?ref=55902f308249f5e3a11c0404c51d8831a53df5fc",
+      "patch": "@@ -414,6 +414,7 @@ export abstract class BaseStore {\n    * @returns Promise resolving to the item or null if not found\n    */\n   async get(namespace: string[], key: string): Promise<Item | null> {\n+    validateNamespace(namespace, { allowEmpty: true, allowReservedRoot: true });\n     return (await this.batch<[GetOperation]>([{ namespace, key }]))[0];\n   }\n \n@@ -506,6 +507,7 @@ export abstract class BaseStore {\n    * @param key Unique identifier within the namespace\n    */\n   async delete(namespace: string[], key: string): Promise<void> {\n+    validateNamespace(namespace, { allowEmpty: true, allowReservedRoot: true });\n     await this.batch<[PutOperation]>([{ namespace, key, value: null }]);\n   }\n \n@@ -542,9 +544,11 @@ export abstract class BaseStore {\n \n     const matchConditions: MatchCondition[] = [];\n     if (prefix) {\n+      validateNamespace(prefix, { allowEmpty: true, allowReservedRoot: true });\n       matchConditions.push({ matchType: \"prefix\", path: prefix });\n     }\n     if (suffix) {\n+      validateNamespace(suffix, { allowEmpty: true, allowReservedRoot: true });\n       matchConditions.push({ matchType: \"suffix\", path: suffix });\n     }\n "
+    },
+    {
+      "sha": "418d4bb9155cccfc5d2f67a6e2061bf8b3c8a48c",
+      "filename": "libs/checkpoint/src/store/batch.ts",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 0,
+      "changes": 10,
+      "blob_url": "https://github.com/langchain-ai/langgraphjs/blob/55902f308249f5e3a11c0404c51d8831a53df5fc/libs%2Fcheckpoint%2Fsrc%2Fstore%2Fbatch.ts",
+      "raw_url": "https://github.com/langchain-ai/langgraphjs/raw/55902f308249f5e3a11c0404c51d8831a53df5fc/libs%2Fcheckpoint%2Fsrc%2Fstore%2Fbatch.ts",
+      "contents_url": "https://api.github.com/repos/langchain-ai/langgraphjs/contents/libs%2Fcheckpoint%2Fsrc%2Fstore%2Fbatch.ts?ref=55902f308249f5e3a11c0404c51d8831a53df5fc",
+      "patch": "@@ -8,6 +8,7 @@ import {\n   type GetOperation,\n   type Operation,\n   OperationResults,\n+  validateNamespace,\n } from \"./base.js\";\n \n /**\n@@ -68,6 +69,7 @@ export class AsyncBatchedStore extends BaseStore {\n   }\n \n   async get(namespace: string[], key: string): Promise<Item | null> {\n+    validateNamespace(namespace, { allowEmpty: true, allowReservedRoot: true });\n     return this.enqueueOperation({ namespace, key } as GetOperation);\n   }\n \n@@ -80,6 +82,10 @@ export class AsyncBatchedStore extends BaseStore {\n       query?: string;\n     }\n   ): Promise<Item[]> {\n+    validateNamespace(namespacePrefix, {\n+      allowEmpty: true,\n+      allowReservedRoot: true,\n+    });\n     const { filter, limit = 10, offset = 0, query } = options || {};\n     return this.enqueueOperation({\n       namespacePrefix,\n@@ -95,10 +101,12 @@ export class AsyncBatchedStore extends BaseStore {\n     key: string,\n     value: Record<string, any>\n   ): Promise<void> {\n+    validateNamespace(namespace);\n     return this.enqueueOperation({ namespace, key, value } as PutOperation);\n   }\n \n   async delete(namespace: string[], key: string): Promise<void> {\n+    validateNamespace(namespace, { allowEmpty: true, allowReservedRoot: true });\n     return this.enqueueOperation({\n       namespace,\n       key,\n@@ -121,6 +129,8 @@ export class AsyncBatchedStore extends BaseStore {\n   }\n \n   private enqueueOperation<T>(operation: Operation): Promise<T> {\n+    // Callers validate namespaces first: a throw inside the shared batch would\n+    // reject every queued operation, not just the invalid one.\n     return new Promise<T>((resolve, reject) => {\n       const key = this.nextKey;\n       this.nextKey += 1;"
+    },
+    {
+      "sha": "c82daaa626eb2c6a2af0643313484b7984681d35",
+      "filename": "libs/checkpoint/src/tests/store.test.ts",
+      "status": "modified",
+      "additions": 164,
+      "deletions": 0,
+      "changes": 164,
+      "blob_url": "https://github.com/langchain-ai/langgraphjs/blob/55902f308249f5e3a11c0404c51d8831a53df5fc/libs%2Fcheckpoint%2Fsrc%2Ftests%2Fstore.test.ts",
+      "raw_url": "https://github.com/langchain-ai/langgraphjs/raw/55902f308249f5e3a11c0404c51d8831a53df5fc/libs%2Fcheckpoint%2Fsrc%2Ftests%2Fstore.test.ts",
+      "contents_url": "https://api.github.com/repos/langchain-ai/langgraphjs/contents/libs%2Fcheckpoint%2Fsrc%2Ftests%2Fstore.test.ts?ref=55902f308249f5e3a11c0404c51d8831a53df5fc",
+      "patch": "@@ -514,3 +514,167 @@ describe(\"InMemoryStore\", () => {\n     expect(batchDeletedResult).toBeNull();\n   });\n });\n+\n+describe(\"Namespace validation\", () => {\n+  class RecordingStore extends BaseStore {\n+    execute = vi.fn(async (_ops: Operation[]) => []);\n+\n+    async batch<Op extends Operation[]>(\n+      ops: Op\n+    ): Promise<OperationResults<Op>> {\n+      return (await this.execute(ops)) as OperationResults<Op>;\n+    }\n+  }\n+\n+  it(\"should keep hierarchical and empty-prefix search through the wrapper\", async () => {\n+    const underlying = new InMemoryStore();\n+    await underlying.put([\"tenant\", \"alice\", \"files\"], \"secret\", {\n+      text: \"original\",\n+    });\n+    const store = new AsyncBatchedStore(underlying);\n+    store.start();\n+    try {\n+      expect((await store.search([\"tenant\", \"alice\"]))[0].namespace).toEqual([\n+        \"tenant\",\n+        \"alice\",\n+        \"files\",\n+      ]);\n+      expect(await store.search([])).toHaveLength(1);\n+      expect(\n+        (await store.get([\"tenant\", \"alice\", \"files\"], \"secret\"))?.value\n+      ).toEqual({ text: \"original\" });\n+    } finally {\n+      await store.stop();\n+    }\n+  });\n+\n+  const invalidLabels: [string, string[]][] = [\n+    [\"an empty label\", [\"tenant\", \"\"]],\n+    // `String(1.5)` contains the delimiter, so a type check is part of the\n+    // label check.\n+    [\"a non-string label\", [\"tenant\", 1.5 as unknown as string]],\n+    [\"a dotted label\", [\"tenant\", \"alice.files\"]],\n+  ];\n+\n+  describe.each([false, true])(\n+    \"shared namespace rules (batched: %s)\",\n+    (batched) => {\n+      const setup = () => {\n+        const underlying = new RecordingStore();\n+        const store = batched ? new AsyncBatchedStore(underlying) : underlying;\n+        store.start();\n+        return { underlying, store };\n+      };\n+\n+      it.each(invalidLabels)(\n+        \"should reject %s in gets, deletes and searches\",\n+        async (_, namespace) => {\n+          const { underlying, store } = setup();\n+          try {\n+            await expect(store.get(namespace, \"k\")).rejects.toThrow(\n+              InvalidNamespaceError\n+            );\n+            await expect(store.delete(namespace, \"k\")).rejects.toThrow(\n+              InvalidNamespaceError\n+            );\n+            await expect(store.search(namespace)).rejects.toThrow(\n+              InvalidNamespaceError\n+            );\n+            expect(underlying.execute).not.toHaveBeenCalled();\n+          } finally {\n+            await store.stop();\n+          }\n+        }\n+      );\n+\n+      it(\"should not apply put-only rules to gets, deletes and searches\", async () => {\n+        const { underlying, store } = setup();\n+        try {\n+          await store.get([], \"k\");\n+          await store.get([\"langgraph\", \"x\"], \"k\");\n+          await store.delete([\"langgraph\", \"x\"], \"k\");\n+          await store.search([]);\n+          await store.search([\"langgraph\"]);\n+          expect(underlying.execute).toHaveBeenCalledTimes(5);\n+        } finally {\n+          await store.stop();\n+        }\n+      });\n+\n+      it(\"should apply the BaseStore.put rules to puts\", async () => {\n+        const { underlying, store } = setup();\n+        try {\n+          await expect(store.put([], \"k\", { v: 1 })).rejects.toThrow(\n+            InvalidNamespaceError\n+          );\n+          await expect(\n+            store.put([\"langgraph\", \"x\"], \"k\", { v: 1 })\n+          ).rejects.toThrow(InvalidNamespaceError);\n+          for (const [, namespace] of invalidLabels) {\n+            await expect(store.put(namespace, \"k\", { v: 1 })).rejects.toThrow(\n+              InvalidNamespaceError\n+            );\n+          }\n+          expect(underlying.execute).not.toHaveBeenCalled();\n+        } finally {\n+          await store.stop();\n+        }\n+      });\n+    }\n+  );\n+\n+  it.each(invalidLabels)(\n+    \"should reject %s in namespace listing filters\",\n+    async (_, namespace) => {\n+      const store = new RecordingStore();\n+      await expect(store.listNamespaces({ prefix: namespace })).rejects.toThrow(\n+        InvalidNamespaceError\n+      );\n+      await expect(store.listNamespaces({ suffix: namespace })).rejects.toThrow(\n+        InvalidNamespaceError\n+      );\n+      expect(store.execute).not.toHaveBeenCalled();\n+    }\n+  );\n+\n+  it(\"should allow empty, reserved-root and wildcard listing filters\", async () => {\n+    const store = new RecordingStore();\n+    await store.listNamespaces({ prefix: [] });\n+    await store.listNamespaces({ prefix: [\"langgraph\", \"*\"] });\n+    await store.listNamespaces({ suffix: [\"*\", \"files\"] });\n+    expect(store.execute).toHaveBeenCalledTimes(3);\n+  });\n+\n+  it(\"should fail only the invalid caller when operations share a batch\", async () => {\n+    const underlying = new InMemoryStore();\n+    await underlying.put([\"tenant\", \"alice\"], \"k\", { text: \"original\" });\n+    const dispatched = vi.spyOn(underlying, \"batch\");\n+    const store = new AsyncBatchedStore(underlying);\n+    store.start();\n+    try {\n+      const [valid, ...invalid] = await Promise.allSettled([\n+        store.get([\"tenant\", \"alice\"], \"k\"),\n+        store.get([\"tenant\", \"\"], \"k\"),\n+        store.delete([\"tenant\", 1.5 as unknown as string], \"k\"),\n+        store.search([\"tenant\", \"\"]),\n+        store.put([\"tenant.alice\"], \"k\", { text: \"overwrite\" }),\n+      ]);\n+      expect(valid).toMatchObject({\n+        status: \"fulfilled\",\n+        value: { value: { text: \"original\" } },\n+      });\n+      for (const result of invalid) {\n+        expect(result.status).toBe(\"rejected\");\n+        expect((result as PromiseRejectedResult).reason).toBeInstanceOf(\n+          InvalidNamespaceError\n+        );\n+      }\n+      expect(dispatched).toHaveBeenCalledOnce();\n+      expect(dispatched.mock.calls[0][0]).toEqual([\n+        { namespace: [\"tenant\", \"alice\"], key: \"k\" },\n+      ]);\n+    } finally {\n+      await store.stop();\n+    }\n+  });\n+});"
+    }
+  ]
+}

@@ -1,0 +1,642 @@
+[
+  {
+    "name": ".cspell.json",
+    "path": ".cspell.json",
+    "sha": "0dc57ecf49ff53c925b693eac4be592efcebf94c",
+    "size": 4321,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.cspell.json?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/.cspell.json",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/0dc57ecf49ff53c925b693eac4be592efcebf94c",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/.cspell.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.cspell.json?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/0dc57ecf49ff53c925b693eac4be592efcebf94c",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/.cspell.json"
+    }
+  },
+  {
+    "name": ".devcontainer",
+    "path": ".devcontainer",
+    "sha": "bdc7a25c20551b2e80246f4875c64df1321f8809",
+    "size": 0,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.devcontainer?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/tree/main/.devcontainer",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/bdc7a25c20551b2e80246f4875c64df1321f8809",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.devcontainer?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/bdc7a25c20551b2e80246f4875c64df1321f8809",
+      "html": "https://github.com/maplibre/maplibre-gl-js/tree/main/.devcontainer"
+    }
+  },
+  {
+    "name": ".editorconfig",
+    "path": ".editorconfig",
+    "sha": "97f6fdbc4d1c7a5792d6cbea2be258427ab7da82",
+    "size": 175,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.editorconfig?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/.editorconfig",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/97f6fdbc4d1c7a5792d6cbea2be258427ab7da82",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/.editorconfig",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.editorconfig?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/97f6fdbc4d1c7a5792d6cbea2be258427ab7da82",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/.editorconfig"
+    }
+  },
+  {
+    "name": ".gitattributes",
+    "path": ".gitattributes",
+    "sha": "24ecca6dc413042a23339ee980dfa7fe77a7c016",
+    "size": 382,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.gitattributes?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/.gitattributes",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/24ecca6dc413042a23339ee980dfa7fe77a7c016",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/.gitattributes",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.gitattributes?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/24ecca6dc413042a23339ee980dfa7fe77a7c016",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/.gitattributes"
+    }
+  },
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "49fe357c878a18577a2217ae87cc8b65a0ba8a21",
+    "size": 0,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.github?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/tree/main/.github",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/49fe357c878a18577a2217ae87cc8b65a0ba8a21",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.github?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/49fe357c878a18577a2217ae87cc8b65a0ba8a21",
+      "html": "https://github.com/maplibre/maplibre-gl-js/tree/main/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "74467c9c27ddc5deca5ff678f6145595687d26f0",
+    "size": 656,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.gitignore?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/.gitignore",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/74467c9c27ddc5deca5ff678f6145595687d26f0",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.gitignore?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/74467c9c27ddc5deca5ff678f6145595687d26f0",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/.gitignore"
+    }
+  },
+  {
+    "name": ".npmignore",
+    "path": ".npmignore",
+    "sha": "e43b0f988953ae3a84b00331d0ccf5f7d51cb3cf",
+    "size": 10,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.npmignore?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/.npmignore",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/e43b0f988953ae3a84b00331d0ccf5f7d51cb3cf",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/.npmignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.npmignore?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/e43b0f988953ae3a84b00331d0ccf5f7d51cb3cf",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/.npmignore"
+    }
+  },
+  {
+    "name": ".npmrc",
+    "path": ".npmrc",
+    "sha": "d1cdf2f06be77ea6a04de4ad0d36046df5a0deb2",
+    "size": 20,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.npmrc?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/.npmrc",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/d1cdf2f06be77ea6a04de4ad0d36046df5a0deb2",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/.npmrc",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.npmrc?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/d1cdf2f06be77ea6a04de4ad0d36046df5a0deb2",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/.npmrc"
+    }
+  },
+  {
+    "name": ".nvmrc",
+    "path": ".nvmrc",
+    "sha": "6f4247a6255c99f420d1df558d68745592862ff7",
+    "size": 3,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.nvmrc?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/.nvmrc",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/6f4247a6255c99f420d1df558d68745592862ff7",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/.nvmrc",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.nvmrc?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/6f4247a6255c99f420d1df558d68745592862ff7",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/.nvmrc"
+    }
+  },
+  {
+    "name": ".stylelintrc.json",
+    "path": ".stylelintrc.json",
+    "sha": "40de1a0de44670beef5ec1380f3fa70f616d9f32",
+    "size": 690,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.stylelintrc.json?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/.stylelintrc.json",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/40de1a0de44670beef5ec1380f3fa70f616d9f32",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/.stylelintrc.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.stylelintrc.json?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/40de1a0de44670beef5ec1380f3fa70f616d9f32",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/.stylelintrc.json"
+    }
+  },
+  {
+    "name": ".vscode",
+    "path": ".vscode",
+    "sha": "2bffb360dfc5d70c32f86e0500dbf2c19af311d7",
+    "size": 0,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.vscode?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/tree/main/.vscode",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/2bffb360dfc5d70c32f86e0500dbf2c19af311d7",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/.vscode?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/2bffb360dfc5d70c32f86e0500dbf2c19af311d7",
+      "html": "https://github.com/maplibre/maplibre-gl-js/tree/main/.vscode"
+    }
+  },
+  {
+    "name": "AGENTS.md",
+    "path": "AGENTS.md",
+    "sha": "37a98d27eca4f4ed5590baa57eae3cbbf7e1d929",
+    "size": 8646,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/AGENTS.md?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/AGENTS.md",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/37a98d27eca4f4ed5590baa57eae3cbbf7e1d929",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/AGENTS.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/AGENTS.md?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/37a98d27eca4f4ed5590baa57eae3cbbf7e1d929",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/AGENTS.md"
+    }
+  },
+  {
+    "name": "ARCHITECTURE.md",
+    "path": "ARCHITECTURE.md",
+    "sha": "d3f9df516eebe897a0ff37bb4ecbf39b29032fb7",
+    "size": 3188,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/ARCHITECTURE.md?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/ARCHITECTURE.md",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/d3f9df516eebe897a0ff37bb4ecbf39b29032fb7",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/ARCHITECTURE.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/ARCHITECTURE.md?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/d3f9df516eebe897a0ff37bb4ecbf39b29032fb7",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/ARCHITECTURE.md"
+    }
+  },
+  {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "sha": "9dc580ade8d9c882ebff21fe3e6a50068df92dbb",
+    "size": 455169,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/CHANGELOG.md?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/CHANGELOG.md",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/9dc580ade8d9c882ebff21fe3e6a50068df92dbb",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/CHANGELOG.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/CHANGELOG.md?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/9dc580ade8d9c882ebff21fe3e6a50068df92dbb",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/CHANGELOG.md"
+    }
+  },
+  {
+    "name": "CODE-OF-CONDUCT.md",
+    "path": "CODE-OF-CONDUCT.md",
+    "sha": "4a26df6252591abc1ca35293ffaa510185c78629",
+    "size": 181,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/CODE-OF-CONDUCT.md?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/CODE-OF-CONDUCT.md",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/4a26df6252591abc1ca35293ffaa510185c78629",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/CODE-OF-CONDUCT.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/CODE-OF-CONDUCT.md?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/4a26df6252591abc1ca35293ffaa510185c78629",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/CODE-OF-CONDUCT.md"
+    }
+  },
+  {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "sha": "bf16789ea30844ded9d0897a1b96738688d15fb2",
+    "size": 13173,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/CONTRIBUTING.md?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/CONTRIBUTING.md",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/bf16789ea30844ded9d0897a1b96738688d15fb2",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/CONTRIBUTING.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/CONTRIBUTING.md?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/bf16789ea30844ded9d0897a1b96738688d15fb2",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/CONTRIBUTING.md"
+    }
+  },
+  {
+    "name": "LICENSE.txt",
+    "path": "LICENSE.txt",
+    "sha": "1e8acbb54fa7baddc844377507cc5a79353174fb",
+    "size": 5984,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/LICENSE.txt?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/LICENSE.txt",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/1e8acbb54fa7baddc844377507cc5a79353174fb",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/LICENSE.txt",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/LICENSE.txt?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/1e8acbb54fa7baddc844377507cc5a79353174fb",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/LICENSE.txt"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "ce7c551bc1ad690a3072e5eb6cedd8c60ce1cdfe",
+    "size": 13390,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/README.md?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/README.md",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/ce7c551bc1ad690a3072e5eb6cedd8c60ce1cdfe",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/README.md?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/ce7c551bc1ad690a3072e5eb6cedd8c60ce1cdfe",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/README.md"
+    }
+  },
+  {
+    "name": "SECURITY.md",
+    "path": "SECURITY.md",
+    "sha": "cd8e139115811b49ea9f090fdd9c12e382677f55",
+    "size": 93,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/SECURITY.md?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/SECURITY.md",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/cd8e139115811b49ea9f090fdd9c12e382677f55",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/SECURITY.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/SECURITY.md?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/cd8e139115811b49ea9f090fdd9c12e382677f55",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/SECURITY.md"
+    }
+  },
+  {
+    "name": "build",
+    "path": "build",
+    "sha": "51916e2fe3fff5d3711e910926ba251b29fec986",
+    "size": 0,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/build?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/tree/main/build",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/51916e2fe3fff5d3711e910926ba251b29fec986",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/build?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/51916e2fe3fff5d3711e910926ba251b29fec986",
+      "html": "https://github.com/maplibre/maplibre-gl-js/tree/main/build"
+    }
+  },
+  {
+    "name": "context7.json",
+    "path": "context7.json",
+    "sha": "abe3dea2d53c27d812b76450b6208a3283489fae",
+    "size": 104,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/context7.json?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/context7.json",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/abe3dea2d53c27d812b76450b6208a3283489fae",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/context7.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/context7.json?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/abe3dea2d53c27d812b76450b6208a3283489fae",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/context7.json"
+    }
+  },
+  {
+    "name": "developer-guides",
+    "path": "developer-guides",
+    "sha": "494c670fd7b4c5c2823e66b8dd3c89d567c47a34",
+    "size": 0,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/developer-guides?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/tree/main/developer-guides",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/494c670fd7b4c5c2823e66b8dd3c89d567c47a34",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/developer-guides?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/494c670fd7b4c5c2823e66b8dd3c89d567c47a34",
+      "html": "https://github.com/maplibre/maplibre-gl-js/tree/main/developer-guides"
+    }
+  },
+  {
+    "name": "docker-compose.yml",
+    "path": "docker-compose.yml",
+    "sha": "523731f93736d7f6511013aea692c0503cc94f5f",
+    "size": 954,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/docker-compose.yml?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/docker-compose.yml",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/523731f93736d7f6511013aea692c0503cc94f5f",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/docker-compose.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/docker-compose.yml?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/523731f93736d7f6511013aea692c0503cc94f5f",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/docker-compose.yml"
+    }
+  },
+  {
+    "name": "docs",
+    "path": "docs",
+    "sha": "9e76e80ee3f0404d951b8d90b3ace9733f5f8e9e",
+    "size": 0,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/docs?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/tree/main/docs",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/9e76e80ee3f0404d951b8d90b3ace9733f5f8e9e",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/docs?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/9e76e80ee3f0404d951b8d90b3ace9733f5f8e9e",
+      "html": "https://github.com/maplibre/maplibre-gl-js/tree/main/docs"
+    }
+  },
+  {
+    "name": "eslint.config.js",
+    "path": "eslint.config.js",
+    "sha": "9d718487bd1830b82b09d6af0be68f5018ce12e7",
+    "size": 10143,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/eslint.config.js?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/eslint.config.js",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/9d718487bd1830b82b09d6af0be68f5018ce12e7",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/eslint.config.js",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/eslint.config.js?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/9d718487bd1830b82b09d6af0be68f5018ce12e7",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/eslint.config.js"
+    }
+  },
+  {
+    "name": "mkdocs.yml",
+    "path": "mkdocs.yml",
+    "sha": "587ee8db4375a77e027c0e1189c01749e26c7aba",
+    "size": 2202,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/mkdocs.yml?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/mkdocs.yml",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/587ee8db4375a77e027c0e1189c01749e26c7aba",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/mkdocs.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/mkdocs.yml?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/587ee8db4375a77e027c0e1189c01749e26c7aba",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/mkdocs.yml"
+    }
+  },
+  {
+    "name": "package-lock.json",
+    "path": "package-lock.json",
+    "sha": "9a999f791a4b4e150520261403be2298cced5230",
+    "size": 512476,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/package-lock.json?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/package-lock.json",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/9a999f791a4b4e150520261403be2298cced5230",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/package-lock.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/package-lock.json?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/9a999f791a4b4e150520261403be2298cced5230",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/package-lock.json"
+    }
+  },
+  {
+    "name": "package.json",
+    "path": "package.json",
+    "sha": "cfad94572abe058ece7b8c3182ec5656e0fbe700",
+    "size": 6565,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/package.json?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/package.json",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/cfad94572abe058ece7b8c3182ec5656e0fbe700",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/package.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/package.json?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/cfad94572abe058ece7b8c3182ec5656e0fbe700",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/package.json"
+    }
+  },
+  {
+    "name": "postcss.config.js",
+    "path": "postcss.config.js",
+    "sha": "1fad21b31c64fb785f6e4b6f941424330efde032",
+    "size": 270,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/postcss.config.js?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/postcss.config.js",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/1fad21b31c64fb785f6e4b6f941424330efde032",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/postcss.config.js",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/postcss.config.js?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/1fad21b31c64fb785f6e4b6f941424330efde032",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/postcss.config.js"
+    }
+  },
+  {
+    "name": "rolldown.config.ts",
+    "path": "rolldown.config.ts",
+    "sha": "805b7d33ec15285acea86a25485147571b9d29b5",
+    "size": 1270,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/rolldown.config.ts?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/rolldown.config.ts",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/805b7d33ec15285acea86a25485147571b9d29b5",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/rolldown.config.ts",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/rolldown.config.ts?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/805b7d33ec15285acea86a25485147571b9d29b5",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/rolldown.config.ts"
+    }
+  },
+  {
+    "name": "src",
+    "path": "src",
+    "sha": "eda573297e15454eeb1b02fed5c696980def2c45",
+    "size": 0,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/src?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/tree/main/src",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/eda573297e15454eeb1b02fed5c696980def2c45",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/src?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/eda573297e15454eeb1b02fed5c696980def2c45",
+      "html": "https://github.com/maplibre/maplibre-gl-js/tree/main/src"
+    }
+  },
+  {
+    "name": "test",
+    "path": "test",
+    "sha": "6c4720cd9c5c4121c8d6722ccbadd06e8e0ffd42",
+    "size": 0,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/test?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/tree/main/test",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/6c4720cd9c5c4121c8d6722ccbadd06e8e0ffd42",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/test?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/trees/6c4720cd9c5c4121c8d6722ccbadd06e8e0ffd42",
+      "html": "https://github.com/maplibre/maplibre-gl-js/tree/main/test"
+    }
+  },
+  {
+    "name": "tsconfig.dist.json",
+    "path": "tsconfig.dist.json",
+    "sha": "f33bb0fb3609df7a6397cef27777c476c850f6d3",
+    "size": 209,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/tsconfig.dist.json?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/tsconfig.dist.json",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/f33bb0fb3609df7a6397cef27777c476c850f6d3",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/tsconfig.dist.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/tsconfig.dist.json?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/f33bb0fb3609df7a6397cef27777c476c850f6d3",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/tsconfig.dist.json"
+    }
+  },
+  {
+    "name": "tsconfig.json",
+    "path": "tsconfig.json",
+    "sha": "4cf27d2bd3508d376455ecd1949524bae1b104af",
+    "size": 1187,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/tsconfig.json?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/tsconfig.json",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/4cf27d2bd3508d376455ecd1949524bae1b104af",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/tsconfig.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/tsconfig.json?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/4cf27d2bd3508d376455ecd1949524bae1b104af",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/tsconfig.json"
+    }
+  },
+  {
+    "name": "tsdoc.json",
+    "path": "tsdoc.json",
+    "sha": "b361bf8a9e25ea4a01f7ac2fa4ce5f6cce101501",
+    "size": 131,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/tsdoc.json?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/tsdoc.json",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/b361bf8a9e25ea4a01f7ac2fa4ce5f6cce101501",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/tsdoc.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/tsdoc.json?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/b361bf8a9e25ea4a01f7ac2fa4ce5f6cce101501",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/tsdoc.json"
+    }
+  },
+  {
+    "name": "typedoc.json",
+    "path": "typedoc.json",
+    "sha": "a1bd29741c02da2f9899ad00264aae506f7438fc",
+    "size": 1169,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/typedoc.json?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/typedoc.json",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/a1bd29741c02da2f9899ad00264aae506f7438fc",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/typedoc.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/typedoc.json?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/a1bd29741c02da2f9899ad00264aae506f7438fc",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/typedoc.json"
+    }
+  },
+  {
+    "name": "vitest.config.bench.ts",
+    "path": "vitest.config.bench.ts",
+    "sha": "66cd1ee4d2cf6883e7354f948685ef56571e6624",
+    "size": 286,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/vitest.config.bench.ts?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/vitest.config.bench.ts",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/66cd1ee4d2cf6883e7354f948685ef56571e6624",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/vitest.config.bench.ts",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/vitest.config.bench.ts?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/66cd1ee4d2cf6883e7354f948685ef56571e6624",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/vitest.config.bench.ts"
+    }
+  },
+  {
+    "name": "vitest.config.build.ts",
+    "path": "vitest.config.build.ts",
+    "sha": "f358a3db9af4a954ec3ee5743fe5e99d2f68cddd",
+    "size": 545,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/vitest.config.build.ts?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/vitest.config.build.ts",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/f358a3db9af4a954ec3ee5743fe5e99d2f68cddd",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/vitest.config.build.ts",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/vitest.config.build.ts?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/f358a3db9af4a954ec3ee5743fe5e99d2f68cddd",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/vitest.config.build.ts"
+    }
+  },
+  {
+    "name": "vitest.config.integration.ts",
+    "path": "vitest.config.integration.ts",
+    "sha": "77beb7a35ad852eacb3597d07d0944774d2958ee",
+    "size": 718,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/vitest.config.integration.ts?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/vitest.config.integration.ts",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/77beb7a35ad852eacb3597d07d0944774d2958ee",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/vitest.config.integration.ts",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/vitest.config.integration.ts?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/77beb7a35ad852eacb3597d07d0944774d2958ee",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/vitest.config.integration.ts"
+    }
+  },
+  {
+    "name": "vitest.config.unit.ts",
+    "path": "vitest.config.unit.ts",
+    "sha": "3ca2e9b6f136e65598816af80507166a7e37a3ad",
+    "size": 771,
+    "url": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/vitest.config.unit.ts?ref=main",
+    "html_url": "https://github.com/maplibre/maplibre-gl-js/blob/main/vitest.config.unit.ts",
+    "git_url": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/3ca2e9b6f136e65598816af80507166a7e37a3ad",
+    "download_url": "https://raw.githubusercontent.com/maplibre/maplibre-gl-js/main/vitest.config.unit.ts",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/maplibre/maplibre-gl-js/contents/vitest.config.unit.ts?ref=main",
+      "git": "https://api.github.com/repos/maplibre/maplibre-gl-js/git/blobs/3ca2e9b6f136e65598816af80507166a7e37a3ad",
+      "html": "https://github.com/maplibre/maplibre-gl-js/blob/main/vitest.config.unit.ts"
+    }
+  }
+]

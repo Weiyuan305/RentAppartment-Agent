@@ -1,0 +1,1085 @@
+{
+  "bugs": {
+    "url": "https://github.com/mastra-ai/mastra/issues"
+  },
+  "dist": {
+    "shasum": "dbf996a0e4dc8ac625f8be8fed6c39cd85fc3602",
+    "tarball": "https://registry.npmjs.org/@mastra/core/-/core-1.75.0.tgz",
+    "fileCount": 3378,
+    "integrity": "sha512-1yw89tyha4HU1eO34IC5sYdSCbXuw8WCVf4+pqmNyRmoHp0ZcPzyberdsbq9O8CTHuxKZbf7cgsI2QNI2L3SRA==",
+    "signatures": [
+      {
+        "sig": "MEUCIQCL45M9VFpwvh2syMhGUfoRGJSOI7UkTHfEyEtCV5ZtjAIgfRjb7Ro0XAl0EyfDciKdhQ8ENtJhkeEB+E79GtI1MF4=",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      },
+      {
+        "sig": "MEUCIQDvDExAavj6aAgzhWN1shnOFNDRk9xJvDjs6/bvfE2AGAIgGNrPPkLLDeBD2iCxaNJPW27u7VjLlyEijOfr5OuUmWQ=",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "attestations": {
+      "url": "https://registry.npmjs.org/-/npm/v1/attestations/@mastra%2fcore@1.75.0",
+      "provenance": {
+        "predicateType": "https://slsa.dev/provenance/v1"
+      }
+    },
+    "unpackedSize": 72625799
+  },
+  "main": "dist/index.js",
+  "name": "@mastra/core",
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    },
+    "./di": {
+      "import": {
+        "types": "./dist/di/index.d.ts",
+        "default": "./dist/di/index.js"
+      },
+      "require": {
+        "types": "./dist/di/index.d.ts",
+        "default": "./dist/di/index.cjs"
+      }
+    },
+    "./a2a": {
+      "import": {
+        "types": "./dist/a2a/index.d.ts",
+        "default": "./dist/a2a/index.js"
+      },
+      "require": {
+        "types": "./dist/a2a/index.d.ts",
+        "default": "./dist/a2a/index.cjs"
+      }
+    },
+    "./llm": {
+      "import": {
+        "types": "./dist/llm/index.d.ts",
+        "default": "./dist/llm/index.js"
+      },
+      "require": {
+        "types": "./dist/llm/index.d.ts",
+        "default": "./dist/llm/index.cjs"
+      }
+    },
+    "./mcp": {
+      "import": {
+        "types": "./dist/mcp/index.d.ts",
+        "default": "./dist/mcp/index.js"
+      },
+      "require": {
+        "types": "./dist/mcp/index.d.ts",
+        "default": "./dist/mcp/index.cjs"
+      }
+    },
+    "./tts": {
+      "import": {
+        "types": "./dist/tts/index.d.ts",
+        "default": "./dist/tts/index.js"
+      },
+      "require": {
+        "types": "./dist/tts/index.d.ts",
+        "default": "./dist/tts/index.cjs"
+      }
+    },
+    "./auth": {
+      "import": {
+        "types": "./dist/auth/index.d.ts",
+        "default": "./dist/auth/index.js"
+      },
+      "require": {
+        "types": "./dist/auth/index.d.ts",
+        "default": "./dist/auth/index.cjs"
+      }
+    },
+    "./base": {
+      "import": {
+        "types": "./dist/base.d.ts",
+        "default": "./dist/base.js"
+      },
+      "require": {
+        "types": "./dist/base.d.ts",
+        "default": "./dist/base.cjs"
+      }
+    },
+    "./loop": {
+      "import": {
+        "types": "./dist/loop/index.d.ts",
+        "default": "./dist/loop/index.js"
+      },
+      "require": {
+        "types": "./dist/loop/index.d.ts",
+        "default": "./dist/loop/index.cjs"
+      }
+    },
+    "./agent": {
+      "import": {
+        "types": "./dist/agent/index.d.ts",
+        "default": "./dist/agent/index.js"
+      },
+      "require": {
+        "types": "./dist/agent/index.d.ts",
+        "default": "./dist/agent/index.cjs"
+      }
+    },
+    "./cache": {
+      "import": {
+        "types": "./dist/cache/index.d.ts",
+        "default": "./dist/cache/index.js"
+      },
+      "require": {
+        "types": "./dist/cache/index.d.ts",
+        "default": "./dist/cache/index.cjs"
+      }
+    },
+    "./error": {
+      "import": {
+        "types": "./dist/error/index.d.ts",
+        "default": "./dist/error/index.js"
+      },
+      "require": {
+        "types": "./dist/error/index.d.ts",
+        "default": "./dist/error/index.cjs"
+      }
+    },
+    "./evals": {
+      "import": {
+        "types": "./dist/evals/index.d.ts",
+        "default": "./dist/evals/index.js"
+      },
+      "require": {
+        "types": "./dist/evals/index.d.ts",
+        "default": "./dist/evals/index.cjs"
+      }
+    },
+    "./hooks": {
+      "import": {
+        "types": "./dist/hooks/index.d.ts",
+        "default": "./dist/hooks/index.js"
+      },
+      "require": {
+        "types": "./dist/hooks/index.d.ts",
+        "default": "./dist/hooks/index.cjs"
+      }
+    },
+    "./tools": {
+      "import": {
+        "types": "./dist/tools/index.d.ts",
+        "default": "./dist/tools/index.js"
+      },
+      "require": {
+        "types": "./dist/tools/index.d.ts",
+        "default": "./dist/tools/index.cjs"
+      }
+    },
+    "./types": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/types/index.js"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/types/index.cjs"
+      }
+    },
+    "./utils": {
+      "import": {
+        "types": "./dist/utils.d.ts",
+        "default": "./dist/utils.js"
+      },
+      "require": {
+        "types": "./dist/utils.d.ts",
+        "default": "./dist/utils.cjs"
+      }
+    },
+    "./voice": {
+      "import": {
+        "types": "./dist/voice/index.d.ts",
+        "default": "./dist/voice/index.js"
+      },
+      "require": {
+        "types": "./dist/voice/index.d.ts",
+        "default": "./dist/voice/index.cjs"
+      }
+    },
+    "./a2a/v1": {
+      "import": {
+        "types": "./dist/a2a/v1.d.ts",
+        "default": "./dist/a2a/v1.js"
+      },
+      "require": {
+        "types": "./dist/a2a/v1.d.ts",
+        "default": "./dist/a2a/v1.cjs"
+      }
+    },
+    "./editor": {
+      "import": {
+        "types": "./dist/editor/index.d.ts",
+        "default": "./dist/editor/index.js"
+      },
+      "require": {
+        "types": "./dist/editor/index.d.ts",
+        "default": "./dist/editor/index.cjs"
+      }
+    },
+    "./events": {
+      "import": {
+        "types": "./dist/events/index.d.ts",
+        "default": "./dist/events/index.js"
+      },
+      "require": {
+        "types": "./dist/events/index.d.ts",
+        "default": "./dist/events/index.cjs"
+      }
+    },
+    "./logger": {
+      "import": {
+        "types": "./dist/logger/index.d.ts",
+        "default": "./dist/logger/index.js"
+      },
+      "require": {
+        "types": "./dist/logger/index.d.ts",
+        "default": "./dist/logger/index.cjs"
+      }
+    },
+    "./mastra": {
+      "import": {
+        "types": "./dist/mastra/index.d.ts",
+        "default": "./dist/mastra/index.js"
+      },
+      "require": {
+        "types": "./dist/mastra/index.d.ts",
+        "default": "./dist/mastra/index.cjs"
+      }
+    },
+    "./memory": {
+      "import": {
+        "types": "./dist/memory/index.d.ts",
+        "default": "./dist/memory/index.js"
+      },
+      "require": {
+        "types": "./dist/memory/index.d.ts",
+        "default": "./dist/memory/index.cjs"
+      }
+    },
+    "./schema": {
+      "import": {
+        "types": "./dist/schema/index.d.ts",
+        "default": "./dist/schema/index.js"
+      },
+      "require": {
+        "types": "./dist/schema/index.d.ts",
+        "default": "./dist/schema/index.cjs"
+      }
+    },
+    "./server": {
+      "import": {
+        "types": "./dist/server/index.d.ts",
+        "default": "./dist/server/index.js"
+      },
+      "require": {
+        "types": "./dist/server/index.d.ts",
+        "default": "./dist/server/index.cjs"
+      }
+    },
+    "./skills": {
+      "import": {
+        "types": "./dist/skills/index.d.ts",
+        "default": "./dist/skills/index.js"
+      },
+      "require": {
+        "types": "./dist/skills/index.d.ts",
+        "default": "./dist/skills/index.cjs"
+      }
+    },
+    "./stream": {
+      "import": {
+        "types": "./dist/stream/index.d.ts",
+        "default": "./dist/stream/index.js"
+      },
+      "require": {
+        "types": "./dist/stream/index.d.ts",
+        "default": "./dist/stream/index.cjs"
+      }
+    },
+    "./vector": {
+      "import": {
+        "types": "./dist/vector/index.d.ts",
+        "default": "./dist/vector/index.js"
+      },
+      "require": {
+        "types": "./dist/vector/index.d.ts",
+        "default": "./dist/vector/index.cjs"
+      }
+    },
+    "./worker": {
+      "import": {
+        "types": "./dist/worker/index.d.ts",
+        "default": "./dist/worker/index.js"
+      },
+      "require": {
+        "types": "./dist/worker/index.d.ts",
+        "default": "./dist/worker/index.cjs"
+      }
+    },
+    "./auth/ee": {
+      "import": {
+        "types": "./dist/auth/ee/index.d.ts",
+        "default": "./dist/auth/ee/index.js"
+      },
+      "require": {
+        "types": "./dist/auth/ee/index.d.ts",
+        "default": "./dist/auth/ee/index.cjs"
+      }
+    },
+    "./browser": {
+      "import": {
+        "types": "./dist/browser/index.d.ts",
+        "default": "./dist/browser/index.js"
+      },
+      "require": {
+        "types": "./dist/browser/index.d.ts",
+        "default": "./dist/browser/index.cjs"
+      }
+    },
+    "./bundler": {
+      "import": {
+        "types": "./dist/bundler/index.d.ts",
+        "default": "./dist/bundler/index.js"
+      },
+      "require": {
+        "types": "./dist/bundler/index.d.ts",
+        "default": "./dist/bundler/index.cjs"
+      }
+    },
+    "./harness": {
+      "import": {
+        "types": "./dist/harness/index.d.ts",
+        "default": "./dist/harness/index.js"
+      },
+      "require": {
+        "types": "./dist/harness/index.d.ts",
+        "default": "./dist/harness/index.cjs"
+      }
+    },
+    "./license": {
+      "import": {
+        "types": "./dist/license/index.d.ts",
+        "default": "./dist/license/index.js"
+      },
+      "require": {
+        "types": "./dist/license/index.d.ts",
+        "default": "./dist/license/index.cjs"
+      }
+    },
+    "./signals": {
+      "import": {
+        "types": "./dist/signals/index.d.ts",
+        "default": "./dist/signals/index.js"
+      },
+      "require": {
+        "types": "./dist/signals/index.d.ts",
+        "default": "./dist/signals/index.cjs"
+      }
+    },
+    "./storage": {
+      "import": {
+        "types": "./dist/storage/index.d.ts",
+        "default": "./dist/storage/index.js"
+      },
+      "require": {
+        "types": "./dist/storage/index.d.ts",
+        "default": "./dist/storage/index.cjs"
+      }
+    },
+    "./channels": {
+      "import": {
+        "types": "./dist/channels/index.d.ts",
+        "default": "./dist/channels/index.js"
+      },
+      "require": {
+        "types": "./dist/channels/index.d.ts",
+        "default": "./dist/channels/index.cjs"
+      }
+    },
+    "./datasets": {
+      "import": {
+        "types": "./dist/datasets/index.d.ts",
+        "default": "./dist/datasets/index.js"
+      },
+      "require": {
+        "types": "./dist/datasets/index.d.ts",
+        "default": "./dist/datasets/index.cjs"
+      }
+    },
+    "./deployer": {
+      "import": {
+        "types": "./dist/deployer/index.d.ts",
+        "default": "./dist/deployer/index.js"
+      },
+      "require": {
+        "types": "./dist/deployer/index.d.ts",
+        "default": "./dist/deployer/index.cjs"
+      }
+    },
+    "./features": {
+      "import": {
+        "types": "./dist/features/index.d.ts",
+        "default": "./dist/features/index.js"
+      },
+      "require": {
+        "types": "./dist/features/index.d.ts",
+        "default": "./dist/features/index.cjs"
+      }
+    },
+    "./predicate": {
+      "import": {
+        "types": "./dist/predicate/index.d.ts",
+        "default": "./dist/predicate/index.js"
+      },
+      "require": {
+        "types": "./dist/predicate/index.d.ts",
+        "default": "./dist/predicate/index.cjs"
+      }
+    },
+    "./relevance": {
+      "import": {
+        "types": "./dist/relevance/index.d.ts",
+        "default": "./dist/relevance/index.js"
+      },
+      "require": {
+        "types": "./dist/relevance/index.d.ts",
+        "default": "./dist/relevance/index.cjs"
+      }
+    },
+    "./schedules": {
+      "import": {
+        "types": "./dist/schedules/index.d.ts",
+        "default": "./dist/schedules/index.js"
+      },
+      "require": {
+        "types": "./dist/schedules/index.d.ts",
+        "default": "./dist/schedules/index.cjs"
+      }
+    },
+    "./telemetry": {
+      "import": {
+        "types": "./dist/telemetry/index.d.ts",
+        "default": "./dist/telemetry/index.js"
+      },
+      "require": {
+        "types": "./dist/telemetry/index.d.ts",
+        "default": "./dist/telemetry/index.cjs"
+      }
+    },
+    "./workflows": {
+      "import": {
+        "types": "./dist/workflows/index.d.ts",
+        "default": "./dist/workflows/index.js"
+      },
+      "require": {
+        "types": "./dist/workflows/index.d.ts",
+        "default": "./dist/workflows/index.cjs"
+      }
+    },
+    "./workspace": {
+      "import": {
+        "types": "./dist/workspace/index.d.ts",
+        "default": "./dist/workspace/index.js"
+      },
+      "require": {
+        "types": "./dist/workspace/index.d.ts",
+        "default": "./dist/workspace/index.cjs"
+      }
+    },
+    "./a2a/client": {
+      "import": {
+        "types": "./dist/a2a/client.d.ts",
+        "default": "./dist/a2a/client.js"
+      },
+      "require": {
+        "types": "./dist/a2a/client.d.ts",
+        "default": "./dist/a2a/client.cjs"
+      }
+    },
+    "./classifier": {
+      "import": {
+        "types": "./dist/classifier/index.d.ts",
+        "default": "./dist/classifier/index.js"
+      },
+      "require": {
+        "types": "./dist/classifier/index.d.ts",
+        "default": "./dist/classifier/index.cjs"
+      }
+    },
+    "./processors": {
+      "import": {
+        "types": "./dist/processors/index.d.ts",
+        "default": "./dist/processors/index.js"
+      },
+      "require": {
+        "types": "./dist/processors/index.d.ts",
+        "default": "./dist/processors/index.cjs"
+      }
+    },
+    "./integration": {
+      "import": {
+        "types": "./dist/integration/index.d.ts",
+        "default": "./dist/integration/index.js"
+      },
+      "require": {
+        "types": "./dist/integration/index.d.ts",
+        "default": "./dist/integration/index.cjs"
+      }
+    },
+    "./loop/server": {
+      "import": {
+        "types": "./dist/loop/server.d.ts",
+        "default": "./dist/loop/server.js"
+      },
+      "require": {
+        "types": "./dist/loop/server.d.ts",
+        "default": "./dist/loop/server.cjs"
+      }
+    },
+    "./coding-agent": {
+      "import": {
+        "types": "./dist/coding-agent/index.d.ts",
+        "default": "./dist/coding-agent/index.js"
+      },
+      "require": {
+        "types": "./dist/coding-agent/index.d.ts",
+        "default": "./dist/coding-agent/index.cjs"
+      }
+    },
+    "./package.json": "./package.json",
+    "./agent/durable": {
+      "import": {
+        "types": "./dist/agent/durable/index.d.ts",
+        "default": "./dist/agent/durable/index.js"
+      },
+      "require": {
+        "types": "./dist/agent/durable/index.d.ts",
+        "default": "./dist/agent/durable/index.cjs"
+      }
+    },
+    "./network/vNext": {
+      "import": {
+        "types": "./dist/network/vNext/index.d.ts",
+        "default": "./dist/network/vNext/index.js"
+      },
+      "require": {
+        "types": "./dist/network/vNext/index.d.ts",
+        "default": "./dist/network/vNext/index.cjs"
+      }
+    },
+    "./notifications": {
+      "import": {
+        "types": "./dist/notifications/index.d.ts",
+        "default": "./dist/notifications/index.js"
+      },
+      "require": {
+        "types": "./dist/notifications/index.d.ts",
+        "default": "./dist/notifications/index.cjs"
+      }
+    },
+    "./observability": {
+      "import": {
+        "types": "./dist/observability/index.d.ts",
+        "default": "./dist/observability/index.js"
+      },
+      "require": {
+        "types": "./dist/observability/index.d.ts",
+        "default": "./dist/observability/index.cjs"
+      }
+    },
+    "./tool-provider": {
+      "import": {
+        "types": "./dist/tool-provider/index.d.ts",
+        "default": "./dist/tool-provider/index.js"
+      },
+      "require": {
+        "types": "./dist/tool-provider/index.d.ts",
+        "default": "./dist/tool-provider/index.cjs"
+      }
+    },
+    "./vector/filter": {
+      "import": {
+        "types": "./dist/vector/filter/index.d.ts",
+        "default": "./dist/vector/filter/index.js"
+      },
+      "require": {
+        "types": "./dist/vector/filter/index.d.ts",
+        "default": "./dist/vector/filter/index.cjs"
+      }
+    },
+    "./request-context": {
+      "import": {
+        "types": "./dist/request-context/index.d.ts",
+        "default": "./dist/request-context/index.js"
+      },
+      "require": {
+        "types": "./dist/request-context/index.d.ts",
+        "default": "./dist/request-context/index.cjs"
+      }
+    },
+    "./tool-loop-agent": {
+      "import": {
+        "types": "./dist/tool-loop-agent/index.d.ts",
+        "default": "./dist/tool-loop-agent/index.js"
+      },
+      "require": {
+        "types": "./dist/tool-loop-agent/index.d.ts",
+        "default": "./dist/tool-loop-agent/index.cjs"
+      }
+    },
+    "./agent-builder/ee": {
+      "import": {
+        "types": "./dist/agent-builder/ee/index.d.ts",
+        "default": "./dist/agent-builder/ee/index.js"
+      },
+      "require": {
+        "types": "./dist/agent-builder/ee/index.d.ts",
+        "default": "./dist/agent-builder/ee/index.cjs"
+      }
+    },
+    "./agent-controller": {
+      "import": {
+        "types": "./dist/agent-controller/index.d.ts",
+        "default": "./dist/agent-controller/index.js"
+      },
+      "require": {
+        "types": "./dist/agent-controller/index.d.ts",
+        "default": "./dist/agent-controller/index.cjs"
+      }
+    },
+    "./background-tasks": {
+      "import": {
+        "types": "./dist/background-tasks/index.d.ts",
+        "default": "./dist/background-tasks/index.js"
+      },
+      "require": {
+        "types": "./dist/background-tasks/index.d.ts",
+        "default": "./dist/background-tasks/index.cjs"
+      }
+    },
+    "./evals/scoreTraces": {
+      "import": {
+        "types": "./dist/evals/scoreTraces/index.d.ts",
+        "default": "./dist/evals/scoreTraces/index.js"
+      },
+      "require": {
+        "types": "./dist/evals/scoreTraces/index.d.ts",
+        "default": "./dist/evals/scoreTraces/index.cjs"
+      }
+    },
+    "./storage/constants": {
+      "import": {
+        "types": "./dist/storage/constants.d.ts",
+        "default": "./dist/storage/constants.js"
+      },
+      "require": {
+        "types": "./dist/storage/constants.d.ts",
+        "default": "./dist/storage/constants.cjs"
+      }
+    },
+    "./utils/zod-to-json": {
+      "import": {
+        "types": "./dist/zod-to-json.d.ts",
+        "default": "./dist/zod-to-json.js"
+      },
+      "require": {
+        "types": "./dist/zod-to-json.d.ts",
+        "default": "./dist/zod-to-json.cjs"
+      }
+    },
+    "./workflows/builder": {
+      "import": {
+        "types": "./dist/workflows/builder/index.d.ts",
+        "default": "./dist/workflows/builder/index.js"
+      },
+      "require": {
+        "types": "./dist/workflows/builder/index.d.ts",
+        "default": "./dist/workflows/builder/index.cjs"
+      }
+    },
+    "./workflows/evented": {
+      "import": {
+        "types": "./dist/workflows/evented/index.d.ts",
+        "default": "./dist/workflows/evented/index.js"
+      },
+      "require": {
+        "types": "./dist/workflows/evented/index.d.ts",
+        "default": "./dist/workflows/evented/index.cjs"
+      }
+    },
+    "./agent/message-list": {
+      "import": {
+        "types": "./dist/agent/message-list/index.d.ts",
+        "default": "./dist/agent/message-list/index.js"
+      },
+      "require": {
+        "types": "./dist/agent/message-list/index.d.ts",
+        "default": "./dist/agent/message-list/index.cjs"
+      }
+    },
+    "./processor-provider": {
+      "import": {
+        "types": "./dist/processor-provider/index.d.ts",
+        "default": "./dist/processor-provider/index.js"
+      },
+      "require": {
+        "types": "./dist/processor-provider/index.d.ts",
+        "default": "./dist/processor-provider/index.cjs"
+      }
+    },
+    "./test-utils/llm-mock": {
+      "import": {
+        "types": "./dist/test-utils/llm-mock.d.ts",
+        "default": "./dist/test-utils/llm-mock.js"
+      },
+      "require": {
+        "types": "./dist/test-utils/llm-mock.d.ts",
+        "default": "./dist/test-utils/llm-mock.cjs"
+      }
+    },
+    "./tools/is-vercel-tool": {
+      "import": {
+        "types": "./dist/tools/is-vercel-tool.d.ts",
+        "default": "./dist/tools/is-vercel-tool.js"
+      },
+      "require": {
+        "types": "./dist/tools/is-vercel-tool.d.ts",
+        "default": "./dist/tools/is-vercel-tool.cjs"
+      }
+    },
+    "./utils/safe-stringify": {
+      "import": {
+        "types": "./dist/utils/safe-stringify.d.ts",
+        "default": "./dist/utils/safe-stringify.js"
+      },
+      "require": {
+        "types": "./dist/utils/safe-stringify.d.ts",
+        "default": "./dist/utils/safe-stringify.cjs"
+      }
+    },
+    "./workflows/_constants": {
+      "import": {
+        "types": "./dist/workflows/constants.d.ts",
+        "default": "./dist/workflows/constants.js"
+      },
+      "require": {
+        "types": "./dist/workflows/constants.d.ts",
+        "default": "./dist/workflows/constants.cjs"
+      }
+    },
+    "./telemetry/otel-vendor": {
+      "import": {
+        "types": "./dist/telemetry/otel-vendor.d.ts",
+        "default": "./dist/telemetry/otel-vendor.js"
+      },
+      "require": {
+        "types": "./dist/telemetry/otel-vendor.d.ts",
+        "default": "./dist/telemetry/otel-vendor.cjs"
+      }
+    },
+    "./storage/domains/agents": {
+      "import": {
+        "types": "./dist/storage/domains/agents/index.d.ts",
+        "default": "./dist/storage/domains/agents/index.js"
+      },
+      "require": {
+        "types": "./dist/storage/domains/agents/index.d.ts",
+        "default": "./dist/storage/domains/agents/index.cjs"
+      }
+    },
+    "./storage/domains/skills": {
+      "import": {
+        "types": "./dist/storage/domains/skills/index.d.ts",
+        "default": "./dist/storage/domains/skills/index.js"
+      },
+      "require": {
+        "types": "./dist/storage/domains/skills/index.d.ts",
+        "default": "./dist/storage/domains/skills/index.cjs"
+      }
+    },
+    "./utils/collect-tool-mocks": {
+      "import": {
+        "types": "./dist/utils/collect-tool-mocks.d.ts",
+        "default": "./dist/utils/collect-tool-mocks.js"
+      },
+      "require": {
+        "types": "./dist/utils/collect-tool-mocks.d.ts",
+        "default": "./dist/utils/collect-tool-mocks.cjs"
+      }
+    },
+    "./storage/domains/favorites": {
+      "import": {
+        "types": "./dist/storage/domains/favorites/index.d.ts",
+        "default": "./dist/storage/domains/favorites/index.js"
+      },
+      "require": {
+        "types": "./dist/storage/domains/favorites/index.d.ts",
+        "default": "./dist/storage/domains/favorites/index.cjs"
+      }
+    },
+    "./storage/domains/workspaces": {
+      "import": {
+        "types": "./dist/storage/domains/workspaces/index.d.ts",
+        "default": "./dist/storage/domains/workspaces/index.js"
+      },
+      "require": {
+        "types": "./dist/storage/domains/workspaces/index.d.ts",
+        "default": "./dist/storage/domains/workspaces/index.cjs"
+      }
+    },
+    "./storage/domains/mcp-clients": {
+      "import": {
+        "types": "./dist/storage/domains/mcp-clients/index.d.ts",
+        "default": "./dist/storage/domains/mcp-clients/index.js"
+      },
+      "require": {
+        "types": "./dist/storage/domains/mcp-clients/index.d.ts",
+        "default": "./dist/storage/domains/mcp-clients/index.cjs"
+      }
+    },
+    "./storage/domains/mcp-servers": {
+      "import": {
+        "types": "./dist/storage/domains/mcp-servers/index.d.ts",
+        "default": "./dist/storage/domains/mcp-servers/index.js"
+      },
+      "require": {
+        "types": "./dist/storage/domains/mcp-servers/index.d.ts",
+        "default": "./dist/storage/domains/mcp-servers/index.cjs"
+      }
+    },
+    "./observability/context-storage": {
+      "import": {
+        "types": "./dist/observability/context-storage.d.ts",
+        "default": "./dist/observability/context-storage.js"
+      },
+      "require": {
+        "types": "./dist/observability/context-storage.d.ts",
+        "default": "./dist/observability/context-storage.cjs"
+      }
+    },
+    "./storage/domains/prompt-blocks": {
+      "import": {
+        "types": "./dist/storage/domains/prompt-blocks/index.d.ts",
+        "default": "./dist/storage/domains/prompt-blocks/index.js"
+      },
+      "require": {
+        "types": "./dist/storage/domains/prompt-blocks/index.d.ts",
+        "default": "./dist/storage/domains/prompt-blocks/index.cjs"
+      }
+    },
+    "./storage/domains/scorer-definitions": {
+      "import": {
+        "types": "./dist/storage/domains/scorer-definitions/index.d.ts",
+        "default": "./dist/storage/domains/scorer-definitions/index.js"
+      },
+      "require": {
+        "types": "./dist/storage/domains/scorer-definitions/index.d.ts",
+        "default": "./dist/storage/domains/scorer-definitions/index.cjs"
+      }
+    }
+  },
+  "license": "Apache-2.0",
+  "scripts": {
+    "lint": "oxlint . && eslint .",
+    "test": "npm run test:unit",
+    "check": "tsc --noEmit",
+    "lint:fix": "oxlint --fix . && eslint --fix .",
+    "build:lib": "tsdown --silent --config tsdown.config.ts --no-dts",
+    "test:unit": "vitest run --exclude '**/tool-builder/**'",
+    "typecheck": "tsc --noEmit -p tsconfig.build.json",
+    "build:watch": "pnpm build:lib --watch",
+    "generate:providers": "tsx scripts/generate-providers.ts",
+    "format:model-router": "cd ../.. && pnpm oxfmt packages/core/src/llm/model/provider-registry.json packages/core/src/llm/model/provider-types.generated.d.ts packages/core/src/llm/model/capabilities/ && cd docs && pnpm oxfmt 'src/content/en/models/**/*.{ts,js}' --ignore-path /dev/null --no-error-on-unmatched-pattern",
+    "build:patch-commonjs": "node ../../scripts/commonjs-tsc-fixer.js",
+    "generate:model-router": "tsx scripts/generate-providers.ts && tsx scripts/generate-model-docs.ts && pnpm format:model-router"
+  },
+  "_npmUser": {
+    "name": "GitHub Actions",
+    "email": "npm-oidc-no-reply@github.com",
+    "trustedPublisher": {
+      "id": "github",
+      "oidcConfigId": "061f0b49-49d4-4907-b33f-593f61a8fcfe"
+    }
+  },
+  "homepage": "https://mastra.ai",
+  "keywords": [
+    "ai",
+    "llm",
+    "llms",
+    "agent",
+    "agents",
+    "vectorstore",
+    "embeddings",
+    "rag",
+    "evals",
+    "memory",
+    "tools",
+    "typescript",
+    "otel",
+    "framework"
+  ],
+  "repository": {
+    "url": "git+https://github.com/mastra-ai/mastra.git",
+    "type": "git",
+    "directory": "packages/core"
+  },
+  "directories": {},
+  "maintainers": [
+    {
+      "name": "abhiaiyer",
+      "email": "abhiaiyer91+npm@gmail.com"
+    },
+    {
+      "name": "smthomas",
+      "email": "shane@codekarate.com"
+    },
+    {
+      "name": "rase-",
+      "email": "tony.kovanen@gmail.com"
+    },
+    {
+      "name": "calcsam",
+      "email": "calcsam@gmail.com"
+    },
+    {
+      "name": "nikaiyer",
+      "email": "nick.aiyer@gmail.com"
+    },
+    {
+      "name": "tylerbarnes",
+      "email": "tylerdbarnes@gmail.com"
+    },
+    {
+      "name": "wardpeet",
+      "email": "ward@coding-tech.com"
+    }
+  ],
+  "sideEffects": false,
+  "_nodeVersion": "24.18.0",
+  "dependencies": {
+    "ws": "^8.21.3",
+    "chat": "^4.37.0",
+    "hono": "^4.13.7",
+    "execa": "^9.6.1",
+    "fastq": "^1.20.1",
+    "p-map": "^7.0.4",
+    "re2js": "^2.8.6",
+    "croner": "^10.0.1",
+    "dotenv": "^17.3.1",
+    "ignore": "^7.0.5",
+    "jpeg-js": "^0.4.4",
+    "p-retry": "^7.1.1",
+    "lru-cache": "^11.2.7",
+    "picomatch": "^4.0.3",
+    "gray-matter": "^4.0.3",
+    "json-schema": "^0.4.0",
+    "xxhash-wasm": "^1.1.0",
+    "@lukeed/uuid": "^2.0.1",
+    "hono-openapi": "^1.3.1",
+    "posthog-node": "^5.46.1",
+    "@a2a-js/sdk-v1": "npm:@a2a-js/sdk@~1.0.1",
+    "@a2a-js/sdk-v0_3": "npm:@a2a-js/sdk@~0.3.14",
+    "@isaacs/ttlcache": "^2.1.5",
+    "@ai-sdk/provider-v5": "npm:@ai-sdk/provider@2.0.3",
+    "@ai-sdk/provider-v6": "npm:@ai-sdk/provider@3.0.14",
+    "@ai-sdk/provider-v7": "npm:@ai-sdk/provider@4.0.17",
+    "@mastra/schema-compat": "1.3.13",
+    "@standard-schema/spec": "^1.1.0",
+    "@ai-sdk/provider-utils-v6": "npm:@ai-sdk/provider-utils@4.0.40",
+    "@ai-sdk/provider-utils-v7": "npm:@ai-sdk/provider-utils@5.0.13"
+  },
+  "_hasShrinkwrap": false,
+  "devDependencies": {
+    "tsx": "^4.23.1",
+    "zod": "^4.6.4",
+    "eslint": "^10.7.0",
+    "rollup": "^4.62.2",
+    "tokenx": "^1.3.0",
+    "tsdown": "0.22.9",
+    "vitest": "4.1.11",
+    "arktype": "^2.2.0",
+    "valibot": "^1.4.1",
+    "ts-morph": "^27.0.2",
+    "@types/ws": "^8.18.1",
+    "@vitest/ui": "4.1.11",
+    "tinyglobby": "^0.2.17",
+    "typescript": "^7.0.2",
+    "@babel/core": "^8.0.1",
+    "@types/node": "22.20.1",
+    "@ai-sdk/azure": "^2.0.120",
+    "@ai-sdk/openai": "^1.3.24",
+    "@ai-sdk/xai-v6": "npm:@ai-sdk/xai@3.0.111",
+    "@ast-grep/napi": "^0.40.5",
+    "@internal/auth": "0.0.31",
+    "@internal/core": "0.1.2",
+    "@internal/lint": "0.0.141",
+    "vscode-jsonrpc": "^8.2.1",
+    "@ai-sdk/groq-v6": "npm:@ai-sdk/groq@3.0.53",
+    "@internal/ai-v6": "0.0.88",
+    "@internal/ai-v7": "0.0.88",
+    "@internal/voice": "0.0.39",
+    "fast-deep-equal": "^3.1.3",
+    "@types/picomatch": "4.0.2",
+    "@ai-sdk/google-v5": "npm:@ai-sdk/google@2.0.85",
+    "@ai-sdk/google-v6": "npm:@ai-sdk/google@3.0.101",
+    "@ai-sdk/google-v7": "npm:@ai-sdk/google@4.0.25",
+    "@ai-sdk/openai-v5": "npm:@ai-sdk/openai@2.0.115",
+    "@ai-sdk/openai-v6": "npm:@ai-sdk/openai@3.0.88",
+    "@ai-sdk/openai-v7": "npm:@ai-sdk/openai@4.0.21",
+    "@ai-sdk/alibaba-v6": "npm:@ai-sdk/alibaba@1.0.40",
+    "@ai-sdk/mistral-v6": "npm:@ai-sdk/mistral@3.0.52",
+    "@copilotkit/aimock": "^1.29.0",
+    "@types/json-schema": "^7.0.15",
+    "@ai-sdk/cerebras-v6": "npm:@ai-sdk/cerebras@2.0.68",
+    "@ai-sdk/deepseek-v7": "npm:@ai-sdk/deepseek@3.0.52",
+    "@ai-sdk/provider-v4": "npm:@ai-sdk/provider@1.1.3",
+    "@internal/ai-sdk-v4": "0.0.88",
+    "@internal/ai-sdk-v5": "0.0.88",
+    "@vitest/coverage-v8": "4.1.11",
+    "@ai-sdk/anthropic-v5": "npm:@ai-sdk/anthropic@2.0.91",
+    "@ai-sdk/anthropic-v6": "npm:@ai-sdk/anthropic@3.0.103",
+    "@ai-sdk/anthropic-v7": "npm:@ai-sdk/anthropic@4.0.22",
+    "@ai-sdk/deepinfra-v6": "npm:@ai-sdk/deepinfra@2.0.66",
+    "@internal/test-utils": "0.0.77",
+    "@ai-sdk/perplexity-v6": "npm:@ai-sdk/perplexity@3.0.47",
+    "@ai-sdk/togetherai-v6": "npm:@ai-sdk/togetherai@2.0.68",
+    "@sindresorhus/slugify": "^2.2.1",
+    "@internal/llm-recorder": "0.0.77",
+    "@internal/types-builder": "0.0.116",
+    "@internal/external-types": "0.0.91",
+    "@ai-sdk/provider-utils-v4": "npm:@ai-sdk/provider-utils@2.2.8",
+    "@openrouter/ai-sdk-provider": "^0.7.5",
+    "@ai-sdk/openai-compatible-v5": "npm:@ai-sdk/openai-compatible@1.0.46",
+    "@ai-sdk/openai-compatible-v6": "npm:@ai-sdk/openai-compatible@2.0.62",
+    "@modelcontextprotocol/server": "2.0.0",
+    "@openrouter/ai-sdk-provider-v5": "npm:@openrouter/ai-sdk-provider@1.5.4",
+    "@openrouter/ai-sdk-provider-v6": "npm:@openrouter/ai-sdk-provider@2.10.0",
+    "vscode-languageserver-protocol": "^3.17.5"
+  },
+  "peerDependencies": {
+    "zod": "^3.25.0 || ^4.0.0"
+  },
+  "_npmOperationalInternal": {
+    "tmp": "tmp/core_1.75.0_1791363202737_0.12340912272338134",
+    "host": "s3://npm-registry-packages-npm-production"
+  },
+  "_id": "@mastra/core@1.75.0",
+  "version": "1.75.0"
+}

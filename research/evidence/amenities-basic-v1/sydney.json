@@ -1,0 +1,2443 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-09T03:27:04Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 20930520,
+  "lat": -33.8794502,
+  "lon": 151.2055977,
+  "tags": {
+    "check_date": "2026-07-11",
+    "description": "Lots of small computer hardware and software shops",
+    "name": "Capitol Square Computer Centre",
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 266280019,
+  "lat": -33.8947146,
+  "lon": 151.1994460,
+  "tags": {
+    "check_date": "2025-09",
+    "name": "Redfern Fruit Market",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 518303122,
+  "lat": -33.8879143,
+  "lon": 151.1585162,
+  "tags": {
+    "check_date:opening_hours": "2024-10-25",
+    "name": "Convenience Store",
+    "opening_hours:signed": "no",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 772592796,
+  "lat": -33.9106130,
+  "lon": 151.1940300,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 836112319,
+  "lat": -33.8729280,
+  "lon": 151.2049703,
+  "tags": {
+    "name": "TNT Convenience & Tobacconist",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 936411203,
+  "lat": -33.8757467,
+  "lon": 151.2158646,
+  "tags": {
+    "shop": "convenience",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1266624691,
+  "lat": -33.8795556,
+  "lon": 151.2055707,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "check_date": "2026-06-25",
+    "name": "7-Eleven",
+    "shop": "convenience",
+    "website": "https://www.7eleven.com.au/"
+  }
+},
+{
+  "type": "node",
+  "id": 1577577804,
+  "lat": -33.8913201,
+  "lon": 151.1958703,
+  "tags": {
+    "name": "Chippendale Scoop",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 1736956867,
+  "lat": -33.8832744,
+  "lon": 151.1834945,
+  "tags": {
+    "name": "Westeros Convenience",
+    "opening_hours": "Mo-Su 07:00-22:00",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 1812102282,
+  "lat": -33.8884632,
+  "lon": 151.1987210,
+  "tags": {
+    "check_date": "2026-04",
+    "name": "Quick & Easy",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 1813415156,
+  "lat": -33.8946913,
+  "lon": 151.2093306,
+  "tags": {
+    "shop": "convenience",
+    "toilets:wheelchair": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1833317153,
+  "lat": -33.8851169,
+  "lon": 151.1947702,
+  "tags": {
+    "check_date": "2026-07-06",
+    "check_date:opening_hours": "2025-05-24",
+    "name": "Fresh Foods and Convenience Store",
+    "opening_hours:signed": "no",
+    "shop": "convenience",
+    "source": "photo"
+  }
+},
+{
+  "type": "node",
+  "id": 1834904035,
+  "lat": -33.8665658,
+  "lon": 151.2051542,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "check_date": "2025-08-21",
+    "name": "7-Eleven",
+    "shop": "convenience",
+    "website": "https://www.7eleven.com.au/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 1852677770,
+  "lat": -33.8870293,
+  "lon": 151.1742248,
+  "tags": {
+    "addr:housenumber": "198",
+    "addr:street": "Parramatta Road",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "check_date": "2025-01-22",
+    "name": "7-Eleven",
+    "opening_hours": "24/7",
+    "operator": "7-Eleven",
+    "phone": "+61 2 9519 5910",
+    "shop": "convenience",
+    "website": "https://www.7eleven.com.au/",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 1856526058,
+  "lat": -33.8980826,
+  "lon": 151.2026788,
+  "tags": {
+    "brand": "IGA",
+    "brand:wikidata": "Q5970945",
+    "name": "IGA Express",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 1865257857,
+  "lat": -33.8686704,
+  "lon": 151.2039248,
+  "tags": {
+    "addr:housenumber": "20",
+    "addr:street": "King Street",
+    "atm": "yes",
+    "atm:operator": "Bendigo Bank",
+    "name": "Darling Convenience",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 1939836369,
+  "lat": -33.8701434,
+  "lon": 151.1976819,
+  "tags": {
+    "name": "City Convenience Store",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 1963294346,
+  "lat": -33.8995521,
+  "lon": 151.1841326,
+  "tags": {
+    "addr:housenumber": "110",
+    "addr:postcode": "2043",
+    "addr:street": "Erskineville Road",
+    "name": "The Deli Erskineville",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 2163387593,
+  "lat": -33.8887786,
+  "lon": 151.1819740,
+  "tags": {
+    "addr:housenumber": "8",
+    "addr:postcode": "2050",
+    "addr:street": "Missenden Road",
+    "addr:suburb": "Camperdown",
+    "atm": "yes",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "check_date:opening_hours": "2025-04",
+    "name": "7-Eleven",
+    "opening_hours": "24/7",
+    "phone": "+61 2 9519 6912",
+    "shop": "convenience",
+    "website": "https://www.7eleven.com.au/",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 2312210271,
+  "lat": -33.8671738,
+  "lon": 151.2060471,
+  "tags": {
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "name": "EzyMart",
+    "shop": "convenience",
+    "source": "survey"
+  }
+},
+{
+  "type": "node",
+  "id": 2365232604,
+  "lat": -33.8948762,
+  "lon": 151.1823058,
+  "tags": {
+    "cuisine": "asian",
+    "name": "Family Mart",
+    "shop": "convenience",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 2514755467,
+  "lat": -33.8893825,
+  "lon": 151.2063100,
+  "tags": {
+    "name": "Chalmers Convenience Store",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 2525014059,
+  "lat": -33.8846058,
+  "lon": 151.2007392,
+  "tags": {
+    "addr:housenumber": "80",
+    "addr:street": "Broadway",
+    "name": "Central Park Mall",
+    "shop": "mall",
+    "toilets": "yes",
+    "wheelchair": "yes",
+    "wikidata": "Q5061591"
+  }
+},
+{
+  "type": "node",
+  "id": 2787047326,
+  "lat": -33.8956480,
+  "lon": 151.1757459,
+  "tags": {
+    "addr:housenumber": "88",
+    "addr:postcode": "2042",
+    "addr:street": "Chelmsford Street",
+    "addr:suburb": "Newtown",
+    "name": "4 Ways Mixed Business",
+    "opening_hours:signed": "no",
+    "phone": "+61 2 9557 9353",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 2911988522,
+  "lat": -33.8841728,
+  "lon": 151.1966269,
+  "tags": {
+    "addr:housenumber": "173-179",
+    "addr:street": "Broadway",
+    "check_date": "2025-12",
+    "name": "City Mart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3273881196,
+  "lat": -33.8869532,
+  "lon": 151.1949044,
+  "tags": {
+    "name": "Mixed Business The Original Corner Shop Laundrette & Dry Cleaner",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3390271710,
+  "lat": -33.8965876,
+  "lon": 151.2000740,
+  "tags": {
+    "name": "Waterloo Mixed Business",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3476198926,
+  "lat": -33.8670139,
+  "lon": 151.1945692,
+  "tags": {
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "name": "EzyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3476198927,
+  "lat": -33.8815253,
+  "lon": 151.2052127,
+  "tags": {
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "check_date": "2025-06-14",
+    "check_date:opening_hours": "2025-06-14",
+    "name": "EzyMart",
+    "opening_hours:signed": "no",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3476205571,
+  "lat": -33.8707770,
+  "lon": 151.2050119,
+  "tags": {
+    "check_date": "2024-12-11",
+    "name": "City Convenience Store",
+    "opening_hours": "24/7",
+    "shop": "convenience",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 3915728058,
+  "lat": -33.8778095,
+  "lon": 151.1984559,
+  "tags": {
+    "check_date": "2026-05",
+    "name": "Ultimo Supermarket",
+    "shop": "convenience",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3915728059,
+  "lat": -33.8790509,
+  "lon": 151.2035360,
+  "tags": {
+    "name": "Harbour St Convenience Store",
+    "shop": "convenience",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3918034859,
+  "lat": -33.8789112,
+  "lon": 151.1971080,
+  "tags": {
+    "check_date": "2025-04-05",
+    "name": "Wilson Convenience Store",
+    "outdoor_seating": "yes",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3921515057,
+  "lat": -33.8837522,
+  "lon": 151.2024241,
+  "tags": {
+    "amenity": "atm",
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "check_date": "2025-11",
+    "name": "EzyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3922986158,
+  "lat": -33.8762281,
+  "lon": 151.2056562,
+  "tags": {
+    "addr:floor": "0",
+    "addr:housenumber": "86",
+    "addr:street": "Liverpool Street",
+    "addr:unit": "1",
+    "check_date": "2025-11-27",
+    "level": "0",
+    "name": "City Tobacconist",
+    "shop": "convenience",
+    "support": "SMS or website chat"
+  }
+},
+{
+  "type": "node",
+  "id": 3922986160,
+  "lat": -33.8762974,
+  "lon": 151.2047204,
+  "tags": {
+    "addr:housenumber": "368",
+    "addr:street": "Sussex Street",
+    "check_date:opening_hours": "2026-02-12",
+    "name": "tsg tobacco station",
+    "opening_hours:signed": "no",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3922986557,
+  "lat": -33.8775244,
+  "lon": 151.2045529,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "check_date": "2024-08-24",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3930018358,
+  "lat": -33.8743675,
+  "lon": 151.2078910,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "check_date": "2024-11-09",
+    "level": "0",
+    "name": "7-Eleven",
+    "shop": "convenience",
+    "website": "https://www.7eleven.com.au/"
+  }
+},
+{
+  "type": "node",
+  "id": 3949642158,
+  "lat": -33.8733660,
+  "lon": 151.2087719,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3951218958,
+  "lat": -33.8931198,
+  "lon": 151.1847531,
+  "tags": {
+    "name": "City Convenience",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3951218962,
+  "lat": -33.8945874,
+  "lon": 151.1821544,
+  "tags": {
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "name": "EzyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3951219357,
+  "lat": -33.8932103,
+  "lon": 151.1836348,
+  "tags": {
+    "name": "City Convenience",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3977391961,
+  "lat": -33.8744455,
+  "lon": 151.2051763,
+  "tags": {
+    "check_date": "2026-07-23",
+    "name": "King of the Pack",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3977391967,
+  "lat": -33.8755855,
+  "lon": 151.2062875,
+  "tags": {
+    "name": "Allied Mart Tobacconist",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3979136661,
+  "lat": -33.8742094,
+  "lon": 151.2041629,
+  "tags": {
+    "check_date": "2024-09-26",
+    "check_date:opening_hours": "2022-09-07",
+    "name": "Millennium Convenience Store",
+    "opening_hours:signed": "no",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3979136669,
+  "lat": -33.8765352,
+  "lon": 151.2077682,
+  "tags": {
+    "name": "Allied Mart",
+    "opening_hours": "24/7",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4017521495,
+  "lat": -33.8838490,
+  "lon": 151.2084539,
+  "tags": {
+    "brand": "Tobacco Station",
+    "check_date": "2025-03-25",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4023189089,
+  "lat": -33.8711966,
+  "lon": 151.2095933,
+  "tags": {
+    "name": "Pino's Cafe and Convenience",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4027321792,
+  "lat": -33.8791400,
+  "lon": 151.2064328,
+  "tags": {
+    "addr:housenumber": "22",
+    "addr:street": "Campbell Street",
+    "check_date": "2026-07-11",
+    "name": "City Sth Convenience Store",
+    "opening_hours:signed": "no",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4027321890,
+  "lat": -33.8797516,
+  "lon": 151.2068117,
+  "tags": {
+    "addr:housenumber": "453",
+    "addr:street": "Pitt Street",
+    "check_date": "2026-07-11",
+    "check_date:opening_hours": "2025-07-17",
+    "name": "Freechoice Tobacconist",
+    "opening_hours:signed": "no",
+    "shop": "convenience",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4032643295,
+  "lat": -33.8852123,
+  "lon": 151.2138737,
+  "tags": {
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "check_date": "2026-07-09",
+    "name": "EzyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4057788793,
+  "lat": -33.8702235,
+  "lon": 151.2039445,
+  "tags": {
+    "name": "7/24",
+    "shop": "convenience",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4057788797,
+  "lat": -33.8731667,
+  "lon": 151.2040078,
+  "tags": {
+    "name": "City Mart",
+    "shop": "convenience",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 4071269690,
+  "lat": -33.8841683,
+  "lon": 151.1955741,
+  "tags": {
+    "name": "Broadway Convenience",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4242649427,
+  "lat": -33.8788877,
+  "lon": 151.2073200,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience",
+    "website": "https://www.7eleven.com.au/"
+  }
+},
+{
+  "type": "node",
+  "id": 4242650074,
+  "lat": -33.8862537,
+  "lon": 151.2082810,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4314399992,
+  "lat": -33.8816463,
+  "lon": 151.2088365,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "check_date": "2025-11-",
+    "name": "7-Eleven",
+    "opening_hours": "24/7",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4812702421,
+  "lat": -33.8767204,
+  "lon": 151.2093007,
+  "tags": {
+    "check_date": "2024-11-11",
+    "name": "City Convenience",
+    "name:en": "City Convenience",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4860764931,
+  "lat": -33.9056141,
+  "lon": 151.1807614,
+  "tags": {
+    "addr:housenumber": "591",
+    "addr:street": "King Street",
+    "addr:suburb": "Newtown",
+    "check_date:opening_hours": "2025-03-08",
+    "name": "Fiji Market",
+    "opening_hours:signed": "no",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4860777368,
+  "lat": -33.9028336,
+  "lon": 151.1792526,
+  "tags": {
+    "check_date:opening_hours": "2025-07-17",
+    "name": "Global Corner Convenience Store",
+    "opening_hours:signed": "no",
+    "shop": "convenience",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 5134254843,
+  "lat": -33.8779912,
+  "lon": 151.2094766,
+  "tags": {
+    "brand": "IGA",
+    "brand:wikidata": "Q5970945",
+    "name": "IGA Express",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5240187412,
+  "lat": -33.8807410,
+  "lon": 151.2051164,
+  "tags": {
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "name": "EzyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5603655690,
+  "lat": -33.8893476,
+  "lon": 151.2081710,
+  "tags": {
+    "name": "Strawberry Hill Convenience Store",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5608270088,
+  "lat": -33.8888520,
+  "lon": 151.2103214,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5608349139,
+  "lat": -33.8909216,
+  "lon": 151.2130814,
+  "tags": {
+    "name": "Convenience Plus",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5609320622,
+  "lat": -33.8901611,
+  "lon": 151.2088855,
+  "tags": {
+    "check_date": "2026-05-15",
+    "name": "Fatima's Mini Mart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5710651328,
+  "lat": -33.8689144,
+  "lon": 151.1957614,
+  "tags": {
+    "name": "City Essentials",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5740591203,
+  "lat": -33.8924116,
+  "lon": 151.2020379,
+  "tags": {
+    "check_date": "2025-11",
+    "name": "Redfern Convenience",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5748633428,
+  "lat": -33.8774171,
+  "lon": 151.2166631,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5797326956,
+  "lat": -33.9061541,
+  "lon": 151.2116595,
+  "tags": {
+    "name": "New One One Supermarket",
+    "opening_hours": "Mo-Su 09:30-23:00",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5842632915,
+  "lat": -33.8936641,
+  "lon": 151.1640690,
+  "tags": {
+    "name": "Stanmore Supermarket",
+    "opening_hours": "Mo-Fr 06:30-24:00; Sa,Su 07:30-24:00",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5844879427,
+  "lat": -33.8864678,
+  "lon": 151.1771420,
+  "tags": {
+    "name": "Camperdown Grocer",
+    "opening_hours": "Mo-Th 10:00-21:00; Fr,Sa 10:00-22:00; Su,PH 10:00-20:00",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5887032674,
+  "lat": -33.8813544,
+  "lon": 151.2172609,
+  "tags": {
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "check_date": "2024-09-19",
+    "name": "EzyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5996637983,
+  "lat": -33.8754082,
+  "lon": 151.2094650,
+  "tags": {
+    "name": "Aeroplane Convenience Crentre",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5996637984,
+  "lat": -33.8770411,
+  "lon": 151.2107607,
+  "tags": {
+    "check_date": "2026-09-06",
+    "name": "TNT Tobacconist and Convenience",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 6009432892,
+  "lat": -33.8731493,
+  "lon": 151.2097409,
+  "tags": {
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "check_date": "2025-04",
+    "name": "EzyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 6091813755,
+  "lat": -33.8790951,
+  "lon": 151.2147548,
+  "tags": {
+    "check_date": "2026-09-06",
+    "name": "SFG Convenince",
+    "shop": "convenience",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6125847380,
+  "lat": -33.8829504,
+  "lon": 151.2070443,
+  "tags": {
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "level": "1",
+    "name": "EzyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 6261160465,
+  "lat": -33.8670580,
+  "lon": 151.2020596,
+  "tags": {
+    "name": "TSG Tobacco Station",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 6314072787,
+  "lat": -33.9065755,
+  "lon": 151.1644483,
+  "tags": {
+    "addr:housenumber": "137",
+    "addr:street": "Victoria Road",
+    "name": "krem avah",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 6322295356,
+  "lat": -33.8652456,
+  "lon": 151.2015238,
+  "tags": {
+    "name": "Barangaroo Convenience Store",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 6442329463,
+  "lat": -33.8764661,
+  "lon": 151.2124506,
+  "tags": {
+    "check_date": "2025-05-15",
+    "name": "City Convenience",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 6564462487,
+  "lat": -33.8959920,
+  "lon": 151.1826977,
+  "tags": {
+    "addr:floor": "G",
+    "addr:housenumber": "80",
+    "addr:street": "Wilson Street",
+    "check_date": "2026-10-04",
+    "level": "0",
+    "name": "Marani Deli",
+    "opening_hours": "Mo,Th,Fr 10:00-18:30; Sa 09:30-15:30; Su 09:30-12:30; Tu,We off",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "shop": "convenience",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 6590135738,
+  "lat": -33.8860776,
+  "lon": 151.2083885,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 6600061460,
+  "lat": -33.8786374,
+  "lon": 151.2071246,
+  "tags": {
+    "name": "City Convenience",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 6738141285,
+  "lat": -33.8764868,
+  "lon": 151.2075908,
+  "tags": {
+    "check_date": "2024-11-10",
+    "level": "0",
+    "name": "Cosmos Korean Grocery",
+    "shop": "convenience",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 6919600547,
+  "lat": -33.8908749,
+  "lon": 151.2131682,
+  "tags": {
+    "name": "New Shalimar Movies and Spices",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 7765350754,
+  "lat": -33.8759373,
+  "lon": 151.1840999,
+  "tags": {
+    "name": "Lucky 7 Supermarket",
+    "shop": "convenience",
+    "website": "https://luckyseven.com.au/"
+  }
+},
+{
+  "type": "node",
+  "id": 8334234168,
+  "lat": -33.9039871,
+  "lon": 151.2126741,
+  "tags": {
+    "addr:housenumber": "20",
+    "addr:street": "Gadigal Avenue",
+    "addr:unit": "33",
+    "name": "Chery Shop",
+    "opening_hours": "Mo-Fr 09:30-20:00; Sa,Su 10:45-20:00",
+    "phone": "+61 2 8861 5603",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 8334252227,
+  "lat": -33.9031924,
+  "lon": 151.2128900,
+  "tags": {
+    "name": "Tokyo Super",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 8334252230,
+  "lat": -33.9023927,
+  "lon": 151.2042456,
+  "tags": {
+    "name": "Waterloo Mart",
+    "opening_hours": "Mo-Fr 08:45-18:00; Sa 10:00-16:00; Su 10:00-14:30",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 8393390991,
+  "lat": -33.8992175,
+  "lon": 151.2124815,
+  "tags": {
+    "name": "Crown Square Convenience Store",
+    "shop": "convenience",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 9329081673,
+  "lat": -33.9043271,
+  "lon": 151.1896446,
+  "tags": {
+    "name": "Park Sydney Village",
+    "shop": "mall",
+    "website": "https://parksydneyvillage.com.au/"
+  }
+},
+{
+  "type": "node",
+  "id": 9515230717,
+  "lat": -33.8756737,
+  "lon": 151.2069050,
+  "tags": {
+    "name": "G3 Mart Korean",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9660380317,
+  "lat": -33.8830557,
+  "lon": 151.1911123,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9819324660,
+  "lat": -33.8810692,
+  "lon": 151.1983504,
+  "tags": {
+    "check_date": "2025-04-05",
+    "check_date:opening_hours": "2023-12-14",
+    "name": "Coral Peak Convenience Store",
+    "opening_hours:signed": "no",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9886729728,
+  "lat": -33.8787082,
+  "lon": 151.2102418,
+  "tags": {
+    "check_date": "2025-02-13",
+    "name": "City Convenience",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9886729731,
+  "lat": -33.8710622,
+  "lon": 151.2053283,
+  "tags": {
+    "check_date": "2024-08-07",
+    "name": "City",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9892720601,
+  "lat": -33.8711593,
+  "lon": 151.2071285,
+  "tags": {
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "check_date": "2026-03-02",
+    "check_date:opening_hours": "2026-03-02",
+    "level": "0",
+    "name": "EzyMart",
+    "opening_hours": "24/7",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9892842158,
+  "lat": -33.8709064,
+  "lon": 151.2080517,
+  "tags": {
+    "addr:housenumber": "55",
+    "addr:street": "Market Street",
+    "name": "Lotte Duty Free",
+    "opening_hours": "Mo-We 11:00-18:00; Tu 10:00-21:00; Fr-Su 10:00-18:00",
+    "operator": "Lotte",
+    "phone:AU": "1300 388 937",
+    "shop": "mall",
+    "toilets": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 10925938063,
+  "lat": -33.8859973,
+  "lon": 151.2091603,
+  "tags": {
+    "name": "Holt Convenience Store",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11207651993,
+  "lat": -33.8886791,
+  "lon": 151.1833549,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "Women and Babies Services",
+    "operator": "Royal Prince Alfred Hospital"
+  }
+},
+{
+  "type": "node",
+  "id": 11336899919,
+  "lat": -33.9060422,
+  "lon": 151.2031894,
+  "tags": {
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "name": "EzyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11337210180,
+  "lat": -33.8849499,
+  "lon": 151.2155982,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11355578187,
+  "lat": -33.8797600,
+  "lon": 151.2094699,
+  "tags": {
+    "level": "0",
+    "name": "Wentworth Market",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11374704302,
+  "lat": -33.8843297,
+  "lon": 151.2016286,
+  "tags": {
+    "addr:housenumber": "16-18",
+    "addr:street": "Broadway",
+    "check_date": "2026-06-30",
+    "name": "TSG",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11553503130,
+  "lat": -33.9077081,
+  "lon": 151.1807314,
+  "tags": {
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "check_date": "2026-03-15",
+    "name": "EzyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11867631750,
+  "lat": -33.8662918,
+  "lon": 151.1921506,
+  "tags": {
+    "name": "Convenience Village",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11867636281,
+  "lat": -33.8671327,
+  "lon": 151.1922799,
+  "tags": {
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "name": "EzyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11878381803,
+  "lat": -33.8932789,
+  "lon": 151.1835873,
+  "tags": {
+    "atm": "yes",
+    "check_date:opening_hours": "2026-03-20",
+    "name": "Redfern Convenience Store",
+    "opening_hours:signed": "no",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12192263318,
+  "lat": -33.8735365,
+  "lon": 151.2060221,
+  "tags": {
+    "layer": "-1",
+    "name": "Town Hall Square",
+    "shop": "mall",
+    "toilets": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 12200476478,
+  "lat": -33.8848010,
+  "lon": 151.1998882,
+  "tags": {
+    "check_date": "2026-07",
+    "name": "Quikstop",
+    "opening_hours": "Mo-Fr 07:00-24:00;Sa-Su 00:00-24:00",
+    "shop": "convenience",
+    "website": "https://quikstop.com.au"
+  }
+},
+{
+  "type": "node",
+  "id": 12201394715,
+  "lat": -33.8878724,
+  "lon": 151.2017156,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12247606820,
+  "lat": -33.8732665,
+  "lon": 151.1961554,
+  "tags": {
+    "level": "0",
+    "payment:app": "yes",
+    "payment:cards": "yes",
+    "payment:cash": "yes",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12298961751,
+  "lat": -33.8733852,
+  "lon": 151.2090212,
+  "tags": {
+    "amenity": "bureau_de_change",
+    "check_date": "2025-07-05",
+    "mapillary": "1073740444246674",
+    "name": "CBD Mart & Money Exchange",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12319797695,
+  "lat": -33.8839722,
+  "lon": 151.2028788,
+  "tags": {
+    "check_date": "2025-11",
+    "name": "Fastimart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12319821002,
+  "lat": -33.8835909,
+  "lon": 151.2036370,
+  "tags": {
+    "check_date": "2024-11-05",
+    "level": "-1",
+    "name": "Central Tobacco Hub",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12328386923,
+  "lat": -33.8916360,
+  "lon": 151.1999952,
+  "tags": {
+    "atm": "yes",
+    "check_date": "2025-05",
+    "indoor_seating": "yes",
+    "indoor_seating:comfort": "chair",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12328386938,
+  "lat": -33.8914064,
+  "lon": 151.1985292,
+  "tags": {
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "check_date": "2026-06-07",
+    "name": "EzyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12497090739,
+  "lat": -33.8808063,
+  "lon": 151.1705292,
+  "tags": {
+    "brand": "Reddy Express",
+    "brand:wikidata": "Q5144653",
+    "name": "Reddy Express",
+    "opening_hours": "Mo-Fr 06:00-20:00; Sa,Su 07:00-19:00",
+    "shop": "convenience",
+    "website": "https://www.reddyexpress.com.au",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 12556177843,
+  "lat": -33.8861175,
+  "lon": 151.1974496,
+  "tags": {
+    "check_date": "2025-01",
+    "level": "0",
+    "name": "Adam Convenience Store",
+    "opening_hours": "Mo-Su 07:00-22:00",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12717080542,
+  "lat": -33.8983531,
+  "lon": 151.1780920,
+  "tags": {
+    "addr:housenumber": "343",
+    "addr:postcode": "2042",
+    "addr:state": "NSW",
+    "addr:street": "King Street",
+    "addr:suburb": "Newtown",
+    "contact:instagram": "https://www.instagram.com/chaymart.newtown/",
+    "diet:vegan": "yes",
+    "diet:vegetarian": "yes",
+    "email": "info@chaymart.com.au",
+    "level": "0",
+    "name": "Chay Mart",
+    "opening_hours": "Mo-Su 11:00-22:00",
+    "organic": "yes",
+    "phone": "+61 406 730 789",
+    "shop": "convenience",
+    "website": "https://www.chaymart.com.au/"
+  }
+},
+{
+  "type": "node",
+  "id": 12751105761,
+  "lat": -33.8853300,
+  "lon": 151.2066323,
+  "tags": {
+    "check_date": "2025-04",
+    "level": "-1",
+    "name": "Quick Link Mini Mart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13122064470,
+  "lat": -33.8823105,
+  "lon": 151.1825240,
+  "tags": {
+    "name": "City Convenience Store",
+    "opening_hours": "Mo-Fr 06:00-23:00; Sa,Su 07:00-23:00",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13253266278,
+  "lat": -33.8965638,
+  "lon": 151.1997843,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13269606462,
+  "lat": -33.8834807,
+  "lon": 151.1994067,
+  "tags": {
+    "check_date": "2025-10",
+    "name": "Quikstop",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13286274652,
+  "lat": -33.8681207,
+  "lon": 151.2053161,
+  "tags": {
+    "addr:housenumber": "100",
+    "addr:postcode": "2000",
+    "addr:state": "NSW",
+    "addr:street": "Clarence Street",
+    "addr:suburb": "Sydney",
+    "name": "Crave Mart",
+    "opening_hours": "Mo-Su 06:00-24:00",
+    "operator": "Crave Mart",
+    "payment:alipay": "yes",
+    "payment:american_express": "yes",
+    "payment:app": "yes",
+    "payment:apple_pay": "yes",
+    "payment:cards": "yes",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:contactless": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "payment:diners_club": "yes",
+    "payment:google_pay": "yes",
+    "payment:jcb": "yes",
+    "payment:mastercard": "yes",
+    "payment:mastercard_contactless": "yes",
+    "payment:notes": "yes",
+    "payment:unionpay": "yes",
+    "payment:visa": "yes",
+    "payment:visa_debit": "yes",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13288375721,
+  "lat": -33.8842913,
+  "lon": 151.2017957,
+  "tags": {
+    "check_date": "2026-06-30",
+    "check_date:opening_hours": "2026-03-19",
+    "cuisine": "japanese",
+    "name": "IC Mart",
+    "opening_hours": "Mo-Th 07:30-23:00;Fr-Sa 07:30-00:00;Su 10:00-23:00",
+    "shop": "convenience",
+    "source:opening_hours": "conversation with cashier",
+    "tobacco": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13438977271,
+  "lat": -33.8666487,
+  "lon": 151.2042294,
+  "tags": {
+    "brand": "EzyMart",
+    "brand:wikidata": "Q117220554",
+    "level": "0",
+    "name": "EzyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13459855901,
+  "lat": -33.8810677,
+  "lon": 151.1710799,
+  "tags": {
+    "addr:street": "Johnston Street",
+    "name": "Annandale Friendly Grocer",
+    "opening_hours": "Mo-Su 06:00-21:00",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13518378461,
+  "lat": -33.8821724,
+  "lon": 151.1567288,
+  "tags": {
+    "name": "Leichhardt Tobacconist",
+    "opening_hours": "Mo-Th 08:00-21:30; Fr 08:00-22:30; Sa 08:30-22:30; Su 09:30-21:30",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13551049888,
+  "lat": -33.8852102,
+  "lon": 151.2072763,
+  "tags": {
+    "check_date": "2026-02",
+    "name": "TSG Tobacco Station",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13589620873,
+  "lat": -33.8843796,
+  "lon": 151.1789019,
+  "tags": {
+    "name": "Pyrmont Bridge Convenience Store",
+    "opening_hours": "Mo-Sa 06:00-23:00; Su 07:00-23:00",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13660929302,
+  "lat": -33.8821641,
+  "lon": 151.2037967,
+  "tags": {
+    "check_date": "2026-03",
+    "location": "approximate",
+    "name": "Harmony Mart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13762451714,
+  "lat": -33.8982698,
+  "lon": 151.1781646,
+  "tags": {
+    "level": "0",
+    "name": "TSG Tobacco Station",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13817057991,
+  "lat": -33.8812370,
+  "lon": 151.2028367,
+  "tags": {
+    "name": "Quay Convenience",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 14004109181,
+  "lat": -33.8790870,
+  "lon": 151.2061906,
+  "tags": {
+    "addr:housenumber": "16",
+    "addr:street": "Campbell Street",
+    "check_date": "2026-07-11",
+    "name": "Pontip Thai Market",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 14004109183,
+  "lat": -33.8790991,
+  "lon": 151.2062512,
+  "tags": {
+    "addr:housenumber": "18",
+    "addr:street": "Campbell Street",
+    "check_date": "2026-07-11",
+    "name": "Mae Cheng Fine Asian Groceries",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 14053356761,
+  "lat": -33.8784052,
+  "lon": 151.2014665,
+  "tags": {
+    "name": "Quikstop",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 14157181052,
+  "lat": -33.8797080,
+  "lon": 151.2154885,
+  "tags": {
+    "check_date": "2026-09-06",
+    "description": "Foreign Money Exchange",
+    "location": "approximate",
+    "name": "Oxford Forex",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 14157181068,
+  "lat": -33.8768857,
+  "lon": 151.2129447,
+  "tags": {
+    "check_date": "2026-09-06",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 14157193862,
+  "lat": -33.8780563,
+  "lon": 151.2134825,
+  "tags": {
+    "atm": "yes",
+    "name": "Oxford Convenience",
+    "operator": "CT",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 14221188623,
+  "lat": -33.8733602,
+  "lon": 151.2076429,
+  "tags": {
+    "addr:housenumber": "303",
+    "addr:street": "Pitt Street",
+    "level": "0",
+    "name": "Japanese Asian Grocery 8",
+    "name:ja": "コンビニ8",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 40717424,
+  "center": {
+    "lat": -33.8717700,
+    "lon": 151.2066855
+  },
+  "tags": {
+    "addr:housenumber": "455",
+    "addr:postcode": "2000",
+    "addr:street": "George Street",
+    "alt_name": "QVB",
+    "building": "retail",
+    "building:colour": "peru",
+    "building:levels": "4",
+    "building:part": "yes",
+    "check_date": "2026-08-05",
+    "name": "Queen Victoria Building",
+    "name:ko": "퀸 빅토리아 빌딩",
+    "name:zh": "维多利亚女王大厦",
+    "roof:colour": "peru",
+    "roof:shape": "flat",
+    "shop": "mall",
+    "toilets": "yes",
+    "tourism": "attraction",
+    "website": "https://www.qvb.com.au/",
+    "wheelchair": "yes",
+    "wikidata": "Q54518",
+    "wikipedia": "en:Queen Victoria Building"
+  }
+},
+{
+  "type": "way",
+  "id": 118705061,
+  "center": {
+    "lat": -33.8830774,
+    "lon": 151.1938970
+  },
+  "tags": {
+    "building": "retail",
+    "building:levels": "4",
+    "layer": "1",
+    "name": "Broadway Shopping Centre",
+    "shop": "mall",
+    "website": "www.broadway.com.au",
+    "wikidata": "Q4972506"
+  }
+},
+{
+  "type": "way",
+  "id": 175168513,
+  "center": {
+    "lat": -33.9025379,
+    "lon": 151.2152335
+  },
+  "tags": {
+    "addr:state": "NSW",
+    "addr:street": "Todman Avenue",
+    "addr:suburb": "Moore Park",
+    "building": "retail",
+    "building:levels": "4",
+    "name": "Supa Centa Moore Park",
+    "phone": "+61 2 9313 8340",
+    "shop": "mall",
+    "smoking": "no",
+    "source": "Bing",
+    "website": "https://www.supacentamoorepark.com.au/"
+  }
+},
+{
+  "type": "way",
+  "id": 175382119,
+  "center": {
+    "lat": -33.8860964,
+    "lon": 151.1580375
+  },
+  "tags": {
+    "addr:housenumber": "55",
+    "addr:street": "Norton Street",
+    "addr:suburb": "Leichhardt",
+    "building": "yes",
+    "changing_table": "yes",
+    "check_date:opening_hours": "2026-08-03",
+    "name": "Norton Plaza",
+    "opening_hours": "Mo-Su 09:00-23:00",
+    "shop": "mall",
+    "source": "Bing",
+    "toilets": "yes",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 206967239,
+  "center": {
+    "lat": -33.8891843,
+    "lon": 151.1815371
+  },
+  "tags": {
+    "addr:housenumber": "57-59",
+    "addr:postcode": "2050",
+    "addr:street": "Missenden Road",
+    "amenity": "hospital",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "name": "Royal Prince Alfred Hospital",
+    "short_name": "RPA",
+    "source:geometry": "https://ehealthcarparkbackend.azurewebsites.net/Images/RPA%20Final%20Site%20Map.jpg",
+    "website": "https://www.slhd.nsw.gov.au/rpa/",
+    "wheelchair": "yes",
+    "wikidata": "Q7374738",
+    "wikipedia": "en:Royal Prince Alfred Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 214485654,
+  "center": {
+    "lat": -33.8701104,
+    "lon": 151.2089312
+  },
+  "tags": {
+    "addr:postcode": "2000",
+    "addr:suburb": "Sydney",
+    "branch": "Sydney",
+    "brand": "Westfield",
+    "brand:wikidata": "Q106623253",
+    "building": "retail",
+    "name": "Westfield Sydney",
+    "name:ko": "웨스트필드 시드니",
+    "name:zh": "悉尼塔",
+    "operator": "Scentre Group",
+    "operator:website": "www.scentregroup.com.au",
+    "operator:wikidata": "Q18378048",
+    "operator:wikipedia": "en:Scentre Group",
+    "shop": "mall",
+    "website": "https://www.westfield.com.au/sydney/",
+    "wikidata": "Q14935037"
+  }
+},
+{
+  "type": "way",
+  "id": 256778515,
+  "center": {
+    "lat": -33.8803545,
+    "lon": 151.2151930
+  },
+  "tags": {
+    "addr:housenumber": "300",
+    "addr:postcode": "2010",
+    "addr:state": "NSW",
+    "addr:street": "Crown Street",
+    "building": "yes",
+    "building:levels": "2",
+    "name": "Buddy's Convenience store",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 270316691,
+  "center": {
+    "lat": -33.8724953,
+    "lon": 151.2075994
+  },
+  "tags": {
+    "addr:housenumber": "500",
+    "addr:postcode": "2000",
+    "addr:street": "George Street",
+    "addr:suburb": "Sydney",
+    "building": "retail",
+    "building:levels": "4",
+    "layer": "1",
+    "name": "The Galeries",
+    "opening_hours": "Mo-We,Fr,Sa 10:00-18:00; Th 10:00-21:00; Su 10:00-17:00",
+    "shop": "mall",
+    "toilets:access": "yes",
+    "toilets:wheelchair": "designated",
+    "website": "https://www.thegaleries.com/",
+    "wheelchair": "designated",
+    "wikidata": "Q7735619",
+    "wikipedia": "en:The Galeries Victoria"
+  }
+},
+{
+  "type": "way",
+  "id": 341934113,
+  "center": {
+    "lat": -33.9071244,
+    "lon": 151.1716878
+  },
+  "tags": {
+    "addr:suburb": "Marrickville",
+    "landuse": "retail",
+    "name": "Marrickville Metro",
+    "opening_hours": "Mo-We,Fr,Sa 09:00-17:30; Th 09:00-21:00; Su 10:00-16:00",
+    "shop": "mall",
+    "toilets": "yes",
+    "website": "https://www.marrickvillemetro.com.au/",
+    "website:map": "https://www.marrickvillemetro.com.au/centre-info/centre-map"
+  }
+},
+{
+  "type": "way",
+  "id": 349687150,
+  "center": {
+    "lat": -33.8884614,
+    "lon": 151.1641242
+  },
+  "tags": {
+    "brand": "Coles Express",
+    "brand:wikidata": "Q5144653",
+    "building": "retail",
+    "building:levels": "1",
+    "check_date": "2024-10-10",
+    "name": "Coles Express",
+    "opening_hours": "24/7",
+    "shop": "convenience",
+    "website": "https://www.colesexpress.com.au/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 385679560,
+  "center": {
+    "lat": -33.8993778,
+    "lon": 151.1697930
+  },
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "building": "retail",
+    "name": "7-Eleven",
+    "shop": "convenience",
+    "website": "https://www.7eleven.com.au/"
+  }
+},
+{
+  "type": "way",
+  "id": 387755580,
+  "center": {
+    "lat": -33.8651634,
+    "lon": 151.1713582
+  },
+  "tags": {
+    "brand": "BP Shop",
+    "brand:wikidata": "Q152057",
+    "building": "retail",
+    "name": "BP Shop",
+    "shop": "convenience",
+    "website": "https://www.bp.com.au"
+  }
+},
+{
+  "type": "way",
+  "id": 397584877,
+  "center": {
+    "lat": -33.9015514,
+    "lon": 151.2145413
+  },
+  "tags": {
+    "brand": "Reddy Express",
+    "brand:wikidata": "Q5144653",
+    "brand:wikipedia": "en:Coles Express",
+    "building": "retail",
+    "building:levels": "1",
+    "name": "Reddy Express",
+    "operator": "Coles Group",
+    "operator:wikidata": "Q1339055",
+    "shop": "convenience",
+    "website": "https://www.colesexpress.com.au/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 400076277,
+  "center": {
+    "lat": -33.8830612,
+    "lon": 151.2069791
+  },
+  "tags": {
+    "access": "customers",
+    "indoor": "room",
+    "level": "0",
+    "name": "Mini Market",
+    "room": "shop",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 400089550,
+  "center": {
+    "lat": -33.8835426,
+    "lon": 151.2075406
+  },
+  "tags": {
+    "access": "private",
+    "building:part": "yes",
+    "level": "0",
+    "room": "yes",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 408588291,
+  "center": {
+    "lat": -33.8918033,
+    "lon": 151.2130705
+  },
+  "tags": {
+    "brand": "BP Shop",
+    "brand:wikidata": "Q152057",
+    "building": "retail",
+    "name": "BP Shop",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 441148034,
+  "center": {
+    "lat": -33.8814631,
+    "lon": 151.1965367
+  },
+  "tags": {
+    "brand": "Reddy Express",
+    "brand:wikidata": "Q5144653",
+    "building": "yes",
+    "name": "Reddy Express",
+    "operator": "Coles Group",
+    "operator:wikidata": "Q1339055",
+    "shop": "convenience",
+    "website": "https://www.colesexpress.com.au/"
+  }
+},
+{
+  "type": "way",
+  "id": 449472366,
+  "center": {
+    "lat": -33.8746602,
+    "lon": 151.2060107
+  },
+  "tags": {
+    "landuse": "retail",
+    "name": "Regent Place",
+    "shop": "mall",
+    "source": "survey",
+    "source:geometry": "LPI Imagery;extrapolation",
+    "toilets": "yes",
+    "website": "https://www.regentplace.com.au/"
+  }
+},
+{
+  "type": "way",
+  "id": 485298607,
+  "center": {
+    "lat": -33.8798549,
+    "lon": 151.2034304
+  },
+  "tags": {
+    "level": "1-3",
+    "name": "Market City",
+    "shop": "mall",
+    "website": "https://www.marketcity.com.au/",
+    "wikidata": "Q106348291"
+  }
+},
+{
+  "type": "way",
+  "id": 537899162,
+  "center": {
+    "lat": -33.8737953,
+    "lon": 151.2059823
+  },
+  "tags": {
+    "addr:housenumber": "464-480",
+    "addr:postcode": "2000",
+    "addr:state": "NSW",
+    "addr:street": "Kent Street",
+    "addr:suburb": "Sydney",
+    "layer": "-1",
+    "level": "-1",
+    "location": "underground",
+    "name": "Town Hall Square",
+    "opening_hours": "Th 05:30-21:00, Mo-We,Fr 05:30-20:00, Sa 05:30-18:00, Su 08:00-17:00",
+    "shop": "mall",
+    "toilets": "yes",
+    "website": "https://www.townhallsquare.com.au/"
+  }
+},
+{
+  "type": "way",
+  "id": 547012470,
+  "center": {
+    "lat": -33.8772769,
+    "lon": 151.2072429
+  },
+  "tags": {
+    "building": "office",
+    "building:levels": "4",
+    "name": "World Square",
+    "opening_hours": "Mo-We,Fr,Sa 10:00-19:00; Th 10:00-21:00; Su 11:00-17:00",
+    "shop": "mall",
+    "toilets": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 548521960,
+  "center": {
+    "lat": -33.8982849,
+    "lon": 151.1787902
+  },
+  "tags": {
+    "addr:housenumber": "330",
+    "addr:street": "King Street",
+    "building": "retail",
+    "building:levels": "3",
+    "contact:facebook": "newtowncentral",
+    "email": "info@newtowncentral.com.au",
+    "name": "Newtown Central",
+    "shop": "mall",
+    "website": "https://www.newtowncentral.com.au/"
+  }
+},
+{
+  "type": "way",
+  "id": 553728586,
+  "center": {
+    "lat": -33.8758368,
+    "lon": 151.2059235
+  },
+  "tags": {
+    "addr:housenumber": "531-535",
+    "addr:street": "George Street",
+    "building": "retail",
+    "building:levels": "4",
+    "name": "Skyview Shopping Plaza",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 553852872,
+  "center": {
+    "lat": -33.8810634,
+    "lon": 151.2034286
+  },
+  "tags": {
+    "building": "office",
+    "building:levels": "3",
+    "check_date": "2024-11-10",
+    "name": "Prince Centre",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 584973600,
+  "center": {
+    "lat": -33.8833561,
+    "lon": 151.1940063
+  },
+  "tags": {
+    "building": "retail",
+    "covered": "yes",
+    "layer": "1",
+    "name": "Broadway Shopping Centre",
+    "nohousenumber": "yes",
+    "shop": "mall",
+    "website": "www.broadway.com.au",
+    "wikidata": "Q4972506"
+  }
+},
+{
+  "type": "way",
+  "id": 584973601,
+  "center": {
+    "lat": -33.8836971,
+    "lon": 151.1938744
+  },
+  "tags": {
+    "addr:housenumber": "1",
+    "addr:street": "Bay Street",
+    "building": "retail",
+    "building:levels": "4",
+    "dog": "no",
+    "dog:service": "yes",
+    "layer": "1",
+    "name": "Broadway Shopping Centre",
+    "shop": "mall",
+    "toilets": "yes",
+    "website": "https://www.broadwaysydney.com.au/",
+    "wikidata": "Q4972506"
+  }
+},
+{
+  "type": "way",
+  "id": 891830800,
+  "center": {
+    "lat": -33.9048915,
+    "lon": 151.1961705
+  },
+  "tags": {
+    "amenity": "hospital",
+    "building": "yes",
+    "emergency": "no",
+    "healthcare": "clinic",
+    "name": "Alexandria Specialist Day Hospital",
+    "opening_hours": "Mo-Fr 06:00-17:00; Sa 08:00-13:00",
+    "operator": "Virtus Health",
+    "website": "https://www.asdh.com.au"
+  }
+},
+{
+  "type": "way",
+  "id": 1064973092,
+  "center": {
+    "lat": -33.8922322,
+    "lon": 151.2159807
+  },
+  "tags": {
+    "building": "yes",
+    "name": "EG",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 1217477743,
+  "center": {
+    "lat": -33.8833362,
+    "lon": 151.1943162
+  },
+  "tags": {
+    "building": "yes",
+    "layer": "1",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 1296313115,
+  "center": {
+    "lat": -33.9038590,
+    "lon": 151.1682058
+  },
+  "tags": {
+    "addr:housenumber": "375",
+    "addr:street": "Enmore Road",
+    "addr:suburb": "Marrickville",
+    "building": "yes",
+    "name": "Marrickville Express",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 1302199200,
+  "center": {
+    "lat": -33.8907142,
+    "lon": 151.1821254
+  },
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "Chris O'Brien Lifehouse",
+    "source": "https://www.health.gov.au/resources/publications/list-of-declared-hospitals",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1303632837,
+  "center": {
+    "lat": -33.8910003,
+    "lon": 151.2127051
+  },
+  "tags": {
+    "addr:housenumber": "573",
+    "addr:level": "1",
+    "addr:street": "Crown Street",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "Surry Hills Day Hospital",
+    "source": "https://www.health.gov.au/resources/publications/list-of-declared-hospitals;https://surryhillsdayhospital.sydney/"
+  }
+},
+{
+  "type": "way",
+  "id": 1303633468,
+  "center": {
+    "lat": -33.8753889,
+    "lon": 151.2157873
+  },
+  "tags": {
+    "addr:housenumber": "121",
+    "addr:street": "Crown Street",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "The Skin Hospital Darlinghurst",
+    "source": "https://www.health.gov.au/resources/publications/list-of-declared-hospitals;https://skinhospital.edu.au/",
+    "website": "https://skinhospital.edu.au/"
+  }
+},
+{
+  "type": "way",
+  "id": 1484787284,
+  "center": {
+    "lat": -33.9018167,
+    "lon": 151.2082188
+  },
+  "tags": {
+    "building": "yes",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "relation",
+  "id": 18581145,
+  "center": {
+    "lat": -33.9053074,
+    "lon": 151.2130780
+  },
+  "tags": {
+    "addr:housenumber": "4",
+    "addr:street": "Defries Avenue",
+    "building": "yes",
+    "name": "East Village",
+    "operator": "Mirvac",
+    "shop": "mall",
+    "type": "multipolygon"
+  }
+},
+{
+  "type": "relation",
+  "id": 21091580,
+  "center": {
+    "lat": -33.8715088,
+    "lon": 151.2085583
+  },
+  "tags": {
+    "addr:housenumber": "210",
+    "addr:postcode": "2000",
+    "addr:street": "Pitt Street",
+    "building": "retail",
+    "check_date": "2024-10",
+    "name": "Stockland Piccadilly",
+    "phone": "+61 2 9712 4188",
+    "shop": "mall",
+    "source": "LPI Imagery May 2018",
+    "type": "multipolygon",
+    "website": "https://www.stockland.com.au/shopping-centres/centres/stockland-piccadilly"
+  }
+}
+
+  ]
+}
+
+
+

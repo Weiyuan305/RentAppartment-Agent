@@ -1,0 +1,146 @@
+[
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "ae83da106bf712c0a5da259a9d5082d83003a9f9",
+    "size": 0,
+    "url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/.github?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesium-ai-integrations/tree/main/.github",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/trees/ae83da106bf712c0a5da259a9d5082d83003a9f9",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/.github?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/trees/ae83da106bf712c0a5da259a9d5082d83003a9f9",
+      "html": "https://github.com/CesiumGS/cesium-ai-integrations/tree/main/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "be33db3d4c2f399077303cf552b5d62ad651336c",
+    "size": 290,
+    "url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/.gitignore?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesium-ai-integrations/blob/main/.gitignore",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/blobs/be33db3d4c2f399077303cf552b5d62ad651336c",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesium-ai-integrations/main/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/.gitignore?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/blobs/be33db3d4c2f399077303cf552b5d62ad651336c",
+      "html": "https://github.com/CesiumGS/cesium-ai-integrations/blob/main/.gitignore"
+    }
+  },
+  {
+    "name": ".vscode",
+    "path": ".vscode",
+    "sha": "59034c955d26d3695a42441a21340add36744120",
+    "size": 0,
+    "url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/.vscode?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesium-ai-integrations/tree/main/.vscode",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/trees/59034c955d26d3695a42441a21340add36744120",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/.vscode?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/trees/59034c955d26d3695a42441a21340add36744120",
+      "html": "https://github.com/CesiumGS/cesium-ai-integrations/tree/main/.vscode"
+    }
+  },
+  {
+    "name": "CODE_OF_CONDUCT.md",
+    "path": "CODE_OF_CONDUCT.md",
+    "sha": "a59d3760e72b3808ed1785d18c474ce3ea0d9478",
+    "size": 708,
+    "url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/CODE_OF_CONDUCT.md?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesium-ai-integrations/blob/main/CODE_OF_CONDUCT.md",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/blobs/a59d3760e72b3808ed1785d18c474ce3ea0d9478",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesium-ai-integrations/main/CODE_OF_CONDUCT.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/CODE_OF_CONDUCT.md?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/blobs/a59d3760e72b3808ed1785d18c474ce3ea0d9478",
+      "html": "https://github.com/CesiumGS/cesium-ai-integrations/blob/main/CODE_OF_CONDUCT.md"
+    }
+  },
+  {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "sha": "3480ff655d129ceb2f20978dfff3eeec20dbf553",
+    "size": 1963,
+    "url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/CONTRIBUTING.md?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesium-ai-integrations/blob/main/CONTRIBUTING.md",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/blobs/3480ff655d129ceb2f20978dfff3eeec20dbf553",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesium-ai-integrations/main/CONTRIBUTING.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/CONTRIBUTING.md?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/blobs/3480ff655d129ceb2f20978dfff3eeec20dbf553",
+      "html": "https://github.com/CesiumGS/cesium-ai-integrations/blob/main/CONTRIBUTING.md"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+    "size": 11357,
+    "url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/LICENSE?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesium-ai-integrations/blob/main/LICENSE",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/blobs/261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesium-ai-integrations/main/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/LICENSE?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/blobs/261eeb9e9f8b2b4b0d119366dda99c6fd7d35c64",
+      "html": "https://github.com/CesiumGS/cesium-ai-integrations/blob/main/LICENSE"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "e87b66ca3e6df0c1e4560b62fd017f4cf82bd7be",
+    "size": 6339,
+    "url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/README.md?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesium-ai-integrations/blob/main/README.md",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/blobs/e87b66ca3e6df0c1e4560b62fd017f4cf82bd7be",
+    "download_url": "https://raw.githubusercontent.com/CesiumGS/cesium-ai-integrations/main/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/README.md?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/blobs/e87b66ca3e6df0c1e4560b62fd017f4cf82bd7be",
+      "html": "https://github.com/CesiumGS/cesium-ai-integrations/blob/main/README.md"
+    }
+  },
+  {
+    "name": "mcp",
+    "path": "mcp",
+    "sha": "46dd98cae0a665e0a416c6e174d3616028570949",
+    "size": 0,
+    "url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/mcp?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesium-ai-integrations/tree/main/mcp",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/trees/46dd98cae0a665e0a416c6e174d3616028570949",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/mcp?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/trees/46dd98cae0a665e0a416c6e174d3616028570949",
+      "html": "https://github.com/CesiumGS/cesium-ai-integrations/tree/main/mcp"
+    }
+  },
+  {
+    "name": "skills",
+    "path": "skills",
+    "sha": "0b470dd07c2493822396b6bb8c97e667f02835c3",
+    "size": 0,
+    "url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/skills?ref=main",
+    "html_url": "https://github.com/CesiumGS/cesium-ai-integrations/tree/main/skills",
+    "git_url": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/trees/0b470dd07c2493822396b6bb8c97e667f02835c3",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/contents/skills?ref=main",
+      "git": "https://api.github.com/repos/CesiumGS/cesium-ai-integrations/git/trees/0b470dd07c2493822396b6bb8c97e667f02835c3",
+      "html": "https://github.com/CesiumGS/cesium-ai-integrations/tree/main/skills"
+    }
+  }
+]

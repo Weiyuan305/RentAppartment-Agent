@@ -1,0 +1,1085 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-09T03:27:04Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 410463765,
+  "lat": 1.3080015,
+  "lon": 103.7883825,
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:country": "SG",
+    "addr:housename": "The Star Vista",
+    "addr:housenumber": "1",
+    "addr:postcode": "138617",
+    "addr:street": "Vista Exchange Green",
+    "bench": "yes",
+    "bin": "yes",
+    "building": "retail",
+    "building:levels": "11",
+    "building:part": "no",
+    "bus": "yes",
+    "height": "0",
+    "highway": "bus_stop",
+    "image": "https://images.mapillary.com/_imRP_lPRxx4XaCPIVXGDA/thumb-2048.jpg",
+    "lit": "yes",
+    "location": "Commonwealth Avenue West",
+    "mapillary": "2025824024223418",
+    "name": "The Star Vista",
+    "name:en": "The Star Vista",
+    "name:zh": "星悦汇",
+    "operator": "CapitaLand Ltd",
+    "public_transport": "platform",
+    "ref": "11191",
+    "route_ref": "14;105;106;147;185;NR5;NR8",
+    "shelter": "yes",
+    "shop": "mall",
+    "tactile_paving": "no",
+    "wheelchair": "yes",
+    "wikidata": "Q4998006"
+  }
+},
+{
+  "type": "node",
+  "id": 1686891463,
+  "lat": 1.2891697,
+  "lon": 103.7779041,
+  "tags": {
+    "addr:housename": "Shell No.328 Pasir Panjang",
+    "addr:postcode": "118654",
+    "addr:street": "Pasir Panjang Road",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 2372901159,
+  "lat": 1.3035244,
+  "lon": 103.7739370,
+  "tags": {
+    "addr:housenumber": "1",
+    "addr:postcode": "138602",
+    "addr:street": "Create Way",
+    "brand": "Cheers",
+    "brand:wikidata": "Q64154066",
+    "level": "0",
+    "name": "Cheers",
+    "name:en": "Cheers",
+    "name:zh": "Cheers(雀喜)便利商店",
+    "opening_hours": "24/7",
+    "phone": "+65 6659 6017",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 2491314422,
+  "lat": 1.2986827,
+  "lon": 103.7749321,
+  "tags": {
+    "brand": "Cheers",
+    "brand:wikidata": "Q64154066",
+    "construction:shop": "convenience",
+    "ele": "1",
+    "level": "0",
+    "name": "Cheers",
+    "opening_hours": "24/7",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 2491833040,
+  "lat": 1.3097564,
+  "lon": 103.7685356,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3094254815,
+  "lat": 1.3110419,
+  "lon": 103.7952716,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "opening_hours": "24/7",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3446723001,
+  "lat": 1.2925999,
+  "lon": 103.7685149,
+  "tags": {
+    "name": "buzz",
+    "shop": "convenience",
+    "source": "survey"
+  }
+},
+{
+  "type": "node",
+  "id": 3446723011,
+  "lat": 1.2925966,
+  "lon": 103.7683661,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience",
+    "source": "survey"
+  }
+},
+{
+  "type": "node",
+  "id": 3786385057,
+  "lat": 1.3071920,
+  "lon": 103.7903982,
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:housenumber": "#01-01, 100",
+    "addr:postcode": "139345",
+    "addr:street": "North Buona Vista Road",
+    "branch": "Buona Vista MRT",
+    "brand": "Cheers",
+    "brand:wikidata": "Q64154066",
+    "name": "Cheers",
+    "opening_hours": "24/7",
+    "phone": "+65 6779 3140",
+    "shop": "convenience",
+    "website": "https://www.cheers.com.sg/"
+  }
+},
+{
+  "type": "node",
+  "id": 3792976723,
+  "lat": 1.3114743,
+  "lon": 103.7884805,
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:housenumber": "#01-237, Block 19",
+    "addr:postcode": "270019",
+    "addr:street": "Ghim Moh Road",
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "phone": "+65 6466 7013",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.sg/",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 3815322766,
+  "lat": 1.2975015,
+  "lon": 103.8005442,
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:housenumber": "501",
+    "addr:postcode": "148951",
+    "addr:street": "Stirling Road",
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "opening_hours": "PH,Mo-Su 00:00-24:00",
+    "phone": "+65 6476 5609",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.sg/"
+  }
+},
+{
+  "type": "node",
+  "id": 4369793864,
+  "lat": 1.3115958,
+  "lon": 103.7783354,
+  "tags": {
+    "layer": "1",
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4425556291,
+  "lat": 1.3222780,
+  "lon": 103.7706440,
+  "tags": {
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "opening_hours": "24/7",
+    "shop": "convenience",
+    "wheelchair": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 4631688312,
+  "lat": 1.3033085,
+  "lon": 103.7918559,
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:housenumber": "60",
+    "addr:postcode": "138668",
+    "addr:street": "Biopolis Street",
+    "brand": "Cheers",
+    "brand:wikidata": "Q64154066",
+    "name": "Cheers",
+    "name:en": "Cheers",
+    "name:zh": "Cheers(雀喜)便利商店",
+    "opening_hours": "24/7",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4633972480,
+  "lat": 1.3034883,
+  "lon": 103.7924467,
+  "tags": {
+    "name": "Supreme Mini Mart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4634008349,
+  "lat": 1.3061355,
+  "lon": 103.7910681,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4747914896,
+  "lat": 1.3120241,
+  "lon": 103.7600319,
+  "tags": {
+    "addr:street": "West Coast Drive",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5474435682,
+  "lat": 1.3148534,
+  "lon": 103.7645946,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5599594021,
+  "lat": 1.3010276,
+  "lon": 103.7931057,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "Singapore Advanced Medicine Proton Therapy",
+    "name:en": "Singapore Institute of Advanced Medicine - Proton Therapy Centre",
+    "website": "https://www.proton.sg/"
+  }
+},
+{
+  "type": "node",
+  "id": 5717278581,
+  "lat": 1.2869166,
+  "lon": 103.8016072,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "healthcare:speciality": "emergency",
+    "level": "1",
+    "name": "Urgent Care Centre",
+    "name:zh": "急诊中心",
+    "operator": "Alexandra Hospital"
+  }
+},
+{
+  "type": "node",
+  "id": 5719651633,
+  "lat": 1.2868052,
+  "lon": 103.8013735,
+  "tags": {
+    "brand": "Cheers",
+    "brand:wikidata": "Q64154066",
+    "name": "Cheers",
+    "name:en": "Cheers",
+    "name:zh": "Cheers(雀喜)便利商店",
+    "opening_hours": "24/7",
+    "operator": "Cheers",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 6259606999,
+  "lat": 1.3068507,
+  "lon": 103.7884761,
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:country": "SG",
+    "addr:housename": "The Star Vista",
+    "addr:housenumber": "1",
+    "addr:postcode": "150162",
+    "addr:street": "Vista Exchange Green",
+    "addr:unit": "#B1-14/15",
+    "name": "RedMan",
+    "opening_hours": "10:00-20:00",
+    "operator": "Phoon Huat",
+    "shop": "convenience",
+    "website": "http://www.phoonhuat.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 6259640295,
+  "lat": 1.3140344,
+  "lon": 103.7625606,
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:country": "SG",
+    "addr:housename": "Buona Vista Station",
+    "addr:housenumber": "432",
+    "addr:postcode": "120432",
+    "addr:street": "Clementi Avenue 3",
+    "addr:unit": "#01-292/294",
+    "branch": "Clementi",
+    "name": "Phoon Huat",
+    "opening_hours": "10:00-21:30",
+    "shop": "convenience",
+    "website": "http://www.phoonhuat.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 6935689736,
+  "lat": 1.3041405,
+  "lon": 103.7825227,
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:housenumber": "5",
+    "addr:postcode": "130005",
+    "addr:street": "Dover Crescent",
+    "payment:cash": "yes",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 7883268941,
+  "lat": 1.3073210,
+  "lon": 103.7956057,
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:housenumber": "6",
+    "addr:postcode": "271006",
+    "addr:street": "Holland Close",
+    "name": "H M Hussain",
+    "opening_hours": "Mo-Su 06:30-23:30",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 8628474466,
+  "lat": 1.3115447,
+  "lon": 103.7959073,
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:housenumber": "200",
+    "addr:street": "Holland Avenue",
+    "addr:unit": "#B1-04",
+    "air_conditioning": "yes",
+    "branch": "Holland Village MRT",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "currency:SGD": "yes",
+    "level": "-1",
+    "location": "underground",
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "opening_hours": "Mo-Su 07:00-23:00",
+    "shop": "convenience",
+    "website": "https://www.7-eleven.com.sg/"
+  }
+},
+{
+  "type": "node",
+  "id": 9876332636,
+  "lat": 1.3044723,
+  "lon": 103.7728753,
+  "tags": {
+    "level": "0",
+    "name": "Octobox",
+    "noname:zh": "yes",
+    "opening_hours": "24/7",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10248705287,
+  "lat": 1.2805110,
+  "lon": 103.7868416,
+  "tags": {
+    "name": "Food-Joy",
+    "opening_hours": "Mo-Su 07:30-22:30",
+    "phone": "+6564742111",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10567714560,
+  "lat": 1.2761314,
+  "lon": 103.7930731,
+  "tags": {
+    "name": "Ashmi",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10918168209,
+  "lat": 1.3068953,
+  "lon": 103.8000189,
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:housenumber": "116",
+    "addr:postcode": "140117",
+    "addr:street": "Commonwealth Crescent",
+    "level": "0",
+    "name": "Chip Aik Liquor Co.",
+    "opening_hours": "Sa-Th 07:30-19:45; Fr 07:30-13:00",
+    "phone": "+65 64728461",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10991987484,
+  "lat": 1.3165489,
+  "lon": 103.7829893,
+  "tags": {
+    "addr:unit": "#01-20",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11173633074,
+  "lat": 1.2992744,
+  "lon": 103.7717876,
+  "tags": {
+    "brand": "Cheers",
+    "brand:wikidata": "Q64154066",
+    "name": "Cheers",
+    "opening_hours": "24/7",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11210351494,
+  "lat": 1.2943050,
+  "lon": 103.7740902,
+  "tags": {
+    "full_name": "Cool Spot | Snacks & Drinks",
+    "name": "Cool Spot",
+    "note:opening_hours": "approx",
+    "opening_hours": "Mo-Fr 06:00-21:00",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11409722849,
+  "lat": 1.3065805,
+  "lon": 103.7880860,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "check_date": "2023-12-10",
+    "level": "0",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12376339754,
+  "lat": 1.3155448,
+  "lon": 103.7650370,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "diet:halal": "yes",
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12395685748,
+  "lat": 1.3152277,
+  "lon": 103.7668548,
+  "tags": {
+    "shop": "convenience",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 12395685749,
+  "lat": 1.3140673,
+  "lon": 103.7670577,
+  "tags": {
+    "shop": "convenience",
+    "wheelchair": "limited"
+  }
+},
+{
+  "type": "node",
+  "id": 12412793523,
+  "lat": 1.2874954,
+  "lon": 103.7918887,
+  "tags": {
+    "fixme": "exact loction",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 54519150,
+  "center": {
+    "lat": 1.2830844,
+    "lon": 103.7805052
+  },
+  "tags": {
+    "building": "retail",
+    "building:levels": "2",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 104352121,
+  "center": {
+    "lat": 1.3068260,
+    "lon": 103.7884524
+  },
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:country": "SG",
+    "addr:housename": "The Star Vista",
+    "addr:housenumber": "1",
+    "addr:postcode": "138617",
+    "addr:street": "Vista Exchange Green",
+    "building": "retail",
+    "building:levels": "11",
+    "height": "42",
+    "image": "https://images.mapillary.com/_imRP_lPRxx4XaCPIVXGDA/thumb-2048.jpg",
+    "mapillary": "2025824024223418",
+    "name": "The Star Vista",
+    "name:en": "The Star Vista",
+    "name:zh": "星悦汇",
+    "operator": "CapitaLand Ltd",
+    "operator:wikidata": "Q3272868",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 109100976,
+  "center": {
+    "lat": 1.2864822,
+    "lon": 103.7995836
+  },
+  "tags": {
+    "amenity": "hospital",
+    "building": "yes",
+    "description": "This used to be the Married Quarters of the British Military Hospital.",
+    "healthcare": "hospital",
+    "name": "Block 22 - Mortuary"
+  }
+},
+{
+  "type": "way",
+  "id": 109104578,
+  "center": {
+    "lat": 1.2868961,
+    "lon": 103.8011777
+  },
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "Alexandra Hospital",
+    "name:ms": "Hospital Alexandra",
+    "name:zh": "亚历山大医院",
+    "wikidata": "Q4720666",
+    "wikipedia": "en:Alexandra Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 118994815,
+  "center": {
+    "lat": 1.3149817,
+    "lon": 103.7642331
+  },
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:country": "SG",
+    "addr:housename": "The Clementi Mall",
+    "addr:housenumber": "3155",
+    "addr:postcode": "129588",
+    "addr:street": "Commonwealth Avenue West",
+    "building": "retail",
+    "building:levels": "5",
+    "layer": "1",
+    "name": "The Clementi Mall",
+    "name:zh": "金文泰广场",
+    "shop": "mall",
+    "source": "HDB"
+  }
+},
+{
+  "type": "way",
+  "id": 119879842,
+  "center": {
+    "lat": 1.3142963,
+    "lon": 103.7651379
+  },
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:housenumber": "3151",
+    "addr:postcode": "129581",
+    "addr:street": "Commonwealth Avenue West",
+    "building": "yes",
+    "building:levels": "4",
+    "name": "Grantral Mall @ Clementi",
+    "name:en": "Grantral Mall @ Clementi",
+    "name:zh": "君超广场",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 144381429,
+  "center": {
+    "lat": 1.3036424,
+    "lon": 103.7662760
+  },
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:country": "SG",
+    "addr:housename": "West Coast Plaza",
+    "addr:housenumber": "154",
+    "addr:postcode": "127371",
+    "addr:street": "West Coast Road",
+    "building": "retail",
+    "designation": "West Coast Plaza",
+    "name": "West Coast Plaza",
+    "name:zh": "西海岸广场",
+    "old_name": "Ginza Plaza",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 152638469,
+  "center": {
+    "lat": 1.3102935,
+    "lon": 103.7953505
+  },
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:housenumber": "211",
+    "addr:postcode": "278967",
+    "addr:street": "Holland Avenue",
+    "building": "retail",
+    "building:levels": "3",
+    "height": "9",
+    "name": "Holland Road Shopping Centre",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 152752624,
+  "center": {
+    "lat": 1.3106791,
+    "lon": 103.7952562
+  },
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:housenumber": "3",
+    "addr:postcode": "277725",
+    "addr:street": "Lorong Liput",
+    "building": "retail",
+    "building:levels": "2",
+    "height": "9",
+    "name": "Holland Piazza",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 167472305,
+  "center": {
+    "lat": 1.3056598,
+    "lon": 103.7882026
+  },
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:housenumber": "35",
+    "addr:postcode": "138639",
+    "addr:street": "Rochester Drive",
+    "building": "commercial",
+    "height": "36",
+    "name": "Rochester Mall",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 175841411,
+  "center": {
+    "lat": 1.2992432,
+    "lon": 103.7875698
+  },
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:country": "SG",
+    "addr:housenumber": "1",
+    "addr:postcode": "138632",
+    "addr:street": "Fusionopolis Way",
+    "building": "yes",
+    "name": "Fusionopolis 1",
+    "name:zh": "启汇城 1",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 238933465,
+  "center": {
+    "lat": 1.2943464,
+    "lon": 103.7831533
+  },
+  "tags": {
+    "amenity": "hospital",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "healthcare:speciality": "general",
+    "name": "National University Hospital",
+    "name:en": "National University Hospital",
+    "name:ms": "Hospital Universiti Nasional Singapura",
+    "name:ta": "தேசிய பல்கலைக்கழக மருத்துவமனையில்",
+    "name:zh": "国立大学医院",
+    "start_date": "1985",
+    "url": "http://www.nuh.com.sg/",
+    "wikidata": "Q6979219",
+    "wikimedia_commons": "Category:National University Hospital",
+    "wikipedia": "en:National University Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 432868544,
+  "center": {
+    "lat": 1.3119852,
+    "lon": 103.7650214
+  },
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:country": "SG",
+    "addr:housenumber": "321",
+    "addr:postcode": "120321",
+    "addr:street": "Clementi Avenue 3",
+    "building": "commercial",
+    "building:colour": "#626C6C",
+    "building:levels": "7",
+    "building:material": "glass",
+    "description": "Cinema and mini mall",
+    "name": "Clementi 321",
+    "operator": "2",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 439134472,
+  "center": {
+    "lat": 1.2951474,
+    "lon": 103.7827875
+  },
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "level": "0",
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 439895276,
+  "center": {
+    "lat": 1.2937889,
+    "lon": 103.7848015
+  },
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "level": "1",
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 439895281,
+  "center": {
+    "lat": 1.2937931,
+    "lon": 103.7846220
+  },
+  "tags": {
+    "brand": "Cheers",
+    "brand:wikidata": "Q64154066",
+    "level": "-1",
+    "name": "Cheers",
+    "name:en": "Cheers",
+    "name:zh": "Cheers(雀喜)便利商店",
+    "opening_hours": "24/7",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 479176191,
+  "center": {
+    "lat": 1.2801340,
+    "lon": 103.7856979
+  },
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:housenumber": "242A",
+    "addr:postcode": "118598",
+    "addr:street": "Pasir Panjang Road",
+    "building": "yes",
+    "name": "Mini Market Non-Stop",
+    "opening_hours": "24/7",
+    "operator": "Cheers",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "way",
+  "id": 481669546,
+  "center": {
+    "lat": 1.3097111,
+    "lon": 103.7548807
+  },
+  "tags": {
+    "addr:street": "Jalan Buroh",
+    "building": "yes",
+    "building:levels": "2",
+    "name": "Cheers",
+    "name:en": "Cheers",
+    "name:zh": "Cheers(雀喜)便利商店",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "way",
+  "id": 481873029,
+  "center": {
+    "lat": 1.3080493,
+    "lon": 103.7610298
+  },
+  "tags": {
+    "addr:street": "West Coast Road",
+    "building": "yes",
+    "building:levels": "1",
+    "name": "Fair Price",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "way",
+  "id": 482272086,
+  "center": {
+    "lat": 1.3125011,
+    "lon": 103.7960920
+  },
+  "tags": {
+    "addr:street": "Holland Road",
+    "brand": "Cheers",
+    "brand:wikidata": "Q64154066",
+    "building": "yes",
+    "building:levels": "1",
+    "name": "Cheers",
+    "name:en": "Cheers",
+    "name:zh": "Cheers(雀喜)便利商店",
+    "opening_hours": "24/7",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "way",
+  "id": 482276177,
+  "center": {
+    "lat": 1.3176910,
+    "lon": 103.7855057
+  },
+  "tags": {
+    "addr:street": "Holland Road",
+    "building": "yes",
+    "shop": "convenience",
+    "source": "Kaart Ground Survey 2017"
+  }
+},
+{
+  "type": "way",
+  "id": 543400239,
+  "center": {
+    "lat": 1.2876789,
+    "lon": 103.7903736
+  },
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:country": "SG",
+    "addr:housenumber": "87",
+    "addr:postcode": "118260",
+    "addr:street": "Science Park Drive",
+    "building": "retail",
+    "building:colour": "grey",
+    "building:levels": "3",
+    "check_date": "2024-04-13",
+    "name": "The Oasis",
+    "roof:colour": "grey",
+    "shop": "mall",
+    "website": "https://www.capitaland.com/sg/en/lease/businesspark-industrial-logistics-listing/the-rutherford-oasis.html",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1066840091,
+  "center": {
+    "lat": 1.2774703,
+    "lon": 103.7897628
+  },
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:country": "SG",
+    "addr:housenumber": "168",
+    "addr:postcode": "118556",
+    "addr:street": "Pasir Panjang Road",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "name:zh": "7-11便利店",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 1187324342,
+  "center": {
+    "lat": 1.2963720,
+    "lon": 103.7798710
+  },
+  "tags": {
+    "highway": "pedestrian",
+    "level": "0",
+    "name": "IJOOZ Smart Shop",
+    "note:name:zh": "no need for manual chinese name",
+    "opening_hours": "24/7",
+    "operator": "IJOOZ",
+    "payment:credit_cards": "yes",
+    "payment:grabpay": "yes",
+    "payment:paylah": "yes",
+    "payment:paynow": "yes",
+    "payment:wechat": "yes",
+    "phone": "+65 8778 9916",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "way",
+  "id": 1226724186,
+  "center": {
+    "lat": 1.3111168,
+    "lon": 103.7941049
+  },
+  "tags": {
+    "addr:city": "Singapore",
+    "addr:housenumber": "7",
+    "addr:postcode": "275748",
+    "addr:street": "Holland Village Way",
+    "building": "yes",
+    "name": "One Holland Village",
+    "shop": "mall"
+  }
+}
+
+  ]
+}
+
+
+

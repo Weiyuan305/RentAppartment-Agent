@@ -1,0 +1,125 @@
+{
+  "sha": "96f33faaf028479119ec8d34507b47694cf14e34",
+  "node_id": "C_kwDONZUqgtoAKDk2ZjMzZmFhZjAyODQ3OTExOWVjOGQzNDUwN2I0NzY5NGNmMTRlMzQ",
+  "commit": {
+    "author": {
+      "name": "Pauline Bailly-Masson",
+      "email": "155966238+paulinebm@users.noreply.github.com",
+      "date": "2026-10-06T09:38:53Z"
+    },
+    "committer": {
+      "name": "GitHub",
+      "email": "noreply@github.com",
+      "date": "2026-10-06T09:38:53Z"
+    },
+    "message": "Bump doc-builder workflow pin (#2906)\n\nCo-authored-by: Claude Opus 4.8 <noreply@anthropic.com>",
+    "tree": {
+      "sha": "689491e2227b4dd9ff7fe19eddb00569aafcb537",
+      "url": "https://api.github.com/repos/huggingface/smolagents/git/trees/689491e2227b4dd9ff7fe19eddb00569aafcb537"
+    },
+    "url": "https://api.github.com/repos/huggingface/smolagents/git/commits/96f33faaf028479119ec8d34507b47694cf14e34",
+    "comment_count": 0,
+    "verification": {
+      "verified": true,
+      "reason": "valid",
+      "signature": "-----BEGIN PGP SIGNATURE-----\n\nwsFcBAABCAAQBQJqxMGtCRC1aQ7uu5UhlAAAmKcQAK4N0H2CQbUptSvOZtBGNfX0\nNF8fEIplfQ3HxosOqhb+ZlrHaHsqZ54oq+I5oUgUMq0aj5UVPQP2g5HQUbUI8qyK\nuzmfNbxhzg9btj7KeAaYQ0Zez4o8GowrwBSTKBy5swBkaRT+xsilmm1zicARDhNd\nG0nCKLzjU/IDIqVB2ikTYwv1Ay0CtRIK0nAHYfnz2XCpiW2HoDwPF0fVAnGnUkQZ\nw5AfgE9neArS6JR/j6qdFmAZ7E6wodHmQ2JS3JMWnoSsOeIF0NHnE8vGsTaJBh7M\n4on6096eay1mjGbX8XJ8zvqvMW4He14Gpp5iOLoT3d3z5AXbR2pHFNTE4bY0FHnT\nbzCcHMTzlPKpXBxHq+O+QSv7sIE17WhtYPnrzkDwZp7kEslFZrkWIPCZh3WswQlM\n9cja7Nfrq5C0ALIeJHJSbAFc73snybnWn2odO7n575AeT7xtp1PKmPAvSod43XzM\nw+fO6EVzvKxmwBJc8UMyqSdYwoXFxMcUHjTdsv7J3XoSnpdAXjuXs7RyMeICGzBx\nrop/VoXkX5xu1P830LSQQ6GUaVqV46EyQ0uql8WQEDiJdSjzDtzj1yF929iJwmQV\n8TCe/2EAgLmBP9qX+PP7Xh+aIEeDv6Jo3ZwTffrxW2B4UgF8xUej7Tj38+ktwz4U\nbdEmGDh4TtAZI28XpvC2\n=K40B\n-----END PGP SIGNATURE-----\n",
+      "payload": "tree 689491e2227b4dd9ff7fe19eddb00569aafcb537\nparent c30b115286e000e98711fae5e85993547b73d826\nauthor Pauline Bailly-Masson <155966238+paulinebm@users.noreply.github.com> 1791279533 +0200\ncommitter GitHub <noreply@github.com> 1791279533 +0200\n\nBump doc-builder workflow pin (#2906)\n\nCo-authored-by: Claude Opus 4.8 <noreply@anthropic.com>",
+      "verified_at": "2026-10-06T09:38:53Z"
+    }
+  },
+  "url": "https://api.github.com/repos/huggingface/smolagents/commits/96f33faaf028479119ec8d34507b47694cf14e34",
+  "html_url": "https://github.com/huggingface/smolagents/commit/96f33faaf028479119ec8d34507b47694cf14e34",
+  "comments_url": "https://api.github.com/repos/huggingface/smolagents/commits/96f33faaf028479119ec8d34507b47694cf14e34/comments",
+  "author": {
+    "login": "paulinebm",
+    "id": 155966238,
+    "node_id": "U_kgDOCUvbHg",
+    "avatar_url": "https://avatars.githubusercontent.com/u/155966238?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/paulinebm",
+    "html_url": "https://github.com/paulinebm",
+    "followers_url": "https://api.github.com/users/paulinebm/followers",
+    "following_url": "https://api.github.com/users/paulinebm/following{/other_user}",
+    "gists_url": "https://api.github.com/users/paulinebm/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/paulinebm/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/paulinebm/subscriptions",
+    "organizations_url": "https://api.github.com/users/paulinebm/orgs",
+    "repos_url": "https://api.github.com/users/paulinebm/repos",
+    "events_url": "https://api.github.com/users/paulinebm/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/paulinebm/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "committer": {
+    "login": "web-flow",
+    "id": 19864447,
+    "node_id": "MDQ6VXNlcjE5ODY0NDQ3",
+    "avatar_url": "https://avatars.githubusercontent.com/u/19864447?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/web-flow",
+    "html_url": "https://github.com/web-flow",
+    "followers_url": "https://api.github.com/users/web-flow/followers",
+    "following_url": "https://api.github.com/users/web-flow/following{/other_user}",
+    "gists_url": "https://api.github.com/users/web-flow/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/web-flow/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/web-flow/subscriptions",
+    "organizations_url": "https://api.github.com/users/web-flow/orgs",
+    "repos_url": "https://api.github.com/users/web-flow/repos",
+    "events_url": "https://api.github.com/users/web-flow/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/web-flow/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "parents": [
+    {
+      "sha": "c30b115286e000e98711fae5e85993547b73d826",
+      "url": "https://api.github.com/repos/huggingface/smolagents/commits/c30b115286e000e98711fae5e85993547b73d826",
+      "html_url": "https://github.com/huggingface/smolagents/commit/c30b115286e000e98711fae5e85993547b73d826"
+    }
+  ],
+  "stats": {
+    "total": 6,
+    "additions": 3,
+    "deletions": 3
+  },
+  "files": [
+    {
+      "sha": "e959b37d438f291b0024a52189f7e71ef5f993d3",
+      "filename": ".github/workflows/build_documentation.yml",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/huggingface/smolagents/blob/96f33faaf028479119ec8d34507b47694cf14e34/.github%2Fworkflows%2Fbuild_documentation.yml",
+      "raw_url": "https://github.com/huggingface/smolagents/raw/96f33faaf028479119ec8d34507b47694cf14e34/.github%2Fworkflows%2Fbuild_documentation.yml",
+      "contents_url": "https://api.github.com/repos/huggingface/smolagents/contents/.github%2Fworkflows%2Fbuild_documentation.yml?ref=96f33faaf028479119ec8d34507b47694cf14e34",
+      "patch": "@@ -15,7 +15,7 @@ on:\n \n jobs:\n    build:\n-    uses: huggingface/doc-builder/.github/workflows/build_main_documentation.yml@61704e23fa97c0502ce5355c489c6bec4194bff1  # main\n+    uses: huggingface/doc-builder/.github/workflows/build_main_documentation.yml@9fc8a41d7729c424fdb2192f2f85ff63102ec9a3  # main\n     with:\n       commit_sha: ${{ github.sha }}\n       package: smolagents"
+    },
+    {
+      "sha": "696c0c251a3a493a54a90ce3673ead5a7bac0f9d",
+      "filename": ".github/workflows/build_pr_documentation.yml",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/huggingface/smolagents/blob/96f33faaf028479119ec8d34507b47694cf14e34/.github%2Fworkflows%2Fbuild_pr_documentation.yml",
+      "raw_url": "https://github.com/huggingface/smolagents/raw/96f33faaf028479119ec8d34507b47694cf14e34/.github%2Fworkflows%2Fbuild_pr_documentation.yml",
+      "contents_url": "https://api.github.com/repos/huggingface/smolagents/contents/.github%2Fworkflows%2Fbuild_pr_documentation.yml?ref=96f33faaf028479119ec8d34507b47694cf14e34",
+      "patch": "@@ -13,7 +13,7 @@ concurrency:\n \n jobs:\n   build:\n-    uses: huggingface/doc-builder/.github/workflows/build_pr_documentation.yml@61704e23fa97c0502ce5355c489c6bec4194bff1  # main\n+    uses: huggingface/doc-builder/.github/workflows/build_pr_documentation.yml@9fc8a41d7729c424fdb2192f2f85ff63102ec9a3  # main\n     with:\n       commit_sha: ${{ github.event.pull_request.head.sha }}\n       pr_number: ${{ github.event.number }}"
+    },
+    {
+      "sha": "e3ffa0b96a023ade43d17134dc0f19a2a5086e26",
+      "filename": ".github/workflows/upload_pr_documentation.yml",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "blob_url": "https://github.com/huggingface/smolagents/blob/96f33faaf028479119ec8d34507b47694cf14e34/.github%2Fworkflows%2Fupload_pr_documentation.yml",
+      "raw_url": "https://github.com/huggingface/smolagents/raw/96f33faaf028479119ec8d34507b47694cf14e34/.github%2Fworkflows%2Fupload_pr_documentation.yml",
+      "contents_url": "https://api.github.com/repos/huggingface/smolagents/contents/.github%2Fworkflows%2Fupload_pr_documentation.yml?ref=96f33faaf028479119ec8d34507b47694cf14e34",
+      "patch": "@@ -8,7 +8,7 @@ on:\n \n jobs:\n   build:\n-    uses: huggingface/doc-builder/.github/workflows/upload_pr_documentation.yml@61704e23fa97c0502ce5355c489c6bec4194bff1  # main\n+    uses: huggingface/doc-builder/.github/workflows/upload_pr_documentation.yml@9fc8a41d7729c424fdb2192f2f85ff63102ec9a3  # main\n     with:\n       package_name: smolagents\n     secrets:"
+    }
+  ]
+}

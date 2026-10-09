@@ -1,0 +1,402 @@
+[
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "ee281307b45527095fb5ce781049b378d33c9d20",
+    "size": 0,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/.github?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/tree/master/.github",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/trees/ee281307b45527095fb5ce781049b378d33c9d20",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/.github?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/trees/ee281307b45527095fb5ce781049b378d33c9d20",
+      "html": "https://github.com/visgl/react-map-gl/tree/master/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "4a37c6494d41e358863cc3933930d38a0f76967f",
+    "size": 243,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/.gitignore?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/.gitignore",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/4a37c6494d41e358863cc3933930d38a0f76967f",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/.gitignore?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/4a37c6494d41e358863cc3933930d38a0f76967f",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/.gitignore"
+    }
+  },
+  {
+    "name": ".nvmrc",
+    "path": ".nvmrc",
+    "sha": "ca5c350055ccb6dacb495a786f60c8232abed8f2",
+    "size": 8,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/.nvmrc?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/.nvmrc",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/ca5c350055ccb6dacb495a786f60c8232abed8f2",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/.nvmrc",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/.nvmrc?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/ca5c350055ccb6dacb495a786f60c8232abed8f2",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/.nvmrc"
+    }
+  },
+  {
+    "name": ".ocularrc.js",
+    "path": ".ocularrc.js",
+    "sha": "7feca1bc37ca61908397101b100ab463877ce85d",
+    "size": 307,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/.ocularrc.js?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/.ocularrc.js",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/7feca1bc37ca61908397101b100ab463877ce85d",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/.ocularrc.js",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/.ocularrc.js?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/7feca1bc37ca61908397101b100ab463877ce85d",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/.ocularrc.js"
+    }
+  },
+  {
+    "name": ".prettierrc",
+    "path": ".prettierrc",
+    "sha": "4b20886b74d6237bd7929b7610d55314c44ace57",
+    "size": 106,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/.prettierrc?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/.prettierrc",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/4b20886b74d6237bd7929b7610d55314c44ace57",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/.prettierrc",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/.prettierrc?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/4b20886b74d6237bd7929b7610d55314c44ace57",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/.prettierrc"
+    }
+  },
+  {
+    "name": ".yarnrc.yml",
+    "path": ".yarnrc.yml",
+    "sha": "1ca758091844110f70f5a304fd6f738cbfdeb0c4",
+    "size": 47,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/.yarnrc.yml?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/.yarnrc.yml",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/1ca758091844110f70f5a304fd6f738cbfdeb0c4",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/.yarnrc.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/.yarnrc.yml?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/1ca758091844110f70f5a304fd6f738cbfdeb0c4",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/.yarnrc.yml"
+    }
+  },
+  {
+    "name": "CHANGELOG.md",
+    "path": "CHANGELOG.md",
+    "sha": "cefe7d62f525afe72b1460d14f02eca240640215",
+    "size": 3303,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/CHANGELOG.md?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/CHANGELOG.md",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/cefe7d62f525afe72b1460d14f02eca240640215",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/CHANGELOG.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/CHANGELOG.md?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/cefe7d62f525afe72b1460d14f02eca240640215",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/CHANGELOG.md"
+    }
+  },
+  {
+    "name": "CODE_OF_CONDUCT.md",
+    "path": "CODE_OF_CONDUCT.md",
+    "sha": "446285711a34cd729812b06cdf6612494ed4a00c",
+    "size": 290,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/CODE_OF_CONDUCT.md?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/CODE_OF_CONDUCT.md",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/446285711a34cd729812b06cdf6612494ed4a00c",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/CODE_OF_CONDUCT.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/CODE_OF_CONDUCT.md?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/446285711a34cd729812b06cdf6612494ed4a00c",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/CODE_OF_CONDUCT.md"
+    }
+  },
+  {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "sha": "9197da8711b6f8e42b5a68f0e72db3d2d5d36f62",
+    "size": 2639,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/CONTRIBUTING.md?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/CONTRIBUTING.md",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/9197da8711b6f8e42b5a68f0e72db3d2d5d36f62",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/CONTRIBUTING.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/CONTRIBUTING.md?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/9197da8711b6f8e42b5a68f0e72db3d2d5d36f62",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/CONTRIBUTING.md"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "155928579bc15b503763edb8c4736e530affaaeb",
+    "size": 3821,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/LICENSE?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/LICENSE",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/155928579bc15b503763edb8c4736e530affaaeb",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/LICENSE?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/155928579bc15b503763edb8c4736e530affaaeb",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/LICENSE"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "06b1b508be2a1de9c769d2c138b1e8eb7458e922",
+    "size": 2537,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/README.md?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/README.md",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/06b1b508be2a1de9c769d2c138b1e8eb7458e922",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/README.md?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/06b1b508be2a1de9c769d2c138b1e8eb7458e922",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/README.md"
+    }
+  },
+  {
+    "name": "TESTING.md",
+    "path": "TESTING.md",
+    "sha": "d772ab04fe8346c7b5545317787c82660277abe7",
+    "size": 543,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/TESTING.md?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/TESTING.md",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/d772ab04fe8346c7b5545317787c82660277abe7",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/TESTING.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/TESTING.md?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/d772ab04fe8346c7b5545317787c82660277abe7",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/TESTING.md"
+    }
+  },
+  {
+    "name": "biome.jsonc",
+    "path": "biome.jsonc",
+    "sha": "d8c046e7f11f6dd264b0218de3ee9112c28c11a3",
+    "size": 1580,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/biome.jsonc?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/biome.jsonc",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/d8c046e7f11f6dd264b0218de3ee9112c28c11a3",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/biome.jsonc",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/biome.jsonc?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/d8c046e7f11f6dd264b0218de3ee9112c28c11a3",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/biome.jsonc"
+    }
+  },
+  {
+    "name": "docs",
+    "path": "docs",
+    "sha": "5a6b0bd8f6bc5f1eb386e7bf45fef5723def859d",
+    "size": 0,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/docs?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/tree/master/docs",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/trees/5a6b0bd8f6bc5f1eb386e7bf45fef5723def859d",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/docs?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/trees/5a6b0bd8f6bc5f1eb386e7bf45fef5723def859d",
+      "html": "https://github.com/visgl/react-map-gl/tree/master/docs"
+    }
+  },
+  {
+    "name": "examples",
+    "path": "examples",
+    "sha": "bbb421c2da7aeffb74f1050abf5e536230ae44ad",
+    "size": 0,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/examples?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/tree/master/examples",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/trees/bbb421c2da7aeffb74f1050abf5e536230ae44ad",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/examples?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/trees/bbb421c2da7aeffb74f1050abf5e536230ae44ad",
+      "html": "https://github.com/visgl/react-map-gl/tree/master/examples"
+    }
+  },
+  {
+    "name": "index.html",
+    "path": "index.html",
+    "sha": "9de4f7a1956ffdc7e23ce91264e2ca7084246e61",
+    "size": 201,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/index.html?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/index.html",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/9de4f7a1956ffdc7e23ce91264e2ca7084246e61",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/index.html",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/index.html?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/9de4f7a1956ffdc7e23ce91264e2ca7084246e61",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/index.html"
+    }
+  },
+  {
+    "name": "lerna.json",
+    "path": "lerna.json",
+    "sha": "a365fd8bfa711bca3547da950f7a29adb8ef0b53",
+    "size": 92,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/lerna.json?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/lerna.json",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/a365fd8bfa711bca3547da950f7a29adb8ef0b53",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/lerna.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/lerna.json?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/a365fd8bfa711bca3547da950f7a29adb8ef0b53",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/lerna.json"
+    }
+  },
+  {
+    "name": "modules",
+    "path": "modules",
+    "sha": "eed3a34d52d3e03a40b40d104ecbc74fddbc23cf",
+    "size": 0,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/modules?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/tree/master/modules",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/trees/eed3a34d52d3e03a40b40d104ecbc74fddbc23cf",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/modules?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/trees/eed3a34d52d3e03a40b40d104ecbc74fddbc23cf",
+      "html": "https://github.com/visgl/react-map-gl/tree/master/modules"
+    }
+  },
+  {
+    "name": "package.json",
+    "path": "package.json",
+    "sha": "676adba920767b2065cb45f78f8a265e634eae36",
+    "size": 1802,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/package.json?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/package.json",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/676adba920767b2065cb45f78f8a265e634eae36",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/package.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/package.json?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/676adba920767b2065cb45f78f8a265e634eae36",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/package.json"
+    }
+  },
+  {
+    "name": "scripts",
+    "path": "scripts",
+    "sha": "6c6a4d7716c6829b32aad3b7a0ad218e56ddf591",
+    "size": 0,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/scripts?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/tree/master/scripts",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/trees/6c6a4d7716c6829b32aad3b7a0ad218e56ddf591",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/scripts?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/trees/6c6a4d7716c6829b32aad3b7a0ad218e56ddf591",
+      "html": "https://github.com/visgl/react-map-gl/tree/master/scripts"
+    }
+  },
+  {
+    "name": "test",
+    "path": "test",
+    "sha": "20c75b3b2a02de749e272543c4e92c62df318764",
+    "size": 0,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/test?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/tree/master/test",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/trees/20c75b3b2a02de749e272543c4e92c62df318764",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/test?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/trees/20c75b3b2a02de749e272543c4e92c62df318764",
+      "html": "https://github.com/visgl/react-map-gl/tree/master/test"
+    }
+  },
+  {
+    "name": "tsconfig.json",
+    "path": "tsconfig.json",
+    "sha": "1f95aaf5c16f7411662710163a980fa4e2f0667f",
+    "size": 1168,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/tsconfig.json?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/tsconfig.json",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/1f95aaf5c16f7411662710163a980fa4e2f0667f",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/tsconfig.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/tsconfig.json?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/1f95aaf5c16f7411662710163a980fa4e2f0667f",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/tsconfig.json"
+    }
+  },
+  {
+    "name": "vitest.config.ts",
+    "path": "vitest.config.ts",
+    "sha": "6145b74650f4b8e79a3624b068b8b99def1154bb",
+    "size": 1263,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/vitest.config.ts?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/vitest.config.ts",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/6145b74650f4b8e79a3624b068b8b99def1154bb",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/vitest.config.ts",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/vitest.config.ts?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/6145b74650f4b8e79a3624b068b8b99def1154bb",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/vitest.config.ts"
+    }
+  },
+  {
+    "name": "website",
+    "path": "website",
+    "sha": "388329ba2b1309af35f8fd188124dc51fa7b2b06",
+    "size": 0,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/website?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/tree/master/website",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/trees/388329ba2b1309af35f8fd188124dc51fa7b2b06",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/website?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/trees/388329ba2b1309af35f8fd188124dc51fa7b2b06",
+      "html": "https://github.com/visgl/react-map-gl/tree/master/website"
+    }
+  },
+  {
+    "name": "yarn.lock",
+    "path": "yarn.lock",
+    "sha": "c04f430b6e443cc6b3f89eda129ee3b748697e30",
+    "size": 283381,
+    "url": "https://api.github.com/repos/visgl/react-map-gl/contents/yarn.lock?ref=master",
+    "html_url": "https://github.com/visgl/react-map-gl/blob/master/yarn.lock",
+    "git_url": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/c04f430b6e443cc6b3f89eda129ee3b748697e30",
+    "download_url": "https://raw.githubusercontent.com/visgl/react-map-gl/master/yarn.lock",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/visgl/react-map-gl/contents/yarn.lock?ref=master",
+      "git": "https://api.github.com/repos/visgl/react-map-gl/git/blobs/c04f430b6e443cc6b3f89eda129ee3b748697e30",
+      "html": "https://github.com/visgl/react-map-gl/blob/master/yarn.lock"
+    }
+  }
+]

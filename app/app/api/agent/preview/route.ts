@@ -1,0 +1,31 @@
+import { z } from "zod";
+import { randomUUID } from "node:crypto";
+import { rentalStateSchema, type RentalMessage } from "@/lib/agent/contract";
+import { validateRentalState } from "@/lib/agent/catalog";
+import { createRentalTools } from "@/lib/agent/tools";
+import { acquireSession, finishSession, loadSession, consumeQuota } from "@/lib/agent/store";
+import { identity, errorResponse, readBody } from "@/lib/agent/http";
+
+// Explicit tool preview. It never pretends to be a model response.
+export async function POST(request: Request) {
+  let acquired: ReturnType<typeof acquireSession> | undefined;
+  let owner = "";
+  try {
+    const auth = identity(request); owner = auth.owner;
+    const body = z.object({sessionId: z.string().uuid(), version: z.number().int().nonnegative(), state: rentalStateSchema, action: z.enum(["nearby", "nearest", "route", "supermarket", "commute"])}).parse(await readBody(request));
+    consumeQuota(`preview:${owner}`, 20, 60000);
+    acquired = acquireSession(owner, body.sessionId, body.version, validateRentalState(body.state));
+    const runtime = createRentalTools(acquired.state);
+    let result: unknown;
+    const options = {toolCallId: randomUUID(), messages: [], context: {}};
+    if (body.action === "nearby" || body.action === "supermarket") result = await runtime.tools.findNearbyAmenities.execute!({category: body.action === "nearby" ? "convenience" : "supermarket", radiusMeters: body.action === "nearby" ? 500 : undefined}, options);
+    if (body.action === "nearest") result = await runtime.tools.focusAmenity.execute!({}, options);
+    if (body.action === "route" || body.action === "commute") result = await runtime.tools.planWalkingRoute.execute!({destination: body.action === "commute" ? "campus" : "selected-place"}, options);
+    const labels = {nearby: "查询公寓直线500米内便利店", nearest: "只显示直线最近一家", route: "到所选地点的步行路线", supermarket: "换成附近超市", commute: "到大学的步行路线"};
+    const facts = result as {count?: number; category?: string; radiusMeters?: number; name?: string; straightLineMeters?: number; minutes?: number; distanceMeters?: number; destination?: string; limitation?: string};
+    const reply = facts.count !== undefined ? `当前公寓直线 ${facts.radiusMeters} 米内，快照收录 ${facts.count} 处${facts.category}，地图已同步。${facts.limitation}` : facts.name ? `已显示 ${facts.name}，直线距离 ${facts.straightLineMeters} 米。` : `到 ${facts.destination} 的步行路线约 ${facts.minutes} 分钟、${facts.distanceMeters} 米，地图已同步。${facts.limitation}`;
+    const extra: RentalMessage[] = [{id: randomUUID(), role: "user", parts: [{type: "text", text: `[工具体验] ${labels[body.action]}`}]}, {id: randomUUID(), role: "assistant", parts: [{type: "text", text: `[工具结果] ${reply}`}]}];
+    finishSession(owner, acquired, [...acquired.messages, ...extra], runtime.getState());
+    return Response.json({session: loadSession(owner, acquired.id)}, {headers: auth.headers});
+  } catch (error) {if (acquired) finishSession(owner, acquired, acquired.messages, acquired.state); return errorResponse(error);}
+}

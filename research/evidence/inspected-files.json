@@ -1,0 +1,79 @@
+[
+  {
+    "repository": "CesiumGS/cesiumjs-ai-starter-app",
+    "path": "frontend/src/components/ChatPanel.tsx",
+    "url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/frontend/src/components/ChatPanel.tsx",
+    "status": 0,
+    "sha256": "b30055c9ccca1a1755447e866e827eb9a6719fa513a921e331c1fda8b258ad6f"
+  },
+  {
+    "repository": "CesiumGS/cesiumjs-ai-starter-app",
+    "path": "shared/src/enabled-tools.ts",
+    "url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/shared/src/enabled-tools.ts",
+    "status": 0,
+    "sha256": "cc7b8a0aba8fa88a7906267d07fb91a68a622a2a312cd313570d2b4d0fa4c175"
+  },
+  {
+    "repository": "CesiumGS/cesiumjs-ai-starter-app",
+    "path": "backend/src/app.ts",
+    "url": "https://github.com/CesiumGS/cesiumjs-ai-starter-app/blob/main/backend/src/app.ts",
+    "status": 0,
+    "sha256": "af665a1ca3061a32df47af9d612683555da6d193dfc9ee0057105c9f089d0b87"
+  },
+  {
+    "repository": "safak/full-stack-estate",
+    "path": "client/src/routes/listPage/listPage.jsx",
+    "url": "https://github.com/safak/full-stack-estate/blob/main/client/src/routes/listPage/listPage.jsx",
+    "status": 0,
+    "sha256": "ae3af8f93066b374b7e27270fa557fcc62035da75a45265da399baf51a8dc6da"
+  },
+  {
+    "repository": "safak/full-stack-estate",
+    "path": "client/src/components/map/Map.jsx",
+    "url": "https://github.com/safak/full-stack-estate/blob/main/client/src/components/map/Map.jsx",
+    "status": 0,
+    "sha256": "fea337c4043c62fcc6cd802bffb944939804d3e7f06a91afa0cac5a0936ae68e"
+  },
+  {
+    "repository": "bradtraversy/property-pulse-nextjs",
+    "path": "components/PropertyMap.jsx",
+    "url": "https://github.com/bradtraversy/property-pulse-nextjs/blob/main/components/PropertyMap.jsx",
+    "status": 0,
+    "sha256": "7ef8d277e5e76968f8cb34af4583acc27886f8fa49c45a92db2a0b3b134c22da"
+  },
+  {
+    "repository": "bradtraversy/property-pulse-nextjs",
+    "path": "models/Property.js",
+    "url": "https://github.com/bradtraversy/property-pulse-nextjs/blob/main/models/Property.js",
+    "status": 0,
+    "sha256": "c3fe076446ef7dac28f0a88c4c8d61c2762296a20da976cdf4b8daac3cc4bcd9"
+  },
+  {
+    "repository": "bradtraversy/property-pulse-nextjs",
+    "path": "LICENSE.md",
+    "url": "https://github.com/bradtraversy/property-pulse-nextjs/blob/main/LICENSE.md",
+    "status": 56,
+    "error": "curl: (56) The requested URL returned error: 404\n"
+  },
+  {
+    "repository": "googlemaps-samples/js-3d-area-explorer",
+    "path": "README.md",
+    "url": "https://github.com/googlemaps-samples/js-3d-area-explorer/blob/main/README.md",
+    "status": 0,
+    "sha256": "6e856bd52787434837f7c470b1ced0e22506ef0637ad20aad204aa9b998c9b7d"
+  },
+  {
+    "repository": "googlemaps-samples/js-3d-area-explorer",
+    "path": "LICENSE",
+    "url": "https://github.com/googlemaps-samples/js-3d-area-explorer/blob/main/LICENSE",
+    "status": 0,
+    "sha256": "50e6751797c50dedd75ef1b8a0d9e42f5f8472e9fbce91f34718e9f97b0c780a"
+  },
+  {
+    "repository": "googlemaps-samples/js-3d-area-explorer",
+    "path": "src/utils/cesium.js",
+    "url": "https://github.com/googlemaps-samples/js-3d-area-explorer/blob/main/src/utils/cesium.js",
+    "status": 0,
+    "sha256": "2481166383ab4132e1c9303717c609c44d85e42064e4ca9ae496fba57e630764"
+  }
+]

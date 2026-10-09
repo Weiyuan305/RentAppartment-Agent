@@ -1,0 +1,48 @@
+{
+  "checked_at_utc": "2026-09-21T08:47:05.944258+00:00",
+  "source": "https://developers.google.com/maps/coverage",
+  "source_type": "Google official country/region coverage table, read using web tool",
+  "requirement": "Photorealistic city appearance is confirmed by the user.",
+  "extracted_columns": [
+    "Map Tiles 2D / 3D",
+    "Maps JavaScript 3D"
+  ],
+  "rows": [
+    {
+      "market_code": "GB",
+      "map_tiles_2d_3d": "⬤ / ⬤",
+      "maps_javascript_3d": "⬤",
+      "target_campus_tiles_tested": false
+    },
+    {
+      "market_code": "AU",
+      "map_tiles_2d_3d": "⬤ / ⬤",
+      "maps_javascript_3d": "⬤",
+      "target_campus_tiles_tested": false
+    },
+    {
+      "market_code": "SG",
+      "map_tiles_2d_3d": "⬤ / ⬤",
+      "maps_javascript_3d": "⬤",
+      "target_campus_tiles_tested": false
+    },
+    {
+      "market_code": "MY",
+      "map_tiles_2d_3d": "⬤ / ⬤",
+      "maps_javascript_3d": "⬤",
+      "target_campus_tiles_tested": false
+    },
+    {
+      "market_code": "HK",
+      "map_tiles_2d_3d": "⬤ / ⬤",
+      "maps_javascript_3d": "⬤",
+      "target_campus_tiles_tested": false
+    }
+  ],
+  "limitation": "Country-level availability only; no project API key, imagery quality, continuous coverage or on-device performance verified.",
+  "related_sources": [
+    "https://developers.google.com/maps/documentation/tile/3d-tiles-overview",
+    "https://developers.google.com/maps/documentation/javascript/3d/coverage",
+    "https://cesium.com/learn/cesiumjs-learn/cesiumjs-photorealistic-3d-tiles/"
+  ]
+}

@@ -1,0 +1,305 @@
+{
+  "dist": {
+    "shasum": "97e5dc7d679832d877e02bbd8a8c9d492b4e5fe8",
+    "tarball": "https://registry.npmjs.org/@openai/agents-core/-/agents-core-0.20.0.tgz",
+    "fileCount": 1103,
+    "integrity": "sha512-9nJJ3iyQTwO2kmrZJPMqnHI61g3xp2DgtpW4V0cgNtYot5jocDqAMN5+dkjtsBo64U3Wbl7rIAV0q5kvycoIIA==",
+    "signatures": [
+      {
+        "sig": "MEUCIBqKOsF1NHGMRE6SeGDrQ+UlwxlxuGq2SZABRB08aouDAiEAxvgaAxnTHwI6qIZHOFz/bzSH91YRG5FGJHRcn+tMpgQ=",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      },
+      {
+        "sig": "MEUCIDzSHZ3wSPG3bB/YBgCZvFa8MBBUjow/NKGRRR3eeiWlAiEAhsIoacr1VB9YiN7gGLzYCZ2JfZWV/UmS70FtoI+hA/c=",
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+      }
+    ],
+    "attestations": {
+      "url": "https://registry.npmjs.org/-/npm/v1/attestations/@openai%2fagents-core@0.20.0",
+      "provenance": {
+        "predicateType": "https://slsa.dev/provenance/v1"
+      }
+    },
+    "unpackedSize": 10612109
+  },
+  "main": "dist/index.js",
+  "name": "@openai/agents-core",
+  "types": "dist/index.d.ts",
+  "author": "OpenAI <support@openai.com>",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./model": {
+      "types": "./dist/model.d.ts",
+      "import": "./dist/model.mjs",
+      "require": "./dist/model.js"
+    },
+    "./types": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/types/index.mjs",
+      "require": "./dist/types/index.js"
+    },
+    "./utils": {
+      "types": "./dist/utils/index.d.ts",
+      "import": "./dist/utils/index.mjs",
+      "require": "./dist/utils/index.js"
+    },
+    "./_shims": {
+      "node": {
+        "types": "./dist/shims/shims-node.d.ts",
+        "import": "./dist/shims/shims-node.mjs",
+        "require": "./dist/shims/shims-node.js"
+      },
+      "types": "./dist/shims/shims.d.ts",
+      "import": "./dist/shims/shims.mjs",
+      "browser": {
+        "types": "./dist/shims/shims-browser.d.ts",
+        "import": "./dist/shims/shims-browser.mjs",
+        "require": "./dist/shims/shims-browser.js"
+      },
+      "require": "./dist/shims/shims.js",
+      "workerd": {
+        "types": "./dist/shims/shims-workerd.d.ts",
+        "import": "./dist/shims/shims-workerd.mjs",
+        "require": "./dist/shims/shims-workerd.js"
+      },
+      "react-native": {
+        "types": "./dist/shims/shims-react-native.d.ts",
+        "import": "./dist/shims/shims-react-native.mjs",
+        "require": "./dist/shims/shims-react-native.js"
+      }
+    },
+    "./sandbox": {
+      "types": "./dist/sandbox/index.d.ts",
+      "import": "./dist/sandbox/index.mjs",
+      "require": "./dist/sandbox/index.js"
+    },
+    "./testing": {
+      "types": "./dist/testing/index.d.ts",
+      "import": "./dist/testing/index.mjs",
+      "require": "./dist/testing/index.js"
+    },
+    "./extensions": {
+      "types": "./dist/extensions/index.d.ts",
+      "import": "./dist/extensions/index.mjs",
+      "require": "./dist/extensions/index.js"
+    },
+    "./_shims/config": {
+      "node": {
+        "types": "./dist/shims/config-node.d.ts",
+        "import": "./dist/shims/config-node.mjs",
+        "require": "./dist/shims/config-node.js"
+      },
+      "types": "./dist/shims/config-node.d.ts",
+      "import": "./dist/shims/config-node.mjs",
+      "browser": {
+        "types": "./dist/shims/config-browser.d.ts",
+        "import": "./dist/shims/config-browser.mjs",
+        "require": "./dist/shims/config-browser.js"
+      },
+      "require": "./dist/shims/config-node.js",
+      "workerd": {
+        "types": "./dist/shims/config-workerd.d.ts",
+        "import": "./dist/shims/config-workerd.mjs",
+        "require": "./dist/shims/config-workerd.js"
+      },
+      "react-native": {
+        "types": "./dist/shims/config-browser.d.ts",
+        "import": "./dist/shims/config-browser.mjs",
+        "require": "./dist/shims/config-browser.js"
+      }
+    },
+    "./sandbox/local": {
+      "types": "./dist/sandbox/local.d.ts",
+      "import": "./dist/sandbox/local.mjs",
+      "require": "./dist/sandbox/local.js"
+    },
+    "./utils/internal": {
+      "types": "./dist/utils/internal.d.ts",
+      "import": "./dist/utils/internal.mjs",
+      "require": "./dist/utils/internal.js"
+    },
+    "./sandbox/internal": {
+      "types": "./dist/sandbox/internal.d.ts",
+      "import": "./dist/sandbox/internal.mjs",
+      "require": "./dist/sandbox/internal.js"
+    },
+    "./sandbox/internal/process": {
+      "types": "./dist/sandbox/internal/process.d.ts",
+      "import": "./dist/sandbox/internal/process.mjs",
+      "require": "./dist/sandbox/internal/process.js"
+    }
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "prebuild": "node ../../scripts/embedMeta.mts",
+    "dist:check": "tsc --noEmit -p ./tsconfig.dist-check.json",
+    "build-check": "tsc --noEmit -p ./tsconfig.test.json"
+  },
+  "_npmUser": {
+    "name": "GitHub Actions",
+    "email": "npm-oidc-no-reply@github.com",
+    "trustedPublisher": {
+      "id": "github",
+      "oidcConfigId": "a0b4e959-0d5e-4a42-aceb-1a0dc4e06f6b"
+    }
+  },
+  "homepage": "https://openai.github.io/openai-agents-js/",
+  "keywords": [
+    "openai",
+    "agents",
+    "ai",
+    "agentic"
+  ],
+  "repository": {
+    "url": "https://github.com/openai/openai-agents-js",
+    "type": "git"
+  },
+  "description": "The OpenAI Agents SDK is a lightweight yet powerful framework for building multi-agent workflows.",
+  "directories": {},
+  "maintainers": [
+    {
+      "name": "openai-publisher",
+      "email": "oai-package-publish-npm@openai.com"
+    },
+    {
+      "name": "tino-openai",
+      "email": "tino@openai.com"
+    },
+    {
+      "name": "dylan-hurd-openai",
+      "email": "dylan.hurd@openai.com"
+    },
+    {
+      "name": "moustafa-openai",
+      "email": "moustafa@openai.com"
+    },
+    {
+      "name": "tylersmith-openai",
+      "email": "tylersmith@openai.com"
+    },
+    {
+      "name": "mdangelo-openai",
+      "email": "mdangelo@openai.com"
+    },
+    {
+      "name": "victor-openai",
+      "email": "victor@openai.com"
+    },
+    {
+      "name": "jbeckwith-oai",
+      "email": "jbeckwith@openai.com"
+    },
+    {
+      "name": "wadih-openai",
+      "email": "wadih@openai.com"
+    },
+    {
+      "name": "atty-openai",
+      "email": "atty@openai.com"
+    },
+    {
+      "name": "tibo-openai",
+      "email": "tibo@openai.com"
+    },
+    {
+      "name": "dkundel-openai",
+      "email": "dkundel@openai.com"
+    },
+    {
+      "name": "mbolin-openai",
+      "email": "mbolin@openai.com"
+    },
+    {
+      "name": "fouad-openai",
+      "email": "fouad@openai.com"
+    },
+    {
+      "name": "easong-openai",
+      "email": "easong@openai.com"
+    },
+    {
+      "name": "aibrahim-openai",
+      "email": "ahmedibrhm32@gmail.com"
+    },
+    {
+      "name": "apcha-oai",
+      "email": "apcha@openai.com"
+    },
+    {
+      "name": "seratch-openai",
+      "email": "seratch@openai.com"
+    }
+  ],
+  "dependencies": {
+    "debug": "^4.4.3",
+    "openai": "^7.2.0",
+    "@standard-schema/spec": "^1.1.0"
+  },
+  "typesVersions": {
+    "*": {
+      "model": [
+        "dist/model.d.ts"
+      ],
+      "types": [
+        "dist/types/index.d.ts"
+      ],
+      "utils": [
+        "dist/utils/index.d.ts"
+      ],
+      "_shims": [
+        "dist/shims/shims-node.d.ts"
+      ],
+      "sandbox": [
+        "dist/sandbox/index.d.ts"
+      ],
+      "testing": [
+        "dist/testing/index.d.ts"
+      ],
+      "extensions": [
+        "dist/extensions/index.d.ts"
+      ],
+      "_shims/config": [
+        "dist/shims/config-node.d.ts"
+      ],
+      "sandbox/local": [
+        "dist/sandbox/local.d.ts"
+      ],
+      "utils/internal": [
+        "dist/utils/internal.d.ts"
+      ],
+      "sandbox/internal": [
+        "dist/sandbox/internal.d.ts"
+      ],
+      "sandbox/internal/process": [
+        "dist/sandbox/internal/process.d.ts"
+      ]
+    }
+  },
+  "_hasShrinkwrap": false,
+  "devDependencies": {
+    "zod": "^4.3.5",
+    "@types/debug": "^4.1.13"
+  },
+  "peerDependencies": {
+    "zod": "^4.0.0"
+  },
+  "optionalDependencies": {
+    "@modelcontextprotocol/client": "^2.0.0"
+  },
+  "peerDependenciesMeta": {
+    "zod": {
+      "optional": true
+    }
+  },
+  "_npmOperationalInternal": {
+    "tmp": "tmp/agents-core_0.20.0_1791500816471_0.06823456928873917",
+    "host": "s3://npm-registry-packages-npm-production"
+  },
+  "_id": "@openai/agents-core@0.20.0",
+  "version": "0.20.0"
+}

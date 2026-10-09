@@ -1,0 +1,50 @@
+[
+  {
+    "name": "api",
+    "path": "api",
+    "sha": "9a777475c4fcadc2128000a8574a217229ab3501",
+    "size": 0,
+    "url": "https://api.github.com/repos/safak/full-stack-estate/contents/api?ref=main",
+    "html_url": "https://github.com/safak/full-stack-estate/tree/main/api",
+    "git_url": "https://api.github.com/repos/safak/full-stack-estate/git/trees/9a777475c4fcadc2128000a8574a217229ab3501",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/safak/full-stack-estate/contents/api?ref=main",
+      "git": "https://api.github.com/repos/safak/full-stack-estate/git/trees/9a777475c4fcadc2128000a8574a217229ab3501",
+      "html": "https://github.com/safak/full-stack-estate/tree/main/api"
+    }
+  },
+  {
+    "name": "client",
+    "path": "client",
+    "sha": "3100af2dfe5b1f65bf7648037e07cf683f727838",
+    "size": 0,
+    "url": "https://api.github.com/repos/safak/full-stack-estate/contents/client?ref=main",
+    "html_url": "https://github.com/safak/full-stack-estate/tree/main/client",
+    "git_url": "https://api.github.com/repos/safak/full-stack-estate/git/trees/3100af2dfe5b1f65bf7648037e07cf683f727838",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/safak/full-stack-estate/contents/client?ref=main",
+      "git": "https://api.github.com/repos/safak/full-stack-estate/git/trees/3100af2dfe5b1f65bf7648037e07cf683f727838",
+      "html": "https://github.com/safak/full-stack-estate/tree/main/client"
+    }
+  },
+  {
+    "name": "socket",
+    "path": "socket",
+    "sha": "30810446205a330c529543c8da940f2760db3b7f",
+    "size": 0,
+    "url": "https://api.github.com/repos/safak/full-stack-estate/contents/socket?ref=main",
+    "html_url": "https://github.com/safak/full-stack-estate/tree/main/socket",
+    "git_url": "https://api.github.com/repos/safak/full-stack-estate/git/trees/30810446205a330c529543c8da940f2760db3b7f",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/safak/full-stack-estate/contents/socket?ref=main",
+      "git": "https://api.github.com/repos/safak/full-stack-estate/git/trees/30810446205a330c529543c8da940f2760db3b7f",
+      "html": "https://github.com/safak/full-stack-estate/tree/main/socket"
+    }
+  }
+]

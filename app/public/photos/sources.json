@@ -1,0 +1,126 @@
+{
+  "notes": "Real stock/demo photos, not photographs of offered listings. All files are 1200px-wide JPEGs. Unsplash license allows free commercial/noncommercial use; attribution appreciated, not required. Do not sell unchanged images or compile a competing image service.",
+  "assets": [
+    {
+      "file": "room-single.jpg",
+      "kind": "interior",
+      "description": "Compact single bedroom with desk",
+      "photographer": "Alex Tyson",
+      "imageUrl": "https://images.unsplash.com/photo-1722650362318-e3a06172ec11?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/es/fotos/un-dormitorio-con-cama-escritorio-y-espejo-qSUnqep44TY",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "HTTP 200 image/jpeg; downloaded and visually inspected; individual source page identifies free Unsplash License."
+    },
+    {
+      "file": "room-desk.jpg",
+      "kind": "interior",
+      "description": "Bright neutral double bedroom",
+      "photographer": "Lisa Anna",
+      "imageUrl": "https://images.unsplash.com/photo-1721739224995-aa539db80240?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/a-bedroom-with-a-large-bed-and-a-desk-csaV-NPPFr8",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "HTTP 200 image/jpeg; downloaded and visually inspected; individual source page identifies free Unsplash License."
+    },
+    {
+      "file": "living-1.jpg",
+      "kind": "interior",
+      "description": "Small sunny living room with study desk and plants",
+      "photographer": "Patrick Perkins",
+      "imageUrl": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/gray-fabric-loveseat-near-brown-wooden-table-3wylDrjxH-E",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "HTTP 200 image/jpeg; downloaded and visually inspected; individual source page identifies free Unsplash License."
+    },
+    {
+      "file": "interior-3.jpg",
+      "kind": "interior",
+      "description": "Compact studio dining and seating corner",
+      "photographer": "Andrea Davis",
+      "imageUrl": "https://images.unsplash.com/photo-1595599512948-b9831e5fc11c?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/7450hH--84M",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "HTTP 200 image/jpeg; downloaded and visually inspected; free Unsplash source. Andrea Davis and Francesca Tosolini provenance verified via Unsplash free-download redirects from small-apartment search."
+    },
+    {
+      "file": "living-2.jpg",
+      "kind": "interior",
+      "description": "Compact kitchen and dining area",
+      "photographer": "Francesca Tosolini",
+      "imageUrl": "https://images.unsplash.com/photo-1560448075-cbc16bb4af8e?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/21xbUDIN8ao",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "HTTP 200 image/jpeg; downloaded and visually inspected; free Unsplash source. Andrea Davis and Francesca Tosolini provenance verified via Unsplash free-download redirects from small-apartment search."
+    },
+    {
+      "file": "kitchen.jpg",
+      "kind": "interior",
+      "description": "Minimal modern kitchen with open living area",
+      "photographer": "Lisa Anna",
+      "imageUrl": "https://images.unsplash.com/photo-1721395283507-1b17e527a922?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/an-empty-kitchen-and-living-room-in-an-apartment-PfeKrK-V_XA",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "HTTP 200 image/jpeg; downloaded and visually inspected; individual source page identifies free Unsplash License."
+    },
+    {
+      "file": "london.jpg",
+      "kind": "city",
+      "description": "London skyline and Thames",
+      "photographer": "Gonzalo Facello",
+      "imageUrl": "https://images.unsplash.com/photo-1618662062577-1e1483c7b6c4?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/city-buildings-near-body-of-water-during-daytime-NdKAOj89lmc",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "HTTP 200 image/jpeg; downloaded and visually inspected; individual source page identifies free Unsplash License."
+    },
+    {
+      "file": "sydney.jpg",
+      "kind": "city",
+      "description": "Sydney skyline and Opera House across the harbour",
+      "photographer": "Joshua Delica",
+      "imageUrl": "https://images.unsplash.com/photo-1667992501579-b6d13aedca18?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/a-city-skyline-across-the-water-9FqNt_8Mg0U",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "HTTP 200 image/jpeg; downloaded and visually inspected; individual source page identifies free Unsplash License."
+    },
+    {
+      "file": "singapore.jpg",
+      "kind": "city",
+      "description": "Singapore Marina Bay at dusk",
+      "photographer": "Timothy Chambers",
+      "imageUrl": "https://images.unsplash.com/photo-1702893165913-8b679880bc57?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/a-view-of-a-city-at-night-with-a-ferris-wheel-in-the-foreground-ZHicscDRjp0",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "HTTP 200 image/jpeg; downloaded and visually inspected; individual source page identifies free Unsplash License."
+    },
+    {
+      "file": "kuala-lumpur.jpg",
+      "kind": "city",
+      "description": "Kuala Lumpur aerial skyline with Petronas Towers",
+      "photographer": "Huỳnh Chương",
+      "imageUrl": "https://images.unsplash.com/photo-1630993325136-a0e9ae6c6d41?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/aerial-view-of-city-buildings-during-daytime-xdFOrbFpjO0",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "HTTP 200 image/jpeg; downloaded and visually inspected; individual source page identifies free Unsplash License."
+    },
+    {
+      "file": "hong-kong.jpg",
+      "kind": "city",
+      "description": "Hong Kong skyline across Victoria Harbour",
+      "photographer": "Jason Ng",
+      "imageUrl": "https://images.unsplash.com/photo-1579571107728-7ff5d90c8ad0?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/city-skyline-across-body-of-water-during-daytime-u6mbOIE8nd4",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "HTTP 200 image/jpeg; downloaded and visually inspected; individual source page identifies free Unsplash License."
+    }
+  ]
+}

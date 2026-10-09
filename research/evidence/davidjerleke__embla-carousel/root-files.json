@@ -1,0 +1,338 @@
+[
+  {
+    "name": ".gitattributes",
+    "path": ".gitattributes",
+    "sha": "94f480de94e1d767531580401cbf13844868e82b",
+    "size": 18,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.gitattributes?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/blob/master/.gitattributes",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/94f480de94e1d767531580401cbf13844868e82b",
+    "download_url": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/master/.gitattributes",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.gitattributes?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/94f480de94e1d767531580401cbf13844868e82b",
+      "html": "https://github.com/davidjerleke/embla-carousel/blob/master/.gitattributes"
+    }
+  },
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "b3d9668b68b73d327fe92ecf6440cb18bf46ff11",
+    "size": 0,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.github?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/tree/master/.github",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/b3d9668b68b73d327fe92ecf6440cb18bf46ff11",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.github?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/b3d9668b68b73d327fe92ecf6440cb18bf46ff11",
+      "html": "https://github.com/davidjerleke/embla-carousel/tree/master/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "62ad3cd47c4d7bf4b9bb058c794ddd785422a52d",
+    "size": 694,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.gitignore?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/blob/master/.gitignore",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/62ad3cd47c4d7bf4b9bb058c794ddd785422a52d",
+    "download_url": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/master/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.gitignore?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/62ad3cd47c4d7bf4b9bb058c794ddd785422a52d",
+      "html": "https://github.com/davidjerleke/embla-carousel/blob/master/.gitignore"
+    }
+  },
+  {
+    "name": ".nvmrc",
+    "path": ".nvmrc",
+    "sha": "f5603339eb5a41350203077a8a736896faec05c3",
+    "size": 8,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.nvmrc?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/blob/master/.nvmrc",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/f5603339eb5a41350203077a8a736896faec05c3",
+    "download_url": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/master/.nvmrc",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.nvmrc?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/f5603339eb5a41350203077a8a736896faec05c3",
+      "html": "https://github.com/davidjerleke/embla-carousel/blob/master/.nvmrc"
+    }
+  },
+  {
+    "name": ".prettierignore",
+    "path": ".prettierignore",
+    "sha": "f87902e9f41956a81dc59655965001dbc849e226",
+    "size": 682,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.prettierignore?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/blob/master/.prettierignore",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/f87902e9f41956a81dc59655965001dbc849e226",
+    "download_url": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/master/.prettierignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.prettierignore?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/f87902e9f41956a81dc59655965001dbc849e226",
+      "html": "https://github.com/davidjerleke/embla-carousel/blob/master/.prettierignore"
+    }
+  },
+  {
+    "name": ".prettierrc.js",
+    "path": ".prettierrc.js",
+    "sha": "d4cd8ab7cce9c0280e7fe6f3504a0a1ba373db51",
+    "size": 175,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.prettierrc.js?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/blob/master/.prettierrc.js",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/d4cd8ab7cce9c0280e7fe6f3504a0a1ba373db51",
+    "download_url": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/master/.prettierrc.js",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.prettierrc.js?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/d4cd8ab7cce9c0280e7fe6f3504a0a1ba373db51",
+      "html": "https://github.com/davidjerleke/embla-carousel/blob/master/.prettierrc.js"
+    }
+  },
+  {
+    "name": ".vscode",
+    "path": ".vscode",
+    "sha": "ed7ff85f87a868e434ffbe1e7b1b81526711e6e3",
+    "size": 0,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.vscode?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/tree/master/.vscode",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/ed7ff85f87a868e434ffbe1e7b1b81526711e6e3",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.vscode?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/ed7ff85f87a868e434ffbe1e7b1b81526711e6e3",
+      "html": "https://github.com/davidjerleke/embla-carousel/tree/master/.vscode"
+    }
+  },
+  {
+    "name": ".yarn",
+    "path": ".yarn",
+    "sha": "2372bb7e928545971557df7208a4fe6b5ba43144",
+    "size": 0,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.yarn?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/tree/master/.yarn",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/2372bb7e928545971557df7208a4fe6b5ba43144",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.yarn?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/2372bb7e928545971557df7208a4fe6b5ba43144",
+      "html": "https://github.com/davidjerleke/embla-carousel/tree/master/.yarn"
+    }
+  },
+  {
+    "name": ".yarnrc.yml",
+    "path": ".yarnrc.yml",
+    "sha": "f8cbfb2613975473f4265f53db780860d39aae26",
+    "size": 336,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.yarnrc.yml?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/blob/master/.yarnrc.yml",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/f8cbfb2613975473f4265f53db780860d39aae26",
+    "download_url": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/master/.yarnrc.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/.yarnrc.yml?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/f8cbfb2613975473f4265f53db780860d39aae26",
+      "html": "https://github.com/davidjerleke/embla-carousel/blob/master/.yarnrc.yml"
+    }
+  },
+  {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "sha": "9c72fe3303a204f15f6dd8a950395cf505a2c403",
+    "size": 5362,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/CONTRIBUTING.md?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/blob/master/CONTRIBUTING.md",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/9c72fe3303a204f15f6dd8a950395cf505a2c403",
+    "download_url": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/master/CONTRIBUTING.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/CONTRIBUTING.md?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/9c72fe3303a204f15f6dd8a950395cf505a2c403",
+      "html": "https://github.com/davidjerleke/embla-carousel/blob/master/CONTRIBUTING.md"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "2376624f527f4f1e53887552e42b004ab4056898",
+    "size": 1066,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/LICENSE?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/blob/master/LICENSE",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/2376624f527f4f1e53887552e42b004ab4056898",
+    "download_url": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/master/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/LICENSE?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/2376624f527f4f1e53887552e42b004ab4056898",
+      "html": "https://github.com/davidjerleke/embla-carousel/blob/master/LICENSE"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "dbd3462774618a267bee20c291d5c5ed3bf90143",
+    "size": 19067,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/README.md?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/blob/master/README.md",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/dbd3462774618a267bee20c291d5c5ed3bf90143",
+    "download_url": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/master/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/README.md?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/dbd3462774618a267bee20c291d5c5ed3bf90143",
+      "html": "https://github.com/davidjerleke/embla-carousel/blob/master/README.md"
+    }
+  },
+  {
+    "name": "docs",
+    "path": "docs",
+    "sha": "54b9be41de51b3bbb473ea9f1694cb48b4c3fde6",
+    "size": 0,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/docs?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/tree/master/docs",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/54b9be41de51b3bbb473ea9f1694cb48b4c3fde6",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/docs?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/54b9be41de51b3bbb473ea9f1694cb48b4c3fde6",
+      "html": "https://github.com/davidjerleke/embla-carousel/tree/master/docs"
+    }
+  },
+  {
+    "name": "eslint.config.mjs",
+    "path": "eslint.config.mjs",
+    "sha": "754a622500095a97747362c5728322b93849970b",
+    "size": 882,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/eslint.config.mjs?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/blob/master/eslint.config.mjs",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/754a622500095a97747362c5728322b93849970b",
+    "download_url": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/master/eslint.config.mjs",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/eslint.config.mjs?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/754a622500095a97747362c5728322b93849970b",
+      "html": "https://github.com/davidjerleke/embla-carousel/blob/master/eslint.config.mjs"
+    }
+  },
+  {
+    "name": "package.json",
+    "path": "package.json",
+    "sha": "f65a776c46ad19710b9ff4a81bda7f3bd6096058",
+    "size": 5593,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/package.json?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/blob/master/package.json",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/f65a776c46ad19710b9ff4a81bda7f3bd6096058",
+    "download_url": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/master/package.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/package.json?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/f65a776c46ad19710b9ff4a81bda7f3bd6096058",
+      "html": "https://github.com/davidjerleke/embla-carousel/blob/master/package.json"
+    }
+  },
+  {
+    "name": "packages",
+    "path": "packages",
+    "sha": "8347fb5d3f12d6a7177bfddd5c3f9e6f19834636",
+    "size": 0,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/packages?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/tree/master/packages",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/8347fb5d3f12d6a7177bfddd5c3f9e6f19834636",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/packages?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/8347fb5d3f12d6a7177bfddd5c3f9e6f19834636",
+      "html": "https://github.com/davidjerleke/embla-carousel/tree/master/packages"
+    }
+  },
+  {
+    "name": "playgrounds",
+    "path": "playgrounds",
+    "sha": "a67b1eb6910ba0a50a6130950024cf991e371bf7",
+    "size": 0,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/playgrounds?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/tree/master/playgrounds",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/a67b1eb6910ba0a50a6130950024cf991e371bf7",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/playgrounds?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/a67b1eb6910ba0a50a6130950024cf991e371bf7",
+      "html": "https://github.com/davidjerleke/embla-carousel/tree/master/playgrounds"
+    }
+  },
+  {
+    "name": "rollup.config.js",
+    "path": "rollup.config.js",
+    "sha": "bded973835eed7770077513ca295008e59f49524",
+    "size": 5844,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/rollup.config.js?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/blob/master/rollup.config.js",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/bded973835eed7770077513ca295008e59f49524",
+    "download_url": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/master/rollup.config.js",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/rollup.config.js?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/bded973835eed7770077513ca295008e59f49524",
+      "html": "https://github.com/davidjerleke/embla-carousel/blob/master/rollup.config.js"
+    }
+  },
+  {
+    "name": "scripts",
+    "path": "scripts",
+    "sha": "232a0a3cbe1a5f27918eaf0e8bc30f294b8eab14",
+    "size": 0,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/scripts?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/tree/master/scripts",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/232a0a3cbe1a5f27918eaf0e8bc30f294b8eab14",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/scripts?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/232a0a3cbe1a5f27918eaf0e8bc30f294b8eab14",
+      "html": "https://github.com/davidjerleke/embla-carousel/tree/master/scripts"
+    }
+  },
+  {
+    "name": "website",
+    "path": "website",
+    "sha": "b78d854e13b46d1356653803798878338bb21d25",
+    "size": 0,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/website?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/tree/master/website",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/b78d854e13b46d1356653803798878338bb21d25",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/website?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/trees/b78d854e13b46d1356653803798878338bb21d25",
+      "html": "https://github.com/davidjerleke/embla-carousel/tree/master/website"
+    }
+  },
+  {
+    "name": "yarn.lock",
+    "path": "yarn.lock",
+    "sha": "556b0f3fa60cf70e3adcac87f6650d64986bce82",
+    "size": 568833,
+    "url": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/yarn.lock?ref=master",
+    "html_url": "https://github.com/davidjerleke/embla-carousel/blob/master/yarn.lock",
+    "git_url": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/556b0f3fa60cf70e3adcac87f6650d64986bce82",
+    "download_url": "https://raw.githubusercontent.com/davidjerleke/embla-carousel/master/yarn.lock",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/davidjerleke/embla-carousel/contents/yarn.lock?ref=master",
+      "git": "https://api.github.com/repos/davidjerleke/embla-carousel/git/blobs/556b0f3fa60cf70e3adcac87f6650d64986bce82",
+      "html": "https://github.com/davidjerleke/embla-carousel/blob/master/yarn.lock"
+    }
+  }
+]

@@ -1,0 +1,27 @@
+# Keep local credentials and user conversations out of repository history.
+.env*
+!.env.example
+!.env.agent.example
+*.pem
+*.key
+.data/
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Dependencies, builds and machine-specific preview state are reproducible.
+node_modules/
+dist/
+.next/
+.vinext/
+.wrangler/
+.sites-runtime/
+# The checked-in binding configuration is required by vite.config.ts.
+**/.openai/*
+!app/.openai/hosting.json
+.agents/
+.codex/
+coverage/
+*.tsbuildinfo
+.DS_Store
+*.log

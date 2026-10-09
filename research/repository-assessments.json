@@ -1,0 +1,209 @@
+{
+  "date": "2026-09-21",
+  "assessments": [
+    {
+      "group": "地图与三维",
+      "repository": "maplibre/maplibre-gl-js",
+      "license_review": "BSD-3-Clause；含第三方声明",
+      "decision": "辅助方案研究",
+      "rationale": "用户已确认实景；本次挤出路线不满足主体验，仅留作辅助地图候选"
+    },
+    {
+      "group": "地图与三维",
+      "repository": "visgl/react-map-gl",
+      "license_review": "MIT；含 BSD 代码声明",
+      "decision": "辅助方案研究",
+      "rationale": "随 MapLibre 路线保留；不进入 Cesium 实景主栈"
+    },
+    {
+      "group": "地图与三维",
+      "repository": "CesiumGS/cesium",
+      "license_review": "Apache-2.0",
+      "decision": "首版主选",
+      "rationale": "已确认实景效果；加载授权摄影测量三维数据并叠加业务图层"
+    },
+    {
+      "group": "地图与三维",
+      "repository": "CesiumGS/cesiumjs-ai-starter-app",
+      "license_review": "Apache-2.0",
+      "decision": "优先研究",
+      "rationale": "官方三维＋聊天工具调用；新项目，尚未运行验证"
+    },
+    {
+      "group": "地图与三维",
+      "repository": "CesiumGS/cesium-ai-integrations",
+      "license_review": "Apache-2.0",
+      "decision": "暂不采用",
+      "rationale": "README 已弃用，转向新 starter，勿仅看未归档状态"
+    },
+    {
+      "group": "地图与三维",
+      "repository": "reearth/resium",
+      "license_review": "MIT",
+      "decision": "条件采用",
+      "rationale": "已选 Cesium 的 React 绑定候选；也可直接管理 Viewer 生命周期"
+    },
+    {
+      "group": "地图与三维",
+      "repository": "visgl/deck.gl",
+      "license_review": "MIT",
+      "decision": "条件采用",
+      "rationale": "大量空间数据和复杂可视化；首版原生图层可先满足"
+    },
+    {
+      "group": "地图与三维",
+      "repository": "NASA-AMMOS/3DTilesRendererJS",
+      "license_review": "Apache-2.0",
+      "decision": "条件采用",
+      "rationale": "Three.js 生态三维瓦片；相机/GIS/UI 需自行组合"
+    },
+    {
+      "group": "地图与三维",
+      "repository": "googlemaps-samples/js-3d-area-explorer",
+      "license_review": "Apache-2.0",
+      "decision": "参考思路",
+      "rationale": "三维区域与 POI 展示；已归档，勿直接当当前底座"
+    },
+    {
+      "group": "地图数据与分发",
+      "repository": "protomaps/PMTiles",
+      "license_review": "实现 BSD-3-Clause；规范 CC0/公有领域",
+      "decision": "辅助方案研究",
+      "rationale": "用于自有合法辅助瓦片；不作为 Google 实景数据镜像方案"
+    },
+    {
+      "group": "地图数据与分发",
+      "repository": "maplibre/martin",
+      "license_review": "Apache-2.0、MIT 文件；按组件核对",
+      "decision": "辅助方案研究",
+      "rationale": "自有矢量/动态瓦片需要明确后再引入；不加入首版实景主栈"
+    },
+    {
+      "group": "地图数据与分发",
+      "repository": "openmaptiles/openmaptiles",
+      "license_review": "代码 BSD-3-Clause；设计 CC-BY-4.0",
+      "decision": "辅助方案研究",
+      "rationale": "矢量地图及其 schema；不提供本需求的实景城市纹理"
+    },
+    {
+      "group": "地图数据与分发",
+      "repository": "postgis/postgis",
+      "license_review": "GPL-2.0-or-later；第三方见 LICENSE.TXT",
+      "decision": "首版候选",
+      "rationale": "空间索引、范围和距离预筛；步行时间仍靠路由"
+    },
+    {
+      "group": "地图数据与分发",
+      "repository": "Turfjs/turf",
+      "license_review": "MIT",
+      "decision": "条件采用",
+      "rationale": "前端 GeoJSON 辅助运算；不能从缓冲圆得出真实通勤"
+    },
+    {
+      "group": "地图数据与分发",
+      "repository": "osm-search/Nominatim",
+      "license_review": "GPL-3.0",
+      "decision": "条件采用",
+      "rationale": "自托管地址检索；公共实例限制不适合通用自动补全"
+    },
+    {
+      "group": "地图数据与分发",
+      "repository": "komoot/photon",
+      "license_review": "Apache-2.0",
+      "decision": "条件采用",
+      "rationale": "地点搜索/补全候选；生产自建或使用授权服务"
+    },
+    {
+      "group": "路径与通勤",
+      "repository": "valhalla/valhalla",
+      "license_review": "MIT（COPYING）",
+      "decision": "首版候选",
+      "rationale": "pedestrian、等时圈、矩阵与路线"
+    },
+    {
+      "group": "路径与通勤",
+      "repository": "GIScience/openrouteservice",
+      "license_review": "GPL-3.0；另含 LGPL 文件，按模块核对",
+      "decision": "替代候选",
+      "rationale": "路径、等时圈和矩阵；公共服务与开源引擎分开评估"
+    },
+    {
+      "group": "路径与通勤",
+      "repository": "graphhopper/graphhopper",
+      "license_review": "Apache-2.0",
+      "decision": "替代候选",
+      "rationale": "路由与等时圈；商业 Matrix API 不等于开源组件"
+    },
+    {
+      "group": "路径与通勤",
+      "repository": "Project-OSRM/osrm-backend",
+      "license_review": "BSD-2-Clause",
+      "decision": "替代候选",
+      "rationale": "路线与 table；需步行 profile/路网和补充等时圈流程"
+    },
+    {
+      "group": "AI 与交互",
+      "repository": "vercel/ai",
+      "license_review": "Apache-2.0（LICENSE）",
+      "decision": "首版候选",
+      "rationale": "结构化工具和流式回答；自建真实房源查询工具"
+    },
+    {
+      "group": "AI 与交互",
+      "repository": "assistant-ui/assistant-ui",
+      "license_review": "MIT",
+      "decision": "首版候选",
+      "rationale": "聊天界面和工具反馈；可按需要选用而非强制"
+    },
+    {
+      "group": "AI 与交互",
+      "repository": "langchain-ai/langgraph",
+      "license_review": "MIT",
+      "decision": "暂不优先",
+      "rationale": "长流程状态编排；首版确定性搜索无需复杂 Agent 图"
+    },
+    {
+      "group": "AI 与交互",
+      "repository": "davidjerleke/embla-carousel",
+      "license_review": "MIT",
+      "decision": "首版候选",
+      "rationale": "图片横向切换；独立处理图片控件与卡片点击"
+    },
+    {
+      "group": "AI 与交互",
+      "repository": "pmndrs/zustand",
+      "license_review": "MIT",
+      "decision": "首版候选",
+      "rationale": "三栏共享选择/筛选；服务端注意会话隔离"
+    },
+    {
+      "group": "租房及市场模板",
+      "repository": "bradtraversy/property-pulse-nextjs",
+      "license_review": "README 称 MIT，正文未核实",
+      "decision": "参考思路",
+      "rationale": "租房卡片、图片、详情；需重设计学生长租报价模型"
+    },
+    {
+      "group": "租房及市场模板",
+      "repository": "safak/full-stack-estate",
+      "license_review": "未确认许可证",
+      "decision": "参考思路",
+      "rationale": "列表＋二维地图布局；不直接复制代码"
+    },
+    {
+      "group": "租房及市场模板",
+      "repository": "sharetribe/sharetribe",
+      "license_review": "Sharetribe Community Public Licence",
+      "decision": "暂不采用",
+      "rationale": "source-available、自定义限制，README 说明不再主动维护"
+    },
+    {
+      "group": "租房及市场模板",
+      "repository": "AntonioErdeljac/next13-airbnb-clone",
+      "license_review": "无法核查，原地址 404",
+      "decision": "排除",
+      "rationale": "不使用搜索结果中的 fork 冒充原仓库"
+    }
+  ],
+  "requirement_update": "用户已确认实景城市；CesiumJS + Google Photorealistic 3D Tiles 为首选，具体覆盖待实测。"
+}

@@ -1,0 +1,14 @@
+node_modules
+dist
+.next
+.vinext
+.wrangler
+.sites-runtime
+.data
+.env*
+!.env.example
+!.env.agent.example
+.agents
+.codex
+tsconfig.tsbuildinfo
+npm-debug.log*

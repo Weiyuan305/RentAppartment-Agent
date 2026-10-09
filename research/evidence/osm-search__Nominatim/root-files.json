@@ -1,0 +1,498 @@
+[
+  {
+    "name": ".codespellrc",
+    "path": ".codespellrc",
+    "sha": "332bce52b9223bf10dd5fd7804a85dcdd13cfb1c",
+    "size": 396,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/.codespellrc?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/.codespellrc",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/332bce52b9223bf10dd5fd7804a85dcdd13cfb1c",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/.codespellrc",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/.codespellrc?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/332bce52b9223bf10dd5fd7804a85dcdd13cfb1c",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/.codespellrc"
+    }
+  },
+  {
+    "name": ".flake8",
+    "path": ".flake8",
+    "sha": "1aae19dc933e5e5b5d91332e0a58fb6d86f9765e",
+    "size": 273,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/.flake8?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/.flake8",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/1aae19dc933e5e5b5d91332e0a58fb6d86f9765e",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/.flake8",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/.flake8?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/1aae19dc933e5e5b5d91332e0a58fb6d86f9765e",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/.flake8"
+    }
+  },
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "74cf1eab796d503e3e276c0135ca4d84f7ee2665",
+    "size": 0,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/.github?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/tree/master/.github",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/trees/74cf1eab796d503e3e276c0135ca4d84f7ee2665",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/.github?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/trees/74cf1eab796d503e3e276c0135ca4d84f7ee2665",
+      "html": "https://github.com/osm-search/Nominatim/tree/master/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "151eb17c25a67a56589a0d50f8536ea73569e11f",
+    "size": 164,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/.gitignore?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/.gitignore",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/151eb17c25a67a56589a0d50f8536ea73569e11f",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/.gitignore?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/151eb17c25a67a56589a0d50f8536ea73569e11f",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/.gitignore"
+    }
+  },
+  {
+    "name": ".gitmodules",
+    "path": ".gitmodules",
+    "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "size": 0,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/.gitmodules?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/.gitmodules",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/.gitmodules",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/.gitmodules?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/.gitmodules"
+    }
+  },
+  {
+    "name": ".mypy.ini",
+    "path": ".mypy.ini",
+    "sha": "398526bb20290cd85e365d852a0c7367b58792c9",
+    "size": 183,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/.mypy.ini?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/.mypy.ini",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/398526bb20290cd85e365d852a0c7367b58792c9",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/.mypy.ini",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/.mypy.ini?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/398526bb20290cd85e365d852a0c7367b58792c9",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/.mypy.ini"
+    }
+  },
+  {
+    "name": "AUTHORS",
+    "path": "AUTHORS",
+    "sha": "e52785d38295ef83cf892aa874e7d0fef4d34c39",
+    "size": 269,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/AUTHORS?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/AUTHORS",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/e52785d38295ef83cf892aa874e7d0fef4d34c39",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/AUTHORS",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/AUTHORS?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/e52785d38295ef83cf892aa874e7d0fef4d34c39",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/AUTHORS"
+    }
+  },
+  {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "sha": "fa52a62a22f727215d02fc1b02432939cb82d3a5",
+    "size": 5994,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/CONTRIBUTING.md?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/CONTRIBUTING.md",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/fa52a62a22f727215d02fc1b02432939cb82d3a5",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/CONTRIBUTING.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/CONTRIBUTING.md?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/fa52a62a22f727215d02fc1b02432939cb82d3a5",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/CONTRIBUTING.md"
+    }
+  },
+  {
+    "name": "COPYING",
+    "path": "COPYING",
+    "sha": "f6cdd22a6c1fbc887e08a215cb4beb3c47048041",
+    "size": 34674,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/COPYING?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/COPYING",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/f6cdd22a6c1fbc887e08a215cb4beb3c47048041",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/COPYING",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/COPYING?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/f6cdd22a6c1fbc887e08a215cb4beb3c47048041",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/COPYING"
+    }
+  },
+  {
+    "name": "ChangeLog",
+    "path": "ChangeLog",
+    "sha": "83df6d27e5b86c1faba1c8a86aad5055176237fc",
+    "size": 31190,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/ChangeLog?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/ChangeLog",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/83df6d27e5b86c1faba1c8a86aad5055176237fc",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/ChangeLog",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/ChangeLog?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/83df6d27e5b86c1faba1c8a86aad5055176237fc",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/ChangeLog"
+    }
+  },
+  {
+    "name": "LICENSES",
+    "path": "LICENSES",
+    "sha": "a6c7bdcd7c4bdbf6fe7f930a82ba60b4e605f6d1",
+    "size": 0,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/LICENSES?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/tree/master/LICENSES",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/trees/a6c7bdcd7c4bdbf6fe7f930a82ba60b4e605f6d1",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/LICENSES?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/trees/a6c7bdcd7c4bdbf6fe7f930a82ba60b4e605f6d1",
+      "html": "https://github.com/osm-search/Nominatim/tree/master/LICENSES"
+    }
+  },
+  {
+    "name": "Makefile",
+    "path": "Makefile",
+    "sha": "8729cc8f6b6693892454e18bfb7d45846e5c0d4b",
+    "size": 817,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/Makefile?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/Makefile",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/8729cc8f6b6693892454e18bfb7d45846e5c0d4b",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/Makefile",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/Makefile?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/8729cc8f6b6693892454e18bfb7d45846e5c0d4b",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/Makefile"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "54bdbf8efd999c43afbd31c9b748f7255e6624af",
+    "size": 3112,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/README.md?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/README.md",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/54bdbf8efd999c43afbd31c9b748f7255e6624af",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/README.md?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/54bdbf8efd999c43afbd31c9b748f7255e6624af",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/README.md"
+    }
+  },
+  {
+    "name": "SECURITY.md",
+    "path": "SECURITY.md",
+    "sha": "3cb1214a98a8cbfeb277e019f0a1dfc4a77f4bbb",
+    "size": 1764,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/SECURITY.md?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/SECURITY.md",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/3cb1214a98a8cbfeb277e019f0a1dfc4a77f4bbb",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/SECURITY.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/SECURITY.md?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/3cb1214a98a8cbfeb277e019f0a1dfc4a77f4bbb",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/SECURITY.md"
+    }
+  },
+  {
+    "name": "VAGRANT.md",
+    "path": "VAGRANT.md",
+    "sha": "4ff9d4bdb11e0d9adaafccb89f8fa9332e6ae109",
+    "size": 4725,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/VAGRANT.md?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/VAGRANT.md",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/4ff9d4bdb11e0d9adaafccb89f8fa9332e6ae109",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/VAGRANT.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/VAGRANT.md?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/4ff9d4bdb11e0d9adaafccb89f8fa9332e6ae109",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/VAGRANT.md"
+    }
+  },
+  {
+    "name": "Vagrantfile",
+    "path": "Vagrantfile",
+    "sha": "99aa84491159c81b0f3a588267652caa4ccc8d6d",
+    "size": 3271,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/Vagrantfile?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/Vagrantfile",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/99aa84491159c81b0f3a588267652caa4ccc8d6d",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/Vagrantfile",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/Vagrantfile?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/99aa84491159c81b0f3a588267652caa4ccc8d6d",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/Vagrantfile"
+    }
+  },
+  {
+    "name": "data",
+    "path": "data",
+    "sha": "9b401292360b7950f0a88120ca16c90ddb8d9c02",
+    "size": 0,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/data?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/tree/master/data",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/trees/9b401292360b7950f0a88120ca16c90ddb8d9c02",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/data?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/trees/9b401292360b7950f0a88120ca16c90ddb8d9c02",
+      "html": "https://github.com/osm-search/Nominatim/tree/master/data"
+    }
+  },
+  {
+    "name": "docs",
+    "path": "docs",
+    "sha": "c213a0e4f0f478e9d014a761c2b8745787b97a12",
+    "size": 0,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/docs?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/tree/master/docs",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/trees/c213a0e4f0f478e9d014a761c2b8745787b97a12",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/docs?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/trees/c213a0e4f0f478e9d014a761c2b8745787b97a12",
+      "html": "https://github.com/osm-search/Nominatim/tree/master/docs"
+    }
+  },
+  {
+    "name": "lib-lua",
+    "path": "lib-lua",
+    "sha": "fbbaaa4269b10397af2ce451ebea977afee5ee09",
+    "size": 0,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/lib-lua?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/tree/master/lib-lua",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/trees/fbbaaa4269b10397af2ce451ebea977afee5ee09",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/lib-lua?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/trees/fbbaaa4269b10397af2ce451ebea977afee5ee09",
+      "html": "https://github.com/osm-search/Nominatim/tree/master/lib-lua"
+    }
+  },
+  {
+    "name": "lib-sql",
+    "path": "lib-sql",
+    "sha": "de969043dcac71d0ea9f16824e57b65cb9c72bd9",
+    "size": 0,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/lib-sql?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/tree/master/lib-sql",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/trees/de969043dcac71d0ea9f16824e57b65cb9c72bd9",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/lib-sql?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/trees/de969043dcac71d0ea9f16824e57b65cb9c72bd9",
+      "html": "https://github.com/osm-search/Nominatim/tree/master/lib-sql"
+    }
+  },
+  {
+    "name": "man",
+    "path": "man",
+    "sha": "ac3d1b2d3b731c42a647233e8c69b75d23b32d9a",
+    "size": 0,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/man?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/tree/master/man",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/trees/ac3d1b2d3b731c42a647233e8c69b75d23b32d9a",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/man?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/trees/ac3d1b2d3b731c42a647233e8c69b75d23b32d9a",
+      "html": "https://github.com/osm-search/Nominatim/tree/master/man"
+    }
+  },
+  {
+    "name": "mkdocs.yml",
+    "path": "mkdocs.yml",
+    "sha": "9b9f6f7c14e8743a960f689c6033c6364a1e99be",
+    "size": 3785,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/mkdocs.yml?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/mkdocs.yml",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/9b9f6f7c14e8743a960f689c6033c6364a1e99be",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/mkdocs.yml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/mkdocs.yml?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/9b9f6f7c14e8743a960f689c6033c6364a1e99be",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/mkdocs.yml"
+    }
+  },
+  {
+    "name": "munin",
+    "path": "munin",
+    "sha": "dc17cafaa500aaae0a2b7ac03e7ae2624a5dc0a1",
+    "size": 0,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/munin?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/tree/master/munin",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/trees/dc17cafaa500aaae0a2b7ac03e7ae2624a5dc0a1",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/munin?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/trees/dc17cafaa500aaae0a2b7ac03e7ae2624a5dc0a1",
+      "html": "https://github.com/osm-search/Nominatim/tree/master/munin"
+    }
+  },
+  {
+    "name": "nominatim-cli.py",
+    "path": "nominatim-cli.py",
+    "sha": "7a1aadb84677c8e090819acfc18429298ac8a3e9",
+    "size": 473,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/nominatim-cli.py?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/nominatim-cli.py",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/7a1aadb84677c8e090819acfc18429298ac8a3e9",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/nominatim-cli.py",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/nominatim-cli.py?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/7a1aadb84677c8e090819acfc18429298ac8a3e9",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/nominatim-cli.py"
+    }
+  },
+  {
+    "name": "packaging",
+    "path": "packaging",
+    "sha": "9df0f8533422e2659c48f2666957ca4a59029bd5",
+    "size": 0,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/packaging?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/tree/master/packaging",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/trees/9df0f8533422e2659c48f2666957ca4a59029bd5",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/packaging?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/trees/9df0f8533422e2659c48f2666957ca4a59029bd5",
+      "html": "https://github.com/osm-search/Nominatim/tree/master/packaging"
+    }
+  },
+  {
+    "name": "pyproject.toml",
+    "path": "pyproject.toml",
+    "sha": "6fef37e82441cce1a708e4624d1a2285a4c7b55f",
+    "size": 962,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/pyproject.toml?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/blob/master/pyproject.toml",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/6fef37e82441cce1a708e4624d1a2285a4c7b55f",
+    "download_url": "https://raw.githubusercontent.com/osm-search/Nominatim/master/pyproject.toml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/pyproject.toml?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/blobs/6fef37e82441cce1a708e4624d1a2285a4c7b55f",
+      "html": "https://github.com/osm-search/Nominatim/blob/master/pyproject.toml"
+    }
+  },
+  {
+    "name": "settings",
+    "path": "settings",
+    "sha": "221964b0fd28bd206f74d6d8928cc586f439ef2d",
+    "size": 0,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/settings?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/tree/master/settings",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/trees/221964b0fd28bd206f74d6d8928cc586f439ef2d",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/settings?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/trees/221964b0fd28bd206f74d6d8928cc586f439ef2d",
+      "html": "https://github.com/osm-search/Nominatim/tree/master/settings"
+    }
+  },
+  {
+    "name": "src",
+    "path": "src",
+    "sha": "526b651b1b51118f7f4e3bcd3e48867ca6dc0ddb",
+    "size": 0,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/src?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/tree/master/src",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/trees/526b651b1b51118f7f4e3bcd3e48867ca6dc0ddb",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/src?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/trees/526b651b1b51118f7f4e3bcd3e48867ca6dc0ddb",
+      "html": "https://github.com/osm-search/Nominatim/tree/master/src"
+    }
+  },
+  {
+    "name": "test",
+    "path": "test",
+    "sha": "414ff55c515de6ff754671f009ef89f8345d6a67",
+    "size": 0,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/test?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/tree/master/test",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/trees/414ff55c515de6ff754671f009ef89f8345d6a67",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/test?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/trees/414ff55c515de6ff754671f009ef89f8345d6a67",
+      "html": "https://github.com/osm-search/Nominatim/tree/master/test"
+    }
+  },
+  {
+    "name": "utils",
+    "path": "utils",
+    "sha": "af6ef5e3f7be1031cdd011b91a95505fa9596016",
+    "size": 0,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/utils?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/tree/master/utils",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/trees/af6ef5e3f7be1031cdd011b91a95505fa9596016",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/utils?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/trees/af6ef5e3f7be1031cdd011b91a95505fa9596016",
+      "html": "https://github.com/osm-search/Nominatim/tree/master/utils"
+    }
+  },
+  {
+    "name": "vagrant",
+    "path": "vagrant",
+    "sha": "3445c2e2593d13b636177003292a52eae0afacc2",
+    "size": 0,
+    "url": "https://api.github.com/repos/osm-search/Nominatim/contents/vagrant?ref=master",
+    "html_url": "https://github.com/osm-search/Nominatim/tree/master/vagrant",
+    "git_url": "https://api.github.com/repos/osm-search/Nominatim/git/trees/3445c2e2593d13b636177003292a52eae0afacc2",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/osm-search/Nominatim/contents/vagrant?ref=master",
+      "git": "https://api.github.com/repos/osm-search/Nominatim/git/trees/3445c2e2593d13b636177003292a52eae0afacc2",
+      "html": "https://github.com/osm-search/Nominatim/tree/master/vagrant"
+    }
+  }
+]

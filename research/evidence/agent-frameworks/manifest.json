@@ -1,0 +1,502 @@
+{
+  "checked_at_utc": "2026-10-09T06:48:56.621350+00:00",
+  "method": "Public unauthenticated GitHub REST and npm latest metadata; no installs or model calls.",
+  "repositories": [
+    {
+      "repo": "vercel/ai",
+      "status": "ok",
+      "url": "https://github.com/vercel/ai",
+      "stars": 27192,
+      "archived": false,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      },
+      "created_at": "2023-05-23T15:04:08Z",
+      "head_sha": "e00b1b14e99b9f0fcb5e49848b26ff84613ea067",
+      "head_committed_at": "2026-10-09T00:32:44Z",
+      "metadata_url": "https://api.github.com/repos/vercel/ai",
+      "commit_url": "https://api.github.com/repos/vercel/ai/commits/main"
+    },
+    {
+      "repo": "openai/openai-agents-js",
+      "status": "ok",
+      "url": "https://github.com/openai/openai-agents-js",
+      "stars": 3902,
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "created_at": "2025-05-31T00:08:49Z",
+      "head_sha": "33e2741be9bb52c1d96a8b4dac0c68e46297b607",
+      "head_committed_at": "2026-10-08T22:54:04Z",
+      "metadata_url": "https://api.github.com/repos/openai/openai-agents-js",
+      "commit_url": "https://api.github.com/repos/openai/openai-agents-js/commits/main"
+    },
+    {
+      "repo": "mastra-ai/mastra",
+      "status": "ok",
+      "url": "https://github.com/mastra-ai/mastra",
+      "stars": 28655,
+      "archived": false,
+      "license": {
+        "key": "other",
+        "name": "Other",
+        "spdx_id": "NOASSERTION",
+        "url": null,
+        "node_id": "MDc6TGljZW5zZTA="
+      },
+      "created_at": "2024-08-06T20:44:31Z",
+      "head_sha": "65b62c04c28267ab81f7d6b92ed29ce0ef46671b",
+      "head_committed_at": "2026-10-09T06:40:55Z",
+      "metadata_url": "https://api.github.com/repos/mastra-ai/mastra",
+      "commit_url": "https://api.github.com/repos/mastra-ai/mastra/commits/main"
+    },
+    {
+      "repo": "langchain-ai/langgraphjs",
+      "status": "ok",
+      "url": "https://github.com/langchain-ai/langgraphjs",
+      "stars": 3341,
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "created_at": "2024-01-09T17:40:12Z",
+      "head_sha": "55902f308249f5e3a11c0404c51d8831a53df5fc",
+      "head_committed_at": "2026-10-08T17:39:52Z",
+      "metadata_url": "https://api.github.com/repos/langchain-ai/langgraphjs",
+      "commit_url": "https://api.github.com/repos/langchain-ai/langgraphjs/commits/main"
+    },
+    {
+      "repo": "cloudflare/agents",
+      "status": "ok",
+      "url": "https://github.com/cloudflare/agents",
+      "stars": 5797,
+      "archived": false,
+      "license": {
+        "key": "mit",
+        "name": "MIT License",
+        "spdx_id": "MIT",
+        "url": "https://api.github.com/licenses/mit",
+        "node_id": "MDc6TGljZW5zZTEz"
+      },
+      "created_at": "2025-01-29T23:14:04Z",
+      "head_sha": "b65956e8a40501fc241c223aba0d6177077268d1",
+      "head_committed_at": "2026-10-09T01:52:56Z",
+      "metadata_url": "https://api.github.com/repos/cloudflare/agents",
+      "commit_url": "https://api.github.com/repos/cloudflare/agents/commits/main"
+    },
+    {
+      "repo": "huggingface/smolagents",
+      "status": "ok",
+      "url": "https://github.com/huggingface/smolagents",
+      "stars": 29745,
+      "archived": false,
+      "license": {
+        "key": "apache-2.0",
+        "name": "Apache License 2.0",
+        "spdx_id": "Apache-2.0",
+        "url": "https://api.github.com/licenses/apache-2.0",
+        "node_id": "MDc6TGljZW5zZTI="
+      },
+      "created_at": "2024-12-05T11:28:04Z",
+      "head_sha": "96f33faaf028479119ec8d34507b47694cf14e34",
+      "head_committed_at": "2026-10-06T09:38:53Z",
+      "metadata_url": "https://api.github.com/repos/huggingface/smolagents",
+      "commit_url": "https://api.github.com/repos/huggingface/smolagents/commits/main"
+    }
+  ],
+  "packages": [
+    {
+      "package": "ai",
+      "status": "ok",
+      "url": "https://registry.npmjs.org/ai/latest",
+      "version": "7.0.136",
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=22"
+      },
+      "dependencies": {
+        "@ai-sdk/gateway": "4.0.110",
+        "@ai-sdk/provider": "4.0.26",
+        "@ai-sdk/provider-utils": "5.0.58"
+      },
+      "peerDependencies": {
+        "zod": "^3.25.76 || ^4.1.8"
+      },
+      "dist": {
+        "shasum": "c42c1e548076f29650c8fb5944407e94c5dbd6fa",
+        "tarball": "https://registry.npmjs.org/ai/-/ai-7.0.136.tgz",
+        "fileCount": 698,
+        "integrity": "sha512-quFXFKEw7qUZL9v2ciJ9eruQYq9KUo3F+mDhwdL/pi7ZPu0bj7UX6yv55oAUiMjbGXd8MZRzIcu0oPc4y9llQw==",
+        "signatures": [
+          {
+            "sig": "MEUCIQCcisjnPZjb+obypMBzC4Ida2NJ+JQb7GdUVXspgagQpQIgNy2XluvqG33p54lXYucFsBgzmsyMzbcPnAKQf28/oWE=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEUCIQCiJaqubkdAPoa1fbPI7l/WifBK2ZQP4IGrsJx9LxzK4QIgYg9QUU3PzX0zKFKFVmllwpO/FRRMKqhUSm6b5ClRnTU=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/ai@7.0.136",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 8143517
+      }
+    },
+    {
+      "package": "@ai-sdk/react",
+      "status": "ok",
+      "url": "https://registry.npmjs.org/%40ai-sdk%2Freact/latest",
+      "version": "4.0.139",
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=22"
+      },
+      "dependencies": {
+        "ai": "7.0.136",
+        "swr": "^2.4.1",
+        "throttleit": "2.1.0",
+        "@ai-sdk/mcp": "2.0.73",
+        "@ai-sdk/provider": "4.0.26",
+        "@ai-sdk/provider-utils": "5.0.58"
+      },
+      "peerDependencies": {
+        "react": "^18 || ~19.0.1 || ~19.1.2 || ^19.2.1"
+      },
+      "dist": {
+        "shasum": "9a61135fb2324096a91b6ee65e824b63150e3984",
+        "tarball": "https://registry.npmjs.org/@ai-sdk/react/-/react-4.0.139.tgz",
+        "fileCount": 25,
+        "integrity": "sha512-AZYw7qrn0UN1/YiUWkiQvNBMD8O8/+H9DgEDdDurr638cXSU0rthkJ38kqSSTf9x+HIpNi0Y8QUkZ5rJ1VUx/g==",
+        "signatures": [
+          {
+            "sig": "MEUCIQCHsO6uyk0tP14T+GBAnqjfWlsF3+GdlgtfAA7CDTGuLQIgc5URcZ+0HdCfFgEFGqLoMpG6Rw2ix2RtbdKSYCZ1mJI=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEYCIQCDcPECHa+kX4c8Oilg9WruG/E8hBm2QVR6MdAoCt6MOwIhAN6b6hpcH/rhfcP+tFVyjvy1f+DhRCNf7BgLJuMc+ItI",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@ai-sdk%2freact@4.0.139",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 325815
+      }
+    },
+    {
+      "package": "@ai-sdk/openai",
+      "status": "ok",
+      "url": "https://registry.npmjs.org/%40ai-sdk%2Fopenai/latest",
+      "version": "4.0.91",
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=22"
+      },
+      "dependencies": {
+        "@ai-sdk/provider": "4.0.26",
+        "@ai-sdk/provider-utils": "5.0.58"
+      },
+      "peerDependencies": {
+        "zod": "^3.25.76 || ^4.1.8"
+      },
+      "dist": {
+        "shasum": "bc56f3e33cd3eb89129aeca5624f4190f0ac5073",
+        "tarball": "https://registry.npmjs.org/@ai-sdk/openai/-/openai-4.0.91.tgz",
+        "fileCount": 94,
+        "integrity": "sha512-Nk382R6us0GNxI1cGJUXMryz1XHpyrmC3K/Rmqdx9tIsqAlc7UtuO/hC9dd31F41w8uzoS362HJSDXgAI7zKbA==",
+        "signatures": [
+          {
+            "sig": "MEYCIQDktZphOmZ21y9drIwvQn+aaqtLzhyfjOa35nRBkXnUgQIhAMQPZibXZbZ5bzYkbL1Ut/qxzIJHnXaFjSPa6nkGPuJD",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEUCIQCkm5ftlhqP7CWSTduMGyE4pekrVBF5YXXsXwh3Oor+RgIgb0KJh7mvGyiMV8YQxJ35Ofi0HXYs5zB5a4F33AMjPEs=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@ai-sdk%2fopenai@4.0.91",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 3106074
+      }
+    },
+    {
+      "package": "@openai/agents",
+      "status": "ok",
+      "url": "https://registry.npmjs.org/%40openai%2Fagents/latest",
+      "version": "0.20.0",
+      "license": "MIT",
+      "engines": null,
+      "dependencies": {
+        "openai": "^7.2.0",
+        "@openai/agents-core": "0.20.0",
+        "@openai/agents-openai": "0.20.0",
+        "@openai/agents-realtime": "0.20.0"
+      },
+      "peerDependencies": {
+        "zod": "^4.0.0"
+      },
+      "dist": {
+        "shasum": "4e3a2ec8fea743679937b76ee8a17199888d790b",
+        "tarball": "https://registry.npmjs.org/@openai/agents/-/agents-0.20.0.tgz",
+        "fileCount": 43,
+        "integrity": "sha512-k3fm1qJ5VjYvBI1juwZGDdhtpd7CZqJlt+6zIMcmzHD1mIQoW9HhXN8Wv9G9PpemWz9ykaxj6CIQkY8kMAuWjA==",
+        "signatures": [
+          {
+            "sig": "MEUCIAOHIn6Dc9R2Xo8Ak7j73w7IMbW+ZVzn3zPgKU1jKdHqAiEA+zqcVN8UZWI6Sd8UxgPR5+ViIa8NuCVtt7FH8SeJPm0=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEQCIByTz3AeQZYuvm43TqPv18h+PHDIWVINJ89aFWsPlyXeAiAmPBK7o27+infspWz5KpdP4AbZ/4EUplujw9JqEhqCYg==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@openai%2fagents@0.20.0",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 23678
+      }
+    },
+    {
+      "package": "@openai/agents-core",
+      "status": "ok",
+      "url": "https://registry.npmjs.org/%40openai%2Fagents-core/latest",
+      "version": "0.20.0",
+      "license": "MIT",
+      "engines": null,
+      "dependencies": {
+        "debug": "^4.4.3",
+        "openai": "^7.2.0",
+        "@standard-schema/spec": "^1.1.0"
+      },
+      "peerDependencies": {
+        "zod": "^4.0.0"
+      },
+      "dist": {
+        "shasum": "97e5dc7d679832d877e02bbd8a8c9d492b4e5fe8",
+        "tarball": "https://registry.npmjs.org/@openai/agents-core/-/agents-core-0.20.0.tgz",
+        "fileCount": 1103,
+        "integrity": "sha512-9nJJ3iyQTwO2kmrZJPMqnHI61g3xp2DgtpW4V0cgNtYot5jocDqAMN5+dkjtsBo64U3Wbl7rIAV0q5kvycoIIA==",
+        "signatures": [
+          {
+            "sig": "MEUCIBqKOsF1NHGMRE6SeGDrQ+UlwxlxuGq2SZABRB08aouDAiEAxvgaAxnTHwI6qIZHOFz/bzSH91YRG5FGJHRcn+tMpgQ=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEUCIDzSHZ3wSPG3bB/YBgCZvFa8MBBUjow/NKGRRR3eeiWlAiEAhsIoacr1VB9YiN7gGLzYCZ2JfZWV/UmS70FtoI+hA/c=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@openai%2fagents-core@0.20.0",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 10612109
+      }
+    },
+    {
+      "package": "@mastra/core",
+      "status": "ok",
+      "url": "https://registry.npmjs.org/%40mastra%2Fcore/latest",
+      "version": "1.75.0",
+      "license": "Apache-2.0",
+      "engines": {
+        "node": ">=22.13.0"
+      },
+      "dependencies": {
+        "ws": "^8.21.3",
+        "chat": "^4.37.0",
+        "hono": "^4.13.7",
+        "execa": "^9.6.1",
+        "fastq": "^1.20.1",
+        "p-map": "^7.0.4",
+        "re2js": "^2.8.6",
+        "croner": "^10.0.1",
+        "dotenv": "^17.3.1",
+        "ignore": "^7.0.5",
+        "jpeg-js": "^0.4.4",
+        "p-retry": "^7.1.1",
+        "lru-cache": "^11.2.7",
+        "picomatch": "^4.0.3",
+        "gray-matter": "^4.0.3",
+        "json-schema": "^0.4.0",
+        "xxhash-wasm": "^1.1.0",
+        "@lukeed/uuid": "^2.0.1",
+        "hono-openapi": "^1.3.1",
+        "posthog-node": "^5.46.1",
+        "@a2a-js/sdk-v1": "npm:@a2a-js/sdk@~1.0.1",
+        "@a2a-js/sdk-v0_3": "npm:@a2a-js/sdk@~0.3.14",
+        "@isaacs/ttlcache": "^2.1.5",
+        "@ai-sdk/provider-v5": "npm:@ai-sdk/provider@2.0.3",
+        "@ai-sdk/provider-v6": "npm:@ai-sdk/provider@3.0.14",
+        "@ai-sdk/provider-v7": "npm:@ai-sdk/provider@4.0.17",
+        "@mastra/schema-compat": "1.3.13",
+        "@standard-schema/spec": "^1.1.0",
+        "@ai-sdk/provider-utils-v6": "npm:@ai-sdk/provider-utils@4.0.40",
+        "@ai-sdk/provider-utils-v7": "npm:@ai-sdk/provider-utils@5.0.13"
+      },
+      "peerDependencies": {
+        "zod": "^3.25.0 || ^4.0.0"
+      },
+      "dist": {
+        "shasum": "dbf996a0e4dc8ac625f8be8fed6c39cd85fc3602",
+        "tarball": "https://registry.npmjs.org/@mastra/core/-/core-1.75.0.tgz",
+        "fileCount": 3378,
+        "integrity": "sha512-1yw89tyha4HU1eO34IC5sYdSCbXuw8WCVf4+pqmNyRmoHp0ZcPzyberdsbq9O8CTHuxKZbf7cgsI2QNI2L3SRA==",
+        "signatures": [
+          {
+            "sig": "MEUCIQCL45M9VFpwvh2syMhGUfoRGJSOI7UkTHfEyEtCV5ZtjAIgfRjb7Ro0XAl0EyfDciKdhQ8ENtJhkeEB+E79GtI1MF4=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEUCIQDvDExAavj6aAgzhWN1shnOFNDRk9xJvDjs6/bvfE2AGAIgGNrPPkLLDeBD2iCxaNJPW27u7VjLlyEijOfr5OuUmWQ=",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@mastra%2fcore@1.75.0",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 72625799
+      }
+    },
+    {
+      "package": "@langchain/langgraph",
+      "status": "ok",
+      "url": "https://registry.npmjs.org/%40langchain%2Flanggraph/latest",
+      "version": "1.4.21",
+      "license": "MIT",
+      "engines": {
+        "node": ">=18"
+      },
+      "dependencies": {
+        "@langchain/protocol": "^0.0.19",
+        "@standard-schema/spec": "1.1.0",
+        "@langchain/langgraph-sdk": "~1.12.3",
+        "@langchain/langgraph-checkpoint": "^1.1.6"
+      },
+      "peerDependencies": {
+        "zod": "^3.25.32 || ^4.2.0",
+        "@langchain/core": "^1.1.48"
+      },
+      "dist": {
+        "shasum": "390a2c36901b403faa7f5dae2064d18942300d12",
+        "tarball": "https://registry.npmjs.org/@langchain/langgraph/-/langgraph-1.4.21.tgz",
+        "fileCount": 632,
+        "integrity": "sha512-0LRyRw594IO98etnnBCM6nhckVjWGNnObpdaQij1e+u+GsUwGvn9P4/P42UAJG56WFF72A9n93WwCOW7Mq9yug==",
+        "signatures": [
+          {
+            "sig": "MEYCIQDaGYIip9w035i58X1u+ln2r8uicZ3GjiauNY6qwSnvJwIhALfav8lAYHFTN9x3C3mLWDeFnGvDveaC5xu0vo9KBM34",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEYCIQDX/XwYeZcqlv4QEy5pWTUBboz79H6qacPJDf9Vtb3zrQIhAITxKcGjzThrSMgxsoK5KY3HsXMYnGhBfpLNQ17bhC8t",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/@langchain%2flanggraph@1.4.21",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 4416346
+      }
+    },
+    {
+      "package": "agents",
+      "status": "ok",
+      "url": "https://registry.npmjs.org/agents/latest",
+      "version": "0.27.0",
+      "license": "MIT",
+      "engines": null,
+      "dependencies": {
+        "yaml": "^2.9.0",
+        "nanoid": "^5.1.16",
+        "capnweb": "^0.12.0",
+        "esbuild": "^0.28.1",
+        "mimetext": "^3.0.28",
+        "partysocket": "1.3.0",
+        "postal-mime": "^2.7.5",
+        "cron-schedule": "^6.0.0",
+        "@cfworker/json-schema": "^4.1.1",
+        "@rolldown/plugin-babel": "^0.2.3",
+        "@babel/plugin-proposal-decorators": "^8.0.2"
+      },
+      "peerDependencies": {
+        "ai": "^6.0.0 || ^7.0.0",
+        "zod": "^4.0.0",
+        "chat": "^4.29.0",
+        "vite": ">=6.0.0 <9.0.0",
+        "react": "^19.0.0",
+        "@x402/evm": "^2.0.0",
+        "just-bash": "^3.0.0",
+        "@x402/core": "^2.0.0",
+        "@tanstack/ai": ">=0.10.2 <1.0.0",
+        "@ai-sdk/react": "^3.0.0 || ^4.0.0",
+        "@opencode/sdk": "^2.0.24",
+        "@ai-sdk/provider": "^4.0.0",
+        "@opencode/plugin": "^2.0.24",
+        "@cloudflare/codemode": ">=0.5.0",
+        "@earendil-works/pi-ai": "^1.0.0",
+        "@modelcontextprotocol/sdk": "1.30.0",
+        "@earendil-works/pi-durable": "^1.0.0",
+        "@modelcontextprotocol/client": "2.0.0",
+        "@modelcontextprotocol/server": "2.0.0"
+      },
+      "dist": {
+        "shasum": "61317b8ccd5c595dcf429bafb50d79db56cc1057",
+        "tarball": "https://registry.npmjs.org/agents/-/agents-0.27.0.tgz",
+        "fileCount": 435,
+        "integrity": "sha512-izu3MQhfjxapiiGn80RLOGwMwf1S7xRFvGGFq/g+fW/14MU+emNXxHvEn5BY2/Wg4R9nPa/nSr4K3B/Kdx1Zrg==",
+        "signatures": [
+          {
+            "sig": "MEQCIBFMuaL/l5fuPbOowqZgX/WG08o+xeq/Q9GreoJw+oCsAiBLR87eTW3rRC846uNzn8EoRvI1GR6AV8i8myv038DwqQ==",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          },
+          {
+            "sig": "MEYCIQCBBceaspl0Cu6tSM6aHLFtS8jAHhEbyvzaQMpyVZzLsQIhAKi97KTbVs9cVzif8SmfdHWC5jKf4pRmAdyWAK6FJ8jn",
+            "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U"
+          }
+        ],
+        "attestations": {
+          "url": "https://registry.npmjs.org/-/npm/v1/attestations/agents@0.27.0",
+          "provenance": {
+            "predicateType": "https://slsa.dev/provenance/v1"
+          }
+        },
+        "unpackedSize": 10087785
+      }
+    }
+  ]
+}

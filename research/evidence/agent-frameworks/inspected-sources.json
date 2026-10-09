@@ -1,0 +1,278 @@
+{
+  "sources": [
+    {
+      "repo": "vercel/ai",
+      "sha": "e00b1b14e99b9f0fcb5e49848b26ff84613ea067",
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/vercel/ai/e00b1b14e99b9f0fcb5e49848b26ff84613ea067/README.md",
+      "status": "ok",
+      "sha256": "0f1402baf0226cc4912e33b421162bf30a38a80cc438c24bba601f495e73a64f",
+      "bytes": 22
+    },
+    {
+      "repo": "vercel/ai",
+      "sha": "e00b1b14e99b9f0fcb5e49848b26ff84613ea067",
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/vercel/ai/e00b1b14e99b9f0fcb5e49848b26ff84613ea067/LICENSE",
+      "status": "ok",
+      "sha256": "b4f9adb7c568904834d0dd6cc98d16c390d21ca32fc17ae7a267715269bd5529",
+      "bytes": 552
+    },
+    {
+      "repo": "vercel/ai",
+      "sha": "e00b1b14e99b9f0fcb5e49848b26ff84613ea067",
+      "path": "packages/ai/package.json",
+      "url": "https://raw.githubusercontent.com/vercel/ai/e00b1b14e99b9f0fcb5e49848b26ff84613ea067/packages/ai/package.json",
+      "status": "ok",
+      "sha256": "5d03e89efa664f8f91638fa45af76cb5feccc1b98c071f32cb7ac8bcf4fb9871",
+      "bytes": 3407
+    },
+    {
+      "repo": "vercel/ai",
+      "sha": "e00b1b14e99b9f0fcb5e49848b26ff84613ea067",
+      "path": "packages/react/package.json",
+      "url": "https://raw.githubusercontent.com/vercel/ai/e00b1b14e99b9f0fcb5e49848b26ff84613ea067/packages/react/package.json",
+      "status": "ok",
+      "sha256": "8b5901a7fa6378920d6ba73a270cbf9bb84bd9c1046c7f9d17d022f4f6383eb0",
+      "bytes": 2160
+    },
+    {
+      "repo": "vercel/ai",
+      "sha": "e00b1b14e99b9f0fcb5e49848b26ff84613ea067",
+      "path": "content/docs/03-agents/01-overview.mdx",
+      "url": "https://raw.githubusercontent.com/vercel/ai/e00b1b14e99b9f0fcb5e49848b26ff84613ea067/content/docs/03-agents/01-overview.mdx",
+      "status": "ok",
+      "sha256": "f57c5eddcb7eb05c0a5a8cb6ce812f00d4ba53186e03498cf2de52c8b495da19",
+      "bytes": 5337
+    },
+    {
+      "repo": "vercel/ai",
+      "sha": "e00b1b14e99b9f0fcb5e49848b26ff84613ea067",
+      "path": "packages/ai/src/agent/tool-loop-agent.ts",
+      "url": "https://raw.githubusercontent.com/vercel/ai/e00b1b14e99b9f0fcb5e49848b26ff84613ea067/packages/ai/src/agent/tool-loop-agent.ts",
+      "status": "ok",
+      "sha256": "ae2682eb25cd3ba95f46bc9f37f936b6d6f9434ccedf533c5f4fe7e085cba8b0",
+      "bytes": 9345
+    },
+    {
+      "repo": "openai/openai-agents-js",
+      "sha": "33e2741be9bb52c1d96a8b4dac0c68e46297b607",
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/openai/openai-agents-js/33e2741be9bb52c1d96a8b4dac0c68e46297b607/README.md",
+      "status": "ok",
+      "sha256": "3c7ba935ab6f062de05d771d0edd3a244a28c24a868e5f67bb1c5c65d7d49190",
+      "bytes": 6207
+    },
+    {
+      "repo": "openai/openai-agents-js",
+      "sha": "33e2741be9bb52c1d96a8b4dac0c68e46297b607",
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/openai/openai-agents-js/33e2741be9bb52c1d96a8b4dac0c68e46297b607/LICENSE",
+      "status": "ok",
+      "sha256": "969d1c8178ad9a1ae2ff1e67534151d4cc58a2626274b272f918995bccd3a6ad",
+      "bytes": 1062
+    },
+    {
+      "repo": "openai/openai-agents-js",
+      "sha": "33e2741be9bb52c1d96a8b4dac0c68e46297b607",
+      "path": "packages/agents/package.json",
+      "url": "https://raw.githubusercontent.com/openai/openai-agents-js/33e2741be9bb52c1d96a8b4dac0c68e46297b607/packages/agents/package.json",
+      "status": "ok",
+      "sha256": "d57ce4ab0ef46a7a0614003f46d124841b7ce1ce04d1987a2f8fc534adacf318",
+      "bytes": 2956
+    },
+    {
+      "repo": "openai/openai-agents-js",
+      "sha": "33e2741be9bb52c1d96a8b4dac0c68e46297b607",
+      "path": "packages/agents-core/package.json",
+      "url": "https://raw.githubusercontent.com/openai/openai-agents-js/33e2741be9bb52c1d96a8b4dac0c68e46297b607/packages/agents-core/package.json",
+      "status": "ok",
+      "sha256": "2111c4baeb1281d9e5f6786633f5643157be9eacf4d34ead8b7e8ba55cd95766",
+      "bytes": 5536
+    },
+    {
+      "repo": "openai/openai-agents-js",
+      "sha": "33e2741be9bb52c1d96a8b4dac0c68e46297b607",
+      "path": "docs/src/content/docs/guides/sessions.mdx",
+      "url": "https://raw.githubusercontent.com/openai/openai-agents-js/33e2741be9bb52c1d96a8b4dac0c68e46297b607/docs/src/content/docs/guides/sessions.mdx",
+      "status": "ok",
+      "sha256": "6cd27a5f2c4da1035d27aaed9fd7ff3bec0dbb5f364510eca194266d55b5774b",
+      "bytes": 15259
+    },
+    {
+      "repo": "mastra-ai/mastra",
+      "sha": "65b62c04c28267ab81f7d6b92ed29ce0ef46671b",
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/mastra-ai/mastra/65b62c04c28267ab81f7d6b92ed29ce0ef46671b/README.md",
+      "status": "ok",
+      "sha256": "3cf7ca8d2c00593f8f452fc1ac1f75f8269f1df9c98cbaca59409271a4ffa7e8",
+      "bytes": 7265
+    },
+    {
+      "repo": "mastra-ai/mastra",
+      "sha": "65b62c04c28267ab81f7d6b92ed29ce0ef46671b",
+      "path": "LICENSE.md",
+      "url": "https://raw.githubusercontent.com/mastra-ai/mastra/65b62c04c28267ab81f7d6b92ed29ce0ef46671b/LICENSE.md",
+      "status": "ok",
+      "sha256": "f0351b469d1548e547882f01d2486a90f6bd0ff3c89defec841bbf5641265776",
+      "bytes": 1258
+    },
+    {
+      "repo": "mastra-ai/mastra",
+      "sha": "65b62c04c28267ab81f7d6b92ed29ce0ef46671b",
+      "path": "packages/core/package.json",
+      "url": "https://raw.githubusercontent.com/mastra-ai/mastra/65b62c04c28267ab81f7d6b92ed29ce0ef46671b/packages/core/package.json",
+      "status": "ok",
+      "sha256": "9bc33d1960a0295aaaca228ead98b8138d0c46535f690adeb1f061f3d80c94d9",
+      "bytes": 30480
+    },
+    {
+      "repo": "mastra-ai/mastra",
+      "sha": "65b62c04c28267ab81f7d6b92ed29ce0ef46671b",
+      "path": "docs/src/content/en/docs/agents/overview.mdx",
+      "url": "https://raw.githubusercontent.com/mastra-ai/mastra/65b62c04c28267ab81f7d6b92ed29ce0ef46671b/docs/src/content/en/docs/agents/overview.mdx",
+      "status": "ok",
+      "sha256": "8c22484924c527f9db708fd1ad613438d01f512eef76e8bd9b906d434e07d26f",
+      "bytes": 6781
+    },
+    {
+      "repo": "langchain-ai/langgraphjs",
+      "sha": "55902f308249f5e3a11c0404c51d8831a53df5fc",
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/langchain-ai/langgraphjs/55902f308249f5e3a11c0404c51d8831a53df5fc/README.md",
+      "status": "ok",
+      "sha256": "0de2190913879f035b09ef711c65c1da7726bd2ba5957fbf4eee98325d23a294",
+      "bytes": 29
+    },
+    {
+      "repo": "langchain-ai/langgraphjs",
+      "sha": "55902f308249f5e3a11c0404c51d8831a53df5fc",
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/langchain-ai/langgraphjs/55902f308249f5e3a11c0404c51d8831a53df5fc/LICENSE",
+      "status": "ok",
+      "sha256": "dbeab89f4ab409184f943dd1b882c3ece706b365eabc3569844e095cea247cde",
+      "bytes": 1069
+    },
+    {
+      "repo": "langchain-ai/langgraphjs",
+      "sha": "55902f308249f5e3a11c0404c51d8831a53df5fc",
+      "path": "libs/langgraph/package.json",
+      "url": "https://raw.githubusercontent.com/langchain-ai/langgraphjs/55902f308249f5e3a11c0404c51d8831a53df5fc/libs/langgraph/package.json",
+      "status": "ok",
+      "sha256": "07888846f9653ce54bb9a7b2b1c3fed04fc556aed8b955b3e5a66c8d32677489",
+      "bytes": 4023
+    },
+    {
+      "repo": "cloudflare/agents",
+      "sha": "b65956e8a40501fc241c223aba0d6177077268d1",
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/cloudflare/agents/b65956e8a40501fc241c223aba0d6177077268d1/README.md",
+      "status": "ok",
+      "sha256": "21a9a88832348eb30950c6f73d6013c7f849aa7d20ad6c9c22c7d95b12043604",
+      "bytes": 13738
+    },
+    {
+      "repo": "cloudflare/agents",
+      "sha": "b65956e8a40501fc241c223aba0d6177077268d1",
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/cloudflare/agents/b65956e8a40501fc241c223aba0d6177077268d1/LICENSE",
+      "status": "ok",
+      "sha256": "b33ae783f02478cd31787cd07cbf61cd3a6fbee1a50b2baf832b8f0fb7c600f7",
+      "bytes": 1103
+    },
+    {
+      "repo": "cloudflare/agents",
+      "sha": "b65956e8a40501fc241c223aba0d6177077268d1",
+      "path": "packages/agents/package.json",
+      "url": "https://raw.githubusercontent.com/cloudflare/agents/b65956e8a40501fc241c223aba0d6177077268d1/packages/agents/package.json",
+      "status": "ok",
+      "sha256": "b7bfa65b52c21d4d51d8c98e7749212d02ee41950805013fed0f4752d916085c",
+      "bytes": 19887
+    },
+    {
+      "repo": "cloudflare/agents",
+      "sha": "b65956e8a40501fc241c223aba0d6177077268d1",
+      "path": "packages/ai-chat/README.md",
+      "url": "https://raw.githubusercontent.com/cloudflare/agents/b65956e8a40501fc241c223aba0d6177077268d1/packages/ai-chat/README.md",
+      "status": "ok",
+      "sha256": "7152f7d4d65e4afadd57b7b0970c00d26e245a0242c368a340acfdfc1d0d9fbf",
+      "bytes": 21262
+    },
+    {
+      "repo": "huggingface/smolagents",
+      "sha": "96f33faaf028479119ec8d34507b47694cf14e34",
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/huggingface/smolagents/96f33faaf028479119ec8d34507b47694cf14e34/README.md",
+      "status": "ok",
+      "sha256": "131628d2669b4ee983c715002b57ea4b375b62c8502f6354b8d9fdf3fbc39f8d",
+      "bytes": 14137
+    },
+    {
+      "repo": "huggingface/smolagents",
+      "sha": "96f33faaf028479119ec8d34507b47694cf14e34",
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/huggingface/smolagents/96f33faaf028479119ec8d34507b47694cf14e34/LICENSE",
+      "status": "ok",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "bytes": 11357
+    },
+    {
+      "repo": "huggingface/smolagents",
+      "sha": "96f33faaf028479119ec8d34507b47694cf14e34",
+      "path": "pyproject.toml",
+      "url": "https://raw.githubusercontent.com/huggingface/smolagents/96f33faaf028479119ec8d34507b47694cf14e34/pyproject.toml",
+      "status": "ok",
+      "sha256": "7d7baa3f6a50d7c98eee38c41f1444b5c0f4f217e6e9626e1ece01f9b222ebde",
+      "bytes": 2981
+    },
+    {
+      "repo": "huggingface/smolagents",
+      "sha": "96f33faaf028479119ec8d34507b47694cf14e34",
+      "path": "docs/source/en/reference/agents.md",
+      "url": "https://raw.githubusercontent.com/huggingface/smolagents/96f33faaf028479119ec8d34507b47694cf14e34/docs/source/en/reference/agents.md",
+      "status": "ok",
+      "sha256": "2870dc8eb0b214b02dda54e3d6bb7c37e0a178316fe2a7cc44b9fd9afa6ba9a4",
+      "bytes": 1545
+    }
+  ],
+  "published_packages": [
+    {
+      "package": "ai",
+      "version": "7.0.136",
+      "url": "https://registry.npmjs.org/ai/-/ai-7.0.136.tgz",
+      "integrity_verified": true,
+      "archive_bytes": 1733968,
+      "selected_files": [
+        "package.json",
+        "docs/03-agents/01-overview.mdx",
+        "docs/03-agents/02-building-agents.mdx",
+        "docs/03-agents/03-workflows.mdx",
+        "docs/03-agents/04-loop-control.mdx",
+        "docs/03-agents/05-configuring-call-options.mdx",
+        "docs/03-agents/06-memory.mdx",
+        "docs/03-agents/06-policy-tool-approvals.mdx",
+        "docs/03-agents/06-subagents.mdx",
+        "docs/03-agents/06-tool-approvals.mdx",
+        "docs/03-agents/07-workflow-agent.mdx",
+        "docs/03-agents/08-terminal-ui.mdx",
+        "docs/03-agents/index.mdx",
+        "src/agent/tool-loop-agent.ts",
+        "LICENSE"
+      ],
+      "execution": "none; selected archive files read only, no package install"
+    },
+    {
+      "package": "@ai-sdk/react",
+      "version": "4.0.139",
+      "url": "https://registry.npmjs.org/@ai-sdk/react/-/react-4.0.139.tgz",
+      "integrity_verified": true,
+      "archive_bytes": 77953,
+      "selected_files": [
+        "package.json",
+        "src/use-chat.ts",
+        "LICENSE"
+      ],
+      "execution": "none; selected archive files read only, no package install"
+    }
+  ]
+}

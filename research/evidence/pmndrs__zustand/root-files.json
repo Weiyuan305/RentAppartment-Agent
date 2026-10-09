@@ -1,0 +1,306 @@
+[
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "42fe53a1d99462f3dada33ac88b315e14272e1a9",
+    "size": 0,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/.github?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/tree/main/.github",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/trees/42fe53a1d99462f3dada33ac88b315e14272e1a9",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/.github?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/trees/42fe53a1d99462f3dada33ac88b315e14272e1a9",
+      "html": "https://github.com/pmndrs/zustand/tree/main/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "348c7466acc56fa96ade86220e059811ddbd0d16",
+    "size": 231,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/.gitignore?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/blob/main/.gitignore",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/blobs/348c7466acc56fa96ade86220e059811ddbd0d16",
+    "download_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/.gitignore?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/blobs/348c7466acc56fa96ade86220e059811ddbd0d16",
+      "html": "https://github.com/pmndrs/zustand/blob/main/.gitignore"
+    }
+  },
+  {
+    "name": ".prettierignore",
+    "path": ".prettierignore",
+    "sha": "dee70d2f54933a64c55dc2fe3c72cfd7c350cb85",
+    "size": 20,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/.prettierignore?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/blob/main/.prettierignore",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/blobs/dee70d2f54933a64c55dc2fe3c72cfd7c350cb85",
+    "download_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/.prettierignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/.prettierignore?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/blobs/dee70d2f54933a64c55dc2fe3c72cfd7c350cb85",
+      "html": "https://github.com/pmndrs/zustand/blob/main/.prettierignore"
+    }
+  },
+  {
+    "name": "CONTRIBUTING.md",
+    "path": "CONTRIBUTING.md",
+    "sha": "3353a4d919c57183d6f67e467edd8430e25ceb74",
+    "size": 4426,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/CONTRIBUTING.md?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/blob/main/CONTRIBUTING.md",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/blobs/3353a4d919c57183d6f67e467edd8430e25ceb74",
+    "download_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/CONTRIBUTING.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/CONTRIBUTING.md?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/blobs/3353a4d919c57183d6f67e467edd8430e25ceb74",
+      "html": "https://github.com/pmndrs/zustand/blob/main/CONTRIBUTING.md"
+    }
+  },
+  {
+    "name": "FUNDING.json",
+    "path": "FUNDING.json",
+    "sha": "7db72bedd14cdea383245b61ad05375697730da0",
+    "size": 107,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/FUNDING.json?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/blob/main/FUNDING.json",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/blobs/7db72bedd14cdea383245b61ad05375697730da0",
+    "download_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/FUNDING.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/FUNDING.json?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/blobs/7db72bedd14cdea383245b61ad05375697730da0",
+      "html": "https://github.com/pmndrs/zustand/blob/main/FUNDING.json"
+    }
+  },
+  {
+    "name": "LICENSE",
+    "path": "LICENSE",
+    "sha": "a2c2649deec2aabf248294a60a6e2e63a58f4a2b",
+    "size": 1070,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/LICENSE?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/blob/main/LICENSE",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/blobs/a2c2649deec2aabf248294a60a6e2e63a58f4a2b",
+    "download_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/LICENSE",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/LICENSE?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/blobs/a2c2649deec2aabf248294a60a6e2e63a58f4a2b",
+      "html": "https://github.com/pmndrs/zustand/blob/main/LICENSE"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "64bfc2ef7242d37cce4dd73f6feaf6ce1efed61e",
+    "size": 17827,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/README.md?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/blob/main/README.md",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/blobs/64bfc2ef7242d37cce4dd73f6feaf6ce1efed61e",
+    "download_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/README.md?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/blobs/64bfc2ef7242d37cce4dd73f6feaf6ce1efed61e",
+      "html": "https://github.com/pmndrs/zustand/blob/main/README.md"
+    }
+  },
+  {
+    "name": "docs",
+    "path": "docs",
+    "sha": "bdf130a26fdba696210fc59c2dfdb7f8b6044956",
+    "size": 0,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/docs?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/tree/main/docs",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/trees/bdf130a26fdba696210fc59c2dfdb7f8b6044956",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/docs?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/trees/bdf130a26fdba696210fc59c2dfdb7f8b6044956",
+      "html": "https://github.com/pmndrs/zustand/tree/main/docs"
+    }
+  },
+  {
+    "name": "eslint.config.mjs",
+    "path": "eslint.config.mjs",
+    "sha": "2fe5dbc6f7f2b830ac2af5eb5b6b1eb2ff236098",
+    "size": 2874,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/eslint.config.mjs?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/blob/main/eslint.config.mjs",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/blobs/2fe5dbc6f7f2b830ac2af5eb5b6b1eb2ff236098",
+    "download_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/eslint.config.mjs",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/eslint.config.mjs?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/blobs/2fe5dbc6f7f2b830ac2af5eb5b6b1eb2ff236098",
+      "html": "https://github.com/pmndrs/zustand/blob/main/eslint.config.mjs"
+    }
+  },
+  {
+    "name": "examples",
+    "path": "examples",
+    "sha": "b8f1c5eb7bf3f00d3e6ce6c2df3f067ff899cc85",
+    "size": 0,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/examples?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/tree/main/examples",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/trees/b8f1c5eb7bf3f00d3e6ce6c2df3f067ff899cc85",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/examples?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/trees/b8f1c5eb7bf3f00d3e6ce6c2df3f067ff899cc85",
+      "html": "https://github.com/pmndrs/zustand/tree/main/examples"
+    }
+  },
+  {
+    "name": "package-lock.json",
+    "path": "package-lock.json",
+    "sha": "ac5558c27ca95c063072e4945d8da2784f0b7412",
+    "size": 313151,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/package-lock.json?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/blob/main/package-lock.json",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/blobs/ac5558c27ca95c063072e4945d8da2784f0b7412",
+    "download_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/package-lock.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/package-lock.json?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/blobs/ac5558c27ca95c063072e4945d8da2784f0b7412",
+      "html": "https://github.com/pmndrs/zustand/blob/main/package-lock.json"
+    }
+  },
+  {
+    "name": "package.json",
+    "path": "package.json",
+    "sha": "a9ccb1cb52ac915ff62f24478a4173058ebaaa75",
+    "size": 6024,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/package.json?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/blob/main/package.json",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/blobs/a9ccb1cb52ac915ff62f24478a4173058ebaaa75",
+    "download_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/package.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/package.json?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/blobs/a9ccb1cb52ac915ff62f24478a4173058ebaaa75",
+      "html": "https://github.com/pmndrs/zustand/blob/main/package.json"
+    }
+  },
+  {
+    "name": "pnpm-lock.yaml",
+    "path": "pnpm-lock.yaml",
+    "sha": "b58f3a33759015988ea255d5acb7d498616959a9",
+    "size": 181798,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/pnpm-lock.yaml?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/blob/main/pnpm-lock.yaml",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/blobs/b58f3a33759015988ea255d5acb7d498616959a9",
+    "download_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/pnpm-lock.yaml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/pnpm-lock.yaml?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/blobs/b58f3a33759015988ea255d5acb7d498616959a9",
+      "html": "https://github.com/pmndrs/zustand/blob/main/pnpm-lock.yaml"
+    }
+  },
+  {
+    "name": "pnpm-workspace.yaml",
+    "path": "pnpm-workspace.yaml",
+    "sha": "3984565d3f70d8b6fd8311cad9e5ad805976ee09",
+    "size": 53,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/pnpm-workspace.yaml?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/blob/main/pnpm-workspace.yaml",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/blobs/3984565d3f70d8b6fd8311cad9e5ad805976ee09",
+    "download_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/pnpm-workspace.yaml",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/pnpm-workspace.yaml?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/blobs/3984565d3f70d8b6fd8311cad9e5ad805976ee09",
+      "html": "https://github.com/pmndrs/zustand/blob/main/pnpm-workspace.yaml"
+    }
+  },
+  {
+    "name": "rollup.config.mjs",
+    "path": "rollup.config.mjs",
+    "sha": "0c1aee8eea4812339c307d123629337d977871cc",
+    "size": 2838,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/rollup.config.mjs?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/blob/main/rollup.config.mjs",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/blobs/0c1aee8eea4812339c307d123629337d977871cc",
+    "download_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/rollup.config.mjs",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/rollup.config.mjs?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/blobs/0c1aee8eea4812339c307d123629337d977871cc",
+      "html": "https://github.com/pmndrs/zustand/blob/main/rollup.config.mjs"
+    }
+  },
+  {
+    "name": "src",
+    "path": "src",
+    "sha": "1fd36b0fcf0a7f23bbb92857dbc0e96ff17aaa27",
+    "size": 0,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/src?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/tree/main/src",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/trees/1fd36b0fcf0a7f23bbb92857dbc0e96ff17aaa27",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/src?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/trees/1fd36b0fcf0a7f23bbb92857dbc0e96ff17aaa27",
+      "html": "https://github.com/pmndrs/zustand/tree/main/src"
+    }
+  },
+  {
+    "name": "tests",
+    "path": "tests",
+    "sha": "0f43eeb3ed0cc14e0d63b9a1d367259de4db15fe",
+    "size": 0,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/tests?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/tree/main/tests",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/trees/0f43eeb3ed0cc14e0d63b9a1d367259de4db15fe",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/tests?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/trees/0f43eeb3ed0cc14e0d63b9a1d367259de4db15fe",
+      "html": "https://github.com/pmndrs/zustand/tree/main/tests"
+    }
+  },
+  {
+    "name": "tsconfig.json",
+    "path": "tsconfig.json",
+    "sha": "d168b2d86f9e0d78f4637cb5470b60f6b31fcf90",
+    "size": 730,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/tsconfig.json?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/blob/main/tsconfig.json",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/blobs/d168b2d86f9e0d78f4637cb5470b60f6b31fcf90",
+    "download_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/tsconfig.json",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/tsconfig.json?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/blobs/d168b2d86f9e0d78f4637cb5470b60f6b31fcf90",
+      "html": "https://github.com/pmndrs/zustand/blob/main/tsconfig.json"
+    }
+  },
+  {
+    "name": "vitest.config.mts",
+    "path": "vitest.config.mts",
+    "sha": "67fa0e157bccb47b207517e3b4a973500c304306",
+    "size": 817,
+    "url": "https://api.github.com/repos/pmndrs/zustand/contents/vitest.config.mts?ref=main",
+    "html_url": "https://github.com/pmndrs/zustand/blob/main/vitest.config.mts",
+    "git_url": "https://api.github.com/repos/pmndrs/zustand/git/blobs/67fa0e157bccb47b207517e3b4a973500c304306",
+    "download_url": "https://raw.githubusercontent.com/pmndrs/zustand/main/vitest.config.mts",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/pmndrs/zustand/contents/vitest.config.mts?ref=main",
+      "git": "https://api.github.com/repos/pmndrs/zustand/git/blobs/67fa0e157bccb47b207517e3b4a973500c304306",
+      "html": "https://github.com/pmndrs/zustand/blob/main/vitest.config.mts"
+    }
+  }
+]

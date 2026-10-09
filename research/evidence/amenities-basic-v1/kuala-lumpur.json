@@ -1,0 +1,2162 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-09T03:30:06Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 1522500073,
+  "lat": 3.1076168,
+  "lon": 101.6531758,
+  "tags": {
+    "addr:city": "Petaling Jaya",
+    "addr:housename": "Store #0042",
+    "addr:housenumber": "127",
+    "addr:postcode": "46000",
+    "addr:street": "Jalan Gasing",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "currency:MYR": "yes",
+    "name": "7-Eleven",
+    "operator": "7-Eleven Malaysia Sdn Bhd",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:touchngo": "yes",
+    "payment:visa": "yes",
+    "phone": "+603-2142 1136",
+    "shop": "convenience",
+    "short_name": "7-11",
+    "website": "https://www.7eleven.com.my/"
+  }
+},
+{
+  "type": "node",
+  "id": 1522769708,
+  "lat": 3.0982846,
+  "lon": 101.6452304,
+  "tags": {
+    "addr:city": "Petaling Jaya",
+    "addr:housename": "Store #0085",
+    "addr:housenumber": "26",
+    "addr:place": "PJ State",
+    "addr:postcode": "46000",
+    "addr:street": "Jalan Yong Shook Lin",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "currency:MYR": "yes",
+    "name": "7-Eleven",
+    "operator": "7-Eleven Malaysia Sdn Bhd",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:touchngo": "yes",
+    "payment:visa": "yes",
+    "phone": "+603-2142 1136",
+    "shop": "convenience",
+    "short_name": "7-11",
+    "website": "https://www.7eleven.com.my/"
+  }
+},
+{
+  "type": "node",
+  "id": 1522772781,
+  "lat": 3.1002430,
+  "lon": 101.6409195,
+  "tags": {
+    "addr:city": "Petaling Jaya",
+    "addr:housename": "Store #0286",
+    "addr:street": "Lorong 8/1E",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "currency:MYR": "yes",
+    "name": "7-Eleven",
+    "operator": "7-Eleven Malaysia Sdn Bhd",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:touchngo": "yes",
+    "payment:visa": "yes",
+    "phone": "+603-2142 1136",
+    "shop": "convenience",
+    "short_name": "7-11",
+    "website": "https://www.7eleven.com.my/"
+  }
+},
+{
+  "type": "node",
+  "id": 1535007293,
+  "lat": 3.1109488,
+  "lon": 101.6489174,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "currency:MYR": "yes",
+    "name": "7-Eleven",
+    "operator": "7-Eleven Malaysia Sdn Bhd",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:touchngo": "yes",
+    "payment:visa": "yes",
+    "phone": "+603-2142 1136",
+    "shop": "convenience",
+    "short_name": "7-11",
+    "website": "https://www.7eleven.com.my/"
+  }
+},
+{
+  "type": "node",
+  "id": 1541907725,
+  "lat": 3.1046284,
+  "lon": 101.6467993,
+  "tags": {
+    "brand": "FamilyMart",
+    "brand:wikidata": "Q1191685",
+    "brand:wikipedia": "en:FamilyMart",
+    "name": "FamilyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 1548385525,
+  "lat": 3.0949154,
+  "lon": 101.6513564,
+  "tags": {
+    "name": "Gasing Store Lotus",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 1555505011,
+  "lat": 3.1008613,
+  "lon": 101.6412951,
+  "tags": {
+    "addr:city": "Petaling Jaya",
+    "addr:country": "MY",
+    "addr:street": "Jalan Barat",
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "name": "KK Super Mart",
+    "opening_hours": "24/7",
+    "operator": "KK Supermart & Superstore Sdn Bhd",
+    "shop": "convenience",
+    "short_name": "KK",
+    "website": "https://kkgroup.my/kk-super-mart"
+  }
+},
+{
+  "type": "node",
+  "id": 1557945329,
+  "lat": 3.1094755,
+  "lon": 101.6361942,
+  "tags": {
+    "addr:city": "Petaling Jaya",
+    "addr:country": "MY",
+    "addr:housenumber": "4A",
+    "addr:postcode": "46100",
+    "addr:street": "Jalan 14/20",
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "name": "KK Super Mart",
+    "opening_hours": "24/7",
+    "operator": "KK Supermart & Superstore Sdn Bhd",
+    "ref": "S142",
+    "shop": "convenience",
+    "short_name": "KK",
+    "takeaway": "yes",
+    "website": "https://kkgroup.my/kk-super-mart"
+  }
+},
+{
+  "type": "node",
+  "id": 1557945334,
+  "lat": 3.1099344,
+  "lon": 101.6360408,
+  "tags": {
+    "addr:city": "Petaling Jaya",
+    "addr:place": "Seksyen 14",
+    "name": "Vie Onn",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 1559390743,
+  "lat": 3.1099061,
+  "lon": 101.6357933,
+  "tags": {
+    "addr:city": "Petaling Jaya",
+    "addr:place": "Seksyen 14",
+    "addr:street": "Jalan 14/20",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "currency:MYR": "yes",
+    "name": "7-Eleven",
+    "opening_hours": "24/7",
+    "operator": "7-Eleven Malaysia Sdn Bhd",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:touchngo": "yes",
+    "payment:visa": "yes",
+    "phone": "+603-2142 1136",
+    "shop": "convenience",
+    "short_name": "7-11",
+    "website": "https://www.7eleven.com.my/"
+  }
+},
+{
+  "type": "node",
+  "id": 1559395591,
+  "lat": 3.1058187,
+  "lon": 101.6347884,
+  "tags": {
+    "branch": "24",
+    "brand": "Circle K",
+    "brand:wikidata": "Q3268010",
+    "name": "Circle K",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 1559435082,
+  "lat": 3.1105089,
+  "lon": 101.6454578,
+  "tags": {
+    "addr:country": "MY",
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "name": "KK Super Mart",
+    "operator": "KK Supermart & Superstore Sdn Bhd",
+    "shop": "convenience",
+    "short_name": "KK",
+    "source": "https://www.mapillary.com/app/?pKey=5pRfHjI0SksuY4y0CbRpgf&focus=photo",
+    "website": "https://kkgroup.my/kk-super-mart"
+  }
+},
+{
+  "type": "node",
+  "id": 1572543423,
+  "lat": 3.1108377,
+  "lon": 101.6487306,
+  "tags": {
+    "name": "Pasar Mini Sri Paandi",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 1821511871,
+  "lat": 3.1329319,
+  "lon": 101.6719263,
+  "tags": {
+    "addr:housenumber": "38",
+    "addr:street": "Jalan Telawi 5",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "currency:MYR": "yes",
+    "name": "7-Eleven",
+    "operator": "7-Eleven Malaysia Sdn Bhd",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:touchngo": "yes",
+    "payment:visa": "yes",
+    "phone": "+603-2142 1136",
+    "shop": "convenience",
+    "short_name": "7-11",
+    "website": "https://www.7eleven.com.my/"
+  }
+},
+{
+  "type": "node",
+  "id": 2678309335,
+  "lat": 3.1374363,
+  "lon": 101.6731104,
+  "tags": {
+    "name": "Mesra Store",
+    "opening_hours": "24/7",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 2881818355,
+  "lat": 3.1223201,
+  "lon": 101.6713727,
+  "tags": {
+    "name": "Mary Provision Store",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 3090500414,
+  "lat": 3.1037629,
+  "lon": 101.6658400,
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:place": "Pantai Hillpark",
+    "atm": "yes",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "currency:MYR": "yes",
+    "name": "7-Eleven",
+    "opening_hours": "24/7",
+    "operator": "7-Eleven Malaysia Sdn Bhd",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:touchngo": "yes",
+    "payment:visa": "yes",
+    "phone": "+603-2142 1136",
+    "shop": "convenience",
+    "short_name": "7-11",
+    "website": "https://www.7eleven.com.my/"
+  }
+},
+{
+  "type": "node",
+  "id": 3090500416,
+  "lat": 3.1037614,
+  "lon": 101.6657038,
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:country": "MY",
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "name": "KK Super Mart",
+    "opening_hours": "24/7",
+    "operator": "KK Supermart & Superstore Sdn Bhd",
+    "shop": "convenience",
+    "short_name": "KK",
+    "website": "https://kkgroup.my/kk-super-mart"
+  }
+},
+{
+  "type": "node",
+  "id": 3123929979,
+  "lat": 3.1097050,
+  "lon": 101.6654459,
+  "tags": {
+    "brand": "CU",
+    "brand:wikidata": "Q12580836",
+    "name": "CU",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4079644364,
+  "lat": 3.1282454,
+  "lon": 101.6348618,
+  "tags": {
+    "addr:city": "Petaling Jaya",
+    "addr:housenumber": "937",
+    "addr:postcode": "46400",
+    "addr:street": "Jalan 17/38",
+    "branch": "PJ Section 17",
+    "name": "MiX",
+    "name:zh": "米克斯",
+    "operator": "Mix Metro Sdn Bhd",
+    "shop": "convenience",
+    "source": "local knowledge",
+    "website": "https://mix.com.my/storelocation/"
+  }
+},
+{
+  "type": "node",
+  "id": 4329269993,
+  "lat": 3.1037494,
+  "lon": 101.6647101,
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:place": "Pantai Hillpark",
+    "name": "Balaji Supermarket",
+    "opening_hours": "06:00-20:30",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4599084089,
+  "lat": 3.1095819,
+  "lon": 101.6656550,
+  "tags": {
+    "brand": "myNEWS.com",
+    "brand:wikidata": "Q17147574",
+    "brand:wikipedia": "en:Mynews.com",
+    "name": "myNEWS.com",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 4625649281,
+  "lat": 3.1315639,
+  "lon": 101.6718106,
+  "tags": {
+    "addr:country": "MY",
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "name": "KK Super Mart",
+    "operator": "KK Supermart & Superstore Sdn Bhd",
+    "shop": "convenience",
+    "short_name": "KK",
+    "website": "https://kkgroup.my/kk-super-mart"
+  }
+},
+{
+  "type": "node",
+  "id": 4625649282,
+  "lat": 3.1314490,
+  "lon": 101.6715184,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "currency:MYR": "yes",
+    "name": "7-Eleven",
+    "operator": "7-Eleven Malaysia Sdn Bhd",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:touchngo": "yes",
+    "payment:visa": "yes",
+    "phone": "+603-2142 1136",
+    "shop": "convenience",
+    "short_name": "7-11",
+    "website": "https://www.7eleven.com.my/"
+  }
+},
+{
+  "type": "node",
+  "id": 4634938164,
+  "lat": 3.1311960,
+  "lon": 101.6709833,
+  "tags": {
+    "addr:street": "Jalan Telawi 3",
+    "name": "Telawi Square",
+    "shop": "mall"
+  }
+},
+{
+  "type": "node",
+  "id": 4664623287,
+  "lat": 3.1089060,
+  "lon": 101.6698838,
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:place": "Taman Bukit Angkasa",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "currency:MYR": "yes",
+    "name": "7-Eleven",
+    "opening_hours": "24/7",
+    "operator": "7-Eleven Malaysia Sdn Bhd",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:touchngo": "yes",
+    "payment:visa": "yes",
+    "phone": "+603-2142 1136",
+    "shop": "convenience",
+    "short_name": "7-11",
+    "website": "https://www.7eleven.com.my/"
+  }
+},
+{
+  "type": "node",
+  "id": 4713094662,
+  "lat": 3.1125345,
+  "lon": 101.6526796,
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "UMMC Main Lobby",
+    "name:en": "UMMC Main Lobby",
+    "name:ms": "Lobi Utama PPUM",
+    "operator": "Universiti Malaya",
+    "operator:short": "UM",
+    "operator:type": "university",
+    "operator:wikidata": "Q1142924"
+  }
+},
+{
+  "type": "node",
+  "id": 4764962022,
+  "lat": 3.1349565,
+  "lon": 101.6723138,
+  "tags": {
+    "brand": "Shell Select",
+    "brand:wikidata": "Q124359752",
+    "brand:wikipedia": "en:Shell plc",
+    "name": "Shell Select",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5403992922,
+  "lat": 3.1432127,
+  "lon": 101.6619885,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "currency:MYR": "yes",
+    "name": "7-Eleven",
+    "operator": "7-Eleven Malaysia Sdn Bhd",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:touchngo": "yes",
+    "payment:visa": "yes",
+    "phone": "+603-2142 1136",
+    "shop": "convenience",
+    "short_name": "7-11",
+    "website": "https://www.7eleven.com.my/"
+  }
+},
+{
+  "type": "node",
+  "id": 5409823122,
+  "lat": 3.1280425,
+  "lon": 101.6780617,
+  "tags": {
+    "addr:country": "MY",
+    "addr:housenumber": "26",
+    "addr:street": "Jalan Bangsar Utama 1",
+    "branch": "Bangsar Utama",
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "name": "KK Super Mart",
+    "operator": "KK Supermart & Superstore Sdn Bhd",
+    "ref": "BUT",
+    "shop": "convenience",
+    "short_name": "KK",
+    "website": "https://kkgroup.my/kk-super-mart"
+  }
+},
+{
+  "type": "node",
+  "id": 5414340025,
+  "lat": 3.1192041,
+  "lon": 101.6780020,
+  "tags": {
+    "brand": "FamilyMart",
+    "brand:wikidata": "Q11247682",
+    "brand:wikipedia": "en:FamilyMart",
+    "name": "FamilyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5414354121,
+  "lat": 3.1171852,
+  "lon": 101.6769783,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "currency:MYR": "yes",
+    "name": "7-Eleven",
+    "operator": "7-Eleven Malaysia Sdn Bhd",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:touchngo": "yes",
+    "payment:visa": "yes",
+    "phone": "+603-2142 1136",
+    "shop": "convenience",
+    "short_name": "7-11",
+    "website": "https://www.7eleven.com.my/"
+  }
+},
+{
+  "type": "node",
+  "id": 5421482721,
+  "lat": 3.1278494,
+  "lon": 101.6787340,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5520337323,
+  "lat": 3.1173832,
+  "lon": 101.6357550,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "currency:MYR": "yes",
+    "name": "7-Eleven",
+    "operator": "7-Eleven Malaysia Sdn Bhd",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:touchngo": "yes",
+    "payment:visa": "yes",
+    "phone": "+603-2142 1136",
+    "shop": "convenience",
+    "short_name": "7-11",
+    "website": "https://www.7eleven.com.my/"
+  }
+},
+{
+  "type": "node",
+  "id": 5627870123,
+  "lat": 3.1323295,
+  "lon": 101.6730804,
+  "tags": {
+    "addr:street": "Lorong Maarof",
+    "level": "1",
+    "name": "The Hive",
+    "shop": "convenience",
+    "source": "https://www.mapillary.com/app/?pKey=YYKISRtC5t047mmQ9Ke1FH&focus=photo"
+  }
+},
+{
+  "type": "node",
+  "id": 5731453523,
+  "lat": 3.1322412,
+  "lon": 101.6710457,
+  "tags": {
+    "addr:housenumber": "17",
+    "addr:street": "Jalan Telawi 3",
+    "name": "Lee's",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 5961250287,
+  "lat": 3.1277853,
+  "lon": 101.6701987,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "currency:MYR": "yes",
+    "name": "7-Eleven",
+    "operator": "7-Eleven Malaysia Sdn Bhd",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:touchngo": "yes",
+    "payment:visa": "yes",
+    "phone": "+603-2142 1136",
+    "shop": "convenience",
+    "short_name": "7-11",
+    "website": "https://www.7eleven.com.my/"
+  }
+},
+{
+  "type": "node",
+  "id": 7236431583,
+  "lat": 3.1273591,
+  "lon": 101.6701670,
+  "tags": {
+    "addr:country": "MY",
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "name": "KK Super Mart",
+    "opening_hours": "24/7",
+    "operator": "KK Supermart & Superstore Sdn Bhd",
+    "shop": "convenience",
+    "short_name": "KK",
+    "website": "https://kkgroup.my/kk-super-mart"
+  }
+},
+{
+  "type": "node",
+  "id": 7249576886,
+  "lat": 3.1325270,
+  "lon": 101.6705901,
+  "tags": {
+    "addr:country": "MY",
+    "branch": "Bangsar Jalan Telawi",
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "name": "KK Super Mart",
+    "operator": "KK Supermart & Superstore Sdn Bhd",
+    "shop": "convenience",
+    "short_name": "KK",
+    "source": "https://openstreetcam.org/details/2390702/94",
+    "website": "https://kkgroup.my/kk-super-mart"
+  }
+},
+{
+  "type": "node",
+  "id": 7531256255,
+  "lat": 3.1310181,
+  "lon": 101.6705760,
+  "tags": {
+    "name": "RisSMart24",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 7549008623,
+  "lat": 3.1397482,
+  "lon": 101.6574072,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "currency:MYR": "yes",
+    "name": "7-Eleven",
+    "operator": "7-Eleven Malaysia Sdn Bhd",
+    "payment:cash": "yes",
+    "payment:coins": "yes",
+    "payment:touchngo": "yes",
+    "payment:visa": "yes",
+    "phone": "+603-2142 1136",
+    "shop": "convenience",
+    "short_name": "7-11",
+    "website": "https://www.7eleven.com.my/"
+  }
+},
+{
+  "type": "node",
+  "id": 8540777597,
+  "lat": 3.1125264,
+  "lon": 101.6677403,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 8541513550,
+  "lat": 3.1116070,
+  "lon": 101.6677556,
+  "tags": {
+    "brand": "myNEWS.com",
+    "brand:wikidata": "Q17147574",
+    "brand:wikipedia": "en:Mynews.com",
+    "name": "myNEWS.com",
+    "opening_hours": "Mo-Su 09:00-23:00",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 8541853935,
+  "lat": 3.1108507,
+  "lon": 101.6678400,
+  "tags": {
+    "brand": "FamilyMart",
+    "brand:wikidata": "Q11247682",
+    "brand:wikipedia": "en:FamilyMart",
+    "level": "0.5",
+    "name": "FamilyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 8768954942,
+  "lat": 3.1175682,
+  "lon": 101.6349969,
+  "tags": {
+    "name": "The School by Jaya One",
+    "shop": "mall",
+    "source": "https://openstreetcam.org/details/2816486/1692"
+  }
+},
+{
+  "type": "node",
+  "id": 9196355644,
+  "lat": 3.1261837,
+  "lon": 101.6607622,
+  "tags": {
+    "name": "Deen Max Mart",
+    "opening_hours": "Mo-Su 09:00-02:00",
+    "operator": "Deen Max Enterprise",
+    "payment:app": "yes",
+    "payment:cash": "yes",
+    "payment:qr_pay": "yes",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9197443264,
+  "lat": 3.1095291,
+  "lon": 101.6364366,
+  "tags": {
+    "addr:housenumber": "13",
+    "addr:street": "Jalan 14/20",
+    "brand": "FamilyMart",
+    "brand:wikidata": "Q1191685",
+    "brand:wikipedia": "en:FamilyMart",
+    "check_date": "2024-01-23",
+    "level": "0",
+    "name": "FamilyMart",
+    "opening_hours": "07:00-01:00",
+    "payment:cash": "yes",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9221762339,
+  "lat": 3.1460573,
+  "lon": 101.6618146,
+  "tags": {
+    "brand": "FamilyMart",
+    "brand:wikidata": "Q11247682",
+    "brand:wikipedia": "en:FamilyMart",
+    "name": "FamilyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9221762340,
+  "lat": 3.1458919,
+  "lon": 101.6621998,
+  "tags": {
+    "brand": "myNEWS.com",
+    "brand:wikidata": "Q17147574",
+    "brand:wikipedia": "en:Mynews.com",
+    "name": "myNEWS.com",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9315881969,
+  "lat": 3.1046187,
+  "lon": 101.6473282,
+  "tags": {
+    "brand": "myNEWS.com",
+    "brand:wikidata": "Q17147574",
+    "brand:wikipedia": "en:Mynews.com",
+    "name": "myNEWS.com",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9375294616,
+  "lat": 3.1130540,
+  "lon": 101.6515461,
+  "tags": {
+    "brand": "myNEWS.com",
+    "brand:wikidata": "Q17147574",
+    "brand:wikipedia": "en:Mynews.com",
+    "name": "myNEWS.com",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9433309787,
+  "lat": 3.1176265,
+  "lon": 101.6768384,
+  "tags": {
+    "healthcare": "hospital",
+    "name": "IHEAL Medical Centre"
+  }
+},
+{
+  "type": "node",
+  "id": 9498789228,
+  "lat": 3.1111471,
+  "lon": 101.6363061,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "brand:wikipedia": "en:7-Eleven",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9503965668,
+  "lat": 3.1298859,
+  "lon": 101.6486297,
+  "tags": {
+    "name": "Mini Mart Kinabalu",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9510161290,
+  "lat": 3.1152112,
+  "lon": 101.6552749,
+  "tags": {
+    "name": "Iman Ibnu Sina",
+    "name:ms": "Iman Ibnu Sina",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9510758571,
+  "lat": 3.1175269,
+  "lon": 101.6568353,
+  "tags": {
+    "name": "Kedai Runcit & Photostat",
+    "name:en": "Grocery Shop & Photocopy Shop",
+    "name:ms": "Kedai Runcit & Photostat",
+    "operator": "Universiti Malaya",
+    "operator:short": "UM",
+    "operator:type": "university",
+    "operator:wikidata": "Q1142924",
+    "shop": "convenience",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 9622666915,
+  "lat": 3.1257522,
+  "lon": 101.6502503,
+  "tags": {
+    "name": "KA Mart",
+    "name:en": "KA Mart",
+    "operator": "Za' Mart",
+    "shop": "convenience",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 9939890218,
+  "lat": 3.1154023,
+  "lon": 101.6678381,
+  "tags": {
+    "brand": "myNEWS.com",
+    "brand:wikidata": "Q17147574",
+    "name": "myNEWS.com",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9939890220,
+  "lat": 3.1153801,
+  "lon": 101.6684386,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10057938424,
+  "lat": 3.1321911,
+  "lon": 101.6731191,
+  "tags": {
+    "addr:country": "MY",
+    "addr:street": "Lorong Maarof",
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "name": "KK Super Mart",
+    "operator": "KK Supermart & Superstore Sdn Bhd",
+    "shop": "convenience",
+    "short_name": "KK",
+    "website": "https://kkgroup.my/kk-super-mart"
+  }
+},
+{
+  "type": "node",
+  "id": 10077501408,
+  "lat": 3.1142778,
+  "lon": 101.6631025,
+  "tags": {
+    "brand": "myNEWS.com",
+    "brand:wikidata": "Q17147574",
+    "name": "myNEWS.com",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10157368853,
+  "lat": 3.1209717,
+  "lon": 101.6457300,
+  "tags": {
+    "name": "TSZ Mart",
+    "name:en": "TSZ Mart",
+    "shop": "convenience",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 10220082122,
+  "lat": 3.1275688,
+  "lon": 101.6428344,
+  "tags": {
+    "brand": "myNEWS.com",
+    "brand:wikidata": "Q17147574",
+    "name": "myNEWS.com",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10220082123,
+  "lat": 3.1273905,
+  "lon": 101.6436024,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10242753314,
+  "lat": 3.1292591,
+  "lon": 101.6610124,
+  "tags": {
+    "shop": "convenience",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 10269979759,
+  "lat": 3.1184412,
+  "lon": 101.6362650,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10269979760,
+  "lat": 3.1184631,
+  "lon": 101.6361049,
+  "tags": {
+    "addr:country": "MY",
+    "branch": "Petaling Jaya, Jaya One",
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "name": "KK Super Mart",
+    "operator": "KK Supermart & Superstore Sdn Bhd",
+    "phone": "+60162281822",
+    "ref": "PJO-646",
+    "shop": "convenience",
+    "short_name": "KK",
+    "website": "https://kkgroup.my/kk-super-mart"
+  }
+},
+{
+  "type": "node",
+  "id": 10675604075,
+  "lat": 3.1120206,
+  "lon": 101.6679689,
+  "tags": {
+    "name": "emart24",
+    "name:en": "emart24",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10698845951,
+  "lat": 3.1218688,
+  "lon": 101.6748077,
+  "tags": {
+    "addr:housenumber": "106",
+    "addr:street": "Jalan Bangsar",
+    "name": "Sin Yong Guan Hak Kee",
+    "name:en": "Sin Yong Guan Hak Kee",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10701993366,
+  "lat": 3.1191391,
+  "lon": 101.6741869,
+  "tags": {
+    "name": "KL Eco City Mall",
+    "name:en": "KL Eco City Mall",
+    "shop": "mall",
+    "short_name": "KLEC Mall"
+  }
+},
+{
+  "type": "node",
+  "id": 10908629622,
+  "lat": 3.1115921,
+  "lon": 101.6391373,
+  "tags": {
+    "brand": "myNEWS.com",
+    "brand:wikidata": "Q17147574",
+    "name": "myNEWS.com",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 10942494337,
+  "lat": 3.1145127,
+  "lon": 101.6620841,
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:housenumber": "Concourse Level",
+    "addr:postcode": "59200",
+    "addr:street": "Universiti LRT Station KJ19",
+    "name": "The Convenience Box",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11027104936,
+  "lat": 3.1302958,
+  "lon": 101.6420069,
+  "tags": {
+    "name": "Mesra",
+    "name:en": "Mesra",
+    "name:ms": "Mesra",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11047152061,
+  "lat": 3.1114666,
+  "lon": 101.6319558,
+  "tags": {
+    "brand": "myNEWS.com",
+    "brand:wikidata": "Q17147574",
+    "name": "myNEWS.com",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11156025676,
+  "lat": 3.1130680,
+  "lon": 101.6620281,
+  "tags": {
+    "addr:country": "MY",
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "name": "KK Super Mart",
+    "operator": "KK Supermart & Superstore Sdn Bhd",
+    "shop": "convenience",
+    "short_name": "KK",
+    "website": "https://kkgroup.my/kk-super-mart"
+  }
+},
+{
+  "type": "node",
+  "id": 11156025677,
+  "lat": 3.1211852,
+  "lon": 101.6555156,
+  "tags": {
+    "addr:country": "MY",
+    "air_conditioning": "yes",
+    "branch": "Universiti Malaya",
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "level": "0",
+    "name": "KK Super Mart",
+    "opening_hours": "24/7",
+    "operator": "KK Supermart & Superstore Sdn Bhd",
+    "payment:cash": "yes",
+    "payment:contactless": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "shop": "convenience",
+    "short_name": "KK",
+    "website": "https://kkgroup.my/kk-super-mart"
+  }
+},
+{
+  "type": "node",
+  "id": 11156025719,
+  "lat": 3.1310124,
+  "lon": 101.6505574,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11297471256,
+  "lat": 3.1191728,
+  "lon": 101.6787375,
+  "tags": {
+    "brand": "myNEWS.com",
+    "brand:wikidata": "Q17147574",
+    "name": "myNEWS.com",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11378669870,
+  "lat": 3.0992453,
+  "lon": 101.6476231,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11425603415,
+  "lat": 3.1193075,
+  "lon": 101.6776405,
+  "tags": {
+    "branch": "Mid Valley Megamall KL",
+    "brand": "CU",
+    "brand:wikidata": "Q12580836",
+    "level": "0",
+    "name": "CU",
+    "ref": "05062",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11449696397,
+  "lat": 3.1190569,
+  "lon": 101.6729472,
+  "tags": {
+    "brand": "myNEWS.com",
+    "brand:wikidata": "Q17147574",
+    "name": "myNEWS.com",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11451776754,
+  "lat": 3.1161717,
+  "lon": 101.6690692,
+  "tags": {
+    "name": "My Pasar Mini",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11741540599,
+  "lat": 3.1082363,
+  "lon": 101.6703352,
+  "tags": {
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "level": "0",
+    "name": "KK Super Mart",
+    "shop": "convenience",
+    "short_name": "KK"
+  }
+},
+{
+  "type": "node",
+  "id": 11777716122,
+  "lat": 3.1127624,
+  "lon": 101.6682678,
+  "tags": {
+    "name": "Lesongmart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11934196171,
+  "lat": 3.1260169,
+  "lon": 101.6612112,
+  "tags": {
+    "addr:country": "MY",
+    "branch": "Universiti Malaya (2)",
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "level": "0",
+    "name": "KK Super Mart",
+    "operator": "KK Supermart & Superstore Sdn Bhd",
+    "phone": "+60162281822",
+    "ref": "UML2",
+    "shop": "convenience",
+    "short_name": "KK",
+    "website": "https://kkgroup.my/kk-super-mart"
+  }
+},
+{
+  "type": "node",
+  "id": 11955292176,
+  "lat": 3.1131846,
+  "lon": 101.6666712,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11959581034,
+  "lat": 3.1132700,
+  "lon": 101.6666677,
+  "tags": {
+    "name": "Bilabila Mart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 11962181706,
+  "lat": 3.1132686,
+  "lon": 101.6656794,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12009795512,
+  "lat": 3.1282322,
+  "lon": 101.6345865,
+  "tags": {
+    "addr:housenumber": "941",
+    "addr:street": "Jalan 17/38",
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "check_date": "2026-09-02",
+    "level": "0",
+    "name": "KK Super Mart",
+    "shop": "convenience",
+    "short_name": "KK"
+  }
+},
+{
+  "type": "node",
+  "id": 12082233362,
+  "lat": 3.1082750,
+  "lon": 101.6701956,
+  "tags": {
+    "name": "Maryam Mini Mart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12089845387,
+  "lat": 3.1071212,
+  "lon": 101.6534245,
+  "tags": {
+    "addr:housenumber": "113",
+    "addr:street": "Jalan Gasing",
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "name": "KK Super Mart",
+    "shop": "convenience",
+    "short_name": "KK"
+  }
+},
+{
+  "type": "node",
+  "id": 12092992014,
+  "lat": 3.1121446,
+  "lon": 101.6625291,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12122520976,
+  "lat": 3.1186033,
+  "lon": 101.6736595,
+  "tags": {
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12123509533,
+  "lat": 3.1160047,
+  "lon": 101.6661046,
+  "tags": {
+    "brand": "myNEWS.com",
+    "brand:wikidata": "Q17147574",
+    "name": "myNEWS.com",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12126035266,
+  "lat": 3.1102705,
+  "lon": 101.6693226,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12150446021,
+  "lat": 3.1140708,
+  "lon": 101.6395341,
+  "tags": {
+    "name": "OPR Speedmart",
+    "opening_hours": "24/7",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12151024109,
+  "lat": 3.1092352,
+  "lon": 101.6690505,
+  "tags": {
+    "name": "Pasar Mini Ayam Dato’",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12151024115,
+  "lat": 3.1093384,
+  "lon": 101.6690890,
+  "tags": {
+    "name": "Kedai Runcit Pak Abu",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12183342961,
+  "lat": 3.1083298,
+  "lon": 101.6700491,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12183342963,
+  "lat": 3.1090390,
+  "lon": 101.6695461,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12215426862,
+  "lat": 3.1095401,
+  "lon": 101.6701964,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12215426865,
+  "lat": 3.1095491,
+  "lon": 101.6695398,
+  "tags": {
+    "name": "Kedai Serbanema Aishah",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12215426873,
+  "lat": 3.1097028,
+  "lon": 101.6695936,
+  "tags": {
+    "name": "Kedai Runcit Myra",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12215426874,
+  "lat": 3.1089073,
+  "lon": 101.6700315,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12215426880,
+  "lat": 3.1086818,
+  "lon": 101.6701771,
+  "tags": {
+    "name": "Pasar Mini Nuraini",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12215426884,
+  "lat": 3.1094172,
+  "lon": 101.6701579,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12215426892,
+  "lat": 3.1094663,
+  "lon": 101.6701698,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12277980976,
+  "lat": 3.1092766,
+  "lon": 101.6704216,
+  "tags": {
+    "name": "Cempaka Rosinar",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12277980983,
+  "lat": 3.1095881,
+  "lon": 101.6705537,
+  "tags": {
+    "name": "Perniagaan Noor Hanim Latif",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12277980988,
+  "lat": 3.1092029,
+  "lon": 101.6703861,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12320001418,
+  "lat": 3.1084132,
+  "lon": 101.6710995,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12495740911,
+  "lat": 3.1145161,
+  "lon": 101.6541075,
+  "tags": {
+    "addr:housenumber": "Lot F 29",
+    "brand": "myNEWS.com",
+    "brand:wikidata": "Q17147574",
+    "check_date": "2025-01-12",
+    "name": "myNEWS.com",
+    "operator": "MyNews Retail Sdn Bhd",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12558375780,
+  "lat": 3.1136077,
+  "lon": 101.6618116,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12558375781,
+  "lat": 3.1130723,
+  "lon": 101.6619750,
+  "tags": {
+    "name": "Poriumini Angkasa",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12558375796,
+  "lat": 3.1130944,
+  "lon": 101.6617030,
+  "tags": {
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12635149256,
+  "lat": 3.1277770,
+  "lon": 101.6786916,
+  "tags": {
+    "brand": "FamilyMart",
+    "brand:wikidata": "Q11247682",
+    "name": "FamilyMart",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 12870881022,
+  "lat": 3.1276582,
+  "lon": 101.6755589,
+  "tags": {
+    "brand": "Treats",
+    "brand:wikidata": "Q131626530",
+    "name": "Treats",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13057446390,
+  "lat": 3.1117482,
+  "lon": 101.6617796,
+  "tags": {
+    "name": "Tukar",
+    "operator": "Sayap Emas Enterprise",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13088688113,
+  "lat": 3.1097245,
+  "lon": 101.6653397,
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:housenumber": "01-08, Level 1",
+    "addr:postcode": "59200",
+    "addr:street": "Jalan Kerinchi",
+    "amenity": "hospital",
+    "email": "contact_us@centraldermatology.com.my",
+    "healthcare": "hospital",
+    "healthcare:speciality": "dermatology;paediatrics",
+    "mobile": "+60124081977",
+    "name": "Central Dermatology Specialist Clinic",
+    "name:en": "Central Dermatology Specialist Clinic",
+    "opening_hours": "Mo-Fr 09:00-21:00",
+    "operator": "DERM MALAYSIA SDN BHD",
+    "operator:type": "private",
+    "phone": "+60397751977",
+    "start_date": "2021-12-21",
+    "website": "https://centraldermatology.com.my"
+  }
+},
+{
+  "type": "node",
+  "id": 13097874609,
+  "lat": 3.1318016,
+  "lon": 101.6730812,
+  "tags": {
+    "addr:housenumber": "76",
+    "addr:street": "Lorong Maarof",
+    "name": "Kedai Runcit Chai Joo Seng",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13274922026,
+  "lat": 3.1442965,
+  "lon": 101.6613939,
+  "tags": {
+    "brand": "Treats",
+    "brand:wikidata": "Q131626530",
+    "name": "Treats",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 13778946097,
+  "lat": 3.1288879,
+  "lon": 101.6792215,
+  "tags": {
+    "addr:housenumber": "42",
+    "addr:street": "Jalan Kemuja",
+    "name": "Pasar Mini Bangsar",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 14161946079,
+  "lat": 3.0987456,
+  "lon": 101.6450811,
+  "tags": {
+    "brand": "KK Super Mart",
+    "brand:wikidata": "Q95721993",
+    "mapillary": "1776594973466222",
+    "name": "KK Super Mart",
+    "shop": "convenience",
+    "short_name": "KK"
+  }
+},
+{
+  "type": "way",
+  "id": 25385811,
+  "center": {
+    "lat": 3.1295852,
+    "lon": 101.6707920
+  },
+  "tags": {
+    "addr:street": "Jalan Telawi",
+    "building": "retail",
+    "name": "Bangsar Village",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 142490240,
+  "center": {
+    "lat": 3.1089401,
+    "lon": 101.6370080
+  },
+  "tags": {
+    "addr:city": "Petaling Jaya",
+    "addr:housenumber": "26A",
+    "addr:postcode": "46100",
+    "addr:street": "Jalan 14/14",
+    "building": "yes",
+    "building:levels": "5",
+    "name": "Jaya Shopping Centre",
+    "shop": "mall",
+    "wikidata": "Q21005996",
+    "wikipedia": "en:Jaya Shopping Centre"
+  }
+},
+{
+  "type": "way",
+  "id": 142494876,
+  "center": {
+    "lat": 3.1061469,
+    "lon": 101.6399760
+  },
+  "tags": {
+    "addr:city": "Petaling Jaya",
+    "addr:housenumber": "2",
+    "addr:street": "Lorong Utara B",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "healthcare:speciality": "ophthalmology",
+    "name": "Hospital Mata Nasional Tun Hussein Onn",
+    "name:en": "Tun Hussein Onn National Eye Hospital",
+    "name:ms": "Hospital Mata Nasional Tun Hussein Onn"
+  }
+},
+{
+  "type": "way",
+  "id": 145134052,
+  "center": {
+    "lat": 3.1123884,
+    "lon": 101.6538997
+  },
+  "tags": {
+    "building": "hospital",
+    "healthcare": "hospital",
+    "name": "Kompleks Kesihatan Ibu dan Anak",
+    "name:ms": "Kompleks Kesihatan Ibu dan Anak",
+    "operator": "Universiti Malaya",
+    "operator:short": "UM",
+    "operator:type": "university",
+    "operator:wikidata": "Q1142924",
+    "smoking": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 157187855,
+  "center": {
+    "lat": 3.1431937,
+    "lon": 101.6673269
+  },
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:housenumber": "285",
+    "addr:postcode": "59100",
+    "addr:street": "Jalan Maarof",
+    "building": "commercial",
+    "name": "Bangsar Shopping Centre",
+    "opening_hours": "Mo-Su 10:00-22:00",
+    "shop": "mall",
+    "short_name": "BSC",
+    "website": "https://www.bsc.com.my/"
+  }
+},
+{
+  "type": "way",
+  "id": 161075117,
+  "center": {
+    "lat": 3.1153792,
+    "lon": 101.6403641
+  },
+  "tags": {
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "ReGen Rehab Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 278144673,
+  "center": {
+    "lat": 3.1306741,
+    "lon": 101.6714056
+  },
+  "tags": {
+    "addr:street": "Jalan Telawi 3",
+    "building": "retail",
+    "name": "Bangsar Village 2",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 307296552,
+  "center": {
+    "lat": 3.1096868,
+    "lon": 101.6653929
+  },
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:street": "Jalan Kerinchi",
+    "building": "commercial",
+    "layer": "1",
+    "name": "Nexus",
+    "name:en": "Nexus",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 307296591,
+  "center": {
+    "lat": 3.1105092,
+    "lon": 101.6675603
+  },
+  "tags": {
+    "building": "retail",
+    "building:levels": "3",
+    "description": "Mall focused on dining.",
+    "name": "The Sphere",
+    "name:en": "The Sphere",
+    "shop": "mall",
+    "website": "https://thesphere.com.my/"
+  }
+},
+{
+  "type": "way",
+  "id": 463417580,
+  "center": {
+    "lat": 3.1459833,
+    "lon": 101.6616786
+  },
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:housenumber": "6",
+    "addr:postcode": "50490",
+    "addr:street": "Jalan Damanlela",
+    "building": "retail",
+    "building:levels": "3",
+    "building:levels:underground": "6",
+    "name": "Damansara City Mall",
+    "name:en": "Damansara City Mall",
+    "name:zh": "白沙罗城市广场",
+    "name:zh-Hans": "白沙罗城市广场",
+    "name:zh-Hant": "白沙羅城市廣場",
+    "shop": "mall",
+    "short_name": "DC Mall",
+    "website": "https://damansaracity.com.my/retail/"
+  }
+},
+{
+  "type": "way",
+  "id": 479429086,
+  "center": {
+    "lat": 3.1136378,
+    "lon": 101.6632437
+  },
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:housenumber": "2",
+    "addr:postcode": "59200",
+    "addr:street": "Jalan Kerinchi",
+    "building": "retail",
+    "layer": "1",
+    "name": "KL Gateway Mall",
+    "name:en": "KL Gateway Mall",
+    "name:ms": "Pusat Beli Belah KL Gateway",
+    "shop": "mall"
+  }
+},
+{
+  "type": "way",
+  "id": 498082299,
+  "center": {
+    "lat": 3.1196217,
+    "lon": 101.6666064
+  },
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:street": "Jalan Bukit Pantai",
+    "amenity": "hospital",
+    "emergency": "yes",
+    "healthcare": "hospice",
+    "name": "Pantai Hospital"
+  }
+},
+{
+  "type": "way",
+  "id": 871926597,
+  "center": {
+    "lat": 3.1383120,
+    "lon": 101.6491515
+  },
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:housenumber": "1",
+    "addr:postcode": "60000",
+    "addr:street": "Jalan Bukit Kiara 1",
+    "air_conditioning": "yes",
+    "brand": "Sime Darby Malls",
+    "building": "retail",
+    "contact:facebook": "https://www.facebook.com/klgccmall",
+    "layer": "1",
+    "name": "KLGCC Mall",
+    "operator": "Sime Darby Property (Senada) Sdn Bhd",
+    "phone": "+603-7728 4773",
+    "shop": "mall",
+    "website": "https://simedarbyproperty.com/malls/klgcc-mall/"
+  }
+},
+{
+  "type": "way",
+  "id": 922804567,
+  "center": {
+    "lat": 3.1176560,
+    "lon": 101.6772940
+  },
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:housenumber": "Mid Valley City",
+    "addr:postcode": "59200",
+    "addr:street": "Lingkaran Syed Putra",
+    "air_conditioning": "yes",
+    "building": "mall",
+    "building:levels": "3",
+    "changing_table": "yes",
+    "name": "Mid Valley Megamall",
+    "name:zh": "谷中城美佳广场",
+    "opening_hours": "10:00-22:00",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "payment:nfc_mobile_payments": "yes",
+    "phone": "0329383333",
+    "shop": "mall",
+    "toilets": "yes",
+    "toilets:wheelchair": "yes",
+    "website": "https://www.midvalley.com.my/",
+    "wheelchair": "yes",
+    "wikidata": "Q1481063",
+    "wikimedia_commons": "Category:Mid Valley Megamall",
+    "wikipedia": "en:Mid Valley Megamall"
+  }
+},
+{
+  "type": "way",
+  "id": 995983164,
+  "center": {
+    "lat": 3.1166037,
+    "lon": 101.6507453
+  },
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:postcode": "50603",
+    "amenity": "hospital",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "healthcare:speciality": "specialist",
+    "name": "UM Specialist Centre",
+    "name:en": "UM Specialist Centre",
+    "name:ms": "Pusat Pakar UM",
+    "operator": "Universiti Malaya",
+    "operator:short": "UM",
+    "operator:type": "university",
+    "operator:wikidata": "Q1142924",
+    "short_name": "UMSC",
+    "source": "survey",
+    "website": "https://umsc.my/",
+    "wheelchair": "yes",
+    "wikidata": "Q117229712",
+    "wikimedia_commons": "Category:UM Specialist Centre",
+    "wikipedia": "en:UM Specialist Centre"
+  }
+},
+{
+  "type": "way",
+  "id": 1158913675,
+  "center": {
+    "lat": 3.1459924,
+    "lon": 101.6627607
+  },
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:housenumber": "3",
+    "addr:postcode": "50490",
+    "addr:street": "Jalan Damanlela",
+    "air_conditioning": "yes",
+    "building": "retail",
+    "contact:facebook": "https://www.facebook.com/PavilionDH/",
+    "email": "info@pavilion-dh.com",
+    "facebook": "https://www.facebook.com/PavilionDH/",
+    "fax": "+603 2118 8911",
+    "layer": "1",
+    "name": "Pavilion Damansara Heights",
+    "operator": "Kuala Lumpur Pavilion Sdn Bhd",
+    "phone": "+603 2118 8888",
+    "shop": "mall",
+    "source": "https://fb.watch/lIEPuAW5iY/",
+    "start_date": "2023-10-09",
+    "website": "https://pavilion-dh.com/",
+    "wikidata": "Q118217751",
+    "wikimedia_commons": "Category:Pavilion Damansara Heights"
+  }
+},
+{
+  "type": "way",
+  "id": 1447921006,
+  "center": {
+    "lat": 3.1185430,
+    "lon": 101.6760207
+  },
+  "tags": {
+    "building": "mall",
+    "name": "The Gardens Mall",
+    "shop": "mall",
+    "toilets": "yes"
+  }
+},
+{
+  "type": "relation",
+  "id": 13327861,
+  "center": {
+    "lat": 3.1124965,
+    "lon": 101.6545759
+  },
+  "tags": {
+    "addr:city": "Kuala Lumpur",
+    "addr:street": "Jalan Universiti",
+    "amenity": "hospital",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "name": "Pusat Perubatan Universiti Malaya",
+    "name:en": "University of Malaya Medical Centre",
+    "name:ms": "Pusat Perubatan Universiti Malaya",
+    "name:zh": "马来亚大学医药中心",
+    "name:zh-Hans": "马来亚大学医药中心",
+    "name:zh-Hant": "馬來亞大學醫藥中心",
+    "operator": "Universiti Malaya",
+    "operator:short": "UM",
+    "operator:type": "university",
+    "operator:wikidata": "Q1142924",
+    "short_name": "PPUM",
+    "type": "multipolygon",
+    "url": "http://www.ummc.edu.my",
+    "wheelchair": "yes",
+    "wikidata": "Q7894810",
+    "wikipedia": "en:University Malaya Medical Centre"
+  }
+},
+{
+  "type": "relation",
+  "id": 17606480,
+  "center": {
+    "lat": 3.1129904,
+    "lon": 101.6334169
+  },
+  "tags": {
+    "addr:city": "Petaling Jaya",
+    "addr:housenumber": "110",
+    "addr:postcode": "46300",
+    "addr:street": "Jalan Professor Khoo Kay Kim",
+    "amenity": "hospital",
+    "emergency": "yes",
+    "healthcare": "hospital",
+    "healthcare:speciality": "oncology",
+    "name": "Hospital Picaso",
+    "name:en": "Picaso Hospital",
+    "type": "multipolygon",
+    "website": "https://www.hospitalpicaso.com/"
+  }
+},
+{
+  "type": "relation",
+  "id": 17805089,
+  "center": {
+    "lat": 3.1181595,
+    "lon": 101.6376384
+  },
+  "tags": {
+    "addr:city": "Petaling Jaya",
+    "addr:housenumber": "Lot 69",
+    "addr:postcode": "46200",
+    "addr:street": "Jalan 13/6",
+    "amenity": "hospital",
+    "healthcare": "hospital",
+    "name": "Columbia Asia Hospital",
+    "operator": "Columbia Asia",
+    "operator:wikidata": "Q5149612",
+    "operator:wikipedia": "en:Columbia Asia",
+    "type": "multipolygon",
+    "website": "https://www.columbiaasia.com/malaysia/hospitals/petaling-jaya/"
+  }
+}
+
+  ]
+}
+
+
+

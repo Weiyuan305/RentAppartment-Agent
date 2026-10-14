@@ -5,6 +5,17 @@ import { emptyStudentPlan } from "../lib/student/state";
 import { emptyMapSelection } from "../lib/agent/contract";
 import { removeRentalFilter, sameRentalFilters, type FilterSnapshot } from "../lib/rental-filter-actions";
 import { readBrowseSnapshot, browseReturnUrl, type BrowseSnapshot } from "../lib/browse-memory";
+import { canRestoreSessionContext } from "../lib/student/restore";
+
+test("late session hydration cannot replace manual filter edits or restored browsing context", async()=>{
+  let revision=1;
+  const started=revision;
+  const lateResponse=Promise.resolve().then(()=>canRestoreSessionContext(started,revision,false));
+  revision+=1; // The visitor changes a filter before the response arrives.
+  assert.equal(await lateResponse,false);
+  assert.equal(canRestoreSessionContext(2,2,true),false);
+  assert.equal(canRestoreSessionContext(2,2,false),true,"untouched ordinary navigation still loads saved preferences");
+});
 
 const filters: FilterSnapshot={filters:{...emptyFilters,budget:400,bills:true,walkMinutes:30},housing:{moveIn:"2027-01-01",leaseMonths:6,availableOnly:true},onlySaved:true};
 test("individual removal preserves all other criteria and undo expires after another edit",()=>{

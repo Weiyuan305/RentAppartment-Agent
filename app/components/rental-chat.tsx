@@ -5,7 +5,7 @@ import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { ArrowRight, ArrowUp, LoaderCircle, Sparkles, Square, RotateCcw } from "lucide-react";
 import { type AgentStatus, type RentalMessage, type RentalSession, type RentalState, rentalStateSchema } from "@/lib/agent/contract";
-import {stateForNavigation} from "@/lib/student/restore";
+import {canRestoreSessionContext,stateForNavigation} from "@/lib/student/restore";
 import { replyNotices, retryableMessage } from "@/lib/agent/conversation";
 import { displayCity } from "@/lib/i18n";
 import type { City } from "@/lib/rental-data";
@@ -63,6 +63,7 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
   useEffect(() => {
     disposed.current = false;
     const controller = new AbortController();
+    const startRevision = current.current.uiRevision;
     void (async () => {
       try {
         const response = await fetch(`/api/agent/session?city=${city.id}`, {signal: controller.signal});
@@ -70,9 +71,10 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
         if (!response.ok) throw new Error(payload.error);
         if (controller.signal.aborted) return;
         const restored = payload.session as RentalSession;
-        const next=current.current.preserveInitialState ? current.current.state : stateForNavigation(restored.state,current.current.state,new URLSearchParams(window.location.search));
+        const restoreContext=canRestoreSessionContext(startRevision,current.current.uiRevision,current.current.preserveInitialState);
         sessionRef.current = restored; setSession(restored); setAgentStatus(payload.status); setMessages(restored.messages);
-        savedState.current=JSON.stringify(restored.state);if(!current.current.preserveInitialState)current.current.onState(next);
+        savedState.current=JSON.stringify(restored.state);
+        if(restoreContext)current.current.onState(stateForNavigation(restored.state,current.current.state,new URLSearchParams(window.location.search)));
       } catch {if (!controller.signal.aborted) setNotice("会话存储暂时不可用，请刷新页面重试。");}
     })();
     return () => {disposed.current = true; controller.abort(); void stop();};

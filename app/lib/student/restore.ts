@@ -4,6 +4,11 @@ import { buildingById } from "./catalog";
 import { normalizedStudentPlan } from "./state";
 import { validateStudentPlan } from "./planner";
 
+/** A late conversation load must not overwrite newer manual page changes. */
+export function canRestoreSessionContext(startRevision: number, currentRevision: number, restoredBrowse: boolean) {
+  return !restoredBrowse && startRevision === currentRevision;
+}
+
 /** Explicit public navigation context wins; private estimates stay with this session. */
 export function stateForNavigation(
   saved: RentalState,

@@ -735,3 +735,12 @@
 .concept-lab .listing-panel-footer{flex:none;padding:12px 0;border-top:1px solid var(--border)}
 .concept-lab .listing-panel-footer .student-compare-launch{position:static;display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:44px;padding:10px 12px;border-radius:7px;font-size:13px}
 @media(max-width:1100px){.concept-lab .listing-panel-footer{display:none}}
+
+/* Keep the working list header compact so rent stays in the first viewport. */
+.concept-lab .listing-panel--compact .list-heading{align-items:center;gap:12px;padding-bottom:8px}
+.concept-lab .listing-panel--compact .list-heading h1{font-size:18px;line-height:1.4;margin:0;max-width:none;letter-spacing:-.02em;text-wrap:wrap}
+.concept-lab .listing-panel--compact .list-heading-actions{flex-direction:row}
+.concept-lab .listing-panel--compact .list-meta{flex-wrap:wrap;gap:4px 12px;padding:0 0 8px;margin:0;border:0;line-height:1.6}
+.concept-lab .listing-panel--compact .list-meta strong{font-weight:600;color:var(--foreground)}
+.concept-lab .listing-title+.listing-price-row{margin-top:2px}
+.concept-lab .listing-panel--compact .listing-tags{margin-top:6px}

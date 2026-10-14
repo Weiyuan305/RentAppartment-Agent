@@ -45,3 +45,6 @@
 
 .student-compare-dialog :is(button,select,input):focus-visible{outline:2px solid #3c7556;outline-offset:3px}
 .library-sync-status{font-size:12px;line-height:1.6;padding:10px 0;flex-shrink:0;color:inherit}.library-sync-status p{font-size:12px!important;line-height:1.6;margin:0 0 5px!important;color:inherit!important}.library-sync-status button{color:inherit;display:inline-block;border:0;background:transparent;text-decoration:underline;text-underline-offset:3px;min-height:32px;padding:4px 8px 4px 0;font-size:12px;cursor:pointer}.library-sync-status small{display:block;font-size:12px;opacity:.85}.library-sync-status button:disabled{opacity:.5;cursor:wait}.concept-lab .listing-panel>.library-sync-status{padding:8px 0 12px;border-bottom:1px solid var(--border);margin-bottom:10px}.concept-lab .save-button:disabled{opacity:.55;cursor:wait}.viewing-notebook .library-sync-status{border-block:1px solid var(--dossier-border);margin-bottom:16px}@media(max-width:600px){.library-sync-status button{min-height:40px;font-size:13px}}
+.concept-lab .listing-panel>.library-sync-status--compact{display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;padding:0 0 10px;margin-bottom:12px}
+.library-sync-status--compact p{flex:1 1 170px;margin:0!important}
+.library-sync-status--compact small{flex-basis:100%}

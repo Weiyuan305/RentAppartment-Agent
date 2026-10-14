@@ -116,7 +116,7 @@ function LibraryScope({children,scope,accountId}:{children:ReactNode;scope:strin
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 
-export function LibrarySyncStatus(){
+export function LibrarySyncStatus({compact=false}:{compact?:boolean}={}){
   const library=usePersonalLibrary(),{locale}=useLocale(),w=(zh:string,en:string)=>locale==="zh"?zh:en;
   const text=library.problem==="auth"?w("登录状态已变化，请重新加载后同步。","Sign-in changed. Reload to sync.")
     :library.problem==="network"?w("同步未完成，请检查网络后重试。","Sync incomplete. Check your connection and retry.")
@@ -124,7 +124,10 @@ export function LibrarySyncStatus(){
     :library.problem==="conflict"?w("其他设备已更新，已读取最新数据；未覆盖你的输入。","Another device updated this item. Latest data loaded; your draft is preserved.")
     :library.busy?w("正在保存…","Saving…"):!library.ready?w("正在读取收藏和记录…","Loading saved homes and notes…")
     :library.accountId?w("收藏与记录 · 已连接账号同步","Saved homes & notes · Account sync connected"):w("游客收藏与记录 · 保存在此浏览器","Guest saved homes & notes · This browser only");
-  return <div className="library-sync-status"><p role="status">{text}</p>{library.problem==="auth"?<button onClick={()=>location.reload()}>{w("重新加载","Reload")}</button>:library.accountId&&<button disabled={library.busy} onClick={()=>void library.refresh()}>{w("刷新同步","Refresh")}</button>}
+  const summary=compact&&!library.problem&&library.ready&&!library.busy
+    ?library.accountId?w("收藏与记录 · 账号同步","Saves & notes · Account sync"):w("游客收藏与记录 · 仅存本机","Guest saves & notes · This device only")
+    :text;
+  return <div className={`library-sync-status${compact?" library-sync-status--compact":""}`}><p role="status" title={compact?text:undefined}>{summary}</p>{library.problem==="auth"?<button onClick={()=>location.reload()}>{w("重新加载","Reload")}</button>:library.accountId&&<button disabled={library.busy} onClick={()=>void library.refresh()}>{w("刷新同步","Refresh")}</button>}
     {library.accountId&&library.hasGuestData&&library.ready&&<><button disabled={library.busy} onClick={()=>void library.importGuest()}>{w("合并本机游客收藏与记录","Merge this browser’s guest saves & notes")}</button><small>{library.imported?w("已合并新增数据。同一房源已有云端记录时保留云端版本；游客原件仍留在本机。","New items merged. Existing cloud records kept; original guest copies remain on this browser."):w("只补充账号中没有的数据，已有云端记录不覆盖。","Adds missing items only; existing cloud records stay unchanged.")}</small></>}
   </div>;
 }

@@ -22,6 +22,7 @@ export function RentalFilterChips({value, city, destination, undo, onRemove, onU
   if (h.leaseMonths) chips.push({key: "leaseMonths", label: `${h.leaseMonths} ${w("个月租期", "month lease")}`});
   if (h.availableOnly) chips.push({key: "availableOnly", label: w("演示可租", "Demo available")});
   if (onlySaved) chips.push({key: "onlySaved", label: w("仅看收藏", "Saved only")});
+  if (value.area) chips.push({key: "area", label: w("所选地图范围", "Selected map area")});
   if (!chips.length && !undo) return null;
   function remove(key: FilterKey | "all") {
     onRemove(key);

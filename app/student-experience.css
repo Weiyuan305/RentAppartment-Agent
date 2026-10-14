@@ -48,3 +48,11 @@
 .concept-lab .listing-panel>.library-sync-status--compact{display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;padding:0 0 10px;margin-bottom:12px}
 .library-sync-status--compact p{flex:1 1 170px;margin:0!important}
 .library-sync-status--compact small{flex-basis:100%}
+.compare-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:8px 0;color:#2d5140}
+.compare-toolbar label{display:flex;align-items:center;gap:8px;min-height:44px;font-size:14px;cursor:pointer}
+.compare-toolbar input{width:17px;height:17px;accent-color:#315f49}
+.compare-toolbar small{font-size:12px;line-height:1.5}
+.compare-insights{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px;padding:12px 14px;border:1px solid #b5c7aa;border-radius:10px;background:#e9efdf;color:#294e3b;font-size:13px;line-height:1.6}
+.compare-insights>p{flex-basis:100%;margin:0;font-size:12px}
+.compare-insights>div{flex:1 1 220px;display:grid;gap:3px;min-width:0}
+.compare-insights span{overflow-wrap:anywhere}

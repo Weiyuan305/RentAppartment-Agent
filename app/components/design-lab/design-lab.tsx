@@ -6,7 +6,7 @@ import { lazy, Suspense, useEffect, useMemo, useRef, useState, type CSSPropertie
 import { useRentalWebMCP } from "@/lib/use-rental-webmcp";
 import { LanguageSwitch } from "@/components/language-switch";
 import { AccountMenu } from "@/components/account-menu";
-import { emptyFilters, matchesFilters, type Filters } from "@/lib/assistant";
+import { emptyFilters, type Filters } from "@/lib/assistant";
 import { ArrowDownUp, ArrowRight, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Compass, Footprints, GraduationCap, Heart, MapPin, Search, Play, Square, ArrowUpRight, Layers3, PanelLeftClose, PanelRightClose, PanelLeftOpen, PanelRightOpen, Maximize2, Minimize2, RotateCcw, LocateFixed } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -25,6 +25,10 @@ import { WorkspaceResizeHandle } from "@/components/workspace-resize-handle";
 import { RentalFilterChips } from "@/components/rental-filter-chips";
 import { removeRentalFilter, sameRentalFilters, type FilterSnapshot, type FilterKey } from "@/lib/rental-filter-actions";
 import { browseStorageKey, readBrowseSnapshot, type BrowseSnapshot, type MapViewHandle } from "@/lib/browse-memory";
+import { matchingHomes, recoverySuggestions, filterNames } from "@/lib/rental-recovery";
+import { type MapSearchArea } from "@/lib/map-search-area";
+import { actionChanges, canUndoAgentAction } from "@/lib/agent/action-receipt";
+import { AgentActionReceipt } from "@/components/agent-action-receipt";
 import RentalChat from "@/components/rental-chat";
 import { emptyMapSelection, type MapSelection, type RentalState } from "@/lib/agent/contract";
 import { cities, getCity, listings, priceLabel, type CityId, type Listing } from "@/lib/rental-data";
@@ -108,9 +112,12 @@ export default function DesignLab({preview = true}: {preview?: boolean}) {
   const saved = Object.keys(library.favorites).filter(id=>library.favorites[id].saved);
   const [onlySaved, setOnlySaved] = useState(false);
   const [expandedIds, setExpandedIds] = useState<string[]>([]);
+  const [searchArea,setSearchArea] = useState<MapSearchArea|null>(null);
+  const [searchView,setSearchView] = useState<{key:string;camera:NonNullable<BrowseSnapshot["camera"]>}|null>(null);
+  const [agentReceipt,setAgentReceipt] = useState<{id:string;before:RentalState;after:RentalState;onlySaved:boolean;area:MapSearchArea|null;revision:number;undone:boolean}|null>(null);
   const [filterUndo, setFilterUndo] = useState<{city: CityId; before: FilterSnapshot; after: FilterSnapshot} | null>(null);
   const [restoredBrowse, setRestoredBrowse] = useState<BrowseSnapshot | null>(null);
-  const mapRestore = useMemo(()=>restoredBrowse?.camera ? {key:restoredBrowse.token,camera:restoredBrowse.camera} : null,[restoredBrowse]);
+  const mapRestore = useMemo(()=>searchView ?? (restoredBrowse?.camera ? {key:restoredBrowse.token,camera:restoredBrowse.camera} : null),[restoredBrowse,searchView]);
   const [detailReturnToken, setDetailReturnToken] = useState("");
   const pendingScroll = useRef<BrowseSnapshot["scroll"] | null>(null);
   const explorerRoot = useRef<HTMLElement>(null);
@@ -118,7 +125,7 @@ export default function DesignLab({preview = true}: {preview?: boolean}) {
   const [mobileTab, setMobileTab] = useState<"list" | "map" | "chat">("list");
   const workspace = useWorkspaceLayout();
   const preferencesCollapsed = workspace.layout.preferencesCollapsed;
-  const filterSnapshot: FilterSnapshot = {filters, housing: student.housing, onlySaved};
+  const filterSnapshot: FilterSnapshot = {filters, housing: student.housing, onlySaved, area:searchArea};
   const canUndo = !!filterUndo && filterUndo.city === cityId && sameRentalFilters(filterSnapshot, filterUndo.after);
   const listHidden = variant === "spatial" && workspace.listHidden, chatHidden = variant === "spatial" && workspace.chatHidden;
   const [hoveredListing, setHoveredListing] = useState<string | null>(null);
@@ -147,7 +154,8 @@ export default function DesignLab({preview = true}: {preview?: boolean}) {
 
   const city = getCity(cityId);
   const cityView = displayCity(city, locale);
-  const shown = listings.filter(l => l.cityId === cityId && matchesFilters(l, filters,student) && (!onlySaved || saved.includes(l.id))).sort((a, b) => sort === "price" ? a.price - b.price : 0);
+  const shown = matchingHomes(listings.filter(l => l.cityId === cityId),filterSnapshot,student,saved).sort((a, b) => sort === "price" ? a.price - b.price : 0);
+  const recoveries = shown.length ? [] : recoverySuggestions(listings.filter(l=>l.cityId===cityId),filterSnapshot,student,saved);
   const effectiveSelected = shown.some(l=>l.id===selected)?selected:(shown[0]?.id ?? "");
   useRentalWebMCP(city,shown,effectiveSelected);
   async function playSample() {
@@ -173,8 +181,8 @@ export default function DesignLab({preview = true}: {preview?: boolean}) {
   function applyRentalFilters(next: FilterSnapshot) {
     stopSample();
     const nextStudent = {...student, housing: next.housing};
-    setFilters(next.filters); setStudent(nextStudent); setOnlySaved(next.onlySaved); setUiRevision(v => v + 1);
-    const matching = listings.filter(l => l.cityId === cityId && matchesFilters(l, next.filters, nextStudent) && (!next.onlySaved || saved.includes(l.id)));
+    setFilters(next.filters); setStudent(nextStudent); setOnlySaved(next.onlySaved); setSearchArea(next.area??null); setUiRevision(v => v + 1);
+    const matching = matchingHomes(listings.filter(l=>l.cityId===cityId),next,nextStudent,saved);
     const id = matching.some(l => l.id === selected) ? selected : matching[0]?.id ?? selected;
     if (!matching.length || id !== selected) {
       setSelected(id); setRouteTarget(null);
@@ -195,7 +203,7 @@ export default function DesignLab({preview = true}: {preview?: boolean}) {
   }
   function changeStudent(input:StudentPlan,preferredListingId=selected) {
     const next=validateStudentPlan(input,cityId);setFilterUndo(null);stopSample();setStudent(next);setUiRevision(v=>v+1);
-    const matching=listings.filter(l=>l.cityId===cityId&&matchesFilters(l,filters,next));
+    const matching=matchingHomes(listings.filter(l=>l.cityId===cityId),{...filterSnapshot,housing:next.housing},next,saved);
     const id=matching.some(l=>l.id===preferredListingId)?preferredListingId:matching[0]?.id??selected;
     if(next.destinationId!==student.destinationId||id!==selected){setSelected(id);setRouteTarget(null);setMapSelection(s=>({...s,selectedPlaceId:null,routePlaceId:null,campusRoute:false}));}
     if(next.showBuildings||next.routeBuilding||next.catchmentMinutes||next.transitRequested)setMapRequested(true);
@@ -230,7 +238,7 @@ export default function DesignLab({preview = true}: {preview?: boolean}) {
     const url = new URL(window.location.href); url.searchParams.delete("route");
     window.history.replaceState({}, "", url.pathname + url.search);
   }
-  function changeCity(id: CityId) { setRestoredBrowse(null);pendingScroll.current=null;setExpandedIds([]);setFilterUndo(null);stopSample();setMapNotice(false);setDossier(null);setHoveredListing(null);scrollListing(`${id}-1`); setRouteTarget(null); setCityId(id); setSelected(`${id}-1`); setFilters({...emptyFilters});setStudent(emptyStudentPlan());setPlannerOpen(false);setComparisonOpen(false); setOnlySaved(false); setMapSelection(emptyMapSelection()); setUiRevision(v => v + 1); setPicker(false); window.history.pushState({}, "", explorerUrl(id,undefined,false,emptyStudentPlan())); }
+  function changeCity(id: CityId) { setSearchArea(null);setSearchView(null);setAgentReceipt(null); setRestoredBrowse(null);pendingScroll.current=null;setExpandedIds([]);setFilterUndo(null);stopSample();setMapNotice(false);setDossier(null);setHoveredListing(null);scrollListing(`${id}-1`); setRouteTarget(null); setCityId(id); setSelected(`${id}-1`); setFilters({...emptyFilters});setStudent(emptyStudentPlan());setPlannerOpen(false);setComparisonOpen(false); setOnlySaved(false); setMapSelection(emptyMapSelection()); setUiRevision(v => v + 1); setPicker(false); window.history.pushState({}, "", explorerUrl(id,undefined,false,emptyStudentPlan())); }
   useEffect(() => {
     function restore() {
       const params = new URLSearchParams(window.location.search);
@@ -238,6 +246,7 @@ export default function DesignLab({preview = true}: {preview?: boolean}) {
       const requested = cities.find(c => c.id === params.get("city"));
       let snapshot: BrowseSnapshot | null = null;
       if (requested) try { snapshot = readBrowseSnapshot(sessionStorage.getItem(browseStorageKey(requested.id)), params.get("restore") ?? window.history.state?.atlasBrowse, requested.id); } catch {}
+      setSearchArea(snapshot?.area??null);setSearchView(null);setAgentReceipt(null);
       setRestoredBrowse(snapshot);setFilterUndo(null);setExpandedIds(snapshot?.expandedIds ?? []);
       if (snapshot) {
         const state = snapshot.state;
@@ -286,22 +295,44 @@ export default function DesignLab({preview = true}: {preview?: boolean}) {
     const anchor = bounds ? Array.from(scroller!.querySelectorAll<HTMLElement>("[data-listing-id]")).find(node => node.getBoundingClientRect().bottom > bounds.top + 1) : undefined;
     const snapshot: BrowseSnapshot = {
       version:1,token:detailReturnToken,url:explorerUrl(cityId,effectiveSelected || selected,!!routeTarget),state:agentState,
-      onlySaved,sort,mobileTab,expandedIds,camera:mapView.current?.capture() ?? null,
+      onlySaved,sort,mobileTab,expandedIds,area:searchArea,camera:mapView.current?.capture() ?? null,
       scroll:{anchorId:anchor?.dataset.listingId ?? null,offset:anchor && bounds ? bounds.top-anchor.getBoundingClientRect().top : 0,top:scroller?.scrollTop ?? 0},
     };
     try {sessionStorage.setItem(browseStorageKey(cityId),JSON.stringify(snapshot));window.history.replaceState({...window.history.state,atlasBrowse:detailReturnToken}, "");} catch {}
   }
   function toggleSaved(id:string) {void library.toggleFavorite(id);}
   const agentState: RentalState = {cityId, listingId:effectiveSelected || selected, filters,student, map:{...mapSelection,campusRoute:routeTarget === effectiveSelected}};
-  function applyAgentState(next: RentalState) {
+  function applyAgentState(next: RentalState, actionId?:string) {
     stopSample();setFilterUndo(null);
     if (next.cityId !== cityId) return;
+    if(actionId)setAgentReceipt(previous=>({id:actionId,before:previous?.id===actionId?previous.before:agentState,after:next,onlySaved:previous?.id===actionId?previous.onlySaved:onlySaved,area:previous?.id===actionId?previous.area:searchArea,revision:uiRevision,undone:false}));
+    setSearchArea(null);
     setStudent(validateStudentPlan(next.student,cityId));setFilters(next.filters);setOnlySaved(false);setSelected(next.listingId);setMapSelection(next.map);
     setRouteTarget(next.map.campusRoute ? next.listingId : null);
     if(next.map.categories.length||next.map.campusRoute||next.student?.routeBuilding)setMapNotice(true);
     if (next.map.categories.length || next.map.campusRoute||next.student?.showBuildings||next.student?.routeBuilding||next.student?.transitRequested) setMapRequested(true);
     window.history.replaceState({}, "", explorerUrl(cityId,next.listingId,next.map.campusRoute,validateStudentPlan(next.student,cityId)));
   }
+  function undoAgentAction() {
+    if(!agentReceipt||!canUndoAgentAction(agentReceipt.revision,uiRevision,agentReceipt.undone))return;
+    applyAgentState(agentReceipt.before);
+    setOnlySaved(agentReceipt.onlySaved);setSearchArea(agentReceipt.area);
+    setUiRevision(v=>v+1);setAgentReceipt({...agentReceipt,undone:true});
+  }
+  function searchMapArea(area:MapSearchArea) {
+    const camera=mapView.current?.capture();
+    if(camera)setSearchView({key:area.id,camera});
+    setFilterUndo(null);applyRentalFilters({...filterSnapshot,area});
+  }
+  function acceptRecovery(value:FilterSnapshot) {
+    setFilterUndo({city:cityId,before:filterSnapshot,after:value});applyRentalFilters(value);
+    requestAnimationFrame(()=>document.querySelector<HTMLButtonElement>(".filter-undo")?.focus());
+  }
+  const receiptChanges=agentReceipt?[
+    ...actionChanges(agentReceipt.before,agentReceipt.after,locale,t),
+    ...(agentReceipt.onlySaved?[words("已取消仅看收藏","Saved-only filter cleared")]:[]),
+    ...(agentReceipt.area?[words("已取消地图范围筛选","Map area filter cleared")]:[]),
+  ]:[];
   return <main ref={explorerRoot} style={{"--panel-list-width":`${workspace.widths.list}px`,"--panel-chat-width":`${workspace.widths.chat}px`} as CSSProperties} className={`explorer concept-lab concept-${variant} concept-locale-${locale} ${listHidden ? "is-list-collapsed" : ""} ${chatHidden ? "is-chat-collapsed" : ""} ${workspace.layout.focus ? "is-map-focused" : ""} ${preview ? "" : "atlas-production"}`} onPointerDownCapture={e=>{if(playing && e.target instanceof Element && !e.target.closest(".concept-play"))stopSample();}} onKeyDownCapture={e=>{if(playing && e.key !== "Tab" && e.target instanceof Element && !e.target.closest(".concept-play"))stopSample();}}>
     {preview && <div className="concept-review-bar">
       <a href="/?city=london" className="concept-return"><ArrowUpRight size={14}/>{words("返回当前网站","Current website")}</a>
@@ -352,13 +383,13 @@ export default function DesignLab({preview = true}: {preview?: boolean}) {
           </div>
         </div>
         <div className="list-meta">{variant === "spatial" ? <><span><strong>{shown.length}</strong> {t("套演示房源")}</span><span>{sort === "price" ? t("价格从低到高") : words("推荐排序", "Recommended")}</span></> : <><span><span className="dot"/> {sort === "price" ? t("价格从低到高") : t("为留学生活而选")}</span><span>{t("样本数据")}</span></>}</div>
-        <LibrarySyncStatus compact={variant === "spatial"}/><div className="listing-scroll">{shown.map((listing, i) => <ListingCard key={listing.id} listing={listing} selected={effectiveSelected === listing.id} hovered={hoveredListing === listing.id} onHover={setHoveredListing} saved={saved.includes(listing.id)} saveDisabled={!library.ready||library.busy} index={i} onSelect={() => selectListing(listing.id)} onRoute={() => showRoute(listing)} onDetail={() => {stopSample();openDetails(listing);}} onSave={() => toggleSaved(listing.id)} compared={student.compareIds.includes(listing.id)} onCompare={()=>toggleCompare(listing.id)} plan={student} filters={filters} onPlan={()=>setPlannerOpen(true)} onDossier={()=>setDossier(listing)} expanded={expandedIds.includes(listing.id)} onExpanded={open=>setExpandedIds(ids=>open?Array.from(new Set([...ids,listing.id])):ids.filter(id=>id!==listing.id))}/>)}{shown.length === 0 && <div className="empty-state"><Search/><h3>{t("还没有符合条件的房源")}</h3><p>{t("试试切换房型，或收藏一套喜欢的房源。")}</p><button onClick={resetRentalFilters}>{t("重置筛选")}</button></div>}<p className="list-disclaimer">{t("房源、位置与租金为虚构演示，图片为室内风格参考，不可预订。")}</p></div>
+        <LibrarySyncStatus compact={variant === "spatial"}/><div className="listing-scroll">{shown.map((listing, i) => <ListingCard key={listing.id} listing={listing} selected={effectiveSelected === listing.id} hovered={hoveredListing === listing.id} onHover={setHoveredListing} saved={saved.includes(listing.id)} saveDisabled={!library.ready||library.busy} index={i} onSelect={() => selectListing(listing.id)} onRoute={() => showRoute(listing)} onDetail={() => {stopSample();openDetails(listing);}} onSave={() => toggleSaved(listing.id)} compared={student.compareIds.includes(listing.id)} onCompare={()=>toggleCompare(listing.id)} plan={student} filters={filters} onPlan={()=>setPlannerOpen(true)} onDossier={()=>setDossier(listing)} expanded={expandedIds.includes(listing.id)} onExpanded={open=>setExpandedIds(ids=>open?Array.from(new Set([...ids,listing.id])):ids.filter(id=>id!==listing.id))}/>)}{shown.length === 0 && <div className="empty-state"><Search/><h3>{t("还没有符合条件的房源")}</h3><p>{recoveries.length?words("以下调整可找到演示房源，点击后才会应用。","These changes find demo homes. Choose one to apply it."):words("当前城市暂无可匹配的演示数据。","No matching demo data in this city.")}</p><div className="recovery-options">{recoveries.map((r,i)=><button key={i} onClick={()=>acceptRecovery(r.value)}><span>{words("取消","Remove")} {r.keys.map(key=>filterNames[key][locale==="zh"?0:1]).join(locale==="zh"?"、":", ")}</span><strong>{words(`${r.count} 套`,`${r.count} homes`)}</strong></button>)}</div><button onClick={resetRentalFilters}>{t("重置筛选")}</button></div>}<p className="list-disclaimer">{t("房源、位置与租金为虚构演示，图片为室内风格参考，不可预订。")}</p></div>
         {student.compareIds.length>0&&<div className="listing-panel-footer"><button className="student-compare-launch" onClick={()=>setComparisonOpen(true)}>{words("对比公寓","Compare homes")} · {student.compareIds.length}/3<ArrowRight size={16}/></button></div>}
       </section>
       {variant === "spatial" && workspace.desktop && !listHidden && <WorkspaceResizeHandle panel="list" width={workspace.widths.list} limit={workspace.widths.budget-workspace.widths.chat} root={explorerRoot} onCommit={width=>workspace.dispatch({panel:"list",width})}/>}
       {variant === "spatial" && workspace.desktop && !chatHidden && <WorkspaceResizeHandle panel="chat" width={workspace.widths.chat} limit={workspace.widths.budget-workspace.widths.list} root={explorerRoot} onCommit={width=>workspace.dispatch({panel:"chat",width})}/>}
-      <div className={`concept-map-stage ${routeTarget || mapSelection.routePlaceId||student.routeBuilding||student.transitRequested ? "route-active" : ""}`}><div className="concept-map-title"><span><Layers3 size={15}/>{words("城市生活地图","A closer look at city life")}</span><h2>{city.english}<small>{cityView.campus}</small></h2></div><CityMap viewRef={mapView} restoredView={mapRestore} city={city} listings={shown} selected={effectiveSelected} hovered={hoveredListing} onHover={setHoveredListing} onSelect={id => {selectListing(id);scrollListing(id);}} studentPlan={student} onBuildingSelect={selectBuilding} onStudentChange={changeStudent} onPlanner={() => setPlannerOpen(true)} onStudentClose={()=>changeStudent({...student,routeBuilding:false,transitRequested:false})} autoLoad={mapRequested} routeListingId={routeTarget === effectiveSelected ? routeTarget : null} onCloseRoute={clearRoute} selection={mapSelection} onSelectionChange={update => {setMapSelection(update);setUiRevision(v => v + 1);}}/></div>
-      {ready && <RentalChat preserveInitialState={!!restoredBrowse} key={cityId} city={city} state={agentState} uiRevision={uiRevision} onState={applyAgentState} collapsed={chatHidden} onReplyReady={onReplyReady} headerControl={variant === "spatial" ? <button className="panel-collapse" title={words("收起 AI 助手", "Collapse AI assistant")} aria-label={words("收起 AI 助手", "Collapse AI assistant")} aria-controls="workspace-chat" aria-expanded={!chatHidden} onClick={() => togglePanel("chat")}><PanelRightClose size={18}/></button> : undefined}/>}
+      <div className={`concept-map-stage ${routeTarget || mapSelection.routePlaceId||student.routeBuilding||student.transitRequested ? "route-active" : ""}`}><div className="concept-map-title"><span><Layers3 size={15}/>{words("城市生活地图","A closer look at city life")}</span><h2>{city.english}<small>{cityView.campus}</small></h2></div><CityMap onSearchArea={searchMapArea} areaActive={!!searchArea} areaResultCount={shown.length} viewRef={mapView} restoredView={mapRestore} city={city} listings={shown} selected={effectiveSelected} hovered={hoveredListing} onHover={setHoveredListing} onSelect={id => {selectListing(id);scrollListing(id);}} studentPlan={student} onBuildingSelect={selectBuilding} onStudentChange={changeStudent} onPlanner={() => setPlannerOpen(true)} onStudentClose={()=>changeStudent({...student,routeBuilding:false,transitRequested:false})} autoLoad={mapRequested} routeListingId={routeTarget === effectiveSelected ? routeTarget : null} onCloseRoute={clearRoute} selection={mapSelection} onSelectionChange={update => {setMapSelection(update);setUiRevision(v => v + 1);}}/></div>
+      {ready && <RentalChat onActionClear={()=>setAgentReceipt(null)} actionReceipt={agentReceipt&&<AgentActionReceipt changes={receiptChanges} undone={agentReceipt.undone} canUndo={canUndoAgentAction(agentReceipt.revision,uiRevision,agentReceipt.undone)} onUndo={undoAgentAction} onMap={()=>{setMobileTab("map");setMapRequested(true);setMapNotice(false);}}/>} preserveInitialState={!!restoredBrowse} key={cityId} city={city} state={agentState} uiRevision={uiRevision} onState={applyAgentState} collapsed={chatHidden} onReplyReady={onReplyReady} headerControl={variant === "spatial" ? <button className="panel-collapse" title={words("收起 AI 助手", "Collapse AI assistant")} aria-label={words("收起 AI 助手", "Collapse AI assistant")} aria-controls="workspace-chat" aria-expanded={!chatHidden} onClick={() => togglePanel("chat")}><PanelRightClose size={18}/></button> : undefined}/>}
     </div>
     {(plannerOpen||comparisonOpen)&&<Suspense fallback={<div className="student-loading" role="status">{words("正在打开规划…","Opening planner…")}</div>}>{plannerOpen&&<StudentPlanner open={plannerOpen} onOpenChange={setPlannerOpen} city={city} listing={listings.find(l=>l.id===effectiveSelected)} listings={listings.filter(l=>l.cityId===cityId)} plan={student} onChange={changeStudent} filters={filters} onFilters={changeFilters} onWalk={()=>showStudentJourney()} onTransit={()=>showStudentJourney(true)}/>} {comparisonOpen&&<ApartmentComparison open={comparisonOpen} onOpenChange={setComparisonOpen} city={city} plan={student} onChange={changeStudent}/>}</Suspense>}
     {preview && <div className={`concept-motion-track ${playing ? "is-playing" : ""}`} aria-live="polite"><span>{words("动效样片","Motion preview")}</span>{[["select",words("选中房源","Select a home")],["detail",words("图片展开","Open the details")],["route",words("真实路线","Real walking route")]].map(([id,label])=><span key={id} className={sampleStage === id ? "active" : ""}><i/>{label}</span>)}<small>{words("可随时手动操作；演示房源不可预订","You can explore freely · Demo homes, no bookings")}</small></div>}

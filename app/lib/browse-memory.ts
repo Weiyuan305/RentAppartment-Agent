@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { rentalStateSchema } from "./agent/contract";
 import { listings, type CityId } from "./rental-data";
+import { mapSearchAreaSchema } from "./map-search-area";
 
 export const cameraViewSchema = z.object({
   longitude: z.number().finite().min(-180).max(180), latitude: z.number().finite().min(-90).max(90),
@@ -15,6 +16,7 @@ const snapshotSchema = z.object({
   mobileTab: z.enum(["list", "map", "chat"]), expandedIds: z.array(z.string().max(50)).max(100),
   scroll: z.object({anchorId: z.string().max(50).nullable(), offset: z.number().finite().min(-10000).max(10000), top: z.number().finite().min(0).max(1000000)}),
   camera: cameraViewSchema.nullable(),
+  area: mapSearchAreaSchema.nullable().optional(),
 });
 export type BrowseSnapshot = z.infer<typeof snapshotSchema>;
 export const browseStorageKey = (city: CityId) => `campus-atlas-browse:${city}`;

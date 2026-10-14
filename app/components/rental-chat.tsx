@@ -11,7 +11,7 @@ import { displayCity } from "@/lib/i18n";
 import type { City } from "@/lib/rental-data";
 const AssistantMarkdown = lazy(() => import("./assistant-markdown").then(module => ({default: module.AssistantMarkdown})));
 
-export default function RentalChat({city, state, uiRevision, onState, collapsed = false, headerControl, onReplyReady, preserveInitialState = false}: {preserveInitialState?: boolean; collapsed?: boolean; headerControl?: ReactNode; onReplyReady?: () => void; city: City; state: RentalState; uiRevision: number; onState: (state: RentalState) => void}) {
+export default function RentalChat({city, state, uiRevision, onState, collapsed = false, headerControl, onReplyReady, preserveInitialState = false, actionReceipt, onActionClear}: {actionReceipt?: ReactNode; onActionClear?:()=>void; preserveInitialState?: boolean; collapsed?: boolean; headerControl?: ReactNode; onReplyReady?: () => void; city: City; state: RentalState; uiRevision: number; onState: (state: RentalState, actionId?: string) => void}) {
   const {t, locale} = useLocale();
   const [session, setSession] = useState<RentalSession | null>(null);
   const [agentStatus, setAgentStatus] = useState<AgentStatus | null>(null);
@@ -50,7 +50,7 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
       const next = rentalStateSchema.parse(data.state);
       savedState.current = JSON.stringify(next);
       if (data.phase === "start") return;
-      current.current.onState(next);
+      current.current.onState(next,active.id);
     },
     onError: error => {if (!disposed.current) {setNotice(Object.values(replyNotices).includes(error.message) ? error.message : t("对话暂时无法完成，可以重试这条消息；已完成的工具结果会保留。"));current.current.onReplyReady?.();}},
     onFinish: ({isAbort}) => {if (!disposed.current) {if(isAbort)setNotice(replyNotices.stopped);else current.current.onReplyReady?.();}},
@@ -129,6 +129,7 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
     if (!text.trim() || busy || !session || !agentStatus?.configured) return;
     followEnd.current=true;
     await pendingSave.current;
+    onActionClear?.();
     request.current = {id: crypto.randomUUID(), revision: current.current.uiRevision};
     setInput(""); setNotice(""); chat.clearError();
     await chat.sendMessage({text: text.trim()});
@@ -136,6 +137,7 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
   async function retry() {
     if (busy || !session || !agentStatus?.configured || !retryMessage) return;
     followEnd.current=true;
+    onActionClear?.();
     setRetrying(true); setNotice("");
     await pendingSave.current;
     try {
@@ -159,6 +161,7 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
   async function preview(action: string) {
     if (busy || !session) return;
     followEnd.current=true;
+    onActionClear?.();
     setPreviewing(true); setNotice("");
     await pendingSave.current;
     const s = sessionRef.current!, revision = current.current.uiRevision;
@@ -173,7 +176,7 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
       }
       if (disposed.current) return;
       sessionRef.current = payload.session; setMessages(payload.session.messages);
-      if (revision === current.current.uiRevision) {savedState.current = JSON.stringify(payload.session.state); current.current.onState(payload.session.state);}
+      if (revision === current.current.uiRevision) {savedState.current = JSON.stringify(payload.session.state); current.current.onState(payload.session.state,crypto.randomUUID());}
       else setNotice("页面条件已改变，工具结果没有覆盖当前地图。");
     } catch (error) {if (!disposed.current) setNotice(error instanceof Error ? error.message : t("工具暂时不可用。"));}
     finally {if (!disposed.current) {setPreviewing(false);current.current.onReplyReady?.();}}
@@ -186,7 +189,7 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
     try {
       const response = await fetch("/api/agent/session", {method: "PATCH", headers: {"Content-Type": "application/json"}, body: JSON.stringify({sessionId: s.id, version: s.version, state: current.current.state, clear: true})});
       const payload = await response.json() as {session: RentalSession; status: AgentStatus; error?: string}; if (!response.ok) throw new Error(payload.error);
-      sessionRef.current = payload.session; setMessages([]); setNotice(""); chat.clearError();
+      sessionRef.current = payload.session; onActionClear?.(); setMessages([]); setNotice(""); chat.clearError();
     } catch {setNotice("暂时无法新建对话，请刷新重试。");}
   }
   return <aside id="workspace-chat" className="assistant-panel" inert={collapsed} aria-label={t("找房助手")}>
@@ -205,6 +208,7 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
       {chat.messages.map(message => <div key={message.id} className={`chat-message ${message.role}`}>{message.parts.map((part, i) => part.type === "text" && part.text ? message.role === "assistant"
         ? <Suspense key={i} fallback={<span aria-label={t("正在加载回复")}>…</span>}><AssistantMarkdown text={part.text} streaming={chat.status === "streaming" && part.state === "streaming"}/></Suspense>
         : <span key={i}>{part.text}</span> : null)}{message.parts.some(p => p.type.startsWith("tool-") && "state" in p && p.state === "output-available") && <small className="chat-tool-status">{t("已查询工具 · 地图与结果同步")}</small>}</div>)}
+      <fieldset className="agent-receipt-slot" disabled={busy}>{actionReceipt}</fieldset>
       {busy && <p className="chat-busy"><LoaderCircle size={14} className="route-spinner"/>{retrying ? t("正在重新连接…") : previewing ? t("正在查询工具…") : t("正在查找并回复…")}</p>}
       {displayedNotice && <div className="chat-notice" role="status"><p>{t(displayedNotice)}</p>{!busy && retryMessage && <button type="button" className="chat-retry" onClick={() => void retry()}><RotateCcw size={13}/>{t("重试这条消息")}</button>}</div>}<div ref={end}/>
     </div></div>

@@ -4,7 +4,7 @@ import { useLocale } from "@/components/locale-provider";
 import MapAttribution from "@/components/map-attribution";
 import { lazy,Suspense,useEffect, useMemo, useRef, useState, useImperativeHandle, type Ref } from "react";
 import type * as Cesium from "cesium";
-import { Building2, Compass, GraduationCap, MapPin, Minus, Navigation, Plus, RotateCw } from "lucide-react";
+import { Building2, Compass, GraduationCap, MapPin, Minus, Navigation, Plus, RotateCw, Search } from "lucide-react";
 import { cityPhoto, priceLabel, type City, type Listing } from "@/lib/rental-data";
 import { resolveMapConfig } from "@/lib/map-config";
 import { useWalkingRoute } from "@/lib/use-walking-route";
@@ -26,6 +26,8 @@ import MapLayers from "./map-layers";
 import JourneyDisclosure from "./journey-disclosure";
 import MapPlaceLabels, {fitMapLabelTarget, type LabelScene} from "./map-place-labels";
 
+import { visibleSidePanel } from "@/lib/map-marker-density";
+import type {MapSearchArea} from "@/lib/map-search-area";
 import type {CameraView, MapViewHandle} from "@/lib/browse-memory";
 
 type Engine = typeof Cesium;
@@ -47,7 +49,8 @@ const config = resolveMapConfig({
   VITE_CESIUM_ION_ACCESS_TOKEN: import.meta.env.VITE_CESIUM_ION_ACCESS_TOKEN,
   VITE_GOOGLE_MAPS_API_KEY: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
 });
-export default function CityMap({ city, listings, selected, onSelect, autoLoad, routeListingId, onCloseRoute, selection, onSelectionChange,studentPlan,onBuildingSelect,onStudentClose,onStudentChange,onPlanner,hovered,onHover,viewRef,restoredView }: {
+export default function CityMap({ city, listings, selected, onSelect, autoLoad, routeListingId, onCloseRoute, selection, onSelectionChange,studentPlan,onBuildingSelect,onStudentClose,onStudentChange,onPlanner,hovered,onHover,viewRef,restoredView,onSearchArea,areaActive,areaResultCount }: {
+  onSearchArea: (area:MapSearchArea)=>void; areaActive:boolean; areaResultCount:number;
   viewRef?: Ref<MapViewHandle>; restoredView?: {key:string;camera:CameraView} | null;
   hovered: string | null; onHover: (id: string | null) => void; onStudentChange: (plan: StudentPlan) => void; onPlanner: () => void;
   studentPlan:StudentPlan;onBuildingSelect:(id:string)=>void;onStudentClose:()=>void;
@@ -75,6 +78,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   useEffect(() => { clickCallback.current = onSelect; }, [onSelect]);
   const [status, setStatus] = useState<"missing" | "idle" | "loading" | "ready" | "error">(config.configured ? "idle" : "missing");
   const [requested, setRequested] = useState(false);
+  const [areaError,setAreaError]=useState(false);
   const [retry, setRetry] = useState(0);
   const amenityCategories = selection.categories;
   const selectedAmenityId = selection.selectedPlaceId;
@@ -273,6 +277,23 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     if(action==="campus")fitMapLabelTarget({C,viewer},city.lng,city.lat,1800);
     viewer.scene.requestRender();
   }
+  function searchVisibleArea() {
+    const rt=runtime.current;if(!rt||status!=="ready")return;
+    const {C,viewer}=rt, bounds=viewer.canvas.getBoundingClientRect(),root=container.current?.closest(".concept-lab")??null;
+    const leftPanel=visibleSidePanel(root,".listing-panel"),rightPanel=visibleSidePanel(root,".assistant-panel");
+    const left=Math.max(0,leftPanel?leftPanel.right-bounds.left:0)+12;
+    const right=Math.min(bounds.width,rightPanel?rightPanel.left-bounds.left:bounds.width)-12;
+    const top=12,bottom=bounds.height-12;
+    if(right-left<40||bottom-top<40){setAreaError(true);return;}
+    const polygon:MapSearchArea["polygon"]=[];
+    for(const [x,y] of [[left,top],[right,top],[right,bottom],[left,bottom]]) {
+      const position=viewer.camera.pickEllipsoid(new C.Cartesian2(x,y),C.Ellipsoid.WGS84);
+      if(!position){setAreaError(true);return;}
+      const point=C.Cartographic.fromCartesian(position);
+      polygon.push([C.Math.toDegrees(point.longitude),C.Math.toDegrees(point.latitude)]);
+    }
+    setAreaError(false);onSearchArea({id:crypto.randomUUID(),polygon});
+  }
   function toggleAmenity(category: AmenityCategory) {
     onSelectionChange(current => ({...current, categories: current.categories.includes(category) ? current.categories.filter(c => c !== category) : [...current.categories, category], placeIds: null}));
     setSelectedAmenityId(null);
@@ -324,6 +345,15 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
       const noticeTop=(layerButton?.getBoundingClientRect().bottom ?? bounds.top+64)-bounds.top+12;
       // The fallback notice shares the map's free area with the layer and route controls.
       // Measure their real size instead of inheriting the old fixed route-mode offset.
+      const searchPanel=panel.querySelector<HTMLElement>(".map-area-search");
+      const buttonBounds=layerButton?.getBoundingClientRect();
+      if(searchPanel&&buttonBounds){
+        const side=visibleSidePanel(panel.closest(".concept-lab"),".assistant-panel");
+        const edge=Math.min(bounds.right,side?.left??bounds.right)-64;
+        const beside=buttonBounds.right+8+searchPanel.offsetWidth<=edge;
+        panel.style.setProperty("--map-search-left",`${(beside?buttonBounds.right+8:buttonBounds.left)-bounds.left}px`);
+        panel.style.setProperty("--map-search-top",`${(beside?buttonBounds.top:buttonBounds.bottom+8)-bounds.top}px`);
+      }
       panel.style.setProperty("--map-notice-top",`${noticeTop}px`);
       panel.style.setProperty("--map-notice-room",`${Math.max(0,bottom-bounds.top-noticeTop-12)}px`);
       if(layers && overlay==="layers")layers.style.setProperty("--layer-room",`${Math.max(0,bottom-layers.getBoundingClientRect().top-12)}px`);
@@ -333,7 +363,8 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     if(layerButton)observer.observe(layerButton);
     if(bottomCard)observer.observe(bottomCard);
     const frame=requestAnimationFrame(measure);
-    return()=>{observer.disconnect();cancelAnimationFrame(frame);};
+    window.addEventListener("atlas-workspace-layout",measure);
+    return()=>{observer.disconnect();cancelAnimationFrame(frame);window.removeEventListener("atlas-workspace-layout",measure);};
   },[overlay,hasJourney,journeyKey,selectedAmenity,live]);
   const journeyStatus = amenityRouteEnabled ? facilityRoute.status : studentPlan.transitRequested ? transit.status : studentPlan.routeBuilding ? buildingRoute.status : routeStatus;
   const journeyTitle = amenityRouteEnabled ? selectedAmenity!.name : selectedBuilding && (studentPlan.routeBuilding || studentPlan.transitRequested) ? selectedBuilding.name : cityView.university;
@@ -366,6 +397,10 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
       onCuisine={value => patchSelection({cuisine: value, placeIds: null, selectedPlaceId: null, routePlaceId: null})}
       onExplore={() => setAmenitiesRequested(true)} onClear={() => patchSelection({categories: [], placeIds: null, selectedPlaceId: null, routePlaceId: null})}
       onToggle={toggleAmenity} onSelect={focusAmenities} onDismiss={() => setSelectedAmenityId(null)} onFit={() => focusAmenities()} onRetry={retryAmenities}/></MapLayers>
+    {live && !overlay && <div className="map-area-search">
+      <button onClick={searchVisibleArea}><Search size={15}/>{locale==="zh"?"搜索此区域":"Search this area"}</button>
+      <small role="status">{areaError?(locale==="zh"?"请俯视地面或缩小视野后重试。":"Tilt toward the ground or zoom in, then retry."):areaActive?(locale==="zh"?`上次搜索 · ${areaResultCount} 套 · 范围不会自动更新`:`Last search · ${areaResultCount} homes · Area stays fixed`):(locale==="zh"?"按可见地面范围筛选本城演示房源":"Filter this city's demo homes by the visible ground area")}</small>
+    </div>}
     {live && limitedCoverage && <p className="map-coverage" role="note">{t("当前校区建筑三维细节不足，显示影像地形。2026-10-08 实测；其他区域覆盖可能不同。")}</p>}
     {!live && <div className="map-intro"><p>{t("先认识这座城，再找到你的家。")}</p><h2>{city.english}{locale === "zh" && <span>{cityView.name}</span>}</h2><div className="map-connection"><Building2 size={22}/><div><strong>{connectionTitle}</strong><p>{connectionText}</p><div className="connection-actions">{status==="idle" && <button onClick={()=>setRequested(true)}>{t("加载实景 3D")}</button>}{status==="error" && <button onClick={()=>setRetry(v=>v+1)}>{t("重新连接")}</button>}<a href="/setup" target="_blank" rel="noreferrer">{t("查看接入说明")} <ChevronIcon/></a></div></div></div></div>}
     {live && <div className="map-controls"><button aria-label={t("放大地图")} onClick={()=>cameraAction("in")}><Plus size={19}/></button><button aria-label={t("缩小地图")} onClick={()=>cameraAction("out")}><Minus size={19}/></button><button aria-label={t("旋转地图")} onClick={()=>cameraAction("rotate")}><RotateCw size={18}/></button><button aria-label={t("回到大学")} onClick={()=>cameraAction("campus")}><GraduationCap size={20}/></button><button aria-label={t("重新定位房源")} onClick={()=>setFocusTick(v=>v+1)}><Compass size={20}/></button></div>}

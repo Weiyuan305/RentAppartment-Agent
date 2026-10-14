@@ -326,7 +326,10 @@ export default function DesignLab({preview = true}: {preview?: boolean}) {
   }
   function acceptRecovery(value:FilterSnapshot) {
     setFilterUndo({city:cityId,before:filterSnapshot,after:value});applyRentalFilters(value);
-    requestAnimationFrame(()=>document.querySelector<HTMLButtonElement>(".filter-undo")?.focus());
+    requestAnimationFrame(()=>{
+      explorerRoot.current?.querySelector<HTMLElement>(".listing-scroll")?.scrollTo({top:0,behavior:"instant"});
+      document.querySelector<HTMLButtonElement>(".filter-undo")?.focus();
+    });
   }
   const receiptChanges=agentReceipt?[
     ...actionChanges(agentReceipt.before,agentReceipt.after,locale,t),

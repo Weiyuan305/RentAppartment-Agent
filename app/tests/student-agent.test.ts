@@ -277,19 +277,74 @@ test("a named route origin is validated and becomes the map origin", async () =>
   assert.equal(runtime.getState().listingId, "london-2");
 });
 
-test("TfL rate limiting returns an honest external handoff and keeps keys server-only",async()=>{
- const originalFetch=globalThis.fetch,previousKey=process.env.ATLAS_TFL_API_KEY;
- let requestedKey:string|null=null;
- globalThis.fetch=(async(input:RequestInfo|URL)=>{requestedKey=new URL(String(input)).searchParams.get("app_key");return new Response('{}',{status:429});}) as typeof fetch;
- process.env.ATLAS_TFL_API_KEY="fixture-tfl-secret";
- try{
-  const runtime=createRentalTools(initialRentalState("london")),b=campusBuildings.find(b=>b.name==="Student Centre")!;
-  await runtime.tools.selectCampusDestination.execute!({buildingId:b.id},options);
-  const result=await runtime.tools.planPublicTransport.execute!({},options) as {kind:string;reason:string;directionsUrl:string};
-  assert.equal(requestedKey,"fixture-tfl-secret");
-  assert.equal(result.kind,"external-planner");assert.equal(result.reason,"provider-rate-limit");
-  assert.ok(result.directionsUrl.startsWith("https://www.google.com/maps/dir/"));
-  assert.ok(!JSON.stringify(result).includes("fixture-tfl-secret"));
-  assert.equal(runtime.getState().student?.transitRequested,false);
- }finally{globalThis.fetch=originalFetch;if(previousKey===undefined)delete process.env.ATLAS_TFL_API_KEY;else process.env.ATLAS_TFL_API_KEY=previousKey;}
+test("TfL rate limiting returns an honest external handoff and keeps keys server-only", async () => {
+  const originalFetch = globalThis.fetch,
+    previousKey = process.env.ATLAS_TFL_API_KEY;
+  let requestedKey: string | null = null;
+  globalThis.fetch = (async (input: RequestInfo | URL) => {
+    requestedKey = new URL(String(input)).searchParams.get("app_key");
+    return new Response("{}", { status: 429 });
+  }) as typeof fetch;
+  process.env.ATLAS_TFL_API_KEY = "fixture-tfl-secret";
+  try {
+    const runtime = createRentalTools(initialRentalState("london")),
+      b = campusBuildings.find((b) => b.name === "Student Centre")!;
+    await runtime.tools.selectCampusDestination.execute!(
+      { buildingId: b.id },
+      options,
+    );
+    const result = (await runtime.tools.planPublicTransport.execute!(
+      {},
+      options,
+    )) as { kind: string; reason: string; directionsUrl: string };
+    assert.equal(requestedKey, "fixture-tfl-secret");
+    assert.equal(result.kind, "external-planner");
+    assert.equal(result.reason, "provider-rate-limit");
+    assert.ok(
+      result.directionsUrl.startsWith("https://www.google.com/maps/dir/"),
+    );
+    assert.ok(!JSON.stringify(result).includes("fixture-tfl-secret"));
+    assert.equal(runtime.getState().student?.transitRequested, false);
+  } finally {
+    globalThis.fetch = originalFetch;
+    if (previousKey === undefined) delete process.env.ATLAS_TFL_API_KEY;
+    else process.env.ATLAS_TFL_API_KEY = previousKey;
+  }
+});
+
+test("demo transit uses an official handoff without a key or upstream request", async () => {
+  const originalFetch = globalThis.fetch,
+    previousKey = process.env.ATLAS_TFL_API_KEY;
+  delete process.env.ATLAS_TFL_API_KEY;
+  globalThis.fetch = (async () => {
+    throw new Error("Demo handoff must not call upstream");
+  }) as typeof fetch;
+  try {
+    const runtime = createRentalTools(initialRentalState("london")),
+      b = campusBuildings.find((b) => b.name === "Student Centre")!;
+    await runtime.tools.selectCampusDestination.execute!(
+      { buildingId: b.id },
+      options,
+    );
+    const result = (await runtime.tools.planPublicTransport.execute!(
+      {},
+      options,
+    )) as { kind: string; url: string; directionsUrl: string };
+    assert.equal(result.kind, "external-planner");
+    assert.equal(result.url, "https://tfl.gov.uk/plan-a-journey/");
+    const { GET } = await import("../app/api/student/route");
+    const response = await GET(
+      new Request(
+        "https://atlas.invalid/api/student?kind=transit&city=london&listing=london-1&building=" +
+          encodeURIComponent(b.id),
+      ),
+    );
+    assert.equal(response.status, 200);
+    assert.equal((await response.json()).kind, "external-planner");
+    assert.equal(runtime.getState().student?.transitRequested, false);
+  } finally {
+    globalThis.fetch = originalFetch;
+    if (previousKey === undefined) delete process.env.ATLAS_TFL_API_KEY;
+    else process.env.ATLAS_TFL_API_KEY = previousKey;
+  }
 });

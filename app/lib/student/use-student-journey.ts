@@ -75,6 +75,7 @@ export function useTransitJourney(
     [result, setResult] = useState<{
       key: string;
       journeys?: TransitJourney[];
+      external?: boolean;
       error?: string;
     } | null>(null);
   const key =
@@ -95,6 +96,11 @@ export function useTransitJourney(
           journeys?: TransitJourney[];
         };
         if (!r.ok) throw new Error(data.error ?? "Transit unavailable");
+        if (data.kind === "external-planner") {
+          if (!controller.signal.aborted)
+            setResult({ key, journeys: [], external: true });
+          return;
+        }
         if (data.kind !== "tfl-journeys" || !Array.isArray(data.journeys))
           throw new Error("请使用官方出行规划入口。");
         if (!controller.signal.aborted)
@@ -116,9 +122,11 @@ export function useTransitJourney(
       ? ("idle" as const)
       : current?.error
         ? ("error" as const)
-        : current?.journeys
-          ? ("ready" as const)
-          : ("loading" as const),
+        : current?.external
+          ? ("external" as const)
+          : current?.journeys
+            ? ("ready" as const)
+            : ("loading" as const),
     error: current?.error,
     retry: () => setAttempt((a) => a + 1),
   };

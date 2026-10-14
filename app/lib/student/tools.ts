@@ -289,7 +289,7 @@ export function createStudentTools(
           const { s, p, listing } = current(),
             b = buildingById(p.destinationId);
           if (!b) throw new Error("请先选择到校楼栋。");
-          if (s.cityId !== "london")
+          if (s.cityId !== "london" || !process.env.ATLAS_TFL_API_KEY?.trim())
             return {
               kind: "external-planner",
               ...transitSources[s.cityId],

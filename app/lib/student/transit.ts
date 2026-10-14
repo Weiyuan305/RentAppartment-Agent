@@ -28,8 +28,8 @@ export const transitSources: Record<
     url: "https://tfl.gov.uk/plan-a-journey/",
     campusUrl: "https://www.ucl.ac.uk/maps",
     notes: {
-      zh: "可查询 TfL 当次公交、地铁及步行组合；出发与到达时间为伦敦当地时间。",
-      en: "Live TfL journey search with bus, Tube and walking legs. Times are local to London.",
+      zh: "使用官方规划查询公交、地铁及步行组合；出发与到达时间为伦敦当地时间。",
+      en: "Use the official planner for bus, Tube and walking legs. Times are local to London.",
     },
     lines: [],
   },

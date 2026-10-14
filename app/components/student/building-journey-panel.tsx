@@ -123,6 +123,22 @@ export function TransitJourneyPanel({
       </div>
       {status === "loading" ? (
         <p>{w("正在查询 TfL 公共交通…", "Finding TfL journeys…")}</p>
+      ) : status === "external" ? (
+        <p>
+          {w(
+            "请在官方或外部规划页面查询公交与地铁方案。",
+            "Use the official or external planner for bus and Tube journeys.",
+          )}
+          {listing && (
+            <a
+              href={transitDirectionsUrl(listing, building)}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {w("规划此行程 ↗", "Plan this journey ↗")}
+            </a>
+          )}
+        </p>
       ) : status === "error" ? (
         <p>
           {w(
@@ -169,10 +185,10 @@ export function TransitJourneyPanel({
           target="_blank"
           rel="noreferrer"
         >
-          Powered by TfL Open Data ↗
+          {status === "external" ? w("TfL 官方规划 ↗", "TfL official planner ↗") : "Powered by TfL Open Data ↗"}
         </a>{" "}
         ·{" "}
-        {w(
+        {status === "external" ? w("行程与班次以规划页面为准。", "Follow the journey times and services shown by the planner.") : w(
           "伦敦当地时间，至多缓存5分钟。道路与班次可能变化。",
           "London local time. Cached up to 5 minutes; services may change.",
         )}

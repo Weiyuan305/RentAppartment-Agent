@@ -40,7 +40,7 @@ export async function GET(request: Request) {
     });
   }
   if (kind === "transit") {
-    if (city !== "london")
+    if (city !== "london" || !process.env.ATLAS_TFL_API_KEY?.trim())
       return Response.json(
         {
           kind: "external-planner",

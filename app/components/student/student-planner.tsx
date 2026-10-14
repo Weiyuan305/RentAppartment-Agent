@@ -658,22 +658,9 @@ export default function StudentPlanner({
                   )}
               </p>
               <div className="student-actions">
-                {city.id === "london" && (
-                  <button
-                    className="primary-button"
-                    disabled={!destination || !listing}
-                    onClick={() => {
-                      onTransit();
-                      onOpenChange(false);
-                    }}
-                  >
-                    <TrainFront size={16} />
-                    {w("查询公交 / 地铁组合", "Find bus / Tube journeys")}
-                  </button>
-                )}
                 {destination && listing && (
                   <a
-                    className="secondary-button"
+                    className="primary-button"
                     href={transitDirectionsUrl(listing, destination)}
                     target="_blank"
                     rel="noreferrer"
@@ -690,6 +677,19 @@ export default function StudentPlanner({
                 >
                   {w("官方公共交通规划", "Official transit planner")} ↗
                 </a>
+                {city.id === "london" && (
+                  <button
+                    className="secondary-button"
+                    disabled={!destination || !listing}
+                    onClick={() => {
+                      onTransit();
+                      onOpenChange(false);
+                    }}
+                  >
+                    <TrainFront size={16} />
+                    {w("在地图查看交通选项", "View transit options on map")}
+                  </button>
+                )}
                 <a href={source.campusUrl} target="_blank" rel="noreferrer">
                   {w("学校地图 / 校车说明", "Campus map / shuttle details")} ↗
                 </a>

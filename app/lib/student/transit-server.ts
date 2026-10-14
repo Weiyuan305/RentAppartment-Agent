@@ -1,4 +1,4 @@
-import { consumeQuota, database } from "../agent/store";
+import { consumeQuota, database, SessionError } from "../agent/store";
 import type { Listing } from "../rental-data";
 import type { CampusBuilding } from "./catalog";
 import { normalizeTransit, type TransitJourney } from "./transit";
@@ -25,11 +25,19 @@ export async function getTransitJourneys(
       `https://api.tfl.gov.uk/Journey/JourneyResults/${listing.lat},${listing.lng}/to/${building.lat},${building.lng}`,
     );
     url.searchParams.set("mode", "tube,bus,walking");
+    const apiKey = process.env.ATLAS_TFL_API_KEY?.trim();
+    if (apiKey) url.searchParams.set("app_key", apiKey);
     const response = await fetch(url, {
       signal: AbortSignal.timeout(15000),
       headers: { "User-Agent": "CampusAtlas-StudentPlanner/1.0" },
     });
-    if (!response.ok) throw new Error(`TfL upstream returned HTTP ${response.status}`);
+    if (response.status === 429)
+      throw new SessionError(
+        "TfL 查询额度暂时受限，请稍后重试或使用官方出行规划。",
+        429,
+      );
+    if (!response.ok)
+      throw new Error(`TfL upstream returned HTTP ${response.status}`);
     const journeys = normalizeTransit(await response.json());
     await db.run(
       "INSERT OR REPLACE INTO routes (key,payload,expires) VALUES (?,?,?)",

@@ -3,6 +3,8 @@ import { Footprints, TrainFront, X, RefreshCw } from "lucide-react";
 import { useLocale } from "@/components/locale-provider";
 import type { CampusBuilding, CampusRoute } from "@/lib/student/catalog";
 import type { TransitJourney } from "@/lib/student/transit";
+import { transitDirectionsUrl } from "@/lib/student/transit";
+import type { Listing } from "@/lib/rental-data";
 export function BuildingJourneyPanel({
   building,
   route,
@@ -90,6 +92,7 @@ export function BuildingJourneyPanel({
 }
 export function TransitJourneyPanel({
   building,
+  listing,
   journeys,
   status,
   onClose,
@@ -97,6 +100,7 @@ export function TransitJourneyPanel({
   onFit,
 }: {
   building: CampusBuilding;
+  listing?: Listing;
   journeys: TransitJourney[];
   status: string;
   onClose: () => void;
@@ -126,6 +130,15 @@ export function TransitJourneyPanel({
             "Journeys unavailable. Retry or visit TfL.",
           )}
           <button onClick={onRetry}>{w("重试", "Retry")}</button>
+          {listing && (
+            <a
+              href={transitDirectionsUrl(listing, building)}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {w("规划此行程 ↗", "Plan this journey ↗")}
+            </a>
+          )}
         </p>
       ) : (
         <>
@@ -156,7 +169,7 @@ export function TransitJourneyPanel({
           target="_blank"
           rel="noreferrer"
         >
-          TfL ↗
+          Powered by TfL Open Data ↗
         </a>{" "}
         ·{" "}
         {w(

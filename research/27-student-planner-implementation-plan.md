@@ -62,6 +62,6 @@ Files: `app/components/student/*`, `app/components/design-lab/design-lab.tsx`, `
 - [x] Run new domain and tool regressions plus existing agent/store/auth tests, typecheck, targeted lint, Cloudflare build and build secret guards.
 - [x] Dispatch an independent read-only code review with baseline, plan, actual changed files and evidence; fix Critical/Important findings and rerun affected checks.
 - [x] Record completed scope, evidence and data limits in `research/28-student-planner-release.md` and update app README.
-- [ ] Inspect ignore rules and staged paths, commit authored work, fetch remote, integrate safely and push user's GitHub repo. Verify remote SHA and report exact branch/commit.
+- [x] Inspect ignore rules and staged paths, commit authored work, fetch remote, integrate safely and push user's GitHub repo. Verify remote SHA and report exact branch/commit.
 
-Acceptance detail and limitations, including emulated mobile pointer testing, are recorded in `28-student-planner-release.md`. Git delivery is the remaining final step.
+Acceptance detail and limitations, including emulated mobile pointer testing, are recorded in `28-student-planner-release.md`. Code has been synchronized to GitHub main before deployment. The TfL anonymous Cloudflare rate-limit and fallback are explicitly recorded; keyed live transit is a separate target-environment acceptance gap.

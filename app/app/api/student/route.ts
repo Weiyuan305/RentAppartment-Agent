@@ -60,7 +60,11 @@ export async function GET(request: Request) {
         { headers },
       );
     } catch (e) {
-      console.warn("[student-transit]", {provider:"TfL", error:e instanceof Error?e.message:"Unknown error"});
+      console.warn("[student-transit]", {
+        provider: "TfL",
+        errorType: e instanceof Error ? e.name : "UnknownError",
+        status: e instanceof SessionError ? e.status : 502,
+      });
       return Response.json(
         {
           error:

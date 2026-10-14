@@ -24,6 +24,8 @@ import {
 } from "./planner";
 import { getTransitJourneys } from "./transit-server";
 import { transitSources, transitDirectionsUrl } from "./transit";
+import { SessionError } from "../agent/store";
+import type { TransitJourney } from "./transit";
 export function createStudentTools(
   get: () => RentalState,
   update: (state: RentalState) => void,
@@ -295,7 +297,22 @@ export function createStudentTools(
               limitation:
                 "需在官方或外部规划页面查询，本站没有计算实时公交时长。",
             };
-          const journeys = await getTransitJourneys(listing, b);
+          let journeys: TransitJourney[];
+          try {
+            journeys = await getTransitJourneys(listing, b);
+          } catch (e) {
+            return {
+              kind: "external-planner",
+              ...transitSources[s.cityId],
+              directionsUrl: transitDirectionsUrl(listing, b),
+              reason:
+                e instanceof SessionError && e.status === 429
+                  ? "provider-rate-limit"
+                  : "provider-unavailable",
+              limitation:
+                "TfL 当次查询不可用，本站没有算出公交时长。请使用返回的官方/外部行程入口，不声称地图已显示公交路线。",
+            };
+          }
           update({
             ...s,
             map: {

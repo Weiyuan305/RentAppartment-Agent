@@ -19,7 +19,7 @@
 
 ## 验证证据
 
-- 自动化测试共 32 项通过：学生规划 14、已有 Agent 8、D1 3、认证 2、健康检查 2、Markdown 3。覆盖日期边界、未知费用、跨城 ID、重复清单、所有楼栋的路线和等时圈、旧会话兼容、入口和路线模式、导航状态恢复、指定公寓起点。
+- 自动化测试共 33 项通过：学生规划 15、已有 Agent 8、D1 3、认证 2、健康检查 2、Markdown 3。覆盖日期边界、未知费用、跨城 ID、重复清单、所有楼栋的路线和等时圈、旧会话兼容、入口和路线模式、导航状态恢复、指定公寓起点，以及 TfL 429 降级和密钥不回传。
 - 类型检查通过；针对改动的 ESLint 无错误，保留既有图片和 Hook 依赖警告。Cloudflare 构建通过，守卫结果为 `secretLeaks=0 / sqliteImports=0 / hasD1=true`。
 - 独立只读代码审查已完成。修复了筛选后费用仍引用旧公寓、旧路线模式未清除、入住筛选重置不全、详情链接丢失楼栋、旧保存覆盖 URL 目的地、空 / 单项比较清单恢复旧值的问题。最后的指定起点工具修改也已独立复审。
 - 实际模型验收曾发现把当前公寓距离说成用户点名的 Chapter House 距离。已将新楼栋路线工具改为必传并校验公寓 ID，同步地图起点，返回 `origin` 公寓名称，并补充程序回归和模型指令。修复后中文与英文追问均返回 Chapter House → Student Centre **686 米 / 约 9 分钟**，地图同步为 Chapter House。
@@ -29,6 +29,16 @@
 - 中英文桌面 UI 已操作；390×844 手机视口检查无页面横向溢出，规划截图已保存。设备模拟下点击坐标桥接不稳定，未据此宣称完成真实手机全流程手势验收。
 
 截图：`evidence/campus-planner/comparison-en.png`、`costs-en.png`、`mobile-planner-en.png`。真实模型使用本地配置和隔离的临时验收数据库，不上传聊天数据库或凭据。
+
+## 公网验收与 TfL 限制
+
+代码已先上传 GitHub `main`（首个功能提交 `bef265582b3a3d0980d7abdd39c0af0e85d46ace`），随后发布 Cloudflare。公网五城的已有设施工具、默认校园路线、会话持久化、来源校验与健康检查通过。独立游客会话的真实模型也返回 Chapter House → Student Centre **686 米 / 9 分钟**，D1 保存的公寓、楼栋和地图路线状态一致，英文回答完成约 17 秒。公开比较页截图为 `evidence/campus-planner/cloudflare-comparison-en.png`。
+
+TfL 本机成功不代表云端成功：公网测试与 Worker 诊断日志确认 TfL 对 Cloudflare 匿名出口返回 **HTTP 429**。这不是 D1 或几何解析错误；[TfL 官方产品页](https://api-portal.tfl.gov.uk/products) 写明匿名请求每分钟限额为 50。共享云端出口受限是根据本机成功、云端 429 作出的定位判断，尚未获得上游对具体出口限额的额外说明。
+
+已实现明确的限流回退、当前起终点外部规划链接、可选服务端 `ATLAS_TFL_API_KEY`；AI 查询失败时返回 `external-planner` 和限制，不声称算出了实时公交时长或已画公交路线。服务端日志只记录错误类别和状态，不记录包含 Key 的请求 URL。有效 Key 后的 Cloudflare 内嵌公交查询仍需另行验收，本次不宣称已经恢复。
+
+取得 TfL Key 后放入本地 `.env.agent.local` 的 `ATLAS_TFL_API_KEY`，再运行 `npm run secrets:cloudflare -- --transit-only` 上传到既有 Worker Secrets；不能填入前端环境变量或提交到 Git。当前没有新增 TfL 凭据，也没有上传该服务的密钥。
 
 ## 数据更新与复现
 

@@ -276,3 +276,20 @@ test("a named route origin is validated and becomes the map origin", async () =>
   );
   assert.equal(runtime.getState().listingId, "london-2");
 });
+
+test("TfL rate limiting returns an honest external handoff and keeps keys server-only",async()=>{
+ const originalFetch=globalThis.fetch,previousKey=process.env.ATLAS_TFL_API_KEY;
+ let requestedKey:string|null=null;
+ globalThis.fetch=(async(input:RequestInfo|URL)=>{requestedKey=new URL(String(input)).searchParams.get("app_key");return new Response('{}',{status:429});}) as typeof fetch;
+ process.env.ATLAS_TFL_API_KEY="fixture-tfl-secret";
+ try{
+  const runtime=createRentalTools(initialRentalState("london")),b=campusBuildings.find(b=>b.name==="Student Centre")!;
+  await runtime.tools.selectCampusDestination.execute!({buildingId:b.id},options);
+  const result=await runtime.tools.planPublicTransport.execute!({},options) as {kind:string;reason:string;directionsUrl:string};
+  assert.equal(requestedKey,"fixture-tfl-secret");
+  assert.equal(result.kind,"external-planner");assert.equal(result.reason,"provider-rate-limit");
+  assert.ok(result.directionsUrl.startsWith("https://www.google.com/maps/dir/"));
+  assert.ok(!JSON.stringify(result).includes("fixture-tfl-secret"));
+  assert.equal(runtime.getState().student?.transitRequested,false);
+ }finally{globalThis.fetch=originalFetch;if(previousKey===undefined)delete process.env.ATLAS_TFL_API_KEY;else process.env.ATLAS_TFL_API_KEY=previousKey;}
+});

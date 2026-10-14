@@ -340,7 +340,8 @@ test("demo transit uses an official handoff without a key or upstream request", 
       ),
     );
     assert.equal(response.status, 200);
-    assert.equal((await response.json()).kind, "external-planner");
+    const payload=await response.json() as {kind:string};
+    assert.equal(payload.kind, "external-planner");
     assert.equal(runtime.getState().student?.transitRequested, false);
   } finally {
     globalThis.fetch = originalFetch;

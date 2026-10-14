@@ -1,0 +1,74 @@
+[
+  {
+    "label": "manchester",
+    "url": "https://www.manchester.ac.uk/about/maps/",
+    "result": "200 https://www.manchester.ac.uk/about/maps/",
+    "ok": true
+  },
+  {
+    "label": "edinburgh",
+    "url": "https://www.ed.ac.uk/maps/maps",
+    "result": "200 https://www.ed.ac.uk/maps/maps",
+    "ok": true
+  },
+  {
+    "label": "liverpool",
+    "url": "https://www.liverpool.ac.uk/about/visit-us/maps/",
+    "result": "200 https://www.liverpool.ac.uk/about/visit-us/maps/",
+    "ok": true
+  },
+  {
+    "label": "birmingham",
+    "url": "https://www.birmingham.ac.uk/contact/campus-map",
+    "result": "200 https://www.birmingham.ac.uk/contact/campus-map",
+    "ok": true
+  },
+  {
+    "label": "melbourne",
+    "url": "https://maps.unimelb.edu.au/",
+    "result": "403 https://maps.unimelb.edu.au/",
+    "ok": true
+  },
+  {
+    "label": "canberra",
+    "url": "https://services.anu.edu.au/campus-environment/facilities-maps/maps-way-finding",
+    "result": "200 https://services.anu.edu.au/campus-environment/facilities-maps/maps-way-finding",
+    "ok": true
+  },
+  {
+    "label": "Manchester transit",
+    "url": "https://tfgm.com/plan-a-journey",
+    "result": "403 https://tfgm.com/plan-a-journey",
+    "ok": true
+  },
+  {
+    "label": "Edinburgh transit",
+    "url": "https://www.lothianbuses.com/live-travel-info/journey-planner/",
+    "result": "200 https://www.lothianbuses.com/live-travel-info/journey-planner/",
+    "ok": true
+  },
+  {
+    "label": "Liverpool transit",
+    "url": "https://www.merseytravel.gov.uk/journey-planning/",
+    "result": "403 https://www.merseytravel.gov.uk/journey-planning/",
+    "ok": true
+  },
+  {
+    "label": "Birmingham transit",
+    "url": "https://www.tfwm.org.uk/plan-your-journey/",
+    "result": "200 https://www.tfwm.org.uk/plan-your-journey/",
+    "ok": true
+  },
+  {
+    "label": "Melbourne transit",
+    "url": "https://transport.vic.gov.au/Plan-a-journey",
+    "result": "403 https://transport.vic.gov.au/Plan-a-journey",
+    "ok": true
+  },
+  {
+    "label": "Canberra transit",
+    "url": "https://www.transport.act.gov.au/getting-around/journey-planner",
+    "result": "403 https://www.transport.act.gov.au/getting-around/journey-planner",
+    "ok": true
+  }
+]

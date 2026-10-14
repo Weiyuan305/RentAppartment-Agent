@@ -1,3 +1,4 @@
+import { cityIds } from "../rental-data";
 import { z } from "zod";
 import type { UIMessage, InferUITools } from "ai";
 import type { createRentalTools } from "./tools";
@@ -5,7 +6,7 @@ import { amenityCategories } from "../amenities";
 import { emptyFilters } from "../assistant";
 import {studentPlanSchema} from "../student/state";
 
-export const cityIdSchema = z.enum(["london", "sydney", "singapore", "kuala-lumpur", "hong-kong"]);
+export const cityIdSchema = z.enum(cityIds);
 export const filtersSchema = z.object({
   roomType: z.enum(["all", "独立 Studio", "独卫单间", "合租单间"]),
   budget: z.number().positive().max(10000000).nullable(), bills: z.boolean(),

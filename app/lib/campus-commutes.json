@@ -1,4 +1,76 @@
 {
+  "birmingham-1": {
+    "durationSeconds": 404.535,
+    "distanceMeters": 568
+  },
+  "birmingham-2": {
+    "durationSeconds": 377.089,
+    "distanceMeters": 511
+  },
+  "birmingham-3": {
+    "durationSeconds": 887.966,
+    "distanceMeters": 1200
+  },
+  "birmingham-4": {
+    "durationSeconds": 520.651,
+    "distanceMeters": 646
+  },
+  "birmingham-5": {
+    "durationSeconds": 1050.794,
+    "distanceMeters": 1408
+  },
+  "birmingham-6": {
+    "durationSeconds": 1006.34,
+    "distanceMeters": 1271
+  },
+  "canberra-1": {
+    "durationSeconds": 399.163,
+    "distanceMeters": 570
+  },
+  "canberra-2": {
+    "durationSeconds": 492.126,
+    "distanceMeters": 695
+  },
+  "canberra-3": {
+    "durationSeconds": 1046.812,
+    "distanceMeters": 1441
+  },
+  "canberra-4": {
+    "durationSeconds": 477.736,
+    "distanceMeters": 666
+  },
+  "canberra-5": {
+    "durationSeconds": 708.537,
+    "distanceMeters": 954
+  },
+  "canberra-6": {
+    "durationSeconds": 1095.136,
+    "distanceMeters": 1507
+  },
+  "edinburgh-1": {
+    "durationSeconds": 624.022,
+    "distanceMeters": 841
+  },
+  "edinburgh-2": {
+    "durationSeconds": 654.817,
+    "distanceMeters": 867
+  },
+  "edinburgh-3": {
+    "durationSeconds": 1121.383,
+    "distanceMeters": 1506
+  },
+  "edinburgh-4": {
+    "durationSeconds": 523.197,
+    "distanceMeters": 658
+  },
+  "edinburgh-5": {
+    "durationSeconds": 1063.426,
+    "distanceMeters": 1394
+  },
+  "edinburgh-6": {
+    "durationSeconds": 823.278,
+    "distanceMeters": 1119
+  },
   "hong-kong-1": {
     "durationSeconds": 754.975,
     "distanceMeters": 800
@@ -47,6 +119,30 @@
     "durationSeconds": 1687.993,
     "distanceMeters": 2120
   },
+  "liverpool-1": {
+    "durationSeconds": 739.364,
+    "distanceMeters": 1004
+  },
+  "liverpool-2": {
+    "durationSeconds": 496.108,
+    "distanceMeters": 662
+  },
+  "liverpool-3": {
+    "durationSeconds": 1054.876,
+    "distanceMeters": 1504
+  },
+  "liverpool-4": {
+    "durationSeconds": 509.964,
+    "distanceMeters": 660
+  },
+  "liverpool-5": {
+    "durationSeconds": 1083.773,
+    "distanceMeters": 1463
+  },
+  "liverpool-6": {
+    "durationSeconds": 845.352,
+    "distanceMeters": 1179
+  },
   "london-1": {
     "durationSeconds": 544.213,
     "distanceMeters": 741
@@ -70,6 +166,54 @@
   "london-6": {
     "durationSeconds": 963.393,
     "distanceMeters": 1284
+  },
+  "manchester-1": {
+    "durationSeconds": 539.47,
+    "distanceMeters": 720
+  },
+  "manchester-2": {
+    "durationSeconds": 472.004,
+    "distanceMeters": 602
+  },
+  "manchester-3": {
+    "durationSeconds": 1069.053,
+    "distanceMeters": 1453
+  },
+  "manchester-4": {
+    "durationSeconds": 542.552,
+    "distanceMeters": 730
+  },
+  "manchester-5": {
+    "durationSeconds": 1076.39,
+    "distanceMeters": 1485
+  },
+  "manchester-6": {
+    "durationSeconds": 975.196,
+    "distanceMeters": 1362
+  },
+  "melbourne-1": {
+    "durationSeconds": 562.749,
+    "distanceMeters": 699
+  },
+  "melbourne-2": {
+    "durationSeconds": 626.674,
+    "distanceMeters": 756
+  },
+  "melbourne-3": {
+    "durationSeconds": 1142.645,
+    "distanceMeters": 1569
+  },
+  "melbourne-4": {
+    "durationSeconds": 587.52,
+    "distanceMeters": 751
+  },
+  "melbourne-5": {
+    "durationSeconds": 1201.594,
+    "distanceMeters": 1614
+  },
+  "melbourne-6": {
+    "durationSeconds": 1043.157,
+    "distanceMeters": 1402
   },
   "singapore-1": {
     "durationSeconds": 906.168,

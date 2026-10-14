@@ -13,8 +13,10 @@ import {
   parseWalkingRoute,
 } from "../lib/walking-route";
 const data = JSON.parse(readFileSync("lib/student/data/campuses.json", "utf8"));
-const summaries: Record<string, unknown> = {},
-  catchments: Record<string, unknown> = {};
+const summaries: Record<string, unknown> = JSON.parse(readFileSync("lib/student/data/routes.json", "utf8")),
+  catchments: Record<string, unknown> = JSON.parse(readFileSync("lib/student/data/catchments.json", "utf8"));
+const requested=process.argv.find(arg=>arg.startsWith("--cities="))?.slice(9).split(",");
+if(requested?.some(city=>!data.campuses.some((campus:{cityId:string})=>campus.cityId===city)))throw new Error("Unknown campus city");
 const endpoint = "https://valhalla1.openstreetmap.de";
 function saveIndex() {
   writeFileSync(
@@ -26,7 +28,6 @@ function saveIndex() {
     JSON.stringify(catchments) + "\n",
   );
 }
-saveIndex();
 async function query(kind: string, request: unknown) {
   await new Promise((resolve) => setTimeout(resolve, 1100));
   const raw = execFileSync(
@@ -49,6 +50,7 @@ async function query(kind: string, request: unknown) {
   return JSON.parse(raw);
 }
 for (const b of data.buildings) {
+  if(requested && !requested.includes(b.cityId))continue;
   for (const l of listings.filter((l) => l.cityId === b.cityId)) {
     const folder = `public/campus-routes/${l.id}`;
     mkdirSync(folder, { recursive: true });
@@ -122,7 +124,6 @@ for (const b of data.buildings) {
       endOffsetMeters: r.endOffsetMeters,
       source: r.source,
     };
-    saveIndex();
     console.log(
       `${l.id} -> ${b.name}: ${r.distanceMeters}m / ${Math.ceil(r.durationSeconds / 60)}min`,
     );
@@ -166,9 +167,9 @@ for (const b of data.buildings) {
       },
     };
   }
-  saveIndex();
   console.log(`catchments: ${b.name}`);
 }
+saveIndex();
 console.log(
   `Complete: ${Object.keys(summaries).length} routes, ${Object.keys(catchments).length} catchments.`,
 );

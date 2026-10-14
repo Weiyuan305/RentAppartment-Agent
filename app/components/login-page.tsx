@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowRight, Compass, Eye, EyeOff, Footprints, Globe2, LoaderCircle, MapPin, Sparkles } from "lucide-react";
 import { authClient } from "@/lib/auth-client";
 import { safeReturnPath } from "@/lib/i18n";
+import { cities } from "@/lib/rental-data";
 import { useLocale } from "./locale-provider";
 import { LanguageSwitch } from "./language-switch";
 import { Button } from "./ui/button";
@@ -36,7 +37,7 @@ export function LoginPage() {
     <section className="auth-story" aria-label={t("留学生活，从这里开始")}>
       <img className="auth-cover" src="/photos/london.jpg" alt=""/>
       <div className="auth-story-shade"/>
-      <div className="auth-story-content"><h1>{t("新城市，")}<br/>{t("也可以有家的感觉。")}</h1><p>{t("从大学旁的一间房，到你喜欢的生活圈，慢慢找到属于自己的位置。")}</p><div className="auth-benefits"><span><Globe2 size={17}/>{t("5 座留学城市")}</span><span><MapPin size={17}/>{t("实景城市探索")}</span><span><Footprints size={17}/>{t("真实步行路线")}</span></div></div>
+      <div className="auth-story-content"><h1>{t("新城市，")}<br/>{t("也可以有家的感觉。")}</h1><p>{t("从大学旁的一间房，到你喜欢的生活圈，慢慢找到属于自己的位置。")}</p><div className="auth-benefits"><span><Globe2 size={17}/>{t("{count} 座留学城市",{count:cities.length})}</span><span><MapPin size={17}/>{t("实景城市探索")}</span><span><Footprints size={17}/>{t("真实步行路线")}</span></div></div>
       <div className="auth-city-credit"><span className="dot"/>LONDON · BLOOMSBURY<span>01 / 05</span></div>
     </section>
     <section className="auth-form-panel"><div className="auth-form-wrap"><h2>{t(mode === "signup" ? "创建你的账号" : "欢迎回来")}</h2><p className="auth-subtitle">{t(mode === "signup" ? "给你的留学找房之旅，一个新的开始。" : "登录远居，继续探索你的留学新家。")}</p>

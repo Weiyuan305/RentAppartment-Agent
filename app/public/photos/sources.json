@@ -121,6 +121,72 @@
       "license": "Unsplash License",
       "licenseUrl": "https://unsplash.com/license",
       "verified": "HTTP 200 image/jpeg; downloaded and visually inspected; individual source page identifies free Unsplash License."
+    },
+    {
+      "file": "manchester.jpg",
+      "kind": "city",
+      "description": "Manchester city preview",
+      "photographer": "Mylo Kaye",
+      "imageUrl": "https://images.unsplash.com/photo-1724135869739-6055627ba5df?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/a-view-of-a-city-from-the-top-of-a-building-NXtGjC7osPs",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "Free Unsplash source page and city location checked; downloaded and visually inspected 1200px JPEG."
+    },
+    {
+      "file": "edinburgh.jpg",
+      "kind": "city",
+      "description": "Edinburgh city preview",
+      "photographer": "Rob Wingate",
+      "imageUrl": "https://images.unsplash.com/photo-1751922090004-6386496669c8?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/edinburgh-castle-and-city-skyline-at-dusk-nWkt_TNAhG4",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "Free Unsplash source page and city location checked; downloaded and visually inspected 1200px JPEG."
+    },
+    {
+      "file": "liverpool.jpg",
+      "kind": "city",
+      "description": "Liverpool city preview",
+      "photographer": "Daniel Sturley",
+      "imageUrl": "https://images.unsplash.com/photo-1772967306119-b70168ab64a6?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/modern-skyline-with-historic-buildings-by-the-water-9iOVb_kfFvw",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "Free Unsplash source page and city location checked; downloaded and visually inspected 1200px JPEG."
+    },
+    {
+      "file": "birmingham.jpg",
+      "kind": "city",
+      "description": "Birmingham city preview",
+      "photographer": "Daniel Sturley",
+      "imageUrl": "https://images.unsplash.com/photo-1773523319223-5418528242a7?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/city-skyline-seen-over-residential-rooftops-_-lN_sUc6Wg",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "Free Unsplash source page and city location checked; downloaded and visually inspected 1200px JPEG."
+    },
+    {
+      "file": "melbourne.jpg",
+      "kind": "city",
+      "description": "Melbourne city preview",
+      "photographer": "Urlaubstracker",
+      "imageUrl": "https://images.unsplash.com/photo-1595434971780-79d5c20c5090?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/city-skyline-during-day-time-dW8dOC8r7O4",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "Free Unsplash source page and city location checked; downloaded and visually inspected 1200px JPEG."
+    },
+    {
+      "file": "canberra.jpg",
+      "kind": "city",
+      "description": "Canberra city preview",
+      "photographer": "Rohan Patrick",
+      "imageUrl": "https://images.unsplash.com/photo-1709609720392-b7acd156762a?auto=format&fit=crop&w=1200&q=80",
+      "sourceUrl": "https://unsplash.com/photos/a-large-building-sitting-on-top-of-a-lake-6xM4Jwh2ddA",
+      "license": "Unsplash License",
+      "licenseUrl": "https://unsplash.com/license",
+      "verified": "Free Unsplash source page and city location checked; downloaded and visually inspected 1200px JPEG."
     }
   ]
 }

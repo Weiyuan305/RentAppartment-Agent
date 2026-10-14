@@ -37,6 +37,48 @@
       "university": "The University of Hong Kong",
       "name": "Main campus",
       "officialUrl": "https://www.maps.hku.hk/"
+    },
+    {
+      "id": "manchester-main",
+      "cityId": "manchester",
+      "university": "University of Manchester",
+      "name": "Oxford Road",
+      "officialUrl": "https://www.manchester.ac.uk/about/maps/"
+    },
+    {
+      "id": "edinburgh-main",
+      "cityId": "edinburgh",
+      "university": "University of Edinburgh",
+      "name": "Central Area",
+      "officialUrl": "https://www.ed.ac.uk/maps/maps"
+    },
+    {
+      "id": "liverpool-main",
+      "cityId": "liverpool",
+      "university": "University of Liverpool",
+      "name": "City Centre",
+      "officialUrl": "https://www.liverpool.ac.uk/about/visit-us/maps/"
+    },
+    {
+      "id": "birmingham-main",
+      "cityId": "birmingham",
+      "university": "University of Birmingham",
+      "name": "Edgbaston",
+      "officialUrl": "https://www.birmingham.ac.uk/contact/campus-map"
+    },
+    {
+      "id": "melbourne-main",
+      "cityId": "melbourne",
+      "university": "University of Melbourne",
+      "name": "Parkville",
+      "officialUrl": "https://maps.unimelb.edu.au/"
+    },
+    {
+      "id": "canberra-main",
+      "cityId": "canberra",
+      "university": "Australian National University",
+      "name": "Acton",
+      "officialUrl": "https://services.anu.edu.au/campus-environment/facilities-maps/maps-way-finding"
     }
   ],
   "buildings": [
@@ -850,6 +892,469 @@
         "url": "https://www.openstreetmap.org/way/182172765",
         "officialUrl": "https://www.maps.hku.hk/",
         "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/217170181",
+      "cityId": "manchester",
+      "campusId": "manchester-main",
+      "name": "Whitworth Hall",
+      "aliases": [
+        "Whitworth Hall",
+        "惠特沃思礼堂"
+      ],
+      "category": "teaching",
+      "lng": -2.2334444,
+      "lat": 53.4653831,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/217170181",
+        "officialUrl": "https://www.manchester.ac.uk/about/maps/",
+        "collectedAt": "2026-10-14T08:39:33.454546+00:00"
+      }
+    },
+    {
+      "id": "way/75361245",
+      "cityId": "manchester",
+      "campusId": "manchester-main",
+      "name": "Kilburn Building",
+      "aliases": [
+        "Kilburn",
+        "Computer Science",
+        "计算机楼"
+      ],
+      "category": "teaching",
+      "lng": -2.2339154,
+      "lat": 53.4676203,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/75361245",
+        "officialUrl": "https://www.manchester.ac.uk/about/maps/",
+        "collectedAt": "2026-10-14T08:39:33.454546+00:00"
+      }
+    },
+    {
+      "id": "way/216684105",
+      "cityId": "manchester",
+      "campusId": "manchester-main",
+      "name": "Alan Gilbert Learning Commons",
+      "aliases": [
+        "Alan Gilbert",
+        "Learning Commons",
+        "学习中心"
+      ],
+      "category": "library",
+      "lng": -2.2332719,
+      "lat": 53.4648089,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/216684105",
+        "officialUrl": "https://www.manchester.ac.uk/about/maps/",
+        "collectedAt": "2026-10-14T08:39:33.454546+00:00"
+      }
+    },
+    {
+      "id": "way/334619210",
+      "cityId": "manchester",
+      "campusId": "manchester-main",
+      "name": "Alan Turing Building",
+      "aliases": [
+        "Alan Turing",
+        "图灵楼"
+      ],
+      "category": "teaching",
+      "lng": -2.2314188,
+      "lat": 53.4680805,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/334619210",
+        "officialUrl": "https://www.manchester.ac.uk/about/maps/",
+        "collectedAt": "2026-10-14T08:39:33.454546+00:00"
+      }
+    },
+    {
+      "id": "way/4308724",
+      "cityId": "edinburgh",
+      "campusId": "edinburgh-main",
+      "name": "Edinburgh University Library",
+      "aliases": [
+        "Main Library",
+        "主图书馆"
+      ],
+      "category": "library",
+      "lng": -3.1889881,
+      "lat": 55.9426007,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/4308724",
+        "officialUrl": "https://www.ed.ac.uk/maps/maps",
+        "collectedAt": "2026-10-14T08:39:37.222203+00:00"
+      }
+    },
+    {
+      "id": "way/23046723",
+      "cityId": "edinburgh",
+      "campusId": "edinburgh-main",
+      "name": "Informatics Forum",
+      "aliases": [
+        "Informatics",
+        "信息学院"
+      ],
+      "category": "teaching",
+      "lng": -3.1876415,
+      "lat": 55.9446018,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/23046723",
+        "officialUrl": "https://www.ed.ac.uk/maps/maps",
+        "collectedAt": "2026-10-14T08:39:37.222203+00:00"
+      }
+    },
+    {
+      "id": "way/514395905",
+      "cityId": "edinburgh",
+      "campusId": "edinburgh-main",
+      "name": "Appleton Tower",
+      "aliases": [
+        "Appleton",
+        "苹果顿塔"
+      ],
+      "category": "teaching",
+      "lng": -3.1863769,
+      "lat": 55.9443579,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/514395905",
+        "officialUrl": "https://www.ed.ac.uk/maps/maps",
+        "collectedAt": "2026-10-14T08:39:37.222203+00:00"
+      }
+    },
+    {
+      "id": "way/5320937",
+      "cityId": "edinburgh",
+      "campusId": "edinburgh-main",
+      "name": "Potterrow Mandela Student Centre",
+      "aliases": [
+        "Potterrow",
+        "学生中心"
+      ],
+      "category": "services",
+      "lng": -3.1884232,
+      "lat": 55.9459438,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/5320937",
+        "officialUrl": "https://www.ed.ac.uk/maps/maps",
+        "collectedAt": "2026-10-14T08:39:37.222203+00:00"
+      }
+    },
+    {
+      "id": "way/264213447",
+      "cityId": "liverpool",
+      "campusId": "liverpool-main",
+      "name": "Victoria Building",
+      "aliases": [
+        "Victoria",
+        "维多利亚楼"
+      ],
+      "category": "teaching",
+      "lng": -2.9667185,
+      "lat": 53.4061732,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/264213447",
+        "officialUrl": "https://www.liverpool.ac.uk/about/visit-us/maps/",
+        "collectedAt": "2026-10-14T08:39:41.480641+00:00"
+      }
+    },
+    {
+      "id": "way/42733274",
+      "cityId": "liverpool",
+      "campusId": "liverpool-main",
+      "name": "Harold Cohen Library",
+      "aliases": [
+        "Harold Cohen",
+        "哈罗德科恩图书馆"
+      ],
+      "category": "library",
+      "lng": -2.9657333,
+      "lat": 53.4067386,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/42733274",
+        "officialUrl": "https://www.liverpool.ac.uk/about/visit-us/maps/",
+        "collectedAt": "2026-10-14T08:39:41.480641+00:00"
+      }
+    },
+    {
+      "id": "way/44724259",
+      "cityId": "liverpool",
+      "campusId": "liverpool-main",
+      "name": "Sydney Jones Library",
+      "aliases": [
+        "Sydney Jones",
+        "西德尼琼斯图书馆"
+      ],
+      "category": "library",
+      "lng": -2.9638387,
+      "lat": 53.402471,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/44724259",
+        "officialUrl": "https://www.liverpool.ac.uk/about/visit-us/maps/",
+        "collectedAt": "2026-10-14T08:39:41.480641+00:00"
+      }
+    },
+    {
+      "id": "way/42729347",
+      "cityId": "liverpool",
+      "campusId": "liverpool-main",
+      "name": "Liverpool Guild of Students",
+      "aliases": [
+        "Guild",
+        "学生会"
+      ],
+      "category": "services",
+      "lng": -2.9661259,
+      "lat": 53.4052195,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/42729347",
+        "officialUrl": "https://www.liverpool.ac.uk/about/visit-us/maps/",
+        "collectedAt": "2026-10-14T08:39:41.480641+00:00"
+      }
+    },
+    {
+      "id": "way/89573854",
+      "cityId": "birmingham",
+      "campusId": "birmingham-main",
+      "name": "Aston Webb Building Great Hall",
+      "aliases": [
+        "Aston Webb",
+        "Great Hall",
+        "大礼堂",
+        "R6"
+      ],
+      "category": "teaching",
+      "lng": -1.9308465,
+      "lat": 52.4488331,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/89573854",
+        "officialUrl": "https://www.birmingham.ac.uk/contact/campus-map",
+        "collectedAt": "2026-10-14T08:39:45.787812+00:00"
+      }
+    },
+    {
+      "id": "way/447829915",
+      "cityId": "birmingham",
+      "campusId": "birmingham-main",
+      "name": "Main Library",
+      "aliases": [
+        "Main Library",
+        "主图书馆",
+        "R30"
+      ],
+      "category": "library",
+      "lng": -1.9315576,
+      "lat": 52.4515608,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/447829915",
+        "officialUrl": "https://www.birmingham.ac.uk/contact/campus-map",
+        "collectedAt": "2026-10-14T08:39:45.787812+00:00"
+      }
+    },
+    {
+      "id": "way/55608660",
+      "cityId": "birmingham",
+      "campusId": "birmingham-main",
+      "name": "Guild of Students",
+      "aliases": [
+        "Guild",
+        "学生会",
+        "O1"
+      ],
+      "category": "services",
+      "lng": -1.9270924,
+      "lat": 52.4493672,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/55608660",
+        "officialUrl": "https://www.birmingham.ac.uk/contact/campus-map",
+        "collectedAt": "2026-10-14T08:39:45.787812+00:00"
+      }
+    },
+    {
+      "id": "way/27890547",
+      "cityId": "birmingham",
+      "campusId": "birmingham-main",
+      "name": "Aston Webb Student Hub (Block C)",
+      "aliases": [
+        "Student Hub",
+        "学生服务中心",
+        "R7"
+      ],
+      "category": "services",
+      "lng": -1.9301006,
+      "lat": 52.4488765,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/27890547",
+        "officialUrl": "https://www.birmingham.ac.uk/contact/campus-map",
+        "collectedAt": "2026-10-14T08:39:45.787812+00:00"
+      }
+    },
+    {
+      "id": "way/22871257",
+      "cityId": "melbourne",
+      "campusId": "melbourne-main",
+      "name": "Baillieu Library",
+      "aliases": [
+        "Baillieu",
+        "百利图书馆"
+      ],
+      "category": "library",
+      "lng": 144.959559,
+      "lat": -37.798337,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/22871257",
+        "officialUrl": "https://maps.unimelb.edu.au/",
+        "collectedAt": "2026-10-14T08:39:50.105894+00:00"
+      }
+    },
+    {
+      "id": "way/22952361",
+      "cityId": "melbourne",
+      "campusId": "melbourne-main",
+      "name": "Old Arts Building",
+      "aliases": [
+        "Old Arts",
+        "旧文学院楼"
+      ],
+      "category": "teaching",
+      "lng": 144.960089,
+      "lat": -37.7981302,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/22952361",
+        "officialUrl": "https://maps.unimelb.edu.au/",
+        "collectedAt": "2026-10-14T08:39:50.105894+00:00"
+      }
+    },
+    {
+      "id": "way/22871271",
+      "cityId": "melbourne",
+      "campusId": "melbourne-main",
+      "name": "Arts West Building (148A & 148B)",
+      "aliases": [
+        "Arts West",
+        "西文学院楼"
+      ],
+      "category": "teaching",
+      "lng": 144.9596709,
+      "lat": -37.7975235,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/22871271",
+        "officialUrl": "https://maps.unimelb.edu.au/",
+        "collectedAt": "2026-10-14T08:39:50.105894+00:00"
+      }
+    },
+    {
+      "id": "way/23023971",
+      "cityId": "melbourne",
+      "campusId": "melbourne-main",
+      "name": "Redmond Barry Building (115)",
+      "aliases": [
+        "Redmond Barry",
+        "雷德蒙巴里楼"
+      ],
+      "category": "teaching",
+      "lng": 144.9626672,
+      "lat": -37.7967307,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/23023971",
+        "officialUrl": "https://maps.unimelb.edu.au/",
+        "collectedAt": "2026-10-14T08:39:50.105894+00:00"
+      }
+    },
+    {
+      "id": "way/5001918",
+      "cityId": "canberra",
+      "campusId": "canberra-main",
+      "name": "JB Chifley Building",
+      "aliases": [
+        "Chifley",
+        "奇夫利图书馆"
+      ],
+      "category": "teaching",
+      "lng": 149.1205289,
+      "lat": -35.2778923,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/5001918",
+        "officialUrl": "https://services.anu.edu.au/campus-environment/facilities-maps/maps-way-finding",
+        "collectedAt": "2026-10-14T08:39:53.951176+00:00"
+      }
+    },
+    {
+      "id": "way/37526819",
+      "cityId": "canberra",
+      "campusId": "canberra-main",
+      "name": "Hancock Library East Wing",
+      "aliases": [
+        "Hancock",
+        "汉考克图书馆"
+      ],
+      "category": "library",
+      "lng": 149.1183686,
+      "lat": -35.2773059,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/37526819",
+        "officialUrl": "https://services.anu.edu.au/campus-environment/facilities-maps/maps-way-finding",
+        "collectedAt": "2026-10-14T08:39:53.951176+00:00"
+      }
+    },
+    {
+      "id": "way/674003253",
+      "cityId": "canberra",
+      "campusId": "canberra-main",
+      "name": "Marie Reay Teaching Centre",
+      "aliases": [
+        "Marie Reay",
+        "玛丽雷教学中心"
+      ],
+      "category": "teaching",
+      "lng": 149.1205041,
+      "lat": -35.2776079,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/674003253",
+        "officialUrl": "https://services.anu.edu.au/campus-environment/facilities-maps/maps-way-finding",
+        "collectedAt": "2026-10-14T08:39:53.951176+00:00"
+      }
+    },
+    {
+      "id": "way/215140863",
+      "cityId": "canberra",
+      "campusId": "canberra-main",
+      "name": "Frank Fenner Building",
+      "aliases": [
+        "Frank Fenner",
+        "芬纳楼"
+      ],
+      "category": "teaching",
+      "lng": 149.1153685,
+      "lat": -35.2780339,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/215140863",
+        "officialUrl": "https://services.anu.edu.au/campus-environment/facilities-maps/maps-way-finding",
+        "collectedAt": "2026-10-14T08:39:53.951176+00:00"
       }
     }
   ]

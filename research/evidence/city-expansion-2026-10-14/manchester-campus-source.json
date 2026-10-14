@@ -1,0 +1,868 @@
+{
+  "endpoint": "https://api.openstreetmap.org/api/0.6/map",
+  "bbox": [
+    -2.2409,
+    53.4628,
+    -2.2289000000000003,
+    53.4708
+  ],
+  "timestamp": null,
+  "ways": [
+    {
+      "id": "75361245",
+      "tags": {
+        "addr:city": "Manchester",
+        "addr:housename": "Kilburn Building",
+        "addr:postcode": "M13 9PL",
+        "addr:street": "Oxford Road",
+        "alt_name": "Computer Science Manchester",
+        "alt_name:zh": "計算機樓",
+        "building": "university",
+        "building:colour": "red",
+        "building:levels": "3",
+        "building:material": "brick",
+        "department": "computer_science",
+        "faculty": "materials_science",
+        "name": "Kilburn Building",
+        "operator": "University of Manchester",
+        "ref:GB:uprn": "10096981974",
+        "roof:colour": "grey",
+        "source": "University of Manchester Campus Map",
+        "wikidata": "Q7432411"
+      },
+      "points": [
+        {
+          "id": "889604358",
+          "visible": "true",
+          "version": "5",
+          "changeset": "63868270",
+          "timestamp": "2018-10-25T13:49:33Z",
+          "user": "DHP11 MDS",
+          "uid": "8997113",
+          "lat": "53.4673952",
+          "lon": "-2.2330945",
+          "tags": {}
+        },
+        {
+          "id": "2278469587",
+          "visible": "true",
+          "version": "3",
+          "changeset": "63868270",
+          "timestamp": "2018-10-25T13:49:33Z",
+          "user": "DHP11 MDS",
+          "uid": "8997113",
+          "lat": "53.4678158",
+          "lon": "-2.2334796",
+          "tags": {}
+        },
+        {
+          "id": "889604366",
+          "visible": "true",
+          "version": "5",
+          "changeset": "63868270",
+          "timestamp": "2018-10-25T13:49:33Z",
+          "user": "DHP11 MDS",
+          "uid": "8997113",
+          "lat": "53.4679578",
+          "lon": "-2.2336170",
+          "tags": {}
+        },
+        {
+          "id": "1992844055",
+          "visible": "true",
+          "version": "3",
+          "changeset": "63868270",
+          "timestamp": "2018-10-25T13:49:33Z",
+          "user": "DHP11 MDS",
+          "uid": "8997113",
+          "lat": "53.4678414",
+          "lon": "-2.2339707",
+          "tags": {}
+        },
+        {
+          "id": "6012859152",
+          "visible": "true",
+          "version": "1",
+          "changeset": "63868270",
+          "timestamp": "2018-10-25T13:49:32Z",
+          "user": "DHP11 MDS",
+          "uid": "8997113",
+          "lat": "53.4678011",
+          "lon": "-2.2340948",
+          "tags": {}
+        },
+        {
+          "id": "9837289918",
+          "visible": "true",
+          "version": "1",
+          "changeset": "122685927",
+          "timestamp": "2022-06-21T21:09:07Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4677735",
+          "lon": "-2.2341781",
+          "tags": {
+            "entrance": "yes"
+          }
+        },
+        {
+          "id": "1502881849",
+          "visible": "true",
+          "version": "5",
+          "changeset": "63868270",
+          "timestamp": "2018-10-25T13:49:33Z",
+          "user": "DHP11 MDS",
+          "uid": "8997113",
+          "lat": "53.4677176",
+          "lon": "-2.2343467",
+          "tags": {
+            "barrier": "entrance"
+          }
+        },
+        {
+          "id": "889604368",
+          "visible": "true",
+          "version": "5",
+          "changeset": "63868270",
+          "timestamp": "2018-10-25T13:49:33Z",
+          "user": "DHP11 MDS",
+          "uid": "8997113",
+          "lat": "53.4676117",
+          "lon": "-2.2346634",
+          "tags": {}
+        },
+        {
+          "id": "889604369",
+          "visible": "true",
+          "version": "5",
+          "changeset": "63868270",
+          "timestamp": "2018-10-25T13:49:33Z",
+          "user": "DHP11 MDS",
+          "uid": "8997113",
+          "lat": "53.4670505",
+          "lon": "-2.2341377",
+          "tags": {}
+        },
+        {
+          "id": "6012859151",
+          "visible": "true",
+          "version": "1",
+          "changeset": "63868270",
+          "timestamp": "2018-10-25T13:49:32Z",
+          "user": "DHP11 MDS",
+          "uid": "8997113",
+          "lat": "53.4672384",
+          "lon": "-2.2335711",
+          "tags": {}
+        },
+        {
+          "id": "889604358",
+          "visible": "true",
+          "version": "5",
+          "changeset": "63868270",
+          "timestamp": "2018-10-25T13:49:33Z",
+          "user": "DHP11 MDS",
+          "uid": "8997113",
+          "lat": "53.4673952",
+          "lon": "-2.2330945",
+          "tags": {}
+        }
+      ]
+    },
+    {
+      "id": "216684105",
+      "tags": {
+        "addr:city": "Manchester",
+        "addr:housename": "Alan Gilbert Learning Commons",
+        "addr:street": "Oxford Road",
+        "building": "university",
+        "building:levels": "4",
+        "building:material": "glass",
+        "name": "Alan Gilbert Learning Commons",
+        "source": "University of Manchester Campus Map"
+      },
+      "points": [
+        {
+          "id": "2260753565",
+          "visible": "true",
+          "version": "5",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4650925",
+          "lon": "-2.2328326",
+          "tags": {}
+        },
+        {
+          "id": "2260753568",
+          "visible": "true",
+          "version": "5",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4648620",
+          "lon": "-2.2325792",
+          "tags": {}
+        },
+        {
+          "id": "2260753567",
+          "visible": "true",
+          "version": "6",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4646809",
+          "lon": "-2.2331991",
+          "tags": {}
+        },
+        {
+          "id": "9561530017",
+          "visible": "true",
+          "version": "2",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4646990",
+          "lon": "-2.2332136",
+          "tags": {}
+        },
+        {
+          "id": "9561530018",
+          "visible": "true",
+          "version": "2",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4646871",
+          "lon": "-2.2332584",
+          "tags": {}
+        },
+        {
+          "id": "6012983314",
+          "visible": "true",
+          "version": "3",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4646752",
+          "lon": "-2.2332475",
+          "tags": {}
+        },
+        {
+          "id": "9561530022",
+          "visible": "true",
+          "version": "2",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4646540",
+          "lon": "-2.2333165",
+          "tags": {
+            "door": "revolving",
+            "entrance": "yes",
+            "wheelchair": "no"
+          }
+        },
+        {
+          "id": "9561530023",
+          "visible": "true",
+          "version": "2",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4646440",
+          "lon": "-2.2333490",
+          "tags": {
+            "entrance": "yes",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": "6012983313",
+          "visible": "true",
+          "version": "3",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4646349",
+          "lon": "-2.2333788",
+          "tags": {}
+        },
+        {
+          "id": "9561530020",
+          "visible": "true",
+          "version": "2",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4646925",
+          "lon": "-2.2334244",
+          "tags": {
+            "door": "automatic",
+            "entrance": "yes",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": "9561530021",
+          "visible": "true",
+          "version": "2",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4647627",
+          "lon": "-2.2334798",
+          "tags": {
+            "door": "automatic",
+            "entrance": "yes",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": "9561530019",
+          "visible": "true",
+          "version": "2",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4648256",
+          "lon": "-2.2335295",
+          "tags": {
+            "door": "automatic",
+            "entrance": "yes",
+            "wheelchair": "yes"
+          }
+        },
+        {
+          "id": "6012983311",
+          "visible": "true",
+          "version": "3",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4648835",
+          "lon": "-2.2335753",
+          "tags": {}
+        },
+        {
+          "id": "6012983312",
+          "visible": "true",
+          "version": "3",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4649245",
+          "lon": "-2.2334366",
+          "tags": {}
+        },
+        {
+          "id": "5346060319",
+          "visible": "true",
+          "version": "4",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4649077",
+          "lon": "-2.2334205",
+          "tags": {}
+        },
+        {
+          "id": "5346060320",
+          "visible": "true",
+          "version": "4",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4649170",
+          "lon": "-2.2333858",
+          "tags": {}
+        },
+        {
+          "id": "2260753566",
+          "visible": "true",
+          "version": "6",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4649351",
+          "lon": "-2.2333984",
+          "tags": {}
+        },
+        {
+          "id": "9815243214",
+          "visible": "true",
+          "version": "1",
+          "changeset": "122334974",
+          "timestamp": "2022-06-13T17:16:42Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4650822",
+          "lon": "-2.2328697",
+          "tags": {}
+        },
+        {
+          "id": "2260753565",
+          "visible": "true",
+          "version": "5",
+          "changeset": "121636711",
+          "timestamp": "2022-05-29T01:06:23Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4650925",
+          "lon": "-2.2328326",
+          "tags": {}
+        }
+      ]
+    },
+    {
+      "id": "217170181",
+      "tags": {
+        "addr:city": "Manchester",
+        "addr:street": "Oxford Road",
+        "building": "university",
+        "name": "Whitworth Hall",
+        "nohousenumber": "yes",
+        "operator": "University of Manchester",
+        "source": "University of Manchester Campus Map",
+        "wikidata": "Q12072883",
+        "wikipedia": "en:Whitworth Building"
+      },
+      "points": [
+        {
+          "id": "2264641068",
+          "visible": "true",
+          "version": "2",
+          "changeset": "107710172",
+          "timestamp": "2021-07-09T14:28:35Z",
+          "user": "kalamarin",
+          "uid": "13704382",
+          "lat": "53.4652649",
+          "lon": "-2.2336237",
+          "tags": {}
+        },
+        {
+          "id": "2264641067",
+          "visible": "true",
+          "version": "4",
+          "changeset": "130654724",
+          "timestamp": "2022-12-29T16:52:01Z",
+          "user": "Maptapper",
+          "uid": "570650",
+          "lat": "53.4651558",
+          "lon": "-2.2335187",
+          "tags": {}
+        },
+        {
+          "id": "2264641075",
+          "visible": "true",
+          "version": "2",
+          "changeset": "122633248",
+          "timestamp": "2022-06-20T17:22:34Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4652867",
+          "lon": "-2.2330629",
+          "tags": {}
+        },
+        {
+          "id": "9815243197",
+          "visible": "true",
+          "version": "2",
+          "changeset": "122633248",
+          "timestamp": "2022-06-20T17:22:34Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4653366",
+          "lon": "-2.2331147",
+          "tags": {}
+        },
+        {
+          "id": "2264641065",
+          "visible": "true",
+          "version": "2",
+          "changeset": "122633248",
+          "timestamp": "2022-06-20T17:22:34Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4656164",
+          "lon": "-2.2333970",
+          "tags": {}
+        },
+        {
+          "id": "2264646596",
+          "visible": "true",
+          "version": "4",
+          "changeset": "122633248",
+          "timestamp": "2022-06-20T17:22:34Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4655893",
+          "lon": "-2.2334768",
+          "tags": {}
+        },
+        {
+          "id": "2264646598",
+          "visible": "true",
+          "version": "4",
+          "changeset": "122633248",
+          "timestamp": "2022-06-20T17:22:34Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4655484",
+          "lon": "-2.2335997",
+          "tags": {}
+        },
+        {
+          "id": "2264641069",
+          "visible": "true",
+          "version": "2",
+          "changeset": "122633248",
+          "timestamp": "2022-06-20T17:22:34Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4655326",
+          "lon": "-2.2336530",
+          "tags": {}
+        },
+        {
+          "id": "2264641071",
+          "visible": "true",
+          "version": "2",
+          "changeset": "122633248",
+          "timestamp": "2022-06-20T17:22:34Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4653011",
+          "lon": "-2.2334411",
+          "tags": {}
+        },
+        {
+          "id": "2264641070",
+          "visible": "true",
+          "version": "2",
+          "changeset": "122633248",
+          "timestamp": "2022-06-20T17:22:34Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4652820",
+          "lon": "-2.2334945",
+          "tags": {}
+        },
+        {
+          "id": "2264641066",
+          "visible": "true",
+          "version": "2",
+          "changeset": "122633248",
+          "timestamp": "2022-06-20T17:22:34Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4653005",
+          "lon": "-2.2335068",
+          "tags": {}
+        },
+        {
+          "id": "2264641068",
+          "visible": "true",
+          "version": "2",
+          "changeset": "107710172",
+          "timestamp": "2021-07-09T14:28:35Z",
+          "user": "kalamarin",
+          "uid": "13704382",
+          "lat": "53.4652649",
+          "lon": "-2.2336237",
+          "tags": {}
+        }
+      ]
+    },
+    {
+      "id": "334619210",
+      "tags": {
+        "addr:city": "Manchester",
+        "addr:housename": "Alan Turing Building",
+        "addr:street": "Upper Brook Street",
+        "building": "university",
+        "department": "mathematics",
+        "faculty": "materials_science",
+        "name": "Alan Turing Building",
+        "operator": "University of Manchester",
+        "ref:GB:uprn": "10096981984",
+        "source": "University of Manchester Campus Map",
+        "wikidata": "Q4707939",
+        "wikipedia": "en:Alan Turing Building"
+      },
+      "points": [
+        {
+          "id": "3416814864",
+          "visible": "true",
+          "version": "1",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:47Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4677937",
+          "lon": "-2.2318812",
+          "tags": {}
+        },
+        {
+          "id": "3416814872",
+          "visible": "true",
+          "version": "1",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:47Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4678988",
+          "lon": "-2.2319779",
+          "tags": {}
+        },
+        {
+          "id": "3416814871",
+          "visible": "true",
+          "version": "1",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:47Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4679375",
+          "lon": "-2.2318592",
+          "tags": {}
+        },
+        {
+          "id": "3416814875",
+          "visible": "true",
+          "version": "1",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:47Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4680210",
+          "lon": "-2.2319361",
+          "tags": {}
+        },
+        {
+          "id": "3416814862",
+          "visible": "true",
+          "version": "1",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:47Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4679726",
+          "lon": "-2.2320843",
+          "tags": {}
+        },
+        {
+          "id": "1491864799",
+          "visible": "true",
+          "version": "3",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:48Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4680850",
+          "lon": "-2.2321877",
+          "tags": {}
+        },
+        {
+          "id": "9797466377",
+          "visible": "true",
+          "version": "1",
+          "changeset": "121997241",
+          "timestamp": "2022-06-05T23:13:34Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4681407",
+          "lon": "-2.2320170",
+          "tags": {}
+        },
+        {
+          "id": "1491864782",
+          "visible": "true",
+          "version": "3",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:48Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4684131",
+          "lon": "-2.2311815",
+          "tags": {}
+        },
+        {
+          "id": "3416814859",
+          "visible": "true",
+          "version": "1",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:47Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4683098",
+          "lon": "-2.2310864",
+          "tags": {}
+        },
+        {
+          "id": "3416814865",
+          "visible": "true",
+          "version": "1",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:47Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4682899",
+          "lon": "-2.2311474",
+          "tags": {}
+        },
+        {
+          "id": "3416814857",
+          "visible": "true",
+          "version": "1",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:47Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4682010",
+          "lon": "-2.2310656",
+          "tags": {}
+        },
+        {
+          "id": "3416814861",
+          "visible": "true",
+          "version": "1",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:47Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4682234",
+          "lon": "-2.2309968",
+          "tags": {}
+        },
+        {
+          "id": "9797466401",
+          "visible": "true",
+          "version": "1",
+          "changeset": "121997241",
+          "timestamp": "2022-06-05T23:13:34Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4682050",
+          "lon": "-2.2309799",
+          "tags": {}
+        },
+        {
+          "id": "3416814873",
+          "visible": "true",
+          "version": "1",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:47Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4681113",
+          "lon": "-2.2308936",
+          "tags": {}
+        },
+        {
+          "id": "3416814874",
+          "visible": "true",
+          "version": "1",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:47Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4680592",
+          "lon": "-2.2310534",
+          "tags": {}
+        },
+        {
+          "id": "5270224316",
+          "visible": "true",
+          "version": "1",
+          "changeset": "54435346",
+          "timestamp": "2017-12-07T15:53:06Z",
+          "user": "Horza",
+          "uid": "40450",
+          "lat": "53.4680278",
+          "lon": "-2.2310330",
+          "tags": {}
+        },
+        {
+          "id": "3416814877",
+          "visible": "true",
+          "version": "1",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:47Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4680178",
+          "lon": "-2.2310789",
+          "tags": {
+            "entrance": "yes"
+          }
+        },
+        {
+          "id": "5270224317",
+          "visible": "true",
+          "version": "1",
+          "changeset": "54435346",
+          "timestamp": "2017-12-07T15:53:06Z",
+          "user": "Horza",
+          "uid": "40450",
+          "lat": "53.4679999",
+          "lon": "-2.2311172",
+          "tags": {}
+        },
+        {
+          "id": "3416814856",
+          "visible": "true",
+          "version": "1",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:47Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4680306",
+          "lon": "-2.2311547",
+          "tags": {}
+        },
+        {
+          "id": "9797466388",
+          "visible": "true",
+          "version": "1",
+          "changeset": "121997241",
+          "timestamp": "2022-06-05T23:13:34Z",
+          "user": "FinleyJones",
+          "uid": "13596085",
+          "lat": "53.4678712",
+          "lon": "-2.2316434",
+          "tags": {}
+        },
+        {
+          "id": "3416814864",
+          "visible": "true",
+          "version": "1",
+          "changeset": "29717649",
+          "timestamp": "2015-03-25T00:20:47Z",
+          "user": "Robert Whittaker",
+          "uid": "84263",
+          "lat": "53.4677937",
+          "lon": "-2.2318812",
+          "tags": {}
+        }
+      ]
+    }
+  ]
+}

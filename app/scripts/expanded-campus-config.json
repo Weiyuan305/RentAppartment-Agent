@@ -1,0 +1,243 @@
+{
+  "manchester": {
+    "school": [
+      "University of Manchester",
+      "Oxford Road",
+      "https://www.manchester.ac.uk/about/maps/"
+    ],
+    "selection": [
+      217170181,
+      75361245,
+      216684105,
+      334619210
+    ],
+    "aliases": {
+      "217170181": [
+        "Whitworth Hall",
+        "惠特沃思礼堂"
+      ],
+      "75361245": [
+        "Kilburn",
+        "Computer Science",
+        "计算机楼"
+      ],
+      "216684105": [
+        "Alan Gilbert",
+        "Learning Commons",
+        "学习中心"
+      ],
+      "334619210": [
+        "Alan Turing",
+        "图灵楼"
+      ]
+    },
+    "categories": {
+      "216684105": "library"
+    },
+    "bounds": [
+      -2.2409,
+      53.4628,
+      -2.2289000000000003,
+      53.4708
+    ]
+  },
+  "edinburgh": {
+    "school": [
+      "University of Edinburgh",
+      "Central Area",
+      "https://www.ed.ac.uk/maps/maps"
+    ],
+    "selection": [
+      4308724,
+      23046723,
+      514395905,
+      5320937
+    ],
+    "aliases": {
+      "4308724": [
+        "Main Library",
+        "主图书馆"
+      ],
+      "23046723": [
+        "Informatics",
+        "信息学院"
+      ],
+      "514395905": [
+        "Appleton",
+        "苹果顿塔"
+      ],
+      "5320937": [
+        "Potterrow",
+        "学生中心"
+      ]
+    },
+    "categories": {
+      "5320937": "services"
+    },
+    "bounds": [
+      -3.1940999999999997,
+      55.940200000000004,
+      -3.1821,
+      55.9482
+    ]
+  },
+  "liverpool": {
+    "school": [
+      "University of Liverpool",
+      "City Centre",
+      "https://www.liverpool.ac.uk/about/visit-us/maps/"
+    ],
+    "selection": [
+      264213447,
+      42733274,
+      44724259,
+      42729347
+    ],
+    "aliases": {
+      "264213447": [
+        "Victoria",
+        "维多利亚楼"
+      ],
+      "42733274": [
+        "Harold Cohen",
+        "哈罗德科恩图书馆"
+      ],
+      "44724259": [
+        "Sydney Jones",
+        "西德尼琼斯图书馆"
+      ],
+      "42729347": [
+        "Guild",
+        "学生会"
+      ]
+    },
+    "categories": {
+      "42729347": "services"
+    },
+    "bounds": [
+      -2.9728,
+      53.4006,
+      -2.9608000000000003,
+      53.4126
+    ]
+  },
+  "birmingham": {
+    "school": [
+      "University of Birmingham",
+      "Edgbaston",
+      "https://www.birmingham.ac.uk/contact/campus-map"
+    ],
+    "selection": [
+      89573854,
+      447829915,
+      55608660,
+      27890547
+    ],
+    "aliases": {
+      "89573854": [
+        "Aston Webb",
+        "Great Hall",
+        "大礼堂"
+      ],
+      "447829915": [
+        "Main Library",
+        "主图书馆"
+      ],
+      "55608660": [
+        "Guild",
+        "学生会"
+      ],
+      "27890547": [
+        "Student Hub",
+        "学生服务中心"
+      ]
+    },
+    "categories": {
+      "447829915": "library",
+      "55608660": "services",
+      "27890547": "services"
+    },
+    "bounds": [
+      -1.9365,
+      52.4468,
+      -1.9245,
+      52.4548
+    ]
+  },
+  "melbourne": {
+    "school": [
+      "University of Melbourne",
+      "Parkville",
+      "https://maps.unimelb.edu.au/"
+    ],
+    "selection": [
+      22871257,
+      22952361,
+      22871271,
+      23023971
+    ],
+    "aliases": {
+      "22871257": [
+        "Baillieu",
+        "百利图书馆"
+      ],
+      "22952361": [
+        "Old Arts",
+        "旧文学院楼"
+      ],
+      "22871271": [
+        "Arts West",
+        "西文学院楼"
+      ],
+      "23023971": [
+        "Redmond Barry",
+        "雷德蒙巴里楼"
+      ]
+    },
+    "categories": {},
+    "bounds": [
+      144.9546,
+      -37.802299999999995,
+      144.9666,
+      -37.7943
+    ]
+  },
+  "canberra": {
+    "school": [
+      "Australian National University",
+      "Acton",
+      "https://services.anu.edu.au/campus-environment/facilities-maps/maps-way-finding"
+    ],
+    "selection": [
+      5001918,
+      37526819,
+      674003253,
+      215140863
+    ],
+    "aliases": {
+      "5001918": [
+        "Chifley",
+        "奇夫利图书馆"
+      ],
+      "37526819": [
+        "Hancock",
+        "汉考克图书馆"
+      ],
+      "674003253": [
+        "Marie Reay",
+        "玛丽雷教学中心"
+      ],
+      "215140863": [
+        "Frank Fenner",
+        "芬纳楼"
+      ]
+    },
+    "categories": {},
+    "bounds": [
+      149.1125,
+      -35.2825,
+      149.1245,
+      -35.2745
+    ]
+  }
+}

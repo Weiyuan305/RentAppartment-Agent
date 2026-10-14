@@ -1,4 +1,4 @@
-// Five small, sequential Overpass queries. Never used as the visitor-facing backend.
+// Bounded, sequential Overpass snapshots. Never used as the visitor-facing backend.
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -13,10 +13,13 @@ const output = resolve(root, 'public/amenities');
 const evidence = resolve(root, '../research/evidence/amenities');
 const endpoint = process.argv.find(arg => arg.startsWith('--endpoint='))?.slice('--endpoint='.length) || amenityOverpassEndpoints[0];
 if (!amenityOverpassEndpoints.includes(endpoint)) throw new Error('Unsupported Overpass endpoint');
+const requested = process.argv.find(arg => arg.startsWith("--cities="))?.slice(9).split(",");
+if(requested?.some(id=>!cities.some(city=>city.id===id)))throw new Error("Unknown amenity city");
 const normalize = process.argv.includes('--normalize');
 mkdirSync(output, { recursive: true });
 mkdirSync(evidence, { recursive: true });
 for (const city of cities) {
+  if(requested && !requested.includes(city.id))continue;
   const path = resolve(output, `${city.id}.json`);
   if (existsSync(path) && JSON.parse(readFileSync(path, 'utf8')).version === 2 && !process.argv.includes('--refresh') && !normalize) {
     parseCityAmenities(JSON.parse(readFileSync(path, 'utf8')), city);
@@ -40,7 +43,7 @@ for (const city of cities) {
   console.log(`${city.id}: ${normalize ? 'normalizing saved evidence' : 'querying bounded student amenities'}`);
   const raw = normalize ? readFileSync(rawPath, 'utf8') : execFileSync('curl', ['--fail', '--silent', '--show-error', '--location', '--connect-timeout', '10', '--max-time', '70', '--get', '--header', 'Accept: application/json',
     '--retry', '1', '--retry-delay', '20', '--retry-max-time', '100',
-    '--user-agent', 'CampusAtlas-RentalValidation/0.1 (five-campus POI snapshot)',
+    '--user-agent', 'CampusAtlas-RentalValidation/0.1 (student-campus POI snapshot)',
     '--data-urlencode', `data=${query}`, endpoint], { encoding: 'utf8', maxBuffer: 8 * 1024 * 1024 });
   const payload = JSON.parse(raw);
   if (payload.remark || !Array.isArray(payload.elements)) {

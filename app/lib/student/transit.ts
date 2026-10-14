@@ -33,6 +33,12 @@ export const transitSources: Record<
     },
     lines: [],
   },
+  manchester: {"operator": "Bee Network / TfGM", "url": "https://tfgm.com/plan-a-journey", "campusUrl": "https://www.manchester.ac.uk/about/maps/", "notes": {"zh": "通过官方规划查询公交、轨道交通和步行组合；实时班次与开放条件以运营方为准。", "en": "Use the official planner for public transport and walking connections. Check live services and access with the operator."}, "lines": []},
+  edinburgh: {"operator": "Lothian Buses", "url": "https://www.lothianbuses.com/live-travel-info/journey-planner/", "campusUrl": "https://www.ed.ac.uk/maps/maps", "notes": {"zh": "通过官方规划查询公交、轨道交通和步行组合；实时班次与开放条件以运营方为准。", "en": "Use the official planner for public transport and walking connections. Check live services and access with the operator."}, "lines": []},
+  liverpool: {"operator": "Merseytravel", "url": "https://www.merseytravel.gov.uk/journey-planning/", "campusUrl": "https://www.liverpool.ac.uk/about/visit-us/maps/", "notes": {"zh": "通过官方规划查询公交、轨道交通和步行组合；实时班次与开放条件以运营方为准。", "en": "Use the official planner for public transport and walking connections. Check live services and access with the operator."}, "lines": []},
+  birmingham: {"operator": "Transport for West Midlands", "url": "https://www.tfwm.org.uk/plan-your-journey/", "campusUrl": "https://www.birmingham.ac.uk/contact/campus-map", "notes": {"zh": "通过官方规划查询公交、轨道交通和步行组合；实时班次与开放条件以运营方为准。", "en": "Use the official planner for public transport and walking connections. Check live services and access with the operator."}, "lines": []},
+  melbourne: {"operator": "Transport Victoria", "url": "https://transport.vic.gov.au/Plan-a-journey", "campusUrl": "https://maps.unimelb.edu.au/", "notes": {"zh": "通过官方规划查询公交、轨道交通和步行组合；实时班次与开放条件以运营方为准。", "en": "Use the official planner for public transport and walking connections. Check live services and access with the operator."}, "lines": []},
+  canberra: {"operator": "Transport Canberra", "url": "https://www.transport.act.gov.au/getting-around/journey-planner", "campusUrl": "https://services.anu.edu.au/campus-environment/facilities-maps/maps-way-finding", "notes": {"zh": "通过官方规划查询公交、轨道交通和步行组合；实时班次与开放条件以运营方为准。", "en": "Use the official planner for public transport and walking connections. Check live services and access with the operator."}, "lines": []},
   sydney: {
     operator: "Transport for NSW",
     url: "https://transportnsw.info/trip",

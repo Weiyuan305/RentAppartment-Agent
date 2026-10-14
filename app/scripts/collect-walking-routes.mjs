@@ -1,4 +1,4 @@
-// Fetch only the 30 fixed sample routes, sequentially, with a reusable disk cache.
+// Fetch only the fixed sample routes, sequentially, with a reusable disk cache.
 // Visitors use our saved results and do not call the community demo API.
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
@@ -50,3 +50,10 @@ for (const listing of listings) {
   writeFileSync(path, JSON.stringify(route) + '\n');
   console.log(`${listing.id}: ${route.distanceMeters} m, ${Math.ceil(route.durationSeconds / 60)} min, ${coordinates.length} points, snap ${route.startOffsetMeters}/${route.endOffsetMeters} m`);
 }
+
+// Keep the frontend commute filter aligned with the same validated route snapshots.
+const commuteIndex = Object.fromEntries([...listings].sort((a,b)=>a.id.localeCompare(b.id)).map(listing => {
+  const route=parseWalkingRoute(JSON.parse(readFileSync(resolve(output,`${listing.id}.json`),'utf8')),listing,getCity(listing.cityId));
+  return [listing.id,{durationSeconds:route.durationSeconds,distanceMeters:route.distanceMeters}];
+}));
+writeFileSync(resolve(root,'lib/campus-commutes.json'),JSON.stringify(commuteIndex,null,2)+'\n');

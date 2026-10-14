@@ -444,5 +444,16 @@
   "到大学的步行路线": "Walk to university",
   "收藏": "Save",
   "取消收藏": "Unsave",
-  "按距{origin}的直线距离排序。点击地点可计算真实步行路线；站点位置不代表实时班次，医院分类可能包含院内设施。": "Sorted by straight-line distance from {origin}. Select a place for a walking route. Stops do not indicate live services; hospital records may include on-site facilities."
+  "按距{origin}的直线距离排序。点击地点可计算真实步行路线；站点位置不代表实时班次，医院分类可能包含院内设施。": "Sorted by straight-line distance from {origin}. Select a place for a walking route. Stops do not indicate live services; hospital records may include on-site facilities.",
+  "{count} 座留学城市": "{count} student cities",
+  "接通后，逐城验收地图效果": "Verify map coverage city by city",
+  "这一轮使用 Cesium ion Community，连接 Google 实景三维城市。无需同时开通 Google Cloud 结算；逐城验证效果，再决定正式运营的方案。": "This demo uses Cesium ion Community to access Google photorealistic cities. Verify each city before release, then choose a production plan. Separate Google Cloud billing is not needed for this ion connection.",
+  "回到城市页面，点击「加载实景 3D」才会请求地图。同一次页面停留中，切换城市会复用地图连接；刷新、重试或重新进入可能产生新的请求。": "Map data is requested only after you click “Load photorealistic 3D”. Switching cities reuses the same connection; reloading, retrying or returning may create another request.",
+  "逐一检查各城市大学周边是否有真实建筑纹理，拖动、缩放、旋转，再点击房源和大学定位。城市覆盖与清晰度仍需实际检查。": "Check each city individually: inspect building textures, pan, zoom and rotate, then locate apartments and campuses. Coverage and detail require visual verification in each city.",
+  "曼彻斯特": "Manchester",
+  "爱丁堡": "Edinburgh",
+  "利物浦": "Liverpool",
+  "伯明翰": "Birmingham",
+  "墨尔本": "Melbourne",
+  "堪培拉": "Canberra"
 }

@@ -26,7 +26,7 @@ async function completed<T>(task: T): Promise<Exclude<Awaited<T>, AsyncIterable<
 }
 after(async () => {(await store.database()).close(); rmSync(directory, {recursive: true, force: true});});
 
-test("five cities: full nearby count equals displayed marker set, nearest is one, category follow-up preserves radius", async () => {
+test("all supported cities: full nearby count equals displayed marker set, nearest is one, category follow-up preserves radius", async () => {
   for (const city of cities) {
     const initial = initialRentalState(city.id), runtime = createRentalTools(initial), listing = listings.find(l => l.id === initial.listingId)!;
     const data = getAmenities(city.id);
@@ -46,7 +46,7 @@ test("five cities: full nearby count equals displayed marker set, nearest is one
     assert.equal(runtime.getState().map.routePlaceId, null);
   }
 });
-test("campus filter uses actual route duration, small client index matches all 30 route files", async () => {
+test("campus filter uses actual route duration, small client index matches all supported route files", async () => {
   const index = JSON.parse(readFileSync("lib/campus-commutes.json", "utf8"));
   for (const listing of listings) {
     assert.equal(index[listing.id].durationSeconds, campusCommute(listing.id).durationSeconds);

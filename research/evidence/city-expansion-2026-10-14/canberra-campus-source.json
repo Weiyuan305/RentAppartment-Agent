@@ -1,0 +1,634 @@
+{
+  "endpoint": "https://api.openstreetmap.org/api/0.6/map",
+  "bbox": [
+    149.1125,
+    -35.2825,
+    149.1245,
+    -35.2745
+  ],
+  "timestamp": null,
+  "ways": [
+    {
+      "id": "5001918",
+      "tags": {
+        "amenity": "library",
+        "building": "university",
+        "building:levels": "4",
+        "internet_access": "yes",
+        "name": "JB Chifley Building",
+        "note": "not sure how to tag opening hours (24/7 for students) 9-5 for general public",
+        "source": "yahoo",
+        "wheelchair": "yes"
+      },
+      "points": [
+        {
+          "id": "33222984",
+          "visible": "true",
+          "version": "8",
+          "changeset": "180655160",
+          "timestamp": "2026-03-31T04:53:54Z",
+          "user": "o68",
+          "uid": "20094916",
+          "lat": "-35.2779323",
+          "lon": "149.1199935",
+          "tags": {}
+        },
+        {
+          "id": "33222985",
+          "visible": "true",
+          "version": "8",
+          "changeset": "180655160",
+          "timestamp": "2026-03-31T04:53:54Z",
+          "user": "o68",
+          "uid": "20094916",
+          "lat": "-35.2776984",
+          "lon": "149.1202020",
+          "tags": {}
+        },
+        {
+          "id": "6311942668",
+          "visible": "true",
+          "version": "8",
+          "changeset": "189961771",
+          "timestamp": "2026-10-04T06:25:15Z",
+          "user": "nodicia",
+          "uid": "24615057",
+          "lat": "-35.2778923",
+          "lon": "149.1205289",
+          "tags": {
+            "entrance": "main"
+          }
+        },
+        {
+          "id": "33222986",
+          "visible": "true",
+          "version": "8",
+          "changeset": "180655160",
+          "timestamp": "2026-03-31T04:53:54Z",
+          "user": "o68",
+          "uid": "20094916",
+          "lat": "-35.2780840",
+          "lon": "149.1208518",
+          "tags": {}
+        },
+        {
+          "id": "6307381870",
+          "visible": "true",
+          "version": "6",
+          "changeset": "180655160",
+          "timestamp": "2026-03-31T04:53:54Z",
+          "user": "o68",
+          "uid": "20094916",
+          "lat": "-35.2782062",
+          "lon": "149.1207462",
+          "tags": {}
+        },
+        {
+          "id": "33222987",
+          "visible": "true",
+          "version": "8",
+          "changeset": "180655160",
+          "timestamp": "2026-03-31T04:53:54Z",
+          "user": "o68",
+          "uid": "20094916",
+          "lat": "-35.2783198",
+          "lon": "149.1206439",
+          "tags": {}
+        },
+        {
+          "id": "6296711835",
+          "visible": "true",
+          "version": "8",
+          "changeset": "180655160",
+          "timestamp": "2026-03-31T04:53:54Z",
+          "user": "o68",
+          "uid": "20094916",
+          "lat": "-35.2782488",
+          "lon": "149.1205250",
+          "tags": {}
+        },
+        {
+          "id": "33222984",
+          "visible": "true",
+          "version": "8",
+          "changeset": "180655160",
+          "timestamp": "2026-03-31T04:53:54Z",
+          "user": "o68",
+          "uid": "20094916",
+          "lat": "-35.2779323",
+          "lon": "149.1199935",
+          "tags": {}
+        }
+      ]
+    },
+    {
+      "id": "37526819",
+      "tags": {
+        "amenity": "library",
+        "building": "yes",
+        "name": "Hancock Library East Wing",
+        "opening_hours": "Mo-Su,PH 00:00+"
+      },
+      "points": [
+        {
+          "id": "439323251",
+          "visible": "true",
+          "version": "3",
+          "changeset": "10320612",
+          "timestamp": "2012-01-07T12:43:14Z",
+          "user": "k127",
+          "uid": "33223",
+          "lat": "-35.2769492",
+          "lon": "149.1180826",
+          "tags": {}
+        },
+        {
+          "id": "665795334",
+          "visible": "true",
+          "version": "2",
+          "changeset": "10320612",
+          "timestamp": "2012-01-07T12:44:10Z",
+          "user": "k127",
+          "uid": "33223",
+          "lat": "-35.2770060",
+          "lon": "149.1180336",
+          "tags": {}
+        },
+        {
+          "id": "665795333",
+          "visible": "true",
+          "version": "2",
+          "changeset": "10320612",
+          "timestamp": "2012-01-07T12:44:10Z",
+          "user": "k127",
+          "uid": "33223",
+          "lat": "-35.2770273",
+          "lon": "149.1180153",
+          "tags": {}
+        },
+        {
+          "id": "665795368",
+          "visible": "true",
+          "version": "2",
+          "changeset": "10320612",
+          "timestamp": "2012-01-07T12:44:11Z",
+          "user": "k127",
+          "uid": "33223",
+          "lat": "-35.2771267",
+          "lon": "149.1181886",
+          "tags": {}
+        },
+        {
+          "id": "665795369",
+          "visible": "true",
+          "version": "2",
+          "changeset": "10320612",
+          "timestamp": "2012-01-07T12:44:11Z",
+          "user": "k127",
+          "uid": "33223",
+          "lat": "-35.2772102",
+          "lon": "149.1181167",
+          "tags": {}
+        },
+        {
+          "id": "665795330",
+          "visible": "true",
+          "version": "2",
+          "changeset": "10320612",
+          "timestamp": "2012-01-07T12:44:10Z",
+          "user": "k127",
+          "uid": "33223",
+          "lat": "-35.2771102",
+          "lon": "149.1179423",
+          "tags": {}
+        },
+        {
+          "id": "439323257",
+          "visible": "true",
+          "version": "3",
+          "changeset": "10320612",
+          "timestamp": "2012-01-07T12:43:15Z",
+          "user": "k127",
+          "uid": "33223",
+          "lat": "-35.2771988",
+          "lon": "149.1178661",
+          "tags": {}
+        },
+        {
+          "id": "439323260",
+          "visible": "true",
+          "version": "3",
+          "changeset": "10320612",
+          "timestamp": "2012-01-07T12:43:15Z",
+          "user": "k127",
+          "uid": "33223",
+          "lat": "-35.2774022",
+          "lon": "149.1182206",
+          "tags": {}
+        },
+        {
+          "id": "665795336",
+          "visible": "true",
+          "version": "2",
+          "changeset": "10320612",
+          "timestamp": "2012-01-07T12:44:10Z",
+          "user": "k127",
+          "uid": "33223",
+          "lat": "-35.2773033",
+          "lon": "149.1183057",
+          "tags": {}
+        },
+        {
+          "id": "665795337",
+          "visible": "true",
+          "version": "2",
+          "changeset": "10320612",
+          "timestamp": "2012-01-07T12:44:10Z",
+          "user": "k127",
+          "uid": "33223",
+          "lat": "-35.2773283",
+          "lon": "149.1183493",
+          "tags": {}
+        },
+        {
+          "id": "665795372",
+          "visible": "true",
+          "version": "3",
+          "changeset": "69134817",
+          "timestamp": "2019-04-11T23:46:05Z",
+          "user": "JoeG",
+          "uid": "73276",
+          "lat": "-35.2773059",
+          "lon": "149.1183686",
+          "tags": {
+            "entrance": "main"
+          }
+        },
+        {
+          "id": "665795338",
+          "visible": "true",
+          "version": "3",
+          "changeset": "10320612",
+          "timestamp": "2012-01-07T12:44:10Z",
+          "user": "k127",
+          "uid": "33223",
+          "lat": "-35.2772803",
+          "lon": "149.1183907",
+          "tags": {}
+        },
+        {
+          "id": "665795341",
+          "visible": "true",
+          "version": "3",
+          "changeset": "10320612",
+          "timestamp": "2012-01-07T12:44:10Z",
+          "user": "k127",
+          "uid": "33223",
+          "lat": "-35.2772531",
+          "lon": "149.1183432",
+          "tags": {}
+        },
+        {
+          "id": "665795373",
+          "visible": "true",
+          "version": "2",
+          "changeset": "10320612",
+          "timestamp": "2012-01-07T12:44:11Z",
+          "user": "k127",
+          "uid": "33223",
+          "lat": "-35.2771660",
+          "lon": "149.1184181",
+          "tags": {}
+        },
+        {
+          "id": "439323266",
+          "visible": "true",
+          "version": "4",
+          "changeset": "10320612",
+          "timestamp": "2012-01-07T12:43:15Z",
+          "user": "k127",
+          "uid": "33223",
+          "lat": "-35.2771497",
+          "lon": "149.1184321",
+          "tags": {}
+        },
+        {
+          "id": "5269005655",
+          "visible": "true",
+          "version": "1",
+          "changeset": "54419222",
+          "timestamp": "2017-12-07T02:32:23Z",
+          "user": "AerobIast",
+          "uid": "4993042",
+          "lat": "-35.2771413",
+          "lon": "149.1184175",
+          "tags": {}
+        },
+        {
+          "id": "439323251",
+          "visible": "true",
+          "version": "3",
+          "changeset": "10320612",
+          "timestamp": "2012-01-07T12:43:14Z",
+          "user": "k127",
+          "uid": "33223",
+          "lat": "-35.2769492",
+          "lon": "149.1180826",
+          "tags": {}
+        }
+      ]
+    },
+    {
+      "id": "215140863",
+      "tags": {
+        "building": "university",
+        "building:levels": "3",
+        "name": "Frank Fenner Building",
+        "roof:levels": "0",
+        "source": "bing"
+      },
+      "points": [
+        {
+          "id": "2245604334",
+          "visible": "true",
+          "version": "2",
+          "changeset": "106180490",
+          "timestamp": "2021-06-10T22:41:29Z",
+          "user": "user_13394330",
+          "uid": "13394330",
+          "lat": "-35.2779020",
+          "lon": "149.1151467",
+          "tags": {}
+        },
+        {
+          "id": "8822598941",
+          "visible": "true",
+          "version": "1",
+          "changeset": "106180490",
+          "timestamp": "2021-06-10T22:41:29Z",
+          "user": "user_13394330",
+          "uid": "13394330",
+          "lat": "-35.2779128",
+          "lon": "149.1153820",
+          "tags": {}
+        },
+        {
+          "id": "8822598946",
+          "visible": "true",
+          "version": "1",
+          "changeset": "106180490",
+          "timestamp": "2021-06-10T22:41:29Z",
+          "user": "user_13394330",
+          "uid": "13394330",
+          "lat": "-35.2779519",
+          "lon": "149.1155669",
+          "tags": {}
+        },
+        {
+          "id": "2245604336",
+          "visible": "true",
+          "version": "4",
+          "changeset": "106180490",
+          "timestamp": "2021-06-10T22:41:29Z",
+          "user": "user_13394330",
+          "uid": "13394330",
+          "lat": "-35.2779540",
+          "lon": "149.1155766",
+          "tags": {}
+        },
+        {
+          "id": "6392155021",
+          "visible": "true",
+          "version": "2",
+          "changeset": "106180490",
+          "timestamp": "2021-06-10T22:41:29Z",
+          "user": "user_13394330",
+          "uid": "13394330",
+          "lat": "-35.2780265",
+          "lon": "149.1155568",
+          "tags": {}
+        },
+        {
+          "id": "8822598943",
+          "visible": "true",
+          "version": "1",
+          "changeset": "106180490",
+          "timestamp": "2021-06-10T22:41:29Z",
+          "user": "user_13394330",
+          "uid": "13394330",
+          "lat": "-35.2780228",
+          "lon": "149.1155183",
+          "tags": {}
+        },
+        {
+          "id": "5269005727",
+          "visible": "true",
+          "version": "2",
+          "changeset": "106180490",
+          "timestamp": "2021-06-10T22:41:29Z",
+          "user": "user_13394330",
+          "uid": "13394330",
+          "lat": "-35.2781753",
+          "lon": "149.1154766",
+          "tags": {}
+        },
+        {
+          "id": "5269005726",
+          "visible": "true",
+          "version": "2",
+          "changeset": "106180490",
+          "timestamp": "2021-06-10T22:41:29Z",
+          "user": "user_13394330",
+          "uid": "13394330",
+          "lat": "-35.2781544",
+          "lon": "149.1153755",
+          "tags": {}
+        },
+        {
+          "id": "2695971533",
+          "visible": "true",
+          "version": "2",
+          "changeset": "106180490",
+          "timestamp": "2021-06-10T22:41:29Z",
+          "user": "user_13394330",
+          "uid": "13394330",
+          "lat": "-35.2780069",
+          "lon": "149.1154140",
+          "tags": {}
+        },
+        {
+          "id": "2245604338",
+          "visible": "true",
+          "version": "2",
+          "changeset": "106180490",
+          "timestamp": "2021-06-10T22:41:29Z",
+          "user": "user_13394330",
+          "uid": "13394330",
+          "lat": "-35.2779872",
+          "lon": "149.1152554",
+          "tags": {}
+        },
+        {
+          "id": "2245604342",
+          "visible": "true",
+          "version": "2",
+          "changeset": "106180490",
+          "timestamp": "2021-06-10T22:41:29Z",
+          "user": "user_13394330",
+          "uid": "13394330",
+          "lat": "-35.2780309",
+          "lon": "149.1152686",
+          "tags": {}
+        },
+        {
+          "id": "5269005725",
+          "visible": "true",
+          "version": "2",
+          "changeset": "106180490",
+          "timestamp": "2021-06-10T22:41:29Z",
+          "user": "user_13394330",
+          "uid": "13394330",
+          "lat": "-35.2781549",
+          "lon": "149.1152643",
+          "tags": {}
+        },
+        {
+          "id": "2245604343",
+          "visible": "true",
+          "version": "2",
+          "changeset": "106180490",
+          "timestamp": "2021-06-10T22:41:29Z",
+          "user": "user_13394330",
+          "uid": "13394330",
+          "lat": "-35.2781527",
+          "lon": "149.1151785",
+          "tags": {}
+        },
+        {
+          "id": "2245604341",
+          "visible": "true",
+          "version": "2",
+          "changeset": "106180490",
+          "timestamp": "2021-06-10T22:41:29Z",
+          "user": "user_13394330",
+          "uid": "13394330",
+          "lat": "-35.2780423",
+          "lon": "149.1151786",
+          "tags": {}
+        },
+        {
+          "id": "2245604334",
+          "visible": "true",
+          "version": "2",
+          "changeset": "106180490",
+          "timestamp": "2021-06-10T22:41:29Z",
+          "user": "user_13394330",
+          "uid": "13394330",
+          "lat": "-35.2779020",
+          "lon": "149.1151467",
+          "tags": {}
+        }
+      ]
+    },
+    {
+      "id": "674003253",
+      "tags": {
+        "addr:housenumber": "155",
+        "addr:street": "University Avenue",
+        "building": "university",
+        "building:levels": "5",
+        "name": "Marie Reay Teaching Centre"
+      },
+      "points": [
+        {
+          "id": "6311942632",
+          "visible": "true",
+          "version": "8",
+          "changeset": "180384361",
+          "timestamp": "2026-03-25T03:20:02Z",
+          "user": "o68",
+          "uid": "20094916",
+          "lat": "-35.2777852",
+          "lon": "149.1205593",
+          "tags": {}
+        },
+        {
+          "id": "6311942633",
+          "visible": "true",
+          "version": "8",
+          "changeset": "180384361",
+          "timestamp": "2026-03-25T03:20:02Z",
+          "user": "o68",
+          "uid": "20094916",
+          "lat": "-35.2776175",
+          "lon": "149.1202794",
+          "tags": {}
+        },
+        {
+          "id": "13694455455",
+          "visible": "true",
+          "version": "1",
+          "changeset": "180655160",
+          "timestamp": "2026-03-31T04:53:54Z",
+          "user": "o68",
+          "uid": "20094916",
+          "lat": "-35.2775400",
+          "lon": "149.1203490",
+          "tags": {
+            "entrance": "yes"
+          }
+        },
+        {
+          "id": "6311942634",
+          "visible": "true",
+          "version": "8",
+          "changeset": "180384361",
+          "timestamp": "2026-03-25T03:20:02Z",
+          "user": "o68",
+          "uid": "20094916",
+          "lat": "-35.2773888",
+          "lon": "149.1204849",
+          "tags": {}
+        },
+        {
+          "id": "6311942635",
+          "visible": "true",
+          "version": "8",
+          "changeset": "180384361",
+          "timestamp": "2026-03-25T03:20:02Z",
+          "user": "o68",
+          "uid": "20094916",
+          "lat": "-35.2775564",
+          "lon": "149.1207648",
+          "tags": {}
+        },
+        {
+          "id": "6936111036",
+          "visible": "true",
+          "version": "5",
+          "changeset": "180384361",
+          "timestamp": "2026-03-25T03:20:02Z",
+          "user": "o68",
+          "uid": "20094916",
+          "lat": "-35.2777596",
+          "lon": "149.1205871",
+          "tags": {
+            "entrance": "yes"
+          }
+        },
+        {
+          "id": "6311942632",
+          "visible": "true",
+          "version": "8",
+          "changeset": "180384361",
+          "timestamp": "2026-03-25T03:20:02Z",
+          "user": "o68",
+          "uid": "20094916",
+          "lat": "-35.2777852",
+          "lon": "149.1205593",
+          "tags": {}
+        }
+      ]
+    }
+  ]
+}

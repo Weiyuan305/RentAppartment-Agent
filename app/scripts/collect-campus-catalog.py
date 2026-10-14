@@ -2,6 +2,7 @@
 import json
 import subprocess
 import os
+import sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from datetime import datetime, timezone
@@ -25,9 +26,17 @@ SCHOOLS = {
     'hong-kong': ('The University of Hong Kong','Main campus','https://www.maps.hku.hk/'),
 }
 ALIASES={680050665:['Wilkins','威尔金斯楼','主楼'],681098586:['Student Centre','学生中心'],849005554:['DMS Watson','Science Library','科学图书馆'],789265602:['IOE Library','教育学院图书馆'],51517608:['IOE','教育学院'],483804431:['Bartlett','巴特莱特'],845163820:['Refectory','食堂'],16784706:['Fisher','费雪图书馆'],45474350:['Carslaw','卡斯劳'],45474427:['Law Building','法学院楼'],175377608:['Computer Science','计算机楼'],54583490:['Central Library','CLB','中央图书馆'],140087160:['BIZ1','商学院','Mochtar Riady'],54583487:['Health Centre','校医院'],142079835:['AS7','Shaw Foundation'],263611204:['Main Library','主图书馆'],278144675:['DTC','大礼堂'],359488999:['Cafeteria','食堂'],182023175:['Main Library','主图书馆','本部图书馆'],182023171:['Knowles','钮鲁诗楼'],182023173:['KK Leung','梁銶琚楼'],182172764:['Chow Yei Ching','周亦卿楼']}
+expanded=json.loads((ROOT/'scripts/expanded-campus-config.json').read_text())
+for city,config in expanded.items():
+    BOUNDS[city]=config['bounds'];SELECTION[city]=config['selection'];SCHOOLS[city]=config['school']
+    ALIASES.update({int(k):v for k,v in config['aliases'].items()})
+requested=next((arg.split('=',1)[1].split(',') for arg in sys.argv if arg.startswith('--cities=')),list(SELECTION))
+if not set(requested).issubset(SELECTION):raise ValueError('Unknown campus city')
+existing=json.loads((ROOT/'lib/student/data/campuses.json').read_text())
 collected = datetime.now(timezone.utc).isoformat()
-buildings=[];campuses=[]
+buildings=[b for b in existing["buildings"] if b["cityId"] not in requested];campuses=[c for c in existing["campuses"] if c["cityId"] not in requested]
 for city,ids in SELECTION.items():
+    if city not in requested:continue
     university,campus,official=SCHOOLS[city];campus_id=city+'-main'
     campuses.append({'id':campus_id,'cityId':city,'university':university,'name':campus,'officialUrl':official})
     source=CACHE/('atlas-campus-'+city+'.osm')
@@ -51,9 +60,10 @@ for city,ids in SELECTION.items():
         if entrances:lat=float(entrances[0].attrib['lat']);lng=float(entrances[0].attrib['lon']);kind='mapped-entrance'
         else:lat=sum(float(p.attrib['lat']) for p in points)/len(points);lng=sum(float(p.attrib['lon']) for p in points)/len(points);kind='building-center'
         category='library' if any(x in name.lower() for x in ['library','perpustakaan','圖書館']) or identifier==849005554 else 'dining' if identifier in [845163820,359488999] else 'services' if identifier in [681098586,54583487,54583930,182172765,661062521] else 'teaching'
+        category=expanded.get(city,{}).get("categories",{}).get(str(identifier),category)
         buildings.append({'id':f'way/{identifier}','cityId':city,'campusId':campus_id,'name':name,'aliases':list(dict.fromkeys(ALIASES.get(identifier,[])+[v for k,v in tags.items() if k in ['name:en','name:zh','short_name','ref']])),'category':category,'lng':round(lng,7),'lat':round(lat,7),'locationType':kind,'source':{'url':f'https://www.openstreetmap.org/way/{identifier}','officialUrl':official,'collectedAt':source_collected}})
 data={'version':1,'provider':'OpenStreetMap','attribution':'© OpenStreetMap contributors; ODbL','campuses':campuses,'buildings':buildings}
 (ROOT/'lib/student/data/campuses.json').write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
 evidence=ROOT.parent/'research/evidence/campus-planner';evidence.mkdir(parents=True,exist_ok=True)
-(evidence/'catalog-provenance.json').write_text(json.dumps({'collectedAt':collected,'endpoint':'https://api.openstreetmap.org/api/0.6/map','bounds':{'london':[-.146,51.518,-.122,51.532],'sydney':[151.176,-33.898,151.199,-33.878],'singapore':[103.763,1.284,103.789,1.309],'kuala-lumpur':[101.641,3.106,101.669,3.135],'hong-kong':[114.126,22.276,114.145,22.29]},'selection':SELECTION,'entranceRule':'Only mapped entrance=main, access not no/private. Otherwise footprint vertex average; explicitly not a verified entrance.'},ensure_ascii=False,indent=2)+'\n')
+(evidence/'catalog-provenance.json').write_text(json.dumps({'collectedAt':collected,'endpoint':'https://api.openstreetmap.org/api/0.6/map','bounds':BOUNDS,'selection':SELECTION,'entranceRule':'Only mapped entrance=main, access not no/private. Otherwise footprint vertex average; explicitly not a verified entrance.'},ensure_ascii=False,indent=2)+'\n')
 print(f'{len(buildings)} sourced buildings in {len(campuses)} campuses; {sum(b["locationType"]=="mapped-entrance" for b in buildings)} mapped main entrances.')

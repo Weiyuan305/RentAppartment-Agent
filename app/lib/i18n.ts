@@ -20,6 +20,12 @@ export function translator(locale: Locale): Translate {
 }
 const englishCities: Record<City["id"], Pick<City, "country" | "university" | "campus" | "neighborhoods">> = {
   london:{country:"United Kingdom",university:"University College London",campus:"Bloomsbury campus",neighborhoods:[]},
+  manchester:{country:"United Kingdom",university:"University of Manchester",campus:"Oxford Road campus",neighborhoods:[]},
+  edinburgh:{country:"United Kingdom",university:"University of Edinburgh",campus:"Central Area campus",neighborhoods:[]},
+  liverpool:{country:"United Kingdom",university:"University of Liverpool",campus:"City Centre campus",neighborhoods:[]},
+  birmingham:{country:"United Kingdom",university:"University of Birmingham",campus:"Edgbaston campus",neighborhoods:[]},
+  melbourne:{country:"Australia",university:"University of Melbourne",campus:"Parkville campus",neighborhoods:[]},
+  canberra:{country:"Australia",university:"Australian National University",campus:"Acton campus",neighborhoods:[]},
   sydney:{country:"Australia",university:"University of Sydney",campus:"Camperdown / Darlington",neighborhoods:[]},
   singapore:{country:"Singapore",university:"National University of Singapore",campus:"Kent Ridge campus",neighborhoods:[]},
   "kuala-lumpur":{country:"Malaysia",university:"Universiti Malaya",campus:"Main campus",neighborhoods:[]},

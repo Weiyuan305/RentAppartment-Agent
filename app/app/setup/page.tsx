@@ -9,7 +9,7 @@ export default function SetupPage() {
     <a href="/?city=london" className="back-link">{t("← 返回远居")}</a>
     <span className="doc-kicker">CAMPUS ATLAS · CESIUM ION</span>
     <h1>{t("先用免费评估，")}<br/>{t("看看真实的城市。")}</h1>
-    <p className="doc-lead">{t("这一轮使用 Cesium ion Community，连接 Google 实景三维城市。无需同时开通 Google Cloud 结算；先完成五城效果验证，再决定正式运营的方案。")}</p>
+    <p className="doc-lead">{t("这一轮使用 Cesium ion Community，连接 Google 实景三维城市。无需同时开通 Google Cloud 结算；逐城验证效果，再决定正式运营的方案。")}</p>
     <section id="agent">
       <h2>{t("AI 找房助手 · OpenAI 兼容接口")}</h2>
       <p>{t("在 app 目录将")} <code>.env.agent.example</code> {t("复制为")} <code>.env.agent.local</code>{t("，填写以下三个值，再重启服务：")}</p>
@@ -46,11 +46,11 @@ export default function SetupPage() {
       <p>{t("保存后，在 app 目录运行：")}</p>
       <pre>{`npm run check:map\nnpm run dev -- --port 5174`}</pre>
       <p>{t("如果开发服务已经运行，先停止旧进程再重启。check:map 只检查本地配置，不发送网络请求，也不会打印 token。")}</p>
-      <p>{t("回到城市页面，点击「加载实景 3D」才会请求地图。同一次页面停留中，切换五个城市会复用地图连接；刷新、重试或重新进入可能产生新的请求。")}</p>
+      <p>{t("回到城市页面，点击「加载实景 3D」才会请求地图。同一次页面停留中，切换城市会复用地图连接；刷新、重试或重新进入可能产生新的请求。")}</p>
     </section>
     <section>
-      <h2>{t("接通后，一起验收五个城市")}</h2>
-      <p>{t("伦敦、悉尼、新加坡、吉隆坡、香港：逐一检查大学周边是否有真实建筑纹理，拖动、缩放、旋转，再点击房源和大学定位。城市覆盖与清晰度仍需实际检查。")}</p>
+      <h2>{t("接通后，逐城验收地图效果")}</h2>
+      <p>{t("逐一检查各城市大学周边是否有真实建筑纹理，拖动、缩放、旋转，再点击房源和大学定位。城市覆盖与清晰度仍需实际检查。")}</p>
       <p>{t("房源、位置和租金仍是演示数据；步行时间、安全和购物便利度需要后续单独核验。")}</p>
       <a className="primary-button" href="/?city=london">{t("返回样本，开始验证 →")}</a>
     </section>

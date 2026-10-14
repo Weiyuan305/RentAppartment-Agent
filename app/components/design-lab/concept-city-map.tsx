@@ -1,6 +1,7 @@
 "use client";
 import { displayCity } from "@/lib/i18n";
 import { useLocale } from "@/components/locale-provider";
+import MapAttribution from "@/components/map-attribution";
 import { lazy,Suspense,useEffect, useMemo, useRef, useState } from "react";
 import type * as Cesium from "cesium";
 import { Building2, Compass, GraduationCap, MapPin, Minus, Navigation, Plus, RotateCw } from "lucide-react";
@@ -51,6 +52,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   const {t, locale} = useLocale();
   const cityView = useMemo(()=>displayCity(city,locale),[city,locale]);
   const container = useRef<HTMLDivElement>(null);
+  const creditContainer = useRef<HTMLDivElement>(null);
   const viewportVisible = useRef(false);
   const [viewportSeen, setViewportSeen] = useState(false);
   const [labelScene, setLabelScene] = useState<LabelScene | null>(null);
@@ -113,24 +115,18 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     return () => observer.disconnect();
   }, []);
   useEffect(() => {
-    if (!shouldLoad || !viewportSeen || !config.configured || !container.current) return;
-    let disposed = false; let viewer: Cesium.Viewer | null = null; let removeError: (() => void) | undefined; let creditsObserver: ResizeObserver | undefined;
+    if (!shouldLoad || !viewportSeen || !config.configured || !container.current || !creditContainer.current) return;
+    let disposed = false; let viewer: Cesium.Viewer | null = null; let removeError: (() => void) | undefined;
     setStatus("loading");
     void (async () => {
       try {
-        const C = await loadEngine(); if (disposed || !container.current) return;
+        const C = await loadEngine(); if (disposed || !container.current || !creditContainer.current) return;
         C.Ion.defaultAccessToken = config.provider === "cesium-ion" ? config.credential : "";
-        viewer = new C.Viewer(container.current, { useDefaultRenderLoop: false, globe: false, baseLayer: false, geocoder: false, animation: false, timeline: false, baseLayerPicker: false, sceneModePicker: false, homeButton: false, navigationHelpButton: false, fullscreenButton: false, infoBox: false, selectionIndicator: false, requestRenderMode: true, useBrowserRecommendedResolution: false, contextOptions: {webgl: {antialias: true}} });
+        viewer = new C.Viewer(container.current, { creditContainer: creditContainer.current, useDefaultRenderLoop: false, globe: false, baseLayer: false, geocoder: false, animation: false, timeline: false, baseLayerPicker: false, sceneModePicker: false, homeButton: false, navigationHelpButton: false, fullscreenButton: false, infoBox: false, selectionIndicator: false, requestRenderMode: true, useBrowserRecommendedResolution: false, contextOptions: {webgl: {antialias: true}} });
         // Native pixel density up to 2x; FXAA must not soften icon textures.
         viewer.resolutionScale = Math.min(1, 2 / Math.max(1, window.devicePixelRatio));
         viewer.scene.postProcessStages.fxaa.enabled = false;
         viewer.scene.backgroundColor = C.Color.fromCssColorString("#223341");
-        // Attribution wraps on narrow screens; keep our overlays above its actual height.
-        const credits = viewer.bottomContainer;
-        creditsObserver = new ResizeObserver(() => {
-          container.current?.parentElement?.style.setProperty("--map-credit-height", `${credits.getBoundingClientRect().height}px`);
-        });
-        creditsObserver.observe(credits);
         const tileOptions = { maximumScreenSpaceError: 12, cacheBytes: 256 * 1024 * 1024, maximumCacheOverflowBytes: 128 * 1024 * 1024, showCreditsOnScreen: true };
         // Explicit ion asset avoids the helper's cached failed request when the user retries.
         // No geocoder is enabled; listing positions and OSM facilities are independent of the imagery.
@@ -173,7 +169,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
         viewer.destroy = () => { handler.destroy(); return originalDestroy(); };
       } catch { if (!disposed) setStatus("error"); }
     })();
-    return () => { disposed = true; removeError?.(); creditsObserver?.disconnect(); runtime.current = null; if (viewer && !viewer.isDestroyed()) viewer.destroy(); };
+    return () => { disposed = true; removeError?.(); runtime.current = null; if (viewer && !viewer.isDestroyed()) viewer.destroy(); };
   }, [shouldLoad, retry, viewportSeen]);
   useEffect(() => {
     const rt = runtime.current; if (!rt || status !== "ready") return;
@@ -264,6 +260,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     : config.provider === "cesium-ion" ? t("请检查 token、Google 3D 资产权限、允许的网址和本月用量。") : t("请检查网络、地图权限与配额，或稍后重试。");
   return <section className={`city-panel ${live ? "map-live" : ""} ${routeTarget || amenityRouteEnabled||studentPlan.routeBuilding||studentPlan.transitRequested ? "has-route" : ""} ${limitedCoverage ? "limited-coverage" : ""}`} aria-label={t("{0}城市地图", {0:city.name})}>
     <div ref={container} className="cesium-mount" aria-label={t("实景三维画布")}/>
+    <MapAttribution nativeRef={creditContainer} visible={live}/>
     {live && <MapPlaceLabels scene={labelScene} city={city} listings={listings} selected={selected} place={selectedAmenity} hideCampus={Boolean(selectedBuilding)} routeActive={Boolean(route)||studentPlan.transitRequested} onSelect={onSelect} onCampus={()=>cameraAction("campus")} onPlace={id=>{setSelectedAmenityId(id);setAmenityRouteTarget(null);}}/>}
     {live&&(studentPlan.showBuildings||studentPlan.destinationId)&&<Suspense fallback={null}><CampusMapLayer scene={labelScene} cityId={city.id} plan={studentPlan} onSelect={onBuildingSelect}/></Suspense>}
     {!live && <><img className="city-photo" src={cityPhoto(city.id)} alt={t("{0}城市风光预览", {0:city.name})}/><div className="city-shade"/></>}

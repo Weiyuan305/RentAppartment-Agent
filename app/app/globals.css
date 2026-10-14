@@ -454,3 +454,42 @@ button:disabled { cursor: not-allowed; }
   .explorer *, .auth-page *, .destination-dialog, .detail-dialog, [data-slot=select-content], [data-slot=dialog-overlay] { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .photo-open:hover img { transform: none; }
 }
+.map-attribution{position:absolute;z-index:10;left:12px;right:12px;bottom:8px;display:flex;align-items:flex-end;justify-content:flex-end;gap:6px;pointer-events:none;color:#f2f6f3}
+.map-attribution[hidden]{display:none}
+.map-credit-host,.map-credit-disclosure{pointer-events:auto;background:#112d30ed;border:1px solid #ffffff20;border-radius:6px;box-shadow:0 2px 8px #10252a20}
+.map-credit-host{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:5px 8px;padding:5px 7px;min-width:0;font:10px/1.4 Arial,sans-serif}
+.map-credit-host .cesium-widget-credits{position:static;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:5px 8px;font:inherit;color:inherit;text-shadow:none}
+.map-credit-host .cesium-credit-logoContainer{display:flex!important;align-items:center;margin:0!important}
+.map-credit-host .cesium-credit-textContainer{display:contents!important}
+.map-credit-host .cesium-credit-wrapper{display:none!important;margin:0!important;padding:0!important}
+.map-credit-host .cesium-credit-logoContainer .cesium-credit-wrapper,.map-credit-host .cesium-credit-wrapper:has(img),.map-credit-host .cesium-credit-wrapper:has(a[href^="https://cesium.com"]){display:inline-flex!important;align-items:center;white-space:nowrap}
+.map-credit-host .cesium-credit-logoContainer{order:0}
+.map-credit-host .cesium-credit-textContainer .cesium-credit-wrapper:has(img){order:1}
+.map-credit-host .cesium-credit-textContainer .cesium-credit-wrapper:has(a[href^="https://cesium.com"]){order:2}
+.map-credit-host .cesium-credit-delimiter{display:none!important}
+.map-credit-host img{height:18px!important;width:auto!important;max-width:none;vertical-align:middle}
+.map-credit-host .cesium-credit-textContainer img{height:16px!important}
+.map-credit-host a,.map-credit-sources a{color:inherit}
+.map-credit-host .cesium-credit-expand-link{color:inherit!important;font-size:10px!important}
+.map-credit-disclosure{flex-shrink:0}
+.map-credit-disclosure>summary{display:flex;align-items:center;justify-content:center;gap:5px;min-height:30px;padding:0 9px;font-size:10px;line-height:1;cursor:pointer;list-style:none;user-select:none;border-radius:5px;transition:background-color .16s}
+.map-credit-disclosure>summary::-webkit-details-marker{display:none}
+.map-credit-disclosure>summary:hover,.map-credit-disclosure[open]>summary{background:#ffffff15}
+.map-credit-disclosure>summary:focus-visible{outline:2px solid #c3e4c6;outline-offset:3px}
+.map-credit-panel{position:absolute;right:0;bottom:calc(100% + 8px);width:min(360px,100%);max-height:min(300px,calc(100dvh - 180px));display:flex;flex-direction:column;overflow:hidden;background:#173536fa;border:1px solid #e1eee330;border-radius:10px;box-shadow:0 12px 36px #091e2940;transform-origin:bottom right;animation:map-credit-reveal .16s ease-out}
+.map-credit-panel>header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border-bottom:1px solid #ffffff15;flex-shrink:0}
+.map-credit-panel>header strong{font-size:12px;font-weight:600}
+.map-credit-panel>header button{display:grid;place-items:center;width:30px;height:30px;border:0;border-radius:5px;color:#e1eee3;background:transparent}
+.map-credit-panel>header button:hover{background:#ffffff15;color:white}
+.map-credit-scroll{padding:12px 14px 16px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.map-credit-scroll>p{margin:0 0 8px;font-size:10px;line-height:1.5;color:#b8cdbf}
+.map-credit-scroll>p:not(:first-child){margin-top:16px}
+.map-credit-sources{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font:11px/1.7 Arial,sans-serif;overflow-wrap:anywhere}
+.map-credit-sources .cesium-credit-wrapper{display:inline!important}
+.map-credit-sources img{height:18px!important;width:auto!important;max-width:100%;vertical-align:middle}
+.map-credit-network{font:11px/1.7 Arial,sans-serif;overflow-wrap:anywhere}
+.map-credit-network a{text-decoration:underline;text-underline-offset:3px;color:inherit}
+.cesium-mount .cesium-viewer-bottom:empty{display:none}
+@keyframes map-credit-reveal{from{opacity:0;transform:translateY(4px) scale(.985)}to{opacity:1;transform:none}}
+@media(pointer:coarse){.map-credit-disclosure>summary{min-height:36px;padding-inline:11px}.map-credit-panel>header button{width:36px;height:36px}}
+@media(prefers-reduced-motion:reduce){.map-credit-panel{animation:none}.map-credit-disclosure>summary{transition:none}}

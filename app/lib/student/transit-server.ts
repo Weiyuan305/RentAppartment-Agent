@@ -29,7 +29,7 @@ export async function getTransitJourneys(
       signal: AbortSignal.timeout(15000),
       headers: { "User-Agent": "CampusAtlas-StudentPlanner/1.0" },
     });
-    if (!response.ok) throw new Error("TfL 暂时不可用，请使用官方规划入口。");
+    if (!response.ok) throw new Error(`TfL upstream returned HTTP ${response.status}`);
     const journeys = normalizeTransit(await response.json());
     await db.run(
       "INSERT OR REPLACE INTO routes (key,payload,expires) VALUES (?,?,?)",

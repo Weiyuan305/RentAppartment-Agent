@@ -456,9 +456,9 @@ button:disabled { cursor: not-allowed; }
 }
 .map-attribution{position:absolute;z-index:10;left:12px;right:12px;bottom:8px;display:flex;align-items:flex-end;justify-content:flex-end;gap:6px;pointer-events:none;color:#f2f6f3}
 .map-attribution[hidden]{display:none}
-.map-credit-host,.map-credit-disclosure{pointer-events:auto;background:#112d30ed;border:1px solid #ffffff20;border-radius:6px;box-shadow:0 2px 8px #10252a20}
-.map-credit-host{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:5px 8px;padding:5px 7px;min-width:0;font:10px/1.4 Arial,sans-serif}
-.map-credit-host .cesium-widget-credits{position:static;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:5px 8px;font:inherit;color:inherit;text-shadow:none}
+.map-credit-disclosure{pointer-events:auto;background:#112d30ed;border:1px solid #ffffff20;border-radius:6px;box-shadow:0 2px 8px #10252a20}
+.map-credit-host{pointer-events:auto;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:5px 8px;padding:5px 7px;min-width:0;font:10px/1.4 Arial,sans-serif;color:#fff;text-shadow:0 1px 2px #10252a,0 0 3px #10252a}
+.map-credit-host .cesium-widget-credits{position:static;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:5px 8px;font:inherit;color:inherit;text-shadow:inherit}
 .map-credit-host .cesium-credit-logoContainer{display:flex!important;align-items:center;margin:0!important}
 .map-credit-host .cesium-credit-textContainer{display:contents!important}
 .map-credit-host .cesium-credit-wrapper{display:none!important;margin:0!important;padding:0!important}
@@ -467,7 +467,7 @@ button:disabled { cursor: not-allowed; }
 .map-credit-host .cesium-credit-textContainer .cesium-credit-wrapper:has(img){order:1}
 .map-credit-host .cesium-credit-textContainer .cesium-credit-wrapper:has(a[href^="https://cesium.com"]){order:2}
 .map-credit-host .cesium-credit-delimiter{display:none!important}
-.map-credit-host img{height:18px!important;width:auto!important;max-width:none;vertical-align:middle}
+.map-credit-host img{height:18px!important;width:auto!important;max-width:none;vertical-align:middle;filter:drop-shadow(0 1px 1px #10252ad9)}
 .map-credit-host .cesium-credit-textContainer img{height:16px!important}
 .map-credit-host a,.map-credit-sources a{color:inherit}
 .map-credit-host .cesium-credit-expand-link{color:inherit!important;font-size:10px!important}

@@ -49,3 +49,10 @@ TfL 本机成功不代表云端成功：公网测试与 Worker 诊断日志确�
 ## 正式服务仍需的数据
 
 真实房源供给及入口、实时库存与合同条款；更多大学和校区、建筑入口与门禁核验；非伦敦城市的可用交通接口；更完整的无障碍和公共安全数据。现有代码具备演示交互，不代表这些数据已取得。
+
+## 最终发布记录
+
+- 已先同步功能代码到 GitHub `main`：`a323b68ae13d29a5cf4d4bdf23bd7407feb11384`。后续提交仅补充本段和验收文件。
+- Cloudflare Worker 版本：`fc1e84fe-11fe-48d1-b21a-6492be57c22a`；Pages 部署：`49d68852`；固定地址 https://campus-atlas-demo.pages.dev 。
+- 最终公网五城目录、楼栋路线、20 分钟步行范围、官方交通模式、跨城拒绝与健康接口通过；中文对比、楼栋路线、正常外部交通面板已观察。见 `evidence/campus-planner/cloudflare-planner-acceptance-2026-10-14.json` 和 `cloudflare-transit-handoff-zh.png`。
+- 隔离的本地验收页面已关闭，本地开发服务恢复到原来的数据库，仅监听 `127.0.0.1:5174`。

@@ -1,0 +1,68 @@
+{
+  "checkedAt": "2026-10-14T04:04:20.779Z",
+  "sourceCommit": "a323b68ae13d29a5cf4d4bdf23bd7407feb11384",
+  "workerVersion": "fc1e84fe-11fe-48d1-b21a-6492be57c22a",
+  "pagesDeployment": "49d68852",
+  "cities": [
+    {
+      "city": "london",
+      "buildings": 20,
+      "routePoints": 77,
+      "distanceMeters": 807,
+      "catchment": "Polygon",
+      "transitMode": "external-planner"
+    },
+    {
+      "city": "sydney",
+      "buildings": 6,
+      "routePoints": 71,
+      "distanceMeters": 1195,
+      "catchment": "Polygon",
+      "transitMode": "external-planner"
+    },
+    {
+      "city": "singapore",
+      "buildings": 6,
+      "routePoints": 33,
+      "distanceMeters": 392,
+      "catchment": "Polygon",
+      "transitMode": "external-planner"
+    },
+    {
+      "city": "kuala-lumpur",
+      "buildings": 6,
+      "routePoints": 95,
+      "distanceMeters": 1560,
+      "catchment": "Polygon",
+      "transitMode": "external-planner"
+    },
+    {
+      "city": "hong-kong",
+      "buildings": 6,
+      "routePoints": 81,
+      "distanceMeters": 1216,
+      "catchment": "Polygon",
+      "transitMode": "external-planner"
+    }
+  ],
+  "health": {
+    "status": "ok",
+    "checks": {
+      "database": "ok",
+      "aiConfiguration": "ok"
+    }
+  },
+  "crossCityRejected": true,
+  "browser": {
+    "desktopChineseComparison": true,
+    "buildingRouteMeters": 686,
+    "buildingRouteMinutes": 9,
+    "officialTransitHandoffObserved": true,
+    "frontEndErrorLogEntries": 0,
+    "evidence": [
+      "cloudflare-building-route-zh.png",
+      "cloudflare-comparison-en.png",
+      "cloudflare-transit-handoff-zh.png"
+    ]
+  }
+}

@@ -24,6 +24,8 @@
       }
     ],
     "paths": {
+      "@atlas/database": ["./lib/agent/database-sqlite.ts"],
+      "@atlas/catalog-data": ["./lib/agent/catalog-data-node.ts"],
       "@/*": [
         "./*"
       ]

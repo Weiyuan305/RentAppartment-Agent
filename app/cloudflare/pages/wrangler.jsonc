@@ -1,0 +1,12 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "campus-atlas-demo",
+  "pages_build_output_dir": "../../dist/pages",
+  "compatibility_date": "2026-05-15",
+  "services": [
+    {
+      "binding": "ATLAS_APP",
+      "service": "campus-atlas-demo"
+    }
+  ]
+}

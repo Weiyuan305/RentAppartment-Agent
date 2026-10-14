@@ -1,9 +1,14 @@
 import { randomBytes } from "node:crypto";
 import { z } from "zod";
 import { ownerHash, SessionError } from "./store";
+import { getAuth } from "../auth";
 
 export const privateHeaders = {"Cache-Control": "private, no-store"};
-export function identity(request: Request, create = false) {
+export async function identity(request: Request, create = false) {
+  if (/(?:^|;\s*)(?:__Secure-)?atlas-auth\./.test(request.headers.get("cookie") ?? "")) {
+    const session = await (await getAuth(request)).api.getSession({headers:request.headers});
+    if (session?.user) return {owner:ownerHash(`account:${session.user.id}`),headers:privateHeaders};
+  }
   const raw = request.headers.get("cookie")?.split(";").map(c => c.trim()).find(c => c.startsWith("atlas_session="))?.slice(14);
   const valid = raw && /^[a-f0-9]{64}$/.test(raw);
   if (!valid && !create) throw new SessionError("请先加载会话。", 401);

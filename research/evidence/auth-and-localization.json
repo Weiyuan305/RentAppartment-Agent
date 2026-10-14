@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-12",
+  "workerVersion": "60c96e83-e593-4543-a86b-52cc05b1e9a0",
+  "pagesDeployment": "2ecd85f7",
+  "auth": {
+    "origin": "https://campus-atlas-demo.pages.dev",
+    "registration": true,
+    "signIn": true,
+    "session": true,
+    "accountChat": true,
+    "signOut": true
+  },
+  "locale": {
+    "checkedAt": "2026-10-12T12:44:49.838Z",
+    "origin": "https://campus-atlas-demo.pages.dev",
+    "health": {
+      "status": "ok",
+      "checks": {
+        "database": "ok",
+        "aiConfiguration": "ok"
+      }
+    },
+    "en": {
+      "status": 200,
+      "serverLanguage": true,
+      "translatedHeading": true
+    },
+    "zh": {
+      "status": 200,
+      "serverLanguage": true,
+      "translatedHeading": true
+    }
+  },
+  "ai": {
+    "checkedAt": "2026-10-12T12:50:07.683Z",
+    "origin": "https://campus-atlas-demo.pages.dev",
+    "accountConversationRestoredAfterNewSignIn": true,
+    "englishModelReply": true,
+    "mapCategory": "convenience",
+    "radiusMeters": 500,
+    "observedMapCount": 14,
+    "selectedListing": "london-2",
+    "modelTurns": 1
+  },
+  "browser": {
+    "desktop": true,
+    "narrowScreen": true,
+    "loginReturnPath": true,
+    "signOut": true,
+    "englishDetails": true,
+    "englishAmenities": true,
+    "languageSwitchPreservesLiveMap": true,
+    "threeD": {
+      "city": "london",
+      "initialConnectionFailed": true,
+      "reconnectSucceeded": true
+    },
+    "finalErrorAndWarningLogs": []
+  },
+  "localChecks": {
+    "authAndLocale": 2,
+    "agent": 8,
+    "health": 2,
+    "typecheck": true,
+    "nodeBuild": true,
+    "cloudflareBuild": true,
+    "secretLeaks": 0,
+    "sqliteImports": 0,
+    "hasD1": true
+  },
+  "finalHealth": {
+    "httpStatus": 200,
+    "status": "ok",
+    "checks": {
+      "database": "ok",
+      "aiConfiguration": "ok"
+    },
+    "checkedAt": "2026-10-12T12:53:17.832Z"
+  },
+  "testAccountCleaned": true
+}

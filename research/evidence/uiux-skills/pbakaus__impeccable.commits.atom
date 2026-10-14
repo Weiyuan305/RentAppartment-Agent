@@ -1,0 +1,738 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>tag:github.com,2008:/pbakaus/impeccable/commits/main</id>
+  <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commits/main"/>
+  <link type="application/atom+xml" rel="self" href="https://github.com/pbakaus/impeccable/commits/main.atom"/>
+  <title>Recent Commits to impeccable:main</title>
+  <updated>2026-10-12T17:12:50Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/245ad82def45831dc56a21b683c7a1ff530b06cc</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/245ad82def45831dc56a21b683c7a1ff530b06cc"/>
+    <title>
+        Bump rustls from 0.23.43 to 0.23.45 (#962)
+    </title>
+    <updated>2026-10-12T17:12:50Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/in/29110?s=30&amp;v=4"/>
+    <author>
+      <name>dependabot</name>
+      <uri>https://github.com/dependabot</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Bump rustls from 0.23.43 to 0.23.45 (#962)
+
+Fix TLS handshake validation through the existing ureq dependency.
+
+AI-assisted review and validation by Codex on behalf of Paul Bakaus. Exact PR head and current-main integration passed frozen install, Rust builds/workspace tests, default engine suite, distribution packaging and live HTTPS checks. No source migration or generated-output changes.&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/919dbeba520df760a157fe635be62faae88d58da</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/919dbeba520df760a157fe635be62faae88d58da"/>
+    <title>
+        Sync generated provider output
+    </title>
+    <updated>2026-10-12T11:02:31Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/in/15368?s=30&amp;v=4"/>
+    <author>
+      <name>github-actions</name>
+      <uri>https://github.com/github-actions</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Sync generated provider output&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/44c00a2a28f7cf3e48acec7f1950e71f7bcf8b65</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/44c00a2a28f7cf3e48acec7f1950e71f7bcf8b65"/>
+    <title>
+        Telemetry v2: explicit choices, every round reported, real opt-out, n…
+    </title>
+    <updated>2026-10-12T11:01:54Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/43004?s=30&amp;v=4"/>
+    <author>
+      <name>pbakaus</name>
+      <uri>https://github.com/pbakaus</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Telemetry v2: explicit choices, every round reported, real opt-out, no keys in git (#1012)
+
+* Telemetry v2: client header, round and pool revision on the choice ping, picker capture
+
+- Every /api/roll and /api/chosen request sends X-Impeccable-Client:
+  impeccable/&amp;lt;skill version, else engine+engine&amp;gt;[ &amp;lt;channel&amp;gt;], with the
+  channel from IMPECCABLE_TELEMETRY_CHANNEL (test in tests and CI).
+- API rolls record poolRevision, source, mode and register in roll.json,
+  and every API-dealt round enters a per-key seed ledger under
+  .impeccable/questions/seeds/ that outlives the decision page.
+- The /api/chosen body gains reroll, poolRevision and source. The agent
+  ping fills them from the ledger, drops a chosenId that is not a dealt
+  catalog id of that round (the kind still goes), and accepts --reroll;
+  the TELEMETRY line passes --reroll on re-roll rounds.
+- The decision page sends the ping itself (source picker) when the card
+  kind is certain: canon, a verdict card matching exactly one dealt world,
+  and on plain rounds the pick kicker and the assigned lead. It marks the
+  round before writing the answer, so the agent rerun prints
+  &amp;quot;choice already recorded&amp;quot;; a failed send clears the mark.
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Telemetry v2: explicit card identity, every round reported, runtime state kept out of git
+
+Card identity and capture:
+- Decision-page options on direction and surface rounds (payloads with
+  buildPath) declare kind (assigned, pick, challenger, dealt) and, on
+  challengers, catalogId; --start and --update refuse the payload until
+  they do and check catalogId against the dealt worlds. Schema, schema
+  note, new-work.md, and the contract document the fields.
+- The picker sends what the card declares (kindSource explicit), on
+  safer and bolder rounds too, falls back to the old kicker and verdict
+  conventions only for cards without a kind (kindSource inferred), and
+  carries option, the chosen card&amp;#39;s position, on every card ping.
+- Re-roll answers send kind reroll with the steer as register and the
+  rejected round; surface rounds send scope surface, assigned for the
+  dealt lead, challenger with its catalog id, and option alone for the
+  other dealt structures.
+- The agent path accepts --kind reroll and --option &amp;lt;n&amp;gt;; the TELEMETRY
+  line names the flags per scope and the re-roll report.
+
+Privacy:
+- Every write under .impeccable/questions/ keeps a self-ignoring
+  .gitignore there; the kept world card copies and build state.json get
+  the same treatment, so a committed roll record can no longer tie
+  telemetry to a repository.
+- The seed ledger is named by a hash of the key and stores neither the
+  key nor timestamps; roll.json&amp;#39;s at is floored to the minute.
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Telemetry v2: seed reference in committed files, opt-out reaches the server, handId
+
+- concept-seed prints SEED REFERENCE (seed: plus 16 hex of SHA-256 of
+  &amp;quot;impeccable-seed:&amp;quot; + key) for the surface brief and build-phase, and
+  --from (and IMPECCABLE_CONCEPT_SEED) resolves a reference through the
+  local, ignored seed ledger, so rolls, re-rolls, reproduced deals and the
+  choice ping keep the real key without it ever being committed. An
+  unknown reference is refused with the way out. build-phase stores the
+  reference for --direction. new-work.md and visualize.md record the
+  reference, never the key.
+- Opt-out: DO_NOT_TRACK / IMPECCABLE_NO_TELEMETRY count when non-empty and
+  not 0 or false; &amp;quot;telemetry&amp;quot;: false in ~/.impeccable/config.json (written
+  by the new `impeccable telemetry off|on|status`) or the project config
+  also counts. Opted out, the roll still runs and sends
+  X-Impeccable-Telemetry: off, no ping is sent, and no telemetry field or
+  sent mark is stored.
+- /api/roll&amp;#39;s handId (32 lowercase hex) is stored per round and sent in
+  every /api/chosen body for that round.
+- README gains a Telemetry section; the contract, CLAUDE.md, oracle
+  goldens and DELTAS.md follow.
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Telemetry v2: address PR review (tracked files, salted references, ledger lock, pending pings)
+
+- Tracked runtime files: a one-time TRACKED RUNTIME FILES notice (one
+  git ls-files, only inside a work tree, never fatal) with the exact
+  `git rm -r --cached` fix; while roll.json is tracked the record goes to
+  the untracked roll.local.json. Docs no longer claim nothing can reach a
+  commit.
+- New roll keys are 128 bits from the OS CSPRNG. Seed references are
+  salted per user (~/.impeccable/seed-salt), so they can be neither
+  enumerated nor computed from a key in the telemetry dataset; the roll
+  record stores the reference and no time (age is its mtime).
+- The ignore file is written before roll.json.
+- Ledger updates run under a per-file lock (create-new, stale takeover)
+  with unique temp names.
+- The page claims a round as pending; the agent rerun waits for it and
+  sends itself when the send failed or is still pending past the
+  deadline. Both sends carry the round&amp;#39;s random pingId for server dedupe.
+- Project opt-out is read at cwd, project root and repo root.
+- `telemetry off|on` never overwrites a malformed user config.
+- New card kind `grounded` (any number), sent as the ping kind.
+- Pruning keeps the key behind a reference.
+- question-update-comps-next declares kinds and is checked again.
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Telemetry v2: second review round (no unsalted references, pingId-scoped completions)
+
+- No valid persisted salt (unwritable home and project, or a corrupt salt
+  file, which is never rewritten) means no seed reference at all: the
+  roll prints SEED REFERENCE unavailable and asks for `seed: none
+  (unavailable)`, the roll record names no seed, and build-phase stores
+  `none`. A read-only home falls back to the project&amp;#39;s ignored
+  .impeccable/questions/seed-salt.
+- Ledger completions (confirm/release) carry the sent pingId and change
+  nothing when the round now names another report.
+- Pruning re-checks the file&amp;#39;s age and skips pending rounds under the lock.
+- The test channel is set after the inherited env in the engine-bin
+  helper, the skill-behavior harness and the oracle.
+- The finish reviewer and new-work.md require the SEED REFERENCE,
+  corroborated against the roll output or `concept-seed --check-seed`,
+  and accept `seed: none (unavailable)` only where no salt exists; a raw
+  key in FORM is a material fix.
+- Opt-out reasons and config errors print forward-slash paths on Windows.
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Seed salts: an existing salt always wins, references resolve under every salt
+
+A sandboxed run with a read-only home made a project salt; once the home
+became writable, salt() created a new home salt and the earlier
+references stopped resolving. Now an existing valid salt (home, then
+project) always wins over creating one, and Ledger::resolve (so --from and
+--check-seed) accepts a reference made under any valid salt the machine
+keeps.
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Seed ledger: one locator across every kept salt
+
+resolve() accepted references under any kept salt, but round(), claim(),
+confirm(), release(), record_*() and prune went to the file named by the
+primary salt only, so after a home salt appeared beside a project salt a
+sandbox roll&amp;#39;s rounds were invisible: the page could not claim and the
+agent lost the pingId, hand and sent mark. Ledger::file now returns the
+first existing file among the key&amp;#39;s names under every kept salt, falling
+back to the primary salt&amp;#39;s name only for a new ledger, and every
+operation goes through it.
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Seed ledger: tolerate Windows lock and rename contention
+
+On Windows a create racing the delete of the same lock name fails with
+access denied, not exists, and a rename over a file another thread has
+open can fail for a moment. The lock now treats both as contention and
+waits, and the ledger write retries its rename briefly.
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Seed ledger: a key&amp;#39;s salt is chosen once and everything derives from it
+
+The printed reference still came from the primary salt while the ledger
+was found under the salt the key was first rolled with, so after a salt
+switch a re-roll printed and stored a reference this machine could not
+resolve. One shared locator (impeccable_common::seed::locate) now answers
+for a key: its existing ledger wherever it is (names under every kept
+salt, then a folder scan for a salt now out of reach), whose reference is
+its own file name; only a key with no ledger takes the primary salt. The
+printed SEED REFERENCE, the roll record, every ledger operation, --from,
+--check-seed and build-phase --direction all derive from that answer, and
+a reference resolves by the file it names. A ledger made with no salt is
+marked unsalted and yields no reference.
+
+The ledger lock checks its deadline on every pass, the stale branch
+included, so an undeletable lock gives up instead of spinning.
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Seed ledger: legacy no-salt names stay unsalted; fresh keys skip the search
+
+A ledger named by the no-salt tag but written before the &amp;quot;unsalted&amp;quot;
+marker existed is now treated as unsalted, so its name never becomes a
+committable reference or resolves. A key the engine just generated has no
+ledger anywhere, so it takes the primary salt without a name check or
+folder scan; supplied keys and re-rolls still go through the search.
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+---------
+
+Co-authored-by: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/c63b8dd7dd5a5f3c32eaabe1af76d0694f863ed2</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/c63b8dd7dd5a5f3c32eaabe1af76d0694f863ed2"/>
+    <title>
+        Fix Firefox extension scanner startup (#996)
+    </title>
+    <updated>2026-10-11T08:54:34Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/17733?s=30&amp;v=4"/>
+    <author>
+      <name>mager</name>
+      <uri>https://github.com/mager</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Fix Firefox extension scanner startup (#996)
+
+* Fix Firefox extension scanner startup
+
+Host the WASM rule core in a hidden extension iframe on Firefox while preserving Chrome offscreen documents. Add startup regression tests and strict-CSP browser fixtures.
+
+Prepared with AI assistance from Codex under maintainer approval in #847.
+
+* Improve extension startup retry coverage and smoke instructions
+
+Address review feedback with connection retry, exhaustion, and recovery tests for Firefox and Chrome. Clarify temporary Firefox extension reload after restart.
+
+Prepared with AI assistance from OpenAI Codex under Mager’s direction.&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/d631a8827f99414d2b6daba4ef08b7f8701751d7</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/d631a8827f99414d2b6daba4ef08b7f8701751d7"/>
+    <title>
+        Release 4.5.2: pin engine 0.1.14 (#995)
+    </title>
+    <updated>2026-10-09T04:19:38Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/43004?s=30&amp;v=4"/>
+    <author>
+      <name>pbakaus</name>
+      <uri>https://github.com/pbakaus</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Release 4.5.2: pin engine 0.1.14 (#995)
+
+* Engine 0.1.14
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Skill and CLI 4.5.2
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* bun.lock for engine 0.1.14
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+---------
+
+Co-authored-by: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/ab3a5e28d4f828aa8b3bab208edc0356acb0250f</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/ab3a5e28d4f828aa8b3bab208edc0356acb0250f"/>
+    <title>
+        Recognise the CLI package by its platform pins, not its name (#1000)
+    </title>
+    <updated>2026-10-09T03:44:42Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/43004?s=30&amp;v=4"/>
+    <author>
+      <name>pbakaus</name>
+      <uri>https://github.com/pbakaus</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Recognise the CLI package by its platform pins, not its name (#1000)
+
+The site&amp;#39;s package.json is also named impeccable, so #999&amp;#39;s name check still
+compared it and the site build still failed. The CLI is the package.json that
+pins @impeccable/cli-* in optionalDependencies.
+
+Co-authored-by: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/18e751118ba64aeab59a2076c0efde12db73e08d</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/18e751118ba64aeab59a2076c0efde12db73e08d"/>
+    <title>
+        Check the CLI version only against this repo&#39;s package.json (#999)
+    </title>
+    <updated>2026-10-09T03:02:26Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/43004?s=30&amp;v=4"/>
+    <author>
+      <name>pbakaus</name>
+      <uri>https://github.com/pbakaus</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Check the CLI version only against this repo&amp;#39;s package.json (#999)
+
+impeccable-site builds the skill from a tree whose root package.json is the
+site&amp;#39;s own (3.2.1), so the check from #991 failed its preview builds.
+
+Co-authored-by: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/4296ff2825176409290024567f062c7abd6ff591</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/4296ff2825176409290024567f062c7abd6ff591"/>
+    <title>
+        Sync generated provider output
+    </title>
+    <updated>2026-10-09T02:37:15Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/in/15368?s=30&amp;v=4"/>
+    <author>
+      <name>github-actions</name>
+      <uri>https://github.com/github-actions</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Sync generated provider output&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/98703c4281c53143b160a35fe99fa32f5bb2ab98</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/98703c4281c53143b160a35fe99fa32f5bb2ab98"/>
+    <title>
+        Draw code-led decision cards as HTML sketches in a skeleton treatment…
+    </title>
+    <updated>2026-10-09T02:36:39Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/43004?s=30&amp;v=4"/>
+    <author>
+      <name>pbakaus</name>
+      <uri>https://github.com/pbakaus</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Draw code-led decision cards as HTML sketches in a skeleton treatment (#997)
+
+* Draw code-led decision cards as HTML sketches in a skeleton treatment
+
+A card may declare html, one first-viewport HTML file the agent writes after
+serving. serve-question serves it at /sketch/&amp;lt;n&amp;gt; with a skeleton pass injected
+(text under 22px becomes bars), tracks it per hand like comps so a re-roll
+never shows the last hand&amp;#39;s file, opens the raw file from the expand chip,
+and carries it in ANSWER with a CHOSEN SKETCH line. concept-seed&amp;#39;s code-led
+and image-less PRESENTATION lines ask for one sketch per card and wait until
+they land. The wireframe stays the fallback.
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Address review: sandbox sketches, gate the chosen sketch, frames, write-time provenance
+
+- /sketch/&amp;lt;n&amp;gt; carries a CSP that sandboxes the file and closes every network
+  path but fonts; the raw view runs no script.
+- The answer carries html only for this hand&amp;#39;s sketch on a card the comp face
+  did not replace, so CHOSEN SKETCH never contradicts a comp or names a
+  leftover file.
+- A hand records startedAt and its sketches: a sketch written after the hand
+  began counts even with identical bytes, and --wait names stale ones.
+- htmlFrame lets a phone or native surface sketch its own first screen; the
+  slot follows the frame and turns portrait.
+- The surface roll body asks for sketches, not wireframes.
+- Two browser tests cover arrival, skeleton, staleness, raw view, the pick
+  and a comp flip.
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Flip back to code restores the sketch over a landed comp
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+---------
+
+Co-authored-by: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/c5ae03ee855256b8ea042f3bbd415e5c7ea7aca8</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/c5ae03ee855256b8ea042f3bbd415e5c7ea7aca8"/>
+    <title>
+        Sync generated provider output
+    </title>
+    <updated>2026-10-08T23:11:16Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/in/15368?s=30&amp;v=4"/>
+    <author>
+      <name>github-actions</name>
+      <uri>https://github.com/github-actions</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Sync generated provider output&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/158618e6471fe6e72532ad392e5a43f59d2c8205</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/158618e6471fe6e72532ad392e5a43f59d2c8205"/>
+    <title>
+        Operate and Read surfaces are code-led whatever build path is recorde…
+    </title>
+    <updated>2026-10-08T23:10:42Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/43004?s=30&amp;v=4"/>
+    <author>
+      <name>pbakaus</name>
+      <uri>https://github.com/pbakaus</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Operate and Read surfaces are code-led whatever build path is recorded (#990)
+
+* Operate and Read surfaces are code-led whatever build path is recorded
+
+In blind ratings, image comps of working screens and documents scored
+2.0 to 2.9 across five rule changes, while code-led builds of the same
+briefs scored 3 to 3.5 and were always complete. So the build path is now
+decided per mode: concept-seed --mode operate|read prints the code-led
+PRESENTATION lines and a code buildPath for the payload, whatever the
+project recorded. The recorded default, and the comp default when
+nothing is recorded, govern Persuade and Experience only. The decision
+page keeps its toggle, so one round can still be flipped to comp; a flip
+on these surfaces is never offered for recording.
+
+new-work.md retires &amp;#39;not a per-surface decision&amp;#39;; init&amp;#39;s question says
+what the choice covers; the boot directive says the same.
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Scope the recorded build path to Persuade and Experience everywhere it is described
+
+Review findings on the code-led default: the BUILD_PATH_DEFAULT directive, the
+surface roll body, the structured-tool fallback, the unset-buildPath staleness
+finding, doctor.md and the README still described the recorded value as
+governing every round. Also restores the MODE RULES doc comment to
+mode_rules_block.
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Re-record the two question goldens behind the DELTAS exemption
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+---------
+
+Co-authored-by: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/d8c478a70b4831cffca33c5b57d86b3b061f7349</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/d8c478a70b4831cffca33c5b57d86b3b061f7349"/>
+    <title>
+        live: keep the Astro carbonize style block is:inline (#993)
+    </title>
+    <updated>2026-10-08T23:08:49Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/43004?s=30&amp;v=4"/>
+    <author>
+      <name>pbakaus</name>
+      <uri>https://github.com/pbakaus</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;live: keep the Astro carbonize style block is:inline (#993)
+
+On accept, the carbonize block was written with a bare &amp;lt;style&amp;gt; on every
+non-JSX file. In an .astro file that is not the same thing as the
+is:inline tag the variants block used: Astro compiles it into a
+?astro&amp;amp;type=style&amp;amp;index=N module ahead of the page&amp;#39;s own, and the
+carbonize cleanup then deletes it again together with a markup change.
+
+Astro 7.3.6 (withastro/astro#18076) drops its compile metadata on such a
+save, so the reload of the index that vanished fails with &amp;quot;No Astro CSS
+at index 1&amp;quot;: a 500 in the dev server and two errors in the browser
+console after every accept that carries CSS. On 7.3.5 and earlier the
+same sequence logged nothing but served stale CSS under the surviving
+index.
+
+The carbonize block now takes the file type&amp;#39;s own styleTag, so on Astro
+it stays is:inline and the set of compiled style modules never changes
+during a session. Output for every other file type is byte-identical.
+
+The astro-vite7 live-e2e fixture goes back to a floating ^7.1.0 (it was
+pinned to 7.3.5 to unblock a release). New oracle cases
+live-accept-astro-variant-2-steps and live-accept-astro-discard were
+recorded from the binary; no existing golden changed.
+
+Fixes #992
+
+Co-authored-by: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/30cdd375d1acd5dc3d3e31e1eeb3e83ec518002f</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/30cdd375d1acd5dc3d3e31e1eeb3e83ec518002f"/>
+    <title>
+        CLI 4.5.1: the npm CLI takes the skill&#39;s version (#991)
+    </title>
+    <updated>2026-10-08T23:08:15Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/43004?s=30&amp;v=4"/>
+    <author>
+      <name>pbakaus</name>
+      <uri>https://github.com/pbakaus</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;CLI 4.5.1: the npm CLI takes the skill&amp;#39;s version (#991)
+
+The npm package sat at 4.1.0 while the skill reached 4.5.1, and its
+optionalDependencies still pinned engine 0.1.5, so npx impeccable detect
+ran a detector seven engine releases old. The CLI and the skill now
+share one version; validatePluginVersions fails the build when
+package.json disagrees with .claude-plugin/plugin.json.
+
+Co-authored-by: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/1b6576e882258096eb0bb485482080169973b94b</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/1b6576e882258096eb0bb485482080169973b94b"/>
+    <title>
+        Merge pull request #931 from pbakaus/codex/simplify-font-run-measurem…
+    </title>
+    <updated>2026-10-08T21:06:00Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/43004?s=30&amp;v=4"/>
+    <author>
+      <name>pbakaus</name>
+      <uri>https://github.com/pbakaus</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #931 from pbakaus/codex/simplify-font-run-measurement-20261004
+
+Simplify vertical font-run measurement&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/9dad388a41944a0d2b8d1fb547c8556d2ecb49e7</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/9dad388a41944a0d2b8d1fb547c8556d2ecb49e7"/>
+    <title>
+        Release skill 4.5.1 (#989)
+    </title>
+    <updated>2026-10-08T19:29:52Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/43004?s=30&amp;v=4"/>
+    <author>
+      <name>pbakaus</name>
+      <uri>https://github.com/pbakaus</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Release skill 4.5.1 (#989)
+
+Co-authored-by: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/1a4b501d2dda95583d71155617df1143ff16a2cf</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/1a4b501d2dda95583d71155617df1143ff16a2cf"/>
+    <title>
+        Sync generated provider output
+    </title>
+    <updated>2026-10-08T19:26:15Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/in/15368?s=30&amp;v=4"/>
+    <author>
+      <name>github-actions</name>
+      <uri>https://github.com/github-actions</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Sync generated provider output&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/ffa7bd51dfeeaef5ab86606fe6a531e9ce92e272</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/ffa7bd51dfeeaef5ab86606fe6a531e9ce92e272"/>
+    <title>
+        Pin engine 0.1.12 (#987)
+    </title>
+    <updated>2026-10-08T19:25:37Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/43004?s=30&amp;v=4"/>
+    <author>
+      <name>pbakaus</name>
+      <uri>https://github.com/pbakaus</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Pin engine 0.1.12 (#987)
+
+* Pin engine 0.1.12 for decision-comp gates, world cards and Windows capture fixes
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Refresh bun.lock for engine 0.1.12
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* Pin the astro-vite7 fixture to Astro 7.3.5
+
+Astro 7.3.6 (2026-10-06) makes the dev server answer 500 on the style
+reload that follows a live accept, which fails the live-e2e clean-console
+check with engine 0.1.11 and 0.1.12 alike. 7.3.5 passes. Pinned so the
+release gate measures this repo; the Astro 7.3.6+ behaviour is tracked
+separately.
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+---------
+
+Co-authored-by: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/778c8a7b71ccd5bfe3ca6ac68c15d9d872d0f87d</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/778c8a7b71ccd5bfe3ca6ac68c15d9d872d0f87d"/>
+    <title>
+        Dom trait reads an image&#39;s load state (#981)
+    </title>
+    <updated>2026-10-07T21:04:26Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/43004?s=30&amp;v=4"/>
+    <author>
+      <name>pbakaus</name>
+      <uri>https://github.com/pbakaus</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Dom trait reads an image&amp;#39;s load state (#981)
+
+* Dom trait reads an image&amp;#39;s load state
+
+A rule pack could not tell a loaded image from one whose source failed:
+the snapshot records naturalWidth and currentSrc for the visual pass, but
+the Dom trait had no way to read them.
+
+Three methods, each defaulting to None so existing DOMs and packs are
+unaffected: image_natural_size, image_complete and image_current_src.
+They answer for an HTML img only. SnapshotDom reads the media record the
+capture already writes; the snapshot now also records `complete` for an
+img (`md.cp`), and a capture recorded before that reads as None, never
+false. FakeDom carries the three as fields, and the in-page probe reads
+them off the element.
+
+No built-in rule calls them, so built-in output is unchanged.
+
+Co-Authored-By: Claude Code &amp;lt;noreply@anthropic.com&amp;gt;
+Claude-Session: https://claude.ai/code/session_01NVRDkUjxSbedQmcoEeQFq5
+
+* Check the image load state against a rendered page
+
+The snapshot test builds its media record by hand, so nothing checked that
+the capture writes `complete` or that the in-page probe answers the same
+way. This renders a loaded image, one whose source is a 404, a picture
+whose chosen source is a 404, an unrequested lazy image, an
+`input type=image` and a div in an installed browser, and compares the
+probe&amp;#39;s answers with the capture&amp;#39;s.
+
+Co-Authored-By: Claude Code &amp;lt;noreply@anthropic.com&amp;gt;
+Claude-Session: https://claude.ai/code/session_01NVRDkUjxSbedQmcoEeQFq5
+
+* Say what natural size and complete each report; cover SVG image
+
+The natural size is known as soon as the browser has read the image&amp;#39;s
+dimensions, which can be before the fetch ends, and `complete` reports
+that the request is over, not that an image came of it. The docs read as
+if each were a decode status; they now say what each reports and that a
+failed image is the combination.
+
+The rendered-page test also asks an SVG `image`, which answers None from
+both the probe and the capture.
+
+Co-Authored-By: Claude Code &amp;lt;noreply@anthropic.com&amp;gt;
+Claude-Session: https://claude.ai/code/session_01NVRDkUjxSbedQmcoEeQFq5
+
+---------
+
+Co-authored-by: Claude Code &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/371af56b404cd58962b03af4bdc508076a386433</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/371af56b404cd58962b03af4bdc508076a386433"/>
+    <title>
+        Merge main into font measurement refactor
+    </title>
+    <updated>2026-10-07T18:57:17Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/43004?s=30&amp;v=4"/>
+    <author>
+      <name>pbakaus</name>
+      <uri>https://github.com/pbakaus</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge main into font measurement refactor
+
+Update PR #931 with current main, including the Windows browser test fixes from #957. AI-assisted branch update by Codex at pbakaus&amp;#39;s explicit request.&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/ffeda44b00b1e39bd901621dcd3a7e44ba184ce1</id>
+    <link type="text/html" rel="alternate" href="https://github.com/pbakaus/impeccable/commit/ffeda44b00b1e39bd901621dcd3a7e44ba184ce1"/>
+    <title>
+        Sync generated provider output
+    </title>
+    <updated>2026-10-07T18:55:30Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/in/15368?s=30&amp;v=4"/>
+    <author>
+      <name>github-actions</name>
+      <uri>https://github.com/github-actions</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Sync generated provider output&lt;/pre&gt;
+    </content>
+  </entry>
+</feed>

@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>tag:github.com,2008:/emilkowalski/skills/commits/main</id>
+  <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commits/main"/>
+  <link type="application/atom+xml" rel="self" href="https://github.com/emilkowalski/skills/commits/main.atom"/>
+  <title>Recent Commits to skills:main</title>
+  <updated>2026-10-11T13:58:32Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/2d228630ba1446365f614a108cb8252f1feda202</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/2d228630ba1446365f614a108cb8252f1feda202"/>
+    <title>
+        update readme
+    </title>
+    <updated>2026-10-11T13:58:32Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;update readme&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/6465079742eb019bc419caf2c352ecda03f5dfd8</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/6465079742eb019bc419caf2c352ecda03f5dfd8"/>
+    <title>
+        Add /animation-performance skill
+    </title>
+    <updated>2026-10-11T13:30:58Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Add /animation-performance skill&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/e8a175de22ae1e49370fc144c1f3bb9aeedf988d</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/e8a175de22ae1e49370fc144c1f3bb9aeedf988d"/>
+    <title>
+        Add break ui skill
+    </title>
+    <updated>2026-10-02T10:43:31Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Add break ui skill&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/d16ebe60d09a5ba2afcb7054ede9d0a10c9f6128</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/d16ebe60d09a5ba2afcb7054ede9d0a10c9f6128"/>
+    <title>
+        Update README.md
+    </title>
+    <updated>2026-09-23T23:18:27Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update README.md&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/9a5852a7170392d9235a219e25c3fa6362efb00c</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/9a5852a7170392d9235a219e25c3fa6362efb00c"/>
+    <title>
+        Update README.md
+    </title>
+    <updated>2026-09-23T23:17:02Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update README.md&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/85e8e2363b713506e1d5b6e07a0eb2da66be1bc3</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/85e8e2363b713506e1d5b6e07a0eb2da66be1bc3"/>
+    <title>
+        Remove course mention
+    </title>
+    <updated>2026-09-15T15:52:10Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Remove course mention&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/0b85d4b36ad772ed2c46a66522ede1c8a26f9929</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/0b85d4b36ad772ed2c46a66522ede1c8a26f9929"/>
+    <title>
+        Add /mobile-native skill
+    </title>
+    <updated>2026-09-15T13:08:09Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Add /mobile-native skill&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/d23d7f88a2e21c9e4b1418c7abe420f5c1052ba7"/>
+    <title>
+        Update README.md
+    </title>
+    <updated>2026-08-21T09:32:32Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update README.md&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/8e1ec02cdd4bcfcaa1b5df2a3fbc9a35e5f4394e</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/8e1ec02cdd4bcfcaa1b5df2a3fbc9a35e5f4394e"/>
+    <title>
+        Add /write-swift skill (#27)
+    </title>
+    <updated>2026-08-21T09:32:03Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Add /write-swift skill (#27)
+
+Modern Swift guidance: value types, Swift 6 concurrency, generics,
+performance, ARC, Swift Testing, macros, and current language features.
+
+Co-authored-by: Claude Opus 5 (1M context) &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/e879241fab3cdb22e8d95587cdbf40b57a88d7da</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/e879241fab3cdb22e8d95587cdbf40b57a88d7da"/>
+    <title>
+        Add expo skill (#25)
+    </title>
+    <updated>2026-08-18T13:16:30Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Add expo skill (#25)
+
+* Add expo skill
+
+* Address Expo team review feedback
+
+- Replace deprecated runOnJS with scheduleOnRN from react-native-worklets
+- Use .get()/.set() on shared values for React Compiler support
+- Memoize v2 gestures with useMemo; add RNGH v3 hook API migration note
+- Install via npx expo install; babel-preset-expo configures worklets plugin
+- Add dependency table and native options (NativeTabs, Link.Menu/Preview,
+  headerLargeTitle, RefreshControl, keyboard-controller, Skia) to tool table
+- Add formSheet platform caveats (Android detent cap, iOS-only grabber,
+  no nested stacks on Android, fitToContents sizing)
+- Hoist layout-animation builders to module scope per Reanimated docs
+- Never write shared values during render; describe RN/UI/worker runtimes
+- Bring toast under the 300ms cap; add setup section to RECIPES
+- Clarify press feedback passes the frequency gate only when near-imperceptible
+
+Co-Authored-By: Claude Fable 5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* address comments
+
+---------
+
+Co-authored-by: Claude Fable 5 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/78761e1b57f97dce65b983d640c70a68f39e8163</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/78761e1b57f97dce65b983d640c70a68f39e8163"/>
+    <title>
+        Update README.md
+    </title>
+    <updated>2026-08-10T13:58:24Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update README.md&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/e48aeea9b5e4fe682f8e83b82440e3d43a9a6278</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/e48aeea9b5e4fe682f8e83b82440e3d43a9a6278"/>
+    <title>
+        Add /ask-sonner skill
+    </title>
+    <updated>2026-08-10T11:10:55Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Add /ask-sonner skill&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/9075d1724a831411ab5cf138dd9b5cd406ffc2e2</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/9075d1724a831411ab5cf138dd9b5cd406ffc2e2"/>
+    <title>
+        chore: add `.gitattributes` for linguist detection (#10)
+    </title>
+    <updated>2026-08-09T19:30:45Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/73425927?s=30&amp;v=4"/>
+    <author>
+      <name>cr2007</name>
+      <uri>https://github.com/cr2007</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;chore: add `.gitattributes` for linguist detection (#10)
+
+Mark skill markdown files as linguist-detectable and flag README.md as
+documentation so GitHub&amp;#39;s language stats reflect the repo&amp;#39;s actual
+content instead of miscounting it.&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/de33dbed000212b54400a33767d1e4d03654db2a</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/de33dbed000212b54400a33767d1e4d03654db2a"/>
+    <title>
+        Add /animate skill
+    </title>
+    <updated>2026-08-05T12:33:08Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Add /animate skill&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/da80201b64de7d608a6dc5f723797ce6c65b692b</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/da80201b64de7d608a6dc5f723797ce6c65b692b"/>
+    <title>
+        Update README.md
+    </title>
+    <updated>2026-08-02T17:18:54Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update README.md&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/70744e3816f1d93eafb697161a8b880a7384c5ff</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/70744e3816f1d93eafb697161a8b880a7384c5ff"/>
+    <title>
+        Add /prototype skill
+    </title>
+    <updated>2026-07-27T11:31:08Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Add /prototype skill&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/e695d13cb298db0f46d5ef05be2ad13fa12908a6</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/e695d13cb298db0f46d5ef05be2ad13fa12908a6"/>
+    <title>
+        Update README.md
+    </title>
+    <updated>2026-07-23T08:00:17Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update README.md&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/f6f79ca1d8e9e2d82c8b90d7481b70ca66f4adfb</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/f6f79ca1d8e9e2d82c8b90d7481b70ca66f4adfb"/>
+    <title>
+        Update library links
+    </title>
+    <updated>2026-07-21T11:44:57Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Update library links&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/049c92e3edc057d630ac07c99dc09ede830fd0dd</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/049c92e3edc057d630ac07c99dc09ede830fd0dd"/>
+    <title>
+        Add /pick-ui-library skill
+    </title>
+    <updated>2026-07-21T11:00:06Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Add /pick-ui-library skill&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/86cf9f7d91c6de0215cbb2e36fccfe6c8127a841</id>
+    <link type="text/html" rel="alternate" href="https://github.com/emilkowalski/skills/commit/86cf9f7d91c6de0215cbb2e36fccfe6c8127a841"/>
+    <title>
+        refactor: replace radix ui mentions with base ui
+    </title>
+    <updated>2026-07-21T10:44:04Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/36730035?s=30&amp;v=4"/>
+    <author>
+      <name>emilkowalski</name>
+      <uri>https://github.com/emilkowalski</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;refactor: replace radix ui mentions with base ui&lt;/pre&gt;
+    </content>
+  </entry>
+</feed>

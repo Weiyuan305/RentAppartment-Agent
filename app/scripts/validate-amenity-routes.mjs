@@ -30,5 +30,5 @@ try {
   assert.deepEqual(await getAmenityRoute(listing,place),first);assert.equal(calls,1,'A successful route is reused');
   await assert.rejects(getAmenityRoute(listing,{...place,id:'node/999'}),e=>e instanceof RouteServiceError&&e.status===429);
   assert.equal(calls,1,'The limiter rejects a new request before reaching the public service');
-} finally {globalThis.fetch=originalFetch;database().close();rmSync(temporary,{recursive:true,force:true});}
+} finally {globalThis.fetch=originalFetch;(await database()).close();rmSync(temporary,{recursive:true,force:true});}
 console.log(`PASS: actual OSRM geometry (${route.coordinates.length} points), destination/source guards, duplicate requests, cache and upstream rate limiting.`);

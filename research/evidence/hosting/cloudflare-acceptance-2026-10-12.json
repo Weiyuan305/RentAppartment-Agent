@@ -1,0 +1,87 @@
+{
+  "origin": "https://campus-atlas-demo.pages.dev",
+  "checkedAt": "2026-10-12T10:17:04.513Z",
+  "cities": [
+    {
+      "city": "london",
+      "tools": [
+        "nearby",
+        "campus-route"
+      ],
+      "persistence": true
+    },
+    {
+      "city": "sydney",
+      "tools": [
+        "nearby",
+        "campus-route"
+      ],
+      "persistence": true
+    },
+    {
+      "city": "singapore",
+      "tools": [
+        "nearby",
+        "campus-route"
+      ],
+      "persistence": true
+    },
+    {
+      "city": "kuala-lumpur",
+      "tools": [
+        "nearby",
+        "campus-route"
+      ],
+      "persistence": true
+    },
+    {
+      "city": "hong-kong",
+      "tools": [
+        "nearby",
+        "campus-route"
+      ],
+      "persistence": true
+    }
+  ],
+  "model": [],
+  "localVerification": {
+    "agentTests": 8,
+    "d1Tests": 3,
+    "markdownTests": 3,
+    "amenityRoutes": "passed",
+    "typecheck": "passed",
+    "nodeProductionBuild": "passed",
+    "nodeProductionHTTP": "HTML, SQLite session, nearby tool, refresh persistence passed",
+    "cloudflareProductionBuild": "passed",
+    "modelKeyLeaks": 0,
+    "sqliteImportsInWorker": 0
+  },
+  "browserVerification": {
+    "entry": "https://campus-atlas-demo.pages.dev/?city=london&listing=london-2",
+    "city": "london",
+    "listing": "london-2",
+    "realModelTurns": [
+      {
+        "query": "这套公寓附近500米内有几个便利店？",
+        "observed": "14 places displayed; model reply says 14 snapshot entries within 500m straight-line radius"
+      },
+      {
+        "query": "只显示最近的一家",
+        "observed": "Sainsbury's Local; 77m straight-line distance; one marker"
+      },
+      {
+        "query": "走过去怎么走？",
+        "observed": "OSRM walking route; 119m; about 2 minutes; 3 instruction steps"
+      }
+    ],
+    "photorealistic3D": "London building textures visible on Pages origin",
+    "refresh": "all three replies, selected place, one marker and walking route restored from cloud storage"
+  },
+  "limitations": [
+    "workers.dev connection timed out from this network; Pages origin opened successfully",
+    "some early static-file downloads timed out; final five-city HTTP smoke run passed",
+    "no load test or cloud CPU percentile measurement",
+    "only London real-model and photorealistic-3D browser acceptance in this deployment",
+    "map quotas, model-provider costs, public OSRM availability and fictional-listing boundaries still apply"
+  ]
+}

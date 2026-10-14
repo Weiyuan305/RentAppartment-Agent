@@ -38,13 +38,17 @@ yarn-error.log*
 next-env.d.ts
 /dist/
 /.wrangler/
+/cloudflare/pages/.wrangler/
 /.data/
+/.generated/
+.dev.vars*
 # Checkout-local execution profile and tool state; never publish them.
 /.sites-runtime/
 /.agents/
 /.codex/
 /outputs/
 /work/
+/.impeccable/review/
 
 # Generated from installed Cesium package
 /public/cesium/

@@ -1,0 +1,25 @@
+{
+  "$schema": "../node_modules/wrangler/config-schema.json",
+  "name": "campus-atlas-demo",
+  "main": "../node_modules/vinext/dist/server/fetch-handler.js",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "workers_dev": true,
+  "d1_databases": [
+    {
+      "binding": "ATLAS_DB",
+      "database_name": "campus-atlas-demo",
+      "database_id": "cca18b44-6783-4767-91ea-e84415552c44",
+      "migrations_dir": "../migrations"
+    }
+  ],
+  "vars": {
+    "ATLAS_AUTH_URL": "https://campus-atlas-demo.pages.dev",
+    "ATLAS_AI_DAILY_LIMIT": "100"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

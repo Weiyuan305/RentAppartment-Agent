@@ -1,0 +1,211 @@
+{
+  "checked_date": "2026-10-12",
+  "scope": "Official-source research and local code inspection only; no cloud deployment performed.",
+  "repository_commit": "a360a24f30ce60a40402535772d302f7c515143a",
+  "sources": [
+    {
+      "url": "https://vercel.com/docs/plans/hobby",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://neon.com/pricing",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://vercel.com/docs/limits/fair-use-guidelines",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://developers.cloudflare.com/workers/platform/pricing/",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://render.com/docs/free",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://www.koyeb.com/docs/reference/instances",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://docs.railway.com/pricing/free-trial",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://docs.oracle.com/en-us/iaas/Content/FreeTier/freetier_topic-Always_Free_Resources.htm",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://github.com/cloudflare/vinext#other-platforms-via-nitro",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://nitro.build/deploy/providers/vercel",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://vercel.com/docs/functions/limitations",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://vercel.com/kb/guide/is-sqlite-supported-in-vercel",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://neon.com/docs/introduction/plans",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://developers.cloudflare.com/workers/platform/limits/",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://developers.cloudflare.com/d1/platform/pricing/",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://developers.cloudflare.com/d1/platform/limits/",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://developers.cloudflare.com/workers/configuration/compatibility-flags/#enable-nodesqlite-module",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://developers.cloudflare.com/workers/runtime-apis/nodejs/fs/",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://cesium.com/platform/cesium-ion/pricing/",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://vercel.com/docs/domains/working-with-domains",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://developers.cloudflare.com/workers/configuration/routing/workers-dev/",
+      "kind": "official primary source",
+      "retrieval": "web tool, except Neon pages fetched directly with curl"
+    },
+    {
+      "url": "https://developers.cloudflare.com/workers/static-assets/billing-and-limitations/",
+      "kind": "official primary source",
+      "retrieval": "web tool",
+      "checked_date": "2026-10-12"
+    },
+    {
+      "url": "https://developers.cloudflare.com/workers-ai/platform/pricing/",
+      "kind": "official primary source",
+      "retrieval": "web tool",
+      "checked_date": "2026-10-12"
+    }
+  ],
+  "direct_fetches": [
+    {
+      "url": "https://neon.com/pricing",
+      "retrieval": "curl with TLS verification; web reader rejected text/markdown",
+      "sha256": "108f59fd361ee67dd2016a8c0aa25b6231c63036d95baca16e18c856eced1e71",
+      "bytes": 14078,
+      "storage_fact_confirmed": "1 GB per project; 20 GB total per account"
+    },
+    {
+      "url": "https://neon.com/docs/introduction/plans",
+      "retrieval": "curl with TLS verification; web reader rejected text/markdown",
+      "sha256": "71726644439f6ccbc801ba9cddb2d1b21ea18c36daaa9178d87d1e350c569378",
+      "bytes": 45044,
+      "storage_fact_confirmed": "1 GB per project; 20 GB total per account"
+    }
+  ],
+  "selected_facts": {
+    "vercel_hobby": {
+      "use": "personal non-commercial",
+      "fluid_function_max_seconds": 300
+    },
+    "workers_free": {
+      "dynamic_requests_per_day": 100000,
+      "cpu_ms_per_request": 10,
+      "network_wait_is_cpu": false
+    },
+    "d1_free": {
+      "rows_read_per_day": 5000000,
+      "rows_written_per_day": 100000,
+      "total_storage_gb": 5,
+      "single_database_max_mb": 500
+    },
+    "neon_free": {
+      "compute_cu_hours_per_project_month": 100,
+      "postgres_storage_gb_per_project": 1,
+      "public_egress_gb_per_project_month": 5,
+      "idle_suspend_minutes": 5
+    },
+    "render_free": {
+      "idle_sleep_minutes": 15,
+      "wake_about_seconds": 60,
+      "persistent_disk": false,
+      "postgres_expires_days": 30
+    },
+    "koyeb_free": {
+      "idle_scale_to_zero_minutes": 60,
+      "persistent_volumes": false
+    },
+    "railway_free": {
+      "after_trial_monthly_credit_usd": 1
+    },
+    "oracle_always_free": {
+      "idle_compute_reclamation": "possible; idle criteria evaluated over 7 days"
+    },
+    "cesium_community": {
+      "google_root_tiles_per_month": 1000,
+      "streaming_gb_per_month": 15
+    },
+    "workers_ai_free": {
+      "neurons_per_day": 10000,
+      "not_equivalent_to_requests": true,
+      "exceed_free_allocation": "operations fail until reset or upgrade",
+      "some_models_require_paid_billing": true
+    },
+    "workers_static_assets": {
+      "direct_static_requests": "free and unlimited",
+      "worker_script_requests": "Workers limits apply"
+    }
+  },
+  "local_findings": {
+    "build": "Vinext/Vite, currently dist/ output",
+    "database": "node:sqlite at .data/rental-chat.sqlite",
+    "agent_deadline_seconds": 90,
+    "server_catalog": "filesystem reads from public/amenities and public/routes",
+    "route_rate_limiter": "process-local pending/lastRequest"
+  },
+  "source_conflict": {
+    "topic": "Neon Free PostgreSQL storage",
+    "older_indexed_official_blog": "0.5 GB/project",
+    "current_direct_pricing_and_plan_pages": "1 GB/project",
+    "decision": "Use directly fetched current pages; recheck dashboard at deployment."
+  }
+}

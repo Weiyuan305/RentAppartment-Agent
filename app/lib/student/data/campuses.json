@@ -1,0 +1,856 @@
+{
+  "version": 1,
+  "provider": "OpenStreetMap",
+  "attribution": "© OpenStreetMap contributors; ODbL",
+  "campuses": [
+    {
+      "id": "london-main",
+      "cityId": "london",
+      "university": "UCL",
+      "name": "Bloomsbury",
+      "officialUrl": "https://www.ucl.ac.uk/maps"
+    },
+    {
+      "id": "sydney-main",
+      "cityId": "sydney",
+      "university": "University of Sydney",
+      "name": "Camperdown / Darlington",
+      "officialUrl": "https://maps.sydney.edu.au/"
+    },
+    {
+      "id": "singapore-main",
+      "cityId": "singapore",
+      "university": "National University of Singapore",
+      "name": "Kent Ridge",
+      "officialUrl": "https://map.nus.edu.sg/"
+    },
+    {
+      "id": "kuala-lumpur-main",
+      "cityId": "kuala-lumpur",
+      "university": "Universiti Malaya",
+      "name": "Main campus",
+      "officialUrl": "https://www.um.edu.my/campus-map"
+    },
+    {
+      "id": "hong-kong-main",
+      "cityId": "hong-kong",
+      "university": "The University of Hong Kong",
+      "name": "Main campus",
+      "officialUrl": "https://www.maps.hku.hk/"
+    }
+  ],
+  "buildings": [
+    {
+      "id": "way/680050665",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "Wilkins Building",
+      "aliases": [
+        "Wilkins",
+        "威尔金斯楼",
+        "主楼"
+      ],
+      "category": "teaching",
+      "lng": -0.1334986,
+      "lat": 51.5247281,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/680050665",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/681098586",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "Student Centre",
+      "aliases": [
+        "Student Centre",
+        "学生中心"
+      ],
+      "category": "services",
+      "lng": -0.1323591,
+      "lat": 51.5248463,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/681098586",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/50059492",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "Chadwick Building",
+      "aliases": [],
+      "category": "teaching",
+      "lng": -0.1340967,
+      "lat": 51.5241557,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/50059492",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/40205764",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "Christopher Ingold Building",
+      "aliases": [],
+      "category": "teaching",
+      "lng": -0.1324178,
+      "lat": 51.5253653,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/40205764",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/27702973",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "Darwin Building",
+      "aliases": [],
+      "category": "teaching",
+      "lng": -0.1331065,
+      "lat": 51.5230494,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/27702973",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/802236338",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "Roberts Building",
+      "aliases": [],
+      "category": "teaching",
+      "lng": -0.1322474,
+      "lat": 51.5230564,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/802236338",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/863409196",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "Cruciform Building",
+      "aliases": [],
+      "category": "teaching",
+      "lng": -0.1350661,
+      "lat": 51.5241002,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/863409196",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/849005554",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "DMS Watson Building",
+      "aliases": [
+        "DMS Watson",
+        "Science Library",
+        "科学图书馆"
+      ],
+      "category": "library",
+      "lng": -0.1328217,
+      "lat": 51.5234275,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/849005554",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/51517608",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "UCL Institute of Education",
+      "aliases": [
+        "IOE",
+        "教育学院"
+      ],
+      "category": "teaching",
+      "lng": -0.1278649,
+      "lat": 51.52309,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/51517608",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/789265602",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "UCL Institute of Education Library",
+      "aliases": [
+        "IOE Library",
+        "教育学院图书馆"
+      ],
+      "category": "library",
+      "lng": -0.1285183,
+      "lat": 51.5233126,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/789265602",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/40253190",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "School of Slavonic and East European Studies",
+      "aliases": [
+        "SSEES"
+      ],
+      "category": "teaching",
+      "lng": -0.1315855,
+      "lat": 51.5253603,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/40253190",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/40205769",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "Medawar Building",
+      "aliases": [],
+      "category": "teaching",
+      "lng": -0.1321526,
+      "lat": 51.5237006,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/40205769",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/40269405",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "Kathleen Lonsdale Building",
+      "aliases": [],
+      "category": "teaching",
+      "lng": -0.13441,
+      "lat": 51.5254198,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/40269405",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/27703173",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "Foster Court",
+      "aliases": [],
+      "category": "teaching",
+      "lng": -0.1323848,
+      "lat": 51.5236296,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/27703173",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/483804431",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "The Bartlett",
+      "aliases": [
+        "Bartlett",
+        "巴特莱特"
+      ],
+      "category": "teaching",
+      "lng": -0.132854,
+      "lat": 51.5256608,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/483804431",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/15703989",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "Drayton House",
+      "aliases": [],
+      "category": "teaching",
+      "lng": -0.1330537,
+      "lat": 51.52616,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/15703989",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/27702997",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "Anatomy Building",
+      "aliases": [],
+      "category": "teaching",
+      "lng": -0.1336811,
+      "lat": 51.5236017,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/27702997",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/27703147",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "Medical Sciences Building",
+      "aliases": [],
+      "category": "teaching",
+      "lng": -0.132908,
+      "lat": 51.5238751,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/27703147",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/845163820",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "Refectory Cloister",
+      "aliases": [
+        "Refectory",
+        "食堂"
+      ],
+      "category": "dining",
+      "lng": -0.1331296,
+      "lat": 51.5247608,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/845163820",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/27703112",
+      "cityId": "london",
+      "campusId": "london-main",
+      "name": "Andrew Huxley Building",
+      "aliases": [],
+      "category": "teaching",
+      "lng": -0.1327606,
+      "lat": 51.5241412,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/27703112",
+        "officialUrl": "https://www.ucl.ac.uk/maps",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/16784706",
+      "cityId": "sydney",
+      "campusId": "sydney-main",
+      "name": "Fisher Library",
+      "aliases": [
+        "Fisher",
+        "费雪图书馆"
+      ],
+      "category": "library",
+      "lng": 151.1904986,
+      "lat": -33.886573,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/16784706",
+        "officialUrl": "https://maps.sydney.edu.au/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/45474350",
+      "cityId": "sydney",
+      "campusId": "sydney-main",
+      "name": "Carslaw Building",
+      "aliases": [
+        "Carslaw",
+        "卡斯劳"
+      ],
+      "category": "teaching",
+      "lng": 151.1905981,
+      "lat": -33.8880964,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/45474350",
+        "officialUrl": "https://maps.sydney.edu.au/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/45474427",
+      "cityId": "sydney",
+      "campusId": "sydney-main",
+      "name": "Law Building",
+      "aliases": [
+        "Law Building",
+        "法学院楼"
+      ],
+      "category": "teaching",
+      "lng": 151.1907565,
+      "lat": -33.8872272,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/45474427",
+        "officialUrl": "https://maps.sydney.edu.au/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/175377608",
+      "cityId": "sydney",
+      "campusId": "sydney-main",
+      "name": "Computer Science Building",
+      "aliases": [
+        "Computer Science",
+        "计算机楼",
+        "J12"
+      ],
+      "category": "teaching",
+      "lng": 151.1940357,
+      "lat": -33.8882544,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/175377608",
+        "officialUrl": "https://maps.sydney.edu.au/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/205131027",
+      "cityId": "sydney",
+      "campusId": "sydney-main",
+      "name": "Chemistry Building",
+      "aliases": [],
+      "category": "teaching",
+      "lng": 151.189643,
+      "lat": -33.8876729,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/205131027",
+        "officialUrl": "https://maps.sydney.edu.au/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/661062521",
+      "cityId": "sydney",
+      "campusId": "sydney-main",
+      "name": "F23 Michael Spence Building",
+      "aliases": [
+        "F23"
+      ],
+      "category": "services",
+      "lng": 151.1896963,
+      "lat": -33.8892868,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/661062521",
+        "officialUrl": "https://maps.sydney.edu.au/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/54583490",
+      "cityId": "singapore",
+      "campusId": "singapore-main",
+      "name": "Central Library",
+      "aliases": [
+        "Central Library",
+        "CLB",
+        "中央图书馆"
+      ],
+      "category": "library",
+      "lng": 103.7731022,
+      "lat": 1.2966973,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/54583490",
+        "officialUrl": "https://map.nus.edu.sg/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/140087160",
+      "cityId": "singapore",
+      "campusId": "singapore-main",
+      "name": "BIZ1 - Mochtar Riady Building",
+      "aliases": [
+        "BIZ1",
+        "商学院",
+        "Mochtar Riady",
+        "BIZ1 - 李文正大楼"
+      ],
+      "category": "teaching",
+      "lng": 103.774156,
+      "lat": 1.2924787,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/140087160",
+        "officialUrl": "https://map.nus.edu.sg/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/54583487",
+      "cityId": "singapore",
+      "campusId": "singapore-main",
+      "name": "University Health Centre",
+      "aliases": [
+        "Health Centre",
+        "校医院",
+        "大学医务中心",
+        "UHC"
+      ],
+      "category": "services",
+      "lng": 103.7764559,
+      "lat": 1.2991259,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/54583487",
+        "officialUrl": "https://map.nus.edu.sg/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/142079835",
+      "cityId": "singapore",
+      "campusId": "singapore-main",
+      "name": "AS7 - Shaw Foundation Building",
+      "aliases": [
+        "AS7",
+        "Shaw Foundation",
+        "Shaw Foundation Building",
+        "邵氏基金大楼"
+      ],
+      "category": "teaching",
+      "lng": 103.770923,
+      "lat": 1.2941719,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/142079835",
+        "officialUrl": "https://map.nus.edu.sg/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/141913116",
+      "cityId": "singapore",
+      "campusId": "singapore-main",
+      "name": "Medicine+Science Library",
+      "aliases": [
+        "医学+科学图书馆",
+        "Medsci"
+      ],
+      "category": "library",
+      "lng": 103.7816129,
+      "lat": 1.2969695,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/141913116",
+        "officialUrl": "https://map.nus.edu.sg/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/54583930",
+      "cityId": "singapore",
+      "campusId": "singapore-main",
+      "name": "University Cultural Centre",
+      "aliases": [
+        "大学文化中心",
+        "UCC"
+      ],
+      "category": "services",
+      "lng": 103.7722451,
+      "lat": 1.3017014,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/54583930",
+        "officialUrl": "https://map.nus.edu.sg/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/263611204",
+      "cityId": "kuala-lumpur",
+      "campusId": "kuala-lumpur-main",
+      "name": "Perpustakaan Utama",
+      "aliases": [
+        "Main Library",
+        "主图书馆"
+      ],
+      "category": "library",
+      "lng": 101.6544559,
+      "lat": 3.120283,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/263611204",
+        "officialUrl": "https://www.um.edu.my/campus-map",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/278144675",
+      "cityId": "kuala-lumpur",
+      "campusId": "kuala-lumpur-main",
+      "name": "Dewan Tunku Canselor",
+      "aliases": [
+        "DTC",
+        "大礼堂"
+      ],
+      "category": "teaching",
+      "lng": 101.6568999,
+      "lat": 3.1214634,
+      "locationType": "mapped-entrance",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/278144675",
+        "officialUrl": "https://www.um.edu.my/campus-map",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/358006164",
+      "cityId": "kuala-lumpur",
+      "campusId": "kuala-lumpur-main",
+      "name": "J01 - Pejabat Dekan Fakulti Sains",
+      "aliases": [
+        "J01 - Faculty of Science Dean's Office"
+      ],
+      "category": "teaching",
+      "lng": 101.6538702,
+      "lat": 3.1222244,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/358006164",
+        "officialUrl": "https://www.um.edu.my/campus-map",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/358006165",
+      "cityId": "kuala-lumpur",
+      "campusId": "kuala-lumpur-main",
+      "name": "J09 - Dewan Kuliah 1",
+      "aliases": [
+        "J09 - Lecture Hall 1",
+        "DK1"
+      ],
+      "category": "teaching",
+      "lng": 101.6544794,
+      "lat": 3.1225824,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/358006165",
+        "officialUrl": "https://www.um.edu.my/campus-map",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/358009625",
+      "cityId": "kuala-lumpur",
+      "campusId": "kuala-lumpur-main",
+      "name": "J17 - Block C",
+      "aliases": [
+        "J17 - Block C"
+      ],
+      "category": "teaching",
+      "lng": 101.6533965,
+      "lat": 3.1234298,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/358009625",
+        "officialUrl": "https://www.um.edu.my/campus-map",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/359488999",
+      "cityId": "kuala-lumpur",
+      "campusId": "kuala-lumpur-main",
+      "name": "I18 - Kafeteria Fakulti Pendidikan",
+      "aliases": [
+        "Cafeteria",
+        "食堂"
+      ],
+      "category": "dining",
+      "lng": 101.6524037,
+      "lat": 3.1204777,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/359488999",
+        "officialUrl": "https://www.um.edu.my/campus-map",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/182023175",
+      "cityId": "hong-kong",
+      "campusId": "hong-kong-main",
+      "name": "本部圖書館大樓（舊翼）Main Library (Old Wing)",
+      "aliases": [
+        "Main Library",
+        "主图书馆",
+        "本部图书馆",
+        "Main Library (Old Wing)",
+        "圖書館大樓（舊翼）"
+      ],
+      "category": "library",
+      "lng": 114.1378056,
+      "lat": 22.2830924,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/182023175",
+        "officialUrl": "https://www.maps.hku.hk/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/182023171",
+      "cityId": "hong-kong",
+      "campusId": "hong-kong-main",
+      "name": "鈕魯詩樓 Knowles Building",
+      "aliases": [
+        "Knowles",
+        "钮鲁诗楼",
+        "Knowles Building",
+        "鈕魯詩樓"
+      ],
+      "category": "teaching",
+      "lng": 114.1384306,
+      "lat": 22.2832415,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/182023171",
+        "officialUrl": "https://www.maps.hku.hk/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/182023173",
+      "cityId": "hong-kong",
+      "campusId": "hong-kong-main",
+      "name": "梁銶琚樓 K.K. Leung Building",
+      "aliases": [
+        "KK Leung",
+        "梁銶琚楼",
+        "K.K. Leung Building",
+        "梁銶琚樓"
+      ],
+      "category": "teaching",
+      "lng": 114.139021,
+      "lat": 22.2833057,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/182023173",
+        "officialUrl": "https://www.maps.hku.hk/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/182172764",
+      "cityId": "hong-kong",
+      "campusId": "hong-kong-main",
+      "name": "周亦卿樓 Chow Yei Ching Building",
+      "aliases": [
+        "Chow Yei Ching",
+        "周亦卿楼",
+        "Chow Yei Ching Building",
+        "周亦卿樓"
+      ],
+      "category": "teaching",
+      "lng": 114.1355061,
+      "lat": 22.2830567,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/182172764",
+        "officialUrl": "https://www.maps.hku.hk/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/182208619",
+      "cityId": "hong-kong",
+      "campusId": "hong-kong-main",
+      "name": "莊月明化學樓 Chong Yuet Ming Chemistry Building",
+      "aliases": [
+        "Chong Yuet Ming Chemistry Building",
+        "莊月明化學樓"
+      ],
+      "category": "teaching",
+      "lng": 114.1400388,
+      "lat": 22.2829609,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/182208619",
+        "officialUrl": "https://www.maps.hku.hk/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    },
+    {
+      "id": "way/182172765",
+      "cityId": "hong-kong",
+      "campusId": "hong-kong-main",
+      "name": "綜合大樓 (香港大學學生會) Composite Building (HKU Students' Union)",
+      "aliases": [
+        "Composite Building",
+        "綜合大樓"
+      ],
+      "category": "services",
+      "lng": 114.1359708,
+      "lat": 22.283155,
+      "locationType": "building-center",
+      "source": {
+        "url": "https://www.openstreetmap.org/way/182172765",
+        "officialUrl": "https://www.maps.hku.hk/",
+        "collectedAt": "2026-10-13T13:34:03.859713+00:00"
+      }
+    }
+  ]
+}

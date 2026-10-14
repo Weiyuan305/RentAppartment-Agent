@@ -1,0 +1,54 @@
+{
+  "origin": "https://campus-atlas-demo.pages.dev",
+  "checkedAt": "2026-10-12T11:24:20.703Z",
+  "cities": [
+    {
+      "city": "london",
+      "tools": [
+        "nearby",
+        "campus-route"
+      ],
+      "persistence": true
+    },
+    {
+      "city": "sydney",
+      "tools": [
+        "nearby",
+        "campus-route"
+      ],
+      "persistence": true
+    },
+    {
+      "city": "singapore",
+      "tools": [
+        "nearby",
+        "campus-route"
+      ],
+      "persistence": true
+    },
+    {
+      "city": "kuala-lumpur",
+      "tools": [
+        "nearby",
+        "campus-route"
+      ],
+      "persistence": true
+    },
+    {
+      "city": "hong-kong",
+      "tools": [
+        "nearby",
+        "campus-route"
+      ],
+      "persistence": true
+    }
+  ],
+  "model": [],
+  "health": {
+    "status": "ok",
+    "checks": {
+      "database": "ok",
+      "aiConfiguration": "ok"
+    }
+  }
+}

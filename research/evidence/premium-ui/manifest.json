@@ -1,0 +1,172 @@
+{
+  "researchedAt": "2026-10-13",
+  "project": "Campus Atlas",
+  "scope": "Read-only community/design research; no app source edit, build or deployment in this turn.",
+  "search": {
+    "exaQueries": 9,
+    "exaRequestedResultSlots": 66,
+    "exaReturnedCandidateEntries": 61,
+    "exaUniqueCandidateURLs": 52,
+    "note": "Candidate counts are not full-text reviews. Supplemental domain-targeted web searches filled Reddit and X coverage gaps."
+  },
+  "selectionCriteria": [
+    "Original creators with real work or interactive examples",
+    "Transferable to a student-rental three-panel map product",
+    "Visible change in composition/material/motion, beyond generic hover fades",
+    "Separate source observations from proposed adaptations"
+  ],
+  "sources": [
+    {
+      "id": "reddit-system",
+      "platform": "Reddit",
+      "title": "I Built a Design System — So Why Does My Website Still Feel Outdated?",
+      "url": "https://www.reddit.com/r/webdesign/comments/1uvohqw/i_built_a_design_system_so_why_does_my_website/",
+      "evidence": "full page and comment section read",
+      "quality": "An individual critique thread. Comments disagree; not a survey or conversion study.",
+      "finding": "Some commenters identify repeated boxes, weak type hierarchy and generic imagery as the problem; others favor more color. A token system alone does not establish an art direction."
+    },
+    {
+      "id": "reddit-motion",
+      "platform": "Reddit",
+      "title": "Opinion on scroll-triggered sliding/fading elements",
+      "url": "https://www.reddit.com/r/web_design/comments/1d91whv/what_is_your_opinion_on_the_aesthetic_of_web_page/",
+      "evidence": "full thread read",
+      "quality": "Practitioner and visitor anecdotes, mixed positions. No controlled usability study.",
+      "finding": "Comments distinguish narrative/delight from frequent utility work. Repeated fades that hide information or interrupt scanning attract criticism."
+    },
+    {
+      "id": "mersi-case",
+      "platform": "Codrops",
+      "title": "Between Print and Digital: The Making of MERSI’s Website",
+      "url": "https://tympanus.net/codrops/2026/07/27/between-print-and-digital-the-making-of-mersis-website/",
+      "evidence": "original studio case study read; linked live site visited and project clicked",
+      "quality": "First-hand studio account with detailed transition implementation. Promotional and award-oriented, not student-rental conversion evidence.",
+      "finding": "Architecture-book composition, materiality, strong photography, split images and cover-to-detail continuity establish identity.",
+      "liveUrl": "https://www.mersi-architecture.com/"
+    },
+    {
+      "id": "spain-case",
+      "platform": "Codrops",
+      "title": "Spain Collection: Evolving a Luxury Website into a Digital Ecosystem",
+      "url": "https://tympanus.net/codrops/2025/12/18/spain-collection-evolving-a-luxury-website-into-a-digital-ecosystem/",
+      "evidence": "original creators' case study read",
+      "quality": "First-hand travel-design account. Luxury travel audience differs from students.",
+      "finding": "Editorial typography and curated photography give character; familiar filters and linked modal detail views keep discovery understandable."
+    },
+    {
+      "id": "linear-material",
+      "platform": "Linear",
+      "title": "A Linear spin on Liquid Glass",
+      "url": "https://linear.app/now/linear-liquid-glass",
+      "evidence": "original engineering article read",
+      "quality": "Shipped native iOS implementation from product team. Its shader code is not a direct web drop-in.",
+      "finding": "Material comprises blur, a supporting gradient, highlight and shadow. Team explicitly omits refraction for dense professional UI readability."
+    },
+    {
+      "id": "rauno-depth",
+      "platform": "Creator website",
+      "title": "Designing Depth",
+      "url": "https://rauno.me/craft/depth",
+      "evidence": "original essay read",
+      "quality": "Practitioner explanation with composition and choreography examples; qualitative design reasoning.",
+      "finding": "Foreground/background relationships, de-emphasis and staged reveal communicate spatial depth."
+    },
+    {
+      "id": "emil-motion",
+      "platform": "Creator website",
+      "title": "Good vs Great Animations",
+      "url": "https://emilkowal.ski/ui/good-vs-great-animations",
+      "evidence": "original essay read; live clip-path tabs clicked",
+      "quality": "Practitioner interactive demos. Author also sells a course; public article supports the cited techniques.",
+      "finding": "Origin-aware expansion, easing and synchronized tab/text transitions improve continuity."
+    },
+    {
+      "id": "emil-tips",
+      "platform": "Creator website",
+      "title": "7 Practical Animation Tips",
+      "url": "https://emilkowal.ski/ui/7-practical-animation-tips",
+      "evidence": "original article read",
+      "quality": "Public practical examples by author, not empirical benchmark.",
+      "finding": "Immediate press feedback, brief UI transitions and localized blur can smooth state changes."
+    },
+    {
+      "id": "x-jakub",
+      "platform": "X / MotionVault archive",
+      "title": "Jakub Krehel: Interfere sidebar between two layers",
+      "url": "https://x.com/jakubkrehel/status/2048788140849062241",
+      "archiveUrl": "https://motionvault.dev/jakubkrehel/status/2048788140849062241/",
+      "evidence": "MotionVault archive text read; original X URL returned 403",
+      "quality": "Secondary archive only. Do not claim original post/video, popularity or full animation was directly verified.",
+      "finding": "Archive describes a navigation-layer transition; useful discovery pointer only, not independent proof of the exact effect."
+    },
+    {
+      "id": "interfere-case",
+      "platform": "Creator product blog",
+      "title": "How we built Interfere’s new website",
+      "url": "https://interfere.com/blog/how-we-built-interferes-new-website",
+      "evidence": "original team article read, cross-checked from social discovery",
+      "quality": "First-hand visual identity and engineering breakdown by product team. Marketing-site examples require adaptation.",
+      "finding": "Explores many complete directions before defining signature details. Translucency, repeated brand gradient and grouped animation establish coherence."
+    },
+    {
+      "id": "motion-docs",
+      "platform": "Official docs",
+      "title": "Motion layout animations",
+      "url": "https://motion.dev/docs/react-layout-animations",
+      "evidence": "official documentation read",
+      "quality": "Primary technical source",
+      "finding": "layoutId supports shared-element transitions; layoutScroll and layoutRoot address scroll/fixed-container measurement."
+    },
+    {
+      "id": "gsap-docs",
+      "platform": "Official docs",
+      "title": "GSAP Flip",
+      "url": "https://gsap.com/docs/v3/Plugins/Flip/",
+      "evidence": "official documentation opened",
+      "quality": "Primary technical source",
+      "finding": "Candidate tool for complex measured layout transitions; not proposed as an additional mandatory library."
+    },
+    {
+      "id": "view-transitions",
+      "platform": "MDN",
+      "title": "View Transition API",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API",
+      "evidence": "documentation opened",
+      "quality": "Technical reference; browser support must be checked for actual implementation",
+      "finding": "Candidate progressive enhancement for view-to-view continuity, with a regular-navigation fallback."
+    },
+    {
+      "id": "cesium-camera",
+      "platform": "Official docs",
+      "title": "CesiumJS Camera",
+      "url": "https://cesium.com/learn/cesiumjs/ref-doc/Camera.html",
+      "evidence": "official documentation opened and existing city-map.tsx inspected",
+      "quality": "Primary technical source plus current project code",
+      "finding": "Use current engine's camera API for framing transitions; existing flyToBoundingSphere already animates focus, so merely adding flyTo again is not a redesign."
+    }
+  ],
+  "browserChecks": [
+    {
+      "url": "https://www.mersi-architecture.com/",
+      "actions": "Viewed home composition; clicked Hamelin and observed destination page.",
+      "screenshot": "mersi-home.png",
+      "limitation": "Still screenshot does not establish frame rate or capture complete animation."
+    },
+    {
+      "url": "https://emilkowal.ski/ui/good-vs-great-animations#know-your-tools",
+      "actions": "Clicked Balances in clip-path tabs demo.",
+      "screenshot": "emil-tabs.png",
+      "limitation": "State change verified; no frame-time measurements. One embedded 3D video reported media unavailable."
+    },
+    {
+      "url": "https://campus-atlas-demo.pages.dev/?city=london&listing=london-2",
+      "actions": "Read and captured current public UI without changing app state.",
+      "screenshot": "current-campus-atlas.png"
+    }
+  ],
+  "accessLimits": [
+    "Original X status returned HTTP 403. MotionVault archive used only as a discovery pointer; no original video viewing or engagement claim.",
+    "Case studies provide qualitative inspiration, not evidence that the proposed direction will improve student-rental conversion."
+  ],
+  "copyright": "Screenshots are research references. Do not reuse brand marks or photography in product UI without rights."
+}

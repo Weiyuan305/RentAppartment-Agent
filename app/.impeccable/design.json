@@ -1,0 +1,550 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-13T09:34:43Z",
+  "title": "Design System: Campus Atlas 租房工作区",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "浅绿操作",
+        "tonalRamp": [
+          "oklch(15% 0.0528 144.2)",
+          "oklch(26.43% 0.0528 144.2)",
+          "oklch(37.86% 0.0528 144.2)",
+          "oklch(49.29% 0.0528 144.2)",
+          "oklch(60.71% 0.0528 144.2)",
+          "oklch(72.14% 0.0528 144.2)",
+          "oklch(83.57% 0.0528 144.2)",
+          "oklch(95% 0.0528 144.2)"
+        ]
+      },
+      "shell": {
+        "role": "neutral",
+        "displayName": "深青外壳",
+        "tonalRamp": [
+          "oklch(15% 0.0234 209.9)",
+          "oklch(26.43% 0.0234 209.9)",
+          "oklch(37.86% 0.0234 209.9)",
+          "oklch(49.29% 0.0234 209.9)",
+          "oklch(60.71% 0.0234 209.9)",
+          "oklch(72.14% 0.0234 209.9)",
+          "oklch(83.57% 0.0234 209.9)",
+          "oklch(95% 0.0234 209.9)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "深青表面",
+        "tonalRamp": [
+          "oklch(15% 0.0302 202.5)",
+          "oklch(26.43% 0.0302 202.5)",
+          "oklch(37.86% 0.0302 202.5)",
+          "oklch(49.29% 0.0302 202.5)",
+          "oklch(60.71% 0.0302 202.5)",
+          "oklch(72.14% 0.0302 202.5)",
+          "oklch(83.57% 0.0302 202.5)",
+          "oklch(95% 0.0302 202.5)"
+        ]
+      },
+      "surface-soft": {
+        "role": "neutral",
+        "displayName": "柔和深青",
+        "tonalRamp": [
+          "oklch(15% 0.0341 192.7)",
+          "oklch(26.43% 0.0341 192.7)",
+          "oklch(37.86% 0.0341 192.7)",
+          "oklch(49.29% 0.0341 192.7)",
+          "oklch(60.71% 0.0341 192.7)",
+          "oklch(72.14% 0.0341 192.7)",
+          "oklch(83.57% 0.0341 192.7)",
+          "oklch(95% 0.0341 192.7)"
+        ]
+      },
+      "foreground": {
+        "role": "neutral",
+        "displayName": "浅色主文",
+        "tonalRamp": [
+          "oklch(15% 0.0152 136.1)",
+          "oklch(26.43% 0.0152 136.1)",
+          "oklch(37.86% 0.0152 136.1)",
+          "oklch(49.29% 0.0152 136.1)",
+          "oklch(60.71% 0.0152 136.1)",
+          "oklch(72.14% 0.0152 136.1)",
+          "oklch(83.57% 0.0152 136.1)",
+          "oklch(95% 0.0152 136.1)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "柔和次文",
+        "tonalRamp": [
+          "oklch(15% 0.0229 171.6)",
+          "oklch(26.43% 0.0229 171.6)",
+          "oklch(37.86% 0.0229 171.6)",
+          "oklch(49.29% 0.0229 171.6)",
+          "oklch(60.71% 0.0229 171.6)",
+          "oklch(72.14% 0.0229 171.6)",
+          "oklch(83.57% 0.0229 171.6)",
+          "oklch(95% 0.0229 171.6)"
+        ]
+      },
+      "ink-secondary": {
+        "role": "neutral",
+        "displayName": "辅助文字",
+        "tonalRamp": [
+          "oklch(15% 0.0204 164.5)",
+          "oklch(26.43% 0.0204 164.5)",
+          "oklch(37.86% 0.0204 164.5)",
+          "oklch(49.29% 0.0204 164.5)",
+          "oklch(60.71% 0.0204 164.5)",
+          "oklch(72.14% 0.0204 164.5)",
+          "oklch(83.57% 0.0204 164.5)",
+          "oklch(95% 0.0204 164.5)"
+        ]
+      },
+      "brand-soft": {
+        "role": "neutral",
+        "displayName": "柔和状态底",
+        "tonalRamp": [
+          "oklch(15% 0.0471 174.8)",
+          "oklch(26.43% 0.0471 174.8)",
+          "oklch(37.86% 0.0471 174.8)",
+          "oklch(49.29% 0.0471 174.8)",
+          "oklch(60.71% 0.0471 174.8)",
+          "oklch(72.14% 0.0471 174.8)",
+          "oklch(83.57% 0.0471 174.8)",
+          "oklch(95% 0.0471 174.8)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "深青分隔",
+        "tonalRamp": [
+          "oklch(15% 0.0336 179.5)",
+          "oklch(26.43% 0.0336 179.5)",
+          "oklch(37.86% 0.0336 179.5)",
+          "oklch(49.29% 0.0336 179.5)",
+          "oklch(60.71% 0.0336 179.5)",
+          "oklch(72.14% 0.0336 179.5)",
+          "oklch(83.57% 0.0336 179.5)",
+          "oklch(95% 0.0336 179.5)"
+        ]
+      },
+      "floating-panel": {
+        "role": "neutral",
+        "displayName": "半透明浮层",
+        "tonalRamp": [
+          "oklch(15% 0.0338 198.5 / 94.90%)",
+          "oklch(26.43% 0.0338 198.5 / 94.90%)",
+          "oklch(37.86% 0.0338 198.5 / 94.90%)",
+          "oklch(49.29% 0.0338 198.5 / 94.90%)",
+          "oklch(60.71% 0.0338 198.5 / 94.90%)",
+          "oklch(72.14% 0.0338 198.5 / 94.90%)",
+          "oklch(83.57% 0.0338 198.5 / 94.90%)",
+          "oklch(95% 0.0338 198.5 / 94.90%)"
+        ]
+      },
+      "assistant-surface": {
+        "role": "neutral",
+        "displayName": "助手阅读面",
+        "tonalRamp": [
+          "oklch(15% 0.0107 118.0 / 96.08%)",
+          "oklch(26.43% 0.0107 118.0 / 96.08%)",
+          "oklch(37.86% 0.0107 118.0 / 96.08%)",
+          "oklch(49.29% 0.0107 118.0 / 96.08%)",
+          "oklch(60.71% 0.0107 118.0 / 96.08%)",
+          "oklch(72.14% 0.0107 118.0 / 96.08%)",
+          "oklch(83.57% 0.0107 118.0 / 96.08%)",
+          "oklch(95% 0.0107 118.0 / 96.08%)"
+        ]
+      },
+      "assistant-ink": {
+        "role": "neutral",
+        "displayName": "助手深绿文字",
+        "tonalRamp": [
+          "oklch(15% 0.0413 168.2)",
+          "oklch(26.43% 0.0413 168.2)",
+          "oklch(37.86% 0.0413 168.2)",
+          "oklch(49.29% 0.0413 168.2)",
+          "oklch(60.71% 0.0413 168.2)",
+          "oklch(72.14% 0.0413 168.2)",
+          "oklch(83.57% 0.0413 168.2)",
+          "oklch(95% 0.0413 168.2)"
+        ]
+      },
+      "assistant-primary": {
+        "role": "primary",
+        "displayName": "助手深绿操作",
+        "tonalRamp": [
+          "oklch(15% 0.0651 163.8)",
+          "oklch(26.43% 0.0651 163.8)",
+          "oklch(37.86% 0.0651 163.8)",
+          "oklch(49.29% 0.0651 163.8)",
+          "oklch(60.71% 0.0651 163.8)",
+          "oklch(72.14% 0.0651 163.8)",
+          "oklch(83.57% 0.0651 163.8)",
+          "oklch(95% 0.0651 163.8)"
+        ]
+      },
+      "dialog-surface": {
+        "role": "neutral",
+        "displayName": "详情深色表面",
+        "tonalRamp": [
+          "oklch(15% 0.0352 189.6)",
+          "oklch(26.43% 0.0352 189.6)",
+          "oklch(37.86% 0.0352 189.6)",
+          "oklch(49.29% 0.0352 189.6)",
+          "oklch(60.71% 0.0352 189.6)",
+          "oklch(72.14% 0.0352 189.6)",
+          "oklch(83.57% 0.0352 189.6)",
+          "oklch(95% 0.0352 189.6)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "城市大标题",
+        "purpose": "桌面地图城市名称；手机缩小。"
+      },
+      "headline": {
+        "displayName": "房源列表标题",
+        "purpose": "工作区列表入口；中文与紧凑布局采用现有覆盖规则。"
+      },
+      "title": {
+        "displayName": "房源标题",
+        "purpose": "房源列表中的可操作名称。"
+      },
+      "body": {
+        "displayName": "助手正文",
+        "purpose": "浅色助手阅读面中的长文消息。"
+      },
+      "label": {
+        "displayName": "紧凑操作",
+        "purpose": "路线等紧凑工作区按钮。"
+      }
+    },
+    "shadows": [
+      {
+        "name": "floating-panel",
+        "value": "0 12px 32px #051d2c47,inset 0 1px 0 #cce2d927",
+        "purpose": "桌面地图上两侧浮层，配合 backdrop-filter:blur(18px)。"
+      },
+      {
+        "name": "detail-dialog",
+        "value": "0 24px 80px #081e1d55",
+        "purpose": "详情与目的地选择弹层。"
+      },
+      {
+        "name": "chat-input",
+        "value": "0 4px 15px #21412c0d",
+        "purpose": "浅色助手输入面。"
+      }
+    ],
+    "motion": [
+      {
+        "name": "motion-fast",
+        "value": "160ms",
+        "purpose": "工作区操作状态过渡。"
+      },
+      {
+        "name": "motion-normal",
+        "value": "240ms",
+        "purpose": "现有局部 motion-normal 变量；不扩写为全站标准。"
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(.77,0,.175,1)",
+        "purpose": "已实现的局部缓动变量。"
+      },
+      {
+        "name": "photo-flight",
+        "value": "280ms cubic-bezier(0.77,0,0.175,1)",
+        "purpose": "WAAPI 将当前照片展开到详情并收回；减少动态效果时跳过。"
+      },
+      {
+        "name": "route-reveal",
+        "value": "900ms",
+        "purpose": "沿既有真实坐标逐段显现；减少动态效果时立即完整呈现。"
+      },
+      {
+        "name": "route-camera",
+        "value": "1.2s",
+        "purpose": "路线适配视口并避让浮层；减少动态效果时为 0s。"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile-max",
+        "value": "600px"
+      },
+      {
+        "name": "single-panel-max",
+        "value": "1100px"
+      },
+      {
+        "name": "compact-desktop-max",
+        "value": "1300px"
+      },
+      {
+        "name": "wide-desktop-min",
+        "value": "1500px"
+      }
+    ],
+    "mapMarkers": {
+      "status": "deployed-verified",
+      "updatedAt": "2026-10-13",
+      "sources": [
+        "components/design-lab/map-place-labels.tsx",
+        "components/design-lab/concept-city-map.tsx",
+        "lib/amenity-display.ts",
+        "app/design-lab/design-lab.css"
+      ],
+      "nativeLabels": {
+        "renderer": "DOM buttons with native Lucide SVG",
+        "currentListingSetMaxLabels": 8,
+        "positioning": "Cesium postRender world-to-window projection at integer CSS pixels; no React frame updates",
+        "terrainHeightResampleIntervalMs": 500,
+        "terrainHeightOffsetMeters": 3,
+        "cleanup": "Remove postRender listener; guard destroyed viewer before projection and camera completion",
+        "sharedStyle": {
+          "backgroundColor": "#fffdf7",
+          "borderColor": "#d2dfd5",
+          "borderRadius": "8px",
+          "minHeight": "33px",
+          "fontWeight": 600,
+          "lineHeight": "19px",
+          "letterSpacing": "-.02em",
+          "fontVariantNumeric": "tabular-nums"
+        },
+        "price": {
+          "fontSize": "13px",
+          "textColor": "#244b3b",
+          "padding": "6px 10px",
+          "selectedBackgroundColor": "#245744",
+          "selectedTextColor": "#fffdf7"
+        },
+        "campus": {
+          "fontSize": "12px",
+          "textColor": "#334b3c",
+          "icon": "GraduationCap",
+          "iconColor": "#9b793e",
+          "iconSize": "17px",
+          "iconStrokeWidth": 1.8
+        },
+        "selectedPlace": {
+          "fontSize": "12px",
+          "textColor": "#244b3b",
+          "padding": "6px 9px",
+          "icon": "Existing category Lucide glyph",
+          "iconColor": "Existing amenity category color",
+          "iconSize": "17px",
+          "iconStrokeWidth": 1.8
+        },
+        "mobile": {
+          "maxWidth": "600px",
+          "priceFontSize": "12px",
+          "campusAndPlaceFontSize": "11px",
+          "copyMaxWidth": "180px"
+        },
+        "interaction": "Preserve listing selection, campus camera action, selected-place callback, accessible names, and native keyboard activation",
+        "routeVisibility": "Hide price and campus labels during an active route; retain the selected-place label"
+      },
+      "selectedPlaceCollision": {
+        "trigger": "Selected-place label overlaps the selected price label, including a 6px clearance",
+        "moves": "Selected-place anchor only",
+        "candidateOrder": [
+          "above",
+          "right of price",
+          "left of price",
+          "below price"
+        ],
+        "constraints": [
+          "8px viewport inset",
+          "Below facility tools",
+          "Above selected-place card",
+          "Clear of selected price"
+        ],
+        "whenNoClearSlot": "Keep original anchor",
+        "geographicAnchor": "Preserve original coordinate and callback; show a fine SVG leader and ground dot when displaced",
+        "leaderStyle": {
+          "stroke": "#5e806d",
+          "strokeWidth": "1px",
+          "dotFill": "#fffdf7",
+          "dotRadius": "2px"
+        }
+      },
+      "otherFacilities": {
+        "renderer": "SVG billboard badges from existing category glyphs",
+        "displaySize": "32px",
+        "sourceSize": "96px",
+        "sourceScale": 3,
+        "outline": "Single border with no double halo",
+        "cluster": {
+          "pixelRange": 25,
+          "minimumSize": 2,
+          "height": "30px",
+          "sourceScale": 3,
+          "pickId": "Original clustered entity array"
+        }
+      },
+      "sceneRendering": {
+        "useBrowserRecommendedResolution": false,
+        "initialResolutionScale": "min(1, 2 / max(1, devicePixelRatio))",
+        "fxaa": false,
+        "webglAntialias": true,
+        "observedDpr2": {
+          "cssWidth": 1280,
+          "drawingBufferWidth": 2560
+        },
+        "performanceClaim": "No measured frame-rate claim"
+      },
+      "localAcceptance": {
+        "review": "Resolved — ship after one mobile collision fix batch",
+        "clarityAndSelectedB": "Accepted in full review",
+        "mobileEvidence": ".impeccable/review/map-markers/mobile.png",
+        "mobileViewport": {
+          "width": 390,
+          "height": 844
+        },
+        "nonOverlappingLabelY": {
+          "price385": [
+            444.5,
+            477.5
+          ],
+          "sainsburys": [
+            391.5,
+            424.5
+          ]
+        },
+        "leaderVisible": true,
+        "exercised": [
+          "Native price click resets categories",
+          "Camera rotation",
+          "Three amenity categories with 385 places",
+          "Native selected-place Enter activation",
+          "Real walking route: 119m / about 2min"
+        ],
+        "typecheck": "pass",
+        "build": "pass",
+        "targetedLint": {
+          "errors": 0,
+          "existingWarnings": 2
+        },
+        "deployment": "Pending; existing B publication identifiers refer to the prior production integration"
+      },
+      "scope": "Map-marker refinement only; preserve selected B layout and motion; no new model calls, imagery, fonts, data, backend, or auth changes",
+      "publication": {
+        "url": "https://campus-atlas-demo.pages.dev/?city=london&listing=london-2",
+        "workerVersion": "021b26db-7fb0-4c76-a583-488ef37c0791",
+        "pagesDeployment": "e111ab87",
+        "report": "../research/25-map-marker-clarity.md",
+        "publicAcceptance": [
+          "Normal refresh and on-demand map load show native price labels",
+          "Campus recenter and three facility categories",
+          "Direct hospital billboard click opens University College Hospital",
+          "390x844 selected price and Sainsburys labels do not overlap; leader visible",
+          "Real walking route: 119m / about 2min",
+          "Health database and aiConfiguration ok",
+          "Verification tab warning/error logs empty"
+        ],
+        "modelCalls": 0,
+        "evidence": [
+          "../research/evidence/map-markers/live-desktop.png",
+          "../research/evidence/map-markers/live-mobile.png",
+          "../research/evidence/map-markers/live-route-mobile.png"
+        ]
+      }
+    },
+    "layout": {
+      "facilityRoutePanel": {
+        "maxHeight": "190px",
+        "overflowY": "auto",
+        "purpose": "设施路线沿用紧凑路线布局，保留完整指引、收起与来源操作，同时给真实路径留出地图空间。"
+      }
+    }
+  },
+  "components": [
+    {
+      "name": "路线按钮",
+      "kind": "button",
+      "refersTo": "route-button",
+      "description": "房源到学校路线的默认入口。",
+      "html": "<button class=\"ds-route\">到学校路线<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></button>",
+      "css": ".ds-route{display:flex;align-items:center;justify-content:space-between;gap:8px;border:0;min-height:34px;padding:8px 10px;border-radius:5px;background:#264a41;color:#e0efda;font:400 10px 'Atlas Manrope','PingFang SC','Microsoft YaHei',sans-serif;cursor:pointer;transition:color 160ms ease,background-color 160ms ease,transform 160ms ease}.ds-route:focus-visible{outline:2px solid #c1dfc0;outline-offset:4px}.ds-route:active{transform:scale(.97)}@media(hover:hover) and (pointer:fine){.ds-route:hover{background:#dce7d1;color:#214b33}}@media(prefers-reduced-motion:reduce){.ds-route{transition:none}.ds-route:active{transform:none}}"
+    },
+    {
+      "name": "已选路线按钮",
+      "kind": "button",
+      "refersTo": "route-button-selected",
+      "description": "当前选中房源的路线入口。",
+      "html": "<button class=\"ds-route-selected\">到学校路线<svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"M5 12h14m-6-6 6 6-6 6\"/></svg></button>",
+      "css": ".ds-route-selected{display:flex;align-items:center;justify-content:space-between;gap:8px;border:0;min-height:34px;padding:8px 10px;border-radius:5px;background:#c1dfc0;color:#173b30;font:400 10px 'Atlas Manrope','PingFang SC','Microsoft YaHei',sans-serif;cursor:pointer;transition:color 160ms ease,background-color 160ms ease,transform 160ms ease}.ds-route-selected:focus-visible{outline:2px solid #c1dfc0;outline-offset:4px}.ds-route-selected:active{transform:scale(.97)}@media(hover:hover) and (pointer:fine){.ds-route-selected:hover{background:#d8ebce;color:#173b30}}@media(prefers-reduced-motion:reduce){.ds-route-selected{transition:none}.ds-route-selected:active{transform:none}}"
+    },
+    {
+      "name": "租金筛选",
+      "kind": "input",
+      "refersTo": "filter",
+      "description": "深色工作区的紧凑选择器外观。",
+      "html": "<button class=\"ds-filter\" aria-haspopup=\"listbox\"><span>租金不限</span><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m6 9 6 6 6-6\"/></svg></button>",
+      "css": ".ds-filter{display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:110px;height:34px;padding:0 10px;border:1px solid #44625b;border-radius:5px;background:#1b3535;color:#e0ece0;font:400 11px 'Atlas Manrope','PingFang SC','Microsoft YaHei',sans-serif;cursor:pointer;transition:color 160ms ease,background-color 160ms ease,transform 160ms ease}.ds-filter:hover{color:#c1dfc0}.ds-filter:focus-visible{outline:2px solid #c1dfc0;outline-offset:4px}.ds-filter:active{transform:scale(.97)}@media(max-width:600px){.ds-filter{height:32px;min-width:0;font-size:10px}}@media(prefers-reduced-motion:reduce){.ds-filter{transition:none}.ds-filter:active{transform:none}}"
+    },
+    {
+      "name": "助手输入",
+      "kind": "input",
+      "description": "独立浅色阅读面中的多行输入。",
+      "html": "<div class=\"ds-chat-form\"><textarea class=\"ds-chat-text\" aria-label=\"租房需求\" placeholder=\"告诉我你的租房需求\"></textarea></div>",
+      "css": ".ds-chat-form{padding:12px;border:1px solid #cdd5c3;border-radius:9px;background:#fffefa;box-shadow:0 4px 15px #21412c0d}.ds-chat-text{display:block;resize:vertical;width:100%;min-height:52px;border:0;background:transparent;color:#294333;caret-color:#275944;font:400 12px 'Atlas Manrope','PingFang SC','Microsoft YaHei',sans-serif}.ds-chat-text::placeholder{color:#697562}.ds-chat-text:focus-visible{outline:2px solid #275944;outline-offset:4px}"
+    },
+    {
+      "name": "工作区导航",
+      "kind": "nav",
+      "description": "桌面分段导航；窄屏使用单面板切换。",
+      "html": "<nav class=\"ds-nav\" aria-label=\"工作区\"><button class=\"ds-nav-active\" aria-current=\"page\">找房</button><button>收藏</button></nav>",
+      "css": ".ds-nav{display:flex;gap:3px;width:fit-content;padding:3px;border:0;border-radius:6px;background:#203735}.ds-nav button{height:32px;padding:0 12px;border:0;border-radius:4px;background:transparent;color:#b1c4bd;font:400 11px 'Atlas Manrope','PingFang SC','Microsoft YaHei',sans-serif;cursor:pointer;transition:color 160ms ease,background-color 160ms ease,transform 160ms ease}.ds-nav button:hover{color:#c1dfc0}.ds-nav button.ds-nav-active{background:#c1dfc0;color:#163b2e}.ds-nav button:focus-visible{outline:2px solid #c1dfc0;outline-offset:4px}.ds-nav button:active{transform:scale(.97)}@media(prefers-reduced-motion:reduce){.ds-nav button{transition:none}.ds-nav button:active{transform:none}}"
+    },
+    {
+      "name": "照片房型标签",
+      "kind": "chip",
+      "description": "房源照片上的小型浅色标签；状态与设施文字另用间隔点。",
+      "html": "<span class=\"ds-photo-tag\">独立 Studio</span>",
+      "css": ".ds-photo-tag{display:inline-block;padding:5px 8px;border-radius:4px;background:#fbfaf1eb;color:#304b3c;font:400 10px 'Atlas Manrope','PingFang SC','Microsoft YaHei',sans-serif}"
+    },
+    {
+      "name": "房源单项",
+      "kind": "card",
+      "description": "浮层内的透明列表单项，以照片、名称与分隔线建立层级。",
+      "html": "<div class=\"ds-card-context\"><article class=\"ds-card\"><button class=\"ds-photo-open\" aria-label=\"查看房源详情\"><img class=\"ds-card-photo\" src=\"/photos/living-1.jpg\" alt=\"室内风格参考\"></button><button class=\"ds-card-title\">房源名称</button><p class=\"ds-card-area\">Studio · 演示房源</p></article></div>",
+      "css": ".ds-card-context{max-width:276px;padding:20px 15px 0;border-radius:14px;background:#102c2df2;color:#ecf3e9;backdrop-filter:blur(18px);box-shadow:0 12px 32px #051d2c47,inset 0 1px 0 #cce2d927;font-family:'Atlas Manrope','PingFang SC','Microsoft YaHei',sans-serif}.ds-card{padding-bottom:18px;margin-bottom:18px;border:0;border-bottom:1px solid #3c5b52;background:transparent;box-shadow:none}.ds-photo-open{display:block;width:100%;padding:0;border:0;border-radius:10px;overflow:hidden;background:#e3e1d8;cursor:pointer}.ds-card-photo{display:block;width:100%;height:176px;object-fit:cover;transition:transform 500ms ease}.ds-card-title{display:block;margin-top:12px;padding:0;border:0;background:transparent;color:#e6f0e2;font:600 15px/1.35 'Atlas Manrope','PingFang SC','Microsoft YaHei',sans-serif;letter-spacing:-.025em;cursor:pointer}.ds-card-title:hover{color:#c1dfc0}.ds-card-area{margin:4px 0 0;color:#b3c8bd;font-size:9px}.ds-photo-open:focus-visible,.ds-card-title:focus-visible{outline:2px solid #c1dfc0;outline-offset:4px}.ds-photo-open:active,.ds-card-title:active{transform:scale(.97)}@media(hover:hover) and (pointer:fine){.ds-photo-open:hover .ds-card-photo{transform:scale(1.045)}}@media(prefers-reduced-motion:reduce){.ds-card-photo{transition:none}.ds-photo-open:hover .ds-card-photo,.ds-photo-open:active,.ds-card-title:active{transform:none}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "城市漫游 · The Observatory",
+    "overview": "深青外壳让城市成为连续背景；房源与助手浮于地图两侧，照片、价格和路线承担主要信息层级。浅绿标记当前操作，助手保持独立浅色阅读面。\n状态：**selected / production-approved**（2026-10-13）。用户已选定 B；本地生产集成已通过完成审查，并已发布 Cloudflare。\n本规范仅约束租房工作区，不建立登录页或完整房源页的改版权威。项目没有 PRODUCT.md，本文仅记录已实现设计与已确认选择。\n生产入口为 `app/page.tsx → components/rental-explorer.tsx → components/design-lab/design-lab.tsx`（`preview=false`）；根页固定 B，隐藏 A/B、样片播放栏与样片进度栏。普通状态地址为 `/?city=…&listing=…&route=walk`。\n`/design-lab` 使用 `preview=true`，继续保留 A/B 比较与动效样片；其[候选记录](components/design-lab/DESIGN.md)是历史预览文档。",
+    "keyCharacteristics": [
+      "连续城市背景与有层次的浮动工作面。",
+      "自托管 Manrope、紧凑操作与清晰照片。",
+      "真实路线几何、明确演示声明与可减少动态效果。"
+    ],
+    "rules": [
+      {
+        "name": "阅读分区",
+        "body": "助手保留自己的浅色背景与深绿文字、操作色，不直接继承外壳的浅绿文字体系。",
+        "section": "colors"
+      },
+      {
+        "name": "城市连续",
+        "body": "桌面地图保持连续背景，深度由两侧浮层与浅色阅读面建立。",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do 使用已选定 B 作为生产工作区，保留预览页的比较能力。",
+      "Do 保留来源、地图署名、演示声明、键盘焦点与减少动态效果行为。",
+      "Do 保留国家/城市选择、按需地图加载与普通生产 URL。"
+    ],
+    "donts": [
+      "Don't 将本规范扩展为登录页或完整房源页的改版结论。",
+      "Don't 将本地核对、构建或审查结果写成已部署、全城三维覆盖或已测帧率。"
+    ]
+  }
+}

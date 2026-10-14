@@ -1,0 +1,190 @@
+{
+  "installedAt": "2026-10-13T03:56:14.820670+00:00",
+  "target": "/Users/weiyuan/.codex/skills",
+  "tasteBackup": "/Users/weiyuan/.codex/skill-backups/uiux-20261013T035614Z/taste-skill",
+  "previousTasteSha256": "eea03004976050da4cb344f3c1aa25305d4f55181022a252bd46e262832382dc",
+  "impeccableEngine": {
+    "version": "0.1.14",
+    "path": "/Users/weiyuan/.codex/skills/impeccable/scripts/bin/darwin-arm64/impeccable",
+    "sha256": "abbd69d540532b91e9599c41d3a6127dfbaabae5e24bafd74ff7e2fb18f4f87c",
+    "officialLauncherChecksumVerified": true
+  },
+  "skills": [
+    {
+      "folder": "animate",
+      "name": "animate",
+      "path": "/Users/weiyuan/.codex/skills/animate",
+      "skillSha256": "b8ede161270458e6ae2e45e8a1985373515d4c63de5568ddb0f9012d7634356c",
+      "files": 2
+    },
+    {
+      "folder": "animation-performance",
+      "name": "animation-performance",
+      "path": "/Users/weiyuan/.codex/skills/animation-performance",
+      "skillSha256": "ceb9dd3fe912615830f725a0120ccf8d012d15a6218001a5cd6c15d38e39a957",
+      "files": 1
+    },
+    {
+      "folder": "animation-vocabulary",
+      "name": "animation-vocabulary",
+      "path": "/Users/weiyuan/.codex/skills/animation-vocabulary",
+      "skillSha256": "40d2b27adfdfeb0570a9f20e7d0255109d9233c50603878bcd0dcd04c923fd94",
+      "files": 1
+    },
+    {
+      "folder": "ask-sonner",
+      "name": "ask-sonner",
+      "path": "/Users/weiyuan/.codex/skills/ask-sonner",
+      "skillSha256": "39f3ee185b3aa2cf70a689052ff078953ce7ba5915ed7a9391d232e9d4dcf57f",
+      "files": 2
+    },
+    {
+      "folder": "break-ui",
+      "name": "break-ui",
+      "path": "/Users/weiyuan/.codex/skills/break-ui",
+      "skillSha256": "e7eec1d70ac56a04255e9c0dbe98084ea3d544cc04aaad34f32c95d6fa9dff5e",
+      "files": 2
+    },
+    {
+      "folder": "emil-design-eng",
+      "name": "emil-design-eng",
+      "path": "/Users/weiyuan/.codex/skills/emil-design-eng",
+      "skillSha256": "ffbe68e6007fb42cb8149f089b400a1ca007d59ba23e8948e2be4476f3175939",
+      "files": 1
+    },
+    {
+      "folder": "find-animation-opportunities",
+      "name": "find-animation-opportunities",
+      "path": "/Users/weiyuan/.codex/skills/find-animation-opportunities",
+      "skillSha256": "d52a377819b84a71930f0c822cfe2849f40301605a2d5c7eccbfa3b257700df2",
+      "files": 1
+    },
+    {
+      "folder": "impeccable",
+      "name": "impeccable",
+      "path": "/Users/weiyuan/.codex/skills/impeccable",
+      "skillSha256": "58c0252bca04521de87007aeb495f7ec99dc4c7341bc890fe82b6d577573af91",
+      "files": 63
+    },
+    {
+      "folder": "improve-animations",
+      "name": "improve-animations",
+      "path": "/Users/weiyuan/.codex/skills/improve-animations",
+      "skillSha256": "73962447464433476343e2c12cd08ab39cc99a9e5f3c118c5fb54ed897574ef6",
+      "files": 3
+    },
+    {
+      "folder": "mobile-native",
+      "name": "mobile-native",
+      "path": "/Users/weiyuan/.codex/skills/mobile-native",
+      "skillSha256": "888b7651d66d66dbac4e72b7c554638eb19bd971d686d6cbdf030a5ef3788f55",
+      "files": 1
+    },
+    {
+      "folder": "pick-ui-library",
+      "name": "pick-ui-library",
+      "path": "/Users/weiyuan/.codex/skills/pick-ui-library",
+      "skillSha256": "675fdce308683256ed617351a9b74d23457a5fbd0a562d9831b9c764b8c5e682",
+      "files": 1
+    },
+    {
+      "folder": "prototype",
+      "name": "prototype",
+      "path": "/Users/weiyuan/.codex/skills/prototype",
+      "skillSha256": "bba39c955eb1871c5a02733976ceec5d0324198e0812e667604756489c89f7b9",
+      "files": 2
+    },
+    {
+      "folder": "review-animations",
+      "name": "review-animations",
+      "path": "/Users/weiyuan/.codex/skills/review-animations",
+      "skillSha256": "6ff590d29e436766135aa3d137be1fac2a867165c7257fc315b189361f1873af",
+      "files": 2
+    },
+    {
+      "folder": "taste-skill",
+      "name": "design-taste-frontend",
+      "path": "/Users/weiyuan/.codex/skills/taste-skill",
+      "skillSha256": "2136ed83016bfada39f7b8013b2aafd9f78fcbd9799110ed222a79c6419ba5fb",
+      "files": 1
+    },
+    {
+      "folder": "ui-ux-pro-max",
+      "name": "ui-ux-pro-max",
+      "path": "/Users/weiyuan/.codex/skills/ui-ux-pro-max",
+      "skillSha256": "63976cb6f205d33cda1acfb244394baef218b2d120abd8e797d25edb48c5c1f4",
+      "files": 76
+    }
+  ],
+  "sources": [
+    {
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "checkedAt": "2026-10-13T03:40:20.801Z",
+      "skillPath": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "metadataError": "Command failed: curl -fLsS --max-time 30 -H Accept: application/vnd.github+json https://api.github.com/repos/nextlevelbuilder/ui-ux-pro-max-skill\ncurl: (56) The requested URL retur",
+      "skillDownloaded": true,
+      "readmeDownloaded": true,
+      "latestCommitUpdated": "2026-10-12T11:08:03Z",
+      "latestCommit": "7246805992a42b7bba37d4cac83b01416f0c6c44",
+      "githubPageApproximateStars": 135200,
+      "starsSource": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "starsPrecision": "rounded public GitHub page display; API metadata returned HTTP 403"
+    },
+    {
+      "repo": "Leonxlnx/taste-skill",
+      "url": "https://github.com/Leonxlnx/taste-skill",
+      "checkedAt": "2026-10-13T03:40:20.805Z",
+      "skillPath": "skills/taste-skill/SKILL.md",
+      "metadataError": "Command failed: curl -fLsS --max-time 30 -H Accept: application/vnd.github+json https://api.github.com/repos/Leonxlnx/taste-skill\ncurl: (56) The requested URL returned error: 403\n",
+      "readmeDownloaded": true,
+      "skillDownloaded": true,
+      "latestCommitUpdated": "2026-10-11T21:56:48Z",
+      "latestCommit": "d237dd399d57524945c0c81327da5da19f7a468d",
+      "githubPageApproximateStars": 95200,
+      "starsSource": "https://github.com/Leonxlnx/taste-skill",
+      "starsPrecision": "rounded public GitHub page display; API metadata returned HTTP 403"
+    },
+    {
+      "repo": "pbakaus/impeccable",
+      "url": "https://github.com/pbakaus/impeccable",
+      "checkedAt": "2026-10-13T03:40:20.807Z",
+      "skillPath": "skill/SKILL.md",
+      "metadataError": "Command failed: curl -fLsS --max-time 30 -H Accept: application/vnd.github+json https://api.github.com/repos/pbakaus/impeccable\ncurl: (56) The requested URL returned error: 403\n",
+      "skillError": "Command failed: curl -fLsS --max-time 30 -H Accept: application/vnd.github+json https://raw.githubusercontent.com/pbakaus/impeccable/main/skill/SKILL.md\ncurl: (56) The requested UR",
+      "readmeDownloaded": true,
+      "latestCommitUpdated": "2026-10-12T17:12:50Z",
+      "latestCommit": "245ad82def45831dc56a21b683c7a1ff530b06cc",
+      "alternateSkillPath": ".agents/skills/impeccable/SKILL.md",
+      "githubPageApproximateStars": 80300,
+      "starsSource": "https://github.com/pbakaus/impeccable",
+      "starsPrecision": "rounded public GitHub page display; API metadata returned HTTP 403"
+    },
+    {
+      "repo": "emilkowalski/skills",
+      "url": "https://github.com/emilkowalski/skills",
+      "checkedAt": "2026-10-13T03:40:20.809Z",
+      "skillPath": "skills/improve-animations/SKILL.md",
+      "metadataError": "Command failed: curl -fLsS --max-time 30 -H Accept: application/vnd.github+json https://api.github.com/repos/emilkowalski/skills\ncurl: (56) The requested URL returned error: 403\n",
+      "skillDownloaded": true,
+      "readmeDownloaded": true,
+      "latestCommitUpdated": "2026-10-11T13:58:32Z",
+      "latestCommit": "2d228630ba1446365f614a108cb8252f1feda202",
+      "implementationSkillPath": "skills/animate/SKILL.md",
+      "githubPageApproximateStars": 45700,
+      "starsSource": "https://github.com/emilkowalski/skills",
+      "starsPrecision": "rounded public GitHub page display; API metadata returned HTTP 403"
+    }
+  ],
+  "uiuxAdaptation": "Official Codex template rendered for global ~/.codex/skills path; data/scripts/references copied with skill-installer helpers",
+  "emilSelection": "Web design, interaction and motion skills; existing apple-design preserved",
+  "verification": {
+    "checkedAt": "2026-10-13T03:57:33.073790+00:00",
+    "skillFilesAndHashes": "passed",
+    "localMarkdownReferences": "passed, no missing references",
+    "tasteUpgradeAndBackup": "passed",
+    "uiuxSearch": "passed",
+    "uiuxDesignSystemGeneration": "passed, smoke test only",
+    "impeccableEngineProbe": "passed, impeccable-engine 0.1.14"
+  }
+}

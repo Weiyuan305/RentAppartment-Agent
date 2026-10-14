@@ -28,10 +28,9 @@ export function normalizeAmenityRoute(payload: unknown, listing: Listing, place:
   }, listing, place);
 }
 
-// The sample runs as one Node process. Quota and cache survive process restarts.
+// Memory only accelerates reuse. Persistent cache and quotas also work across Workers.
 const cache = new Map<string, {route:AmenityWalkingRoute; expires:number}>();
 const pending = new Map<string, Promise<AmenityWalkingRoute>>();
-let lastRequest = 0;
 export class RouteServiceError extends Error {
   status: number;
   constructor(message: string, status = 502) {super(message); this.status = status;}
@@ -41,17 +40,19 @@ export async function getAmenityRoute(listing: Listing, place: Amenity): Promise
   const now = Date.now();
   const saved = cache.get(key);
   if (saved && saved.expires > now) return saved.route;
-  const persisted = database().prepare("SELECT payload FROM routes WHERE key=? AND expires>?").get(key, now) as {payload: string} | undefined;
-  if (persisted) {
-    try {return parseAmenityWalkingRoute(JSON.parse(persisted.payload), listing, place);} catch {database().prepare("DELETE FROM routes WHERE key=?").run(key);}
-  }
   const inProgress = pending.get(key);
   if (inProgress) return inProgress;
-  if (pending.size || now - lastRequest < 1100) throw new RouteServiceError("路线服务正在处理其他请求，请稍后再试。", 429);
-  try {consumeQuota("routing-global", 100, 86400000);} catch (error) {if (error instanceof SessionError) throw new RouteServiceError(error.message, error.status); throw error;}
-  lastRequest = now;
   const task = (async () => {
     try {
+      const db = await database();
+      const persisted = await db.first<{payload: string}>("SELECT payload FROM routes WHERE key=? AND expires>?", [key, now]);
+      if (persisted) {
+        try {return parseAmenityWalkingRoute(JSON.parse(persisted.payload), listing, place);}
+        catch {await db.run("DELETE FROM routes WHERE key=?", [key]);}
+      }
+      // Both limits are atomic in D1, so a second isolate cannot bypass them.
+      await consumeQuota("routing-upstream", 1, 1100);
+      await consumeQuota("routing-global", 100, 86400000);
       const url = `${amenityRouteEndpoint}/${listing.lng},${listing.lat};${place.lng},${place.lat}?overview=full&geometries=geojson&steps=true&alternatives=false`;
       const response = await fetch(url, {headers:{"User-Agent":"CampusAtlas-RentalPreview/0.1", "X-Client-Id":"campus-atlas-rental-preview"},signal:AbortSignal.timeout(20000)});
       if (response.status === 429) throw new RouteServiceError("步行路线服务繁忙，请稍后再试。", 429);
@@ -59,11 +60,12 @@ export async function getAmenityRoute(listing: Listing, place: Amenity): Promise
       const result = normalizeAmenityRoute(await response.json(), listing, place);
       if (cache.size >= 200) cache.delete(cache.keys().next().value!);
       cache.set(key, {route:result,expires:now + 86400000});
-      database().prepare("DELETE FROM routes WHERE expires<?").run(now);
-      database().prepare("INSERT OR REPLACE INTO routes (key,payload,expires) VALUES (?,?,?)").run(key, JSON.stringify(result), now + 86400000);
+      await db.run("DELETE FROM routes WHERE expires<?", [now]);
+      await db.run("INSERT OR REPLACE INTO routes (key,payload,expires) VALUES (?,?,?)", [key, JSON.stringify(result), now + 86400000]);
       return result;
     } catch (e) {
       if (e instanceof RouteServiceError) throw e;
+      if (e instanceof SessionError) throw new RouteServiceError(e.message, e.status);
       throw new RouteServiceError(e instanceof Error && /路网|入口|完整/.test(e.message) ? e.message : "无法确认这条步行路线，请核对入口或稍后重试。");
     }
   })();

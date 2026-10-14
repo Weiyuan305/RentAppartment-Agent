@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-10-13T03:40:25.939Z",
+  "repositories": [
+    {
+      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "checkedAt": "2026-10-13T03:40:20.801Z",
+      "skillPath": ".claude/skills/ui-ux-pro-max/SKILL.md",
+      "metadataError": "Command failed: curl -fLsS --max-time 30 -H Accept: application/vnd.github+json https://api.github.com/repos/nextlevelbuilder/ui-ux-pro-max-skill\ncurl: (56) The requested URL retur",
+      "skillDownloaded": true,
+      "readmeDownloaded": true,
+      "latestCommitUpdated": "2026-10-12T11:08:03Z",
+      "latestCommit": "7246805992a42b7bba37d4cac83b01416f0c6c44",
+      "githubPageApproximateStars": 135200,
+      "starsSource": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+      "starsPrecision": "rounded public GitHub page display; API metadata returned HTTP 403"
+    },
+    {
+      "repo": "Leonxlnx/taste-skill",
+      "url": "https://github.com/Leonxlnx/taste-skill",
+      "checkedAt": "2026-10-13T03:40:20.805Z",
+      "skillPath": "skills/taste-skill/SKILL.md",
+      "metadataError": "Command failed: curl -fLsS --max-time 30 -H Accept: application/vnd.github+json https://api.github.com/repos/Leonxlnx/taste-skill\ncurl: (56) The requested URL returned error: 403\n",
+      "readmeDownloaded": true,
+      "skillDownloaded": true,
+      "latestCommitUpdated": "2026-10-11T21:56:48Z",
+      "latestCommit": "d237dd399d57524945c0c81327da5da19f7a468d",
+      "githubPageApproximateStars": 95200,
+      "starsSource": "https://github.com/Leonxlnx/taste-skill",
+      "starsPrecision": "rounded public GitHub page display; API metadata returned HTTP 403"
+    },
+    {
+      "repo": "pbakaus/impeccable",
+      "url": "https://github.com/pbakaus/impeccable",
+      "checkedAt": "2026-10-13T03:40:20.807Z",
+      "skillPath": "skill/SKILL.md",
+      "metadataError": "Command failed: curl -fLsS --max-time 30 -H Accept: application/vnd.github+json https://api.github.com/repos/pbakaus/impeccable\ncurl: (56) The requested URL returned error: 403\n",
+      "skillError": "Command failed: curl -fLsS --max-time 30 -H Accept: application/vnd.github+json https://raw.githubusercontent.com/pbakaus/impeccable/main/skill/SKILL.md\ncurl: (56) The requested UR",
+      "readmeDownloaded": true,
+      "latestCommitUpdated": "2026-10-12T17:12:50Z",
+      "latestCommit": "245ad82def45831dc56a21b683c7a1ff530b06cc",
+      "alternateSkillPath": ".agents/skills/impeccable/SKILL.md",
+      "githubPageApproximateStars": 80300,
+      "starsSource": "https://github.com/pbakaus/impeccable",
+      "starsPrecision": "rounded public GitHub page display; API metadata returned HTTP 403"
+    },
+    {
+      "repo": "emilkowalski/skills",
+      "url": "https://github.com/emilkowalski/skills",
+      "checkedAt": "2026-10-13T03:40:20.809Z",
+      "skillPath": "skills/improve-animations/SKILL.md",
+      "metadataError": "Command failed: curl -fLsS --max-time 30 -H Accept: application/vnd.github+json https://api.github.com/repos/emilkowalski/skills\ncurl: (56) The requested URL returned error: 403\n",
+      "skillDownloaded": true,
+      "readmeDownloaded": true,
+      "latestCommitUpdated": "2026-10-11T13:58:32Z",
+      "latestCommit": "2d228630ba1446365f614a108cb8252f1feda202",
+      "implementationSkillPath": "skills/animate/SKILL.md",
+      "githubPageApproximateStars": 45700,
+      "starsSource": "https://github.com/emilkowalski/skills",
+      "starsPrecision": "rounded public GitHub page display; API metadata returned HTTP 403"
+    }
+  ]
+}

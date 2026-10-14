@@ -15,13 +15,14 @@ npm run dev
 
 ## 已实现
 
+- 学生生活规划入口：44 栋有来源校园建筑、264 条楼栋步行路线、132 个 10/20/30 分钟路网范围，支持楼栋通勤筛选、最多三套公寓对比分享、月支出、每周常去楼栋和演示入住 / 租期筛选。伦敦接入 TfL 当次行程，其余城市提供官方交通与校车入口。覆盖、复现与验收边界见 [学生规划交付记录](../research/28-student-planner-release.md)。
 - 英国 / 伦敦、澳大利亚 / 悉尼、新加坡、马来西亚 / 吉隆坡、中国香港。
 - 每城 6 套虚构演示房源，共 30 套；每套 3 张可切换的室内参考照片。
 - 本地币种与周租 / 月租显示；房型、预算、价格排序、收藏及空结果状态。
 - 收藏保存在本浏览器 localStorage；城市选择保存在 URL，可分享本地路径。
 - 详情弹层和独立详情页 `/listing/[id]`；详情页可回到对应城市及选中房源。
 - AI SDK 7 ToolLoopAgent 与 OpenAI 兼容流式接口：预算、房型、账单及校园步行时间筛选，附近设施查询、最近地点定位、真实步行路线。未配置模型时显示明确的工具体验入口。
-- SQLite 保存按匿名浏览器与城市隔离的对话和地图条件，支持刷新与服务器重启后恢复。安全仍缺少可靠数据，不编造评分。
+- Node 使用 SQLite、Cloudflare 使用 D1，保存按匿名浏览器与城市隔离的对话和地图条件，支持刷新与服务器重启后恢复。安全仍缺少可靠数据，不编造评分。
 - CesiumJS 1.145 + Google Photorealistic 3D Tiles 接入代码；支持 Google Maps Key 或有权限的 Cesium ion token，包含地图拖动、缩放、旋转、大学与房源标记及点选联动。
 - 公寓卡片、详情弹层及详情页的「到学校路线」：五城 30 套样本均保存了 Valhalla / OpenStreetMap 真实步行路网计算结果，显示贴合三维场景的路线、距离、预计时间及分段指引；支持查看全程、关闭路线、手机端跳到城市面板和 URL 恢复。
 - 地图设施图层：共 21 个分类开关，保留医院、便利店、商场，并在「更多设施」中分组显示交通、买菜、学习、日常医疗、餐饮、运动和生活服务。五校周边 3 公里 OpenStreetMap 快照共 15,726 条；每城补充一处大学官网确认的自习空间。支持简单线条图标、聚合、列表、来源、公寓直线距离和原始标签菜系筛选。
@@ -29,9 +30,36 @@ npm run dev
 - 不配置地图凭证时，显示明确标注的城市摄影预览、选中房源摘要和 `/setup` 接入说明。该状态不宣称真实三维已通过验收。
 - 渐进增强的只读 WebMCP `get_rental_sample`，仅在支持的浏览器中注册；不连接外部业务数据，不预订。
 
+## 登录与中英文
+
+`/login` 提供真实邮箱/密码注册、登录和游客体验，右上角可切换中文 / English。主界面、房源详情、地图设施和路线界面也可切换；偏好保存到浏览器及语言 Cookie。AI 每轮按最新用户消息的主要语言回复，不受界面语言影响；历史消息保留原文。
+
+认证使用 Better Auth，账户和会话存入同一 SQLite / D1 数据库。账户聊天与游客聊天隔离，同一账号可在不同浏览器继续；游客历史不会自动合并，收藏仍仅保存在本浏览器。当前不发送邮箱验证和密码重置邮件，尚未接入邮件服务。
+
+本地配置 `.env.agent.local` 的 `ATLAS_AUTH_SECRET`（随机且至少 32 字符）；生产的 `ATLAS_AUTH_URL` 必须是实际网站来源，目前为 `https://campus-atlas-demo.pages.dev`。Cloudflare 先应用 `0002_auth.sql`，再上传服务端 Secret。验证和选型见 [登录与双语记录](../research/20-auth-and-localization.md)。
+
 ## 模型与服务器配置
 
 复制 `.env.agent.example` 为 `.env.agent.local`，填写 `ATLAS_AI_BASE_URL`、`ATLAS_AI_MODEL`、`ATLAS_AI_API_KEY` 并重启。模型必须支持流式 Chat Completions 和工具调用。运行 `npm run build` 后，可用 `npm run start -- --port 3000` 在普通 Node 服务器运行；数据库默认 `.data/rental-chat.sqlite`，必须保留持久磁盘。单进程样本不等同多实例正式部署。
+
+## Cloudflare 演示部署
+
+当前公网入口：[远居演示](https://campus-atlas-demo.pages.dev/?city=london&listing=london-2)。Pages 直接提供静态资源，HTML/API 经内部 service binding 访问 `campus-atlas-demo` Worker，D1 保存会话、配额和路线缓存。电脑关机不影响云端服务；免费额度及供应商限制仍适用。具体验收见 [部署记录](../research/18-cloudflare-demo-deployment.md)。
+
+现有 Cloudflare 账号更新部署：
+
+```sh
+npx wrangler login
+npm run db:cloudflare:remote
+npm run build:cloudflare
+npm run deploy:cloudflare
+npm run secrets:cloudflare
+npm run deploy:pages
+```
+
+`secrets:cloudflare` 从本地 `.env.agent.local` 读取模型配置和登录签名密钥，通过标准输入写入服务端 Secrets。地图只读 token 仍来自 `.env.local` 的 `VITE_` 配置。构建会检查模型及认证密钥泄漏及误打包 `node:sqlite`；检测失败不应发布。`deploy:pages` 需要先有 Pages 项目，可首次运行 `npx wrangler pages project create campus-atlas-demo --production-branch main`。迁到其他账号时，先创建自己的 D1，并修改 `cloudflare/wrangler.jsonc` 的数据库 ID；若更换 Worker 名称，需同步 Pages 的 service binding 和部署脚本。
+
+Worker 构建使用 `vite.cloudflare.config.ts`、`tsconfig.cloudflare.json`；原有 `npm run build` / `npm run start` 保留 Node + SQLite。两种构建共用 `dist/`，切换发布目标前应重新构建相应版本。Cloudflare 本地开发先执行 `npm run db:cloudflare:local`，再执行 `npm run dev:cloudflare`；本地 Secrets 放在忽略 Git 的 `cloudflare/.dev.vars`，不要提交。云端旧聊天不会自动复制回本地 SQLite。
 
 ## 当前方案：Cesium ion 免费评估
 
@@ -76,7 +104,7 @@ VITE_CESIUM_ION_ACCESS_TOKEN=你的只读token
 
 2026-10-09 的步行路线来自真实路网服务，按现有样本坐标计算并保存于 `public/routes/`。路线几何及距离、时间来自 Valhalla，非直线连点或按直线推算；原始响应见上级 `research/evidence/walking-routes/`。时间以 5.1 km/h 步速及引擎道路模型估算，非实时导航；道路吸附偏移超过 40 米时显示具体说明，偏移路段未计入。公寓坐标及校区点不是核验过的楼门、校门，不能当作真实房源的到门通勤承诺。
 
-到学校的路线由访客读取本站保存结果；`npm run collect:routes` 顺序请求尚未保存的样本、每次间隔至少 1.1 秒并发送识别请求头，只在需要重算时手动运行 `npm run collect:routes -- --refresh`，不在构建时自动刷新。新增设施路线按明确点击请求 OSRM，单进程每次间隔至少 1.1 秒、只允许一个上游请求、每日最多 100 次，成功结果缓存一天；筛选和移动地图不会计算路线。公共服务适合小量验证，正式产品需共享限流、自建或使用有保障的路线服务并核验出入口。助手工具中的「30 分钟以内」依据 30 套样本的校园路线时间实际筛选。配额和成功路线缓存保存到 SQLite，重启后保留。
+到学校的路线由访客读取本站保存结果；`npm run collect:routes` 顺序请求尚未保存的样本、每次间隔至少 1.1 秒并发送识别请求头，只在需要重算时手动运行 `npm run collect:routes -- --refresh`，不在构建时自动刷新。新增设施路线按明确点击请求 OSRM，通过共享数据库原子配额保证上游请求间隔至少 1.1 秒、每日最多 100 次，成功结果缓存一天；筛选和移动地图不会计算路线。公共服务适合小量验证，正式产品需共享限流、自建或使用有保障的路线服务并核验出入口。助手工具中的「30 分钟以内」依据 30 套样本的校园路线时间实际筛选。配额和成功路线缓存保存到 SQLite / D1，重启或切换 Worker 实例后保留。
 
 设施快照由 `npm run collect:amenities` 手动采集，访客读取本站 JSON，不触发 Overpass 查询。数据已接入，营业状态、无障碍和进入资格未现场核验；移动地图不会加载校区范围外的新地点。
 
@@ -88,6 +116,7 @@ VITE_CESIUM_ION_ACCESS_TOKEN=你的只读token
 npm run typecheck
 npm run test:sample
 npm run test:agent
+npm run test:d1
 npm run test:routes
 npm run test:amenities
 npm run test:amenity-routes

@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-10-12T11:25:48.590Z",
+  "workerVersion": "bf5a157c-24a5-4d79-a2a4-745f6c99519e",
+  "pagesDeployment": "a1001dac",
+  "health": {
+    "status": "ok",
+    "checks": {
+      "database": "ok",
+      "aiConfiguration": "ok"
+    }
+  },
+  "citySmokePasses": 5,
+  "healthTests": {
+    "passed": 2,
+    "failed": 0
+  },
+  "typecheck": true,
+  "cloudflareBuild": true,
+  "submissions": [
+    {
+      "target": "https://campus-atlas-demo.pages.dev/",
+      "submittedAt": "2026-10-12T11:21:51.188Z",
+      "httpStatus": 200,
+      "activation": "pending-owner-confirmation",
+      "note": "HTTP 200 cannot prove email delivery or activation; the service also uses 200 for silent rejection."
+    },
+    {
+      "target": "https://campus-atlas-demo.pages.dev/api/health",
+      "submittedAt": "2026-10-12T11:24:45.692Z",
+      "httpStatus": 200,
+      "activation": "pending-owner-confirmation",
+      "note": "HTTP 200 cannot prove email delivery or activation; the service also uses 200 for silent rejection."
+    }
+  ],
+  "activationVerified": true,
+  "emailDeliveryVerified": true,
+  "updatedAt": "2026-10-12T11:43:35.167Z",
+  "setupMode": "authenticated-dashboard-after-quick-flow-email-not-received",
+  "priorEmailFlow": {
+    "receiptHttp200": true,
+    "userReportedEmailNotReceived": true,
+    "activationVerified": false
+  },
+  "activeMonitors": [
+    {
+      "id": "804245596",
+      "url": "https://campus-atlas-demo.pages.dev/",
+      "intervalSeconds": 300,
+      "status": "Up",
+      "emailEnabled": true
+    },
+    {
+      "id": "804245620",
+      "url": "https://campus-atlas-demo.pages.dev/api/health",
+      "intervalSeconds": 300,
+      "status": "Up",
+      "emailEnabled": true
+    }
+  ],
+  "simulatedDownUpEmailDeliveryVerified": true,
+  "emailDeliveryEvidence": "User confirmed receiving both simulated DOWN and UP emails at the chosen Gmail inbox.",
+  "realOutageRecoveryEmailTested": false
+}

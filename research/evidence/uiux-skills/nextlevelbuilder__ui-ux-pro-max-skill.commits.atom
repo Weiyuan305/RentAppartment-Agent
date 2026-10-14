@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>tag:github.com,2008:/nextlevelbuilder/ui-ux-pro-max-skill/commits/main</id>
+  <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commits/main"/>
+  <link type="application/atom+xml" rel="self" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commits/main.atom"/>
+  <title>Recent Commits to ui-ux-pro-max-skill:main</title>
+  <updated>2026-10-12T11:08:03Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/7246805992a42b7bba37d4cac83b01416f0c6c44</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/7246805992a42b7bba37d4cac83b01416f0c6c44"/>
+    <title>
+        feat: add OpenClaw platform support (#527)
+    </title>
+    <updated>2026-10-12T11:08:03Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/51182940?s=30&amp;v=4"/>
+    <author>
+      <name>XiaOldMan</name>
+      <uri>https://github.com/XiaOldMan</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;feat: add OpenClaw platform support (#527)
+
+* feat: add OpenClaw platform support
+
+Add OpenClaw as an install target so the skill can be installed with
+`uipro init --ai openclaw` and removed via `uipro uninstall`.
+
+OpenClaw discovers AgentSkills-format skills from `.agents/skills` in the
+agent workspace and from `~/.agents/skills` (personal library on the default
+state dir), so the platform config reuses the `.agents` layout already used
+by the universal/codex targets with its own display name, detection entry,
+and docs.
+
+- new platform config src/ui-ux-pro-max/templates/platforms/openclaw.json
+  (synced to cli/assets via sync:assets)
+- register &amp;#39;openclaw&amp;#39; in AIType, AI_TYPES, AI_FOLDERS, AI_TO_PLATFORM
+- detect the shared .agents workspace directory and describe the platform
+- keep the .agents-family suggestion on codex when all four .agents
+  consumers are detected (length 2-3 -&amp;gt; 2-4)
+- cover openclaw in the dry-run, template-script-paths, and
+  agent-query-contract e2e specs
+- document OpenClaw in README and cli/README
+
+* chore: bump version to 2.15.0 in skill metadata files
+
+Aligns skill.json, marketplace.json, and plugin.json with the latest
+v2.15.0 release; main was still at 2.13.0. CLI package version stays on
+its own npm release track.
+
+* fix: cover OpenClaw in offline validator and detection regression
+
+- bump scripts/validate-agent-guide.py PLATFORM_COUNT 21 -&amp;gt; 23 (main
+  already had 22 configs with a stale count of 21; OpenClaw widens the
+  gap to 23, so update the gate and keep it meaningful)
+- add e2e regression: a sole .agents directory detects all four
+  consumers (antigravity, codex, universal, openclaw) and still
+  suggests codex rather than all&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/026b6e172c47fa09246b89b6e1d414b8e15f1057</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/026b6e172c47fa09246b89b6e1d414b8e15f1057"/>
+    <title>
+        fix(design): keep icon generator from corrupting SVGs or truncating o…
+    </title>
+    <updated>2026-10-12T05:05:52Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/328244157?s=30&amp;v=4"/>
+    <author>
+      <name>drakeo338</name>
+      <uri>https://github.com/drakeo338</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix(design): keep icon generator from corrupting SVGs or truncating output (#526)
+
+* fix(design): keep icon generator from corrupting SVGs or truncating output
+
+apply_viewbox_size rewrote every width/height attribute in the document,
+including stroke-width and child elements, and only handled double quotes.
+Restrict it to the root &amp;lt;svg&amp;gt; tag and set width and height independently.
+
+generate_icon capped output at 4096 tokens, which truncates detailed icons.
+Raise it to 16384 and report finish_reason MAX_TOKENS separately from
+empty or malformed output.
+
+Fixes #525
+
+* fix(design): apply the response guard and MAX_TOKENS diagnosis to icon batch
+
+generate_batch still indexed candidates[0].content.parts unguarded and
+printed a bare &amp;quot;No valid SVGs generated.&amp;quot; Share the response-text
+extraction and the no-SVG diagnosis with generate_icon, treat text=None
+as an empty response, and warn when a batch is cut off at MAX_TOKENS
+after returning fewer icons than requested.
+
+Refs #525
+
+* fix(design): match only real root attributes when sizing icon SVGs
+
+_set_root_attr searched the root tag with a regex, so width= or height=
+text inside another quoted attribute value (aria-label=&amp;quot;height=&amp;#39;2&amp;#39;&amp;quot;) was
+rewritten and the output stopped being valid XML. Walk the tag&amp;#39;s
+attributes instead, consuming each quoted value whole, and only replace
+an attribute whose name is exactly width or height.
+
+Refs #525&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/67803eac81607188194aea9842a723b89326d90d</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/67803eac81607188194aea9842a723b89326d90d"/>
+    <title>
+        fix(brand): detect token sources under unlisted CSS filenames (#523)
+    </title>
+    <updated>2026-10-10T23:05:22Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/200937066?s=30&amp;v=4"/>
+    <author>
+      <name>Varrunan-bit</name>
+      <uri>https://github.com/Varrunan-bit</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix(brand): detect token sources under unlisted CSS filenames (#523)
+
+The overwrite guard added in #501 scans a hardcoded list of CSS entry points
+for `:root` custom properties and Tailwind v4 `@theme` blocks. The list only
+held the plural `globals.css` spellings, so a project whose entry point is
+`src/styles/global.css` — one letter apart — was never scanned. The guard
+silently passed and `assets/design-tokens.{json,css}` was generated alongside
+an existing palette, leaving two competing token systems and no warning.
+
+Copying the same file to `src/index.css` made the guard fire correctly, which
+confirms the detection logic was fine and only its candidate set was too narrow.
+
+Widen the list with the singular spellings and `main.css` / `app.css`, then
+shallow-scan a set of conventional style directories for any `*.css` so the
+guard no longer depends on an exact filename. Detection itself is unchanged, so
+the existing false-positive behaviour still holds: stylesheets with no custom
+properties, commented-out `:root` blocks, and properties outside `:root` do not
+block a sync.
+
+Co-authored-by: Varrunan Projects &amp;lt;200937066+Varrunan-bit@users.noreply.github.com&amp;gt;
+Co-authored-by: Claude &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/50d8a7de0900119855614541f15a1a616691eb33</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/50d8a7de0900119855614541f15a1a616691eb33"/>
+    <title>
+        feat: add Amazon Q Developer platform support (#521)
+    </title>
+    <updated>2026-10-09T05:06:45Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/193943961?s=30&amp;v=4"/>
+    <author>
+      <name>stanleys12</name>
+      <uri>https://github.com/stanleys12</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;feat: add Amazon Q Developer platform support (#521)
+
+* feat: add Amazon Q Developer platform support
+
+Add Amazon Q Developer as an install target so the skill can be installed
+with `uipro init --ai amazonq` and removed via `uipro uninstall`.
+
+Amazon Q loads every Markdown file under .amazonq/rules/ (recursively) as
+always-on chat context, so only the rendered rule file goes there
+(.amazonq/rules/ui-ux-pro-max.md). Data, scripts and the bundled
+sub-skills go to .amazonq/skills/ via dataPath, the same split copilot
+uses, so their reference docs are not pulled into every chat.
+
+- new platform config src/ui-ux-pro-max/templates/platforms/amazonq.json
+  (synced to cli/assets via sync:assets)
+- register &amp;#39;amazonq&amp;#39; in AIType, AI_TYPES, AI_FOLDERS, AI_TO_PLATFORM
+- detect .amazonq workspace directories and describe the platform
+- cover amazonq in the dry-run and template-script-paths e2e specs
+- document Amazon Q Developer in README and cli/README
+
+Co-Authored-By: Claude Sonnet 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* docs: note that Amazon Q only auto-loads the rule file
+
+Co-Authored-By: Claude Opus 5.5 &amp;lt;noreply@anthropic.com&amp;gt;
+
+---------
+
+Co-authored-by: Claude Sonnet 5.5 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/1a2c459b35f26116fd165b0a0f30597f252749ff</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/1a2c459b35f26116fd165b0a0f30597f252749ff"/>
+    <title>
+        docs: sync stale catalog counts in stack docs (#517)
+    </title>
+    <updated>2026-10-08T05:06:09Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/238632172?s=30&amp;v=4"/>
+    <author>
+      <name>ducanhnguyen882005-alt</name>
+      <uri>https://github.com/ducanhnguyen882005-alt</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;docs: sync stale catalog counts in stack docs (#517)
+
+The stack/ starter kit was added in #424 and its catalog figures were
+never refreshed, so they no longer match the generated source of truth
+in src/ui-ux-pro-max/data/catalog-summary.json (or the main README):
+
+  UI styles        84 -&amp;gt; 79 searchable
+  font pairings    73 -&amp;gt; 74
+  UX guidelines    99 -&amp;gt; 119
+
+Verified against the data files: typography.csv has 74 rows,
+ux-guidelines.csv has 119, and styles.csv has 88 total / 79 searchable.
+
+Co-authored-by: Claude Opus 5 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/15cc30a393ecb34cd217d21bc4ffdb1f5414b0ca</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/15cc30a393ecb34cd217d21bc4ffdb1f5414b0ca"/>
+    <title>
+        docs: add Vibe Rooster before/after example (#516)
+    </title>
+    <updated>2026-10-08T02:08:49Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/3800738?s=30&amp;v=4"/>
+    <author>
+      <name>tpanagos</name>
+      <uri>https://github.com/tpanagos</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;docs: add Vibe Rooster before/after example (#516)
+
+* docs: add Vibe Rooster before/after example
+
+* docs: address review feedback on example section
+
+Move the before/after example under a new Examples section after Usage, drop the ?vr_gallery=1 query params, replace the hosted-on wording with neutral framing, and add a provenance line (author-supplied, illustrative, not a benchmark) with the generating command.
+
+* docs: make example section neutral
+
+Remove attribution and promotional wording from the example provenance note; keep a short disclaimer that it is an illustrative, community-contributed example, not an official demo or benchmark.
+
+---------
+
+Co-authored-by: Tim Panagos &amp;lt;tpanagos@users.noreply.github.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/477bcb28c9812b385cb51a4605ddf30d7b2266e2</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/477bcb28c9812b385cb51a4605ddf30d7b2266e2"/>
+    <title>
+        fix: stop Cursor skill pointing at empty Quick Reference (#509)
+    </title>
+    <updated>2026-10-03T16:05:26Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/3868701?s=30&amp;v=4"/>
+    <author>
+      <name>ngmeyer</name>
+      <uri>https://github.com/ngmeyer</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix: stop Cursor skill pointing at empty Quick Reference (#509)
+
+* fix: stop Cursor skill pointing at empty Quick Reference
+
+Platforms that set quickReference to false omitted the inlined
+reference but still told the agent to use &amp;quot;the Quick Reference
+sections above.&amp;quot; Resolve QR/NOQR variants so Cursor (and other
+non-inlined platforms) follow the existing search flow instead.
+Claude and Codex keep the inlined reference wording.
+
+Co-authored-by: Neal Meyer &amp;lt;ngmeyer@users.noreply.github.com&amp;gt;
+
+* fix: accept 21 platform configs after ZCode
+
+ZCode landed on main without updating the agent-guide validator
+or the platform-count e2e assertion. This branch did not add a
+platform; the stale expected count of 20 was failing CI.
+
+Co-authored-by: Neal Meyer &amp;lt;ngmeyer@users.noreply.github.com&amp;gt;
+
+* fix: refresh stale relevance runtime fingerprint
+
+verify:data would fail next on evaluate:relevance because main&amp;#39;s
+threshold manifest still hashed the pre-#500 runtime. Metrics are
+unchanged; only the fingerprint now matches current scripts/data.
+
+Co-authored-by: Neal Meyer &amp;lt;ngmeyer@users.noreply.github.com&amp;gt;
+
+---------
+
+Co-authored-by: Cursor Agent &amp;lt;cursoragent@cursor.com&amp;gt;
+Co-authored-by: Neal Meyer &amp;lt;ngmeyer@users.noreply.github.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/09170eec67eefd46a7ae85de61b40c194020f997</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/09170eec67eefd46a7ae85de61b40c194020f997"/>
+    <title>
+        Merge pull request #500 from alinultimatltd/fix/light-result-output-c…
+    </title>
+    <updated>2026-09-27T11:30:41Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/127024890?s=30&amp;v=4"/>
+    <author>
+      <name>clark-cant</name>
+      <uri>https://github.com/clark-cant</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #500 from alinultimatltd/fix/light-result-output-coherence
+
+fix(design-system): agree on dark mode in light results, keep box output in bounds, readable button text&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/823b0a14d3539b5d78c0efb614426a4fab5983ec</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/823b0a14d3539b5d78c0efb614426a4fab5983ec"/>
+    <title>
+        Merge pull request #506 from HEOJUNFO/fix/threejs-deprecated-apis
+    </title>
+    <updated>2026-09-26T13:32:23Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/127024890?s=30&amp;v=4"/>
+    <author>
+      <name>clark-cant</name>
+      <uri>https://github.com/clark-cant</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #506 from HEOJUNFO/fix/threejs-deprecated-apis
+
+fix(threejs): replace deprecated Clock and PCFSoftShadowMap in r185 guidance&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/6c69cb5058f66f632109f15a899f9e8fe63f7eca</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/6c69cb5058f66f632109f15a899f9e8fe63f7eca"/>
+    <title>
+        fix(threejs): replace deprecated Clock and PCFSoftShadowMap in r185 g…
+    </title>
+    <updated>2026-09-26T13:16:56Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/100739943?s=30&amp;v=4"/>
+    <author>
+      <name>HEOJUNFO</name>
+      <uri>https://github.com/HEOJUNFO</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix(threejs): replace deprecated Clock and PCFSoftShadowMap in r185 guidance
+
+The Three.js stack claims `threejs 0.185.1` but several rows still
+recommend APIs that 0.185.1 deprecates and warns about at runtime:
+
+- THREE.Clock (deprecated since r183) -&amp;gt; THREE.Timer with
+  timer.update(timestamp) once per frame, getDelta()/getElapsed(),
+  and timer.connect(document) to avoid a huge delta after a hidden tab.
+  Rows 13, 31, 34, 45. Row 45 also stops calling getElapsedTime()
+  per vertex (Clock.getElapsedTime() calls getDelta() internally).
+- THREE.PCFSoftShadowMap (deprecated since r182, WebGLShadowMap warns
+  and falls back to PCFShadowMap) -&amp;gt; PCFShadowMap, with shadow.radius /
+  VSMShadowMap noted for softer edges. Rows 22, 23.
+- GLTFLoader imported from three/examples/jsm -&amp;gt; three/addons, matching
+  the rest of the file. Row 52.
+
+Bump Verified At on touched rows, extend the freshness test&amp;#39;s
+forbidden-token list (three.clock, clock.getdelta,
+clock.getelapsedtime, pcfsoftshadowmap, three/examples/jsm/) and add a
+positive Timer lookup, refresh the relevance runtime fingerprint and
+baseline, and re-sync mirrored assets.
+
+Co-Authored-By: Claude Opus 5.5 (1M context) &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/d62fe62f88acb6755d2e5819a1b1e19eb447a8f1</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/d62fe62f88acb6755d2e5819a1b1e19eb447a8f1"/>
+    <title>
+        feat: add ZCode platform support (#504)
+    </title>
+    <updated>2026-09-26T10:00:18Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/22094486?s=30&amp;v=4"/>
+    <author>
+      <name>dmsobtl</name>
+      <uri>https://github.com/dmsobtl</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;feat: add ZCode platform support (#504)
+
+Add ZCode as a first-class install target so the skill can be installed
+with `uipro init --ai zcode` (workspace) or `uipro init --ai zcode --global`
+(~/.zcode/skills/), and removed via `uipro uninstall` auto-detection.
+
+- new platform config src/ui-ux-pro-max/templates/platforms/zcode.json
+  (synced to cli/assets via sync:assets)
+- register &amp;#39;zcode&amp;#39; in AIType union, AI_TYPES, AI_FOLDERS, AI_TO_PLATFORM
+- detect .zcode workspace directories and describe the platform in CLI prompts
+- cover zcode in the dry-run and template-script-paths e2e specs
+- document ZCode in README install/usage sections
+
+Co-authored-by: Dmso &amp;lt;22094486+dmsobtl@users.noreply.github.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/dcc40ff5133ef78276117db0cc34e7b83cc8aeba</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/dcc40ff5133ef78276117db0cc34e7b83cc8aeba"/>
+    <title>
+        docs: explain Claude Code output token limit (#503)
+    </title>
+    <updated>2026-09-21T13:01:09Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/130679929?s=30&amp;v=4"/>
+    <author>
+      <name>Dattuog</name>
+      <uri>https://github.com/Dattuog</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;docs: explain Claude Code output token limit (#503)
+
+Squash-merged by github-maintain cron after maintain review/approval (2026-09-21). Closes #25.&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/0d2b646cb6f48d8478f41417b2e8a5a30fd59175</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/0d2b646cb6f48d8478f41417b2e8a5a30fd59175"/>
+    <title>
+        feat(nuxt-ui): refresh guidance for v4.11 (#502)
+    </title>
+    <updated>2026-09-21T05:28:06Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/29456968?s=30&amp;v=4"/>
+    <author>
+      <name>Ray0907</name>
+      <uri>https://github.com/Ray0907</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;feat(nuxt-ui): refresh guidance for v4.11 (#502)
+
+Reverify the full stack catalog against Nuxt UI 4.11.1 and correct stale API examples. Add Splitter, ProgressGroup, motion, Vite detection, and CommandPalette security guidance.
+
+Co-authored-by: Ray &amp;lt;ray.tien@cloudeep.com.tw&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/f1c725fd2fdaf2ef63fc43e75efc0dac38f1fe50</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/f1c725fd2fdaf2ef63fc43e75efc0dac38f1fe50"/>
+    <title>
+        feat(react): add React 19 guidelines to stack data (#344)
+    </title>
+    <updated>2026-09-21T03:28:15Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/29456968?s=30&amp;v=4"/>
+    <author>
+      <name>Ray0907</name>
+      <uri>https://github.com/Ray0907</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;feat(react): add React 19 guidelines to stack data (#344)
+
+Squash-merged by github-maintain cron after maintainer approval (review 2026-06-20 by @mrgoonie) and conflict resolution (rebase to head 4bd45ba5, all checks green).&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/de5f12b400775997d213524ef02a7c7d2746806f</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/de5f12b400775997d213524ef02a7c7d2746806f"/>
+    <title>
+        fix: protect existing Tailwind and token configurations (#501)
+    </title>
+    <updated>2026-09-19T00:58:38Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/130679929?s=30&amp;v=4"/>
+    <author>
+      <name>Dattuog</name>
+      <uri>https://github.com/Dattuog</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix: protect existing Tailwind and token configurations (#501)
+
+Squash-merged by github-maintain cron after maintainer approval (review 2026-09-18) and follow-up gap-closing commit 83ad973. Closes #496.&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/79b64af0f967dc9674a731bf235e7f34e1484dec</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/79b64af0f967dc9674a731bf235e7f34e1484dec"/>
+    <title>
+        fix(design-system): agree on dark mode in light results, keep box out…
+    </title>
+    <updated>2026-09-16T11:30:38Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/204924533?s=30&amp;v=4"/>
+    <author>
+      <name>alinultimatltd</name>
+      <uri>https://github.com/alinultimatltd</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix(design-system): agree on dark mode in light results, keep box output in bounds, readable button text
+
+- Mode Support no longer reads &amp;quot;Dark supported&amp;quot; next to an AVOID list that
+  says &amp;quot;Dark mode&amp;quot;. Light results now print &amp;quot;Dark supported, but avoid for
+  this product&amp;quot; (the light-side counterpart of #428).
+- ASCII box: long single-line fields (conversion, CTA, perf/a11y, Google
+  Fonts URL, motion) now wrap, over-long tokens split, section headers and
+  the CSS Import line were one char too wide, and the colour label column
+  fits &amp;quot;Muted Foreground:&amp;quot;.
+- MASTER.md buttons: .btn-primary used hard-coded white text, below 4.5:1
+  on the accent in 137/192 palettes; it now uses the palette&amp;#39;s On Accent.
+  .btn-secondary text falls back to Foreground when Primary is below 4.5:1
+  on Background (94/192 palettes).
+
+Adds regression tests for all three.
+
+Co-Authored-By: Claude Opus 5 (1M context) &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/15de38fb70bc80ae9276fa7703b48ae861a672e6</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/15de38fb70bc80ae9276fa7703b48ae861a672e6"/>
+    <title>
+        fix(design): make workflows self-contained, add bundled-skill contrac…
+    </title>
+    <updated>2026-09-15T09:29:29Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/103531753?s=30&amp;v=4"/>
+    <author>
+      <name>notbucki</name>
+      <uri>https://github.com/notbucki</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix(design): make workflows self-contained, add bundled-skill contract (#498)
+
+* fix(design): make workflows self-contained, add bundled-skill contract (#474 finding 2)
+
+The design skill&amp;#39;s banner and social-photos workflows named skills the plugin
+does not ship (frontend-design, ai-artist, ai-multimodal, chrome-devtools,
+project-management, assets-organizing) and claudekit command namespaces
+(/ckm:brand, /ck:ui-ux-pro-max), so those steps fail or force the agent to
+improvise under a plugin or CLI install. Rewrite them after the pattern of
+#473: bundled skills stay referenced by name, optional tooling becomes an
+optional runtime capability, unbundled steps are implemented inline or
+dropped. The same references sat in references/social-photos-design.md, so
+the fix covers the skill directory, not just SKILL.md; the CLI copy is synced.
+
+check-asset-sync.yml gains a bundled-skill contract over both skill trees:
+no /ck: or /ckm: namespace, every &amp;quot;`name` skill&amp;quot; reference must be a
+directory under .claude/skills, and none of the claudekit-only names above
+in any spelling.
+
+Co-Authored-By: Claude Fable 5.1 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* fix(design): address review - list-aware skill grep, case-insensitive denylist, banner intro, report naming
+
+- contract grep 2 walks comma/and/or lists so every member is checked, not
+  only the last one, and accepts the sub-skill and bold forms; grep 3 matches
+  case-insensitively; the step comment states what is not covered
+- banner intro no longer claims &amp;quot;no sibling skills&amp;quot; while step 2 names the
+  bundled ui-ux-pro-max skill
+- social-photos report name stated inline instead of &amp;quot;naming pattern from
+  session hooks&amp;quot; (a claudekit convention nothing in the bundle provides);
+  &amp;quot;persistent&amp;quot; dropped from the task-list step; device-scale note scoped to
+  tools that support it
+
+Co-Authored-By: Claude Fable 5.1 &amp;lt;noreply@anthropic.com&amp;gt;
+
+* fix(ci): match wrapped skill lists - read each file as one record in the bundled-skill contract
+
+A Markdown list wrapped over two lines (&amp;quot;`playwright-mcp`,\n`brand`, and
+`ui-ux-pro-max` skills&amp;quot;) passed the line-oriented allowlist grep. Read the
+file as one record (-z, separators as \s+) so wrapped lists are still lists;
+a hit now names the file and the name instead of the line. grep&amp;#39;s own exit
+status is taken inside the substitution so an unreadable file still fails the
+step under plain bash -e, pipefail or not.
+
+Co-Authored-By: Claude Fable 5.1 &amp;lt;noreply@anthropic.com&amp;gt;
+
+---------
+
+Co-authored-by: Claude Fable 5.1 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/7643fd1501eed926a83d106f92190d1a769c6796</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/7643fd1501eed926a83d106f92190d1a769c6796"/>
+    <title>
+        fix(brand): apply #497 to the source copy so check:assets passes agai…
+    </title>
+    <updated>2026-09-15T09:00:41Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/127024890?s=30&amp;v=4"/>
+    <author>
+      <name>clark-cant</name>
+      <uri>https://github.com/clark-cant</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix(brand): apply #497 to the source copy so check:assets passes again (#499)
+
+fix(brand): apply #497 to the source copy so check:assets passes again&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/975cba327eee075d051b538b6aa19c2ab2ce0527</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/975cba327eee075d051b538b6aa19c2ab2ce0527"/>
+    <title>
+        fix(brand): apply #497 to the source copy so check:assets passes again
+    </title>
+    <updated>2026-09-15T08:54:29Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/103531753?s=30&amp;v=4"/>
+    <author>
+      <name>notbucki</name>
+      <uri>https://github.com/notbucki</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix(brand): apply #497 to the source copy so check:assets passes again
+
+#497 patched cli/assets/skills/brand/scripts/sync-brand-to-tokens.cjs and its
+test, but sync-assets.mjs mirrors .claude/skills/ into cli/assets/, so the
+source copy still carried the old adjustBrightness and check:assets reported
+two stale asset files on main. That check is the first step of both CI
+workflows, so every PR since then stopped there. Mirror the same two files
+into the source copy; the diff is byte-identical to #497&amp;#39;s.
+
+Co-Authored-By: Claude Fable 5.1 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/d8ce090f82580c68f5471cc6dd3f56faf9a37afb</id>
+    <link type="text/html" rel="alternate" href="https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/commit/d8ce090f82580c68f5471cc6dd3f56faf9a37afb"/>
+    <title>
+        fix(brand): stop adjustBrightness collapsing dark color shades to bla…
+    </title>
+    <updated>2026-09-15T00:00:09Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/326880442?s=30&amp;v=4"/>
+    <author>
+      <name>nadiiasoshenko-netizen</name>
+      <uri>https://github.com/nadiiasoshenko-netizen</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix(brand): stop adjustBrightness collapsing dark color shades to black (#497)
+
+adjustBrightness() added/subtracted a flat 255*percent to every RGB
+channel. For a dark base color (channels already close to 0), darkening
+by -0.3/-0.45/-0.6 clamped every channel to 0, so shades 700, 800, and
+900 all came back as the identical, useless #000000 instead of a graded
+dark scale -- reproducible with any sufficiently dark brand primary
+(e.g. #4A3228), not just an edge case.
+
+Blend each channel proportionally toward white (percent &amp;gt; 0) or black
+(percent &amp;lt; 0) instead, so the shift scales with how much headroom the
+channel actually has.
+
+Adds a regression test that syncs a dark brand color and asserts the
+700/800/900 shades stay distinct and non-black.
+
+
+Claude-Session: https://claude.ai/code/session_01MmtTPnoqMrjjhKjod9VTzr
+
+Co-authored-by: Claude Sonnet 5 &amp;lt;noreply@anthropic.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+</feed>

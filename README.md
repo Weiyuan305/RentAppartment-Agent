@@ -28,6 +28,9 @@
 
 ## 文档导航
 
+- [学生租房规划功能交付](research/28-student-planner-release.md)：校园楼栋导航、比较分享、路网等时圈、支出、频次、入住条件与公共交通的数据覆盖和验收。
+- [Cloudflare 演示部署与验收](research/18-cloudflare-demo-deployment.md)：固定 Pages 地址、Worker + D1、多轮和实景地图验收，以及迁回服务器的步骤。
+- [长期免费公网托管](research/17-long-term-free-hosting.md)：Vercel + Neon、Cloudflare + D1 的免费边界、现有代码适配与公网验收。
 - [Agent 超时与消息恢复](research/16-agent-timeout-recovery.md)：失败提示、刷新恢复及原消息重试。
 - [Agent 回复 Markdown 渲染](research/15-agent-markdown-rendering.md)：Streamdown 选型、实现及验证。
 - [Agent、地图联动与服务器部署](research/14-agent-map-integration.md)：工具、多轮持久化、模型配置、Node 运行与验收边界。

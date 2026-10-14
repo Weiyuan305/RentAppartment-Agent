@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-13",
+  "title": "Design System: Campus Atlas /design-lab（DRAFT A/B）",
+  "scope": {"route":"/design-lab","status":"DRAFT","productionSelected":false,"authority":"仅此预览目录；CSS 为实际值来源","deployed":false,"source":"../../../app/design-lab/design-lab.css","sharedServices":"现有后端、AI、认证及主应用源码未改写；调用使用既有账户额度"},
+  "extensions": {
+    "colorMeta": {
+      "editorial-primary":{"role":"primary","displayName":"A 深绿操作","canonical":"#275944"},
+      "editorial-bg":{"role":"neutral","displayName":"A 暖白纸张","canonical":"#f2f0e9"},
+      "editorial-ink":{"role":"neutral","displayName":"A 深绿文字","canonical":"#233d32"},
+      "spatial-primary":{"role":"primary","displayName":"B 浅绿操作","canonical":"#c1dfc0"},
+      "spatial-bg":{"role":"neutral","displayName":"B 深色外壳","canonical":"#122326"},
+      "spatial-ink":{"role":"neutral","displayName":"B 浅色文字","canonical":"#ecf3e9"}
+    },
+    "typographyMeta": {"editorial-display":{"displayName":"A 衬线标题","purpose":"英文列表标题；中文按 CSS 切换宋体回退"},"spatial-display":{"displayName":"B 无衬线标题","purpose":"紧凑列表标题"},"body":{"displayName":"共用正文","purpose":"Atlas Manrope 与中文无衬线回退"}},
+    "shadows": [{"name":"spatial-floating-panel","value":"0 12px 32px #051d2c47,inset 0 1px 0 #cce2d927","purpose":"B 城市背景上的两侧浮层"},{"name":"detail-dialog","value":"0 24px 80px #081e1d55","purpose":"两案详情表面"}],
+    "motion": [{"name":"motion-fast","value":"160ms","purpose":"预览控件交互"},{"name":"motion-normal","value":"240ms","purpose":"CSS 已定义变量"},{"name":"ease-in-out","value":"cubic-bezier(.77,0,.175,1)","purpose":"图片空间转换节奏"},{"name":"photo-flight","value":"280ms","purpose":"当前照片进入/退出详情"},{"name":"route-reveal","value":"900ms","purpose":"沿真实坐标逐段显示"},{"name":"route-camera","value":"1.2s","purpose":"避让 UI 后适配路线"}],
+    "breakpoints": [{"name":"wide-desktop-min","value":"1500px"},{"name":"compact-desktop-max","value":"1300px"},{"name":"panel-tabs-max","value":"1100px"},{"name":"phone-max","value":"600px"},{"name":"compact-desktop-height-max","value":"800px","axis":"height"}],
+    "materials": [{"name":"spatial-panel","background":"#102c2df2","backdropFilter":"blur(18px)"},{"name":"spatial-assistant","background":"#f6f8f0f5","foreground":"#203e33","primary":"#275944"}],
+    "focus":{"outline":"2px solid var(--primary)","outlineOffset":"4px","scope":".concept-lab 内按钮、链接、select、textarea"},
+    "worlds": [{"id":"editorial","label":"A · 生活杂志","status":"DRAFT","desktopGrid":"322px minmax(0,1fr) 300px","gap":"22px","padding":"24px 30px 18px","structure":"平面房源栏、画框地图、纸张色助手"},{"id":"spatial","label":"B · 城市漫游","status":"DRAFT","desktopGrid":"306px minmax(0,1fr) 310px","gap":"20px","padding":"22px 20px","structure":"完整城市背景、两侧浮动面板"}],
+    "mobile":{"panelTabsAt":"1100px","singleListingColumnAt":"600px","englishFilterHeight":"32px","detailMaxHeight":"calc(100dvh - 50px)"},
+    "reducedMotion":{"css":"animation:none!important;transition:none!important;scroll-behavior:auto!important","photo":"不创建飞行 clone","route":"立即完整显示","routeCameraDuration":"0s","sampleScroll":"instant"},
+    "cancellation":{"sample":"停止、手动指针、非 Tab 键、切换方案/城市/筛选、应用 AI 状态或关闭详情，abort 后续步骤","photo":"正常收尾；重复动画取消旧动画并移除旧 clone；卸载取消动画并移除 clone","route":"清理时取消 RAF 并解除 loadProgress/postRender 监听"}
+  },
+  "components": [
+    {"name":"A 选中路线按钮","kind":"button","refersTo":"editorial-route-selected","description":"当前房源到学校路线入口","html":"<button class=\"ds-route-a\">到学校路线 →</button>","css":".ds-route-a{background:#275944;color:#fff;border:0;border-radius:5px;padding:8px 10px;min-height:36px;font:11px 'Atlas Manrope',sans-serif;transition:color 160ms ease,background-color 160ms ease}.ds-route-a:hover{background:#275944;color:#fff}.ds-route-a:focus-visible{outline:2px solid #275944;outline-offset:4px}.ds-route-a:active{transform:scale(.97)}@media(prefers-reduced-motion:reduce){.ds-route-a{transition:none}.ds-route-a:active{transform:none}}"},
+    {"name":"B 选中路线按钮","kind":"button","refersTo":"spatial-route-selected","description":"浅绿突出当前路线","html":"<button class=\"ds-route-b\">到学校路线 →</button>","css":".ds-route-b{background:#c1dfc0;color:#173b30;border:0;border-radius:5px;padding:8px 10px;min-height:34px;font:10px 'Atlas Manrope',sans-serif;transition:color 160ms ease,background-color 160ms ease}.ds-route-b:hover{background:#d8ebce}.ds-route-b:focus-visible{outline:2px solid #c1dfc0;outline-offset:4px}.ds-route-b:active{transform:scale(.97)}@media(prefers-reduced-motion:reduce){.ds-route-b{transition:none}.ds-route-b:active{transform:none}}"},
+    {"name":"A 导航","kind":"nav","description":"底线表示当前发现/收藏页","html":"<nav class=\"ds-nav-a\"><button class=\"ds-active\">发现新家</button><button>我的收藏</button></nav>","css":".ds-nav-a{display:flex;border-bottom:1px solid #dbdfd2;gap:3px}.ds-nav-a button{position:relative;height:40px;padding:0 15px;background:transparent;border:0;border-radius:0;color:#687267;font:12px 'Atlas Manrope',sans-serif}.ds-nav-a .ds-active{color:#275944}.ds-nav-a .ds-active:after{content:'';position:absolute;bottom:0;height:1px;left:15px;right:15px;background:#275944}.ds-nav-a button:hover{color:#275944}.ds-nav-a button:focus-visible{outline:2px solid #275944;outline-offset:4px}"},
+    {"name":"B 导航","kind":"nav","description":"浅绿填充表示当前页","html":"<nav class=\"ds-nav-b\"><button class=\"ds-active\">发现新家</button><button>我的收藏</button></nav>","css":".ds-nav-b{display:flex;gap:3px;background:#203735;border-radius:6px;padding:3px}.ds-nav-b button{height:32px;padding:0 12px;border:0;border-radius:4px;background:transparent;color:#b1c4bd;font:11px 'Atlas Manrope',sans-serif}.ds-nav-b .ds-active{background:#c1dfc0;color:#163b2e}.ds-nav-b button:hover{color:#c1dfc0}.ds-nav-b .ds-active:hover{color:#163b2e}.ds-nav-b button:focus-visible{outline:2px solid #c1dfc0;outline-offset:4px}"},
+    {"name":"助手输入表面","kind":"input","description":"两案共享的浅色阅读与输入表面","html":"<div class=\"ds-chat-form\"><textarea aria-label=\"找房需求\" placeholder=\"说说你的找房需求\"></textarea></div>","css":".ds-chat-form{background:#fffefa;border:1px solid #cdd5c3;border-radius:9px;padding:12px}.ds-chat-form textarea{display:block;box-sizing:border-box;width:100%;background:transparent;border:0;min-height:52px;resize:vertical;color:#294333;caret-color:#275944;font:12px 'Atlas Manrope',sans-serif}.ds-chat-form textarea::placeholder{color:#697562}.ds-chat-form textarea:focus-visible{outline:2px solid #275944;outline-offset:4px}"}
+  ],
+  "narrative": {
+    "northStar":"A 生活杂志 / B 城市漫游",
+    "overview":"两套可操作的候选世界同处 `/design-lab`，切换时地图保持挂载。A 以暖白纸张、深绿文字、建筑摄影和衬线标题呈现生活杂志；B 以深色外壳、浅绿操作色、完整城市背景与浮动面板呈现城市漫游。",
+    "keyCharacteristics":["A：暖白平面栏与画框地图","B：城市背景与浮动面板","共同：图片—详情—真实路线，随时可中断"],
+    "rules":[{"name":"局部草案边界","body":"本文与 sidecar 仅约束该预览目录，不建立全站设计权威；两案尚未选作生产方案。共享后端、AI、认证及主应用源码沿用现有实现，本轮未部署。AI 与地图正常使用仍消耗既有服务账户额度。","section":"overview"},{"name":"可见路线规则","body":"路线相机按真实东西/南北跨度适配，避让设施工具栏、路线信息、地图控件及 B 的两侧浮层；尺寸变化重新取景，几何与距离不变。","section":"layout"}],
+    "dos":["Do 保持两个 DRAFT 世界可原位比较，优先让照片、价格、路线与助手阅读清楚。","Do 保留来源、地图署名、演示声明与取消/减少动态效果行为。"],
+    "donts":["Don't 将本文提升为主应用或全站规范；选定生产世界需要后续明确决定。","Don't 将本地核心流程核对扩写为已部署、全城三维覆盖或已测帧率；本轮未测 FPS、低端设备功耗及全部城市覆盖。"]
+  },
+  "assets":{"fontSources":"../../../public/fonts/design-lab/sources.json","fonts":[{"family":"Instrument Serif","alias":"Atlas Editorial","origin":"https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap","source":"https://github.com/google/fonts/tree/main/ofl/instrumentserif","license":"../../../public/fonts/design-lab/instrument-serif-OFL.txt"},{"family":"Manrope","alias":"Atlas Manrope","origin":"https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap","source":"https://github.com/google/fonts/tree/main/ofl/manrope","license":"../../../public/fonts/design-lab/manrope-OFL.txt"}],"photos":"../../../public/photos/sources.json","photoUsage":"既有风格参考资产；虚构演示房源；未复制调研网站摄影或商标","maps":"既有 Cesium ion / Google 配置与署名","routes":"既有 /public/routes JSON；不改变经纬度、转弯、距离与时长"},
+  "acceptance":{"disposition":"可交付隔离预览；未选作生产方案，未部署","resolved":["键盘取消","路线相机适配","设施 CTA 裁切"],"evidenceSource":"../../../../research/23-visual-concept-preview.md；主代理本地浏览器核对","observed":["切图、收藏/取消、Studio 筛选","真实 AI：Sainsbury's Local 约 77m，地图 1 处","真实校园路线：844m，约 11min","1280×720 与 390×844 未观察到横向溢出","减少动态效果：图片过渡 0s，无飞行 clone"],"browserWarnings":[],"browserErrors":[],"notMeasured":["FPS","低端设备功耗","全部城市三维覆盖"]}
+}

@@ -1,0 +1,30 @@
+{
+  "createdAt": "2026-10-13",
+  "route": "/design-lab",
+  "fonts": [
+    {
+      "family": "Instrument Serif",
+      "files": [
+        "instrument-serif.ttf",
+        "instrument-serif-italic.ttf"
+      ],
+      "origin": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap",
+      "license": "instrument-serif-OFL.txt",
+      "source": "https://github.com/google/fonts/tree/main/ofl/instrumentserif"
+    },
+    {
+      "family": "Manrope",
+      "files": [
+        "manrope-regular.ttf",
+        "manrope-semibold.ttf",
+        "manrope-extrabold.ttf"
+      ],
+      "origin": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap",
+      "license": "manrope-OFL.txt",
+      "source": "https://github.com/google/fonts/tree/main/ofl/manrope"
+    }
+  ],
+  "photos": "Reuses existing /public/photos assets. Source records: /public/photos/sources.json. No new photography or illustration was copied from reference sites.",
+  "maps": "Same configured Cesium ion / Google tiles as the current app; usual provider account usage and attribution apply.",
+  "routes": "Existing saved /public/routes JSON files. Prototype animation changes visibility over time only; longitude/latitude geometry, distance and duration remain unchanged."
+}

@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xml:lang="en-US">
+  <id>tag:github.com,2008:/Leonxlnx/taste-skill/commits/main</id>
+  <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commits/main"/>
+  <link type="application/atom+xml" rel="self" href="https://github.com/Leonxlnx/taste-skill/commits/main.atom"/>
+  <title>Recent Commits to taste-skill:main</title>
+  <updated>2026-10-11T21:56:48Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/d237dd399d57524945c0c81327da5da19f7a468d</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/d237dd399d57524945c0c81327da5da19f7a468d"/>
+    <title>
+        Merge pull request #41 from Bortlesboat/fix/skill-helper-errors
+    </title>
+    <updated>2026-10-11T21:56:48Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/219127460?s=30&amp;v=4"/>
+    <author>
+      <name>Leonxlnx</name>
+      <uri>https://github.com/Leonxlnx</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #41 from Bortlesboat/fix/skill-helper-errors
+
+fix: make skill.sh fail on unknown skills&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/9b501a572840bcdd9e4b6f3088181fb006c3a6a9</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/9b501a572840bcdd9e4b6f3088181fb006c3a6a9"/>
+    <title>
+        Merge pull request #110 from flexi767/install-script
+    </title>
+    <updated>2026-10-11T21:56:41Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/219127460?s=30&amp;v=4"/>
+    <author>
+      <name>Leonxlnx</name>
+      <uri>https://github.com/Leonxlnx</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #110 from flexi767/install-script
+
+Add install.sh for symlink-based installation&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/6d6096ef7a10a85c2faf7568990ef096e057f45c</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/6d6096ef7a10a85c2faf7568990ef096e057f45c"/>
+    <title>
+        Merge pull request #135 from HugoSpy/codex/brandkit-existing-identity
+    </title>
+    <updated>2026-10-11T21:56:33Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/219127460?s=30&amp;v=4"/>
+    <author>
+      <name>Leonxlnx</name>
+      <uri>https://github.com/Leonxlnx</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #135 from HugoSpy/codex/brandkit-existing-identity
+
+fix(brandkit): preserve existing identity before generation&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/8f8c6fde980e0c5dbd1b329a72caf2cfa601b0bb</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/8f8c6fde980e0c5dbd1b329a72caf2cfa601b0bb"/>
+    <title>
+        Merge pull request #137 from HugoSpy/codex/brandkit-custom-dimensions
+    </title>
+    <updated>2026-10-11T21:56:12Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/219127460?s=30&amp;v=4"/>
+    <author>
+      <name>Leonxlnx</name>
+      <uri>https://github.com/Leonxlnx</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #137 from HugoSpy/codex/brandkit-custom-dimensions
+
+fix(brandkit): honor requested output dimensions&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/ed55683a63e65383edda2fe1bbd3e63b4c533267</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/ed55683a63e65383edda2fe1bbd3e63b4c533267"/>
+    <title>
+        Merge pull request #136 from HugoSpy/codex/collapsed-sidebar-navigation
+    </title>
+    <updated>2026-10-11T21:55:40Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/219127460?s=30&amp;v=4"/>
+    <author>
+      <name>Leonxlnx</name>
+      <uri>https://github.com/Leonxlnx</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #136 from HugoSpy/codex/collapsed-sidebar-navigation
+
+docs(redesign): keep collapsed desktop navigation usable&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/5105cb9894383bebcfa3be5a48fd8a54c88b1967</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/5105cb9894383bebcfa3be5a48fd8a54c88b1967"/>
+    <title>
+        Merge pull request #124 from abhinavflac/fix/motion-skeleton-conflicts
+    </title>
+    <updated>2026-10-11T21:55:32Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/219127460?s=30&amp;v=4"/>
+    <author>
+      <name>Leonxlnx</name>
+      <uri>https://github.com/Leonxlnx</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #124 from abhinavflac/fix/motion-skeleton-conflicts
+
+fix: correct positioning conflicts and reduced-motion lockout in the motion skeletons&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/a11f3c72de85a5a9d55c35adfbb531fc1121b1f8</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/a11f3c72de85a5a9d55c35adfbb531fc1121b1f8"/>
+    <title>
+        Merge pull request #126 from skindini/fix/fluid-css-transition-proper…
+    </title>
+    <updated>2026-10-11T21:55:24Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/219127460?s=30&amp;v=4"/>
+    <author>
+      <name>Leonxlnx</name>
+      <uri>https://github.com/Leonxlnx</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #126 from skindini/fix/fluid-css-transition-properties
+
+fix(taste-skill): MOTION 4-7 names transform/opacity instead of `transition: all`&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/eaf4067581e6098837f5ca08ee535670b8a9a0b9</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/eaf4067581e6098837f5ca08ee535670b8a9a0b9"/>
+    <title>
+        Merge pull request #58 from rebusz/accessibility/prefers-reduced-motion
+    </title>
+    <updated>2026-10-11T21:55:04Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/219127460?s=30&amp;v=4"/>
+    <author>
+      <name>Leonxlnx</name>
+      <uri>https://github.com/Leonxlnx</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #58 from rebusz/accessibility/prefers-reduced-motion
+
+Enforce prefers-reduced-motion in gpt-taste and minimalist-ui&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/7311cdb3073c86535037123f88b94c9e5174f832</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/7311cdb3073c86535037123f88b94c9e5174f832"/>
+    <title>
+        Merge pull request #40 from evanclan/fix/v1-layout-variance-typo
+    </title>
+    <updated>2026-10-11T21:54:41Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/219127460?s=30&amp;v=4"/>
+    <author>
+      <name>Leonxlnx</name>
+      <uri>https://github.com/Leonxlnx</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #40 from evanclan/fix/v1-layout-variance-typo
+
+fix(v1): rename LAYOUT_VARIANCE to DESIGN_VARIANCE in anti-center rule (#36)&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/dad92c0ec44bae41d1f15391dc5ed25a9b3d2af5</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/dad92c0ec44bae41d1f15391dc5ed25a9b3d2af5"/>
+    <title>
+        Merge pull request #77 from CelaniDe/main
+    </title>
+    <updated>2026-10-11T21:54:29Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/219127460?s=30&amp;v=4"/>
+    <author>
+      <name>Leonxlnx</name>
+      <uri>https://github.com/Leonxlnx</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #77 from CelaniDe/main
+
+docs(readme): link skill names to their SKILL.md files&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/36be570e9e00e3f72d1f1c97c0c5979631e063d8</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/36be570e9e00e3f72d1f1c97c0c5979631e063d8"/>
+    <title>
+        Merge pull request #55 from steponeerror/docs/plugin-install-instruct…
+    </title>
+    <updated>2026-10-11T21:54:21Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/219127460?s=30&amp;v=4"/>
+    <author>
+      <name>Leonxlnx</name>
+      <uri>https://github.com/Leonxlnx</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #55 from steponeerror/docs/plugin-install-instructions
+
+docs(readme): document Claude Code plugin marketplace install&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/a6bfd81f2c2d0ecbe6431fccb508a2addbf614ec</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/a6bfd81f2c2d0ecbe6431fccb508a2addbf614ec"/>
+    <title>
+        Merge pull request #131 from eduardoarosemena661-hash/fix-readme-spon…
+    </title>
+    <updated>2026-10-11T21:54:04Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/219127460?s=30&amp;v=4"/>
+    <author>
+      <name>Leonxlnx</name>
+      <uri>https://github.com/Leonxlnx</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #131 from eduardoarosemena661-hash/fix-readme-sponsors-anchor
+
+docs: fix broken Sponsors anchor in README nav&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/717446e07a78d4e6d7918b1fde1a263378eebac9</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/717446e07a78d4e6d7918b1fde1a263378eebac9"/>
+    <title>
+        Merge pull request #138 from Leonxlnx/cursor/add-wolfy18-sponsor-eb84
+    </title>
+    <updated>2026-10-09T21:58:20Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/219127460?s=30&amp;v=4"/>
+    <author>
+      <name>Leonxlnx</name>
+      <uri>https://github.com/Leonxlnx</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #138 from Leonxlnx/cursor/add-wolfy18-sponsor-eb84
+
+Add Wolfy18 to Community Sponsors&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/09077216857928959e526c2e524a13f474e3795d</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/09077216857928959e526c2e524a13f474e3795d"/>
+    <title>
+        Add Wolfy18 to the Community Sponsors avatar list.
+    </title>
+    <updated>2026-10-09T21:57:51Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/199161495?s=30&amp;v=4"/>
+    <author>
+      <name>cursoragent</name>
+      <uri>https://github.com/cursoragent</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Add Wolfy18 to the Community Sponsors avatar list.
+
+Co-authored-by: Leon Lin &amp;lt;lexn.lin8@gmail.com&amp;gt;&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/a4a0a49958a2d462ef22d6b9057012c77645a36a</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/a4a0a49958a2d462ef22d6b9057012c77645a36a"/>
+    <title>
+        fix(brandkit): route existing brands before checking assets
+    </title>
+    <updated>2026-10-08T21:11:33Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/122161868?s=30&amp;v=4"/>
+    <author>
+      <name>HugoSpy</name>
+      <uri>https://github.com/HugoSpy</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix(brandkit): route existing brands before checking assets&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/e04409a461022e1b9d0e898eac6b9224e2b9dc4e</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/e04409a461022e1b9d0e898eac6b9224e2b9dc4e"/>
+    <title>
+        fix(redesign): separate ARIA hiding from focus suppression
+    </title>
+    <updated>2026-10-08T21:11:33Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/122161868?s=30&amp;v=4"/>
+    <author>
+      <name>HugoSpy</name>
+      <uri>https://github.com/HugoSpy</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix(redesign): separate ARIA hiding from focus suppression&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/208de7e508f88c98e2f1d39d9519b53b4a4f4551</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/208de7e508f88c98e2f1d39d9519b53b4a4f4551"/>
+    <title>
+        fix(brandkit): preserve existing identity before generation
+    </title>
+    <updated>2026-10-08T20:58:42Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/122161868?s=30&amp;v=4"/>
+    <author>
+      <name>HugoSpy</name>
+      <uri>https://github.com/HugoSpy</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix(brandkit): preserve existing identity before generation&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/3fe11471715a079c2e2b0e2492b0fb27f8288caa</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/3fe11471715a079c2e2b0e2492b0fb27f8288caa"/>
+    <title>
+        fix(brandkit): honor requested output dimensions
+    </title>
+    <updated>2026-10-08T20:58:15Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/122161868?s=30&amp;v=4"/>
+    <author>
+      <name>HugoSpy</name>
+      <uri>https://github.com/HugoSpy</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;fix(brandkit): honor requested output dimensions&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/2d9eeb24a31d89ca63d33b491dd5258d30eacb83</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/2d9eeb24a31d89ca63d33b491dd5258d30eacb83"/>
+    <title>
+        docs(redesign): keep collapsed desktop navigation usable
+    </title>
+    <updated>2026-10-08T20:58:15Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/122161868?s=30&amp;v=4"/>
+    <author>
+      <name>HugoSpy</name>
+      <uri>https://github.com/HugoSpy</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;docs(redesign): keep collapsed desktop navigation usable&lt;/pre&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Grit::Commit/18dfc928b135629e0eddfdd445a06400d04ed439</id>
+    <link type="text/html" rel="alternate" href="https://github.com/Leonxlnx/taste-skill/commit/18dfc928b135629e0eddfdd445a06400d04ed439"/>
+    <title>
+        Merge pull request #134 from Leonxlnx/cursor/sidrune-sponsor-rebrand-…
+    </title>
+    <updated>2026-10-08T20:35:00Z</updated>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/219127460?s=30&amp;v=4"/>
+    <author>
+      <name>Leonxlnx</name>
+      <uri>https://github.com/Leonxlnx</uri>
+    </author>
+    <content type="html">
+      &lt;pre style=&#39;white-space:pre-wrap;width:81ex&#39;&gt;Merge pull request #134 from Leonxlnx/cursor/sidrune-sponsor-rebrand-5ce3
+
+Rebrand lead sponsor row from Fluxion AI to Sidrune AI&lt;/pre&gt;
+    </content>
+  </entry>
+</feed>

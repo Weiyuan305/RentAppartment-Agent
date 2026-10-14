@@ -64,7 +64,7 @@ export function drawWalkingRoute(C: Engine, viewer: Cesium.Viewer, tiles: Cesium
   const markers = [0, coordinates.length - 1].map((index, i) => viewer.entities.add({
     id: `walking-route:${i === 0 ? "start" : "end"}`,
     position: C.Cartesian3.fromDegrees(coordinates[index][0], coordinates[index][1], 2),
-    billboard: { image: endpointImage(i === 0 ? "起" : "终", i === 0 ? "#4268ed" : "#168a70"), width: 30, height: 30, disableDepthTestDistance: Number.POSITIVE_INFINITY },
+    billboard: { image: endpointImage(i === 0 ? "A" : "B", i === 0 ? "#4268ed" : "#168a70"), width: 30, height: 30, disableDepthTestDistance: Number.POSITIVE_INFINITY },
   }));
 
   let dirty = true, disposed = false, previous: number[] = [], lastSample = 0;

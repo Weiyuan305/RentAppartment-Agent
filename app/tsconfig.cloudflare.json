@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"],
+      "@atlas/database": ["./lib/agent/database-cloudflare.ts"],
+      "@atlas/catalog-data": ["./.generated/catalog-data.ts"]
+    }
+  }
+}

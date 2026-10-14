@@ -1,14 +1,18 @@
 "use client";
+import { useLocale } from "@/components/locale-provider";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { ArrowRight, ArrowUp, LoaderCircle, Sparkles, Square, RotateCcw } from "lucide-react";
 import { type AgentStatus, type RentalMessage, type RentalSession, type RentalState, rentalStateSchema } from "@/lib/agent/contract";
+import {stateForNavigation} from "@/lib/student/restore";
 import { replyNotices, retryableMessage } from "@/lib/agent/conversation";
+import { displayCity } from "@/lib/i18n";
 import type { City } from "@/lib/rental-data";
 const AssistantMarkdown = lazy(() => import("./assistant-markdown").then(module => ({default: module.AssistantMarkdown})));
 
 export default function RentalChat({city, state, uiRevision, onState}: {city: City; state: RentalState; uiRevision: number; onState: (state: RentalState) => void}) {
+  const {t, locale} = useLocale();
   const [session, setSession] = useState<RentalSession | null>(null);
   const [agentStatus, setAgentStatus] = useState<AgentStatus | null>(null);
   const [notice, setNotice] = useState("");
@@ -16,8 +20,8 @@ export default function RentalChat({city, state, uiRevision, onState}: {city: Ci
   const [previewing, setPreviewing] = useState(false);
   const [retrying, setRetrying] = useState(false);
   const end = useRef<HTMLDivElement>(null);
-  const current = useRef({state, uiRevision, onState});
-  useEffect(() => {current.current = {state, uiRevision, onState};}, [state, uiRevision, onState]);
+  const current = useRef({state, uiRevision, onState, locale});
+  useEffect(() => {current.current = {state, uiRevision, onState, locale};}, [state, uiRevision, onState, locale]);
   const sessionRef = useRef<RentalSession | null>(null);
   const request = useRef<{id: string; revision: number; retry?: boolean} | null>(null);
   const savedState = useRef("");
@@ -29,8 +33,8 @@ export default function RentalChat({city, state, uiRevision, onState}: {city: Ci
     api: "/api/agent/chat",
     prepareSendMessagesRequest: ({messages}) => {
       const s = sessionRef.current;
-      if (!s || !request.current) throw new Error("会话尚未就绪。");
-      return {body: {sessionId: s.id, version: s.version, state: current.current.state, requestId: request.current.id, message: messages.at(-1), retry: request.current.retry}};
+      if (!s || !request.current) throw new Error(t("会话尚未就绪。"));
+      return {body: {sessionId: s.id, version: s.version, state: current.current.state, requestId: request.current.id, message: messages.at(-1), locale:current.current.locale, retry: request.current.retry}};
     },
   }));
   const chat = useChat<RentalMessage>({
@@ -46,14 +50,14 @@ export default function RentalChat({city, state, uiRevision, onState}: {city: Ci
       if (data.phase === "start") return;
       current.current.onState(next);
     },
-    onError: error => {if (!disposed.current) setNotice(Object.values(replyNotices).includes(error.message) ? error.message : "对话暂时无法完成，可以重试这条消息；已完成的工具结果会保留。");},
+    onError: error => {if (!disposed.current) setNotice(Object.values(replyNotices).includes(error.message) ? error.message : t("对话暂时无法完成，可以重试这条消息；已完成的工具结果会保留。"));},
     onFinish: ({isAbort}) => {if (isAbort && !disposed.current) setNotice(replyNotices.stopped);},
   });
   const {setMessages, stop} = chat;
   const busy = chat.status === "streaming" || chat.status === "submitted" || previewing || retrying;
   const retryMessage = retryableMessage(chat.messages) || (chat.error || notice === replyNotices.stopped ? chat.messages.findLast(message => message.role === "user") : undefined);
   const replyStatus = chat.messages.at(-1)?.metadata?.replyStatus;
-  const displayedNotice = notice || (!busy && retryMessage ? replyStatus ? replyNotices[replyStatus] : "上次回复未完成，可以重试这条消息。" : "");
+  const displayedNotice = notice || (!busy && retryMessage ? replyStatus ? replyNotices[replyStatus] : t("上次回复未完成，可以重试这条消息。") : "");
   useEffect(() => {
     disposed.current = false;
     const controller = new AbortController();
@@ -64,10 +68,9 @@ export default function RentalChat({city, state, uiRevision, onState}: {city: Ci
         if (!response.ok) throw new Error(payload.error);
         if (controller.signal.aborted) return;
         const restored = payload.session as RentalSession;
-        const explicitListing = new URLSearchParams(window.location.search).get("listing");
-        const useSaved = !explicitListing || explicitListing === restored.state.listingId;
+        const next=stateForNavigation(restored.state,current.current.state,new URLSearchParams(window.location.search));
         sessionRef.current = restored; setSession(restored); setAgentStatus(payload.status); setMessages(restored.messages);
-        if (useSaved) {const next = new URLSearchParams(window.location.search).get("route") === "walk" ? {...restored.state, map:{...restored.state.map, campusRoute:true,routePlaceId:null,selectedPlaceId:null}} : restored.state; savedState.current = JSON.stringify(restored.state); current.current.onState(next);}
+        savedState.current=JSON.stringify(restored.state);current.current.onState(next);
       } catch {if (!controller.signal.aborted) setNotice("会话存储暂时不可用，请刷新页面重试。");}
     })();
     return () => {disposed.current = true; controller.abort(); void stop();};
@@ -112,7 +115,7 @@ export default function RentalChat({city, state, uiRevision, onState}: {city: Ci
       if (!response.ok) throw new Error(payload.error);
       if (disposed.current) return;
       const lastUser = payload.session.messages.findLast(message => message.role === "user");
-      if (lastUser && lastUser.id !== retryMessage.id && !chat.messages.some(message => message.id === lastUser.id)) throw new Error("会话已在其他页面更新，请刷新同步。");
+      if (lastUser && lastUser.id !== retryMessage.id && !chat.messages.some(message => message.id === lastUser.id)) throw new Error(t("会话已在其他页面更新，请刷新同步。"));
       sessionRef.current = payload.session;
       // A transport failure before persistence still needs a normal first send.
       const alreadySaved = lastUser?.id === retryMessage.id;
@@ -129,7 +132,7 @@ export default function RentalChat({city, state, uiRevision, onState}: {city: Ci
     await pendingSave.current;
     const s = sessionRef.current!, revision = current.current.uiRevision;
     try {
-      const response = await fetch("/api/agent/preview", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({sessionId: s.id, version: s.version, state: current.current.state, action})});
+      const response = await fetch("/api/agent/preview", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({sessionId: s.id, version: s.version, state: current.current.state, locale:current.current.locale, action})});
       const payload = await response.json() as {session: RentalSession; status: AgentStatus; error?: string};
       if (!response.ok) {
         // A failed tool still releases the lease and advances the version.
@@ -141,7 +144,7 @@ export default function RentalChat({city, state, uiRevision, onState}: {city: Ci
       sessionRef.current = payload.session; setMessages(payload.session.messages);
       if (revision === current.current.uiRevision) {savedState.current = JSON.stringify(payload.session.state); current.current.onState(payload.session.state);}
       else setNotice("页面条件已改变，工具结果没有覆盖当前地图。");
-    } catch (error) {if (!disposed.current) setNotice(error instanceof Error ? error.message : "工具暂时不可用。");}
+    } catch (error) {if (!disposed.current) setNotice(error instanceof Error ? error.message : t("工具暂时不可用。"));}
     finally {if (!disposed.current) setPreviewing(false);}
   }
   async function reset() {
@@ -154,18 +157,18 @@ export default function RentalChat({city, state, uiRevision, onState}: {city: Ci
       sessionRef.current = payload.session; setMessages([]); setNotice(""); chat.clearError();
     } catch {setNotice("暂时无法新建对话，请刷新重试。");}
   }
-  return <aside className="assistant-panel" aria-label="找房助手">
-    <div className="assistant-heading"><span className="assistant-icon"><Sparkles size={20}/></span><div><h2>你的找房搭子</h2><p>对话与地图一起找答案</p></div><span className="assistant-state">{agentStatus?.configured ? "AI 已配置" : "工具体验"}</span><button className="chat-reset" title="新建对话" aria-label="新建对话" disabled={busy || !session} onClick={reset}><RotateCcw size={14}/></button></div>
+  return <aside className="assistant-panel" aria-label={t("找房助手")}>
+    <div className="assistant-heading"><span className="assistant-icon"><Sparkles size={20}/></span><div><h2>{t("你的找房搭子")}</h2><p>{t("对话与地图一起找答案")}</p></div><span className={`assistant-state ${agentStatus?.configured ? "ready" : ""}`}>{agentStatus?.configured ? t("AI 已配置") : t("工具体验")}</span><button className="chat-reset" title={t("新建对话")} aria-label={t("新建对话")} disabled={busy || !session} onClick={reset}><RotateCcw size={14}/></button></div>
     <div className="chat-scroll" aria-live="polite">
-      {!chat.messages.length && <><div className="welcome"><span className="welcome-orbit"><Sparkles size={29}/></span><p className="eyebrow">A LITTLE CLOSER TO HOME</p><h2>从日常出发，<br/>找到合适的新家。</h2><p>当前以选中公寓为起点。可以问附近设施、筛选房源，再追问步行路线。</p></div><div className="chat-message assistant">嗨，未来的{city.name}同学 👋<br/>附近默认是距选中公寓直线 500 米，地点来自校区周边快照。</div></>}
-      {agentStatus?.configured ? <div className="suggestions">{["这套公寓附近500米内有几个便利店？", "只显示最近的一家", "走过去怎么走？", "换成附近的超市", "筛选大学步行30分钟内的房源"].map(text => <button key={text} disabled={busy || !session} onClick={() => send(text)}>{text}<ArrowRight size={15}/></button>)}</div> : <div className="agent-setup"><strong>AI 模型待配置</strong><p>请在服务器填写 Base URL、模型名称与密钥，并重启服务。以下按钮可先体验真实工具和地图联动。</p><a href="/setup#agent" target="_blank" rel="noreferrer">查看模型接入说明 ↗</a><div className="suggestions">{[["nearby", "查询500米内便利店"], ["nearest", "只显示最近一家"], ["route", "显示步行路线"], ["supermarket", "换成附近超市"], ["commute", "显示到大学路线"]].map(([action, label]) => <button key={action} disabled={busy || !session} onClick={() => preview(action)}>{label}<ArrowRight size={15}/></button>)}</div></div>}
+      {!chat.messages.length && <><div className="welcome"><h2>{t("从日常出发，")}<br/>{t("找到合适的新家。")}</h2><p>{t("当前以选中公寓为起点。可以问附近设施、筛选房源，再追问步行路线。")}</p></div><div className="chat-message assistant">{t("你好，未来的{city}同学 👋",{city:displayCity(city,locale).name})}<br/>{t("附近默认是距选中公寓直线 500 米，地点来自校区周边快照。")}</div></>}
+      {agentStatus?.configured ? <div className="suggestions">{[t("这套公寓附近500米内有几个便利店？"), t("只显示最近的一家"), t("走过去怎么走？"), t("换成附近的超市"), t("筛选大学步行30分钟内的房源")].map(text => <button key={text} disabled={busy || !session} onClick={() => send(text)}>{text}<ArrowRight size={15}/></button>)}</div> : <div className="agent-setup"><strong>{t("AI 模型待配置")}</strong><p>{t("请在服务器填写 Base URL、模型名称与密钥，并重启服务。以下按钮可先体验真实工具和地图联动。")}</p><a href="/setup#agent" target="_blank" rel="noreferrer">{t("查看模型接入说明 ↗")}</a><div className="suggestions">{[["nearby", t("查询500米内便利店")], ["nearest", t("只显示最近一家")], ["route", t("显示步行路线")], ["supermarket", t("换成附近超市")], ["commute", t("显示到大学路线")]].map(([action, label]) => <button key={action} disabled={busy || !session} onClick={() => preview(action)}>{label}<ArrowRight size={15}/></button>)}</div></div>}
       {chat.messages.map(message => <div key={message.id} className={`chat-message ${message.role}`}>{message.parts.map((part, i) => part.type === "text" && part.text ? message.role === "assistant"
-        ? <Suspense key={i} fallback={<span aria-label="正在加载回复">…</span>}><AssistantMarkdown text={part.text} streaming={chat.status === "streaming" && part.state === "streaming"}/></Suspense>
-        : <span key={i}>{part.text}</span> : null)}{message.parts.some(p => p.type.startsWith("tool-") && "state" in p && p.state === "output-available") && <small className="chat-tool-status">已查询工具 · 地图与结果同步</small>}</div>)}
-      {busy && <p className="chat-busy"><LoaderCircle size={14} className="route-spinner"/>{retrying ? "正在重新连接…" : previewing ? "正在查询工具…" : "正在查找并回复…"}</p>}
-      {displayedNotice && <div className="chat-notice" role="status"><p>{displayedNotice}</p>{!busy && retryMessage && <button type="button" className="chat-retry" onClick={() => void retry()}><RotateCcw size={13}/>重试这条消息</button>}</div>}<div ref={end}/>
+        ? <Suspense key={i} fallback={<span aria-label={t("正在加载回复")}>…</span>}><AssistantMarkdown text={part.text} streaming={chat.status === "streaming" && part.state === "streaming"}/></Suspense>
+        : <span key={i}>{part.text}</span> : null)}{message.parts.some(p => p.type.startsWith("tool-") && "state" in p && p.state === "output-available") && <small className="chat-tool-status">{t("已查询工具 · 地图与结果同步")}</small>}</div>)}
+      {busy && <p className="chat-busy"><LoaderCircle size={14} className="route-spinner"/>{retrying ? t("正在重新连接…") : previewing ? t("正在查询工具…") : t("正在查找并回复…")}</p>}
+      {displayedNotice && <div className="chat-notice" role="status"><p>{t(displayedNotice)}</p>{!busy && retryMessage && <button type="button" className="chat-retry" onClick={() => void retry()}><RotateCcw size={13}/>{t("重试这条消息")}</button>}</div>}<div ref={end}/>
     </div>
-    <form className="chat-form" onSubmit={e => {e.preventDefault(); void send(input);}}><label className="sr-only" htmlFor="chat-input">描述你的理想住处</label><textarea id="chat-input" value={input} onChange={e => setInput(e.target.value)} disabled={!agentStatus?.configured || !session} placeholder={agentStatus?.configured ? "问问附近，或说说你的找房条件…" : "配置模型后，即可开始多轮 AI 对话"} maxLength={2000} onKeyDown={e => {if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {e.preventDefault(); void send(input);}}} rows={2}/><div><span><Sparkles size={13}/>{session ? "会话保存在服务器" : "正在连接会话…"}</span>{busy && !previewing ? <button type="button" aria-label="停止回复" onClick={() => stop()}><Square size={14}/></button> : <button type="submit" disabled={!input.trim() || busy || !agentStatus?.configured || !session} aria-label="发送消息"><ArrowUp size={19}/></button>}</div></form>
-    <p className="assistant-disclaimer">演示房源不可预订 · 设施可能缺漏 · 治安与营业状态未核验</p>
+    <form className="chat-form" onSubmit={e => {e.preventDefault(); void send(input);}}><label className="sr-only" htmlFor="chat-input">{t("描述你的理想住处")}</label><textarea id="chat-input" value={input} onChange={e => setInput(e.target.value)} disabled={!agentStatus?.configured || !session} placeholder={agentStatus?.configured ? t("问问附近，或说说你的找房条件…") : t("配置模型后，即可开始多轮 AI 对话")} maxLength={2000} onKeyDown={e => {if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {e.preventDefault(); void send(input);}}} rows={2}/><div><span><Sparkles size={13}/>{session ? t("会话保存在服务器") : t("正在连接会话…")}</span>{busy && !previewing ? <button type="button" aria-label={t("停止回复")} onClick={() => stop()}><Square size={14}/></button> : <button type="submit" disabled={!input.trim() || busy || !agentStatus?.configured || !session} aria-label={t("发送消息")}><ArrowUp size={19}/></button>}</div></form>
+    <p className="assistant-disclaimer">{t("演示房源不可预订 · 设施可能缺漏 · 治安与营业状态未核验")}</p>
   </aside>;
 }

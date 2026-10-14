@@ -3,6 +3,7 @@ import type { UIMessage, InferUITools } from "ai";
 import type { createRentalTools } from "./tools";
 import { amenityCategories } from "../amenities";
 import { emptyFilters } from "../assistant";
+import {studentPlanSchema} from "../student/state";
 
 export const cityIdSchema = z.enum(["london", "sydney", "singapore", "kuala-lumpur", "hong-kong"]);
 export const filtersSchema = z.object({
@@ -15,7 +16,7 @@ export const mapSelectionSchema = z.object({
   cuisine: z.string().max(80), placeIds: z.array(z.string().regex(/^(node|way|relation)\/\d+$/)).max(100).nullable(),
   selectedPlaceId: z.string().nullable(), routePlaceId: z.string().nullable(), campusRoute: z.boolean(),
 });
-export const rentalStateSchema = z.object({cityId: cityIdSchema, listingId: z.string().max(50), filters: filtersSchema, map: mapSelectionSchema});
+export const rentalStateSchema = z.object({cityId: cityIdSchema, listingId: z.string().max(50), filters: filtersSchema, map: mapSelectionSchema,student:studentPlanSchema.optional()});
 export type MapSelection = z.infer<typeof mapSelectionSchema>;
 export type RentalState = z.infer<typeof rentalStateSchema>;
 export function emptyMapSelection(): MapSelection {
@@ -32,4 +33,5 @@ export const agentRequestSchema = z.object({
   sessionId: z.string().uuid(), version: z.number().int().nonnegative(), requestId: z.string().uuid(), state: rentalStateSchema,
   message: z.object({id: z.string().min(1).max(100), role: z.literal("user"), parts: z.array(z.object({type: z.literal("text"), text: z.string().min(1).max(2000)})).min(1).max(1)}),
   retry: z.boolean().optional(),
+  locale: z.enum(["zh", "en"]).default("zh"),
 });

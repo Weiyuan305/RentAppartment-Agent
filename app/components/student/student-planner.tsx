@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useId, useState } from "react";
 import {
   Building2,
   Footprints,
@@ -66,6 +66,7 @@ export default function StudentPlanner({
 }) {
   const { locale } = useLocale(),
     w = (zh: string, en: string) => (locale === "zh" ? zh : en);
+  const tabsId = useId();
   const [tab, setTab] = useState("campus"),
     [query, setQuery] = useState(""),
     [notice, setNotice] = useState("");
@@ -127,6 +128,17 @@ export default function StudentPlanner({
           className="student-tabs"
           role="tablist"
           aria-label={w("规划内容", "Planner sections")}
+          onKeyDown={(event) => {
+            if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+            const tabs = Array.from(event.currentTarget.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+            const current = tabs.indexOf(event.target as HTMLButtonElement);
+            if (current < 0) return;
+            event.preventDefault();
+            const next = event.key === "Home" ? 0 : event.key === "End" ? tabs.length - 1 : (current + (event.key === "ArrowRight" ? 1 : -1) + tabs.length) % tabs.length;
+            tabs[next].focus();
+            tabs[next].click();
+            tabs[next].scrollIntoView({ block: "nearest", inline: "nearest", behavior: "instant" });
+          }}
         >
           {[
             ["campus", w("校园与通勤", "Campus")],
@@ -138,6 +150,9 @@ export default function StudentPlanner({
             <button
               key={id}
               role="tab"
+              id={`${tabsId}-${id}`}
+              aria-controls={`${tabsId}-panel`}
+              tabIndex={tab === id ? 0 : -1}
               aria-selected={tab === id}
               onClick={() => setTab(id)}
             >
@@ -145,7 +160,7 @@ export default function StudentPlanner({
             </button>
           ))}
         </div>
-        <div className="student-panel" role="tabpanel">
+        <div className="student-panel" role="tabpanel" id={`${tabsId}-panel`} aria-labelledby={`${tabsId}-${tab}`} tabIndex={0}>
           {tab === "campus" && (
             <>
               <div className="student-fields">

@@ -188,7 +188,15 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
     } catch {setNotice("暂时无法新建对话，请刷新重试。");}
   }
   return <aside id="workspace-chat" className="assistant-panel" inert={collapsed} aria-label={t("找房助手")}>
-    <div className="assistant-heading"><span className="assistant-icon"><Sparkles size={20}/></span><div><h2>{t("你的找房搭子")}</h2><p>{t("对话与地图一起找答案")}</p></div><span className={`assistant-state ${agentStatus?.configured ? "ready" : ""}`}>{agentStatus?.configured ? t("AI 已配置") : t("工具体验")}</span><button className="chat-reset" title={t("新建对话")} aria-label={t("新建对话")} disabled={busy || !session} onClick={reset}><RotateCcw size={14}/></button>{headerControl}</div>
+    <div className="assistant-heading">
+      <span className="assistant-icon"><Sparkles size={20}/></span>
+      <div className="assistant-heading-copy"><h2>{t("你的找房搭子")}</h2><p>{t("对话与地图一起找答案")}</p></div>
+      <span className={`assistant-state ${agentStatus?.configured ? "ready" : ""}`}>{agentStatus?.configured ? t("AI 已配置") : t("工具体验")}</span>
+      <div className="panel-heading-actions" role="group" aria-label={locale === "zh" ? "对话操作" : "Chat actions"}>
+        <button className="chat-reset" title={t("新建对话")} aria-label={t("新建对话")} disabled={busy || !session} onClick={reset}><RotateCcw size={18}/></button>
+        {headerControl}
+      </div>
+    </div>
     <div className="chat-scroll" aria-live="polite"><div className="chat-transcript" ref={transcript}>
       {!chat.messages.length && <><div className="welcome"><h2>{t("从日常出发，")}<br/>{t("找到合适的新家。")}</h2><p>{t("当前以选中公寓为起点。可以问附近设施、筛选房源，再追问步行路线。")}</p></div><div className="chat-message assistant">{t("你好，未来的{city}同学 👋",{city:displayCity(city,locale).name})}<br/>{t("附近默认是距选中公寓直线 500 米，地点来自校区周边快照。")}</div></>}
       {agentStatus?.configured ? <div className="suggestions">{[t("这套公寓附近500米内有几个便利店？"), t("只显示最近的一家"), t("走过去怎么走？"), t("换成附近的超市"), t("筛选大学步行30分钟内的房源")].map(text => <button key={text} disabled={busy || !session} onClick={() => send(text)}>{text}<ArrowRight size={15}/></button>)}</div> : <div className="agent-setup"><strong>{t("AI 模型待配置")}</strong><p>{t("请在服务器填写 Base URL、模型名称与密钥，并重启服务。以下按钮可先体验真实工具和地图联动。")}</p><a href="/setup#agent" target="_blank" rel="noreferrer">{t("查看模型接入说明 ↗")}</a><div className="suggestions">{[["nearby", t("查询500米内便利店")], ["nearest", t("只显示最近一家")], ["route", t("显示步行路线")], ["supermarket", t("换成附近超市")], ["commute", t("显示到大学路线")]].map(([action, label]) => <button key={action} disabled={busy || !session} onClick={() => preview(action)}>{label}<ArrowRight size={15}/></button>)}</div></div>}

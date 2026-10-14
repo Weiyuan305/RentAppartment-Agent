@@ -1,13 +1,13 @@
 @font-face{font-family:Atlas Editorial;src:url('/fonts/design-lab/instrument-serif.ttf') format('truetype');font-weight:400;font-display:swap}
 @font-face{font-family:Atlas Editorial;src:url('/fonts/design-lab/instrument-serif-italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap}
 
-.concept-lab{--background:#f2f0e9;--surface:#fcfbf7;--surface-soft:#f2f1e9;--foreground:#233d32;--muted-foreground:#687267;--ink-secondary:#4b6053;--primary:#275944;--brand-soft:#e8eddf;--border:#dbdfd2;--success:#275944;--success-soft:#e8eddf;--motion-fast:160ms;--motion-normal:240ms;--ease-in-out:cubic-bezier(.77,0,.175,1);font-family:'Atlas Manrope','PingFang SC','Microsoft YaHei',sans-serif;background:var(--background);color:var(--foreground);height:100dvh;min-height:0}
+.concept-lab{--background:#f2f0e9;--surface:#fcfbf7;--surface-soft:#f2f1e9;--foreground:#233d32;--muted-foreground:#687267;--ink-secondary:#4b6053;--primary:#275944;--brand-soft:#e8eddf;--border:#dbdfd2;--success:#275944;--success-soft:#e8eddf;--control-size:36px;--control-radius:9px;--control-gap:8px;--focus-ring:var(--primary);--motion-fast:140ms;--motion-normal:240ms;--ease-in-out:cubic-bezier(.77,0,.175,1);font-family:'Atlas Manrope','PingFang SC','Microsoft YaHei',sans-serif;background:var(--background);color:var(--foreground);height:100dvh;min-height:0}
 .concept-lab ::selection{background:#b7d6bd;color:#183a2c}
-.concept-lab :is(button,a,select,textarea):focus-visible{outline:2px solid var(--primary);outline-offset:4px}
+.concept-lab :is(button,a,select,textarea,input,summary):focus-visible{outline:2px solid var(--focus-ring);outline-offset:3px}
 .concept-lab :is(button,a){transition:color 160ms ease,background-color 160ms ease,transform 160ms var(--ease-out)}
 .concept-lab button:active{transform:scale(.97)}
 .concept-lab button:disabled{transform:none}
-.concept-lab button:hover{color:var(--primary)}
+@media(hover:hover) and (pointer:fine){.concept-lab button:hover{color:var(--primary)}}
 .concept-review-bar{height:45px;flex-shrink:0;background:#242b29;color:#f3f4f1;display:flex;align-items:center;justify-content:space-between;padding:0 25px;font-size:11px;gap:16px;z-index:10}
 .concept-return{display:flex;align-items:center;gap:6px;opacity:.85;white-space:nowrap}
 .concept-review-bar a:hover{color:white;opacity:1}
@@ -57,7 +57,7 @@
 .concept-lab.concept-locale-zh .list-heading h1 em{font-style:normal}
 .concept-lab .list-heading p:last-child{font-size:10px;color:var(--muted-foreground);line-height:1.5}
 .concept-lab .list-heading p strong{font-size:12px;color:var(--primary)}
-.concept-lab .sort-button{border:1px solid var(--border);background:transparent;color:var(--ink-secondary);width:30px;height:30px;border-radius:50%;margin-bottom:2px}
+
 .concept-lab .list-meta{padding:10px 0;margin-bottom:14px;background:transparent;border-top:1px solid var(--border);border-bottom:0;color:var(--muted-foreground);font-size:9px}
 .concept-lab .list-meta>span:first-child{color:var(--ink-secondary)}
 .concept-lab .dot{background:var(--primary)}
@@ -291,7 +291,7 @@
 @media(hover:hover) and (pointer:fine){
  .concept-lab .photo-open:hover img{transform:scale(1.045)}
  .concept-lab .listing-price-row>button:hover{transform:translateX(3px)}
- .concept-lab .suggestions>button:hover{background:#e8eddf;color:#275944;padding-left:5px}
+ .concept-lab .suggestions>button:hover{background:#e8eddf;color:#275944}
  .concept-lab .listing-route-button:hover{background:#dce7d1;color:#214b33}
  .concept-spatial .listing-card.selected .listing-route-button:hover{background:#d8ebce}
 }
@@ -511,7 +511,7 @@
 @media(max-width:600px){.concept-lab .map-attribution{left:12px;right:12px}}
 
 /* Map workspace: panel preferences never change the Cesium canvas dimensions. */
-.panel-collapse{display:none;align-items:center;justify-content:center;flex:none;width:28px;height:28px;border:1px solid currentColor;border-radius:7px;background:transparent;color:inherit;opacity:.8;cursor:pointer}
+.panel-collapse{display:none}
 .workspace-restore,.workspace-tools{display:none}
 .concept-spatial .listing-card.is-linked .listing-image{outline:2px solid #c1dfc0;outline-offset:3px}
 .map-screen-marker.is-linked .map-marker-button{box-shadow:0 0 0 3px #92c5ad8c,0 4px 12px #092d3740;border-color:#559d84}
@@ -538,8 +538,6 @@
  .concept-spatial.is-list-collapsed .listing-panel{transform:translateX(calc(-100% - 24px));opacity:0;visibility:hidden;transition:transform .2s cubic-bezier(.22,.68,0,1),opacity .16s,visibility 0s .2s}
  .concept-spatial.is-chat-collapsed .assistant-panel{transform:translateX(calc(100% + 24px));opacity:0;visibility:hidden;transition:transform .2s cubic-bezier(.22,.68,0,1),opacity .16s,visibility 0s .2s}
  .concept-spatial .panel-collapse{display:inline-flex}
- .concept-spatial .list-heading{position:relative;padding-right:38px}.concept-spatial .list-heading .sort-button{position:absolute;right:0;top:36px;width:28px;height:28px}.concept-spatial .list-heading .panel-collapse{position:absolute;right:0;top:0;color:#c1d7c7}
- .concept-spatial .assistant-heading{position:relative;padding-right:43px}.concept-spatial .assistant-heading .panel-collapse{position:absolute;right:10px;top:12px;border-color:#b4c6ad}.concept-spatial .assistant-heading .chat-reset{position:absolute;right:11px;top:47px}.concept-spatial .assistant-state{display:none}
  .concept-spatial .workspace-restore{position:absolute;z-index:7;top:22px;display:flex;align-items:center;gap:8px;padding:11px 13px;border:1px solid #a4c3b359;border-radius:10px;background:#153c37ee;color:#e3efdc;font-size:12px;box-shadow:0 5px 20px #102a2d40;visibility:hidden;pointer-events:none;cursor:pointer}.concept-spatial .restore-list{left:24px}.concept-spatial .restore-chat{right:24px}.concept-spatial.is-list-collapsed .restore-list,.concept-spatial.is-chat-collapsed .restore-chat{visibility:visible;pointer-events:auto}.workspace-unread{width:7px;height:7px;background:#d6b969;border-radius:50%;box-shadow:0 0 0 3px #d6b96920}
  .concept-spatial .workspace-tools{position:absolute;z-index:6;top:22px;left:var(--workspace-left);right:var(--workspace-right);display:flex;align-items:center;justify-content:flex-end;gap:4px;pointer-events:none}.workspace-tools>button{display:flex;align-items:center;justify-content:center;gap:7px;pointer-events:auto;min-height:36px;padding:8px 10px;border:1px solid #cce1ce4d;border-radius:8px;background:#183d38ed;color:#e6f1df;font-size:11px;cursor:pointer}.workspace-tools button[aria-pressed=true]{background:#e1ebd5;color:#2a5039}.workspace-tools button:disabled{opacity:.4;cursor:default}
  .concept-spatial.is-list-collapsed .workspace-tools{left:150px}.concept-spatial.is-chat-collapsed .workspace-tools{right:174px}
@@ -578,7 +576,7 @@
 @media(max-width:600px){
  .concept-lab .city-panel .workspace-layers{top:12px;left:12px;max-width:calc(100% - 70px)}.concept-lab .map-journey-shell{left:12px;right:12px;bottom:calc(var(--map-credit-height,35px) + 12px);max-width:none}.concept-lab .journey-toggle strong{font-size:14px}.concept-lab .journey-body{max-height:min(240px,calc(var(--map-panel-height,500px) - 250px))}
  .concept-lab .layer-group select{font-size:16px}.concept-lab .layer-catchment button{min-height:44px}.concept-lab .list-disclaimer{font-size:12px}.concept-lab .listing-route-button{min-height:44px;font-size:14px}.concept-lab .photo-arrow{min-width:40px;min-height:40px}.concept-lab .listing-card .save-button{width:40px;height:40px}.concept-lab .active-filters{max-height:100px;font-size:12px}.concept-lab .active-filters button{min-height:44px}
- .concept-lab .assistant-input textarea{font-size:16px}.concept-lab .assistant-message{font-size:14px}
+ .concept-lab .chat-form textarea{font-size:16px}.concept-lab .chat-message{font-size:14px}
 }
 
 /* Country groups retain five entries; each country reveals its own city cards. */
@@ -604,14 +602,131 @@
 @media(max-width:1100px){.concept-lab .city-panel:not(.map-live) .map-intro{left:12px;right:12px}}
 
 /* Keep chat chrome fixed in its panel; only conversation history scrolls. */
-.concept-lab .assistant-heading{flex:none;display:grid;grid-template-columns:33px minmax(0,1fr) 28px;min-height:76px;padding:16px;gap:9px;border-bottom:1px solid #c9d8c4}
-.concept-lab .assistant-heading .chat-reset{position:static;margin:0;width:28px;height:28px;display:grid;place-items:center;border-radius:7px}
-.concept-lab .assistant-heading .panel-collapse{position:static;margin:0}
 .concept-lab .chat-scroll{min-height:0;overscroll-behavior:contain;scroll-padding-block:18px}
 .chat-transcript{display:flow-root;min-width:0}
 .concept-lab :is(.chat-form,.assistant-disclaimer){flex:none}
-@media(min-width:1101px){.concept-spatial .assistant-heading{grid-template-columns:33px minmax(0,1fr) 28px 28px}}
 @media(max-width:1100px){
  .concept-lab>.student-compare-launch{display:none}
  .concept-lab .mobile-tabs .mobile-compare-launch{flex:0 0 auto;padding-inline:10px;border:1px solid #9eb9a14d;background:var(--brand-soft);color:var(--primary)}
 }
+
+/* Shared geometry keeps panel controls aligned without absolute positioning. */
+.concept-lab .list-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:16px;padding-right:0;padding-bottom:16px}
+.concept-lab .list-heading-copy{min-width:0}
+.concept-lab .list-heading p:last-child{font-size:12px;line-height:1.6}
+.concept-lab .panel-heading-actions{display:flex;align-items:center;gap:var(--control-gap);flex:none}
+.concept-lab .list-heading-actions{flex-direction:column}
+.concept-lab .panel-heading-actions>button{position:static;flex:none;align-items:center;justify-content:center;width:var(--control-size);height:var(--control-size);min-width:var(--control-size);min-height:var(--control-size);margin:0;padding:0;border:1px solid var(--border);border-radius:var(--control-radius);color:var(--ink-secondary);background:transparent;opacity:1}
+.concept-lab .panel-heading-actions>button:not(.panel-collapse){display:inline-flex}
+.concept-lab .panel-heading-actions>button:disabled{opacity:.4}
+.concept-lab .panel-heading-actions>button[aria-pressed=true]{background:var(--primary);border-color:var(--primary);color:var(--background)}
+.concept-lab .panel-heading-actions svg{width:18px;height:18px;stroke-width:1.8}
+.concept-lab .assistant-heading{flex:none;display:grid;grid-template-columns:32px minmax(0,1fr) auto;align-items:center;min-height:88px;padding:16px;gap:12px;border-bottom:1px solid #c9d8c4}
+.concept-lab .assistant-heading-copy{min-width:0}
+.concept-lab .assistant-heading h2{font-size:14px;line-height:1.4;text-wrap:balance}
+.concept-lab .assistant-heading p{font-size:11px;line-height:1.5;margin-top:4px}
+.concept-lab .assistant-heading .panel-heading-actions{flex:0 0 auto}
+.concept-lab .assistant-heading .assistant-icon{width:32px;height:32px}
+.concept-lab .assistant-panel{--focus-ring:#275944}
+.concept-lab .assistant-heading .panel-heading-actions>button{border-color:#afc3a7;color:#365e45}
+.concept-lab .chat-message{font-size:14px;line-height:1.8;padding:14px 16px}
+.concept-lab .chat-scroll{padding:20px 16px;scrollbar-gutter:stable}
+.concept-lab .welcome p,.concept-lab .suggestions>button{font-size:13px;line-height:1.65}
+.concept-lab .suggestions>button{padding:12px 8px;min-height:44px}
+.concept-lab .suggestions>button>svg{flex:none}
+.concept-lab .chat-form{margin:12px 12px 0;padding:12px}
+.concept-lab .chat-form textarea{font-size:14px;line-height:1.6;min-height:64px}
+.concept-lab .chat-form>div{gap:8px}
+.concept-lab .chat-form>div>span{font-size:11px;line-height:1.5;min-width:0}
+.concept-lab .chat-form button{flex:none;width:36px;height:36px}
+.concept-lab .assistant-disclaimer{font-size:10px;line-height:1.6;padding:12px 16px 16px}
+.concept-lab .listing-title>button:first-child{font-size:17px;line-height:1.4}
+.concept-lab .listing-title{align-items:center;gap:12px}
+.concept-lab .locate-button{flex:none;min-width:36px;min-height:36px;border-radius:9px}
+.concept-lab .listing-tags{flex-wrap:wrap;gap:4px 8px}
+.concept-lab .listing-tags span,.concept-lab .listing-tags span:first-child{font-size:12px}
+.concept-lab .price small{font-size:12px}
+.concept-lab .listing-image .photo-tag{max-width:calc(100% - 64px);font-size:12px;line-height:1.4}
+.concept-lab .listing-card .photo-arrow{width:36px;height:36px}
+.concept-lab .workspace-tools{gap:8px}
+.concept-lab .workspace-tools>button{min-height:36px;font-size:12px;padding:8px 12px}
+.concept-lab .workspace-tools>button:not(:has(span)){width:36px;padding:0}
+.concept-lab .workspace-restore{min-height:36px;padding-block:8px}
+.concept-lab .workspace-layers>summary{min-height:40px;gap:8px;font-size:13px}
+.concept-lab :is(.workspace-layers,.map-journey-shell,.map-controls,.map-selected){--focus-ring:#275944}
+.concept-lab .workspace-layers>summary:focus-visible{outline-color:#275944}
+.concept-lab :is(.map-marker-button,.map-campus-marker button):focus-visible{outline-color:#275944}
+.concept-lab .workspace-layers .amenity-filters label{min-height:44px;font-size:13px;gap:6px;padding:8px}
+.concept-lab .workspace-layers .amenity-filters input{width:15px;height:15px;flex:none}
+.concept-lab .workspace-layers .amenity-tools{gap:8px;flex-wrap:wrap}
+.concept-lab .workspace-layers .amenity-tools button{min-height:36px;font-size:12px}
+.concept-lab .workspace-layers .amenity-status{font-size:12px;line-height:1.5;flex-wrap:wrap}
+.concept-lab .map-controls{width:40px}
+.concept-lab .map-controls button{width:40px;height:40px}
+.student-dialog{--focus-ring:#275944;--primary:#275944}
+.student-dialog>[data-slot=dialog-title]{padding-right:44px;line-height:1.4}
+.concept-destination>[data-slot=dialog-title]{padding-right:44px}
+.concept-detail :is([data-slot=dialog-description],.detail-row p,.detail-note){font-size:13px;line-height:1.7}
+.concept-detail .detail-row h3{font-size:14px;line-height:1.5}
+.concept-detail :is(.primary-button,.secondary-button){font-size:13px;min-height:44px}
+.concept-detail.concept-dialog-spatial .price{font-family:'Atlas Manrope',sans-serif;font-weight:600;font-variant-numeric:tabular-nums}
+.student-dialog :is(button,input,select,textarea,a,[role=tabpanel]):focus-visible{outline:2px solid #275944;outline-offset:3px}
+.student-dialog .student-tabs{gap:8px;scroll-padding-inline:4px;scrollbar-width:thin}
+.student-dialog .student-tabs button{min-height:44px}
+.student-dialog :is(.student-note,.student-buildings small,.student-summary-list small){color:#4d6858;font-size:12px;line-height:1.65}
+.student-dialog .student-buildings strong{font-size:14px}
+.student-dialog :is(.primary-button,.secondary-button){min-height:44px}
+:is(.student-dialog,.concept-detail,.concept-destination)>[data-slot=dialog-close]{width:36px;height:36px;display:inline-flex;align-items:center;justify-content:center;top:12px;right:12px;padding:0;border-radius:9px;opacity:1;background:#e5eddf;color:#315b43}
+@media(hover:hover) and (pointer:fine){
+ .concept-lab .panel-heading-actions>button:not(:disabled):hover{background:var(--brand-soft);color:var(--foreground)}
+ .concept-lab .panel-heading-actions>button[aria-pressed=true]:hover{background:var(--primary);color:var(--background)}
+ .concept-lab .assistant-heading .panel-heading-actions>button:not(:disabled):hover{background:#c5d9be;color:#244b34}
+ .concept-lab .suggestions>button>svg{transition:transform var(--motion-fast) ease-out}
+ .concept-lab .suggestions>button:hover>svg{transform:translateX(3px)}
+}
+/* Reveal information near its trigger; never replay entrances on every chat token. */
+@keyframes atlas-surface-reveal{from{opacity:.45;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:no-preference){
+ .workspace-layers[open] .workspace-layer-body,.map-journey-shell.is-expanded .journey-body{animation:atlas-surface-reveal 180ms cubic-bezier(.16,1,.3,1)}
+}
+@media(min-width:1101px){
+ .concept-lab .searchbar small{font-size:11px}
+ .concept-lab .searchbar strong{font-size:13px;line-height:1.5}
+ .concept-lab .filter-controls :is([data-slot=select-trigger],.filter-button){height:38px;min-height:38px;font-size:12px}
+ .concept-lab .main-nav>button{font-size:12px;min-height:36px}
+}
+@media(max-width:1100px){
+ .concept-lab .list-heading-actions{flex-direction:row}
+ .concept-lab .assistant-heading{min-height:80px}
+ .concept-lab .mobile-tabs button{height:44px;font-size:13px}
+}
+@media(max-width:600px){
+ .concept-lab{--control-size:44px}
+ .concept-lab .list-heading{gap:12px;padding-bottom:16px}
+ .concept-lab .list-heading h1{font-size:26px;line-height:1.25}
+ .concept-lab .list-heading h1 em{display:block;margin-left:0}
+ .concept-lab .header-end{gap:8px}
+ .concept-lab .language-switch button{min-height:40px;min-width:28px;font-size:11px}
+ .concept-lab .header-end [data-slot=button]{min-height:40px;height:40px;font-size:11px}
+ .concept-lab .student-launch{min-width:40px;min-height:40px}
+ .concept-lab .searchbar small{font-size:11px}
+ .concept-lab .filter-controls [data-slot=select-trigger],html[lang=en] .concept-lab .filter-controls [data-slot=select-trigger]{height:44px;min-height:44px;font-size:12px}
+ .concept-lab .filter-controls .filter-button{width:44px;min-width:44px;height:44px;min-height:44px}
+ .concept-lab .chat-form textarea{font-size:16px}
+ .concept-lab .chat-form button,.concept-lab .locate-button,.concept-lab .listing-card .save-button,.concept-lab .listing-card .photo-arrow{width:44px;height:44px}
+ .concept-lab .map-controls{width:44px;right:12px}
+ .concept-lab .map-controls button{width:44px;height:44px}
+ .concept-lab .workspace-layers>summary{min-height:44px}
+ .concept-lab .workspace-layers .amenity-tools button{min-height:44px}
+ .concept-lab .assistant-heading{grid-template-columns:32px minmax(0,1fr) auto;gap:12px;padding:16px}
+ .concept-lab .assistant-heading h2{font-size:15px}
+ .concept-lab .assistant-heading p{font-size:12px}
+ :is(.student-dialog,.concept-detail,.concept-destination)>[data-slot=dialog-close]{width:44px;height:44px;top:8px;right:8px}
+}
+@media(max-width:360px){
+ .concept-lab .topbar{padding-inline:12px;gap:8px}
+ .concept-lab .brand{gap:6px}
+ .concept-spatial .concept-wordmark{font-size:14px}
+ .concept-lab .header-end{gap:4px}
+}
+@media(prefers-reduced-motion:reduce){.concept-lab .suggestions>button:hover>svg{transform:none}}

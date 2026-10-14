@@ -7,7 +7,7 @@ import { useRentalWebMCP } from "@/lib/use-rental-webmcp";
 import { LanguageSwitch } from "@/components/language-switch";
 import { AccountMenu } from "@/components/account-menu";
 import { emptyFilters, matchesFilters, type Filters } from "@/lib/assistant";
-import { ArrowDownUp, ArrowRight, ChevronDown, ChevronLeft, ChevronRight, Compass, Footprints, GraduationCap, Heart, MapPin, Search, Play, Square, ArrowUpRight, Layers3, PanelLeftClose, PanelRightClose, PanelLeftOpen, PanelRightOpen, Maximize2, Minimize2, RotateCcw, LocateFixed } from "lucide-react";
+import { ArrowDownUp, ArrowRight, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Compass, Footprints, GraduationCap, Heart, MapPin, Search, Play, Square, ArrowUpRight, Layers3, PanelLeftClose, PanelRightClose, PanelLeftOpen, PanelRightOpen, Maximize2, Minimize2, RotateCcw, LocateFixed } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import CityMap from "./concept-city-map";
@@ -102,6 +102,7 @@ export default function DesignLab({preview = true}: {preview?: boolean}) {
   const library = usePersonalLibrary();
   const saved = Object.keys(library.favorites).filter(id=>library.favorites[id].saved);
   const [onlySaved, setOnlySaved] = useState(false);
+  const [preferencesCollapsed, setPreferencesCollapsed] = useState(false);
   const [mobileTab, setMobileTab] = useState("list");
   const workspace = useWorkspaceLayout();
   const listHidden = variant === "spatial" && workspace.listHidden, chatHidden = variant === "spatial" && workspace.chatHidden;
@@ -244,10 +245,18 @@ export default function DesignLab({preview = true}: {preview?: boolean}) {
       <div className="main-nav"><button className={!onlySaved ? "active" : ""} onClick={() => setOnlySaved(false)}>{t("发现新家")}</button><button onClick={() => setOnlySaved(v => !v)} className={onlySaved ? "active" : ""}>{t("我的收藏")} <span>{saved.length}</span></button></div>
       <div className="header-end"><span className="sample-badge">{words("留学生活，从这里开始","A place for your next chapter")}</span><button className="student-launch" onClick={()=>setPlannerOpen(true)} aria-label={words("打开留学规划","Open student planner")}><GraduationCap size={18}/><span>{words("留学规划","Planner")}</span></button><LanguageSwitch/><AccountMenu/></div>
     </header>
-    <section className="searchbar" aria-label={t("找房条件")}>
+    <section className={`rental-preferences ${preferencesCollapsed ? "is-collapsed" : ""}`} aria-label={t("找房条件")}>
+    <div id="rental-preferences-fields" className="searchbar" hidden={preferencesCollapsed}>
       <button className="location-switch" onClick={() => { setPicker(true); }}><span className="flag">{city.flag}</span><span><small>{t("国家 / 城市")}</small><strong>{cityView.country} · {cityView.name}</strong></span><ChevronDown size={16}/></button>
       <button className="campus-select" onClick={()=>setPlannerOpen(true)} aria-label={words("选择大学楼栋与通勤条件","Choose campus destination and commute")}><GraduationCap size={23}/><span><small>{student.destinationId?words("通勤目的地","Commute destination"):t("你的大学")}</small><strong>{buildingById(student.destinationId)?.name??cityView.university}</strong></span><span className="campus-label">{cityView.campus}</span></button>
       <div className="filter-controls"><Select value={filters.budget?.toString() ?? "all"} onValueChange={v => changeFilters({...filters, budget:v === "all" ? null : Number(v)})}><SelectTrigger aria-label={t("预算")}><SelectValue placeholder={t("租金预算")}/></SelectTrigger><SelectContent className="concept-select"><SelectItem value="all">{t("租金不限")}</SelectItem>{Array.from(new Set([...city.prices, ...(filters.budget ? [filters.budget] : [])])).sort((a,b)=>a-b).map(p => <SelectItem key={p} value={p.toString()}>≤ {city.currency}{p.toLocaleString("en-US")} / {cityView.period}</SelectItem>)}</SelectContent></Select><Select value={roomType} onValueChange={setRoomType}><SelectTrigger aria-label={t("房型")}><SelectValue/></SelectTrigger><SelectContent className="concept-select"><SelectItem value="all">{t("全部房型")}</SelectItem>{["独卫单间", "独立 Studio", "合租单间"].map(v => <SelectItem key={v} value={v}>{t(v)}</SelectItem>)}</SelectContent></Select><button className="filter-button" aria-label={onlySaved ? t("已收藏") : t("收藏房源")} aria-pressed={onlySaved} onClick={() => setOnlySaved(v => !v)}><Heart size={17} fill={onlySaved ? "currentColor" : "none"}/><span>{onlySaved ? t("已收藏") : t("收藏房源")}</span></button></div>
+    </div>
+    <div className="preferences-summary" hidden={!preferencesCollapsed}>
+      <span className="preferences-location" title={`${cityView.country} · ${cityView.name}`}><span aria-hidden="true">{city.flag}</span><strong>{cityView.name}</strong></span>
+      <span className="preferences-destination" title={buildingById(student.destinationId)?.name??cityView.university}><GraduationCap size={16}/><span>{buildingById(student.destinationId)?.name??cityView.university}</span></span>
+      {onlySaved&&<span className="preferences-saved"><Heart size={14}/>{words("仅看收藏","Saved only")}</span>}
+    </div>
+    <button className="preferences-toggle" aria-controls="rental-preferences-fields" aria-expanded={!preferencesCollapsed} aria-label={preferencesCollapsed?words("展开筛选条件","Expand rental filters"):words("收起筛选条件","Collapse rental filters")} title={preferencesCollapsed?words("展开筛选条件","Expand rental filters"):words("收起筛选条件","Collapse rental filters")} onClick={()=>setPreferencesCollapsed(value=>!value)}><span>{preferencesCollapsed?words("展开筛选","Filters"):words("收起","Hide")}</span><ChevronUp size={16}/></button>
     </section>
     {student.compareIds.length>0&&listHidden&&<button className="student-compare-launch" onClick={()=>setComparisonOpen(true)}>{words("对比公寓","Compare homes")} · {student.compareIds.length}/3</button>}
     <nav className="mobile-tabs" aria-label={t("切换面板")}>{[["list",t("房源")],["map",t("城市")],["chat",t("助手")]].map(([id,label]) => <button key={id} className={mobileTab === id ? "active" : ""} onClick={() => setMobileTab(id)}>{label}</button>)}{student.compareIds.length>0&&<button className="mobile-compare-launch" aria-label={`${words("对比公寓","Compare homes")} · ${student.compareIds.length}/3`} onClick={()=>setComparisonOpen(true)}>{words("对比","Compare")} {student.compareIds.length}</button>}</nav>

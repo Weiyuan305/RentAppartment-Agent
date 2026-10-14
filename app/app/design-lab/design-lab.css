@@ -744,3 +744,42 @@
 .concept-lab .listing-panel--compact .list-meta strong{font-weight:600;color:var(--foreground)}
 .concept-lab .listing-title+.listing-price-row{margin-top:2px}
 .concept-lab .listing-panel--compact .listing-tags{margin-top:6px}
+
+/* The filter disclosure retains its button and form state in both layouts. */
+.concept-lab .rental-preferences{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;flex:none;min-height:66px;margin:0 24px;padding:8px 0 14px;border-bottom:1px solid var(--border)}
+.concept-lab .rental-preferences .searchbar{min-width:0;min-height:0;margin:0;padding:0;border:0}
+.concept-lab .rental-preferences [hidden]{display:none}
+.concept-lab .rental-preferences .campus-select>span{min-width:0;text-align:left}
+.concept-lab .rental-preferences .campus-select strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.concept-lab .preferences-toggle{display:flex;align-items:center;justify-content:center;gap:6px;height:38px;min-height:38px;padding:7px 10px;border:1px solid var(--border);border-radius:var(--control-radius);font-size:12px;color:var(--ink-secondary);white-space:nowrap}
+.concept-lab .rental-preferences .filter-controls :is([data-slot=select-trigger],.filter-button){height:38px;min-height:38px}
+.concept-lab .preferences-toggle svg{transition:transform 160ms var(--ease-out)}
+.concept-lab .rental-preferences.is-collapsed{min-height:44px;padding:0;gap:12px}
+.concept-lab .is-collapsed .preferences-toggle{margin:0;border-color:transparent}
+.concept-lab .is-collapsed .preferences-toggle svg{transform:rotate(180deg)}
+.concept-lab .preferences-summary{display:flex;align-items:center;gap:18px;min-width:0;font-size:12px;color:var(--muted-foreground)}
+.concept-lab .preferences-location{display:flex;align-items:center;gap:8px;flex:none;color:var(--foreground)}
+.concept-lab .preferences-location strong{font-weight:600}
+.concept-lab .preferences-destination{display:flex;align-items:center;gap:7px;min-width:0}
+.concept-lab .preferences-destination>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.concept-lab .preferences-saved{display:flex;align-items:center;gap:6px;flex:none;color:var(--primary)}
+@media(max-width:1400px){.concept-lab .rental-preferences{margin-inline:22px}}
+@media(max-width:1100px){
+ .concept-lab .rental-preferences{margin-inline:20px;padding:12px 0;gap:12px}
+ .concept-lab .preferences-toggle{align-self:start}
+ .concept-lab .rental-preferences.is-collapsed .preferences-toggle{align-self:center;margin:0}
+}
+@media(max-width:600px){
+ .concept-lab .rental-preferences{position:relative;margin-inline:14px;padding:8px 0 12px;display:block}
+ .concept-lab .rental-preferences .location-switch{min-width:0;max-width:calc(100% - 76px);flex:0 0 calc(100% - 76px);min-height:44px}
+ .concept-lab .rental-preferences .location-switch>span:nth-child(2){min-width:0}
+ .concept-lab .rental-preferences .location-switch strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+ .concept-lab .preferences-toggle{position:absolute;right:0;top:8px;height:44px;min-height:44px;margin:0;padding-inline:8px}
+ .concept-lab .rental-preferences .filter-controls :is([data-slot=select-trigger],.filter-button){height:44px;min-height:44px}
+ .concept-lab .rental-preferences.is-collapsed{display:grid;grid-template-columns:minmax(0,1fr) auto;min-height:52px;gap:8px}
+ .concept-lab .is-collapsed .preferences-toggle{position:static}
+ .concept-lab .preferences-summary{flex-wrap:wrap;gap:2px 10px;padding-block:6px}
+ .concept-lab .preferences-location{font-size:12px}
+ .concept-lab .preferences-destination{order:3;flex-basis:100%;font-size:11px}
+ .concept-lab .preferences-saved{font-size:11px}
+}

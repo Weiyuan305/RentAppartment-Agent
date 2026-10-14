@@ -3,6 +3,7 @@ import { cookies } from "next/headers";
 import { validLocale } from "@/lib/i18n";
 import "./globals.css";
 import "../student-experience.css";
+import { PersonalLibraryProvider } from "@/components/personal-library-provider";
 import { LocaleProvider } from "@/components/locale-provider";
 
 export async function generateMetadata():Promise<Metadata> {
@@ -29,7 +30,7 @@ export default async function RootLayout({
   const locale = validLocale(preferred) ? preferred : "zh";
   return (
     <html lang={locale === "en" ? "en" : "zh-CN"}>
-      <body className="antialiased"><LocaleProvider initialLocale={locale}>{children}</LocaleProvider></body>
+      <body className="antialiased"><LocaleProvider initialLocale={locale}><PersonalLibraryProvider>{children}</PersonalLibraryProvider></LocaleProvider></body>
     </html>
   );
 }

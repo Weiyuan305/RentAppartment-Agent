@@ -1,19 +1,21 @@
 import type * as Cesium from "cesium";
 import { metersBetween, type WalkingRoute } from "@/lib/walking-route";
 
+import {visibleSidePanel} from "@/lib/map-marker-density";
+
 type Engine = typeof Cesium;
 
 export function fitConceptRoute(C: Engine, viewer: Cesium.Viewer, route: Pick<WalkingRoute,"coordinates">, container: HTMLDivElement | null, heading = 0) {
   const sphere = C.BoundingSphere.fromPoints(C.Cartesian3.fromDegreesArray(route.coordinates.flat()));
   const bounds = container?.getBoundingClientRect();
   if (bounds && (bounds.width < 2 || bounds.height < 2)) return;
-  const panel = container?.parentElement?.querySelector(".map-route, .map-amenity-selected, .map-transit")?.getBoundingClientRect();
+  const panel = container?.parentElement?.querySelector(".map-journey-shell, .map-route, .map-amenity-selected, .map-transit")?.getBoundingClientRect();
   const disclosure = container?.parentElement?.querySelector<HTMLDetailsElement>(".concept-amenity-disclosure");
-  const toolbar = (disclosure && !disclosure.open ? disclosure.querySelector("summary") : container?.parentElement?.querySelector(".amenity-filters"))?.getBoundingClientRect();
+  const toolbar = (disclosure && !disclosure.open ? disclosure.querySelector("summary") : disclosure?.querySelector(".workspace-layer-body"))?.getBoundingClientRect();
   const lab = container?.closest(".concept-lab");
   const controls = container?.parentElement?.querySelector(".map-controls")?.getBoundingClientRect();
-  const leftPanel = lab?.querySelector(".listing-panel")?.getBoundingClientRect();
-  const rightPanel = lab?.querySelector(".assistant-panel")?.getBoundingClientRect();
+  const leftPanel = visibleSidePanel(lab ?? null,".listing-panel");
+  const rightPanel = visibleSidePanel(lab ?? null,".assistant-panel");
   const floating = lab?.classList.contains("concept-spatial") && window.innerWidth > 1100;
   const width = bounds?.width || 600, height = bounds?.height || 500;
   const freeLeft = floating && bounds && leftPanel ? leftPanel.right-bounds.left+20 : 15;

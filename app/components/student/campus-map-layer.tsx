@@ -1,4 +1,5 @@
 "use client";
+import {chooseMapMarkers, mapOccluders, markerOverlaps, type MarkerCandidate} from "@/lib/map-marker-density";
 import { buildingCatchment } from "@/lib/student/catchments";
 import { useEffect, useMemo, useRef } from "react";
 import { Building2, BookOpen, Utensils, GraduationCap } from "lucide-react";
@@ -52,6 +53,7 @@ export default function CampusMapLayer({
         root.current.dataset.detailed = String(
           viewer.camera.positionCartographic.height < 850,
         );
+      const candidates: MarkerCandidate[] = [], occluders = mapOccluders(viewer.canvas);
       for (const b of buildings) {
         const node = nodes.current.get(b.id);
         if (!node) continue;
@@ -81,15 +83,22 @@ export default function CampusMapLayer({
           p.x <= viewer.canvas.clientWidth &&
           p.y <= viewer.canvas.clientHeight;
         node.style.visibility = visible ? "visible" : "hidden";
-        if (visible && p)
+        if (visible && p) {
           node.style.transform = `translate3d(${Math.round(p.x)}px,${Math.round(p.y)}px,0)`;
+          const button=node.querySelector("button")!, width=button.offsetWidth, height=button.offsetHeight;
+          const box={left:p.x-width/2,right:p.x+width/2,top:p.y-height,bottom:p.y};
+          const pinned=b.id===plan.destinationId || node.contains(document.activeElement);
+          if(pinned || !occluders.some(other=>markerOverlaps(box,other,6)))candidates.push({...box,id:b.id,priority:b.category==="library"?3:b.category==="services"?2:0,pinned});
+        }
       }
+      const kept=chooseMapMarkers(candidates,viewer.camera.positionCartographic.height>1800?8:viewer.camera.positionCartographic.height>850?14:24,14);
+      for(const b of buildings) {const node=nodes.current.get(b.id);if(node&&!kept.has(b.id))node.style.visibility="hidden";}
     }
     const remove = viewer.scene.postRender.addEventListener(project);
     project();
     viewer.scene.requestRender();
     return () => remove();
-  }, [scene, buildings]);
+  }, [scene, buildings, plan.destinationId]);
   useEffect(() => {
     if (!scene || scene.viewer.isDestroyed()) return;
     const { C, viewer } = scene,
@@ -173,7 +182,7 @@ export default function CampusMapLayer({
               title={b.name}
               aria-label={`${locale === "zh" ? "校园楼栋" : "Campus building"}: ${b.name}`}
               aria-pressed={b.id === plan.destinationId}
-              onClick={() => onSelect(b.id)}
+              onFocus={() => scene.viewer.scene.requestRender()} onBlur={() => scene.viewer.scene.requestRender()} onClick={() => onSelect(b.id)}
             >
               <Icon size={16} strokeWidth={1.8} />
               <span>{b.name}</span>

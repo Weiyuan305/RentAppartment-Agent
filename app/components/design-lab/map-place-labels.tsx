@@ -8,6 +8,8 @@ import { amenityInfo, type Amenity } from "@/lib/amenities";
 import { amenityIconNodes } from "@/lib/amenity-icons";
 import { priceLabel, type City, type Listing } from "@/lib/rental-data";
 
+import {chooseMapMarkers, mapOccluders, markerOverlaps, visibleSidePanel, type MarkerCandidate} from "@/lib/map-marker-density";
+
 export type LabelScene = {C: typeof Cesium; viewer: Cesium.Viewer};
 type PlaceLabel = {id: string; kind: "listing" | "campus" | "place"; lng: number; lat: number; text: string; name: string};
 
@@ -15,7 +17,7 @@ export function fitMapLabelTarget({C,viewer}: LabelScene, lng: number, lat: numb
   if (viewer.isDestroyed()) return;
   const canvas=viewer.canvas.getBoundingClientRect(), panel=viewer.canvas.closest(".city-panel");
   const tools=panel?.querySelector(".concept-amenity-disclosure")?.getBoundingClientRect();
-  const card=panel?.querySelector(".map-selected,.map-amenity-selected,.map-route,.map-transit")?.getBoundingClientRect();
+  const card=panel?.querySelector(".map-journey-shell,.map-selected,.map-amenity-selected,.map-route,.map-transit")?.getBoundingClientRect();
   const top=tools ? tools.bottom-canvas.top+20 : 100;
   const bottom=card ? Math.max(top+45,card.top-canvas.top-15) : canvas.height-110;
   const tangent=viewer.camera.frustum instanceof C.PerspectiveFrustum ? Math.tan((viewer.camera.frustum.fovy ?? Math.PI/3)/2) : .58;
@@ -30,23 +32,30 @@ export function fitMapLabelTarget({C,viewer}: LabelScene, lng: number, lat: numb
       const anchor=C.SceneTransforms.worldToWindowCoordinates(viewer.scene,C.Cartesian3.fromDegrees(lng,lat,(settled ?? 0)+3));
       // Reserve room above the anchor for the label, including newly loaded roof geometry.
       const target=top+(bottom-top)*.72;
+      const root=viewer.canvas.closest(".concept-lab");
+      const left=visibleSidePanel(root,".listing-panel"), right=visibleSidePanel(root,".assistant-panel");
+      if(root?.classList.contains("concept-spatial") && window.innerWidth>1100) {
+        const freeLeft=left ? left.right-canvas.left+20 : 20, freeRight=right ? right.left-canvas.left-20 : canvas.width-20;
+        viewer.camera.moveRight((canvas.width/2-(freeLeft+freeRight)/2)/canvas.height*2*range*tangent);
+      }
       viewer.camera.moveDown(((anchor?.y ?? canvas.height/2)-target)/canvas.height*2*range*tangent);
       viewer.scene.requestRender();
     },
   });
 }
 
-export default function MapPlaceLabels({scene, city, listings, selected, place, routeActive, hideCampus=false,onSelect, onCampus, onPlace}: {
+export default function MapPlaceLabels({scene, city, listings, selected, place, routeActive, hideCampus=false,hovered,onHover,onSelect, onCampus, onPlace}: {
   scene: LabelScene | null; city: City; listings: Listing[]; selected: string; place?: Amenity; routeActive: boolean;hideCampus?:boolean;
+  hovered: string | null; onHover: (id: string | null) => void;
   onSelect: (id: string) => void; onCampus: () => void; onPlace: (id: string) => void;
 }) {
   const {locale} = useLocale();
   const nodes = useRef(new Map<string, HTMLDivElement>());
   const labels = useMemo<PlaceLabel[]>(()=>[
-    ...(!routeActive ? listings.map(l=>({id:l.id,kind:"listing" as const,lng:l.lng,lat:l.lat,text:priceLabel(l),name:l.name})) : []),
+    ...((!routeActive ? listings : listings.filter(l=>l.id===selected)).map(l=>({id:l.id,kind:"listing" as const,lng:l.lng,lat:l.lat,text:priceLabel(l),name:l.name}))),
     ...(!routeActive&&!hideCampus ? [{id:"campus",kind:"campus" as const,lng:city.lng,lat:city.lat,text:displayCity(city,locale).university,name:displayCity(city,locale).university}] : []),
     ...(place ? [{id:place.id,kind:"place" as const,lng:place.lng,lat:place.lat,text:place.name,name:place.name}] : []),
-  ],[city,listings,locale,place,routeActive,hideCampus]);
+  ],[city,listings,locale,place,routeActive,hideCampus,selected]);
 
   useEffect(()=>{
     if (!scene || scene.viewer.isDestroyed()) return;
@@ -85,6 +94,13 @@ export default function MapPlaceLabels({scene, city, listings, selected, place, 
           layouts.set(label.id,{left:Math.round(p.x)-anchor.offsetWidth/2,top:bottom-anchor.offsetHeight,right:Math.round(p.x)+anchor.offsetWidth/2,bottom,node});
         }
       }
+      const occluders=mapOccluders(viewer.canvas), candidates:MarkerCandidate[]=[];
+      for(const [id,box] of layouts) {
+        const pinned=id===selected || id===place?.id || box.node.contains(document.activeElement);
+        if(pinned || !occluders.some(other=>markerOverlaps(box,other,4))) candidates.push({...box,id,priority:id===hovered?10:0,pinned});
+      }
+      const kept=chooseMapMarkers(candidates,viewer.camera.positionCartographic.height>2500 ? 5 : 10,12);
+      for(const [id,box] of layouts) if(!kept.has(id))box.node.style.visibility="hidden";
       const price=layouts.get(selected), poi=place && layouts.get(place.id);
       const overlaps=(a:{left:number;top:number;right:number;bottom:number},b:{left:number;top:number;right:number;bottom:number})=>a.left<b.right+6 && a.right>b.left-6 && a.top<b.bottom+6 && a.bottom>b.top-6;
       if (price && poi && overlaps(price,poi)) {
@@ -108,18 +124,19 @@ export default function MapPlaceLabels({scene, city, listings, selected, place, 
     const remove=viewer.scene.postRender.addEventListener(positionLabels);
     positionLabels();
     return ()=>remove();
-  },[scene,labels,selected,place,routeActive]);
+      viewer.scene.requestRender();
+  },[scene,labels,selected,place,routeActive,hovered]);
 
   if (!scene) return null;
   return <div className="map-screen-labels" aria-label={locale==="zh" ? "地图地点标记" : "Map place markers"}>
     {labels.map(label=>{
       const active=label.kind==="listing" && label.id===selected;
       const prefix=locale==="zh" ? {listing:"地图房源",campus:"地图大学",place:"地图设施"} : {listing:"Map apartment",campus:"Map university",place:"Map amenity"};
-      return <div key={label.id} ref={node=>{if(node)nodes.current.set(label.id,node);else nodes.current.delete(label.id);}} className={`map-screen-marker ${active ? "is-selected" : ""} ${label.kind} ${routeActive ? "on-route" : ""}`} style={{visibility:"hidden"}}>
+      return <div key={label.id} ref={node=>{if(node)nodes.current.set(label.id,node);else nodes.current.delete(label.id);}} className={`map-screen-marker ${active ? "is-selected" : ""} ${hovered===label.id ? "is-linked" : ""} ${label.kind} ${routeActive ? "on-route" : ""}`} style={{visibility:"hidden"}}>
         {label.kind==="place" && <svg className="map-marker-leader" width="1" height="1" aria-hidden="true"><line x1="0" y1="0"/><circle cx="0" cy="0" r="2"/></svg>}
         <div className="map-marker-anchor"><button className="map-marker-button" title={label.name} aria-label={`${prefix[label.kind]}: ${label.name}${label.kind==="listing" ? `, ${label.text}` : ""}`} aria-pressed={label.kind==="listing" ? active : undefined}
           style={label.kind==="place" && place ? {"--marker-accent":amenityInfo[place.category].color} as CSSProperties : undefined}
-          onClick={()=>{if(label.kind==="listing")onSelect(label.id);else if(label.kind==="campus")onCampus();else onPlace(label.id);}}>
+          onPointerEnter={()=>{if(label.kind==="listing")onHover(label.id);}} onPointerLeave={()=>onHover(null)} onFocus={()=>{if(label.kind==="listing")onHover(label.id);}} onBlur={()=>onHover(null)} onClick={()=>{if(label.kind==="listing")onSelect(label.id);else if(label.kind==="campus")onCampus();else onPlace(label.id);}}>
           {label.kind==="campus" && <GraduationCap size={17} strokeWidth={1.8}/>}
           {label.kind==="place" && place && <Icon iconNode={amenityIconNodes[place.category]} size={17} strokeWidth={1.8}/>}
           <span className="map-marker-copy">{label.text}</span>

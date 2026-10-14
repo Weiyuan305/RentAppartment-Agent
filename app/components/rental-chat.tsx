@@ -1,6 +1,6 @@
 "use client";
 import { useLocale } from "@/components/locale-provider";
-import { lazy, Suspense, useEffect, useRef, useState } from "react";
+import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { ArrowRight, ArrowUp, LoaderCircle, Sparkles, Square, RotateCcw } from "lucide-react";
@@ -11,7 +11,7 @@ import { displayCity } from "@/lib/i18n";
 import type { City } from "@/lib/rental-data";
 const AssistantMarkdown = lazy(() => import("./assistant-markdown").then(module => ({default: module.AssistantMarkdown})));
 
-export default function RentalChat({city, state, uiRevision, onState}: {city: City; state: RentalState; uiRevision: number; onState: (state: RentalState) => void}) {
+export default function RentalChat({city, state, uiRevision, onState, collapsed = false, headerControl, onReplyReady}: {collapsed?: boolean; headerControl?: ReactNode; onReplyReady?: () => void; city: City; state: RentalState; uiRevision: number; onState: (state: RentalState) => void}) {
   const {t, locale} = useLocale();
   const [session, setSession] = useState<RentalSession | null>(null);
   const [agentStatus, setAgentStatus] = useState<AgentStatus | null>(null);
@@ -20,8 +20,8 @@ export default function RentalChat({city, state, uiRevision, onState}: {city: Ci
   const [previewing, setPreviewing] = useState(false);
   const [retrying, setRetrying] = useState(false);
   const end = useRef<HTMLDivElement>(null);
-  const current = useRef({state, uiRevision, onState, locale});
-  useEffect(() => {current.current = {state, uiRevision, onState, locale};}, [state, uiRevision, onState, locale]);
+  const current = useRef({state, uiRevision, onState, locale, onReplyReady});
+  useEffect(() => {current.current = {state, uiRevision, onState, locale, onReplyReady};}, [state, uiRevision, onState, locale, onReplyReady]);
   const sessionRef = useRef<RentalSession | null>(null);
   const request = useRef<{id: string; revision: number; retry?: boolean} | null>(null);
   const savedState = useRef("");
@@ -50,8 +50,8 @@ export default function RentalChat({city, state, uiRevision, onState}: {city: Ci
       if (data.phase === "start") return;
       current.current.onState(next);
     },
-    onError: error => {if (!disposed.current) setNotice(Object.values(replyNotices).includes(error.message) ? error.message : t("对话暂时无法完成，可以重试这条消息；已完成的工具结果会保留。"));},
-    onFinish: ({isAbort}) => {if (isAbort && !disposed.current) setNotice(replyNotices.stopped);},
+    onError: error => {if (!disposed.current) {setNotice(Object.values(replyNotices).includes(error.message) ? error.message : t("对话暂时无法完成，可以重试这条消息；已完成的工具结果会保留。"));current.current.onReplyReady?.();}},
+    onFinish: ({isAbort}) => {if (!disposed.current) {if(isAbort)setNotice(replyNotices.stopped);else current.current.onReplyReady?.();}},
   });
   const {setMessages, stop} = chat;
   const busy = chat.status === "streaming" || chat.status === "submitted" || previewing || retrying;
@@ -75,7 +75,10 @@ export default function RentalChat({city, state, uiRevision, onState}: {city: Ci
     })();
     return () => {disposed.current = true; controller.abort(); void stop();};
   }, [city.id, setMessages, stop]);
-  useEffect(() => {end.current?.scrollIntoView({behavior: "smooth", block: "end"});}, [chat.messages, busy]);
+  useEffect(() => {
+    const scroller = end.current?.closest<HTMLElement>(".chat-scroll");
+    if (!collapsed && scroller) scroller.scrollTo({top:scroller.scrollHeight,behavior:"instant"});
+  }, [chat.messages, busy, collapsed]);
 
   // Persist manual map/filter changes too, after a short debounce. Never race a turn.
   useEffect(() => {
@@ -145,7 +148,7 @@ export default function RentalChat({city, state, uiRevision, onState}: {city: Ci
       if (revision === current.current.uiRevision) {savedState.current = JSON.stringify(payload.session.state); current.current.onState(payload.session.state);}
       else setNotice("页面条件已改变，工具结果没有覆盖当前地图。");
     } catch (error) {if (!disposed.current) setNotice(error instanceof Error ? error.message : t("工具暂时不可用。"));}
-    finally {if (!disposed.current) setPreviewing(false);}
+    finally {if (!disposed.current) {setPreviewing(false);current.current.onReplyReady?.();}}
   }
   async function reset() {
     if (!session || busy) return;
@@ -157,8 +160,8 @@ export default function RentalChat({city, state, uiRevision, onState}: {city: Ci
       sessionRef.current = payload.session; setMessages([]); setNotice(""); chat.clearError();
     } catch {setNotice("暂时无法新建对话，请刷新重试。");}
   }
-  return <aside className="assistant-panel" aria-label={t("找房助手")}>
-    <div className="assistant-heading"><span className="assistant-icon"><Sparkles size={20}/></span><div><h2>{t("你的找房搭子")}</h2><p>{t("对话与地图一起找答案")}</p></div><span className={`assistant-state ${agentStatus?.configured ? "ready" : ""}`}>{agentStatus?.configured ? t("AI 已配置") : t("工具体验")}</span><button className="chat-reset" title={t("新建对话")} aria-label={t("新建对话")} disabled={busy || !session} onClick={reset}><RotateCcw size={14}/></button></div>
+  return <aside id="workspace-chat" className="assistant-panel" inert={collapsed} aria-label={t("找房助手")}>
+    <div className="assistant-heading"><span className="assistant-icon"><Sparkles size={20}/></span><div><h2>{t("你的找房搭子")}</h2><p>{t("对话与地图一起找答案")}</p></div><span className={`assistant-state ${agentStatus?.configured ? "ready" : ""}`}>{agentStatus?.configured ? t("AI 已配置") : t("工具体验")}</span><button className="chat-reset" title={t("新建对话")} aria-label={t("新建对话")} disabled={busy || !session} onClick={reset}><RotateCcw size={14}/></button>{headerControl}</div>
     <div className="chat-scroll" aria-live="polite">
       {!chat.messages.length && <><div className="welcome"><h2>{t("从日常出发，")}<br/>{t("找到合适的新家。")}</h2><p>{t("当前以选中公寓为起点。可以问附近设施、筛选房源，再追问步行路线。")}</p></div><div className="chat-message assistant">{t("你好，未来的{city}同学 👋",{city:displayCity(city,locale).name})}<br/>{t("附近默认是距选中公寓直线 500 米，地点来自校区周边快照。")}</div></>}
       {agentStatus?.configured ? <div className="suggestions">{[t("这套公寓附近500米内有几个便利店？"), t("只显示最近的一家"), t("走过去怎么走？"), t("换成附近的超市"), t("筛选大学步行30分钟内的房源")].map(text => <button key={text} disabled={busy || !session} onClick={() => send(text)}>{text}<ArrowRight size={15}/></button>)}</div> : <div className="agent-setup"><strong>{t("AI 模型待配置")}</strong><p>{t("请在服务器填写 Base URL、模型名称与密钥，并重启服务。以下按钮可先体验真实工具和地图联动。")}</p><a href="/setup#agent" target="_blank" rel="noreferrer">{t("查看模型接入说明 ↗")}</a><div className="suggestions">{[["nearby", t("查询500米内便利店")], ["nearest", t("只显示最近一家")], ["route", t("显示步行路线")], ["supermarket", t("换成附近超市")], ["commute", t("显示到大学路线")]].map(([action, label]) => <button key={action} disabled={busy || !session} onClick={() => preview(action)}>{label}<ArrowRight size={15}/></button>)}</div></div>}

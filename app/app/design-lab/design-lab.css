@@ -512,3 +512,55 @@
 @media(min-width:1500px){.concept-spatial .map-attribution{left:384px;right:384px}}
 @media(max-width:1100px){.concept-spatial .map-attribution{left:18px;right:18px}}
 @media(max-width:600px){.concept-lab .map-attribution{left:12px;right:12px}}
+
+/* Map workspace: panel preferences never change the Cesium canvas dimensions. */
+.panel-collapse{display:none;align-items:center;justify-content:center;flex:none;width:28px;height:28px;border:1px solid currentColor;border-radius:7px;background:transparent;color:inherit;opacity:.8;cursor:pointer}
+.workspace-restore,.workspace-tools{display:none}
+.concept-spatial .listing-card.is-linked .listing-image{outline:2px solid #c1dfc0;outline-offset:3px}
+.map-screen-marker.is-linked .map-marker-button{box-shadow:0 0 0 3px #92c5ad8c,0 4px 12px #092d3740;border-color:#559d84}
+.workspace-layers>summary{display:flex!important;align-items:center;gap:8px;list-style:none;width:fit-content;padding:10px 13px;border-radius:10px;background:#f6f9eef2;color:#2f5140;font-size:12px;box-shadow:0 4px 18px #102a2d24;cursor:pointer}
+.workspace-layers>summary::-webkit-details-marker{display:none}
+.workspace-layers>summary .layer-count{min-width:20px;text-align:center;border-radius:5px;background:#e2ebdb;font-size:11px}
+.workspace-layers[open]>summary{margin-bottom:8px}
+.workspace-layers[open]>summary>svg:last-child{transform:rotate(180deg)}
+.workspace-layer-body{max-height:min(420px,calc(100dvh - 310px));overflow:auto;overscroll-behavior:contain;padding:14px;border:1px solid #d5dfce;border-radius:12px;background:#f8faf3f5;backdrop-filter:blur(16px);box-shadow:0 12px 28px #102a2d33;color:#2f5140;scrollbar-width:thin;font-size:12px}
+.layer-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:12px}.layer-heading strong{font-size:12px}.layer-heading button{font-size:10px;color:#62755d;background:none;border:0;cursor:pointer}
+.layer-group{border-top:1px solid #dce5d5;padding:12px 0;display:flex;flex-direction:column;gap:9px}.layer-group h3{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;margin:0}.layer-group p,.layer-footnote{font-size:10px;line-height:1.6;color:#697b65;margin:0}.layer-check{display:flex;align-items:center;gap:8px}.layer-check input{accent-color:#316650;width:15px;height:15px}.layer-group select,.layer-destination{border:1px solid #ccd8c4;border-radius:6px;background:#fffdf8;padding:9px;color:#38563e;font-size:11px;text-align:left;max-width:100%;overflow:hidden;text-overflow:ellipsis}.layer-destination{cursor:pointer}.layer-catchment{display:flex;gap:5px;flex-wrap:wrap}.layer-catchment button{border:1px solid #cbd9c4;border-radius:6px;background:#fffdf8;color:#4f684d;padding:7px 10px;font-size:11px;cursor:pointer}.layer-catchment button[aria-pressed=true]{background:#315e48;color:#fff;border-color:#315e48}.layer-catchment button:disabled{opacity:.45;cursor:default}
+.concept-lab .workspace-layers .amenity-filters{padding:0;border:0;background:transparent;box-shadow:none;backdrop-filter:none}.concept-lab .workspace-layers .amenity-controls{flex-wrap:wrap}.concept-lab .workspace-layers .map-amenities{font-size:11px}.concept-lab .workspace-layers .amenity-list{max-height:180px;overflow:auto}.concept-lab .workspace-layers .amenity-credit{margin-top:8px}
+.map-journey-shell{position:absolute;z-index:5;left:16px;right:62px;bottom:calc(var(--map-credit-height,40px) + 60px);border:1px solid #d4dfca;border-radius:12px;background:#f7faeff5;backdrop-filter:blur(14px);color:#2f5140;box-shadow:0 8px 26px #102a2d33;overflow:hidden;max-height:calc(100% - 160px)}
+.journey-summary{display:flex;align-items:center;gap:4px;padding:5px 8px}.journey-toggle{display:flex;align-items:center;gap:10px;background:none;border:0;color:inherit;text-align:left;min-width:0;flex:1;padding:7px 3px;cursor:pointer}.journey-toggle>svg{flex:none}.journey-toggle>span:not(.sr-only){flex:1;min-width:0}.journey-toggle strong{display:block;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.journey-toggle small{display:block;font-size:11px;color:#63765b;margin-top:3px}.journey-toggle>svg:last-of-type{transition:transform .18s}.is-expanded .journey-toggle>svg:last-of-type{transform:rotate(180deg)}.journey-clear{display:flex;align-items:center;justify-content:center;width:30px;height:32px;border:0;border-radius:7px;color:#52704f;background:none;cursor:pointer}.journey-clear:hover{background:#e3ebdc}
+.journey-body{border-top:1px solid #d9e3cf;max-height:230px;overflow:auto;overscroll-behavior:contain}.journey-body[hidden]{display:none}
+.concept-lab .map-journey-shell :is(.map-route,.map-transit,.map-amenity-selected,.student-map-journey){position:static;inset:auto;max-width:none;max-height:none;width:auto;padding:12px 15px;margin:0;border:0;border-radius:0;box-shadow:none;backdrop-filter:none;background:transparent;overflow:visible}
+.map-journey-shell :is(.route-heading,.student-map-heading,.amenity-popup-heading){display:none}
+.map-journey-shell .route-source>button{display:none}
+@media(min-width:1101px){
+ .concept-spatial{--workspace-left:350px;--workspace-right:355px}
+ .concept-spatial.is-list-collapsed{--workspace-left:24px}
+ .concept-spatial.is-chat-collapsed{--workspace-right:24px}
+ .concept-spatial :is(.listing-panel,.assistant-panel){transition:transform .2s cubic-bezier(.22,.68,0,1),opacity .16s,visibility 0s;will-change:auto}
+ .concept-spatial.is-list-collapsed .listing-panel{transform:translateX(calc(-100% - 24px));opacity:0;visibility:hidden;transition:transform .2s cubic-bezier(.22,.68,0,1),opacity .16s,visibility 0s .2s}
+ .concept-spatial.is-chat-collapsed .assistant-panel{transform:translateX(calc(100% + 24px));opacity:0;visibility:hidden;transition:transform .2s cubic-bezier(.22,.68,0,1),opacity .16s,visibility 0s .2s}
+ .concept-spatial .panel-collapse{display:inline-flex}
+ .concept-spatial .list-heading{position:relative;padding-right:38px}.concept-spatial .list-heading .sort-button{position:absolute;right:0;top:36px;width:28px;height:28px}.concept-spatial .list-heading .panel-collapse{position:absolute;right:0;top:0;color:#c1d7c7}
+ .concept-spatial .assistant-heading{position:relative;padding-right:43px}.concept-spatial .assistant-heading .panel-collapse{position:absolute;right:10px;top:12px;border-color:#b4c6ad}.concept-spatial .assistant-heading .chat-reset{position:absolute;right:11px;top:47px}.concept-spatial .assistant-state{display:none}
+ .concept-spatial .workspace-restore{position:absolute;z-index:7;top:22px;display:flex;align-items:center;gap:8px;padding:11px 13px;border:1px solid #a4c3b359;border-radius:10px;background:#153c37ee;color:#e3efdc;font-size:12px;box-shadow:0 5px 20px #102a2d40;visibility:hidden;pointer-events:none;cursor:pointer}.concept-spatial .restore-list{left:24px}.concept-spatial .restore-chat{right:24px}.concept-spatial.is-list-collapsed .restore-list,.concept-spatial.is-chat-collapsed .restore-chat{visibility:visible;pointer-events:auto}.workspace-unread{width:7px;height:7px;background:#d6b969;border-radius:50%;box-shadow:0 0 0 3px #d6b96920}
+ .concept-spatial .workspace-tools{position:absolute;z-index:6;top:22px;left:var(--workspace-left);right:var(--workspace-right);display:flex;align-items:center;justify-content:flex-end;gap:4px;pointer-events:none}.workspace-tools>button{display:flex;align-items:center;justify-content:center;gap:7px;pointer-events:auto;min-height:36px;padding:8px 10px;border:1px solid #cce1ce4d;border-radius:8px;background:#183d38ed;color:#e6f1df;font-size:11px;cursor:pointer}.workspace-tools button[aria-pressed=true]{background:#e1ebd5;color:#2a5039}.workspace-tools button:disabled{opacity:.4;cursor:default}
+ .concept-spatial.is-list-collapsed .workspace-tools{left:150px}.concept-spatial.is-chat-collapsed .workspace-tools{right:174px}
+ .concept-spatial :is(.concept-map-title,.map-top,.concept-amenity-disclosure,.map-amenities,.map-selected,.map-route,.map-amenity-selected,.map-bottom,.map-intro,.student-map-journey,.map-journey-shell,.map-attribution){left:var(--workspace-left)}
+ .concept-spatial :is(.map-top,.map-bottom,.map-intro,.map-attribution){right:var(--workspace-right)}
+ .concept-spatial :is(.map-selected,.map-route,.map-amenity-selected,.student-map-journey,.map-journey-shell){right:calc(var(--workspace-right) + 48px);max-width:none}
+ .concept-spatial .map-controls{right:var(--workspace-right);top:151px}
+ .concept-spatial .concept-map-title{top:76px}.concept-spatial .concept-map-title h2{font-size:48px}.concept-spatial .concept-map-title>span{display:none}.concept-spatial .concept-map-title h2 small{margin-top:5px}
+ .concept-spatial .map-top{top:76px}.concept-spatial .map-city{display:none}
+ .concept-spatial .concept-amenity-disclosure{top:170px;width:360px;max-width:calc(100% - var(--workspace-left) - var(--workspace-right) - 48px)}
+ .concept-spatial .route-active .concept-map-title{display:none}.concept-spatial .has-route .concept-amenity-disclosure{top:76px}
+ .concept-spatial .map-journey-shell{bottom:calc(var(--map-credit-height,26px) + 80px)}
+}
+@media(min-width:1500px){.concept-spatial{--workspace-left:384px;--workspace-right:384px}}
+@media(max-width:1100px){.panel-collapse{display:none!important}.workspace-layers>summary{font-size:11px}.workspace-layer-body{max-height:min(400px,calc(100dvh - 300px))}.map-journey-shell{left:18px;right:65px}.journey-body{max-height:200px}}
+@media(max-width:600px){.map-journey-shell{left:12px;right:56px;bottom:calc(var(--map-credit-height,35px) + 48px)}.journey-body{max-height:170px}.journey-toggle strong{font-size:11px}.journey-toggle small{font-size:10px}.workspace-layer-body{max-height:calc(100dvh - 320px)}.workspace-layers>summary{padding:9px 11px}}
+@media(prefers-reduced-motion:reduce){.concept-spatial :is(.listing-panel,.assistant-panel),.journey-toggle>svg{transition:none!important}}
+.concept-lab .workspace-layers .amenity-credit{background:transparent;color:#687b61;padding:0;line-height:1.6}.concept-lab .workspace-layers .amenity-credit a{color:inherit}
+.concept-lab .workspace-layer-body{max-height:min(420px,calc(var(--map-panel-height,500px) - 230px));scroll-padding:12px}
+.concept-lab .has-route .workspace-layer-body{max-height:min(420px,calc(var(--map-panel-height,500px) - 140px))}
+.map-journey-shell .amenity-route-source>button{display:none}

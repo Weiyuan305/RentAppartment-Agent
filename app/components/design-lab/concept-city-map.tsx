@@ -22,6 +22,8 @@ import {BuildingJourneyPanel,TransitJourneyPanel} from "@/components/student/bui
 import {buildingById} from "@/lib/student/catalog";
 import {useBuildingRoute,useTransitJourney} from "@/lib/student/use-student-journey";
 import type {StudentPlan} from "@/lib/student/state";
+import MapLayers from "./map-layers";
+import JourneyDisclosure from "./journey-disclosure";
 import MapPlaceLabels, {fitMapLabelTarget, type LabelScene} from "./map-place-labels";
 
 type Engine = typeof Cesium;
@@ -43,7 +45,8 @@ const config = resolveMapConfig({
   VITE_CESIUM_ION_ACCESS_TOKEN: import.meta.env.VITE_CESIUM_ION_ACCESS_TOKEN,
   VITE_GOOGLE_MAPS_API_KEY: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
 });
-export default function CityMap({ city, listings, selected, onSelect, autoLoad, routeListingId, onCloseRoute, selection, onSelectionChange,studentPlan,onBuildingSelect,onStudentClose }: {
+export default function CityMap({ city, listings, selected, onSelect, autoLoad, routeListingId, onCloseRoute, selection, onSelectionChange,studentPlan,onBuildingSelect,onStudentClose,onStudentChange,onPlanner,hovered,onHover }: {
+  hovered: string | null; onHover: (id: string | null) => void; onStudentChange: (plan: StudentPlan) => void; onPlanner: () => void;
   studentPlan:StudentPlan;onBuildingSelect:(id:string)=>void;onStudentClose:()=>void;
   city: City; listings: Listing[]; selected: string; onSelect: (id: string) => void;
   autoLoad: boolean; routeListingId: string | null; onCloseRoute: () => void;
@@ -66,7 +69,12 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   const amenityCategories = selection.categories;
   const selectedAmenityId = selection.selectedPlaceId;
   const patchSelection = (patch: Partial<MapSelection>) => onSelectionChange(current => ({...current, ...patch}));
-  const setSelectedAmenityId = (id: string | null) => patchSelection({selectedPlaceId: id});
+  const setSelectedAmenityId = (id: string | null) => {if(id && (studentPlan.routeBuilding || studentPlan.transitRequested))onStudentClose();patchSelection({selectedPlaceId: id});};
+  const amenityClick = useRef<(id: string | null) => void>(() => {});
+  useEffect(() => {amenityClick.current = id => {
+    if(id && (studentPlan.routeBuilding || studentPlan.transitRequested))onStudentClose();
+    onSelectionChange(current => ({...current,selectedPlaceId:id,routePlaceId:null,campusRoute:false}));
+  };}, [studentPlan.routeBuilding,studentPlan.transitRequested,onStudentClose,onSelectionChange]);
   const setAmenityRouteTarget = (key: string | null) => patchSelection({routePlaceId: key?.split(":")[1] ?? null, campusRoute: false});
   const [amenitiesRequested, setAmenitiesRequested] = useState(false);
   const radius = selection.radiusMeters, cuisine = selection.cuisine;
@@ -95,6 +103,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     const amenityControls = panel?.querySelector<HTMLElement>(".concept-amenity-disclosure");
     const observer = new ResizeObserver(() => {
       const bounds = element.getBoundingClientRect();
+      panel?.style.setProperty("--map-panel-height", `${Math.floor(bounds.height)}px`);
       const visible = bounds.width > 1 && bounds.height > 1;
       const becameVisible = visible && !viewportVisible.current;
       viewportVisible.current = visible;
@@ -146,7 +155,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
         handler.setInputAction((event: { position: Cesium.Cartesian2 }) => {
           const picked = viewer?.scene.pick(event.position);
           if (picked?.id instanceof C.Entity && picked.id.id.startsWith("listing:")) clickCallback.current(picked.id.id.slice(8));
-          if (picked?.id instanceof C.Entity && picked.id.id.startsWith("amenity:")) {setSelectedAmenityId(picked.id.id.slice(8)); setAmenityRouteTarget(null);}
+          if (picked?.id instanceof C.Entity && picked.id.id.startsWith("amenity:")) {amenityClick.current(picked.id.id.slice(8));}
           if (viewer && Array.isArray(picked?.id) && picked.id.length && picked.id.every((e: Cesium.Entity) => e instanceof C.Entity && e.id.startsWith("amenity:"))) {
             const points = (picked.id as Cesium.Entity[]).flatMap(e => {
               const position = e.position?.getValue(C.JulianDate.now());
@@ -154,7 +163,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
               const p = C.Cartographic.fromCartesian(position);
               return [{lng:C.Math.toDegrees(p.longitude), lat:C.Math.toDegrees(p.latitude)}];
             });
-            setSelectedAmenityId(null);
+            amenityClick.current(null);
             amenityOverview.current = points;
             setFocusTick(value => value + 1);
           }
@@ -173,11 +182,23 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   }, [shouldLoad, retry, viewportSeen]);
   useEffect(() => {
     const rt = runtime.current; if (!rt || status !== "ready") return;
+    function adjustClusters() {
+      if (!rt || rt.viewer.isDestroyed()) return;
+      const height=rt.viewer.camera.positionCartographic.height;
+      const spacing=height>2000?64:height>850?48:32;
+      if(rt.amenities.clustering.pixelRange!==spacing){rt.amenities.clustering.pixelRange=spacing;rt.viewer.scene.requestRender();}
+    }
+    const remove=rt.viewer.camera.changed.addEventListener(adjustClusters);
+    adjustClusters();return () => remove();
+  }, [status]);
+  useEffect(() => {
+    const rt = runtime.current; if (!rt || status !== "ready") return;
     updateAmenityLayer(rt.C, rt.amenities, rt.amenityFocus, visibleAmenities, selectedAmenity?.id, {nativeSelectedLabel:true});
     rt.viewer.scene.requestRender();
   }, [visibleAmenities, selectedAmenity?.id, status]);
   useEffect(() => {
     const rt = runtime.current; if (!rt || status !== "ready") return;
+    // Only route geometry owns these entities; panel/hover changes must not restart the reveal.
     const {C, viewer, tiles} = rt; viewer.entities.removeAll();
     if (route) {
       const cleanup = drawWalkingRoute(C, viewer, tiles, route);
@@ -189,7 +210,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
       for(const [i,leg] of transitJourney.legs.entries())if(leg.coordinates.length>1)viewer.entities.add({id:`transit-leg:${i}`,polyline:{positions:C.Cartesian3.fromDegreesArray(leg.coordinates.flat()),width:leg.mode==="walking"?3:5,clampToGround:true,material:C.Color.fromCssColorString(leg.mode==="walking"?"#3e9d7d":"#587db7")}});
     }
     viewer.scene.requestRender();
-  }, [city, cityView.university, listings, selected, status, route,transitJourney]);
+  }, [status, route,transitJourney]);
   useEffect(() => {
     const rt=runtime.current; if (!rt || status !== "ready") return;
     if (!viewportVisible.current) return;
@@ -228,7 +249,11 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     setRequested(true);
   }
   function focusAmenities(id?: string) {
-    if (id) {setSelectedAmenityId(id); setAmenityRouteTarget(null);}
+    if (id) {
+      setSelectedAmenityId(id); setAmenityRouteTarget(null);
+      const layers=container.current?.parentElement?.querySelector<HTMLDetailsElement>(".workspace-layers");
+      if(layers)layers.open=false;
+    }
     else {
       setSelectedAmenityId(null);
       amenityOverview.current = visibleAmenities;
@@ -249,7 +274,25 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     observer.observe(node);
     return () => {observer.disconnect();clearTimeout(timer);};
   }, [status]);
+  useEffect(() => {
+    const render = () => runtime.current?.viewer.scene.requestRender();
+    window.addEventListener("atlas-workspace-layout", render);
+    return () => window.removeEventListener("atlas-workspace-layout", render);
+  }, []);
   const live=status==="ready";
+  const hasJourney = amenityRouteEnabled || (!selectedAmenity && (Boolean(routeTarget) || studentPlan.routeBuilding || studentPlan.transitRequested));
+  const journeyStatus = amenityRouteEnabled ? facilityRoute.status : studentPlan.transitRequested ? transit.status : studentPlan.routeBuilding ? buildingRoute.status : routeStatus;
+  const journeyTitle = amenityRouteEnabled ? selectedAmenity!.name : selectedBuilding && (studentPlan.routeBuilding || studentPlan.transitRequested) ? selectedBuilding.name : cityView.university;
+  const journeyKey = `${selected}:${amenityRouteEnabled ? selectedAmenity?.id : studentPlan.transitRequested ? "transit:" + studentPlan.destinationId : studentPlan.routeBuilding ? studentPlan.destinationId : "campus"}`;
+
+  const amenityDetails = selectedAmenity && <AmenityDetails place={selectedAmenity} listing={active} route={facilityRoute.route} routeStatus={facilityRoute.status} routeError={facilityRoute.error}
+    onRoute={() => {if(active){setAmenityRouteTarget(`${active.id}:${selectedAmenity.id}`);facilityRoute.retry();setRequested(true);}}}
+    onFitRoute={() => setFocusTick(v=>v+1)} onClearRoute={() => setAmenityRouteTarget(null)} onClose={() => setSelectedAmenityId(null)}/>;
+  const journeyContent = selectedAmenity ? amenityDetails
+    : studentPlan.transitRequested && selectedBuilding ? <TransitJourneyPanel listing={active} building={selectedBuilding} journeys={transit.journeys} status={transit.status} onClose={onStudentClose} onRetry={transit.retry} onFit={()=>setFocusTick(v=>v+1)}/>
+    : studentPlan.routeBuilding && selectedBuilding ? <BuildingJourneyPanel building={selectedBuilding} route={buildingRoute.route} status={buildingRoute.status} onClose={onStudentClose} onRetry={buildingRoute.retry} onFit={()=>setFocusTick(v=>v+1)}/>
+    : routeTarget ? <WalkingRoutePanel city={city} listing={routeTarget} status={routeStatus} route={campusRoute} onClose={onCloseRoute} onRetry={retryRoute} onFit={()=>setFocusTick(v=>v+1)}/>
+    : active && <div className="map-selected"><span className="map-selected-icon"><MapPin size={17}/></span><div><small>{t("已选演示房源")}{!live ? t(" · 地图连接后定位") : ""}</small><strong>{active.name} <span>{priceLabel(active)} / {cityView.period}</span></strong></div></div>;
   // Manual coverage check at the sample campus on 2026-10-08, not a country-wide guarantee.
   const limitedCoverage = city.id === "kuala-lumpur";
   const connectionTitle = status === "missing" ? t("实景三维地图待连接") : status === "idle" ? t("实景三维已配置，点击加载") : status === "loading" ? t("正在连接实景城市…") : t("实景地图暂时无法加载");
@@ -261,22 +304,21 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   return <section className={`city-panel ${live ? "map-live" : ""} ${routeTarget || amenityRouteEnabled||studentPlan.routeBuilding||studentPlan.transitRequested ? "has-route" : ""} ${limitedCoverage ? "limited-coverage" : ""}`} aria-label={t("{0}城市地图", {0:city.name})}>
     <div ref={container} className="cesium-mount" aria-label={t("实景三维画布")}/>
     <MapAttribution nativeRef={creditContainer} visible={live}/>
-    {live && <MapPlaceLabels scene={labelScene} city={city} listings={listings} selected={selected} place={selectedAmenity} hideCampus={Boolean(selectedBuilding)} routeActive={Boolean(route)||studentPlan.transitRequested} onSelect={onSelect} onCampus={()=>cameraAction("campus")} onPlace={id=>{setSelectedAmenityId(id);setAmenityRouteTarget(null);}}/>}
+    {live && <MapPlaceLabels scene={labelScene} city={city} listings={listings} selected={selected} hovered={hovered} onHover={onHover} place={selectedAmenity} hideCampus={Boolean(selectedBuilding)} routeActive={Boolean(route)||studentPlan.transitRequested} onSelect={onSelect} onCampus={()=>cameraAction("campus")} onPlace={id=>{setSelectedAmenityId(id);setAmenityRouteTarget(null);}}/>}
     {live&&(studentPlan.showBuildings||studentPlan.destinationId)&&<Suspense fallback={null}><CampusMapLayer scene={labelScene} cityId={city.id} plan={studentPlan} onSelect={onBuildingSelect}/></Suspense>}
     {!live && <><img className="city-photo" src={cityPhoto(city.id)} alt={t("{0}城市风光预览", {0:city.name})}/><div className="city-shade"/></>}
     <div className="map-top"><div className="map-city"><span className="dot"/> EXPLORE {city.english.toUpperCase()}</div><span className="map-mode">{live ? (limitedCoverage ? t("影像地形") : t("实景 3D")) : t("城市照片预览")}</span></div>
-    <details className={`concept-amenity-disclosure ${routeTarget || amenityRouteEnabled||studentPlan.routeBuilding||studentPlan.transitRequested ? "with-route" : selectedAmenity ? "with-place" : ""}`} open={!routeTarget && !selectedAmenity&&!studentPlan.routeBuilding&&!studentPlan.transitRequested} onToggle={()=>{if(routeTarget || selectedAmenity||studentPlan.routeBuilding||studentPlan.transitRequested)setFocusTick(v=>v+1);}}><summary><Building2 size={14}/>{t("地图周边设施")}<Plus size={13}/></summary><AmenityControls key={city.id} categories={amenityCategories} data={amenitiesData} status={amenitiesStatus} visible={visibleAmenities} selected={selectedAmenity} listing={active} radius={radius} cuisine={cuisine}
+    <MapLayers key={city.id} plan={studentPlan} amenityCount={amenityCategories.length} onStudentChange={onStudentChange} onPlanner={onPlanner} onClearAmenities={() => patchSelection({categories:[],placeIds:null,selectedPlaceId:null,routePlaceId:null})}><AmenityControls key={city.id} categories={amenityCategories} data={amenitiesData} status={amenitiesStatus} visible={visibleAmenities} selected={selectedAmenity} listing={active} radius={radius} cuisine={cuisine}
       onRadius={value => patchSelection({radiusMeters: value, placeIds: null, selectedPlaceId: null, routePlaceId: null})}
       onCuisine={value => patchSelection({cuisine: value, placeIds: null, selectedPlaceId: null, routePlaceId: null})}
       onExplore={() => setAmenitiesRequested(true)} onClear={() => patchSelection({categories: [], placeIds: null, selectedPlaceId: null, routePlaceId: null})}
-      onToggle={toggleAmenity} onSelect={focusAmenities} onDismiss={() => setSelectedAmenityId(null)} onFit={() => focusAmenities()} onRetry={retryAmenities}/></details>
+      onToggle={toggleAmenity} onSelect={focusAmenities} onDismiss={() => setSelectedAmenityId(null)} onFit={() => focusAmenities()} onRetry={retryAmenities}/></MapLayers>
     {live && limitedCoverage && <p className="map-coverage" role="note">{t("当前校区建筑三维细节不足，显示影像地形。2026-10-08 实测；其他区域覆盖可能不同。")}</p>}
     {!live && <div className="map-intro"><p>{t("先认识这座城，再找到你的家。")}</p><h2>{city.english}{locale === "zh" && <span>{cityView.name}</span>}</h2><div className="map-connection"><Building2 size={22}/><div><strong>{connectionTitle}</strong><p>{connectionText}</p><div className="connection-actions">{status==="idle" && <button onClick={()=>setRequested(true)}>{t("加载实景 3D")}</button>}{status==="error" && <button onClick={()=>setRetry(v=>v+1)}>{t("重新连接")}</button>}<a href="/setup" target="_blank" rel="noreferrer">{t("查看接入说明")} <ChevronIcon/></a></div></div></div></div>}
     {live && <div className="map-controls"><button aria-label={t("放大地图")} onClick={()=>cameraAction("in")}><Plus size={19}/></button><button aria-label={t("缩小地图")} onClick={()=>cameraAction("out")}><Minus size={19}/></button><button aria-label={t("旋转地图")} onClick={()=>cameraAction("rotate")}><RotateCw size={18}/></button><button aria-label={t("回到大学")} onClick={()=>cameraAction("campus")}><GraduationCap size={20}/></button><button aria-label={t("重新定位房源")} onClick={()=>setFocusTick(v=>v+1)}><Compass size={20}/></button></div>}
-    {selectedAmenity ? <AmenityDetails place={selectedAmenity} listing={active} route={facilityRoute.route} routeStatus={facilityRoute.status} routeError={facilityRoute.error}
-      onRoute={() => {if (active) {setAmenityRouteTarget(`${active.id}:${selectedAmenity.id}`); facilityRoute.retry(); setRequested(true);}}}
-      onFitRoute={() => setFocusTick(v => v + 1)} onClearRoute={() => setAmenityRouteTarget(null)} onClose={() => setSelectedAmenityId(null)}/>
-      : studentPlan.transitRequested&&selectedBuilding ? <TransitJourneyPanel listing={active} building={selectedBuilding} journeys={transit.journeys} status={transit.status} onClose={onStudentClose} onRetry={transit.retry} onFit={()=>setFocusTick(v=>v+1)}/> :studentPlan.routeBuilding&&selectedBuilding ? <BuildingJourneyPanel building={selectedBuilding} route={buildingRoute.route} status={buildingRoute.status} onClose={onStudentClose} onRetry={buildingRoute.retry} onFit={()=>setFocusTick(v=>v+1)}/> : routeTarget ? <WalkingRoutePanel city={city} listing={routeTarget} status={routeStatus} route={campusRoute} onClose={onCloseRoute} onRetry={retryRoute} onFit={() => setFocusTick(v => v + 1)}/> : active && <div className="map-selected"><span className="map-selected-icon"><MapPin size={17}/></span><div><small>{t("已选演示房源")}{!live ? t(" · 地图连接后定位") : ""}</small><strong>{active.name} <span>{priceLabel(active)} / {cityView.period}</span></strong></div></div>}
+    {hasJourney ? <JourneyDisclosure key={journeyKey} title={journeyTitle} status={journeyStatus} seconds={studentPlan.transitRequested && !amenityRouteEnabled ? transitJourney ? transitJourney.durationMinutes * 60 : undefined : route?.durationSeconds} meters={studentPlan.transitRequested && !amenityRouteEnabled ? undefined : route?.distanceMeters} transit={studentPlan.transitRequested && !amenityRouteEnabled} onClear={amenityRouteEnabled ? () => setAmenityRouteTarget(null) : studentPlan.routeBuilding || studentPlan.transitRequested ? onStudentClose : onCloseRoute}>
+      {journeyContent}
+    </JourneyDisclosure> : journeyContent}
     <div className="map-bottom"><div><Navigation size={17}/><span>{cityView.campus}</span></div><span>{live?t("拖动平移 · 滚轮缩放 · Ctrl + 拖动旋转"):t("照片预览 · 非可交互地图")}</span></div>
   </section>;
 }

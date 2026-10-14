@@ -285,25 +285,32 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   }, []);
   const live=status==="ready";
   const hasJourney = amenityRouteEnabled || (!selectedAmenity && (Boolean(routeTarget) || studentPlan.routeBuilding || studentPlan.transitRequested));
+  const journeyKey = `${selected}:${amenityRouteEnabled ? selectedAmenity?.id : studentPlan.transitRequested ? "transit:" + studentPlan.destinationId : studentPlan.routeBuilding ? studentPlan.destinationId : "campus"}`;
   useEffect(() => {
     const panel=container.current?.parentElement;
     if(!panel)return;
     const layers=panel.querySelector<HTMLElement>(".workspace-layer-body");
+    const layerButton=panel.querySelector<HTMLElement>(".workspace-layers>summary");
+    const bottomCard=panel.querySelector<HTMLElement>(".map-journey-shell, .map-selected");
     const measure=()=>{
-      if(!layers || overlay!=="layers")return;
-      const bottom=panel.querySelector(".map-journey-shell")?.getBoundingClientRect().top ?? panel.getBoundingClientRect().bottom-85;
-      layers.style.setProperty("--layer-room",`${Math.max(0,bottom-layers.getBoundingClientRect().top-12)}px`);
+      const bounds=panel.getBoundingClientRect();
+      const bottom=bottomCard?.getBoundingClientRect().top ?? bounds.bottom-85;
+      const noticeTop=(layerButton?.getBoundingClientRect().bottom ?? bounds.top+64)-bounds.top+12;
+      // The fallback notice shares the map's free area with the layer and route controls.
+      // Measure their real size instead of inheriting the old fixed route-mode offset.
+      panel.style.setProperty("--map-notice-top",`${noticeTop}px`);
+      panel.style.setProperty("--map-notice-room",`${Math.max(0,bottom-bounds.top-noticeTop-12)}px`);
+      if(layers && overlay==="layers")layers.style.setProperty("--layer-room",`${Math.max(0,bottom-layers.getBoundingClientRect().top-12)}px`);
     };
     const observer=new ResizeObserver(measure);
     observer.observe(panel);
-    const summary=panel.querySelector(".map-journey-shell");
-    if(summary)observer.observe(summary);
+    if(layerButton)observer.observe(layerButton);
+    if(bottomCard)observer.observe(bottomCard);
     const frame=requestAnimationFrame(measure);
     return()=>{observer.disconnect();cancelAnimationFrame(frame);};
-  },[overlay,hasJourney,selectedAmenity]);
+  },[overlay,hasJourney,journeyKey,selectedAmenity,live]);
   const journeyStatus = amenityRouteEnabled ? facilityRoute.status : studentPlan.transitRequested ? transit.status : studentPlan.routeBuilding ? buildingRoute.status : routeStatus;
   const journeyTitle = amenityRouteEnabled ? selectedAmenity!.name : selectedBuilding && (studentPlan.routeBuilding || studentPlan.transitRequested) ? selectedBuilding.name : cityView.university;
-  const journeyKey = `${selected}:${amenityRouteEnabled ? selectedAmenity?.id : studentPlan.transitRequested ? "transit:" + studentPlan.destinationId : studentPlan.routeBuilding ? studentPlan.destinationId : "campus"}`;
 
   const amenityDetails = selectedAmenity && <AmenityDetails place={selectedAmenity} listing={active} route={facilityRoute.route} routeStatus={facilityRoute.status} routeError={facilityRoute.error}
     onRoute={() => {if(active){setAmenityRouteTarget(`${active.id}:${selectedAmenity.id}`);facilityRoute.retry();setRequested(true);}}}

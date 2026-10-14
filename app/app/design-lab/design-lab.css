@@ -591,3 +591,26 @@
 
 @media(max-width:1100px){.concept-map-stage:has(.map-live) .concept-map-title{display:none}}
 .concept-lab .is-overlay-open .student-catchment-legend{visibility:hidden}
+
+/* Fallback map notices occupy the measured space between layers and the bottom card. */
+.concept-lab .city-panel:not(.map-live) .map-intro{position:absolute;top:var(--map-notice-top,140px);bottom:auto;margin:0;max-width:460px;max-height:var(--map-notice-room,calc(100% - 250px));overflow:auto;overscroll-behavior:contain;scrollbar-width:thin;border-radius:12px}
+.concept-lab .map-intro .map-connection{width:100%;align-items:flex-start;border-radius:12px;padding:18px;gap:12px}
+.concept-lab .map-intro .map-connection>div{min-width:0}
+.concept-lab .map-intro .map-connection strong{font-size:14px;line-height:1.5}
+.concept-lab .map-intro .map-connection p{font-size:12px;line-height:1.65;margin-top:6px}
+.concept-lab .map-intro .connection-actions{flex-wrap:wrap;gap:10px 16px}
+.concept-lab .city-panel.is-overlay-open .map-intro{visibility:hidden;pointer-events:none}
+.concept-map-stage:has(.city-panel:not(.map-live)) .concept-map-title{display:none}
+@media(max-width:1100px){.concept-lab .city-panel:not(.map-live) .map-intro{left:12px;right:12px}}
+
+/* Keep chat chrome fixed in its panel; only conversation history scrolls. */
+.concept-lab .assistant-heading{flex:none;display:grid;grid-template-columns:33px minmax(0,1fr) 28px;min-height:76px;padding:16px;gap:9px;border-bottom:1px solid #c9d8c4}
+.concept-lab .assistant-heading .chat-reset{position:static;margin:0;width:28px;height:28px;display:grid;place-items:center;border-radius:7px}
+.concept-lab .assistant-heading .panel-collapse{position:static;margin:0}
+.concept-lab .chat-scroll{min-height:0;overscroll-behavior:contain;scroll-padding-block:18px}
+.concept-lab :is(.chat-form,.assistant-disclaimer){flex:none}
+@media(min-width:1101px){.concept-spatial .assistant-heading{grid-template-columns:33px minmax(0,1fr) 28px 28px}}
+@media(max-width:1100px){
+ .concept-lab>.student-compare-launch{display:none}
+ .concept-lab .mobile-tabs .mobile-compare-launch{flex:0 0 auto;padding-inline:10px;border:1px solid #9eb9a14d;background:var(--brand-soft);color:var(--primary)}
+}

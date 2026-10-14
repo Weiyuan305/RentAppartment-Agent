@@ -47,7 +47,7 @@ for (const city of cities) {
     '--data-urlencode', `data=${query}`, endpoint], { encoding: 'utf8', maxBuffer: 8 * 1024 * 1024 });
   const payload = JSON.parse(raw);
   if (payload.remark || !Array.isArray(payload.elements)) {
-    writeFileSync(resolve(evidence, `${city.id}.failed-response.json`), raw + '\n');
+    writeFileSync(resolve(evidence, `${city.id}.failed-response.json`), raw.trimEnd() + '\n');
     throw new Error(`Incomplete Overpass response: ${city.id}: ${String(payload.remark).slice(0,300)}`);
   }
   const places = [];
@@ -83,7 +83,7 @@ for (const city of cities) {
   const data = parseCityAmenities({ version: 2, cityId: city.id, center: [city.lng, city.lat], radiusMeters: 3000, places,
     source: { provider: 'OpenStreetMap', endpoint: normalize && existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')).source.endpoint : endpoint, collectedAt: normalize && existsSync(path) ? JSON.parse(readFileSync(path, 'utf8')).source.collectedAt : new Date().toISOString(), osmBase: payload.osm3s?.timestamp_osm_base },
   }, city);
-  writeFileSync(resolve(evidence, `${city.id}.json`), raw + '\n');
+  writeFileSync(resolve(evidence, `${city.id}.json`), raw.trimEnd() + '\n');
   writeFileSync(resolve(evidence, `${city.id}.overpassql`), query + '\n');
   writeFileSync(path, JSON.stringify(data) + '\n');
   console.log(`${city.id}: ${places.length} records; ${Object.keys(amenityInfo).map(k => `${k}=${places.filter(p => p.category === k).length}`).join(', ')}`);

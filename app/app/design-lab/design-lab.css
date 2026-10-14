@@ -783,3 +783,51 @@
  .concept-lab .preferences-destination{order:3;flex-basis:100%;font-size:11px}
  .concept-lab .preferences-saved{font-size:11px}
 }
+
+/* A readable card summary, with secondary decision details available on demand. */
+.concept-lab .decision-summary--layered{margin:10px 0;padding:10px 0 0;border-bottom:0}
+.concept-lab .decision-summary--layered .commute-overview{display:flex;align-items:flex-start;gap:8px}
+.concept-lab .commute-overview>svg{flex:none;margin-top:3px}
+.concept-lab .commute-overview>span{min-width:0}
+.concept-lab .commute-overview strong{display:block;font-size:13px;line-height:1.5}
+.concept-lab .commute-overview small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;line-height:1.7;opacity:.8}
+.concept-lab .decision-summary--layered .commute-estimate{font-size:11px;margin:3px 0 4px;line-height:1.6}
+.concept-lab .decision-summary--layered details>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:36px;cursor:pointer;list-style:none;font-size:12px;color:inherit;border-radius:4px}
+.concept-lab .decision-summary--layered summary::-webkit-details-marker{display:none}
+.concept-lab .decision-summary--layered summary>svg{flex:none;transition:transform 160ms var(--ease-out)}
+.concept-lab .decision-summary--layered details[open]>summary>svg{transform:rotate(180deg)}
+.concept-lab .decision-summary--layered .decision-more{padding:8px 0 12px}
+.concept-lab .decision-more>div{display:flex;align-items:flex-start;gap:8px}
+.concept-lab .decision-more>div>svg{flex:none;margin-top:3px}
+.concept-lab .decision-more strong{display:block}
+.concept-lab .decision-more p{margin:8px 0;line-height:1.6;font-size:12px}
+.concept-lab .rental-filter-chips{flex:none;display:flex;align-items:center;flex-wrap:wrap;gap:6px 8px;max-height:132px;overflow:auto;padding-block:8px;scrollbar-width:thin}
+.concept-lab .rental-filter-chips>button{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:32px;font-size:12px;line-height:1.5;padding:5px 9px;max-width:100%;margin:0;border-radius:6px}
+.concept-lab .rental-filter-chips .filter-chip{border:1px solid var(--border);background:var(--surface-soft);color:var(--foreground)}
+.concept-lab .rental-filter-chips :is(.filter-chip,.filter-undo){text-decoration:none}
+.concept-lab .filter-chip>span{text-align:left;overflow-wrap:anywhere;min-width:0}
+.concept-lab .filter-chip>svg{flex:none;opacity:.7}
+.concept-lab .rental-filter-chips .filter-undo{background:var(--primary);color:var(--background)}
+.concept-lab .rental-filter-chips .filter-caption{padding:0;background:none;border:0;font-size:12px}
+.workspace-resizer{display:none}
+@media(min-width:1101px){
+ .concept-spatial{--workspace-inset:20px;--workspace-left:calc(var(--panel-list-width,306px) + var(--workspace-inset) + 24px);--workspace-right:calc(var(--panel-chat-width,310px) + var(--workspace-inset) + 24px)}
+ .concept-spatial.is-list-collapsed{--workspace-left:24px}
+ .concept-spatial.is-chat-collapsed{--workspace-right:24px}
+ .concept-spatial .workspace{grid-template-columns:var(--panel-list-width,306px) minmax(0,1fr) var(--panel-chat-width,310px)}
+ .concept-spatial .workspace-resizer{display:flex;position:absolute;z-index:4;top:22px;bottom:22px;width:16px;align-items:center;justify-content:center;cursor:col-resize;touch-action:none;outline-offset:-2px;border-radius:5px}
+ .concept-spatial .resizer-list{left:calc(var(--workspace-inset) + var(--panel-list-width,306px) + 2px)}
+ .concept-spatial .resizer-chat{right:calc(var(--workspace-inset) + var(--panel-chat-width,310px) + 2px)}
+ .concept-spatial .workspace-resizer>span{height:42px;width:3px;border-radius:3px;background:#d1e8d7c9;box-shadow:0 1px 4px #102a2d80;transition:background 140ms}
+ .concept-spatial .workspace-resizer:is(:hover,:focus-visible)>span{background:#e1f4d8}
+ .concept-spatial .workspace-resizer:focus-visible{outline:2px solid #cee7c5}
+ .is-resizing-panels,.is-resizing-panels *{cursor:col-resize!important;user-select:none!important}
+ .is-resizing-panels :is(.listing-panel,.assistant-panel){transition:none!important}
+}
+@media(min-width:1500px){.concept-spatial{--workspace-inset:24px}}
+@media(max-width:600px){
+ .concept-lab .rental-filter-chips{max-height:110px;gap:6px;padding-block:6px}
+ .concept-lab .rental-filter-chips>button,.concept-lab .decision-summary--layered details>summary{min-height:44px}
+}
+@media(prefers-reduced-motion:no-preference){.concept-lab .decision-summary--layered details[open] .decision-more{animation:atlas-surface-reveal 160ms var(--ease-out)}}
+@media(prefers-reduced-motion:reduce){.concept-lab .decision-summary--layered summary>svg{transition:none}}

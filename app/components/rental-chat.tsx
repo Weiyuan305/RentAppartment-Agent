@@ -11,7 +11,7 @@ import { displayCity } from "@/lib/i18n";
 import type { City } from "@/lib/rental-data";
 const AssistantMarkdown = lazy(() => import("./assistant-markdown").then(module => ({default: module.AssistantMarkdown})));
 
-export default function RentalChat({city, state, uiRevision, onState, collapsed = false, headerControl, onReplyReady}: {collapsed?: boolean; headerControl?: ReactNode; onReplyReady?: () => void; city: City; state: RentalState; uiRevision: number; onState: (state: RentalState) => void}) {
+export default function RentalChat({city, state, uiRevision, onState, collapsed = false, headerControl, onReplyReady, preserveInitialState = false}: {preserveInitialState?: boolean; collapsed?: boolean; headerControl?: ReactNode; onReplyReady?: () => void; city: City; state: RentalState; uiRevision: number; onState: (state: RentalState) => void}) {
   const {t, locale} = useLocale();
   const [session, setSession] = useState<RentalSession | null>(null);
   const [agentStatus, setAgentStatus] = useState<AgentStatus | null>(null);
@@ -22,8 +22,8 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
   const end = useRef<HTMLDivElement>(null);
   const transcript = useRef<HTMLDivElement>(null);
   const followEnd = useRef(true);
-  const current = useRef({state, uiRevision, onState, locale, onReplyReady});
-  useEffect(() => {current.current = {state, uiRevision, onState, locale, onReplyReady};}, [state, uiRevision, onState, locale, onReplyReady]);
+  const current = useRef({state, uiRevision, onState, locale, onReplyReady, preserveInitialState});
+  useEffect(() => {current.current = {state, uiRevision, onState, locale, onReplyReady, preserveInitialState};}, [state, uiRevision, onState, locale, onReplyReady, preserveInitialState]);
   const sessionRef = useRef<RentalSession | null>(null);
   const request = useRef<{id: string; revision: number; retry?: boolean} | null>(null);
   const savedState = useRef("");
@@ -70,9 +70,9 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
         if (!response.ok) throw new Error(payload.error);
         if (controller.signal.aborted) return;
         const restored = payload.session as RentalSession;
-        const next=stateForNavigation(restored.state,current.current.state,new URLSearchParams(window.location.search));
+        const next=current.current.preserveInitialState ? current.current.state : stateForNavigation(restored.state,current.current.state,new URLSearchParams(window.location.search));
         sessionRef.current = restored; setSession(restored); setAgentStatus(payload.status); setMessages(restored.messages);
-        savedState.current=JSON.stringify(restored.state);current.current.onState(next);
+        savedState.current=JSON.stringify(restored.state);if(!current.current.preserveInitialState)current.current.onState(next);
       } catch {if (!controller.signal.aborted) setNotice("会话存储暂时不可用，请刷新页面重试。");}
     })();
     return () => {disposed.current = true; controller.abort(); void stop();};

@@ -2,7 +2,7 @@
 import { displayCity } from "@/lib/i18n";
 import { useLocale } from "@/components/locale-provider";
 import MapAttribution from "@/components/map-attribution";
-import { lazy,Suspense,useEffect, useMemo, useRef, useState } from "react";
+import { lazy,Suspense,useEffect, useMemo, useRef, useState, useImperativeHandle, type Ref } from "react";
 import type * as Cesium from "cesium";
 import { Building2, Compass, GraduationCap, MapPin, Minus, Navigation, Plus, RotateCw } from "lucide-react";
 import { cityPhoto, priceLabel, type City, type Listing } from "@/lib/rental-data";
@@ -26,6 +26,8 @@ import MapLayers from "./map-layers";
 import JourneyDisclosure from "./journey-disclosure";
 import MapPlaceLabels, {fitMapLabelTarget, type LabelScene} from "./map-place-labels";
 
+import type {CameraView, MapViewHandle} from "@/lib/browse-memory";
+
 type Engine = typeof Cesium;
 declare global { interface Window { Cesium?: Engine; CESIUM_BASE_URL?: string } }
 let enginePromise: Promise<Engine> | null = null;
@@ -45,7 +47,8 @@ const config = resolveMapConfig({
   VITE_CESIUM_ION_ACCESS_TOKEN: import.meta.env.VITE_CESIUM_ION_ACCESS_TOKEN,
   VITE_GOOGLE_MAPS_API_KEY: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
 });
-export default function CityMap({ city, listings, selected, onSelect, autoLoad, routeListingId, onCloseRoute, selection, onSelectionChange,studentPlan,onBuildingSelect,onStudentClose,onStudentChange,onPlanner,hovered,onHover }: {
+export default function CityMap({ city, listings, selected, onSelect, autoLoad, routeListingId, onCloseRoute, selection, onSelectionChange,studentPlan,onBuildingSelect,onStudentClose,onStudentChange,onPlanner,hovered,onHover,viewRef,restoredView }: {
+  viewRef?: Ref<MapViewHandle>; restoredView?: {key:string;camera:CameraView} | null;
   hovered: string | null; onHover: (id: string | null) => void; onStudentChange: (plan: StudentPlan) => void; onPlanner: () => void;
   studentPlan:StudentPlan;onBuildingSelect:(id:string)=>void;onStudentClose:()=>void;
   city: City; listings: Listing[]; selected: string; onSelect: (id: string) => void;
@@ -57,9 +60,16 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   const container = useRef<HTMLDivElement>(null);
   const creditContainer = useRef<HTMLDivElement>(null);
   const viewportVisible = useRef(false);
+  const [visibilityTick,setVisibilityTick]=useState(0);
   const [viewportSeen, setViewportSeen] = useState(false);
   const [labelScene, setLabelScene] = useState<LabelScene | null>(null);
   const runtime = useRef<{ C: Engine; viewer: Cesium.Viewer; tiles: Cesium.Cesium3DTileset; amenities: Cesium.CustomDataSource; amenityFocus: Cesium.CustomDataSource } | null>(null);
+  useImperativeHandle(viewRef, () => ({capture: () => {
+    const rt=runtime.current;if(!rt || rt.viewer.isDestroyed())return null;
+    const camera=rt.viewer.camera,position=camera.positionCartographic;
+    return {longitude:rt.C.Math.toDegrees(position.longitude),latitude:rt.C.Math.toDegrees(position.latitude),height:position.height,heading:camera.heading,pitch:camera.pitch,roll:camera.roll};
+  }}), []);
+  const restoredCamera = useRef<{key:string;context:string;tick:number;viewer:Cesium.Viewer|null;released:boolean}|null>(null);
   const amenityOverview = useRef<Array<{lng:number;lat:number}> | null>(null);
   const clickCallback = useRef(onSelect);
   useEffect(() => { clickCallback.current = onSelect; }, [onSelect]);
@@ -110,7 +120,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
       const bounds = element.getBoundingClientRect();
       panel?.style.setProperty("--map-panel-height", `${Math.floor(bounds.height)}px`);
       const visible = bounds.width > 1 && bounds.height > 1;
-      const becameVisible = visible && !viewportVisible.current;
+      const becameVisible=visible&&!viewportVisible.current;
       viewportVisible.current = visible;
       if (visible) setViewportSeen(true);
       if (visible && panel && amenityControls) {
@@ -121,7 +131,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
       if (rt && !rt.viewer.isDestroyed()) {
         rt.viewer.useDefaultRenderLoop = visible;
         if (visible) {rt.viewer.resize(); rt.viewer.scene.requestRender();}
-        if (becameVisible) setFocusTick(value => value + 1);
+        if(becameVisible)setVisibilityTick(value=>value+1);
       }
     });
     observer.observe(element);
@@ -216,10 +226,26 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     }
     viewer.scene.requestRender();
   }, [status, route,transitJourney]);
+  const cameraContext = JSON.stringify([city.id,selected,routeListingId,selection.selectedPlaceId,selection.routePlaceId,studentPlan.destinationId,studentPlan.routeBuilding,studentPlan.transitRequested,studentPlan.catchmentMinutes]);
   useEffect(() => {
     const rt=runtime.current; if (!rt || status !== "ready") return;
     if (!viewportVisible.current) return;
     const {C, viewer}=rt;
+    if (restoredView) {
+      if (restoredCamera.current?.key !== restoredView.key) restoredCamera.current={key:restoredView.key,context:cameraContext,tick:focusTick,viewer:null,released:false};
+      const memory=restoredCamera.current;
+      if (memory.context !== cameraContext || memory.tick !== focusTick) memory.released=true;
+      if (!memory.released) {
+        if (memory.viewer !== viewer) {
+          const pose=restoredView.camera;
+          viewer.camera.cancelFlight();
+          viewer.camera.setView({destination:C.Cartesian3.fromDegrees(pose.longitude,pose.latitude,pose.height),orientation:{heading:pose.heading,pitch:pose.pitch,roll:pose.roll}});
+          viewer.scene.requestRender();memory.viewer=viewer;
+        }
+        // Late route/POI responses must not replace the view restored from details.
+        return;
+      }
+    }
     if(transitJourney){const coordinates=transitJourney.legs.flatMap(l=>l.coordinates);if(coordinates.length>1){fitWalkingRoute(C,viewer,{coordinates},container.current);return;}}
     if (amenityOverview.current) {
       const points = amenityOverview.current;
@@ -235,7 +261,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     if (selectedAmenity) {fitAmenities(C, viewer, [selectedAmenity], container.current); return;}
     if(selectedBuilding){fitMapLabelTarget({C,viewer},selectedBuilding.lng,selectedBuilding.lat,studentPlan.catchmentMinutes?Math.max(1800,studentPlan.catchmentMinutes*110):1600);return;}
     fitMapLabelTarget({C,viewer},active?.lng ?? city.lng,active?.lat ?? city.lat,active ? 1200 : 2200);
-  }, [city, active, status, focusTick, route, selectedAmenity, amenityRouteEnabled,selectedBuilding,studentPlan.catchmentMinutes,transitJourney]);
+  }, [city, active, status, focusTick, route, selectedAmenity, amenityRouteEnabled,selectedBuilding,studentPlan.catchmentMinutes,transitJourney,cameraContext,restoredView,visibilityTick]);
   function cameraAction(action: "in" | "out" | "rotate" | "campus") {
     const rt=runtime.current;if(!rt)return;const {C,viewer}=rt;
     if(action==="in")viewer.camera.zoomIn(Math.max(50,viewer.camera.positionCartographic.height*.28));
@@ -273,13 +299,13 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
       const width=node.clientWidth,height=node.clientHeight;
       if (width === lastWidth && height === lastHeight) return;
       lastWidth=width;lastHeight=height;clearTimeout(timer);
-      if (width > 0 && height > 0) timer=setTimeout(()=>setFocusTick(v=>v+1),140);
+      if (width > 0 && height > 0) timer=setTimeout(()=>{runtime.current?.viewer.resize();runtime.current?.viewer.scene.requestRender();},140);
     });
     observer.observe(node);
     return () => {observer.disconnect();clearTimeout(timer);};
   }, [status]);
   useEffect(() => {
-    const render = () => { runtime.current?.viewer.scene.requestRender(); setFocusTick(value => value + 1); };
+    const render = () => { runtime.current?.viewer.resize();runtime.current?.viewer.scene.requestRender(); };
     window.addEventListener("atlas-workspace-layout", render);
     return () => window.removeEventListener("atlas-workspace-layout", render);
   }, []);

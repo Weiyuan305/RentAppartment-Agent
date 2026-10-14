@@ -4,13 +4,14 @@ import { Layers3, ChevronDown, GraduationCap, Footprints } from "lucide-react";
 import { useLocale } from "@/components/locale-provider";
 import type { StudentPlan } from "@/lib/student/state";
 import { buildingById } from "@/lib/student/catalog";
-export default function MapLayers({ plan, amenityCount, onStudentChange, onPlanner, onClearAmenities, children }: {
+export default function MapLayers({ plan, amenityCount, onStudentChange, onPlanner, onClearAmenities, children, open, onOpenChange }: {
+  open: boolean; onOpenChange: (open: boolean) => void;
   plan: StudentPlan; amenityCount: number; onStudentChange: (plan: StudentPlan) => void; onPlanner: () => void; onClearAmenities: () => void; children: ReactNode;
 }) {
   const { locale } = useLocale(), w = (zh:string, en:string) => locale === "zh" ? zh : en;
   const id = useId(), count = amenityCount + Number(plan.showBuildings) + Number(Boolean(plan.catchmentMinutes));
-  return <details className="concept-amenity-disclosure workspace-layers" onKeyDown={event => { if(event.key === "Escape") { event.currentTarget.open = false; event.currentTarget.querySelector("summary")?.focus(); event.stopPropagation(); } }}>
-    <summary aria-controls={id}><Layers3 size={16}/>{w("地图图层", "Map layers")}<span className="layer-count">{count}</span><ChevronDown size={14}/></summary>
+  return <details open={open} className="concept-amenity-disclosure workspace-layers" onKeyDown={event => { if(event.key === "Escape") { onOpenChange(false); event.currentTarget.querySelector("summary")?.focus(); event.stopPropagation(); } }}>
+    <summary aria-controls={id} aria-expanded={open} onClick={event=>{event.preventDefault();onOpenChange(!open);}}><Layers3 size={16}/>{w("地图图层", "Map layers")}<span className="layer-count">{count}</span><ChevronDown size={14}/></summary>
     <div className="workspace-layer-body" id={id}>
       <div className="layer-heading"><strong>{w("显示你关心的地点", "Make the map yours")}</strong><button onClick={() => {onClearAmenities();onStudentChange({...plan,showBuildings:false,catchmentMinutes:null});}}>{w("清空图层", "Clear layers")}</button></div>
       <section className="layer-group" aria-label={w("生活设施", "Everyday places")}><h3>{w("生活设施", "Everyday places")}</h3>{children}</section>

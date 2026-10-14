@@ -1,7 +1,7 @@
 import type * as Cesium from "cesium";
 import { metersBetween, type WalkingRoute } from "@/lib/walking-route";
 
-import {visibleSidePanel} from "@/lib/map-marker-density";
+import {readMapViewport} from "@/lib/map-viewport";
 
 type Engine = typeof Cesium;
 
@@ -9,20 +9,10 @@ export function fitConceptRoute(C: Engine, viewer: Cesium.Viewer, route: Pick<Wa
   const sphere = C.BoundingSphere.fromPoints(C.Cartesian3.fromDegreesArray(route.coordinates.flat()));
   const bounds = container?.getBoundingClientRect();
   if (bounds && (bounds.width < 2 || bounds.height < 2)) return;
-  const panel = container?.parentElement?.querySelector(".map-journey-shell, .map-route, .map-amenity-selected, .map-transit")?.getBoundingClientRect();
-  const disclosure = container?.parentElement?.querySelector<HTMLDetailsElement>(".concept-amenity-disclosure");
-  const toolbar = (disclosure && !disclosure.open ? disclosure.querySelector("summary") : disclosure?.querySelector(".workspace-layer-body"))?.getBoundingClientRect();
-  const lab = container?.closest(".concept-lab");
-  const controls = container?.parentElement?.querySelector(".map-controls")?.getBoundingClientRect();
-  const leftPanel = visibleSidePanel(lab ?? null,".listing-panel");
-  const rightPanel = visibleSidePanel(lab ?? null,".assistant-panel");
-  const floating = lab?.classList.contains("concept-spatial") && window.innerWidth > 1100;
   const width = bounds?.width || 600, height = bounds?.height || 500;
-  const freeLeft = floating && bounds && leftPanel ? leftPanel.right-bounds.left+20 : 15;
-  const panelRight = floating && bounds && rightPanel ? rightPanel.left-bounds.left-20 : width-15;
-  const freeRight = bounds && controls ? Math.min(panelRight,controls.left-bounds.left-12) : panelRight;
-  const freeTop = bounds && toolbar ? Math.max(85,toolbar.bottom-bounds.top+12) : 95;
-  const freeBottom = bounds && panel ? Math.max(freeTop+85,panel.top-bounds.top-12) : height-100;
+  const {left:freeLeft,right:freeRight,top:freeTop,bottom:freeBottom}=readMapViewport(viewer.canvas);
+  if(freeRight-freeLeft<40 || freeBottom-freeTop<40)return;
+  viewer.camera.cancelFlight();
   const frustum = viewer.camera.frustum;
   const tanV = frustum instanceof C.PerspectiveFrustum ? Math.tan((frustum.fovy ?? Math.PI/3)/2) : .58;
   const tanH = tanV*width/height;
@@ -36,9 +26,9 @@ export function fitConceptRoute(C: Engine, viewer: Cesium.Viewer, route: Pick<Wa
   });
   const spanX=Math.max(...projected.map(p=>p[0]))-Math.min(...projected.map(p=>p[0]))+45;
   const spanY=(Math.max(...projected.map(p=>p[1]))-Math.min(...projected.map(p=>p[1])))*Math.sin(1.25)+35;
-  const range = Math.max(600,spanX/(2*tanH*Math.max(.2,(freeRight-freeLeft)/width)*.88),spanY/(2*tanV*Math.max(.16,(freeBottom-freeTop)/height)*.88));
+  const range = Math.max(600,spanX/(2*tanH*((freeRight-freeLeft)/width)*.72),spanY/(2*tanV*((freeBottom-freeTop)/height)*.72));
   viewer.camera.flyToBoundingSphere(sphere, {
-    duration: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1.2,
+    duration: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : .7,
     offset: new C.HeadingPitchRange(heading,-1.25,range),
     complete: () => {
       if (viewer.isDestroyed()) return;

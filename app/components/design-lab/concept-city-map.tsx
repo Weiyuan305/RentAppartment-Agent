@@ -96,6 +96,11 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   const transitJourney=transit.journeys[0];
   const shouldLoad = requested || autoLoad;
   const [focusTick, setFocusTick] = useState(0);
+  const [overlay, setOverlay] = useState<"layers" | "journey" | null>(null);
+  function fitCurrentRoute() {
+    setOverlay(null);
+    requestAnimationFrame(() => setFocusTick(value => value + 1));
+  }
   useEffect(() => {
     const element = container.current;
     if (!element) return;
@@ -251,8 +256,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   function focusAmenities(id?: string) {
     if (id) {
       setSelectedAmenityId(id); setAmenityRouteTarget(null);
-      const layers=container.current?.parentElement?.querySelector<HTMLDetailsElement>(".workspace-layers");
-      if(layers)layers.open=false;
+      setOverlay("journey");
     }
     else {
       setSelectedAmenityId(null);
@@ -275,23 +279,39 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     return () => {observer.disconnect();clearTimeout(timer);};
   }, [status]);
   useEffect(() => {
-    const render = () => runtime.current?.viewer.scene.requestRender();
+    const render = () => { runtime.current?.viewer.scene.requestRender(); setFocusTick(value => value + 1); };
     window.addEventListener("atlas-workspace-layout", render);
     return () => window.removeEventListener("atlas-workspace-layout", render);
   }, []);
   const live=status==="ready";
   const hasJourney = amenityRouteEnabled || (!selectedAmenity && (Boolean(routeTarget) || studentPlan.routeBuilding || studentPlan.transitRequested));
+  useEffect(() => {
+    const panel=container.current?.parentElement;
+    if(!panel)return;
+    const layers=panel.querySelector<HTMLElement>(".workspace-layer-body");
+    const measure=()=>{
+      if(!layers || overlay!=="layers")return;
+      const bottom=panel.querySelector(".map-journey-shell")?.getBoundingClientRect().top ?? panel.getBoundingClientRect().bottom-85;
+      layers.style.setProperty("--layer-room",`${Math.max(0,bottom-layers.getBoundingClientRect().top-12)}px`);
+    };
+    const observer=new ResizeObserver(measure);
+    observer.observe(panel);
+    const summary=panel.querySelector(".map-journey-shell");
+    if(summary)observer.observe(summary);
+    const frame=requestAnimationFrame(measure);
+    return()=>{observer.disconnect();cancelAnimationFrame(frame);};
+  },[overlay,hasJourney,selectedAmenity]);
   const journeyStatus = amenityRouteEnabled ? facilityRoute.status : studentPlan.transitRequested ? transit.status : studentPlan.routeBuilding ? buildingRoute.status : routeStatus;
   const journeyTitle = amenityRouteEnabled ? selectedAmenity!.name : selectedBuilding && (studentPlan.routeBuilding || studentPlan.transitRequested) ? selectedBuilding.name : cityView.university;
   const journeyKey = `${selected}:${amenityRouteEnabled ? selectedAmenity?.id : studentPlan.transitRequested ? "transit:" + studentPlan.destinationId : studentPlan.routeBuilding ? studentPlan.destinationId : "campus"}`;
 
   const amenityDetails = selectedAmenity && <AmenityDetails place={selectedAmenity} listing={active} route={facilityRoute.route} routeStatus={facilityRoute.status} routeError={facilityRoute.error}
     onRoute={() => {if(active){setAmenityRouteTarget(`${active.id}:${selectedAmenity.id}`);facilityRoute.retry();setRequested(true);}}}
-    onFitRoute={() => setFocusTick(v=>v+1)} onClearRoute={() => setAmenityRouteTarget(null)} onClose={() => setSelectedAmenityId(null)}/>;
+    onFitRoute={fitCurrentRoute} onClearRoute={() => setAmenityRouteTarget(null)} onClose={() => setSelectedAmenityId(null)}/>;
   const journeyContent = selectedAmenity ? amenityDetails
-    : studentPlan.transitRequested && selectedBuilding ? <TransitJourneyPanel listing={active} building={selectedBuilding} journeys={transit.journeys} status={transit.status} onClose={onStudentClose} onRetry={transit.retry} onFit={()=>setFocusTick(v=>v+1)}/>
-    : studentPlan.routeBuilding && selectedBuilding ? <BuildingJourneyPanel building={selectedBuilding} route={buildingRoute.route} status={buildingRoute.status} onClose={onStudentClose} onRetry={buildingRoute.retry} onFit={()=>setFocusTick(v=>v+1)}/>
-    : routeTarget ? <WalkingRoutePanel city={city} listing={routeTarget} status={routeStatus} route={campusRoute} onClose={onCloseRoute} onRetry={retryRoute} onFit={()=>setFocusTick(v=>v+1)}/>
+    : studentPlan.transitRequested && selectedBuilding ? <TransitJourneyPanel listing={active} building={selectedBuilding} journeys={transit.journeys} status={transit.status} onClose={onStudentClose} onRetry={transit.retry} onFit={fitCurrentRoute}/>
+    : studentPlan.routeBuilding && selectedBuilding ? <BuildingJourneyPanel building={selectedBuilding} route={buildingRoute.route} status={buildingRoute.status} onClose={onStudentClose} onRetry={buildingRoute.retry} onFit={fitCurrentRoute}/>
+    : routeTarget ? <WalkingRoutePanel city={city} listing={routeTarget} status={routeStatus} route={campusRoute} onClose={onCloseRoute} onRetry={retryRoute} onFit={fitCurrentRoute}/>
     : active && <div className="map-selected"><span className="map-selected-icon"><MapPin size={17}/></span><div><small>{t("已选演示房源")}{!live ? t(" · 地图连接后定位") : ""}</small><strong>{active.name} <span>{priceLabel(active)} / {cityView.period}</span></strong></div></div>;
   // Manual coverage check at the sample campus on 2026-10-08, not a country-wide guarantee.
   const limitedCoverage = city.id === "kuala-lumpur";
@@ -301,14 +321,14 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     : status === "idle" ? t("点击后才请求地图数据；本页切换城市共用一次连接。")
     : status === "loading" ? t("首次加载需要下载城市三维数据。")
     : config.provider === "cesium-ion" ? t("请检查 token、Google 3D 资产权限、允许的网址和本月用量。") : t("请检查网络、地图权限与配额，或稍后重试。");
-  return <section className={`city-panel ${live ? "map-live" : ""} ${routeTarget || amenityRouteEnabled||studentPlan.routeBuilding||studentPlan.transitRequested ? "has-route" : ""} ${limitedCoverage ? "limited-coverage" : ""}`} aria-label={t("{0}城市地图", {0:city.name})}>
+  return <section className={`city-panel ${live ? "map-live" : ""} ${routeTarget || amenityRouteEnabled||studentPlan.routeBuilding||studentPlan.transitRequested ? "has-route" : ""} ${limitedCoverage ? "limited-coverage" : ""} ${overlay ? "is-overlay-open" : ""}`} aria-label={t("{0}城市地图", {0:city.name})}>
     <div ref={container} className="cesium-mount" aria-label={t("实景三维画布")}/>
     <MapAttribution nativeRef={creditContainer} visible={live}/>
     {live && <MapPlaceLabels scene={labelScene} city={city} listings={listings} selected={selected} hovered={hovered} onHover={onHover} place={selectedAmenity} hideCampus={Boolean(selectedBuilding)} routeActive={Boolean(route)||studentPlan.transitRequested} onSelect={onSelect} onCampus={()=>cameraAction("campus")} onPlace={id=>{setSelectedAmenityId(id);setAmenityRouteTarget(null);}}/>}
     {live&&(studentPlan.showBuildings||studentPlan.destinationId)&&<Suspense fallback={null}><CampusMapLayer scene={labelScene} cityId={city.id} plan={studentPlan} onSelect={onBuildingSelect}/></Suspense>}
     {!live && <><img className="city-photo" src={cityPhoto(city.id)} alt={t("{0}城市风光预览", {0:city.name})}/><div className="city-shade"/></>}
     <div className="map-top"><div className="map-city"><span className="dot"/> EXPLORE {city.english.toUpperCase()}</div><span className="map-mode">{live ? (limitedCoverage ? t("影像地形") : t("实景 3D")) : t("城市照片预览")}</span></div>
-    <MapLayers key={city.id} plan={studentPlan} amenityCount={amenityCategories.length} onStudentChange={onStudentChange} onPlanner={onPlanner} onClearAmenities={() => patchSelection({categories:[],placeIds:null,selectedPlaceId:null,routePlaceId:null})}><AmenityControls key={city.id} categories={amenityCategories} data={amenitiesData} status={amenitiesStatus} visible={visibleAmenities} selected={selectedAmenity} listing={active} radius={radius} cuisine={cuisine}
+    <MapLayers key={city.id} open={overlay === "layers"} onOpenChange={open=>setOverlay(open?"layers":null)} plan={studentPlan} amenityCount={amenityCategories.length} onStudentChange={onStudentChange} onPlanner={onPlanner} onClearAmenities={() => patchSelection({categories:[],placeIds:null,selectedPlaceId:null,routePlaceId:null})}><AmenityControls key={city.id} categories={amenityCategories} data={amenitiesData} status={amenitiesStatus} visible={visibleAmenities} selected={selectedAmenity} listing={active} radius={radius} cuisine={cuisine}
       onRadius={value => patchSelection({radiusMeters: value, placeIds: null, selectedPlaceId: null, routePlaceId: null})}
       onCuisine={value => patchSelection({cuisine: value, placeIds: null, selectedPlaceId: null, routePlaceId: null})}
       onExplore={() => setAmenitiesRequested(true)} onClear={() => patchSelection({categories: [], placeIds: null, selectedPlaceId: null, routePlaceId: null})}
@@ -316,7 +336,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     {live && limitedCoverage && <p className="map-coverage" role="note">{t("当前校区建筑三维细节不足，显示影像地形。2026-10-08 实测；其他区域覆盖可能不同。")}</p>}
     {!live && <div className="map-intro"><p>{t("先认识这座城，再找到你的家。")}</p><h2>{city.english}{locale === "zh" && <span>{cityView.name}</span>}</h2><div className="map-connection"><Building2 size={22}/><div><strong>{connectionTitle}</strong><p>{connectionText}</p><div className="connection-actions">{status==="idle" && <button onClick={()=>setRequested(true)}>{t("加载实景 3D")}</button>}{status==="error" && <button onClick={()=>setRetry(v=>v+1)}>{t("重新连接")}</button>}<a href="/setup" target="_blank" rel="noreferrer">{t("查看接入说明")} <ChevronIcon/></a></div></div></div></div>}
     {live && <div className="map-controls"><button aria-label={t("放大地图")} onClick={()=>cameraAction("in")}><Plus size={19}/></button><button aria-label={t("缩小地图")} onClick={()=>cameraAction("out")}><Minus size={19}/></button><button aria-label={t("旋转地图")} onClick={()=>cameraAction("rotate")}><RotateCw size={18}/></button><button aria-label={t("回到大学")} onClick={()=>cameraAction("campus")}><GraduationCap size={20}/></button><button aria-label={t("重新定位房源")} onClick={()=>setFocusTick(v=>v+1)}><Compass size={20}/></button></div>}
-    {hasJourney ? <JourneyDisclosure key={journeyKey} title={journeyTitle} status={journeyStatus} seconds={studentPlan.transitRequested && !amenityRouteEnabled ? transitJourney ? transitJourney.durationMinutes * 60 : undefined : route?.durationSeconds} meters={studentPlan.transitRequested && !amenityRouteEnabled ? undefined : route?.distanceMeters} transit={studentPlan.transitRequested && !amenityRouteEnabled} onClear={amenityRouteEnabled ? () => setAmenityRouteTarget(null) : studentPlan.routeBuilding || studentPlan.transitRequested ? onStudentClose : onCloseRoute}>
+    {hasJourney || selectedAmenity ? <JourneyDisclosure key={journeyKey} expanded={overlay === "journey"} onExpandedChange={open=>setOverlay(open?"journey":null)} place={!hasJourney} title={selectedAmenity?.name ?? journeyTitle} status={journeyStatus} seconds={studentPlan.transitRequested && !amenityRouteEnabled ? transitJourney ? transitJourney.durationMinutes * 60 : undefined : route?.durationSeconds} meters={studentPlan.transitRequested && !amenityRouteEnabled ? undefined : route?.distanceMeters} transit={studentPlan.transitRequested && !amenityRouteEnabled} onClear={!hasJourney ? () => setSelectedAmenityId(null) : amenityRouteEnabled ? () => setAmenityRouteTarget(null) : studentPlan.routeBuilding || studentPlan.transitRequested ? onStudentClose : onCloseRoute}>
       {journeyContent}
     </JourneyDisclosure> : journeyContent}
     <div className="map-bottom"><div><Navigation size={17}/><span>{cityView.campus}</span></div><span>{live?t("拖动平移 · 滚轮缩放 · Ctrl + 拖动旋转"):t("照片预览 · 非可交互地图")}</span></div>

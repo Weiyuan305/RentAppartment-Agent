@@ -51,6 +51,11 @@ export default function ApartmentComparison({
     return () => c.abort();
   }, [open, city]);
   const rows = compareListings(plan.compareIds, plan);
+  const [pair,setPair]=useState<[string,string]>(["",""]);
+  const first=rows.some(r=>r.listing.id===pair[0])?pair[0]:rows[0]?.listing.id;
+  const second=rows.some(r=>r.listing.id===pair[1]&&r.listing.id!==first)?pair[1]:rows.find(r=>r.listing.id!==first)?.listing.id;
+  const hiddenOnMobile=(id:string)=>id!==first&&id!==second;
+  const columns=[...rows].sort((a,b)=>(a.listing.id===first?0:a.listing.id===second?1:2)-(b.listing.id===first?0:b.listing.id===second?1:2));
   const money = (n: number | null) =>
     n === null
       ? w("待确认", "Unknown")
@@ -84,13 +89,16 @@ export default function ApartmentComparison({
             )}
           </p>
         ) : (
-          <div className="student-table-wrap">
+          <><div className="compare-pair-picker" aria-label={w("选择手机对比的两套公寓","Choose two homes to compare on mobile")}>
+            <p>{w("一次并排看两套，比较项目始终保留。","Compare two side by side with criteria always visible.")}</p>
+            {[first,second].map((value,index)=><label key={index}>{index===0?w("公寓 A","Home A"):w("公寓 B","Home B")}<select value={value??""} disabled={index===1&&rows.length<2} onChange={event=>setPair(index===0?[event.target.value,second??""]:[first??"",event.target.value])}>{rows.filter(row=>index===0||row.listing.id!==first).map(row=><option key={row.listing.id} value={row.listing.id}>{row.listing.name}</option>)}</select></label>)}
+          </div><div className="student-table-wrap" tabIndex={0} aria-label={w("公寓比较详情","Apartment comparison details")}>
             <table className="student-compare-table">
               <thead>
                 <tr>
-                  <th>{w("比较项目", "Criteria")}</th>
-                  {rows.map((r) => (
-                    <th key={r.listing.id}>
+                  <th scope="col">{w("比较项目", "Criteria")}</th>
+                  {columns.map((r) => (
+                    <th scope="col" key={r.listing.id} data-mobile-hidden={hiddenOnMobile(r.listing.id)}>
                       <strong>{r.listing.name}</strong>
                       <button
                         aria-label={`${w("移出对比", "Remove from comparison")} ${r.listing.name}`}
@@ -192,9 +200,9 @@ export default function ApartmentComparison({
                   ],
                 ].map(([label, value]) => (
                   <tr key={label as string}>
-                    <th>{label as string}</th>
-                    {rows.map((r) => (
-                      <td key={r.listing.id}>
+                    <th scope="row">{label as string}</th>
+                    {columns.map((r) => (
+                      <td key={r.listing.id} data-mobile-hidden={hiddenOnMobile(r.listing.id)}>
                         {(value as (r: (typeof rows)[number]) => string)(r)}
                       </td>
                     ))}
@@ -202,7 +210,7 @@ export default function ApartmentComparison({
                 ))}
               </tbody>
             </table>
-          </div>
+          </div></>
         )}
         <p className="student-note">
           {w(

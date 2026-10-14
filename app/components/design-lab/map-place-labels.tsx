@@ -8,18 +8,18 @@ import { amenityInfo, type Amenity } from "@/lib/amenities";
 import { amenityIconNodes } from "@/lib/amenity-icons";
 import { priceLabel, type City, type Listing } from "@/lib/rental-data";
 
-import {chooseMapMarkers, mapOccluders, markerOverlaps, visibleSidePanel, type MarkerCandidate} from "@/lib/map-marker-density";
+import {chooseMapMarkers, mapOccluders, markerOverlaps, type MarkerCandidate} from "@/lib/map-marker-density";
+import {readMapViewport} from "@/lib/map-viewport";
 
 export type LabelScene = {C: typeof Cesium; viewer: Cesium.Viewer};
 type PlaceLabel = {id: string; kind: "listing" | "campus" | "place"; lng: number; lat: number; text: string; name: string};
 
 export function fitMapLabelTarget({C,viewer}: LabelScene, lng: number, lat: number, range=1200, heading=0) {
   if (viewer.isDestroyed()) return;
-  const canvas=viewer.canvas.getBoundingClientRect(), panel=viewer.canvas.closest(".city-panel");
-  const tools=panel?.querySelector(".concept-amenity-disclosure")?.getBoundingClientRect();
-  const card=panel?.querySelector(".map-journey-shell,.map-selected,.map-amenity-selected,.map-route,.map-transit")?.getBoundingClientRect();
-  const top=tools ? tools.bottom-canvas.top+20 : 100;
-  const bottom=card ? Math.max(top+45,card.top-canvas.top-15) : canvas.height-110;
+  const canvas=viewer.canvas.getBoundingClientRect();
+  const {top,bottom,left,right}=readMapViewport(viewer.canvas);
+  if(right-left<40 || bottom-top<40)return;
+  viewer.camera.cancelFlight();
   const tangent=viewer.camera.frustum instanceof C.PerspectiveFrustum ? Math.tan((viewer.camera.frustum.fovy ?? Math.PI/3)/2) : .58;
   const location=C.Cartographic.fromDegrees(lng,lat);
   const height=viewer.scene.sampleHeightSupported ? viewer.scene.sampleHeight(location,viewer.entities.values) : undefined;
@@ -32,12 +32,7 @@ export function fitMapLabelTarget({C,viewer}: LabelScene, lng: number, lat: numb
       const anchor=C.SceneTransforms.worldToWindowCoordinates(viewer.scene,C.Cartesian3.fromDegrees(lng,lat,(settled ?? 0)+3));
       // Reserve room above the anchor for the label, including newly loaded roof geometry.
       const target=top+(bottom-top)*.72;
-      const root=viewer.canvas.closest(".concept-lab");
-      const left=visibleSidePanel(root,".listing-panel"), right=visibleSidePanel(root,".assistant-panel");
-      if(root?.classList.contains("concept-spatial") && window.innerWidth>1100) {
-        const freeLeft=left ? left.right-canvas.left+20 : 20, freeRight=right ? right.left-canvas.left-20 : canvas.width-20;
-        viewer.camera.moveRight((canvas.width/2-(freeLeft+freeRight)/2)/canvas.height*2*range*tangent);
-      }
+      viewer.camera.moveRight((canvas.width/2-(left+right)/2)/canvas.height*2*range*tangent);
       viewer.camera.moveDown(((anchor?.y ?? canvas.height/2)-target)/canvas.height*2*range*tangent);
       viewer.scene.requestRender();
     },

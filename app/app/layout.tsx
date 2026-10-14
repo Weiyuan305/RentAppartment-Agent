@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { validLocale } from "@/lib/i18n";
 import "./globals.css";
+import "../student-experience.css";
 import { LocaleProvider } from "@/components/locale-provider";
 
 export async function generateMetadata():Promise<Metadata> {

@@ -15,7 +15,7 @@ export function chooseMapMarkers(candidates: MarkerCandidate[], limit: number, g
 export function mapOccluders(canvas: HTMLCanvasElement): MarkerBounds[] {
   const bounds = canvas.getBoundingClientRect(), root = canvas.closest(".concept-lab");
   if (!root) return [];
-  return Array.from(root.querySelectorAll<HTMLElement>(".listing-panel,.assistant-panel,.workspace-tools,.workspace-restore,.concept-amenity-disclosure,.map-journey-shell,.map-selected,.map-controls,.map-attribution"))
+  return Array.from(root.querySelectorAll<HTMLElement>(".listing-panel,.assistant-panel,.workspace-tools,.workspace-restore,.concept-amenity-disclosure,.map-journey-shell,.map-selected,.map-controls,.map-attribution,.concept-map-title,.map-bottom"))
     .filter(node => node.offsetWidth > 0 && getComputedStyle(node).visibility !== "hidden" && !node.closest("[inert]"))
     .map(node => { const r = node.getBoundingClientRect(); return { left:r.left-bounds.left, top:r.top-bounds.top, right:r.right-bounds.left, bottom:r.bottom-bounds.top }; });
 }

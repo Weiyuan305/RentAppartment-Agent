@@ -730,3 +730,8 @@
  .concept-lab .header-end{gap:4px}
 }
 @media(prefers-reduced-motion:reduce){.concept-lab .suggestions>button:hover>svg{transform:none}}
+
+/* Comparison gets its own reserved row instead of covering the last visible card. */
+.concept-lab .listing-panel-footer{flex:none;padding:12px 0;border-top:1px solid var(--border)}
+.concept-lab .listing-panel-footer .student-compare-launch{position:static;display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:44px;padding:10px 12px;border-radius:7px;font-size:13px}
+@media(max-width:1100px){.concept-lab .listing-panel-footer{display:none}}

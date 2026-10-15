@@ -51,7 +51,7 @@ export function LoginPage() {
           <Button type="submit" disabled={busy} className="w-full">{busy ? <LoaderCircle className="animate-spin" data-icon="inline-start"/> : null}{t(busy ? "正在处理…" : mode === "signup" ? "创建账号并开始探索" : "登录")}{!busy && <ArrowRight data-icon="inline-end"/>}</Button>
         </FieldGroup>
       </form>
-      <p className="auth-mode-switch">{t(mode === "signup" ? "已有账号？" : "还没有账号？")} <Button type="button" variant="link" disabled={busy} onClick={()=>{setMode(v=>v === "login" ? "signup" : "login");setError("");setPassword("");}}>{t(mode === "signup" ? "去登录" : "免费注册")}</Button></p>
+      <p className="auth-mode-switch">{t(mode === "signup" ? "已有账号？" : "还没有账号？")} <Button type="button" variant="link" disabled={busy} onClick={()=>{setMode(v=>v === "login" ? "signup" : "login");setError("");setPassword("");setShowPassword(false);}}>{t(mode === "signup" ? "去登录" : "免费注册")}</Button></p>
       <div className="auth-guest"><span>{t("也可以先逛逛")}</span><Button variant="outline" className="w-full" disabled={busy} onClick={()=>location.assign(destination())}>{t("游客体验")}<ArrowRight data-icon="inline-end"/></Button></div>
       <p className="auth-demo-note"><Sparkles size={14}/>{t("当前为演示版本，房源不可预订。")}</p>
     </div><footer>© {new Date().getFullYear()} Campus Atlas<span>{t("让异乡，也有归属感。")}</span></footer></section>

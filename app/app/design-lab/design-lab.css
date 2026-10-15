@@ -290,7 +290,7 @@
 .concept-destination .city-choice h3{font-family:'Atlas Editorial','Songti SC',serif}
 .concept-destination.concept-dialog-spatial .destination-grid>button{background:#29493e;border-color:#527363;color:#eff5e9}
 .concept-destination.concept-dialog-spatial .destination-grid small{color:#c0d1be}
-.concept-select{font-family:'Atlas Manrope','PingFang SC',sans-serif;font-size:12px}
+.concept-select{--popover:#f6f8ef;--popover-foreground:#294f3e;--accent:#dcebd5;--accent-foreground:#173b30;--border:#b5c7aa;font-family:'Atlas Manrope','PingFang SC',sans-serif;font-size:12px}
 
 @media(hover:hover) and (pointer:fine){
  .concept-lab .photo-open:hover img{transform:scale(1.045)}
@@ -1000,9 +1000,27 @@
 .concept-select [data-slot=select-item-indicator]{right:12px}
 .concept-lab .amenity-refinements label{grid-template-columns:minmax(0,1fr);justify-content:stretch;align-items:stretch;padding:0}
 .concept-lab .amenity-refinements select,.concept-lab .layer-group select{min-height:44px}
+.concept-lab .workspace-layers .amenity-more{position:static;inset:auto;max-height:none;overflow:visible;margin-top:12px;box-shadow:none}
+.concept-lab .workspace-layers .amenity-status{flex-wrap:wrap;gap:4px 12px;font-size:12px}
+.concept-lab .workspace-layers .amenity-status button{min-height:36px;font-size:12px;gap:5px}
 .concept-lab :is(.amenity-list-heading,.amenity-popup-heading)>button{display:grid;place-items:center;flex:none;width:36px;height:36px;padding:0}
+.concept-lab .language-switch{gap:4px;padding:3px;border:1px solid var(--border);border-radius:10px;background:var(--surface)}
+.concept-lab .language-switch>svg{margin-inline:3px}
+.concept-lab .language-switch [data-slot=toggle-group]{gap:2px}
+.concept-lab .language-switch [data-slot=toggle-group-item]{border-radius:6px}
+.concept-lab .language-switch button:focus-visible{outline-offset:1px;box-shadow:none}
+/* The collapsed-list comparison shortcut keeps its own row below route details. */
+@media(min-width:1101px){
+ .concept-lab>.student-compare-launch{left:24px;min-height:44px}
+ .concept-lab:has(>.student-compare-launch) .map-journey-shell{bottom:max(80px,calc(var(--map-credit-height,35px) + 16px))}
+}
 @media(max-width:600px){
  .concept-select [data-slot=select-item]{min-height:44px}
  .concept-lab .amenity-refinements select{font-size:16px}
+ .concept-lab .workspace-layers .amenity-status button{min-height:44px}
  .concept-lab :is(.amenity-list-heading,.amenity-popup-heading)>button{width:44px;height:44px}
+ .concept-lab .topbar .header-end{gap:8px}
+ .concept-lab .topbar .header-end>button,.concept-lab .topbar .account-menu>button{min-width:44px;min-height:44px}
+ .concept-lab .topbar .language-switch button{min-width:44px;min-height:44px;padding-inline:8px}
 }
+@media(max-width:440px){.concept-lab .topbar .brand>span{display:none}.concept-lab .topbar .brand{flex:none}.concept-lab .topbar .header-end{margin-left:auto}}

@@ -239,15 +239,15 @@ html[lang=en] .map-intro>p{display:none}
 html[lang=en] .assistant-heading{gap:8px}html[lang=en] .assistant-heading>div{min-width:0}html[lang=en] .assistant-heading h2{font-size:13px}
 @media(max-width:767px){.topbar .main-nav{display:none}.topbar .brand{flex-shrink:0;white-space:nowrap}.topbar .header-end{margin-left:auto}.auth-form-panel footer{gap:18px;line-height:1.6}}
 
-/* Keep preview controls in document flow when panels switch to tabs. */
+/* Legacy preview layout only; the production map measures absolute overlay space. */
 @media(max-width:1100px){
-  .city-panel:not(.map-live){overflow-y:auto}
-  .city-panel:not(.map-live) .map-top{position:relative;inset:auto;margin:18px 12px}
-  .city-panel:not(.map-live) .map-amenities{position:relative;inset:auto;max-width:calc(100% - 24px);margin:0 12px}
-  .city-panel:not(.map-live) .map-intro{position:relative;inset:auto;margin:24px 12px}
-  .city-panel:not(.map-live) .map-intro>p,.city-panel:not(.map-live) .map-intro>h2{display:none}
-  .city-panel:not(.map-live) .map-selected{position:relative;inset:auto;max-width:440px;margin:0 12px}
-  .city-panel:not(.map-live) .map-bottom{position:relative;inset:auto;margin:22px 12px}
+  .explorer:not(.concept-lab) .city-panel:not(.map-live){overflow-y:auto}
+  .explorer:not(.concept-lab) .city-panel:not(.map-live) .map-top{position:relative;inset:auto;margin:18px 12px}
+  .explorer:not(.concept-lab) .city-panel:not(.map-live) .map-amenities{position:relative;inset:auto;max-width:calc(100% - 24px);margin:0 12px}
+  .explorer:not(.concept-lab) .city-panel:not(.map-live) .map-intro{position:relative;inset:auto;margin:24px 12px}
+  .explorer:not(.concept-lab) .city-panel:not(.map-live) .map-intro>p,.explorer:not(.concept-lab) .city-panel:not(.map-live) .map-intro>h2{display:none}
+  .explorer:not(.concept-lab) .city-panel:not(.map-live) .map-selected{position:relative;inset:auto;max-width:440px;margin:0 12px}
+  .explorer:not(.concept-lab) .city-panel:not(.map-live) .map-bottom{position:relative;inset:auto;margin:22px 12px}
 }
 
 @media(max-width:767px){

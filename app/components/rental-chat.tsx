@@ -21,6 +21,7 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
   const [retrying, setRetrying] = useState(false);
   const end = useRef<HTMLDivElement>(null);
   const transcript = useRef<HTMLDivElement>(null);
+  const composer = useRef<HTMLTextAreaElement>(null);
   const followEnd = useRef(true);
   const current = useRef({state, uiRevision, onState, locale, onReplyReady, preserveInitialState});
   useEffect(() => {current.current = {state, uiRevision, onState, locale, onReplyReady, preserveInitialState};}, [state, uiRevision, onState, locale, onReplyReady, preserveInitialState]);
@@ -60,6 +61,25 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
   const retryMessage = retryableMessage(chat.messages) || (chat.error || notice === replyNotices.stopped ? chat.messages.findLast(message => message.role === "user") : undefined);
   const replyStatus = chat.messages.at(-1)?.metadata?.replyStatus;
   const displayedNotice = notice || (!busy && retryMessage ? replyStatus ? replyNotices[replyStatus] : t("上次回复未完成，可以重试这条消息。") : "");
+  useEffect(() => {
+    const field = composer.current;
+    if (!field) return;
+    const resize = () => {
+      if (!field.clientWidth) return;
+      field.style.height = "auto";
+      // An empty field stays one line even when its placeholder wraps.
+      if (field.value) field.style.height = `${field.scrollHeight}px`;
+    };
+    resize();
+    let previousWidth = field.clientWidth;
+    const observer = new ResizeObserver(() => {
+      if (field.clientWidth === previousWidth) return;
+      previousWidth = field.clientWidth;
+      resize();
+    });
+    observer.observe(field);
+    return () => observer.disconnect();
+  }, [input]);
   useEffect(() => {
     disposed.current = false;
     const controller = new AbortController();
@@ -195,7 +215,7 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
   return <aside id="workspace-chat" className="assistant-panel" inert={collapsed} aria-label={t("找房助手")}>
     <div className="assistant-heading">
       <span className="assistant-icon"><Sparkles size={20}/></span>
-      <div className="assistant-heading-copy"><h2>{t("你的找房搭子")}</h2><p>{t("对话与地图一起找答案")}</p></div>
+      <div className="assistant-heading-copy"><h2>{t("你的找房搭子")}</h2><p title={session ? t("会话保存在服务器") : t("正在连接会话…")}>{session ? (locale === "zh" ? "云端会话" : "Cloud conversation") : t("正在连接会话…")}</p></div>
       <span className={`assistant-state ${agentStatus?.configured ? "ready" : ""}`}>{agentStatus?.configured ? t("AI 已配置") : t("工具体验")}</span>
       <div className="panel-heading-actions" role="group" aria-label={locale === "zh" ? "对话操作" : "Chat actions"}>
         <button className="chat-reset" title={t("新建对话")} aria-label={t("新建对话")} disabled={busy || !session} onClick={reset}><RotateCcw size={18}/></button>
@@ -212,7 +232,13 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
       {busy && <p className="chat-busy"><LoaderCircle size={14} className="route-spinner"/>{retrying ? t("正在重新连接…") : previewing ? t("正在查询工具…") : t("正在查找并回复…")}</p>}
       {displayedNotice && <div className="chat-notice" role="status"><p>{t(displayedNotice)}</p>{!busy && retryMessage && <button type="button" className="chat-retry" onClick={() => void retry()}><RotateCcw size={13}/>{t("重试这条消息")}</button>}</div>}<div ref={end}/>
     </div></div>
-    <form className="chat-form" onSubmit={e => {e.preventDefault(); void send(input);}}><label className="sr-only" htmlFor="chat-input">{t("描述你的理想住处")}</label><textarea id="chat-input" value={input} onChange={e => setInput(e.target.value)} disabled={!agentStatus?.configured || !session} placeholder={agentStatus?.configured ? t("问问附近，或说说你的找房条件…") : t("配置模型后，即可开始多轮 AI 对话")} maxLength={2000} onKeyDown={e => {if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {e.preventDefault(); void send(input);}}} rows={2}/><div><span><Sparkles size={13}/>{session ? t("会话保存在服务器") : t("正在连接会话…")}</span>{busy && !previewing ? <button type="button" aria-label={t("停止回复")} onClick={() => stop()}><Square size={14}/></button> : <button type="submit" disabled={!input.trim() || busy || !agentStatus?.configured || !session} aria-label={t("发送消息")}><ArrowUp size={19}/></button>}</div></form>
+    <form className="chat-form" onSubmit={e => {e.preventDefault(); void send(input);}}>
+      <label className="sr-only" htmlFor="chat-input">{t("描述你的理想住处")}</label>
+      <div className="chat-composer">
+        <textarea ref={composer} id="chat-input" value={input} onChange={e => setInput(e.target.value)} disabled={!agentStatus?.configured || !session} placeholder={agentStatus?.configured ? (locale === "zh" ? "问问附近，或说说需求…" : "Ask about homes or nearby…") : t("配置模型后，即可开始多轮 AI 对话")} maxLength={2000} onKeyDown={e => {if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {e.preventDefault(); void send(input);}}} rows={1}/>
+        {busy && !previewing ? <button type="button" aria-label={t("停止回复")} onClick={() => stop()}><Square size={14}/></button> : <button type="submit" disabled={!input.trim() || busy || !agentStatus?.configured || !session} aria-label={t("发送消息")}><ArrowUp size={19}/></button>}
+      </div>
+    </form>
     <p className="assistant-disclaimer">{t("演示房源不可预订 · 设施可能缺漏 · 治安与营业状态未核验")}</p>
   </aside>;
 }

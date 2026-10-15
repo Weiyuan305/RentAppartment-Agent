@@ -621,25 +621,24 @@
 .concept-lab .panel-heading-actions>button:disabled{opacity:.4}
 .concept-lab .panel-heading-actions>button[aria-pressed=true]{background:var(--primary);border-color:var(--primary);color:var(--background)}
 .concept-lab .panel-heading-actions svg{width:18px;height:18px;stroke-width:1.8}
-.concept-lab .assistant-heading{flex:none;display:grid;grid-template-columns:32px minmax(0,1fr) auto;align-items:center;min-height:88px;padding:16px;gap:12px;border-bottom:1px solid #c9d8c4}
+.concept-lab .assistant-heading{flex:none;display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;min-height:64px;padding:10px 12px;gap:8px;border-bottom:1px solid #c9d8c4}
 .concept-lab .assistant-heading-copy{min-width:0}
 .concept-lab .assistant-heading h2{font-size:14px;line-height:1.4;text-wrap:balance}
-.concept-lab .assistant-heading p{font-size:11px;line-height:1.5;margin-top:4px}
+.concept-lab .assistant-heading p{font-size:11px;line-height:1.4;margin:2px 0 0}
 .concept-lab .assistant-heading .panel-heading-actions{flex:0 0 auto}
-.concept-lab .assistant-heading .assistant-icon{width:32px;height:32px}
+.concept-lab .assistant-heading .assistant-icon{width:28px;height:28px}
 .concept-lab .assistant-panel{--focus-ring:#275944}
 .concept-lab .assistant-heading .panel-heading-actions>button{border-color:#afc3a7;color:#365e45}
-.concept-lab .chat-message{font-size:14px;line-height:1.8;padding:14px 16px}
-.concept-lab .chat-scroll{padding:20px 16px;scrollbar-gutter:stable}
+.concept-lab .chat-message{font-size:14px;line-height:1.75;padding:12px 14px;margin-top:12px}
+.concept-lab .chat-scroll{padding:12px;scrollbar-gutter:stable}
 .concept-lab .welcome p,.concept-lab .suggestions>button{font-size:13px;line-height:1.65}
 .concept-lab .suggestions>button{padding:12px 8px;min-height:44px}
 .concept-lab .suggestions>button>svg{flex:none}
-.concept-lab .chat-form{margin:12px 12px 0;padding:12px}
-.concept-lab .chat-form textarea{font-size:14px;line-height:1.6;min-height:64px}
-.concept-lab .chat-form>div{gap:8px}
-.concept-lab .chat-form>div>span{font-size:11px;line-height:1.5;min-width:0}
-.concept-lab .chat-form button{flex:none;width:36px;height:36px}
-.concept-lab .assistant-disclaimer{font-size:10px;line-height:1.6;padding:12px 16px 16px}
+.concept-lab .chat-form{margin:8px 12px 0;padding:6px}
+.concept-lab .chat-form textarea{font-size:14px;line-height:22px;min-height:40px;max-height:128px;padding:9px 4px}
+.concept-lab .chat-form textarea:focus-visible{outline:none}
+.concept-lab .chat-form button{flex:none;width:40px;height:40px}
+.concept-lab .assistant-disclaimer{font-size:10px;line-height:1.5;margin:0;padding:6px 12px 10px}
 .concept-lab .listing-title>button:first-child{font-size:17px;line-height:1.4}
 .concept-lab .listing-title{align-items:center;gap:12px}
 .concept-lab .locate-button{flex:none;min-width:36px;min-height:36px;border-radius:9px}
@@ -697,7 +696,6 @@
 }
 @media(max-width:1100px){
  .concept-lab .list-heading-actions{flex-direction:row}
- .concept-lab .assistant-heading{min-height:80px}
  .concept-lab .mobile-tabs button{height:44px;font-size:13px}
 }
 @media(max-width:600px){
@@ -718,7 +716,7 @@
  .concept-lab .map-controls button{width:44px;height:44px}
  .concept-lab .workspace-layers>summary{min-height:44px}
  .concept-lab .workspace-layers .amenity-tools button{min-height:44px}
- .concept-lab .assistant-heading{grid-template-columns:32px minmax(0,1fr) auto;gap:12px;padding:16px}
+ .concept-lab .assistant-heading{min-height:64px;gap:8px;padding:8px 12px}
  .concept-lab .assistant-heading h2{font-size:15px}
  .concept-lab .assistant-heading p{font-size:12px}
  :is(.student-dialog,.concept-detail,.concept-destination)>[data-slot=dialog-close]{width:44px;height:44px;top:8px;right:8px}

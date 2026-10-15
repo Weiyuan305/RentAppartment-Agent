@@ -493,3 +493,8 @@ button:disabled { cursor: not-allowed; }
 @keyframes map-credit-reveal{from{opacity:0;transform:translateY(4px) scale(.985)}to{opacity:1;transform:none}}
 @media(pointer:coarse){.map-credit-disclosure>summary{min-height:36px;padding-inline:11px}.map-credit-panel>header button{width:36px;height:36px}}
 @media(prefers-reduced-motion:reduce){.map-credit-panel{animation:none}.map-credit-disclosure>summary{transition:none}}
+
+/* Keep the composer compact; long drafts grow only to a bounded height. */
+.chat-form .chat-composer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:6px}
+.chat-form .chat-composer textarea{display:block;min-width:0;min-height:40px;max-height:128px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;box-sizing:border-box}
+.chat-form .chat-composer button{align-self:end}

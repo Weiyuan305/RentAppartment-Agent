@@ -23,6 +23,15 @@ const bindings = (current, pages) => ({
   ASSETS: {fetch: async req => pages(new URL(req.url).pathname, req)},
 });
 
+test("sign-in and OAuth privacy pages reach the application rather than the static CDN", async () => {
+  for (const path of ["/login", "/privacy"]) {
+    assert.ok(routes.include.includes(path), `${path} must be a dynamic Pages route`);
+    const response = await entry.fetch(request(path), bindings(() => new Response("auth page"), () => {throw new Error("Auth pages must not use the static fallback");}));
+    assert.equal(response.status, 200);
+    assert.equal(await response.text(), "auth page");
+  }
+});
+
 test("Pages routes new hashed chunks through the app during the Worker/Pages deployment gap", async () => {
   assert.ok(routes.include.some(pattern => pattern.endsWith("*") ? `${assetPath}new.js`.startsWith(pattern.slice(0, -1)) : pattern === `${assetPath}new.js`), "hashed assets must reach the Pages entry, not only the old CDN snapshot");
   const env = bindings(path => path === "/" ? new Response('<script type="module" src="/_next/static/chunks/new.js"></script>') : javascript("export const version = 'new'"), missing);

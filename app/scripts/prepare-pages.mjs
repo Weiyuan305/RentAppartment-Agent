@@ -5,7 +5,7 @@ import {cpSync, mkdirSync, rmSync, writeFileSync} from "node:fs";
 rmSync("dist/pages", {recursive: true, force: true});
 cpSync("dist/client", "dist/pages", {recursive: true});
 cpSync(new URL("../cloudflare/pages/entry.mjs", import.meta.url), "dist/pages/_worker.js");
-writeFileSync("dist/pages/_routes.json", JSON.stringify({version: 1, include: ["/", "/api/*", "/login", "/setup", "/listing/*", "/design-lab", "/_next/static/*"], exclude: []}, null, 2));
+writeFileSync("dist/pages/_routes.json", JSON.stringify({version: 1, include: ["/", "/api/*", "/login", "/privacy", "/setup", "/listing/*", "/design-lab", "/_next/static/*"], exclude: []}, null, 2));
 // Keep Pages config discovery independent of the Vite Worker deploy redirect.
 mkdirSync("cloudflare/pages/.wrangler/deploy", {recursive: true});
 writeFileSync("cloudflare/pages/.wrangler/deploy/config.json", JSON.stringify({configPath: "../../wrangler.jsonc"}));

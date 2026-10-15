@@ -865,3 +865,11 @@
  .concept-lab .map-toolbar .workspace-layers>summary,.map-area-search button,.agent-action-receipt button{min-height:44px}
 }
 @media(prefers-reduced-motion:no-preference){.agent-action-receipt{animation:atlas-surface-reveal 180ms ease-out}}
+/* Keep the selected home readable without covering a tall strip of the map. */
+.concept-lab .map-selected{padding:8px 12px;gap:9px;min-height:48px}
+.concept-lab .map-selected>.map-selected-icon{width:28px;height:28px;flex-shrink:0}
+.concept-lab .map-selected-copy{min-width:0;flex:1}
+.concept-lab .map-selected small{font-size:10px;line-height:1.2;margin-bottom:2px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.concept-lab .map-selected-main{display:flex;align-items:baseline;gap:10px;min-width:0;line-height:1.35}
+.concept-lab .map-selected strong{font-size:13px;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.concept-lab .map-selected-price{flex-shrink:0;font-size:11px;white-space:nowrap;color:#365f45}

@@ -15,8 +15,8 @@ export async function generateMetadata():Promise<Metadata> {
     "codex-preview": "development",
   },
   icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+    icon: "/favicon.svg?v=brand-b-20261015",
+    shortcut: "/favicon.svg?v=brand-b-20261015",
   },
 };
 }

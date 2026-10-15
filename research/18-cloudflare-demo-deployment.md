@@ -6,7 +6,7 @@
 
 - 推荐入口：[Campus Atlas](https://campus-atlas-demo.pages.dev/?city=london&listing=london-2)。固定项目域名，不随每次发布改变。
 - Worker：`campus-atlas-demo`，业务 API、HTML 渲染和 Agent 在 Cloudflare 执行。
-- Pages：`campus-atlas-demo`，静态资源直接分发；HTML/API 通过内部 service binding 访问上述 Worker。
+- Pages：`campus-atlas-demo`，图片、地图资源与数据文件直接分发；HTML/API 和 `/_next/static/*` 脚本样式通过内部 service binding 访问同一份 Worker 发布。框架资源读取失败时再尝试 Pages 自带副本，避免 Worker 已更新、Pages 尚未更新时脚本 404。细节见 [脚本加载修复](script-loading-reliability.md)。
 - D1：`campus-atlas-demo`，APAC 区域，绑定名 `ATLAS_DB`，保存匿名会话、配额和成功路线缓存。未上传旧本地聊天数据库。
 - Worker 当前版本：`bf5a157c-24a5-4d79-a2a4-745f6c99519e`；Pages 当前发布：`a1001dac`。本次更新增加只读健康接口，监控申请与激活边界见 [邮件监控说明](19-uptime-monitoring.md)；原始部署验收版本为 Worker `d5ba898c-5a39-47e7-8e24-23c967a64cfb`、Pages `c4b84ce7`。
 
@@ -56,6 +56,8 @@ npm run deploy:pages
 首次换账号时，需要自行创建 D1/Pages 项目，更新 `cloudflare/wrangler.jsonc` 的 D1 ID。Worker 更名后同步 `cloudflare/pages/wrangler.jsonc` 的 service binding 与部署脚本。普通更新无需重建数据库。
 
 API 检查器：`node scripts/verify-deployment.mjs https://campus-atlas-demo.pages.dev --storage=D1`。加 `--model` 会实际调用当前模型两轮及公共路线服务，会消耗相应额度；默认检查不调用模型。
+
+`deploy:pages` 结束时自动执行 `verify:assets`：检查首页、登录页、配置页和详情页的 HTML，以及本次构建的全部 JavaScript/CSS（包括懒加载模块）的状态码、类型和内容哈希；检查失败时命令以非零状态结束。它不回滚已经发布的版本，也不替代浏览器首次打开与交互验收。
 
 ## 后续迁到服务器
 

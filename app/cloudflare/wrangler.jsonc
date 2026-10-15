@@ -1,7 +1,10 @@
 {
   "$schema": "../node_modules/wrangler/config-schema.json",
   "name": "campus-atlas-demo",
-  "main": "../node_modules/vinext/dist/server/fetch-handler.js",
+  "main": "./worker.ts",
+  "assets": {
+    "binding": "ASSETS"
+  },
   "compatibility_date": "2026-05-15",
   "compatibility_flags": [
     "nodejs_compat"

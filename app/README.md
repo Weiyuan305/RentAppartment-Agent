@@ -50,6 +50,14 @@ npm run dev
 
 本地配置 `.env.agent.local` 的 `ATLAS_AUTH_SECRET`（随机且至少 32 字符）；生产的 `ATLAS_AUTH_URL` 必须是实际网站来源，目前为 `https://campus-atlas-demo.pages.dev`。Cloudflare 先应用 `0002_auth.sql`，再上传服务端 Secret。验证和选型见 [登录与双语记录](../research/20-auth-and-localization.md)。
 
+### Google 登录
+
+配置服务端 `ATLAS_GOOGLE_CLIENT_ID` 与 `ATLAS_GOOGLE_CLIENT_SECRET` 后，登录/注册页显示 Google 按钮；未配置时仍可使用邮箱和游客体验。Google Auth Platform 使用 Web 应用客户端，权限仅为 `openid`、`email`、`profile`。回调必须精确登记为 `<ATLAS_AUTH_URL>/api/auth/callback/google`，当前公网地址为 `https://campus-atlas-demo.pages.dev/api/auth/callback/google`；本地 localhost 和 127.0.0.1 是不同来源，须分别登记。隐私说明位于 `/privacy`。
+
+新 Google 用户会创建账号，已有 Google 用户继续同一账号。已有邮箱账号未完成邮箱验证时，不自动按同名邮箱合并：用户先用原密码登录，再在「账号菜单 → 关联 Google 登录」绑定同邮箱 Google，保留原用户 ID、收藏、记录和会话；原密码登录仍可用。Google 登录本身不提供本站邮箱密码重置功能。
+
+密钥仅保存在被 Git 忽略的 `.env.agent.local` 和 Worker Secrets，不使用 `VITE_` 前缀。部署时先同步代码，再运行 `npm run secrets:cloudflare -- --google-only`、`npm run deploy:cloudflare`、`npm run deploy:pages`；构建需提前完成。`npm run test:auth` 覆盖 OAuth state、非法回跳、重复登录、绑定与账号隔离；其 Google 换码为测试替身，不能替代真实浏览器授权和公网回调验收。未更改数据库结构，无新增迁移。
+
 ## 模型与服务器配置
 
 复制 `.env.agent.example` 为 `.env.agent.local`，填写 `ATLAS_AI_BASE_URL`、`ATLAS_AI_MODEL`、`ATLAS_AI_API_KEY` 并重启。模型必须支持流式 Chat Completions 和工具调用。运行 `npm run build` 后，可用 `npm run start -- --port 3000` 在普通 Node 服务器运行；数据库默认 `.data/rental-chat.sqlite`，必须保留持久磁盘。单进程样本不等同多实例正式部署。

@@ -3,7 +3,9 @@ import { spawnSync } from "node:child_process";
 
 if (existsSync(".env.agent.local")) process.loadEnvFile(".env.agent.local");
 const transitOnly=process.argv.includes("--transit-only");
-const keys = transitOnly ? ["ATLAS_TFL_API_KEY"] : process.argv.includes("--auth-only") ? ["ATLAS_AUTH_SECRET"] : ["ATLAS_AI_BASE_URL", "ATLAS_AI_MODEL", "ATLAS_AI_API_KEY", "ATLAS_AUTH_SECRET", ...(process.env.ATLAS_TFL_API_KEY?.trim()?["ATLAS_TFL_API_KEY"]:[])];
+const googleKeys=["ATLAS_GOOGLE_CLIENT_ID","ATLAS_GOOGLE_CLIENT_SECRET"];
+const hasGoogle=googleKeys.some(key=>process.env[key]?.trim());
+const keys = process.argv.includes("--google-only") ? googleKeys : transitOnly ? ["ATLAS_TFL_API_KEY"] : process.argv.includes("--auth-only") ? ["ATLAS_AUTH_SECRET"] : ["ATLAS_AI_BASE_URL", "ATLAS_AI_MODEL", "ATLAS_AI_API_KEY", "ATLAS_AUTH_SECRET", ...(process.env.ATLAS_TFL_API_KEY?.trim()?["ATLAS_TFL_API_KEY"]:[]),...(hasGoogle?googleKeys:[])];
 const values = Object.fromEntries(keys.map(key => [key, process.env[key]?.trim()]));
 if (keys.some(key => !values[key])) throw new Error("Fill server model and authentication configuration in .env.agent.local first.");
 if (keys.includes("ATLAS_AUTH_SECRET")&&(values.ATLAS_AUTH_SECRET?.length ?? 0) < 32) throw new Error("ATLAS_AUTH_SECRET must contain at least 32 characters.");

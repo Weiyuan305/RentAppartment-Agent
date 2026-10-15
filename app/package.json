@@ -36,7 +36,7 @@
     "typecheck": "tsc --noEmit",
     "check:map": "node scripts/check-map.mjs",
     "test:amenity-routes": "node --import tsx scripts/validate-amenity-routes.mjs",
-    "test:auth": "node --import tsx --test tests/auth.test.ts",
+    "test:auth": "node --import tsx --test tests/auth.test.ts tests/auth-google.test.ts",
     "test:student": "node --import tsx --test tests/student-planner.test.ts tests/student-agent.test.ts",
     "collect:campus": "python3 scripts/collect-campus-catalog.py && node --import tsx scripts/collect-campus-planner.ts"
   },

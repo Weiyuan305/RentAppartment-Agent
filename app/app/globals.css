@@ -509,3 +509,16 @@ button:disabled { cursor: not-allowed; }
 /* Solid vector brand mark: preserve the open centre at compact header sizes. */
 .brand-symbol{display:block;flex:none;width:43px;height:43px;color:#d2eb58}
 @media(max-width:767px){.auth-header .brand-symbol{width:34px;height:34px}}
+
+/* Google sign-in shares the auth form's spacing and stays legible at 320 px. */
+.auth-social{display:grid;gap:18px;margin-bottom:18px}
+.auth-google-button[data-slot=button]{width:100%;min-height:44px;height:auto;padding:11px 16px;gap:12px;background:#fff;color:#1f1f1f;border:1px solid #747775;border-radius:8px;box-shadow:none;font-weight:500;white-space:normal;line-height:1.4}
+.auth-google-button[data-slot=button]:hover{background:#f2f2f2;color:#1f1f1f}
+.auth-google-button svg{width:20px;height:20px;flex-shrink:0}
+.auth-divider{display:flex;align-items:center;gap:14px;color:var(--muted-foreground);font-size:12px}
+.auth-divider:before,.auth-divider:after{content:"";flex:1;height:1px;background:var(--border)}
+.auth-feedback{margin-bottom:18px}
+.auth-google-link{display:grid;gap:18px;font-size:14px;line-height:1.65;overflow-wrap:anywhere}
+.auth-google-link strong{display:block;margin-top:4px;color:var(--foreground)}
+.auth-google-linked{display:flex;align-items:flex-start;gap:8px}.auth-google-linked svg{flex-shrink:0;margin-top:3px}
+.auth-link-instruction{margin-bottom:18px;font-size:13px;line-height:1.65;color:var(--muted-foreground)}

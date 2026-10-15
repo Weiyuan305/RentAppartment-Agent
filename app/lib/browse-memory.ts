@@ -9,7 +9,7 @@ export const cameraViewSchema = z.object({
   heading: z.number().finite(), pitch: z.number().finite(), roll: z.number().finite(),
 });
 export type CameraView = z.infer<typeof cameraViewSchema>;
-export type MapViewHandle = {capture: () => CameraView | null};
+export type MapViewHandle = {capture: () => CameraView | null; focusHome?: () => void};
 const snapshotSchema = z.object({
   version: z.literal(1), token: z.string().uuid(), url: z.string().max(3000),
   state: rentalStateSchema, onlySaved: z.boolean(), sort: z.enum(["recommended", "price"]),

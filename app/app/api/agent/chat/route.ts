@@ -27,6 +27,9 @@ export async function POST(request: Request) {
       // Reuse the stored user message; never append a duplicate or trust edited retry text.
       messages = session.messages.slice(0, index + 1);
     } else messages = [...session.messages, body.message];
+    // Snapshot the server-validated origin for this attempt, including retries.
+    const context={cityId:state.cityId,listingId:state.listingId};
+    messages=messages.map((message,index)=>index===messages.length-1?{...message,metadata:{...message.metadata,context}}:message);
     if (messages.length > 80) {await finishSession(auth.owner, session, session.messages, state); throw new SessionError("这段对话已较长，请新建对话继续。", 400);}
     let finalState = state;
     let replyStatus: ReplyStatus | undefined;
@@ -76,7 +79,7 @@ findNearbyAmenities返回完整收录数，candidates只是最近10条，不要�
       onEnd: async ({messages: completed, responseMessage, isAborted, isCancelled, outcome}) => {
         if (!replyStatus && (isCancelled || isAborted || request.signal.aborted || hasUnfinishedText(responseMessage))) replyStatus = deadline.aborted && !request.signal.aborted ? "timeout" : "stopped";
         if (!replyStatus && (signal.aborted || outcome.status === "failed" || !hasReplyText(responseMessage))) replyStatus = failureStatus();
-        if (replyStatus) responseMessage.metadata = {...responseMessage.metadata, replyStatus};
+        responseMessage.metadata = {...responseMessage.metadata, context, ...(replyStatus?{replyStatus}:{})};
         await finishSession(auth.owner, session, completed, finalState);
         console.info("[rental-agent]", JSON.stringify({requestId: body.requestId, status: replyStatus ?? "completed", elapsedMs: Date.now() - started}));
       },

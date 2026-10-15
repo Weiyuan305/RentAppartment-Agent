@@ -29,7 +29,7 @@ export function mapSearchIndex(city: City, homes: Listing[], amenities: CityAmen
       keywords: `${building.name} ${building.aliases.join(" ")} 校园 楼栋 building ${building.category}`,
     })),
     ...(amenities?.cityId === city.id ? amenities.places : []).map(amenity => ({
-      kind: "amenity" as const, id: amenity.id, name: amenity.name, detail: `${locale === "zh" ? amenityInfo[amenity.category].name : english(amenityInfo[amenity.category].name)}${amenity.address ? ` · ${amenity.address}` : ""}`, lng: amenity.lng, lat: amenity.lat, amenity,
+      kind: "amenity" as const, id: amenity.id, name: amenity.name, detail: `${locale === "zh" ? amenityInfo[amenity.category].name : english(amenityInfo[amenity.category].name)}${amenity.address ? ` · ${amenity.address}` : locale === "zh" ? " · 地址未收录" : " · Address not recorded"}`, lng: amenity.lng, lat: amenity.lat, amenity,
       keywords: `${amenity.name} ${amenity.address ?? ""} ${amenityInfo[amenity.category].name} ${english(amenityInfo[amenity.category].name)} ${amenity.category}`,
     })),
   ];

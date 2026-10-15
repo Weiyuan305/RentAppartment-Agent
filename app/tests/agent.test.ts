@@ -147,6 +147,8 @@ test("AI SDK 7 keeps tool history when user language switches independently of U
       assert.ok(!sse.includes('"type":"error"'), sse);
       session = await store.loadSession(store.ownerHash(cookie.split("=")[1]), session.id);
     }
+    assert.deepEqual(session.messages.findLast(message=>message.role==="user")?.metadata?.context,{cityId:"london",listingId:session.state.listingId});
+    assert.deepEqual(session.messages.at(-1)?.metadata?.context,{cityId:"london",listingId:session.state.listingId});
     assert.ok(historySeen); assert.equal(modelCalls, 4);
     assert.equal(session.state.map.placeIds!.length, 1);
     assert.equal(session.messages.filter((m: {role: string}) => m.role === "user").length, 2);

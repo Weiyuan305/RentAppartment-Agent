@@ -1,11 +1,12 @@
 import type * as Cesium from "cesium";
 import { metersBetween, type WalkingRoute } from "@/lib/walking-route";
 
+import {mapMotion} from "@/lib/map-motion";
 import {readMapViewport} from "@/lib/map-viewport";
 
 type Engine = typeof Cesium;
 
-export function fitConceptRoute(C: Engine, viewer: Cesium.Viewer, route: Pick<WalkingRoute,"coordinates">, container: HTMLDivElement | null, heading = 0) {
+export function fitConceptRoute(C: Engine, viewer: Cesium.Viewer, route: Pick<WalkingRoute,"coordinates">, container: HTMLDivElement | null, heading = viewer.camera.heading) {
   const sphere = C.BoundingSphere.fromPoints(C.Cartesian3.fromDegreesArray(route.coordinates.flat()));
   const bounds = container?.getBoundingClientRect();
   if (bounds && (bounds.width < 2 || bounds.height < 2)) return;
@@ -28,7 +29,7 @@ export function fitConceptRoute(C: Engine, viewer: Cesium.Viewer, route: Pick<Wa
   const spanY=(Math.max(...projected.map(p=>p[1]))-Math.min(...projected.map(p=>p[1])))*Math.sin(1.25)+35;
   const range = Math.max(600,spanX/(2*tanH*((freeRight-freeLeft)/width)*.72),spanY/(2*tanV*((freeBottom-freeTop)/height)*.72));
   viewer.camera.flyToBoundingSphere(sphere, {
-    duration: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : .7,
+    duration: mapMotion(C,viewer,sphere.center).duration,
     offset: new C.HeadingPitchRange(heading,-1.25,range),
     complete: () => {
       if (viewer.isDestroyed()) return;

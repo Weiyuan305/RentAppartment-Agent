@@ -3,16 +3,18 @@ import { useLocale } from "@/components/locale-provider";
 import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
-import { ArrowRight, ArrowUp, LoaderCircle, Sparkles, Square, RotateCcw } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ArrowUp, LoaderCircle, Sparkles, Square, RotateCcw, MapPin } from "lucide-react";
 import { type AgentStatus, type RentalMessage, type RentalSession, type RentalState, rentalStateSchema } from "@/lib/agent/contract";
 import {canRestoreSessionContext,stateForNavigation} from "@/lib/student/restore";
 import { replyNotices, retryableMessage } from "@/lib/agent/conversation";
 import { displayCity } from "@/lib/i18n";
-import type { City } from "@/lib/rental-data";
+import { listings, type City } from "@/lib/rental-data";
+import {chatActivity} from "@/lib/agent/activity";
 const AssistantMarkdown = lazy(() => import("./assistant-markdown").then(module => ({default: module.AssistantMarkdown})));
 
-export default function RentalChat({city, state, uiRevision, onState, collapsed = false, headerControl, onReplyReady, preserveInitialState = false, actionReceipt, onActionClear}: {actionReceipt?: ReactNode; onActionClear?:()=>void; preserveInitialState?: boolean; collapsed?: boolean; headerControl?: ReactNode; onReplyReady?: () => void; city: City; state: RentalState; uiRevision: number; onState: (state: RentalState, actionId?: string) => void}) {
+export default function RentalChat({onLocateContext,city, state, uiRevision, onState, collapsed = false, headerControl, onReplyReady, preserveInitialState = false, actionReceipt, onActionClear}: {onLocateContext?:()=>void;actionReceipt?: ReactNode; onActionClear?:()=>void; preserveInitialState?: boolean; collapsed?: boolean; headerControl?: ReactNode; onReplyReady?: () => void; city: City; state: RentalState; uiRevision: number; onState: (state: RentalState, actionId?: string) => void}) {
   const {t, locale} = useLocale();
+  const selectedHome=listings.find(home=>home.id===state.listingId && home.cityId===state.cityId);
   const [session, setSession] = useState<RentalSession | null>(null);
   const [agentStatus, setAgentStatus] = useState<AgentStatus | null>(null);
   const [notice, setNotice] = useState("");
@@ -152,7 +154,7 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
     onActionClear?.();
     request.current = {id: crypto.randomUUID(), revision: current.current.uiRevision};
     setInput(""); setNotice(""); chat.clearError();
-    await chat.sendMessage({text: text.trim()});
+    await chat.sendMessage({text: text.trim(),metadata:{context:{cityId:current.current.state.cityId,listingId:current.current.state.listingId}}});
   }
   async function retry() {
     if (busy || !session || !agentStatus?.configured || !retryMessage) return;
@@ -171,7 +173,7 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
       sessionRef.current = payload.session;
       // A transport failure before persistence still needs a normal first send.
       const alreadySaved = lastUser?.id === retryMessage.id;
-      setMessages(alreadySaved ? payload.session.messages : [...payload.session.messages, retryMessage]);
+      setMessages((alreadySaved ? payload.session.messages : [...payload.session.messages, retryMessage]).map(message=>message.id===retryMessage.id?{...message,metadata:{...message.metadata,context:{cityId:current.current.state.cityId,listingId:current.current.state.listingId}}}:message));
       request.current = {id: crypto.randomUUID(), revision: current.current.uiRevision, retry: alreadySaved};
       chat.clearError(); setRetrying(false);
       await chat.regenerate({messageId: retryMessage.id});
@@ -225,14 +227,17 @@ export default function RentalChat({city, state, uiRevision, onState, collapsed 
     <div className="chat-scroll" aria-live="polite"><div className="chat-transcript" ref={transcript}>
       {!chat.messages.length && <><div className="welcome"><h2>{t("从日常出发，")}<br/>{t("找到合适的新家。")}</h2><p>{t("当前以选中公寓为起点。可以问附近设施、筛选房源，再追问步行路线。")}</p></div><div className="chat-message assistant">{t("你好，未来的{city}同学 👋",{city:displayCity(city,locale).name})}<br/>{t("附近默认是距选中公寓直线 500 米，地点来自校区周边快照。")}</div></>}
       {agentStatus?.configured ? <div className="suggestions">{[t("这套公寓附近500米内有几个便利店？"), t("只显示最近的一家"), t("走过去怎么走？"), t("换成附近的超市"), t("筛选大学步行30分钟内的房源")].map(text => <button key={text} disabled={busy || !session} onClick={() => send(text)}>{text}<ArrowRight size={15}/></button>)}</div> : <div className="agent-setup"><strong>{t("AI 模型待配置")}</strong><p>{t("请在服务器填写 Base URL、模型名称与密钥，并重启服务。以下按钮可先体验真实工具和地图联动。")}</p><a href="/setup#agent" target="_blank" rel="noreferrer">{t("查看模型接入说明 ↗")}</a><div className="suggestions">{[["nearby", t("查询500米内便利店")], ["nearest", t("只显示最近一家")], ["route", t("显示步行路线")], ["supermarket", t("换成附近超市")], ["commute", t("显示到大学路线")]].map(([action, label]) => <button key={action} disabled={busy || !session} onClick={() => preview(action)}>{label}<ArrowRight size={15}/></button>)}</div></div>}
-      {chat.messages.map(message => <div key={message.id} className={`chat-message ${message.role}`}>{message.parts.map((part, i) => part.type === "text" && part.text ? message.role === "assistant"
+      {chat.messages.map(message => <div key={message.id} className={`chat-message ${message.role}`}>
+        {message.role==="user" && message.metadata?.context && <small className="chat-origin">{locale==="zh"?"查询起点":"Query origin"} · {listings.find(home=>home.id===message.metadata?.context?.listingId&&home.cityId===message.metadata?.context?.cityId)?.name ?? (locale==="zh"?"原房源":"Original home")}</small>}
+        {message.parts.map((part, i) => part.type === "text" && part.text ? message.role === "assistant"
         ? <Suspense key={i} fallback={<span aria-label={t("正在加载回复")}>…</span>}><AssistantMarkdown text={part.text} streaming={chat.status === "streaming" && part.state === "streaming"}/></Suspense>
         : <span key={i}>{part.text}</span> : null)}{message.parts.some(p => p.type.startsWith("tool-") && "state" in p && p.state === "output-available") && <small className="chat-tool-status">{t("已查询工具 · 地图与结果同步")}</small>}</div>)}
       <fieldset className="agent-receipt-slot" disabled={busy}>{actionReceipt}</fieldset>
-      {busy && <p className="chat-busy"><LoaderCircle size={14} className="route-spinner"/>{retrying ? t("正在重新连接…") : previewing ? t("正在查询工具…") : t("正在查找并回复…")}</p>}
+      {busy && <p className="chat-busy" role="status" aria-live="polite"><LoaderCircle size={14} className="route-spinner"/>{retrying ? t("正在重新连接…") : previewing ? t("正在查询工具…") : chatActivity(chat.messages,chat.status==="submitted",locale)}</p>}
       {displayedNotice && <div className="chat-notice" role="status"><p>{t(displayedNotice)}</p>{!busy && retryMessage && <button type="button" className="chat-retry" onClick={() => void retry()}><RotateCcw size={13}/>{t("重试这条消息")}</button>}</div>}<div ref={end}/>
     </div></div>
     <form className="chat-form" onSubmit={e => {e.preventDefault(); void send(input);}}>
+      <button type="button" className="chat-context" onClick={onLocateContext} disabled={!selectedHome} title={locale==="zh"?"在地图查看当前查询起点":"Show current query origin on map"}><MapPin size={13}/><span>{locale==="zh"?"基于":"Based on"} <strong>{selectedHome?.name??(locale==="zh"?"未选房源":"No home selected")}</strong></span><ArrowUpRight size={13}/></button>
       <label className="sr-only" htmlFor="chat-input">{t("描述你的理想住处")}</label>
       <div className="chat-composer">
         <textarea ref={composer} id="chat-input" value={input} onChange={e => setInput(e.target.value)} disabled={!agentStatus?.configured || !session} placeholder={agentStatus?.configured ? (locale === "zh" ? "问问附近，或说说需求…" : "Ask about homes or nearby…") : t("配置模型后，即可开始多轮 AI 对话")} maxLength={2000} onKeyDown={e => {if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {e.preventDefault(); void send(input);}}} rows={1}/>

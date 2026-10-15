@@ -75,11 +75,15 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   const [viewportSeen, setViewportSeen] = useState(false);
   const [labelScene, setLabelScene] = useState<LabelScene | null>(null);
   const runtime = useRef<{ C: Engine; viewer: Cesium.Viewer; tiles: Cesium.Cesium3DTileset; amenities: Cesium.CustomDataSource; amenityFocus: Cesium.CustomDataSource } | null>(null);
-  useImperativeHandle(viewRef, () => ({capture: () => {
+  useImperativeHandle(viewRef, () => ({focusHome:()=>{
+    const rt=runtime.current;if(!rt||rt.viewer.isDestroyed())return;
+    const home=listings.find(item=>item.id===selected);
+    fitMapLabelTarget(rt,home?.lng??city.lng,home?.lat??city.lat,1200,undefined,true);
+  },capture: () => {
     const rt=runtime.current;if(!rt || rt.viewer.isDestroyed())return null;
     const camera=rt.viewer.camera,position=camera.positionCartographic;
     return {longitude:rt.C.Math.toDegrees(position.longitude),latitude:rt.C.Math.toDegrees(position.latitude),height:position.height,heading:camera.heading,pitch:camera.pitch,roll:camera.roll};
-  }}), []);
+  }}), [city,listings,selected]);
   const restoredCamera = useRef<{key:string;context:string;tick:number;viewer:Cesium.Viewer|null;released:boolean}|null>(null);
   const amenityOverview = useRef<Array<{lng:number;lat:number}> | null>(null);
   const searchFocus = useRef<{cityId:string;lng:number;lat:number;context:string|null;tick:number;viewKey?:string}|null>(null);
@@ -119,6 +123,8 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   const transitJourney=transit.journeys[0];
   const shouldLoad = requested || autoLoad;
   const [focusTick, setFocusTick] = useState(0);
+  const lastFocusTick=useRef(0);
+  const lastCameraHome=useRef<string|null>(null);
   const [overlay, setOverlay] = useState<"layers" | "search" | "journey" | null>(null);
   function fitCurrentRoute() {
     searchFocus.current = null;
@@ -246,11 +252,13 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     const rt=runtime.current; if (!rt || status !== "ready") return;
     if (!viewportVisible.current) return;
     const {C, viewer}=rt;
+    const forceFocus=lastFocusTick.current!==focusTick;lastFocusTick.current=focusTick;
+    const homeChanged=lastCameraHome.current!==selected;lastCameraHome.current=selected;
     // A searched home must receive focus even when a campus destination remains selected.
     const focus = searchFocus.current;
     if (focus && focus.cityId === city.id && (focus.context === null || (focus.context === cameraContext && focus.tick === focusTick && focus.viewKey === restoredView?.key))) {
       focus.context = cameraContext; focus.tick = focusTick; focus.viewKey = restoredView?.key;
-      fitMapLabelTarget({C,viewer},focus.lng,focus.lat,1200);
+      fitMapLabelTarget({C,viewer},focus.lng,focus.lat,1200,undefined,true);
       return;
     }
     searchFocus.current = null;
@@ -282,19 +290,20 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
       return;
     }
     if (selectedAmenity) {fitAmenities(C, viewer, [selectedAmenity], container.current); return;}
-    if(selectedBuilding){fitMapLabelTarget({C,viewer},selectedBuilding.lng,selectedBuilding.lat,studentPlan.catchmentMinutes?Math.max(1800,studentPlan.catchmentMinutes*110):1600);return;}
-    fitMapLabelTarget({C,viewer},active?.lng ?? city.lng,active?.lat ?? city.lat,active ? 1200 : 2200);
-  }, [city, active, status, focusTick, route, selectedAmenity, amenityRouteEnabled,selectedBuilding,studentPlan.catchmentMinutes,transitJourney,cameraContext,restoredView,visibilityTick]);
+    if(selectedBuilding && !homeChanged){fitMapLabelTarget({C,viewer},selectedBuilding.lng,selectedBuilding.lat,studentPlan.catchmentMinutes?Math.max(1800,studentPlan.catchmentMinutes*110):1600,undefined,forceFocus);return;}
+    fitMapLabelTarget({C,viewer},active?.lng ?? city.lng,active?.lat ?? city.lat,active ? 1200 : 2200,undefined,forceFocus);
+  }, [city, active, selected, status, focusTick, route, selectedAmenity, amenityRouteEnabled,selectedBuilding,studentPlan.catchmentMinutes,transitJourney,cameraContext,restoredView,visibilityTick]);
   function cameraAction(action: "in" | "out" | "rotate" | "campus") {
     searchFocus.current = null;
     const rt=runtime.current;if(!rt)return;const {C,viewer}=rt;
+    viewer.camera.cancelFlight();
     if(action==="in")viewer.camera.zoomIn(Math.max(50,viewer.camera.positionCartographic.height*.28));
     if(action==="out")viewer.camera.zoomOut(Math.max(50,viewer.camera.positionCartographic.height*.35));
     if(action==="rotate") {
       if (route) fitWalkingRoute(C, viewer, route, container.current, viewer.camera.heading + Math.PI / 4);
       else fitMapLabelTarget({C,viewer},selectedBuilding?.lng??active?.lng ?? city.lng,selectedBuilding?.lat??active?.lat ?? city.lat,1400,viewer.camera.heading+Math.PI/4);
     }
-    if(action==="campus")fitMapLabelTarget({C,viewer},city.lng,city.lat,1800);
+    if(action==="campus")fitMapLabelTarget({C,viewer},city.lng,city.lat,1800,0,true);
     viewer.scene.requestRender();
   }
   function searchVisibleArea() {

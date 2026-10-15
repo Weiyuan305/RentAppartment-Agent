@@ -1,3 +1,5 @@
+import {mapMotion} from "./map-motion";
+import {readMapViewport} from "./map-viewport";
 import type * as Cesium from "cesium";
 import { amenityCategories, amenityInfo, type Amenity, type AmenityCategory } from "./amenities";
 
@@ -74,18 +76,20 @@ export function fitAmenities(C: Engine, viewer: Cesium.Viewer, places: Pick<Amen
   const sphere = C.BoundingSphere.fromPoints(places.map(p => C.Cartesian3.fromDegrees(p.lng, p.lat, 30)));
   const bounds = container?.getBoundingClientRect();
   if (bounds && (bounds.width < 2 || bounds.height < 2)) return;
-  const bottom = container?.parentElement?.querySelector(".map-route, .map-selected, .map-amenity-selected")?.getBoundingClientRect();
-  const top = container?.parentElement?.querySelector(".amenity-filters")?.getBoundingClientRect();
-  const topCovered = bounds && top ? Math.min(.4, (top.bottom - bounds.top + 15) / bounds.height) : .2;
-  const bottomCovered = bounds ? Math.min(.6, Math.max(bottom ? (bounds.bottom - bottom.top) / bounds.height : .2, places.length === 1 ? 300 / bounds.height : 0)) : .3;
+  const width=viewer.canvas.clientWidth,height=viewer.canvas.clientHeight;
+  const free=readMapViewport(viewer.canvas);
+  if(free.right-free.left<40 || free.bottom-free.top<40)return;
   const frustum = viewer.camera.frustum;
   const tangent = frustum instanceof C.PerspectiveFrustum ? Math.tan((frustum.fovy ?? Math.PI / 3) / 2) : .58;
-  const aspect = bounds ? bounds.width / bounds.height : 1;
-  const range = Math.max(700, sphere.radius * 1.3 / (tangent * Math.max(.15, Math.min(1 - topCovered - bottomCovered, aspect * .8))));
-  viewer.camera.flyToBoundingSphere(sphere, { duration: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1,
-    offset: new C.HeadingPitchRange(0, -1.15, range), complete: () => {
+  const range = Math.max(700, sphere.radius * 1.3 / (tangent * Math.min((free.bottom-free.top)/height,(free.right-free.left)/height)));
+  const motion=mapMotion(C,viewer,sphere.center);
+  viewer.camera.cancelFlight();
+  if(places.length===1 && motion.visible){viewer.scene.requestRender();return;}
+  viewer.camera.flyToBoundingSphere(sphere, { duration: motion.duration,
+    offset: new C.HeadingPitchRange(viewer.camera.heading, -1.15, range), complete: () => {
       if (viewer.isDestroyed()) return;
-      viewer.camera.moveDown(range * tangent * (bottomCovered - topCovered));
+      viewer.camera.moveDown((height/2-(free.top+free.bottom)/2)/height*2*range*tangent);
+      viewer.camera.moveRight((width/2-(free.left+free.right)/2)/height*2*range*tangent);
       viewer.scene.requestRender();
     },
   });

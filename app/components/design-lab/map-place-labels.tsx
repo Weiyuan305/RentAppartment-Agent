@@ -8,13 +8,14 @@ import { amenityInfo, type Amenity } from "@/lib/amenities";
 import { amenityIconNodes } from "@/lib/amenity-icons";
 import { priceLabel, type City, type Listing } from "@/lib/rental-data";
 
-import {chooseMapMarkers, mapOccluders, markerOverlaps, type MarkerCandidate} from "@/lib/map-marker-density";
+import {chooseMapMarkers, mapOccluders, markerOverlaps, placeMapLabel, type LabelOffset, type MarkerCandidate} from "@/lib/map-marker-density";
+import {mapMotion} from "@/lib/map-motion";
 import {readMapViewport} from "@/lib/map-viewport";
 
 export type LabelScene = {C: typeof Cesium; viewer: Cesium.Viewer};
 type PlaceLabel = {id: string; kind: "listing" | "campus" | "place"; lng: number; lat: number; text: string; name: string};
 
-export function fitMapLabelTarget({C,viewer}: LabelScene, lng: number, lat: number, range=1200, heading=0) {
+export function fitMapLabelTarget({C,viewer}: LabelScene, lng: number, lat: number, range=1200, heading?:number, force=false) {
   if (viewer.isDestroyed()) return;
   const canvas=viewer.canvas.getBoundingClientRect();
   const {top,bottom,left,right}=readMapViewport(viewer.canvas);
@@ -23,9 +24,11 @@ export function fitMapLabelTarget({C,viewer}: LabelScene, lng: number, lat: numb
   const tangent=viewer.camera.frustum instanceof C.PerspectiveFrustum ? Math.tan((viewer.camera.frustum.fovy ?? Math.PI/3)/2) : .58;
   const location=C.Cartographic.fromDegrees(lng,lat);
   const height=viewer.scene.sampleHeightSupported ? viewer.scene.sampleHeight(location,viewer.entities.values) : undefined;
-  viewer.camera.flyToBoundingSphere(new C.BoundingSphere(C.Cartesian3.fromDegrees(lng,lat,(height ?? 0)+3),40),{
-    duration:window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1.2,
-    offset:new C.HeadingPitchRange(heading,-.85,range),
+  const target=C.Cartesian3.fromDegrees(lng,lat,(height ?? 0)+3), motion=mapMotion(C,viewer,target);
+  if(motion.visible && heading===undefined && !force){viewer.scene.requestRender();return;}
+  viewer.camera.flyToBoundingSphere(new C.BoundingSphere(target,40),{
+    duration:motion.duration,
+    offset:new C.HeadingPitchRange(heading??viewer.camera.heading,Math.max(-1.35,Math.min(-.65,viewer.camera.pitch)),range),
     complete:()=>{
       if(viewer.isDestroyed()) return;
       const settled=viewer.scene.sampleHeightSupported ? viewer.scene.sampleHeight(location,viewer.entities.values) : height;
@@ -58,6 +61,7 @@ export default function MapPlaceLabels({scene, city, listings, selected, place, 
     const positions = new Map<string, Cesium.Cartesian3>();
     const screen = new C.Cartesian2(), direction = new C.Cartesian3();
     let sampledAt = -Infinity;
+    const offsets = new Map<string, LabelOffset>();
     function positionLabels() {
       if (viewer.isDestroyed()) return;
       const resample = performance.now()-sampledAt>500;
@@ -69,6 +73,7 @@ export default function MapPlaceLabels({scene, city, listings, selected, place, 
         const anchor=node.querySelector<HTMLElement>(".map-marker-anchor")!;
         const leader=node.querySelector<SVGElement>(".map-marker-leader");
         anchor.style.transform="";
+        node.classList.remove("is-compact");
         if (leader) leader.style.visibility="hidden";
         if (resample || !positions.has(label.id)) {
           const location=C.Cartographic.fromDegrees(label.lng,label.lat);
@@ -89,37 +94,44 @@ export default function MapPlaceLabels({scene, city, listings, selected, place, 
           layouts.set(label.id,{left:Math.round(p.x)-anchor.offsetWidth/2,top:bottom-anchor.offsetHeight,right:Math.round(p.x)+anchor.offsetWidth/2,bottom,node});
         }
       }
-      const occluders=mapOccluders(viewer.canvas), candidates:MarkerCandidate[]=[];
+      const occluders=mapOccluders(viewer.canvas), candidates:MarkerCandidate[]=[], occupied=[...occluders];
+      const frame={left:8,top:8,right:width-8,bottom:height-8};
+      const focused=[...layouts].find(([,box])=>box.node.contains(document.activeElement))?.[0];
+      // Selected price gets first choice. Place names adapt without covering it.
+      for(const id of new Set([selected,place?.id,focused])) {
+        if(!id)continue;
+        const box=layouts.get(id);if(!box)continue;
+        const anchor=box.node.querySelector<HTMLElement>(".map-marker-anchor")!;
+        let offset=placeMapLabel(box,frame,occupied,offsets.get(id));
+        if(!offset && id===place?.id) {
+          box.node.classList.add("is-compact");
+          const center=(box.left+box.right)/2;
+          box.left=center-anchor.offsetWidth/2;box.right=center+anchor.offsetWidth/2;box.top=box.bottom-anchor.offsetHeight;
+          offset=placeMapLabel(box,frame,occupied,offsets.get(id));
+        }
+        if(!offset){box.node.style.visibility="hidden";layouts.delete(id);continue;}
+        offsets.set(id,offset);
+        const {x,y}=offset;
+        anchor.style.transform=`translateX(-50%) translate(${Math.round(x)}px,${Math.round(y)}px)`;
+        const leader=box.node.querySelector<SVGElement>(".map-marker-leader")!;
+        if(x || y){const line=leader.querySelector("line")!;line.setAttribute("x2",String(x));line.setAttribute("y2",String(y-8));leader.style.visibility="visible";}
+        box.left+=x;box.right+=x;box.top+=y;box.bottom+=y;
+        occupied.push(box);
+      }
       for(const [id,box] of layouts) {
-        const pinned=id===selected || id===place?.id || box.node.contains(document.activeElement);
-        if(pinned || !occluders.some(other=>markerOverlaps(box,other,4))) candidates.push({...box,id,priority:id===hovered?10:0,pinned});
+        const pinned=id===selected || id===place?.id || id===focused;
+        if(pinned || !occluders.some(other=>markerOverlaps(box,other,4))) candidates.push({...box,id,priority:box.node.contains(document.activeElement)?20:id===hovered?10:0,pinned});
       }
       const kept=chooseMapMarkers(candidates,viewer.camera.positionCartographic.height>2500 ? 5 : 10,12);
       for(const [id,box] of layouts) if(!kept.has(id))box.node.style.visibility="hidden";
-      const price=layouts.get(selected), poi=place && layouts.get(place.id);
-      const overlaps=(a:{left:number;top:number;right:number;bottom:number},b:{left:number;top:number;right:number;bottom:number})=>a.left<b.right+6 && a.right>b.left-6 && a.top<b.bottom+6 && a.bottom>b.top-6;
-      if (price && poi && overlaps(price,poi)) {
-        const bounds=viewer.canvas.getBoundingClientRect(), panel=viewer.canvas.closest(".city-panel");
-        const tools=panel?.querySelector(".concept-amenity-disclosure")?.getBoundingClientRect();
-        const card=panel?.querySelector(".map-amenity-selected")?.getBoundingClientRect();
-        const top=tools ? tools.bottom-bounds.top+8 : 8, bottom=card ? card.top-bounds.top-8 : height-8;
-        const offsets=[{x:0,y:-(poi.bottom-poi.top+8)},{x:price.right-poi.left+10,y:0},{x:price.left-poi.right-10,y:0},{x:0,y:price.bottom-poi.top+10}];
-        const clear=offsets.find(({x,y})=>{
-          const candidate={left:poi.left+x,top:poi.top+y,right:poi.right+x,bottom:poi.bottom+y};
-          return candidate.left>=8 && candidate.right<=width-8 && candidate.top>=top && candidate.bottom<=bottom && !overlaps(candidate,price);
-        });
-        if (clear) {
-          poi.node.querySelector<HTMLElement>(".map-marker-anchor")!.style.transform=`translate(-50%,0) translate(${clear.x}px,${clear.y}px)`;
-          const leader=poi.node.querySelector<SVGElement>(".map-marker-leader")!;
-          const line=leader.querySelector("line")!;
-          line.setAttribute("x2",String(clear.x));line.setAttribute("y2",String(clear.y-8));leader.style.visibility="visible";
-        }
-      }
+
     }
     const remove=viewer.scene.postRender.addEventListener(positionLabels);
     positionLabels();
-    return ()=>remove();
-      viewer.scene.requestRender();
+    const resize=new ResizeObserver(()=>{if(!viewer.isDestroyed())viewer.scene.requestRender();});
+    resize.observe(viewer.canvas);
+    viewer.scene.requestRender();
+    return ()=>{remove();resize.disconnect();};
   },[scene,labels,selected,place,routeActive,hovered]);
 
   if (!scene) return null;
@@ -128,7 +140,7 @@ export default function MapPlaceLabels({scene, city, listings, selected, place, 
       const active=label.kind==="listing" && label.id===selected;
       const prefix=locale==="zh" ? {listing:"地图房源",campus:"地图大学",place:"地图设施"} : {listing:"Map apartment",campus:"Map university",place:"Map amenity"};
       return <div key={label.id} ref={node=>{if(node)nodes.current.set(label.id,node);else nodes.current.delete(label.id);}} className={`map-screen-marker ${active ? "is-selected" : ""} ${hovered===label.id ? "is-linked" : ""} ${label.kind} ${routeActive ? "on-route" : ""}`} style={{visibility:"hidden"}}>
-        {label.kind==="place" && <svg className="map-marker-leader" width="1" height="1" aria-hidden="true"><line x1="0" y1="0"/><circle cx="0" cy="0" r="2"/></svg>}
+        {<svg className="map-marker-leader" width="1" height="1" aria-hidden="true"><line x1="0" y1="0"/><circle cx="0" cy="0" r="2"/></svg>}
         <div className="map-marker-anchor"><button className="map-marker-button" title={label.name} aria-label={`${prefix[label.kind]}: ${label.name}${label.kind==="listing" ? `, ${label.text}` : ""}`} aria-pressed={label.kind==="listing" ? active : undefined}
           style={label.kind==="place" && place ? {"--marker-accent":amenityInfo[place.category].color} as CSSProperties : undefined}
           onPointerEnter={()=>{if(label.kind==="listing")onHover(label.id);}} onPointerLeave={()=>onHover(null)} onFocus={()=>{if(label.kind==="listing")onHover(label.id);}} onBlur={()=>onHover(null)} onClick={()=>{if(label.kind==="listing")onSelect(label.id);else if(label.kind==="campus")onCampus();else onPlace(label.id);}}>

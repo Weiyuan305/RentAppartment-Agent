@@ -533,9 +533,9 @@
  .concept-spatial{--workspace-left:350px;--workspace-right:355px}
  .concept-spatial.is-list-collapsed{--workspace-left:24px}
  .concept-spatial.is-chat-collapsed{--workspace-right:24px}
- .concept-spatial :is(.listing-panel,.assistant-panel){transition:transform .2s cubic-bezier(.22,.68,0,1),opacity .16s,visibility 0s;will-change:auto}
- .concept-spatial.is-list-collapsed .listing-panel{transform:translateX(calc(-100% - 24px));opacity:0;visibility:hidden;transition:transform .2s cubic-bezier(.22,.68,0,1),opacity .16s,visibility 0s .2s}
- .concept-spatial.is-chat-collapsed .assistant-panel{transform:translateX(calc(100% + 24px));opacity:0;visibility:hidden;transition:transform .2s cubic-bezier(.22,.68,0,1),opacity .16s,visibility 0s .2s}
+ .concept-spatial :is(.listing-panel,.assistant-panel){transition:transform var(--motion-normal) var(--ease-out),opacity var(--motion-fast),visibility 0s;will-change:auto}
+ .concept-spatial.is-list-collapsed .listing-panel{transform:translateX(calc(-100% - 24px));opacity:0;visibility:hidden;transition:transform var(--motion-normal) var(--ease-out),opacity var(--motion-fast),visibility 0s var(--motion-normal)}
+ .concept-spatial.is-chat-collapsed .assistant-panel{transform:translateX(calc(100% + 24px));opacity:0;visibility:hidden;transition:transform var(--motion-normal) var(--ease-out),opacity var(--motion-fast),visibility 0s var(--motion-normal)}
  .concept-spatial .panel-collapse{display:inline-flex}
  .concept-spatial .workspace-restore{position:absolute;z-index:7;top:22px;display:flex;align-items:center;gap:8px;padding:11px 13px;border:1px solid #a4c3b359;border-radius:10px;background:#153c37ee;color:#e3efdc;font-size:12px;box-shadow:0 5px 20px #102a2d40;visibility:hidden;pointer-events:none;cursor:pointer}.concept-spatial .restore-list{left:24px}.concept-spatial .restore-chat{right:24px}.concept-spatial.is-list-collapsed .restore-list,.concept-spatial.is-chat-collapsed .restore-chat{visibility:visible;pointer-events:auto}.workspace-unread{width:7px;height:7px;background:#d6b969;border-radius:50%;box-shadow:0 0 0 3px #d6b96920}
  .concept-spatial .workspace-tools{position:absolute;z-index:6;top:22px;left:var(--workspace-left);right:var(--workspace-right);display:flex;align-items:center;justify-content:flex-end;gap:4px;pointer-events:none}.workspace-tools>button{display:flex;align-items:center;justify-content:center;gap:7px;pointer-events:auto;min-height:36px;padding:8px 10px;border:1px solid #cce1ce4d;border-radius:8px;background:#183d38ed;color:#e6f1df;font-size:11px;cursor:pointer}.workspace-tools button[aria-pressed=true]{background:#e1ebd5;color:#2a5039}.workspace-tools button:disabled{opacity:.4;cursor:default}
@@ -914,3 +914,29 @@
 .concept-lab .map-selected-close:focus-visible{outline:2px solid #275944;outline-offset:2px}
 @media(min-width:1101px){.concept-spatial .map-selected{max-width:min(360px,calc(100% - var(--workspace-left) - var(--workspace-right) - 48px))}}
 @media(max-width:600px){.concept-lab .map-selected-close{width:44px;height:44px;margin-block:-6px}}
+
+/* Task feedback: compact context, stable markers and interruptible small surfaces. */
+.concept-lab .map-screen-marker.is-compact .map-marker-copy{display:none}
+.concept-lab .map-screen-marker.is-compact .map-marker-button{width:34px;padding:7px;justify-content:center}
+.concept-lab .chat-form .chat-context{width:auto;height:auto;justify-content:flex-start;display:flex;align-items:center;gap:5px;max-width:100%;min-height:28px;padding:2px 4px;margin:0 0 4px;border:0;border-radius:5px;background:transparent;color:#496b50;font:inherit;font-size:11px;cursor:pointer;text-align:left}
+.concept-lab .chat-context span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+.concept-lab .chat-context svg{flex:none}
+.concept-lab .chat-context strong{font-weight:600}
+.concept-lab .chat-origin{display:block;margin:0 0 5px;font-size:10px;line-height:1.5;color:inherit;opacity:.85}
+.concept-lab .chat-busy{min-height:24px;font-size:12px;gap:7px}
+.concept-lab .chat-context:focus-visible{outline:2px solid #275944;outline-offset:2px}
+.map-place-search [cmdk-group-heading]{padding:8px 7px 4px;color:#60775f;font-size:10px;font-weight:600;letter-spacing:.04em}
+.map-place-search [data-slot=command-item][data-selected=true] .map-search-result strong{white-space:normal;overflow-wrap:anywhere}
+.map-place-search{animation:none!important;transition:opacity 160ms cubic-bezier(.23,1,.32,1),transform 160ms cubic-bezier(.23,1,.32,1);transform-origin:var(--radix-popover-content-transform-origin)}
+@starting-style{.map-place-search[data-state=open]{opacity:0;transform:translateY(-4px)}}
+.concept-lab :is(.workspace-layer-body,.journey-body){animation:none!important;transition:opacity 160ms var(--ease-out),transform 160ms var(--ease-out)}
+@starting-style{.concept-lab :is(.workspace-layers[open] .workspace-layer-body,.map-journey-shell.is-expanded .journey-body){opacity:0;transform:translateY(-4px)}}
+.concept-lab .agent-action-receipt{animation:none;transition:opacity var(--motion-fast) var(--ease-out)}
+@starting-style{.concept-lab .agent-action-receipt{opacity:0}}
+@media(hover:hover) and (pointer:fine){.concept-lab .chat-context:hover{background:#dfead8}}
+@media(prefers-reduced-motion:no-preference){
+ .concept-lab :is(.save-button,.photo-arrow,.panel-heading-actions>button,.workspace-tools>button){transition:background-color 140ms ease,color 140ms ease,transform 100ms var(--ease-out)}
+ .concept-lab :is(.save-button,.photo-arrow,.panel-heading-actions>button,.workspace-tools>button):active:not(:disabled){transform:scale(.97)}
+}
+@media(max-width:600px){.concept-lab .chat-context{min-height:32px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){.map-place-search,.concept-lab :is(.workspace-layer-body,.journey-body,.agent-action-receipt){transition:none!important;transform:none!important;opacity:1!important}}

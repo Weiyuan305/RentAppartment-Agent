@@ -910,14 +910,14 @@
 .map-search-heading button{display:grid;place-items:center;width:32px;height:32px;margin:-4px -4px -4px 0;border:0;border-radius:6px;background:transparent;color:#365f45;cursor:pointer;flex-shrink:0}
 .map-search-heading button:hover{background:#dfe9d9}
 .map-search-scope{margin:6px 0 12px;color:#526a57;font-size:11px;line-height:1.6}
-.map-place-search [data-slot=command]{height:auto;background:transparent;color:inherit}
-.map-place-search [data-slot=command-input-wrapper]{height:42px;border:1px solid #a5bca3;border-radius:7px;background:#fffef9}
+.map-place-search [data-slot=command]{height:auto;overflow:visible;background:transparent;color:inherit}
+.map-place-search [data-slot=command-input-wrapper]{height:44px;border:1px solid #a5bca3;border-radius:7px;background:#fffef9}
 .map-place-search [data-slot=command-input-wrapper]:focus-within{outline:2px solid #275944;outline-offset:1px}
 .map-place-search [data-slot=command-input]{font-family:inherit;font-size:13px;color:#203e33}
 .map-place-search [data-slot=command-input]:focus-visible{outline:none}
 .map-place-search [data-slot=command-list]{max-height:260px;overscroll-behavior:contain;scrollbar-width:thin}
 .map-search-count{padding:10px 2px 6px;color:#526a57;font-size:11px}
-.map-place-search [data-slot=command-item]{min-height:50px;padding:9px 7px;border-radius:7px;cursor:pointer;color:#203e33;gap:10px}
+.map-place-search [data-slot=command-item]{min-height:50px;padding:10px 12px;border-radius:7px;cursor:pointer;color:#203e33;gap:10px}
 .map-place-search [data-slot=command-item][data-selected=true]{background:#dcebd5;color:#173e2d}
 .map-place-search [data-slot=command-item] svg{color:#43654c}
 .map-search-result{min-width:0;flex:1}
@@ -991,3 +991,18 @@
 }
 @media(max-width:600px){.concept-lab .chat-context{min-height:32px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){.map-place-search,.concept-lab :is(.workspace-layer-body,.journey-body,.agent-action-receipt){transition:none!important;transform:none!important;opacity:1!important}}
+
+/* Match icon gutters and hit areas across workspace form controls. */
+.concept-destination .destination-grid .country-choice-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;margin-top:auto;font-size:inherit}
+.concept-destination .destination-grid .country-choice-meta svg{position:static;flex:none}
+.concept-destination .destination-grid .country-choice-meta small{font-size:12px;line-height:20px}
+.concept-select [data-slot=select-item]{min-height:40px;padding:8px 40px 8px 12px;line-height:1.5}
+.concept-select [data-slot=select-item-indicator]{right:12px}
+.concept-lab .amenity-refinements label{grid-template-columns:minmax(0,1fr);justify-content:stretch;align-items:stretch;padding:0}
+.concept-lab .amenity-refinements select,.concept-lab .layer-group select{min-height:44px}
+.concept-lab :is(.amenity-list-heading,.amenity-popup-heading)>button{display:grid;place-items:center;flex:none;width:36px;height:36px;padding:0}
+@media(max-width:600px){
+ .concept-select [data-slot=select-item]{min-height:44px}
+ .concept-lab .amenity-refinements select{font-size:16px}
+ .concept-lab :is(.amenity-list-heading,.amenity-popup-heading)>button{width:44px;height:44px}
+}

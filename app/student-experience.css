@@ -34,7 +34,7 @@ body:has(.listing-detail-page){background:#122326}
 .listing-detail-page .primary-button{background:#c1dfc0;color:#173b30}.listing-detail-page .secondary-button{background:#203c3b;color:#ecf3e9;border-color:#57786b}.listing-detail-page .detail-note{background:#203c3b;border-color:#45605a}.listing-detail-page .sample-badge{background:#203c3b;color:#c9d9d1;border-color:#45605a}.listing-detail-page .listing-dossier{--dossier-ink:#ecf3e9;--dossier-muted:#b1c4bd;--dossier-border:#45605a;--dossier-surface:#203c3b;max-width:900px;margin-top:40px}.listing-detail-page>footer{border-color:#45605a;color:#b1c4bd;font-size:12px}
 
 /* Keep supporting-page controls legible, reachable and inside their surfaces. */
-:is(.auth-page,.listing-detail-page) .language-switch button{min-width:44px;min-height:44px}
+:is(.auth-page,.listing-detail-page,.document-page) .language-switch button{min-width:44px;min-height:44px}
 .auth-page .auth-form-wrap [data-slot=input-group-addon]{padding:0;margin:0}
 .auth-page .auth-form-wrap [data-slot=input-group-addon] button{width:44px;height:44px;color:var(--ink-secondary);border-radius:8px}
 .auth-page .auth-mode-switch{flex-wrap:wrap;column-gap:4px;row-gap:0}
@@ -43,6 +43,14 @@ body:has(.listing-detail-page){background:#122326}
 .auth-page .auth-form-wrap button[type=submit]{background:var(--primary);color:var(--primary-foreground)}
 .auth-page .auth-form-wrap button[type=submit]:hover{background:#d0e8ca;color:var(--primary-foreground)}
 .auth-page .auth-form-wrap [data-slot=input-group-addon] button:hover{background:var(--secondary);color:var(--foreground)}
+.auth-page .auth-form-wrap :is([data-slot=input],[data-slot=input-group]){height:48px;min-height:48px}
+.auth-page .auth-form-wrap :is([data-slot=input],[data-slot=input-group]):focus-within{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px #c1dfc040}
+.auth-page .auth-form-wrap [data-slot=input-group-control]{height:100%;min-width:0;padding:10px 12px;font-size:16px;line-height:24px;border-radius:8px;background:transparent}
+.auth-page .auth-form-wrap [data-slot=input-group-control]:focus-visible{outline:none;box-shadow:none}
+.auth-page .auth-form-wrap [data-slot=input-group-addon]{flex:none;padding-right:2px}
+.auth-page .auth-form-wrap [data-slot=input-group-addon] button svg{width:20px;height:20px}
+.auth-page .auth-form-wrap [data-slot=input-group-addon] button:focus-visible{outline:2px solid var(--primary);outline-offset:-5px;box-shadow:none}
+.auth-page .auth-form-wrap [data-slot=input][aria-invalid=true],.auth-page .auth-form-wrap [data-slot=input-group]:has([aria-invalid=true]){border-color:#f09aa3;box-shadow:0 0 0 3px #f09aa326}
 .auth-page .auth-guest button:hover{background:#294f45;color:#ecf3e9}
 :is(.auth-page,.listing-detail-page) .language-switch button:hover{color:var(--foreground);background:var(--secondary)}
 :is(.auth-page,.listing-detail-page) .language-switch button[aria-checked=true]:hover{background:#d0e8ca;color:#173b30}
@@ -112,7 +120,7 @@ body:has(.listing-detail-page){background:#122326}
 .compare-insights span{overflow-wrap:anywhere}
 
 /* Keep native select behavior, with consistent room for text and the chevron. */
-:is(.student-dialog,.listing-dossier) select:not([multiple]){
+:is(.student-dialog,.listing-dossier,.layer-group,.amenity-refinements,.map-input-help) select:not([multiple]){
  appearance:none;
  -webkit-appearance:none;
  padding-left:12px;
@@ -126,6 +134,9 @@ body:has(.listing-detail-page){background:#122326}
  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23c1dfc0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
 }
 .viewing-checks label{grid-template-columns:minmax(0,1fr) 152px}
+.map-input-help{max-width:min(calc(100vw - 24px),var(--radix-popover-content-available-width,286px))}
+.map-input-help select{min-height:44px;font-size:14px;font-weight:400}
+@media(max-width:600px){.map-input-help select{font-size:16px}}
 @media(max-width:380px){
  .listing-dossier .viewing-checks label{grid-template-columns:1fr;gap:7px;padding-block:12px}
  .compare-pair-picker{grid-template-columns:1fr}
@@ -133,7 +144,9 @@ body:has(.listing-detail-page){background:#122326}
  .compare-pair-picker select{margin-top:0}
 }
 @media(forced-colors:active){
- :is(.student-dialog,.listing-dossier) select:not([multiple]),.listing-detail-page .listing-dossier select:not([multiple]){
+ .auth-page .auth-form-wrap :is([data-slot=input],[data-slot=input-group]):focus-within{outline:2px solid Highlight;outline-offset:2px}
+ .auth-page .auth-form-wrap [data-slot=input-group-addon] button:focus-visible{outline-color:Highlight}
+ :is(.student-dialog,.listing-dossier,.layer-group,.amenity-refinements,.map-input-help) select:not([multiple]),.listing-detail-page .listing-dossier select:not([multiple]){
   appearance:auto;
   -webkit-appearance:auto;
   background-image:none;

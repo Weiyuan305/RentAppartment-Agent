@@ -21,7 +21,7 @@ export default function DestinationPicker({open, onOpenChange, onSelect, variant
     if (!value) setCountry(null);
     onOpenChange(value);
   }}>
-    <DialogContent className={`destination-dialog concept-destination concept-dialog-${variant} sm:max-w-[720px]`}>
+    <DialogContent closeLabel={w("关闭城市选择", "Close city selection")} className={`destination-dialog concept-destination concept-dialog-${variant} sm:max-w-[720px]`}>
       <DialogTitle>{country ? t("下一站，选择你的城市") : t("你的留学生活，从哪里开始？")}</DialogTitle>
       <DialogDescription>{t("01 选择国家 / 地区")} <span className={country ? "step-active" : ""}>{t("—— 02 选择城市")}</span></DialogDescription>
       {!country ? <div className="destination-grid">
@@ -30,8 +30,7 @@ export default function DestinationPicker({open, onOpenChange, onSelect, variant
           return <button key={group.id} onClick={() => setCountry(group.id)}>
             <span>{representative.flag}</span>
             <strong>{displayCity(representative, locale).country}</strong>
-            <small>{group.cities.length} {w("座城市", group.cities.length === 1 ? "city" : "cities")}</small>
-            <ArrowRight size={17}/>
+            <span className="country-choice-meta"><small>{group.cities.length} {w("座城市", group.cities.length === 1 ? "city" : "cities")}</small><ArrowRight size={17}/></span>
           </button>;
         })}
       </div> : <>

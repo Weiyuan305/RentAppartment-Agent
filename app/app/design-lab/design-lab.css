@@ -866,10 +866,15 @@
 }
 @media(prefers-reduced-motion:no-preference){.agent-action-receipt{animation:atlas-surface-reveal 180ms ease-out}}
 /* Keep the selected home readable without covering a tall strip of the map. */
-.concept-lab .map-selected{padding:8px 12px;gap:9px;min-height:48px}
+.concept-lab .map-selected{padding:8px 12px;gap:9px;min-height:48px;width:fit-content;right:auto;max-width:min(360px,calc(100% - 78px))}
 .concept-lab .map-selected>.map-selected-icon{width:28px;height:28px;flex-shrink:0}
 .concept-lab .map-selected-copy{min-width:0;flex:1}
 .concept-lab .map-selected small{font-size:10px;line-height:1.2;margin-bottom:2px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .concept-lab .map-selected-main{display:flex;align-items:baseline;gap:10px;min-width:0;line-height:1.35}
 .concept-lab .map-selected strong{font-size:13px;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .concept-lab .map-selected-price{flex-shrink:0;font-size:11px;white-space:nowrap;color:#365f45}
+.concept-lab .map-selected-close{display:grid;place-items:center;flex-shrink:0;width:32px;height:32px;margin:-1px -4px -1px 0;border:0;border-radius:6px;background:transparent;color:#54715f;cursor:pointer}
+.concept-lab .map-selected-close:hover{background:#dfe9d9;color:#254332}
+.concept-lab .map-selected-close:focus-visible{outline:2px solid #275944;outline-offset:2px}
+@media(min-width:1101px){.concept-spatial .map-selected{max-width:min(360px,calc(100% - var(--workspace-left) - var(--workspace-right) - 48px))}}
+@media(max-width:600px){.concept-lab .map-selected-close{width:44px;height:44px;margin-block:-6px}}

@@ -4,7 +4,7 @@ import { useLocale } from "@/components/locale-provider";
 import MapAttribution from "@/components/map-attribution";
 import { lazy,Suspense,useEffect, useMemo, useRef, useState, useImperativeHandle, type Ref, type ReactNode } from "react";
 import type * as Cesium from "cesium";
-import { Building2, Compass, GraduationCap, MapPin, Minus, Navigation, Plus, RotateCw, Search } from "lucide-react";
+import { Building2, Compass, GraduationCap, MapPin, Minus, Navigation, Plus, RotateCw, Search, X } from "lucide-react";
 import { cityPhoto, priceLabel, type City, type Listing } from "@/lib/rental-data";
 import { resolveMapConfig } from "@/lib/map-config";
 import { useWalkingRoute } from "@/lib/use-walking-route";
@@ -372,7 +372,11 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     : studentPlan.transitRequested && selectedBuilding ? <TransitJourneyPanel listing={active} building={selectedBuilding} journeys={transit.journeys} status={transit.status} onClose={onStudentClose} onRetry={transit.retry} onFit={fitCurrentRoute}/>
     : studentPlan.routeBuilding && selectedBuilding ? <BuildingJourneyPanel building={selectedBuilding} route={buildingRoute.route} status={buildingRoute.status} onClose={onStudentClose} onRetry={buildingRoute.retry} onFit={fitCurrentRoute}/>
     : routeTarget ? <WalkingRoutePanel city={city} listing={routeTarget} status={routeStatus} route={campusRoute} onClose={onCloseRoute} onRetry={retryRoute} onFit={fitCurrentRoute}/>
-    : active && showListingInfo && <div className="map-selected"><span className="map-selected-icon"><MapPin size={16}/></span><div className="map-selected-copy"><small>{t("已选演示房源")}{!live ? t(" · 地图连接后定位") : ""}</small><div className="map-selected-main"><strong title={active.name}>{active.name}</strong><span className="map-selected-price">{priceLabel(active)} / {cityView.period}</span></div></div></div>;
+    : active && showListingInfo && <div className="map-selected">
+      <span className="map-selected-icon"><MapPin size={16}/></span>
+      <div className="map-selected-copy"><small>{t("已选演示房源")}{!live ? t(" · 地图连接后定位") : ""}</small><div className="map-selected-main"><strong title={active.name}>{active.name}</strong><span className="map-selected-price">{priceLabel(active)} / {cityView.period}</span></div></div>
+      <button className="map-selected-close" aria-label={locale === "zh" ? "关闭房源信息" : "Close home summary"} title={locale === "zh" ? "关闭房源信息" : "Close home summary"} onClick={onToggleListingInfo}><X size={16}/></button>
+    </div>;
   // Manual coverage check at the sample campus on 2026-10-08, not a country-wide guarantee.
   const limitedCoverage = city.id === "kuala-lumpur";
   const connectionTitle = status === "missing" ? t("实景三维地图待连接") : status === "idle" ? t("实景三维已配置，点击加载") : status === "loading" ? t("正在连接实景城市…") : t("实景地图暂时无法加载");

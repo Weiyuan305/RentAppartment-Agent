@@ -111,6 +111,11 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
         const C = await loadEngine(); if (disposed || !container.current || !creditContainer.current) return;
         C.Ion.defaultAccessToken = config.provider === "cesium-ion" ? config.credential : "";
         viewer = new C.Viewer(container.current, { creditContainer: creditContainer.current, useDefaultRenderLoop: false, globe: false, baseLayer: false, geocoder: false, animation: false, timeline: false, baseLayerPicker: false, sceneModePicker: false, homeButton: false, navigationHelpButton: false, fullscreenButton: false, infoBox: false, selectionIndicator: false, requestRenderMode: true });
+        // Desktop trackpad pinch arrives as Ctrl+wheel, not a touchscreen PINCH.
+        viewer.scene.screenSpaceCameraController.zoomEventTypes = [
+          C.CameraEventType.RIGHT_DRAG, C.CameraEventType.WHEEL, C.CameraEventType.PINCH,
+          {eventType: C.CameraEventType.WHEEL, modifier: C.KeyboardEventModifier.CTRL},
+        ];
         viewer.resolutionScale = Math.min(window.devicePixelRatio, 1.5);
         viewer.scene.backgroundColor = C.Color.fromCssColorString("#223341");
         const tileOptions = { maximumScreenSpaceError: 12, cacheBytes: 256 * 1024 * 1024, maximumCacheOverflowBytes: 128 * 1024 * 1024, showCreditsOnScreen: true };
@@ -242,7 +247,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
       onRoute={() => {if (active) {setAmenityRouteTarget(`${active.id}:${selectedAmenity.id}`); facilityRoute.retry(); setRequested(true);}}}
       onFitRoute={() => setFocusTick(v => v + 1)} onClearRoute={() => setAmenityRouteTarget(null)} onClose={() => setSelectedAmenityId(null)}/>
       : routeTarget ? <WalkingRoutePanel city={city} listing={routeTarget} status={routeStatus} route={campusRoute} onClose={onCloseRoute} onRetry={retryRoute} onFit={() => setFocusTick(v => v + 1)}/> : active && <div className="map-selected"><span className="map-selected-icon"><MapPin size={17}/></span><div><small>{t("已选演示房源")}{!live ? t(" · 地图连接后定位") : ""}</small><strong>{active.name} <span>{priceLabel(active)} / {cityView.period}</span></strong></div></div>}
-    <div className="map-bottom"><div><Navigation size={17}/><span>{cityView.campus}</span></div><span>{live?t("拖动平移 · 滚轮缩放 · Ctrl + 拖动旋转"):t("照片预览 · 非可交互地图")}</span></div>
+    <div className="map-bottom"><div><Navigation size={17}/><span>{cityView.campus}</span></div><span>{live?t("拖动平移 · 捏合/滚轮缩放 · Ctrl + 拖动旋转"):t("照片预览 · 非可交互地图")}</span></div>
   </section>;
 }
 function ChevronIcon(){return <span aria-hidden="true">↗</span>;}

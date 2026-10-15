@@ -153,6 +153,11 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
         const C = await loadEngine(); if (disposed || !container.current || !creditContainer.current) return;
         C.Ion.defaultAccessToken = config.provider === "cesium-ion" ? config.credential : "";
         viewer = new C.Viewer(container.current, { creditContainer: creditContainer.current, useDefaultRenderLoop: false, globe: false, baseLayer: false, geocoder: false, animation: false, timeline: false, baseLayerPicker: false, sceneModePicker: false, homeButton: false, navigationHelpButton: false, fullscreenButton: false, infoBox: false, selectionIndicator: false, requestRenderMode: true, useBrowserRecommendedResolution: false, contextOptions: {webgl: {antialias: true}} });
+        // Desktop trackpad pinch arrives as Ctrl+wheel, not a touchscreen PINCH.
+        viewer.scene.screenSpaceCameraController.zoomEventTypes = [
+          C.CameraEventType.RIGHT_DRAG, C.CameraEventType.WHEEL, C.CameraEventType.PINCH,
+          {eventType: C.CameraEventType.WHEEL, modifier: C.KeyboardEventModifier.CTRL},
+        ];
         // Native pixel density up to 2x; FXAA must not soften icon textures.
         viewer.resolutionScale = Math.min(1, 2 / Math.max(1, window.devicePixelRatio));
         viewer.scene.postProcessStages.fxaa.enabled = false;
@@ -411,7 +416,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     {hasJourney || selectedAmenity ? <JourneyDisclosure key={journeyKey} expanded={overlay === "journey"} onExpandedChange={open=>setOverlay(open?"journey":null)} place={!hasJourney} title={selectedAmenity?.name ?? journeyTitle} status={journeyStatus} seconds={studentPlan.transitRequested && !amenityRouteEnabled ? transitJourney ? transitJourney.durationMinutes * 60 : undefined : route?.durationSeconds} meters={studentPlan.transitRequested && !amenityRouteEnabled ? undefined : route?.distanceMeters} transit={studentPlan.transitRequested && !amenityRouteEnabled} onClear={!hasJourney ? () => setSelectedAmenityId(null) : amenityRouteEnabled ? () => setAmenityRouteTarget(null) : studentPlan.routeBuilding || studentPlan.transitRequested ? onStudentClose : onCloseRoute}>
       {journeyContent}
     </JourneyDisclosure> : journeyContent}
-    <div className="map-bottom"><div><Navigation size={17}/><span>{cityView.campus}</span></div><span>{live?t("拖动平移 · 滚轮缩放 · Ctrl + 拖动旋转"):t("照片预览 · 非可交互地图")}</span></div>
+    <div className="map-bottom"><div><Navigation size={17}/><span>{cityView.campus}</span></div><span>{live?t("拖动平移 · 捏合/滚轮缩放 · Ctrl + 拖动旋转"):t("照片预览 · 非可交互地图")}</span></div>
   </section>;
 }
 function ChevronIcon(){return <span aria-hidden="true">↗</span>;}

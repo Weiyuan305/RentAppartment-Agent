@@ -1,6 +1,6 @@
 "use client";
 import { useId, type ReactNode } from "react";
-import { Layers3, ChevronDown, GraduationCap, Footprints } from "lucide-react";
+import { Layers3, GraduationCap, Footprints } from "lucide-react";
 import { useLocale } from "@/components/locale-provider";
 import type { StudentPlan } from "@/lib/student/state";
 import { buildingById } from "@/lib/student/catalog";
@@ -11,7 +11,7 @@ export default function MapLayers({ plan, amenityCount, onStudentChange, onPlann
   const { locale } = useLocale(), w = (zh:string, en:string) => locale === "zh" ? zh : en;
   const id = useId(), count = amenityCount + Number(plan.showBuildings) + Number(Boolean(plan.catchmentMinutes));
   return <details open={open} className="concept-amenity-disclosure workspace-layers" onKeyDown={event => { if(event.key === "Escape") { onOpenChange(false); event.currentTarget.querySelector("summary")?.focus(); event.stopPropagation(); } }}>
-    <summary aria-controls={id} aria-expanded={open} onClick={event=>{event.preventDefault();onOpenChange(!open);}}><Layers3 size={16}/>{w("地图图层", "Map layers")}<span className="layer-count">{count}</span><ChevronDown size={14}/></summary>
+    <summary aria-label={w("地图图层", "Map layers")} title={w("地图图层", "Map layers")} aria-controls={id} aria-expanded={open} onClick={event=>{event.preventDefault();onOpenChange(!open);}}><Layers3 size={16}/>{w("图层", "Layers")}{count > 0 && <span className="layer-count" aria-label={w(`${count} 个已启用图层`, `${count} active layers`)}>{count}</span>}</summary>
     <div className="workspace-layer-body" id={id}>
       <div className="layer-heading"><strong>{w("显示你关心的地点", "Make the map yours")}</strong><button onClick={() => {onClearAmenities();onStudentChange({...plan,showBuildings:false,catchmentMinutes:null});}}>{w("清空图层", "Clear layers")}</button></div>
       <section className="layer-group" aria-label={w("生活设施", "Everyday places")}><h3>{w("生活设施", "Everyday places")}</h3>{children}</section>

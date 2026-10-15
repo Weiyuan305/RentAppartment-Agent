@@ -7,7 +7,7 @@ import {installMapCameraInput} from "@/lib/map-camera-input";
 import {useMapInputMode} from "@/lib/use-map-input";
 import { lazy,Suspense,useEffect, useMemo, useRef, useState, useImperativeHandle, type Ref, type ReactNode } from "react";
 import type * as Cesium from "cesium";
-import { Building2, Compass, GraduationCap, MapPin, Minus, Navigation, Plus, RotateCw, Search, X } from "lucide-react";
+import { Building2, Compass, GraduationCap, MapPin, Minus, Navigation, Plus, RotateCw, X } from "lucide-react";
 import { cityPhoto, priceLabel, type City, type Listing } from "@/lib/rental-data";
 import { resolveMapConfig } from "@/lib/map-config";
 import { useWalkingRoute } from "@/lib/use-walking-route";
@@ -26,6 +26,8 @@ import {buildingById} from "@/lib/student/catalog";
 import {useBuildingRoute,useTransitJourney} from "@/lib/student/use-student-journey";
 import type {StudentPlan} from "@/lib/student/state";
 import MapLayers from "./map-layers";
+import MapSearch from "./map-search";
+import type { MapSearchResult } from "@/lib/map-place-search";
 import JourneyDisclosure from "./journey-disclosure";
 import MapPlaceLabels, {fitMapLabelTarget, type LabelScene} from "./map-place-labels";
 
@@ -80,6 +82,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   }}), []);
   const restoredCamera = useRef<{key:string;context:string;tick:number;viewer:Cesium.Viewer|null;released:boolean}|null>(null);
   const amenityOverview = useRef<Array<{lng:number;lat:number}> | null>(null);
+  const searchFocus = useRef<{cityId:string;lng:number;lat:number;context:string|null;tick:number;viewKey?:string}|null>(null);
   const clickCallback = useRef(onSelect);
   useEffect(() => { clickCallback.current = onSelect; }, [onSelect]);
   const [status, setStatus] = useState<"missing" | "idle" | "loading" | "ready" | "error">(config.configured ? "idle" : "missing");
@@ -116,8 +119,9 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   const transitJourney=transit.journeys[0];
   const shouldLoad = requested || autoLoad;
   const [focusTick, setFocusTick] = useState(0);
-  const [overlay, setOverlay] = useState<"layers" | "journey" | null>(null);
+  const [overlay, setOverlay] = useState<"layers" | "search" | "journey" | null>(null);
   function fitCurrentRoute() {
+    searchFocus.current = null;
     setOverlay(null);
     requestAnimationFrame(() => setFocusTick(value => value + 1));
   }
@@ -242,6 +246,14 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     const rt=runtime.current; if (!rt || status !== "ready") return;
     if (!viewportVisible.current) return;
     const {C, viewer}=rt;
+    // A searched home must receive focus even when a campus destination remains selected.
+    const focus = searchFocus.current;
+    if (focus && focus.cityId === city.id && (focus.context === null || (focus.context === cameraContext && focus.tick === focusTick && focus.viewKey === restoredView?.key))) {
+      focus.context = cameraContext; focus.tick = focusTick; focus.viewKey = restoredView?.key;
+      fitMapLabelTarget({C,viewer},focus.lng,focus.lat,1200);
+      return;
+    }
+    searchFocus.current = null;
     if (restoredView) {
       if (restoredCamera.current?.key !== restoredView.key) restoredCamera.current={key:restoredView.key,context:cameraContext,tick:focusTick,viewer:null,released:false};
       const memory=restoredCamera.current;
@@ -274,6 +286,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     fitMapLabelTarget({C,viewer},active?.lng ?? city.lng,active?.lat ?? city.lat,active ? 1200 : 2200);
   }, [city, active, status, focusTick, route, selectedAmenity, amenityRouteEnabled,selectedBuilding,studentPlan.catchmentMinutes,transitJourney,cameraContext,restoredView,visibilityTick]);
   function cameraAction(action: "in" | "out" | "rotate" | "campus") {
+    searchFocus.current = null;
     const rt=runtime.current;if(!rt)return;const {C,viewer}=rt;
     if(action==="in")viewer.camera.zoomIn(Math.max(50,viewer.camera.positionCartographic.height*.28));
     if(action==="out")viewer.camera.zoomOut(Math.max(50,viewer.camera.positionCartographic.height*.35));
@@ -286,7 +299,6 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   }
   function searchVisibleArea() {
     const rt=runtime.current;if(!rt||status!=="ready")return;
-    setOverlay(null);
     const {C,viewer}=rt, bounds=viewer.canvas.getBoundingClientRect(),root=container.current?.closest(".concept-lab")??null;
     const leftPanel=visibleSidePanel(root,".listing-panel"),rightPanel=visibleSidePanel(root,".assistant-panel");
     const left=Math.max(0,leftPanel?leftPanel.right-bounds.left:0)+12;
@@ -300,7 +312,24 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
       const point=C.Cartographic.fromCartesian(position);
       polygon.push([C.Math.toDegrees(point.longitude),C.Math.toDegrees(point.latitude)]);
     }
+    searchFocus.current = null;
     setAreaError(false);onSearchArea({id:crypto.randomUUID(),polygon});
+  }
+  function selectSearchResult(result: MapSearchResult) {
+    setOverlay(null); setRequested(true);
+    amenityOverview.current = null;
+    searchFocus.current = {cityId:city.id,lng:result.lng,lat:result.lat,context:null,tick:-1};
+    if (restoredCamera.current) restoredCamera.current.released = true;
+    onCloseRoute();
+    if (result.kind === "home") onSelect(result.id);
+    else if (result.kind === "building") {
+      patchSelection({selectedPlaceId:null,routePlaceId:null,campusRoute:false});
+      onBuildingSelect(result.id);
+    } else if (result.kind === "amenity") {
+      // Reveal the chosen result even if the previous layer/radius filters excluded it.
+      patchSelection({categories:[result.amenity.category],radiusMeters:0,cuisine:"",placeIds:[result.id],selectedPlaceId:result.id,routePlaceId:null,campusRoute:false});
+    } else patchSelection({selectedPlaceId:null,routePlaceId:null,campusRoute:false});
+    setFocusTick(value => value + 1);
   }
   function toggleAmenity(category: AmenityCategory) {
     onSelectionChange(current => ({...current, categories: current.categories.includes(category) ? current.categories.filter(c => c !== category) : [...current.categories, category], placeIds: null}));
@@ -403,11 +432,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
       onCuisine={value => patchSelection({cuisine: value, placeIds: null, selectedPlaceId: null, routePlaceId: null})}
       onExplore={() => setAmenitiesRequested(true)} onClear={() => patchSelection({categories: [], placeIds: null, selectedPlaceId: null, routePlaceId: null})}
       onToggle={toggleAmenity} onSelect={focusAmenities} onDismiss={() => setSelectedAmenityId(null)} onFit={() => focusAmenities()} onRetry={retryAmenities}/></MapLayers>
-    {live && <div className="map-area-search">
-      <button onClick={searchVisibleArea}><Search size={15}/>{locale==="zh"?"搜索此区域":"Search this area"}</button>
-      <span className="sr-only" role="status">{areaActive ? (locale==="zh"?`区域搜索结果：${areaResultCount} 套房源`:`Area search results: ${areaResultCount} homes`) : ""}</span>
-      {areaError && <small role="alert">{locale==="zh"?"请调整为俯视地面的角度后重试。":"Tilt toward the ground, then retry."}</small>}
-    </div>}
+    <MapSearch key={`search:${city.id}`} city={city} homes={listings} selectedHome={active} amenities={amenitiesData} amenitiesStatus={amenitiesStatus} onRetry={retryAmenities} open={overlay === "search"} onOpenChange={open=>{setOverlay(open?"search":null);if(open){setAmenitiesRequested(true);setAreaError(false);}}} onSelect={selectSearchResult} live={live} onFilterArea={searchVisibleArea} areaActive={areaActive} areaResultCount={areaResultCount} areaError={areaError}/>
     {workspaceControls}
     </div>
     {live && limitedCoverage && <p className="map-coverage" role="note">{t("当前校区建筑三维细节不足，显示影像地形。2026-10-08 实测；其他区域覆盖可能不同。")}</p>}

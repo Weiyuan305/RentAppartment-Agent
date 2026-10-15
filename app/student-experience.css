@@ -110,3 +110,32 @@ body:has(.listing-detail-page){background:#122326}
 .compare-insights>p{flex-basis:100%;margin:0;font-size:12px}
 .compare-insights>div{flex:1 1 220px;display:grid;gap:3px;min-width:0}
 .compare-insights span{overflow-wrap:anywhere}
+
+/* Keep native select behavior, with consistent room for text and the chevron. */
+:is(.student-dialog,.listing-dossier) select:not([multiple]){
+ appearance:none;
+ -webkit-appearance:none;
+ padding-left:12px;
+ padding-right:40px;
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%234d6858' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+ background-repeat:no-repeat;
+ background-position:right 12px center;
+ background-size:16px 16px;
+}
+.listing-detail-page .listing-dossier select:not([multiple]){
+ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23c1dfc0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+}
+.viewing-checks label{grid-template-columns:minmax(0,1fr) 152px}
+@media(max-width:380px){
+ .listing-dossier .viewing-checks label{grid-template-columns:1fr;gap:7px;padding-block:12px}
+ .compare-pair-picker{grid-template-columns:1fr}
+ .compare-pair-picker label{display:grid;grid-template-columns:48px minmax(0,1fr);align-items:center;gap:8px}
+ .compare-pair-picker select{margin-top:0}
+}
+@media(forced-colors:active){
+ :is(.student-dialog,.listing-dossier) select:not([multiple]),.listing-detail-page .listing-dossier select:not([multiple]){
+  appearance:auto;
+  -webkit-appearance:auto;
+  background-image:none;
+ }
+}

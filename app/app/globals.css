@@ -498,3 +498,10 @@ button:disabled { cursor: not-allowed; }
 .chat-form .chat-composer{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:6px}
 .chat-form .chat-composer textarea{display:block;min-width:0;min-height:40px;max-height:128px;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;box-sizing:border-box}
 .chat-form .chat-composer button{align-self:end}
+
+/* Map gestures: a compact, keyboard-accessible help panel outside the canvas. */
+.map-input-help{width:286px;max-width:calc(100vw - 24px);max-height:var(--radix-popover-content-available-height);overflow:auto;background:#f4f7ed;color:#294333;border:1px solid #ccd9c7;border-radius:12px;padding:16px;box-shadow:0 12px 36px #102c2d33;color-scheme:light;font-size:12px;line-height:1.6}
+.map-input-help h2{font-size:15px;font-weight:650;margin:0 0 12px}
+.map-input-help label{display:grid;gap:5px;font-weight:600}.map-input-help select{min-height:40px;background:#fff;color:#294333;border:1px solid #b5c7b1;border-radius:6px;padding:6px 9px;width:100%}
+.map-input-help dl{display:grid;grid-template-columns:auto 1fr;gap:10px 12px;margin:14px 0}.map-input-help dt{font-weight:650}.map-input-help dd{margin:0}.map-input-help p{margin:0;padding-top:10px;border-top:1px solid #d9e2d2;color:#52634c;font-size:11px}
+.map-input-help select:focus-visible{outline:2px solid #275944;outline-offset:2px}

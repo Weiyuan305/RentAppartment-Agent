@@ -2,6 +2,9 @@
 import { displayCity } from "@/lib/i18n";
 import { useLocale } from "@/components/locale-provider";
 import MapAttribution from "@/components/map-attribution";
+import MapInputHelp from "@/components/map-input-help";
+import {installMapCameraInput} from "@/lib/map-camera-input";
+import {useMapInputMode} from "@/lib/use-map-input";
 import { useEffect, useMemo, useRef, useState } from "react";
 import type * as Cesium from "cesium";
 import { Building2, Compass, GraduationCap, MapPin, Minus, Navigation, Plus, RotateCw } from "lucide-react";
@@ -43,6 +46,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   selection: MapSelection; onSelectionChange: (update: (current: MapSelection) => MapSelection) => void;
 }) {
   const {t, locale} = useLocale();
+  const {mode:inputMode,modeRef:inputModeRef,updateMode:updateInputMode}=useMapInputMode();
   const cityView = useMemo(()=>displayCity(city,locale),[city,locale]);
   const container = useRef<HTMLDivElement>(null);
   const creditContainer = useRef<HTMLDivElement>(null);
@@ -104,18 +108,14 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   }, []);
   useEffect(() => {
     if (!shouldLoad || !viewportSeen || !config.configured || !container.current || !creditContainer.current) return;
-    let disposed = false; let viewer: Cesium.Viewer | null = null; let removeError: (() => void) | undefined;
+    let disposed = false; let viewer: Cesium.Viewer | null = null; let removeError: (() => void) | undefined; let removeInput: (() => void) | undefined;
     setStatus("loading");
     void (async () => {
       try {
         const C = await loadEngine(); if (disposed || !container.current || !creditContainer.current) return;
         C.Ion.defaultAccessToken = config.provider === "cesium-ion" ? config.credential : "";
         viewer = new C.Viewer(container.current, { creditContainer: creditContainer.current, useDefaultRenderLoop: false, globe: false, baseLayer: false, geocoder: false, animation: false, timeline: false, baseLayerPicker: false, sceneModePicker: false, homeButton: false, navigationHelpButton: false, fullscreenButton: false, infoBox: false, selectionIndicator: false, requestRenderMode: true });
-        // Desktop trackpad pinch arrives as Ctrl+wheel, not a touchscreen PINCH.
-        viewer.scene.screenSpaceCameraController.zoomEventTypes = [
-          C.CameraEventType.RIGHT_DRAG, C.CameraEventType.WHEEL, C.CameraEventType.PINCH,
-          {eventType: C.CameraEventType.WHEEL, modifier: C.KeyboardEventModifier.CTRL},
-        ];
+        removeInput = installMapCameraInput(C,viewer,()=>inputModeRef.current);
         viewer.resolutionScale = Math.min(window.devicePixelRatio, 1.5);
         viewer.scene.backgroundColor = C.Color.fromCssColorString("#223341");
         const tileOptions = { maximumScreenSpaceError: 12, cacheBytes: 256 * 1024 * 1024, maximumCacheOverflowBytes: 128 * 1024 * 1024, showCreditsOnScreen: true };
@@ -159,8 +159,8 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
         viewer.destroy = () => { handler.destroy(); return originalDestroy(); };
       } catch { if (!disposed) setStatus("error"); }
     })();
-    return () => { disposed = true; removeError?.(); runtime.current = null; if (viewer && !viewer.isDestroyed()) viewer.destroy(); };
-  }, [shouldLoad, retry, viewportSeen]);
+    return () => { disposed = true; removeInput?.(); removeError?.(); runtime.current = null; if (viewer && !viewer.isDestroyed()) viewer.destroy(); };
+  }, [shouldLoad, retry, viewportSeen, inputModeRef]);
   useEffect(() => {
     const rt = runtime.current; if (!rt || status !== "ready") return;
     updateAmenityLayer(rt.C, rt.amenities, rt.amenityFocus, visibleAmenities, selectedAmenity?.id);
@@ -242,12 +242,12 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
       onToggle={toggleAmenity} onSelect={focusAmenities} onDismiss={() => setSelectedAmenityId(null)} onFit={() => focusAmenities()} onRetry={retryAmenities}/>
     {live && limitedCoverage && <p className="map-coverage" role="note">{t("当前校区建筑三维细节不足，显示影像地形。2026-10-08 实测；其他区域覆盖可能不同。")}</p>}
     {!live && <div className="map-intro"><p>{t("先认识这座城，再找到你的家。")}</p><h2>{city.english}{locale === "zh" && <span>{cityView.name}</span>}</h2><div className="map-connection"><Building2 size={22}/><div><strong>{connectionTitle}</strong><p>{connectionText}</p><div className="connection-actions">{status==="idle" && <button onClick={()=>setRequested(true)}>{t("加载实景 3D")}</button>}{status==="error" && <button onClick={()=>setRetry(v=>v+1)}>{t("重新连接")}</button>}<a href="/setup" target="_blank" rel="noreferrer">{t("查看接入说明")} <ChevronIcon/></a></div></div></div></div>}
-    {live && <div className="map-controls"><button aria-label={t("放大地图")} onClick={()=>cameraAction("in")}><Plus size={19}/></button><button aria-label={t("缩小地图")} onClick={()=>cameraAction("out")}><Minus size={19}/></button><button aria-label={t("旋转地图")} onClick={()=>cameraAction("rotate")}><RotateCw size={18}/></button><button aria-label={t("回到大学")} onClick={()=>cameraAction("campus")}><GraduationCap size={20}/></button><button aria-label={t("重新定位房源")} onClick={()=>setFocusTick(v=>v+1)}><Compass size={20}/></button></div>}
+    {live && <div className="map-controls"><button aria-label={t("放大地图")} onClick={()=>cameraAction("in")}><Plus size={19}/></button><button aria-label={t("缩小地图")} onClick={()=>cameraAction("out")}><Minus size={19}/></button><button aria-label={t("旋转地图")} onClick={()=>cameraAction("rotate")}><RotateCw size={18}/></button><button aria-label={t("回到大学")} onClick={()=>cameraAction("campus")}><GraduationCap size={20}/></button><button aria-label={t("重新定位房源")} onClick={()=>setFocusTick(v=>v+1)}><Compass size={20}/></button><MapInputHelp mode={inputMode} onChange={updateInputMode}/></div>}
     {selectedAmenity ? <AmenityDetails place={selectedAmenity} listing={active} route={facilityRoute.route} routeStatus={facilityRoute.status} routeError={facilityRoute.error}
       onRoute={() => {if (active) {setAmenityRouteTarget(`${active.id}:${selectedAmenity.id}`); facilityRoute.retry(); setRequested(true);}}}
       onFitRoute={() => setFocusTick(v => v + 1)} onClearRoute={() => setAmenityRouteTarget(null)} onClose={() => setSelectedAmenityId(null)}/>
       : routeTarget ? <WalkingRoutePanel city={city} listing={routeTarget} status={routeStatus} route={campusRoute} onClose={onCloseRoute} onRetry={retryRoute} onFit={() => setFocusTick(v => v + 1)}/> : active && <div className="map-selected"><span className="map-selected-icon"><MapPin size={17}/></span><div><small>{t("已选演示房源")}{!live ? t(" · 地图连接后定位") : ""}</small><strong>{active.name} <span>{priceLabel(active)} / {cityView.period}</span></strong></div></div>}
-    <div className="map-bottom"><div><Navigation size={17}/><span>{cityView.campus}</span></div><span>{live?t("拖动平移 · 捏合/滚轮缩放 · Ctrl + 拖动旋转"):t("照片预览 · 非可交互地图")}</span></div>
+    <div className="map-bottom"><div><Navigation size={17}/><span>{cityView.campus}</span></div><span>{live?t("双指滑动平移 · 捏合缩放 · Shift + 滑动旋转"):t("照片预览 · 非可交互地图")}</span></div>
   </section>;
 }
 function ChevronIcon(){return <span aria-hidden="true">↗</span>;}

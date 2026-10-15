@@ -841,10 +841,27 @@
 .concept-lab .recovery-options{display:grid;gap:8px;margin:16px 0}
 .concept-lab .recovery-options button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:44px;padding:10px;text-align:left;border:1px solid var(--border);border-radius:8px;background:var(--surface-soft);color:var(--fg);font-size:13px;line-height:1.5}
 .recovery-options strong{white-space:nowrap;font-size:12px}
-.concept-lab .map-area-search{position:absolute;z-index:8;top:var(--map-search-top,220px);left:var(--map-search-left,24px);width:220px;max-width:calc(100% - 84px);color:#244b39;pointer-events:auto}
-.map-area-search button{display:flex;align-items:center;gap:8px;min-height:40px;padding:8px 12px;border:1px solid #adc1ac;border-radius:9px;background:#f6f9ee;color:inherit;font-size:13px;box-shadow:0 3px 14px #102a2d24;cursor:pointer}
-.map-area-search small{display:block;width:fit-content;max-width:220px;margin-top:5px;padding:4px 7px;background:#f6f9eeee;border-radius:5px;font-size:11px;line-height:1.5}
-@media(min-width:1101px){.concept-spatial .map-area-search{left:var(--map-search-left,var(--workspace-left));max-width:calc(100% - var(--workspace-left) - var(--workspace-right) - 52px)}}
-@media(max-width:1100px){.concept-lab .map-area-search{top:var(--map-search-top,68px);left:var(--map-search-left,18px)}}
-@media(max-width:600px){.concept-lab .map-area-search{top:var(--map-search-top,68px);left:var(--map-search-left,12px);width:210px}.map-area-search button,.agent-action-receipt button{min-height:44px}}
+/* One aligned map toolbar; its dropdown never occupies the city centre. */
+.concept-lab .map-toolbar{position:absolute;z-index:8;top:16px;left:18px;right:18px;display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:8px;pointer-events:none}
+.concept-lab .city-panel .map-toolbar .workspace-layers{position:static;inset:auto;width:auto;max-width:none;pointer-events:auto}
+.concept-lab .map-toolbar .workspace-layers>summary{min-height:40px;white-space:nowrap;margin:0;padding:8px 10px}
+.concept-lab .map-toolbar .workspace-layer-body{position:absolute;top:calc(100% + 8px);right:0;width:360px;max-width:100%;pointer-events:auto}
+.concept-lab .map-toolbar .workspace-tools{position:static;inset:auto;flex:none;gap:8px;pointer-events:auto}
+.concept-lab .map-toolbar .workspace-tools>button{min-height:40px}
+.concept-lab .map-area-search{position:static;width:auto;max-width:none;color:#244b39;pointer-events:auto}
+.map-area-search button{display:flex;align-items:center;gap:8px;min-height:40px;padding:8px 10px;border:1px solid #adc1ac;border-radius:9px;background:#f6f9ee;color:inherit;font-size:13px;white-space:nowrap;box-shadow:0 3px 14px #102a2d24;cursor:pointer}
+.map-area-search small{position:absolute;top:calc(100% + 8px);right:0;max-width:100%;padding:8px 10px;background:#fff7e5;border:1px solid #d8c491;border-radius:7px;font-size:12px;line-height:1.5}
+.concept-lab .map-top{top:calc(var(--map-tools-bottom,56px) + 12px)}
+.concept-lab .map-controls{top:calc(var(--map-tools-bottom,56px) + 60px)}
+@media(min-width:1101px){
+ .concept-spatial .map-toolbar{top:22px;left:var(--workspace-left);right:var(--workspace-right)}
+ .concept-spatial.is-list-collapsed .map-toolbar{left:150px}
+ .concept-spatial.is-chat-collapsed .map-toolbar{right:174px}
+ .concept-spatial .map-toolbar .workspace-tools{display:flex}
+ .concept-spatial .concept-map-title{top:calc(var(--map-tools-bottom,62px) + 18px)}
+}
+@media(max-width:600px){
+ .concept-lab .map-toolbar{top:12px;left:12px;right:12px}
+ .concept-lab .map-toolbar .workspace-layers>summary,.map-area-search button,.agent-action-receipt button{min-height:44px}
+}
 @media(prefers-reduced-motion:no-preference){.agent-action-receipt{animation:atlas-surface-reveal 180ms ease-out}}

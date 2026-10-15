@@ -2,7 +2,7 @@
 import { displayCity } from "@/lib/i18n";
 import { useLocale } from "@/components/locale-provider";
 import MapAttribution from "@/components/map-attribution";
-import { lazy,Suspense,useEffect, useMemo, useRef, useState, useImperativeHandle, type Ref } from "react";
+import { lazy,Suspense,useEffect, useMemo, useRef, useState, useImperativeHandle, type Ref, type ReactNode } from "react";
 import type * as Cesium from "cesium";
 import { Building2, Compass, GraduationCap, MapPin, Minus, Navigation, Plus, RotateCw, Search } from "lucide-react";
 import { cityPhoto, priceLabel, type City, type Listing } from "@/lib/rental-data";
@@ -49,7 +49,8 @@ const config = resolveMapConfig({
   VITE_CESIUM_ION_ACCESS_TOKEN: import.meta.env.VITE_CESIUM_ION_ACCESS_TOKEN,
   VITE_GOOGLE_MAPS_API_KEY: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
 });
-export default function CityMap({ city, listings, selected, onSelect, autoLoad, routeListingId, onCloseRoute, selection, onSelectionChange,studentPlan,onBuildingSelect,onStudentClose,onStudentChange,onPlanner,hovered,onHover,viewRef,restoredView,onSearchArea,areaActive,areaResultCount }: {
+export default function CityMap({ city, listings, selected, onSelect, autoLoad, routeListingId, onCloseRoute, selection, onSelectionChange,studentPlan,onBuildingSelect,onStudentClose,onStudentChange,onPlanner,hovered,onHover,viewRef,restoredView,onSearchArea,areaActive,areaResultCount,workspaceControls }: {
+  workspaceControls?: ReactNode;
   onSearchArea: (area:MapSearchArea)=>void; areaActive:boolean; areaResultCount:number;
   viewRef?: Ref<MapViewHandle>; restoredView?: {key:string;camera:CameraView} | null;
   hovered: string | null; onHover: (id: string | null) => void; onStudentChange: (plan: StudentPlan) => void; onPlanner: () => void;
@@ -279,6 +280,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
   }
   function searchVisibleArea() {
     const rt=runtime.current;if(!rt||status!=="ready")return;
+    setOverlay(null);
     const {C,viewer}=rt, bounds=viewer.canvas.getBoundingClientRect(),root=container.current?.closest(".concept-lab")??null;
     const leftPanel=visibleSidePanel(root,".listing-panel"),rightPanel=visibleSidePanel(root,".assistant-panel");
     const left=Math.max(0,leftPanel?leftPanel.right-bounds.left:0)+12;
@@ -337,30 +339,23 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     const panel=container.current?.parentElement;
     if(!panel)return;
     const layers=panel.querySelector<HTMLElement>(".workspace-layer-body");
-    const layerButton=panel.querySelector<HTMLElement>(".workspace-layers>summary");
+    const toolbar=panel.querySelector<HTMLElement>(".map-toolbar");
     const bottomCard=panel.querySelector<HTMLElement>(".map-journey-shell, .map-selected");
     const measure=()=>{
       const bounds=panel.getBoundingClientRect();
       const bottom=bottomCard?.getBoundingClientRect().top ?? bounds.bottom-85;
-      const noticeTop=(layerButton?.getBoundingClientRect().bottom ?? bounds.top+64)-bounds.top+12;
-      // The fallback notice shares the map's free area with the layer and route controls.
-      // Measure their real size instead of inheriting the old fixed route-mode offset.
-      const searchPanel=panel.querySelector<HTMLElement>(".map-area-search");
-      const buttonBounds=layerButton?.getBoundingClientRect();
-      if(searchPanel&&buttonBounds){
-        const side=visibleSidePanel(panel.closest(".concept-lab"),".assistant-panel");
-        const edge=Math.min(bounds.right,side?.left??bounds.right)-64;
-        const beside=buttonBounds.right+8+searchPanel.offsetWidth<=edge;
-        panel.style.setProperty("--map-search-left",`${(beside?buttonBounds.right+8:buttonBounds.left)-bounds.left}px`);
-        panel.style.setProperty("--map-search-top",`${(beside?buttonBounds.top:buttonBounds.bottom+8)-bounds.top}px`);
-      }
+      const toolbarBottom=(toolbar?.getBoundingClientRect().bottom ?? bounds.top+64)-bounds.top;
+      const noticeTop=toolbarBottom+12;
+      // Keep the title, camera controls and fallback notice below the real toolbar height.
+      panel.style.setProperty("--map-tools-bottom",`${toolbarBottom}px`);
+      panel.parentElement?.style.setProperty("--map-tools-bottom",`${toolbarBottom}px`);
       panel.style.setProperty("--map-notice-top",`${noticeTop}px`);
       panel.style.setProperty("--map-notice-room",`${Math.max(0,bottom-bounds.top-noticeTop-12)}px`);
       if(layers && overlay==="layers")layers.style.setProperty("--layer-room",`${Math.max(0,bottom-layers.getBoundingClientRect().top-12)}px`);
     };
     const observer=new ResizeObserver(measure);
     observer.observe(panel);
-    if(layerButton)observer.observe(layerButton);
+    if(toolbar)observer.observe(toolbar);
     if(bottomCard)observer.observe(bottomCard);
     const frame=requestAnimationFrame(measure);
     window.addEventListener("atlas-workspace-layout",measure);
@@ -392,15 +387,19 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     {live&&(studentPlan.showBuildings||studentPlan.destinationId)&&<Suspense fallback={null}><CampusMapLayer scene={labelScene} cityId={city.id} plan={studentPlan} onSelect={onBuildingSelect}/></Suspense>}
     {!live && <><img className="city-photo" src={cityPhoto(city.id)} alt={t("{0}城市风光预览", {0:city.name})}/><div className="city-shade"/></>}
     <div className="map-top"><div className="map-city"><span className="dot"/> EXPLORE {city.english.toUpperCase()}</div><span className="map-mode">{live ? (limitedCoverage ? t("影像地形") : t("实景 3D")) : t("城市照片预览")}</span></div>
-    <MapLayers key={city.id} open={overlay === "layers"} onOpenChange={open=>setOverlay(open?"layers":null)} plan={studentPlan} amenityCount={amenityCategories.length} onStudentChange={onStudentChange} onPlanner={onPlanner} onClearAmenities={() => patchSelection({categories:[],placeIds:null,selectedPlaceId:null,routePlaceId:null})}><AmenityControls key={city.id} categories={amenityCategories} data={amenitiesData} status={amenitiesStatus} visible={visibleAmenities} selected={selectedAmenity} listing={active} radius={radius} cuisine={cuisine}
+    <div className="map-toolbar" role="group" aria-label={locale === "zh" ? "地图工具" : "Map tools"}>
+    <MapLayers key={city.id} open={overlay === "layers"} onOpenChange={open=>{setAreaError(false);setOverlay(open?"layers":null);}} plan={studentPlan} amenityCount={amenityCategories.length} onStudentChange={onStudentChange} onPlanner={onPlanner} onClearAmenities={() => patchSelection({categories:[],placeIds:null,selectedPlaceId:null,routePlaceId:null})}><AmenityControls key={city.id} categories={amenityCategories} data={amenitiesData} status={amenitiesStatus} visible={visibleAmenities} selected={selectedAmenity} listing={active} radius={radius} cuisine={cuisine}
       onRadius={value => patchSelection({radiusMeters: value, placeIds: null, selectedPlaceId: null, routePlaceId: null})}
       onCuisine={value => patchSelection({cuisine: value, placeIds: null, selectedPlaceId: null, routePlaceId: null})}
       onExplore={() => setAmenitiesRequested(true)} onClear={() => patchSelection({categories: [], placeIds: null, selectedPlaceId: null, routePlaceId: null})}
       onToggle={toggleAmenity} onSelect={focusAmenities} onDismiss={() => setSelectedAmenityId(null)} onFit={() => focusAmenities()} onRetry={retryAmenities}/></MapLayers>
-    {live && !overlay && <div className="map-area-search">
+    {live && <div className="map-area-search">
       <button onClick={searchVisibleArea}><Search size={15}/>{locale==="zh"?"搜索此区域":"Search this area"}</button>
-      <small role="status">{areaError?(locale==="zh"?"请俯视地面或缩小视野后重试。":"Tilt toward the ground or zoom in, then retry."):areaActive?(locale==="zh"?`上次搜索 · ${areaResultCount} 套 · 范围不会自动更新`:`Last search · ${areaResultCount} homes · Area stays fixed`):(locale==="zh"?"按可见地面范围筛选本城演示房源":"Filter this city's demo homes by the visible ground area")}</small>
+      <span className="sr-only" role="status">{areaActive ? (locale==="zh"?`区域搜索结果：${areaResultCount} 套房源`:`Area search results: ${areaResultCount} homes`) : ""}</span>
+      {areaError && <small role="alert">{locale==="zh"?"请调整为俯视地面的角度后重试。":"Tilt toward the ground, then retry."}</small>}
     </div>}
+    {workspaceControls}
+    </div>
     {live && limitedCoverage && <p className="map-coverage" role="note">{t("当前校区建筑三维细节不足，显示影像地形。2026-10-08 实测；其他区域覆盖可能不同。")}</p>}
     {!live && <div className="map-intro"><p>{t("先认识这座城，再找到你的家。")}</p><h2>{city.english}{locale === "zh" && <span>{cityView.name}</span>}</h2><div className="map-connection"><Building2 size={22}/><div><strong>{connectionTitle}</strong><p>{connectionText}</p><div className="connection-actions">{status==="idle" && <button onClick={()=>setRequested(true)}>{t("加载实景 3D")}</button>}{status==="error" && <button onClick={()=>setRetry(v=>v+1)}>{t("重新连接")}</button>}<a href="/setup" target="_blank" rel="noreferrer">{t("查看接入说明")} <ChevronIcon/></a></div></div></div></div>}
     {live && <div className="map-controls"><button aria-label={t("放大地图")} onClick={()=>cameraAction("in")}><Plus size={19}/></button><button aria-label={t("缩小地图")} onClick={()=>cameraAction("out")}><Minus size={19}/></button><button aria-label={t("旋转地图")} onClick={()=>cameraAction("rotate")}><RotateCw size={18}/></button><button aria-label={t("回到大学")} onClick={()=>cameraAction("campus")}><GraduationCap size={20}/></button><button aria-label={t("重新定位房源")} onClick={()=>setFocusTick(v=>v+1)}><Compass size={20}/></button></div>}

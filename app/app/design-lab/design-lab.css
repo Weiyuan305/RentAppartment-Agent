@@ -964,7 +964,12 @@
 .concept-lab .map-selected-close:hover{background:#dfe9d9;color:#254332}
 .concept-lab .map-selected-close:focus-visible{outline:2px solid #275944;outline-offset:2px}
 @media(min-width:1101px){.concept-spatial .map-selected{max-width:min(360px,calc(100% - var(--workspace-left) - var(--workspace-right) - 48px))}}
-@media(max-width:600px){.concept-lab .map-selected-close{width:44px;height:44px;margin-block:-6px}}
+@media(max-width:600px){
+ .concept-lab .city-panel:not(.map-live) .map-selected{max-width:min(360px,calc(100% - 24px))}
+ .concept-lab .map-selected-main{flex-wrap:wrap;gap:2px 10px}
+ .concept-lab .map-selected strong{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+ .concept-lab .map-selected-close{width:44px;height:44px;margin-block:-6px}
+}
 
 /* Task feedback: compact context, stable markers and interruptible small surfaces. */
 .concept-lab .map-screen-marker.is-compact .map-marker-copy{display:none}

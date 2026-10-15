@@ -1,8 +1,9 @@
 "use client";
+import { StudentDialogContent } from "./student-dialog";
 import { useEffect, useId, useRef, useState } from "react";
 import { ExternalLink, NotebookPen, Save } from "lucide-react";
 import { useLocale } from "@/components/locale-provider";
-import { Dialog,DialogContent,DialogTitle,DialogDescription } from "@/components/ui/dialog";
+import { Dialog,DialogTitle,DialogDescription } from "@/components/ui/dialog";
 import type { Listing } from "@/lib/rental-data";
 import { housingDetails } from "@/lib/student/planner";
 import { decisionStages, emptyDecisionNote, viewingItems, type DecisionNote } from "@/lib/student/notebook";
@@ -12,10 +13,10 @@ import { LibrarySyncStatus, usePersonalLibrary } from "@/components/personal-lib
 export function ListingDossierDialog({listing,onClose}:{listing:Listing|null;onClose:()=>void}) {
   const {locale}=useLocale(),w=(zh:string,en:string)=>locale==="zh"?zh:en;
   const title=useRef<HTMLHeadingElement>(null);
-  return <Dialog open={!!listing} onOpenChange={open=>{if(!open)onClose();}}><DialogContent closeLabel={w("关闭房源资料", "Close listing facts")} className="student-dialog dossier-dialog sm:max-w-[760px]" onOpenAutoFocus={event=>{event.preventDefault();title.current?.focus();}}>
-    <DialogTitle ref={title} tabIndex={-1}>{listing?.name}</DialogTitle><DialogDescription>{w("房源资料与我的看房记录","Listing facts & my viewing notes")}</DialogDescription>
+  return <Dialog open={!!listing} onOpenChange={open=>{if(!open)onClose();}}><StudentDialogContent closeLabel={w("关闭房源资料", "Close listing facts")} className="student-dialog dossier-dialog sm:max-w-[760px]" onOpenAutoFocus={event=>{event.preventDefault();title.current?.focus();}}>
+    <div className="student-dialog-header"><DialogTitle ref={title} tabIndex={-1}>{listing?.name}</DialogTitle><DialogDescription>{w("房源资料与我的看房记录","Listing facts & my viewing notes")}</DialogDescription></div>
     {listing&&<ListingDossier key={listing.id} listing={listing} compact/>}
-  </DialogContent></Dialog>;
+  </StudentDialogContent></Dialog>;
 }
 
 export function ListingDossier({listing,compact=false}:{listing:Listing;compact?:boolean}) {
@@ -43,7 +44,7 @@ function DossierEditor({listing,compact}:{listing:Listing;compact:boolean}) {
   }
   return <div className="listing-dossier">
     {compact&&<div className="dossier-switch" aria-label={w("资料与记录","Facts and notes")}><button aria-pressed={section==="facts"} onClick={()=>setSection("facts")}>{w("房源资料","Listing facts")}</button><button aria-pressed={section==="notes"} onClick={()=>setSection("notes")}>{w("我的看房记录","My viewing notes")}</button></div>}
-    <div className="dossier-scroll">
+    <div className="dossier-scroll" key={compact ? section : "full"}>
     <section className="listing-facts" hidden={compact&&section!=="facts"}><h2>{w("先确认这些信息","Know what is confirmed")}</h2>
       <p>{w("这是虚构演示房源，不可预订；以下日期与租期仅用于演示筛选。","This is a fictional, non-bookable listing. Dates and lease terms only demonstrate filtering.")}</p>
       <dl>

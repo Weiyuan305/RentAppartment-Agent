@@ -1,9 +1,9 @@
 "use client";
+import { StudentDialogContent } from "./student-dialog";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { Copy, Check, Trash2 } from "lucide-react";
 import {
   Dialog,
-  DialogContent,
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
@@ -166,16 +166,16 @@ export default function ApartmentComparison({
   }
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent closeLabel={w("关闭对比", "Close comparison")} className="student-dialog student-compare-dialog sm:max-w-[1040px]">
-        <DialogTitle>{w("公寓对比", "Compare apartments")}</DialogTitle>
+      <StudentDialogContent closeLabel={w("关闭对比", "Close comparison")} className="student-dialog student-compare-dialog sm:max-w-[1040px]">
+        <div className="student-dialog-header"><DialogTitle>{w("公寓对比", "Compare apartments")}</DialogTitle>
         <DialogDescription>
           {rows[0]?.destination ?? displayCity(city, locale).university} ·{" "}
           {w(
             "最多三套 · 使用同一目的地与费用假设",
             "Up to three · Same destination and cost assumptions",
           )}
-        </DialogDescription>
-        {rows.length === 0 ? (
+        </DialogDescription></div>
+        <div className="student-dialog-scroll">{rows.length === 0 ? (
           <p>
             {w(
               "先在房源卡片上点击“加入对比”。",
@@ -195,6 +195,7 @@ export default function ApartmentComparison({
                   <th scope="col">{w("比较项目", "Criteria")}</th>
                   {columns.map((r) => (
                     <th scope="col" key={r.listing.id} data-mobile-hidden={hiddenOnMobile(r.listing.id)}>
+                      <div className="compare-column-heading">
                       <strong>{r.listing.name}</strong>
                       <button
                         aria-label={`${w("移出对比", "Remove from comparison")} ${r.listing.name}`}
@@ -209,6 +210,7 @@ export default function ApartmentComparison({
                       >
                         <Trash2 size={14} />
                       </button>
+                      </div>
                     </th>
                   ))}
                 </tr>
@@ -261,7 +263,8 @@ export default function ApartmentComparison({
             />
           </label>
         )}
-      </DialogContent>
+        </div>
+      </StudentDialogContent>
     </Dialog>
   );
 }

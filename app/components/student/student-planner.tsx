@@ -1,4 +1,5 @@
 "use client";
+import { StudentDialogContent } from "./student-dialog";
 import { useId, useState } from "react";
 import {
   Building2,
@@ -10,7 +11,6 @@ import {
 } from "lucide-react";
 import {
   Dialog,
-  DialogContent,
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog";
@@ -113,8 +113,8 @@ export default function StudentPlanner({
   ];
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent closeLabel={w("关闭留学规划", "Close student planner")} className="student-dialog sm:max-w-[860px]">
-        <DialogTitle>
+      <StudentDialogContent closeLabel={w("关闭留学规划", "Close student planner")} className="student-dialog sm:max-w-[860px]">
+        <div className="student-dialog-header"><DialogTitle>
           {w("我的留学生活规划", "Plan your student life")}
         </DialogTitle>
         <DialogDescription>
@@ -123,7 +123,7 @@ export default function StudentPlanner({
             "以实际到达的楼栋为通勤目的地",
             "Choose the building you actually travel to",
           )}
-        </DialogDescription>
+        </DialogDescription></div>
         <div
           className="student-tabs"
           role="tablist"
@@ -160,7 +160,7 @@ export default function StudentPlanner({
             </button>
           ))}
         </div>
-        <div className="student-panel" role="tabpanel" id={`${tabsId}-panel`} aria-labelledby={`${tabsId}-${tab}`} tabIndex={0}>
+        <div key={tab} className="student-panel" role="tabpanel" id={`${tabsId}-panel`} aria-labelledby={`${tabsId}-${tab}`} tabIndex={0}>
           {tab === "campus" && (
             <>
               <div className="student-fields">
@@ -718,7 +718,7 @@ export default function StudentPlanner({
             </>
           )}
         </div>
-      </DialogContent>
+      </StudentDialogContent>
     </Dialog>
   );
 }

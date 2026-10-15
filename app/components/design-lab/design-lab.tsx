@@ -6,8 +6,9 @@ import { lazy, Suspense, useEffect, useMemo, useRef, useState, type CSSPropertie
 import { useRentalWebMCP } from "@/lib/use-rental-webmcp";
 import { LanguageSwitch } from "@/components/language-switch";
 import { AccountMenu } from "@/components/account-menu";
+import { BrandMark } from "@/components/brand-mark";
 import { emptyFilters, type Filters } from "@/lib/assistant";
-import { ArrowDownUp, ArrowRight, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Compass, Footprints, GraduationCap, Heart, MapPin, Search, Play, Square, ArrowUpRight, Layers3, PanelLeftClose, PanelRightClose, PanelLeftOpen, PanelRightOpen, Maximize2, Minimize2, RotateCcw, LocateFixed } from "lucide-react";
+import { ArrowDownUp, ArrowRight, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, Footprints, GraduationCap, Heart, MapPin, Search, Play, Square, ArrowUpRight, Layers3, PanelLeftClose, PanelRightClose, PanelLeftOpen, PanelRightOpen, Maximize2, Minimize2, RotateCcw, LocateFixed } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import CityMap from "./concept-city-map";
@@ -358,7 +359,7 @@ export default function DesignLab({preview = true}: {preview?: boolean}) {
       <button className="concept-play" disabled={!shown.length} onClick={()=>playing ? stopSample() : void playSample()}>{playing ? <Square size={12}/> : <Play size={12}/>}<span>{playing ? words("停止样片","Stop preview") : words("播放动效样片","Play motion preview")}</span></button>
     </div>}
     <header className="topbar">
-      <a className="brand" href="/" aria-label={t("远居首页")}><span className="brand-mark"><Compass size={26}/></span><span className="concept-wordmark">Campus Atlas<span className="brand-en">{words("远居 · 留学生找房","STUDENT HOMES, A WORLD AWAY")}</span></span></a>
+      <a className="brand" href="/" aria-label={t("远居首页")}><BrandMark/><span className="concept-wordmark">Campus Atlas<span className="brand-en">{words("远居 · 留学生找房","STUDENT HOMES, A WORLD AWAY")}</span></span></a>
       <div className="main-nav"><button className={!onlySaved ? "active" : ""} onClick={() => changeSavedOnly(false)}>{t("发现新家")}</button><button onClick={() => changeSavedOnly(!onlySaved)} className={onlySaved ? "active" : ""}>{t("我的收藏")} <span>{saved.length}</span></button></div>
       <div className="header-end"><span className="sample-badge">{words("留学生活，从这里开始","A place for your next chapter")}</span><button className="student-launch" onClick={()=>setPlannerOpen(true)} aria-label={words("打开留学规划","Open student planner")}><GraduationCap size={18}/><span>{words("留学规划","Planner")}</span></button><LanguageSwitch/><AccountMenu/></div>
     </header>

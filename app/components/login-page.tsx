@@ -1,7 +1,8 @@
 "use client";
 /* eslint-disable @next/next/no-html-link-for-pages -- Use full navigation for the vinext production router. */
 import { useState } from "react";
-import { ArrowRight, Compass, Eye, EyeOff, Footprints, Globe2, LoaderCircle, MapPin, Sparkles } from "lucide-react";
+import { ArrowRight, Eye, EyeOff, Footprints, Globe2, LoaderCircle, MapPin, Sparkles } from "lucide-react";
+import { BrandMark } from "./brand-mark";
 import { authClient } from "@/lib/auth-client";
 import { safeReturnPath } from "@/lib/i18n";
 import { cities } from "@/lib/rental-data";
@@ -33,7 +34,7 @@ export function LoginPage() {
     } catch {setError("网络连接失败，请稍后重试。");} finally {setBusy(false);}
   }
   return <main className="auth-page">
-    <header className="auth-header"><a className="brand" href="/?city=london"><span className="brand-mark"><Compass size={26}/></span><span>{t("远居")}<span className="brand-en">CAMPUS ATLAS</span></span></a><LanguageSwitch/></header>
+    <header className="auth-header"><a className="brand" href="/?city=london"><BrandMark/><span>{t("远居")}<span className="brand-en">CAMPUS ATLAS</span></span></a><LanguageSwitch/></header>
     <section className="auth-story" aria-label={t("留学生活，从这里开始")}>
       <img className="auth-cover" src="/photos/london.jpg" alt=""/>
       <div className="auth-story-shade"/>

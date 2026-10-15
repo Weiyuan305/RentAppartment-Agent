@@ -74,6 +74,10 @@ components:
 **The 阅读分区 Rule.** 助手保留自己的浅色背景与深绿文字、操作色，不直接继承外壳的浅绿文字体系。
 
 ## Typography
+### Brand symbol
+2026-10-15 选定 Logo B「相邻」：两个同形、旋转 180° 的实心圆角图形，中间保留贯通留白。`components/brand-mark.tsx` 是共用 SVG，首页及登录页共用；不使用位图、描边、渐变或底座。
+工作区深色页头使用黄绿色 `#d2eb58`，桌面 43px、≤600px 32px；登录页使用同一亮色，手机 34px，配合现有深色背景。设计实验室 A 的浅色页头沿用深绿单色。名称、文案、链接和地图工具图标保持原样。标志不依赖 Campus Atlas 字母，允许未来单独调整品牌名称。
+
 英文及工作区正文使用自托管 Atlas Manrope（Manrope，400/600/800）；中文回退 PingFang SC / Microsoft YaHei。城市大标题、列表标题、房源标题与助手正文分别使用 frontmatter 的 display / headline / title / body。
 中文桌面列表标题为 27px / 1.3、600；价格为 Manrope 25px / 1、600。详情标题为 Manrope 34px / 1.1、600；目的地选择弹层仍沿用现有衬线标题，不据此扩展整站字体规范。
 来源及 OFL 许可见[字体清单](public/fonts/design-lab/sources.json)。

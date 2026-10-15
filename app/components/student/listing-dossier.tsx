@@ -12,7 +12,7 @@ import { LibrarySyncStatus, usePersonalLibrary } from "@/components/personal-lib
 export function ListingDossierDialog({listing,onClose}:{listing:Listing|null;onClose:()=>void}) {
   const {locale}=useLocale(),w=(zh:string,en:string)=>locale==="zh"?zh:en;
   const title=useRef<HTMLHeadingElement>(null);
-  return <Dialog open={!!listing} onOpenChange={open=>{if(!open)onClose();}}><DialogContent className="student-dialog dossier-dialog sm:max-w-[760px]" onOpenAutoFocus={event=>{event.preventDefault();title.current?.focus();}}>
+  return <Dialog open={!!listing} onOpenChange={open=>{if(!open)onClose();}}><DialogContent closeLabel={w("关闭房源资料", "Close listing facts")} className="student-dialog dossier-dialog sm:max-w-[760px]" onOpenAutoFocus={event=>{event.preventDefault();title.current?.focus();}}>
     <DialogTitle ref={title} tabIndex={-1}>{listing?.name}</DialogTitle><DialogDescription>{w("房源资料与我的看房记录","Listing facts & my viewing notes")}</DialogDescription>
     {listing&&<ListingDossier key={listing.id} listing={listing} compact/>}
   </DialogContent></Dialog>;

@@ -166,7 +166,7 @@ export default function ApartmentComparison({
   }
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="student-dialog student-compare-dialog sm:max-w-[1040px]">
+      <DialogContent closeLabel={w("关闭对比", "Close comparison")} className="student-dialog student-compare-dialog sm:max-w-[1040px]">
         <DialogTitle>{w("公寓对比", "Compare apartments")}</DialogTitle>
         <DialogDescription>
           {rows[0]?.destination ?? displayCity(city, locale).university} ·{" "}

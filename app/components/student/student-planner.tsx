@@ -113,7 +113,7 @@ export default function StudentPlanner({
   ];
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="student-dialog sm:max-w-[860px]">
+      <DialogContent closeLabel={w("关闭留学规划", "Close student planner")} className="student-dialog sm:max-w-[860px]">
         <DialogTitle>
           {w("我的留学生活规划", "Plan your student life")}
         </DialogTitle>

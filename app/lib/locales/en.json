@@ -345,6 +345,7 @@
   "邮箱地址": "Email address",
   "密码": "Password",
   "至少 8 个字符": "At least 8 characters",
+  "请输入密码": "Enter your password",
   "隐藏密码": "Hide password",
   "显示密码": "Show password",
   "密码为 8–128 个字符。": "Use 8–128 characters.",

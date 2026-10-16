@@ -99,7 +99,12 @@ export default function Workbench({
   mode: "merchant" | "admin" | "student";
 }) {
   const w = useWords(),
-    { data: session, isPending } = authClient.useSession(),
+    {
+      data: session,
+      isPending,
+      error: sessionError,
+      refetch: retrySession,
+    } = authClient.useSession(),
     [snapshot, setData] = useState<(Dashboard & { accountId: string }) | null>(
       null,
     ),
@@ -251,6 +256,23 @@ export default function Workbench({
           )}
           {isPending ? (
             <p role="status">{w("正在读取账号…", "Loading account…")}</p>
+          ) : sessionError ? (
+            <section className="mw-card mw-empty" role="alert">
+              <h2>{w("暂时无法读取账号", "Unable to load your account")}</h2>
+              <p>
+                {w(
+                  "请检查网络后重试，已保存的房源不会丢失。",
+                  "Check your connection and try again. Your saved properties are safe.",
+                )}
+              </p>
+              <button
+                className="mw-primary"
+                onClick={() => void retrySession()}
+              >
+                <RefreshCw size={18} />
+                {w("重新连接账号", "Retry account connection")}
+              </button>
+            </section>
           ) : !session?.user ? (
             <section className="mw-card mw-empty">
               <h2>{w("登录后继续", "Sign in to continue")}</h2>
@@ -303,23 +325,58 @@ export default function Workbench({
                     <>
                       <div className="mw-default-city">
                         <div>
-                          <span>{w("新增房源默认城市", "Default city for new homes")}</span>
-                          <strong>{w(getCity(data.merchant!.defaultCityId).name, getCity(data.merchant!.defaultCityId).english)}</strong>
-                          <small>{w("已跟账号保存，新房源自动沿用", "Saved to your account; applied to new homes")}</small>
+                          <span>
+                            {w(
+                              "新增房源默认城市",
+                              "Default city for new homes",
+                            )}
+                          </span>
+                          <strong>
+                            {w(
+                              getCity(data.merchant!.defaultCityId).name,
+                              getCity(data.merchant!.defaultCityId).english,
+                            )}
+                          </strong>
+                          <small>
+                            {w(
+                              "已跟账号保存，新房源自动沿用",
+                              "Saved to your account; applied to new homes",
+                            )}
+                          </small>
                         </div>
                         <details>
                           <summary>{w("切换城市", "Change city")}</summary>
                           <label className="mw-field">
                             <span>{w("默认城市", "Default city")}</span>
-                            <select value={data.merchant!.defaultCityId} disabled={busy} onChange={e => {
-                              const cityId = getCity(e.target.value).id;
-                              void run({ kind: "setCity", cityId }).then(() => {
-                                setData(current => current && current.accountId === userId && current.merchant
-                                  ? { ...current, merchant: { ...current.merchant, defaultCityId: cityId } }
-                                  : current);
-                              }).catch(() => {});
-                            }}>
-                              {cities.map(c => <option key={c.id} value={c.id}>{w(c.name, c.english)}</option>)}
+                            <select
+                              value={data.merchant!.defaultCityId}
+                              disabled={busy}
+                              onChange={(e) => {
+                                const cityId = getCity(e.target.value).id;
+                                void run({ kind: "setCity", cityId })
+                                  .then(() => {
+                                    setData((current) =>
+                                      current &&
+                                      current.accountId === userId &&
+                                      current.merchant
+                                        ? {
+                                            ...current,
+                                            merchant: {
+                                              ...current.merchant,
+                                              defaultCityId: cityId,
+                                            },
+                                          }
+                                        : current,
+                                    );
+                                  })
+                                  .catch(() => {});
+                              }}
+                            >
+                              {cities.map((c) => (
+                                <option key={c.id} value={c.id}>
+                                  {w(c.name, c.english)}
+                                </option>
+                              ))}
                             </select>
                           </label>
                         </details>
@@ -435,8 +492,11 @@ export default function Workbench({
                                       w("未命名公寓", "Untitled property")}
                                   </h2>
                                   <p>
-                                    {w(getCity(p.draft.cityId).name,getCity(p.draft.cityId).english)} ·{" "}
-                                    {p.draft.rooms.length}{" "}
+                                    {w(
+                                      getCity(p.draft.cityId).name,
+                                      getCity(p.draft.cityId).english,
+                                    )}{" "}
+                                    · {p.draft.rooms.length}{" "}
                                     {w("种房型", "room types")}
                                   </p>
                                 </div>
@@ -664,7 +724,7 @@ function ApplicationForm({
                     })
                   }
                 />
-                {w(c.name,c.english)}
+                {w(c.name, c.english)}
               </label>
             ))}
           </div>
@@ -849,8 +909,10 @@ function PropertyEditor({
   onClose: () => void;
 }) {
   const w = useWords(),
-    [draft, setDraft] = useState<Property>(
-      () => record?.draft ? propertySchema.parse(record.draft) : newProperty(defaultCityId),
+    [draft, setDraft] = useState<Property>(() =>
+      record?.draft
+        ? propertySchema.parse(record.draft)
+        : newProperty(defaultCityId),
     ),
     [current, setCurrent] = useState({
       id: record?.id,
@@ -1059,7 +1121,7 @@ function PropertyEditor({
         )}
         {step === 1 && (
           <div className="mw-grid">
-            <PropertyLocation draft={draft} patch={patch} disabled={busy}/>
+            <PropertyLocation draft={draft} patch={patch} disabled={busy} />
             <fieldset className="mw-wide">
               <legend>{w("设施", "Amenities")}</legend>
               <div className="mw-checks">
@@ -1400,14 +1462,28 @@ function PropertyPreview({ property: p }: { property: Property }) {
       )}
       <h3>{p.name || w("未命名公寓", "Untitled property")}</h3>
       <p>
-        {w(city.name,city.english)} · {p.address}{p.postcode ? ` · ${p.postcode}` : ""}
+        {w(city.name, city.english)} · {p.address}
+        {p.postcode ? ` · ${p.postcode}` : ""}
       </p>
       <p>{p.description}</p>
       {p.descriptionEn && <p lang="en">{p.descriptionEn}</p>}
       <dl>
         <dt>{w("设施 / 资格", "Amenities / Eligibility")}</dt>
         <dd>
-          {p.facilities.map(id=>({furnished:w("家具","Furnished"),laundry:w("洗衣","Laundry"),lift:w("电梯","Lift"),accessible:w("无障碍","Accessible"),"private-kitchen":w("独立厨房","Private kitchen"),"secure-entry":w("门禁","Secure entry")})[id]).join(" · ")} ·{" "}
+          {p.facilities
+            .map(
+              (id) =>
+                ({
+                  furnished: w("家具", "Furnished"),
+                  laundry: w("洗衣", "Laundry"),
+                  lift: w("电梯", "Lift"),
+                  accessible: w("无障碍", "Accessible"),
+                  "private-kitchen": w("独立厨房", "Private kitchen"),
+                  "secure-entry": w("门禁", "Secure entry"),
+                })[id],
+            )
+            .join(" · ")}{" "}
+          ·{" "}
           {p.studentOnly
             ? w("仅限学生", "Students only")
             : w("不限学生", "Open to non-students")}
@@ -1515,7 +1591,10 @@ function AdminQueue({
             <details className="mw-card" key={p.id}>
               <summary>
                 <Status value={p.status} /> {p.draft.name} ·{" "}
-                {w(getCity(p.draft.cityId).name,getCity(p.draft.cityId).english)}
+                {w(
+                  getCity(p.draft.cityId).name,
+                  getCity(p.draft.cityId).english,
+                )}
               </summary>
               <PropertyPreview property={p.draft} />
               {p.published && (

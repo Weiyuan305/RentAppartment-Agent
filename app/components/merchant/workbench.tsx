@@ -20,7 +20,7 @@ import { LanguageSwitch } from "../language-switch";
 import { AccountMenu } from "../account-menu";
 import { BrandMark } from "../brand-mark";
 import { authClient } from "@/lib/auth-client";
-import { cities, getCity, type Listing } from "@/lib/rental-data";
+import { cities, getCity, type CityId, type Listing } from "@/lib/rental-data";
 import { useListings } from "../listing-catalog-provider";
 import {
   newProperty,
@@ -33,6 +33,7 @@ import {
   type Conversation,
 } from "@/lib/merchant/model";
 import "./workbench.css";
+import { PropertyLocation } from "./property-location";
 import { MediaLibrary } from "./media-library";
 
 type Dashboard = {
@@ -290,6 +291,7 @@ export default function Workbench({
                 <PropertyEditor
                   key={editing?.id ?? "new"}
                   record={editing}
+                  defaultCityId={data.merchant?.defaultCityId ?? "london"}
                   accountId={session.user.id}
                   busy={busy}
                   run={run}
@@ -299,6 +301,29 @@ export default function Workbench({
                 <>
                   {mode === "merchant" && (
                     <>
+                      <div className="mw-default-city">
+                        <div>
+                          <span>{w("新增房源默认城市", "Default city for new homes")}</span>
+                          <strong>{w(getCity(data.merchant!.defaultCityId).name, getCity(data.merchant!.defaultCityId).english)}</strong>
+                          <small>{w("已跟账号保存，新房源自动沿用", "Saved to your account; applied to new homes")}</small>
+                        </div>
+                        <details>
+                          <summary>{w("切换城市", "Change city")}</summary>
+                          <label className="mw-field">
+                            <span>{w("默认城市", "Default city")}</span>
+                            <select value={data.merchant!.defaultCityId} disabled={busy} onChange={e => {
+                              const cityId = getCity(e.target.value).id;
+                              void run({ kind: "setCity", cityId }).then(() => {
+                                setData(current => current && current.accountId === userId && current.merchant
+                                  ? { ...current, merchant: { ...current.merchant, defaultCityId: cityId } }
+                                  : current);
+                              }).catch(() => {});
+                            }}>
+                              {cities.map(c => <option key={c.id} value={c.id}>{w(c.name, c.english)}</option>)}
+                            </select>
+                          </label>
+                        </details>
+                      </div>
                       <div className="mw-metrics">
                         {[
                           [w("房源", "Properties"), data.properties.length],
@@ -384,6 +409,7 @@ export default function Workbench({
                         </select>
                         <button
                           className="mw-primary"
+                          disabled={busy}
                           onClick={() => setEditing(null)}
                         >
                           <Plus size={16} />
@@ -506,6 +532,7 @@ export default function Workbench({
                             </p>
                             <button
                               className="mw-primary"
+                              disabled={busy}
                               onClick={() => setEditing(null)}
                             >
                               <Plus size={17} />
@@ -808,12 +835,14 @@ function PhotoEditor({
 }
 function PropertyEditor({
   record,
+  defaultCityId,
   accountId,
   busy,
   run,
   onClose,
 }: {
   record: PropertyRecord | null;
+  defaultCityId: CityId;
   accountId: string;
   busy: boolean;
   run: (v: unknown) => Promise<{ id?: string }>;
@@ -821,7 +850,7 @@ function PropertyEditor({
 }) {
   const w = useWords(),
     [draft, setDraft] = useState<Property>(
-      () => record?.draft ?? newProperty(),
+      () => record?.draft ? propertySchema.parse(record.draft) : newProperty(defaultCityId),
     ),
     [current, setCurrent] = useState({
       id: record?.id,
@@ -846,7 +875,7 @@ function PropertyEditor({
       ) {
         // Browser-only persisted draft is read after deterministic SSR.
         // eslint-disable-next-line react-hooks/set-state-in-effect
-        setRecovery(saved.draft);
+        setRecovery(propertySchema.parse(saved.draft));
       }
     } catch {}
   }, [key, record?.version]);
@@ -897,6 +926,7 @@ function PropertyEditor({
       setCurrent({ id, version });
       setDirty(false);
       setLocalSaved(false);
+      setRecovery(null);
       try {
         localStorage.removeItem(key);
       } catch {}
@@ -1029,115 +1059,7 @@ function PropertyEditor({
         )}
         {step === 1 && (
           <div className="mw-grid">
-            <Field label={w("城市", "City")}>
-              <select
-                value={draft.cityId}
-                onChange={(e) => {
-                  const c = getCity(e.target.value);
-                  patch({
-                    cityId: c.id,
-                    lng: c.lng,
-                    lat: c.lat,
-                    entranceConfirmed: false,
-                  });
-                }}
-              >
-                {cities.map((c) => (
-                  <option key={c.id} value={c.id}>
-                    {w(c.name,c.english)}
-                  </option>
-                ))}
-              </select>
-            </Field>
-            <Field label={w("区域", "Neighbourhood")}>
-              <input
-                maxLength={100}
-                value={draft.area}
-                onChange={(e) => patch({ area: e.target.value })}
-              />
-            </Field>
-            <Field
-              label={w("完整地址（公开显示）", "Full address (public)")}
-              wide
-            >
-              <input
-                maxLength={300}
-                value={draft.address}
-                onChange={(e) =>
-                  patch({ address: e.target.value, entranceConfirmed: false })
-                }
-              />
-            </Field>
-            <div className="mw-wide">
-              <a
-                href={`https://www.openstreetmap.org/search?query=${encodeURIComponent(draft.address + " " + city.english)}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {w(
-                  "在 OpenStreetMap 查找地址并确认入口坐标",
-                  "Find the address and entrance coordinates on OpenStreetMap",
-                )}{" "}
-                ↗
-              </a>
-              <p className="mw-note">
-                {w(
-                  "粘贴入口经纬度。地图上显示的位置以此为准，不能仅使用城市中心。",
-                  "Paste the entrance coordinates used by the map. Do not use the city centre.",
-                )}
-              </p>
-            </div>
-            <Field label={w("经度", "Longitude")}>
-              <input
-                type="number"
-                step="any"
-                min={-180}
-                max={180}
-                value={draft.lng}
-                onChange={(e) =>
-                  patch({
-                    lng: Number(e.target.value),
-                    entranceConfirmed: false,
-                  })
-                }
-              />
-            </Field>
-            <Field label={w("纬度", "Latitude")}>
-              <input
-                type="number"
-                step="any"
-                min={-85}
-                max={85}
-                value={draft.lat}
-                onChange={(e) =>
-                  patch({
-                    lat: Number(e.target.value),
-                    entranceConfirmed: false,
-                  })
-                }
-              />
-            </Field>
-            <div className="mw-wide">
-              <iframe
-                title={w("入口位置预览", "Entrance location preview")}
-                loading="lazy"
-                referrerPolicy="no-referrer"
-                src={`https://www.openstreetmap.org/export/embed.html?bbox=${draft.lng - 0.004},${draft.lat - 0.003},${draft.lng + 0.004},${draft.lat + 0.003}&layer=mapnik&marker=${draft.lat},${draft.lng}`}
-              />
-              <label className="mw-check">
-                <input
-                  type="checkbox"
-                  checked={draft.entranceConfirmed}
-                  onChange={(e) =>
-                    patch({ entranceConfirmed: e.target.checked })
-                  }
-                />
-                {w(
-                  "已核对以上坐标为公寓入口",
-                  "I have checked that this is the property entrance",
-                )}
-              </label>
-            </div>
+            <PropertyLocation draft={draft} patch={patch} disabled={busy}/>
             <fieldset className="mw-wide">
               <legend>{w("设施", "Amenities")}</legend>
               <div className="mw-checks">
@@ -1378,7 +1300,7 @@ function PropertyEditor({
                   rooms: [
                     ...draft.rooms,
                     {
-                      ...newProperty().rooms[0],
+                      ...newProperty(draft.cityId).rooms[0],
                       period: city.period === "周" ? "week" : "month",
                     },
                   ],
@@ -1478,7 +1400,7 @@ function PropertyPreview({ property: p }: { property: Property }) {
       )}
       <h3>{p.name || w("未命名公寓", "Untitled property")}</h3>
       <p>
-        {w(city.name,city.english)} · {p.address} · {p.lng}, {p.lat}
+        {w(city.name,city.english)} · {p.address}{p.postcode ? ` · ${p.postcode}` : ""}
       </p>
       <p>{p.description}</p>
       {p.descriptionEn && <p lang="en">{p.descriptionEn}</p>}

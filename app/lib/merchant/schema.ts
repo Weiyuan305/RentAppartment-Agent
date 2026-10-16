@@ -9,4 +9,5 @@ CREATE INDEX IF NOT EXISTS merchant_conversations_student ON merchant_conversati
 CREATE INDEX IF NOT EXISTS merchant_conversations_owner ON merchant_conversations(merchant);
 CREATE TABLE IF NOT EXISTS merchant_audit (id TEXT PRIMARY KEY, actor TEXT NOT NULL, action TEXT NOT NULL, target TEXT NOT NULL, reason TEXT NOT NULL, created INTEGER NOT NULL);
 CREATE TABLE IF NOT EXISTS merchant_reports (id TEXT PRIMARY KEY, student TEXT NOT NULL, listing TEXT NOT NULL, reason TEXT NOT NULL, resolved INTEGER NOT NULL DEFAULT 0, created INTEGER NOT NULL);
+CREATE TABLE IF NOT EXISTS merchant_preferences (owner TEXT PRIMARY KEY REFERENCES auth_user(id), city TEXT NOT NULL);
 `;

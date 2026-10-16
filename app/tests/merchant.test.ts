@@ -60,6 +60,14 @@ test("merchant isolation, moderation snapshots, enquiries, AI and takedown", asy
       approve: true,
       reason: "reviewed",
     });
+    assert.equal((await s.mine(a))!.defaultCityId, "london");
+    await assert.rejects(s.command(student, {kind:"setCity",cityId:"sydney"}), /approval/);
+    await s.command(a, {kind:"setCity",cityId:"manchester"});
+    assert.equal((await createMerchantService(db).mine(a))!.defaultCityId, "manchester");
+    assert.equal((await s.mine(a))!.version, m.version + 1);
+    await assert.rejects(s.command(a, {kind:"setCity",cityId:"unknown"}));
+    await s.command(b, {kind:"apply",profile:{...profile,cities:["sydney"]},version:0});
+    assert.equal((await s.mine(b))!.defaultCityId,"sydney");
     const photo = randomUUID();
     await db.run("INSERT INTO merchant_media VALUES (?,?,?,?,?,?)", [
       photo,
@@ -95,6 +103,9 @@ test("merchant isolation, moderation snapshots, enquiries, AI and takedown", asy
     assert.deepEqual(publicationIssues(draft), []);
     const { id } = await s.command(a, { kind: "save", version: 0, draft });
     assert.ok(id);
+    await s.command(a,{kind:"setCity",cityId:"melbourne"});
+    assert.equal((await s.dashboard(a,"merchant")).properties[0].draft.cityId,"london");
+
     assert.ok(!(await s.catalogue()).some((l) => l.merchant));
     await assert.rejects(
       s.command(b, { kind: "withdraw", id, version: 0 }),

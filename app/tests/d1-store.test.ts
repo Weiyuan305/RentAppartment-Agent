@@ -156,6 +156,7 @@ test("real D1: merchant publication, private media, revision and route summaries
     "0002_auth.sql",
     "0003_personal_library.sql",
     "0004_merchant.sql",
+    "0005_merchant_preferences.sql",
   ]) {
     const sql = readFileSync(`migrations/${file}`, "utf8").replace(
       /^--.*$/gm,
@@ -195,6 +196,14 @@ test("real D1: merchant publication, private media, revision and route summaries
     approve: true,
     reason: "Local test reviewed",
   });
+  await s.command(host,{kind:"setCity",cityId:"melbourne"});
+  assert.equal((await createMerchantService(db).mine(host))!.defaultCityId,"melbourne");
+  const {createAddressSearch}=await import("../lib/merchant/geocoding");
+  let upstream=0;
+  const query={cityId:"london",address:"Gower Street",postcode:"",locale:"en"};
+  const results=await Promise.allSettled([1,2].map(n=>createAddressSearch(db,async()=>{upstream++;return Response.json([]);})({...query,address:query.address+n},host.id)));
+  assert.equal(upstream,1);
+  assert.equal(results.filter(r=>r.status==="fulfilled").length,1);
   const photo = randomUUID();
   await db.run("INSERT INTO merchant_media VALUES (?,?,?,?,?,?)", [
     photo,

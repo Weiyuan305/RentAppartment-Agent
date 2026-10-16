@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { cityIds, getCity, type Listing } from "../rental-data";
+import { cityIds, getCity, type CityId, type Listing } from "../rental-data";
 
 const text = (max: number) => z.string().trim().max(max);
 export const mediaId = z.string().uuid();
@@ -37,10 +37,15 @@ export const propertySchema = z
     name: text(120),
     cityId: z.enum(cityIds),
     address: text(300),
+    postcode: text(20).default(""),
     area: text(100),
     lng: z.number().min(-180).max(180),
     lat: z.number().min(-85).max(85),
     entranceConfirmed: z.boolean(),
+    locationSource: z
+      .enum(["search", "map", "manual"])
+      .nullable()
+      .default(null),
     description: text(4000),
     descriptionEn: text(4000),
     facilities: z
@@ -84,6 +89,7 @@ export type Merchant = {
   reason: string;
   version: number;
   updated: number;
+  defaultCityId: CityId;
 };
 export type PropertyRecord = {
   id: string;
@@ -184,7 +190,15 @@ export function publicListings(
     merchant: {
       propertyId: record.id,
       name: merchantName,
-      address: p.address,
+      address: [
+        p.address,
+        p.postcode &&
+        !p.address.toLowerCase().includes(p.postcode.toLowerCase())
+          ? p.postcode
+          : "",
+      ]
+        .filter(Boolean)
+        .join(", "),
       floorPlans: (p.floorPlans ?? []).map((id) => `/api/merchant/media/${id}`),
       description: p.description,
       descriptionEn: p.descriptionEn,
@@ -207,16 +221,18 @@ export function publicListings(
     },
   }));
 }
-export function newProperty(): Property {
-  const c = getCity("london");
+export function newProperty(cityId: CityId = "london"): Property {
+  const c = getCity(cityId);
   return {
     name: "",
     cityId: c.id,
     address: "",
+    postcode: "",
     area: "",
     lng: c.lng,
     lat: c.lat,
     entranceConfirmed: false,
+    locationSource: null,
     description: "",
     descriptionEn: "",
     facilities: [],
@@ -233,7 +249,7 @@ export function newProperty(): Property {
         roomType: "独立 Studio",
         size: 20,
         price: 300,
-        period: "week",
+        period: c.period === "周" ? "week" : "month",
         deposit: 0,
         fees: 0,
         bills: true,

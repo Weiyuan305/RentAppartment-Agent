@@ -12,19 +12,31 @@ import {
   type Conversation,
 } from "./model";
 import { buildingById } from "../student/catalog";
-import { listings as samples, getCity, type Listing } from "../rental-data";
+import {
+  listings as samples,
+  cityIds,
+  getCity,
+  type Listing,
+} from "../rental-data";
 
 export type Actor = { id: string; admin: boolean };
-type MerchantRow = Omit<Merchant, "profile"> & { profile: string };
+type MerchantRow = Omit<Merchant, "profile" | "defaultCityId"> & {
+  profile: string;
+  defaultCityId?: Merchant["defaultCityId"] | null;
+};
 type PropertyRow = Omit<PropertyRecord, "draft" | "published"> & {
   draft: string;
   published: string | null;
 };
 type ConversationRow = Omit<Conversation, "messages"> & { messages: string };
-const merchant = (r: MerchantRow): Merchant => ({
-  ...r,
-  profile: JSON.parse(r.profile),
-});
+const merchant = (r: MerchantRow): Merchant => {
+  const profile: Merchant["profile"] = JSON.parse(r.profile);
+  return {
+    ...r,
+    profile,
+    defaultCityId: r.defaultCityId ?? profile.cities[0] ?? "london",
+  };
+};
 const property = (r: PropertyRow): PropertyRecord => ({
   ...r,
   draft: JSON.parse(r.draft),
@@ -38,6 +50,7 @@ const id = z.string().max(60),
   version = z.number().int().min(0),
   reason = z.string().trim().min(5).max(1500);
 export const commandSchema = z.discriminatedUnion("kind", [
+  z.object({ kind: z.literal("setCity"), cityId: z.enum(cityIds) }).strict(),
   z.object({ kind: z.literal("apply"), profile: applicationSchema, version }),
   z.object({
     kind: z.literal("save"),
@@ -83,7 +96,7 @@ export const commandSchema = z.discriminatedUnion("kind", [
 export function createMerchantService(db: RentalDatabase) {
   async function mine(actor: Actor) {
     const r = await db.first<MerchantRow>(
-      "SELECT * FROM merchants WHERE owner=?",
+      "SELECT m.*,p.city AS defaultCityId FROM merchants m LEFT JOIN merchant_preferences p ON p.owner=m.owner WHERE m.owner=?",
       [actor.id],
     );
     return r ? merchant(r) : null;
@@ -221,6 +234,18 @@ export function createMerchantService(db: RentalDatabase) {
   async function command(actor: Actor, input: unknown) {
     const c = commandSchema.parse(input),
       now = Date.now();
+    if (c.kind === "setCity") {
+      if ((await mine(actor))?.status !== "approved")
+        throw new SessionError(
+          "请先完成商家入驻 / Merchant approval required",
+          403,
+        );
+      await db.run(
+        "INSERT INTO merchant_preferences (owner,city) VALUES (?,?) ON CONFLICT(owner) DO UPDATE SET city=excluded.city",
+        [actor.id, c.cityId],
+      );
+      return {};
+    }
     if (c.kind === "apply") {
       const m = await mine(actor);
       if (m) {

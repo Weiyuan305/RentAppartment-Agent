@@ -31,6 +31,8 @@
 .concept-lab .main-nav>button.active:after{display:block;height:1px;left:15px;right:15px;background:var(--primary);border-radius:0}
 .concept-lab .main-nav span{background:transparent;color:inherit}
 .concept-lab .header-end{gap:14px;font-size:11px}
+.concept-lab .merchant-entry-header{flex:none;min-height:36px;padding:8px 10px;font-size:12px;white-space:nowrap;color:var(--foreground);background:var(--surface)}
+.concept-lab .merchant-entry-header:hover{background:var(--brand-soft);color:var(--primary);border-color:var(--primary)}
 .concept-lab .sample-badge{font-size:10px;font-weight:400;border:0;background:transparent;letter-spacing:0;color:var(--muted-foreground);padding:0}
 .concept-lab .language-switch{gap:2px;color:var(--muted-foreground)}
 .concept-lab .language-switch button{color:var(--muted-foreground);border-radius:4px;font-size:11px}
@@ -1031,6 +1033,13 @@
  .concept-lab .topbar .language-switch button{min-width:44px;min-height:44px;padding-inline:8px}
 }
 @media(max-width:440px){.concept-lab .topbar .brand>span{display:none}.concept-lab .topbar .brand{flex:none}.concept-lab .topbar .header-end{margin-left:auto}}
+
+@media(max-width:767px){
+ .concept-lab .merchant-entry-header{min-width:44px;min-height:44px;padding:8px 6px;justify-content:center}
+ .concept-lab .merchant-entry-header>svg,.concept-lab .merchant-entry-header .merchant-entry-copy{display:none}
+ .concept-lab .merchant-entry-short{display:inline}
+}
+@media(max-width:440px){.concept-lab .topbar .header-end{gap:4px}}
 
 /* Follow the visual viewport when a mobile keyboard covers part of the screen. */
 @media(max-width:1100px){

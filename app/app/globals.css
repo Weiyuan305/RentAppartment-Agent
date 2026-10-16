@@ -523,6 +523,17 @@ button:disabled { cursor: not-allowed; }
 .auth-google-linked{display:flex;align-items:flex-start;gap:8px}.auth-google-linked svg{flex-shrink:0;margin-top:3px}
 .auth-link-instruction{margin-bottom:18px;font-size:13px;line-height:1.65;color:var(--muted-foreground)}
 
+/* A separate host entry keeps the existing student sign-in flow familiar. */
+.merchant-entry{display:flex;align-items:center;gap:10px;color:var(--foreground);border:1px solid var(--border);border-radius:9px;line-height:1.4;text-decoration:none}
+.merchant-entry>svg{flex-shrink:0}
+.merchant-entry-copy{min-width:0}
+.merchant-entry-short{display:none}
+.merchant-entry-card{padding:13px 14px;margin-bottom:24px;background:var(--surface)}
+.merchant-entry-card .merchant-entry-copy{flex:1}
+.merchant-entry-card .merchant-entry-label{font-size:14px;font-weight:600}
+.merchant-entry-card small{display:block;margin-top:4px;color:var(--muted-foreground);font-size:12px;line-height:1.5}
+.merchant-entry-card:hover{border-color:var(--primary);background:var(--secondary)}
+
 /* Portaled dialogs share the keyboard-aware visible area, not the layout viewport. */
 @media(max-width:1100px){
  [data-slot=dialog-content]{transition-property:opacity,box-shadow;top:calc(var(--input-viewport-top,0px) + var(--input-viewport-height,100dvh)/2);max-height:calc(var(--input-viewport-height,100dvh) - 24px)!important}

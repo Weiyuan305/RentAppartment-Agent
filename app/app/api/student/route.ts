@@ -1,14 +1,17 @@
+import { knownCommute } from "@/lib/listing-commute";
+import { getPublicCatalogue } from "@/lib/merchant/server";
 import { buildingCatchment } from "@/lib/student/catchments";
-import { listings, cities } from "@/lib/rental-data";
+import { cities } from "@/lib/rental-data";
 import {
   buildingById,
   searchBuildings,
-  buildingCommute,
+
 } from "@/lib/student/catalog";
 import { getTransitJourneys } from "@/lib/student/transit-server";
 import { transitSources, transitDirectionsUrl } from "@/lib/student/transit";
 import { SessionError } from "@/lib/agent/store";
 export async function GET(request: Request) {
+  const listings=await getPublicCatalogue();
   const p = new URL(request.url).searchParams,
     city = p.get("city"),
     kind = p.get("kind"),
@@ -29,7 +32,7 @@ export async function GET(request: Request) {
     );
   if (kind === "commute")
     return Response.json(
-      { route: buildingCommute(l.id, b.id) ?? null },
+      { route: knownCommute(l, b.id) ?? null },
       { headers },
     );
   if (kind === "catchment") {

@@ -1,4 +1,5 @@
 "use client";
+import { useListings } from "@/components/listing-catalog-provider";
 import { StudentDialogContent } from "./student-dialog";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { Copy, Check, Trash2 } from "lucide-react";
@@ -54,7 +55,7 @@ export default function ApartmentComparison({
       .catch(() => {});
     return () => c.abort();
   }, [open, city]);
-  const rows = compareListings(plan.compareIds, plan);
+  const rows = compareListings(plan.compareIds, plan, useListings());
   const [pair,setPair]=useState<[string,string]>(["",""]);
   const first=rows.some(r=>r.listing.id===pair[0])?pair[0]:rows[0]?.listing.id;
   const second=rows.some(r=>r.listing.id===pair[1]&&r.listing.id!==first)?pair[1]:rows.find(r=>r.listing.id!==first)?.listing.id;
@@ -65,6 +66,10 @@ export default function ApartmentComparison({
       ? w("待确认", "Unknown")
       : `${city.currency}${n.toLocaleString("en-US", { maximumFractionDigits: 2 })}`;
   const criteria: [string,(r:(typeof rows)[number])=>string][] = [
+                  [
+                    w("资料来源", "Listing source"),
+                    (r: (typeof rows)[number]) => r.listing.merchant?w("商家发布 · 未实地核验", "Host supplied · Not inspected"):w("虚构演示房源", "Fictional demo"),
+                  ],
                   [
                     w("房型 / 面积", "Room / size"),
                     (r: (typeof rows)[number]) =>
@@ -128,19 +133,19 @@ export default function ApartmentComparison({
                     },
                   ],
                   [
-                    w("演示入住日期", "Demo available from"),
+                    w("可入住日期", "Available from"),
                     (r: (typeof rows)[number]) =>
                       r.housing.availableFrom ?? w("未知", "Unknown"),
                   ],
                   [
-                    w("演示租期", "Demo lease term"),
+                    w("租期", "Lease term"),
                     (r: (typeof rows)[number]) =>
                       r.housing.minLeaseMonths === null
                         ? w("未知", "Unknown")
                         : `${r.housing.minLeaseMonths}–${r.housing.maxLeaseMonths} ${w("个月", "months")}`,
                   ],
                   [
-                    w("演示库存 / 更新", "Demo status / updated"),
+                    w("可租状态 / 更新", "Availability / updated"),
                     (r: (typeof rows)[number]) =>
                       `${r.housing.status === "available" ? w("可租", "Available") : r.housing.status === "unavailable" ? w("不可租", "Unavailable") : w("未知", "Unknown")} · ${r.housing.updatedAt}`,
                   ],
@@ -230,8 +235,8 @@ export default function ApartmentComparison({
         )}
         <p className="student-note">
           {w(
-            "未知金额不按零。所有房源为不可预订的演示数据；设施为快照，入口与营业状态未核验。",
-            "Unknown amounts are not zero. All apartments are non-bookable demos; facilities are snapshots with unverified entrances and opening status.",
+            "未知金额不按零。演示房源不可预订；商家房源须咨询确认。设施为快照，入口与营业状态未核验。",
+            "Unknown amounts are not zero. Demo homes cannot be booked; confirm partner listings with the host. Facilities are snapshots; entrances and opening status are unverified.",
           )}
         </p>
         <div className="student-actions">

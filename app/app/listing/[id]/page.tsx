@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { listings } from "@/lib/rental-data";
+import { getPublicCatalogue } from "@/lib/merchant/server";
 import ListingDetail from "@/components/listing-detail";
 import { buildingById } from "@/lib/student/catalog";
 export default async function ListingPage({
@@ -10,6 +10,7 @@ export default async function ListingPage({
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 }) {
   const [{ id }, query] = await Promise.all([params, searchParams]);
+  const listings = await getPublicCatalogue();
   const listing = listings.find((l) => l.id === id);
   if (!listing) notFound();
   const building =

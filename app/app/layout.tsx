@@ -1,3 +1,5 @@
+import { getPublicCatalogue } from "@/lib/merchant/server";
+import { ListingCatalogProvider } from "@/components/listing-catalog-provider";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { validLocale } from "@/lib/i18n";
@@ -31,7 +33,7 @@ export default async function RootLayout({
   const locale = validLocale(preferred) ? preferred : "zh";
   return (
     <html lang={locale === "en" ? "en" : "zh-CN"}>
-      <body className="antialiased"><InputViewport/><LocaleProvider initialLocale={locale}><PersonalLibraryProvider>{children}</PersonalLibraryProvider></LocaleProvider></body>
+      <body className="antialiased"><InputViewport/><LocaleProvider initialLocale={locale}><PersonalLibraryProvider><ListingCatalogProvider homes={await getPublicCatalogue()}>{children}</ListingCatalogProvider></PersonalLibraryProvider></LocaleProvider></body>
     </html>
   );
 }

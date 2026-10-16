@@ -384,8 +384,8 @@ export default function StudentPlanner({
             <>
               <p className="student-note">
                 {w(
-                  "以下为演示入住条件，可用于体验筛选，不代表真实可租库存。",
-                  "These demo availability terms let you try filters. They are not live rental inventory.",
+                  "演示房源用于体验筛选；商家房源的日期与库存须联系商家确认。",
+                  "Demo homes illustrate filters. Confirm dates and availability of partner homes with the host.",
                 )}
               </p>
               <div className="student-fields">
@@ -445,8 +445,8 @@ export default function StudentPlanner({
                   }
                 />
                 {w(
-                  "只看演示状态为可租的房源",
-                  "Show demo available properties only",
+                  "只看标记为可租的房源",
+                  "Show homes marked available only",
                 )}
               </label>
               <div className="student-summary-list">
@@ -462,9 +462,9 @@ export default function StudentPlanner({
                       </span>
                       <small>
                         {h.status === "available"
-                          ? w("演示可租", "Demo available")
+                          ? (l.merchant?w("商家标记可租", "Host: available"):w("演示可租", "Demo available"))
                           : h.status === "unavailable"
-                            ? w("演示不可租", "Demo unavailable")
+                            ? (l.merchant?w("商家标记不可租", "Host: unavailable"):w("演示不可租", "Demo unavailable"))
                             : w("状态未知", "Unknown status")}{" "}
                         · {w("更新", "Updated")} {h.updatedAt}
                       </small>
@@ -633,7 +633,7 @@ export default function StudentPlanner({
               <div className="student-summary-list">
                 {plan.destinations.length > 0 &&
                   listings.map((l) => {
-                    const summary = weeklyCommute(l.id, plan);
+                    const summary = weeklyCommute(l.id, plan, listings);
                     return (
                       <div key={l.id}>
                         <strong>{l.name}</strong>

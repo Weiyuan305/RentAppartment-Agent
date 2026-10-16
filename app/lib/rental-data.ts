@@ -17,7 +17,7 @@ export const cities: City[] = [
 ];
 export const countries = (["uk", "au", "sg", "my", "hk"] as const).map(id => ({id, cities:cities.filter(city => city.countryId === id)}));
 export function citiesInCountry(id: CountryId) { return cities.filter(city => city.countryId === id); }
-export type Listing = { id: string; cityId: CityId; name: string; area: string; price: number; roomType: "独立 Studio" | "独卫单间" | "合租单间"; size: number; bills: boolean; lng: number; lat: number; photos: string[] };
+export type Listing = { id: string; cityId: CityId; name: string; area: string; price: number; roomType: "独立 Studio" | "独卫单间" | "合租单间"; size: number; bills: boolean; lng: number; lat: number; photos: string[]; merchant?: {commutes?:Record<string,import("./listing-commute").CommuteSummary>;propertyId:string;name:string;address:string;floorPlans?:string[];description:string;descriptionEn:string;facilities:string[];studentOnly:boolean;guarantor:string;paymentTerms:string;cancellation:string;deposit:number;fees:number;billDetails:string;price:number;period:"week"|"month";availableFrom:string;availableUntil:string;minMonths:number;maxMonths:number;quantity:number;updatedAt:string} };
 const canberraOffsets = [[.002,.004],[-.006,.001],[.009,.007],[-.003,-.004],[.006,-.003],[.013,.002]];
 const offsets = [[.002, .004], [-.006, .001], [.009, .007], [-.003, -.004], [.006, -.01], [.013, -.002]];
 export const listings: Listing[] = cities.flatMap(city => city.prices.map((price, i) => ({

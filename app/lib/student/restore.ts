@@ -1,5 +1,5 @@
 import type { RentalState } from "../agent/contract";
-import { listings } from "../rental-data";
+import { listings as demoListings, type Listing } from "../rental-data";
 import { buildingById } from "./catalog";
 import { normalizedStudentPlan } from "./state";
 import { validateStudentPlan } from "./planner";
@@ -14,6 +14,7 @@ export function stateForNavigation(
   saved: RentalState,
   page: RentalState,
   query: URLSearchParams,
+  listings:Listing[]=demoListings,
 ): RentalState {
   if (query.get("share") === "1") return page;
   const requested = listings.find(
@@ -72,5 +73,5 @@ export function stateForNavigation(
       selectedPlaceId: null,
     };
   }
-  return { ...next, student: validateStudentPlan(student, saved.cityId) };
+  return { ...next, student: validateStudentPlan(student, saved.cityId,listings) };
 }

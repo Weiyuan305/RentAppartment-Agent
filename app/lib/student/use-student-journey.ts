@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { getCity, type Listing } from "../rental-data";
-import { parseWalkingRoute } from "../walking-route";
+import { parseWalkingRoute, parseAmenityWalkingRoute } from "../walking-route";
 import {
   buildingRouteUrl,
   type CampusBuilding,
@@ -26,7 +26,7 @@ export function useBuildingRoute(
   useEffect(() => {
     if (!key || !listing || !building) return;
     const controller = new AbortController();
-    fetch(buildingRouteUrl(listing.id, building.id), {
+    fetch(listing.merchant?`/api/merchant/route?${new URLSearchParams({listing:listing.id,building:building.id})}`:buildingRouteUrl(listing.id, building.id), {
       signal: controller.signal,
     })
       .then((r) => {
@@ -34,14 +34,14 @@ export function useBuildingRoute(
         return r.json();
       })
       .then((raw) => {
-        const route = parseWalkingRoute(raw, listing, {
+        const route = (listing.merchant?parseAmenityWalkingRoute(raw,listing,building):parseWalkingRoute(raw, listing, {
           ...getCity(listing.cityId),
           lng: building.lng,
           lat: building.lat,
-        }) as CampusRoute;
+        })) as CampusRoute;
         if (route.buildingId !== building.id)
           throw new Error("路线目的地不一致。");
-        if (!controller.signal.aborted) setResult({ key, route });
+        if (!controller.signal.aborted) {setResult({ key, route });if(listing.merchant)window.dispatchEvent(new CustomEvent("atlas-merchant-route",{detail:route}));}
       })
       .catch((e) => {
         if (!controller.signal.aborted)

@@ -1,9 +1,11 @@
-import { cities, listings } from "@/lib/rental-data";
+import { getPublicCatalogue } from "@/lib/merchant/server";
+import { cities } from "@/lib/rental-data";
 import { getAmenityRoute, RouteServiceError } from "@/lib/amenity-route-server";
 import { getAmenities } from "@/lib/agent/catalog";
 
 // Accept only catalog IDs; callers cannot proxy arbitrary coordinates or URLs.
 export async function GET(request: Request) {
+  const listings=await getPublicCatalogue();
   const params = new URL(request.url).searchParams;
   const cityId = params.get("city"), listingId = params.get("listing"), placeId = params.get("place");
   const listing = listings.find(l => l.id === listingId && l.cityId === cityId);

@@ -55,7 +55,7 @@ test("campus filter uses actual route duration, small client index matches all s
   }
   const runtime = createRentalTools(initialRentalState("london"));
   const result = await completed(runtime.tools.searchListings.execute!({walkMinutes: 10, budget: 400}, options));
-  assert.ok(result.listings.every(l => l.price <= 400 && l.campusWalkMinutes <= 10));
+  assert.ok(result.listings.every(l => l.price <= 400 && l.campusWalkMinutes !== null && l.campusWalkMinutes <= 10));
   const converted = await completed(runtime.tools.searchListings.execute!({budget: 2600, budgetPeriod: "month"}, options));
   assert.equal(converted.budget, 600);
   await runtime.tools.searchListings.execute!({clearBudget: true, clearWalkMinutes: true}, options);

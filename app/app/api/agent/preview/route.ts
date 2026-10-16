@@ -1,3 +1,4 @@
+import { getPublicCatalogue } from "@/lib/merchant/server";
 import { z } from "zod";
 import { randomUUID } from "node:crypto";
 import { rentalStateSchema, type RentalMessage } from "@/lib/agent/contract";
@@ -15,8 +16,8 @@ export async function POST(request: Request) {
     const auth = await identity(request); owner = auth.owner;
     const body = z.object({sessionId: z.string().uuid(), version: z.number().int().nonnegative(), state: rentalStateSchema, locale:z.enum(["zh","en"]).default("zh"), action: z.enum(["nearby", "nearest", "route", "supermarket", "commute"])}).parse(await readBody(request));
     await consumeQuota(`preview:${owner}`, 20, 60000);
-    acquired = await acquireSession(owner, body.sessionId, body.version, validateRentalState(body.state));
-    const runtime = createRentalTools(acquired.state);
+    acquired = await acquireSession(owner, body.sessionId, body.version, validateRentalState(body.state,await getPublicCatalogue()));
+    const runtime = createRentalTools(acquired.state,undefined,await getPublicCatalogue());
     let result: unknown;
     const options = {toolCallId: randomUUID(), messages: [], context: {}};
     if (body.action === "nearby" || body.action === "supermarket") result = await runtime.tools.findNearbyAmenities.execute!({category: body.action === "nearby" ? "convenience" : "supermarket", radiusMeters: body.action === "nearby" ? 500 : undefined}, options);

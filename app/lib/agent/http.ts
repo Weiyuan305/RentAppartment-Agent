@@ -23,14 +23,14 @@ export function sameOrigin(request: Request) {
   if (request.headers.get("x-forwarded-proto") === "https") expected.protocol = "https:";
   if (request.headers.get("sec-fetch-site") === "cross-site" || (origin && origin !== expected.origin)) throw new SessionError("请在本站发起请求。", 403);
 }
-export async function readBody(request: Request) {
+export async function readBody(request: Request, maxBytes=32768) {
   sameOrigin(request);
   // A streaming limit also covers chunked requests without Content-Length.
-  if (Number(request.headers.get("content-length") || 0) > 32768) throw new SessionError("请求过大。", 413);
+  if (Number(request.headers.get("content-length") || 0) > maxBytes) throw new SessionError("请求过大。", 413);
   const reader = request.body?.getReader();
   if (!reader) throw new SessionError("请求内容为空。", 400);
   const chunks: Uint8Array[] = []; let size = 0;
-  for (;;) {const item = await reader.read(); if (item.done) break; size += item.value.byteLength; if (size > 32768) {await reader.cancel(); throw new SessionError("请求过大。", 413);} chunks.push(item.value);}
+  for (;;) {const item = await reader.read(); if (item.done) break; size += item.value.byteLength; if (size > maxBytes) {await reader.cancel(); throw new SessionError("请求过大。", 413);} chunks.push(item.value);}
   try {return JSON.parse(Buffer.concat(chunks).toString("utf8"));} catch {throw new SessionError("请求格式无效。", 400);}
 }
 export function errorResponse(error: unknown) {

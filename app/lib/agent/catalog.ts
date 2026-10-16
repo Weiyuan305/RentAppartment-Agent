@@ -1,5 +1,5 @@
 import { readAmenities, readCommute } from "@atlas/catalog-data";
-import { cities, listings } from "../rental-data";
+import { cities, listings as demoListings, type Listing } from "../rental-data";
 import type { CityAmenities } from "../amenities";
 import type { WalkingRoute } from "../walking-route";
 import { rentalStateSchema, type RentalState } from "./contract";
@@ -20,7 +20,7 @@ export function getAmenities(cityId: string) {
   return data;
 }
 export function campusCommute(listingId: string) {
-  const listing = listings.find(l => l.id === listingId);
+  const listing = demoListings.find(l => l.id === listingId);
   if (!listing) throw new Error("公寓无效。");
   let route = routes.get(listingId);
   if (!route) {
@@ -29,9 +29,9 @@ export function campusCommute(listingId: string) {
   }
   return route;
 }
-export function validateRentalState(input: unknown): RentalState {
+export function validateRentalState(input: unknown, listings:Listing[]=demoListings): RentalState {
   const state = rentalStateSchema.parse(input);
-  try {state.student=validateStudentPlan(state.student,state.cityId);}catch {throw new SessionError("校园规划条件无效或不属于当前城市。",400);}
+  try {state.student=validateStudentPlan(state.student,state.cityId,listings);}catch {throw new SessionError("校园规划条件无效或不属于当前城市。",400);}
   if (!listings.some(l => l.id === state.listingId && l.cityId === state.cityId)) throw new SessionError("请选择本城公寓。", 400);
   let ids = placeIds.get(state.cityId);
   if (!ids) {ids = new Set(getAmenities(state.cityId).places.map(p => p.id)); placeIds.set(state.cityId, ids);}

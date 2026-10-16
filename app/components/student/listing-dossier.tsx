@@ -1,4 +1,5 @@
 "use client";
+import { PartnerFacts } from "../merchant/partner-facts";
 import { StudentDialogContent } from "./student-dialog";
 import { useEffect, useId, useRef, useState } from "react";
 import { ExternalLink, NotebookPen, Save } from "lucide-react";
@@ -19,11 +20,11 @@ export function ListingDossierDialog({listing,onClose}:{listing:Listing|null;onC
   </StudentDialogContent></Dialog>;
 }
 
-export function ListingDossier({listing,compact=false}:{listing:Listing;compact?:boolean}) {
+export function ListingDossier({listing,compact=false,hideFacts=false}:{listing:Listing;compact?:boolean;hideFacts?:boolean}) {
   const library=usePersonalLibrary();
-  return <DossierEditor key={`${library.scope}:${listing.id}`} listing={listing} compact={compact}/>;
+  return <DossierEditor key={`${library.scope}:${listing.id}`} listing={listing} compact={compact} hideFacts={hideFacts}/>;
 }
-function DossierEditor({listing,compact}:{listing:Listing;compact:boolean}) {
+function DossierEditor({listing,compact,hideFacts}:{listing:Listing;compact:boolean;hideFacts:boolean}) {
   const {locale}=useLocale(),w=(zh:string,en:string)=>locale==="zh"?zh:en;
   const h=housingDetails(listing),id=useId();
   const [section,setSection]=useState<"facts"|"notes">("facts");
@@ -45,7 +46,7 @@ function DossierEditor({listing,compact}:{listing:Listing;compact:boolean}) {
   return <div className="listing-dossier">
     {compact&&<div className="dossier-switch" aria-label={w("资料与记录","Facts and notes")}><button aria-pressed={section==="facts"} onClick={()=>setSection("facts")}>{w("房源资料","Listing facts")}</button><button aria-pressed={section==="notes"} onClick={()=>setSection("notes")}>{w("我的看房记录","My viewing notes")}</button></div>}
     <div className="dossier-scroll" key={compact ? section : "full"}>
-    <section className="listing-facts" hidden={compact&&section!=="facts"}><h2>{w("先确认这些信息","Know what is confirmed")}</h2>
+    <section className="listing-facts" hidden={hideFacts||(compact&&section!=="facts")}>{listing.merchant?<PartnerFacts listing={listing}/>:<><h2>{w("先确认这些信息","Know what is confirmed")}</h2>
       <p>{w("这是虚构演示房源，不可预订；以下日期与租期仅用于演示筛选。","This is a fictional, non-bookable listing. Dates and lease terms only demonstrate filtering.")}</p>
       <dl>
         <div><dt>{w("房源来源","Listing source")}</dt><dd>{w("Campus Atlas 演示数据；无真实房源发布链接","Campus Atlas sample data; no real listing URL")}</dd></div>
@@ -57,7 +58,7 @@ function DossierEditor({listing,compact}:{listing:Listing;compact:boolean}) {
         <div><dt>{w("担保人 / 付款条件","Guarantor / payment terms")}</dt><dd>{w("待房源方确认","Confirm with the provider")}</dd></div>
         <div><dt>{w("押金保护 / 取消政策","Deposit protection / cancellation")}</dt><dd>{w("未提供，不推断适用规则","Not provided; no applicable rules assumed")}</dd></div>
         <div><dt>{w("照片 / 户型图","Photos / floor plan")}</dt><dd>{w("图片仅为风格参考；没有核验户型图","Style references only; no verified floor plan")} <a href="/photos/sources.json" target="_blank" rel="noreferrer">{w("照片来源","Photo sources")}<ExternalLink size={13}/></a></dd></div>
-      </dl>
+      </dl></>}
     </section>
     <section className="viewing-notebook" hidden={compact&&section!=="notes"}><h2><NotebookPen size={20}/>{w("我的看房记录","My viewing notes")}</h2><p>{library.accountId?w("保存后随账号同步，换设备登录也能查看。记录不进入分享链接或 AI 请求，也不代表平台核验。","Saved notes sync with your account across devices. Excluded from share links and AI requests; not platform verification."):w("游客记录仅保存在当前浏览器。登录后可合并到账号；不会进入分享链接或 AI 请求。","Guest notes stay in this browser. Sign in to merge them into your account. Excluded from share links and AI requests.")}</p>
       <LibrarySyncStatus/><form onSubmit={event=>{event.preventDefault();void save();}}>

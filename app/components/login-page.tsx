@@ -21,7 +21,7 @@ const authErrors:Record<string,string> = {
   TOO_MANY_REQUESTS:"尝试次数过多，请稍后再试。",AUTH_UNAVAILABLE:"登录服务暂时不可用，请稍后重试。",
 };
 export function LoginPage({googleEnabled=false,linkGoogle=false,initialError=""}:{googleEnabled?:boolean;linkGoogle?:boolean;initialError?:string}) {
-  const {t} = useLocale();
+  const {t,locale} = useLocale();
   const {data:session,isPending:sessionPending} = authClient.useSession();
   const [mode,setMode] = useState<"login"|"signup">("login");
   const [name,setName] = useState(""); const [email,setEmail] = useState(""); const [password,setPassword] = useState("");
@@ -61,7 +61,7 @@ export function LoginPage({googleEnabled=false,linkGoogle=false,initialError=""}
       {!linkGoogle && <p className="auth-mode-switch">{t(mode === "signup" ? "已有账号？" : "还没有账号？")} <Button type="button" variant="link" disabled={busy} onClick={()=>{setMode(v=>v === "login" ? "signup" : "login");setError("");setPassword("");setShowPassword(false);}}>{t(mode === "signup" ? "去登录" : "免费注册")}</Button></p>}
       </>}
       <div className="auth-guest"><span>{t(linking ? "准备好了就继续探索" : "也可以先逛逛")}</span><Button variant="outline" className="w-full" disabled={busy} onClick={()=>location.assign(destination())}>{t(session?.user ? "继续探索" : "游客体验")}<ArrowRight data-icon="inline-end"/></Button></div>
-      <p className="auth-demo-note"><Sparkles size={14}/>{t("当前为演示版本，房源不可预订。")}</p>
+      <p className="auth-demo-note"><Sparkles size={14}/>{locale === "zh" ? "演示房源不可预订；商家房源可咨询与预约看房。" : "Demo homes are not bookable. Contact hosts about partner homes and viewings."}</p>
     </div><footer>© {new Date().getFullYear()} Campus Atlas<a href="/privacy">{t("隐私说明")}</a><span>{t("让异乡，也有归属感。")}</span></footer></section>
   </main>;
 }

@@ -32,9 +32,9 @@ export function readNotebook(raw:string|null):Record<string,DecisionNote> {
   try {
     const data=JSON.parse(raw??"{}");
     if(!data || typeof data!=="object" || Array.isArray(data))return {};
-    return Object.fromEntries(listings.flatMap(listing=>{
-      const result=notebookSchema.safeParse(data[listing.id]);
-      return result.success?[[listing.id,result.data]]:[];
+    return Object.fromEntries(Object.keys(data).filter(id=>listings.some(l=>l.id===id)||/^m_[a-f0-9-]{36}_[a-f0-9]{8}$/.test(id)).flatMap(id=>{
+      const result=notebookSchema.safeParse(data[id]);
+      return result.success?[[id,result.data]]:[];
     }));
   }catch{return {};}
 }

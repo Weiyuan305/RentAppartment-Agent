@@ -3,8 +3,8 @@ import { amenityInfo } from "../amenities";
 import { filterNames } from "../rental-recovery";
 import { emptyStudentPlan } from "../student/state";
 import { buildingById } from "../student/catalog";
-import { getCity, listings } from "../rental-data";
-export function actionChanges(before: RentalState, after: RentalState, locale:"zh"|"en", t:(s:string)=>string) {
+import { getCity, listings as demoListings, type Listing } from "../rental-data";
+export function actionChanges(before: RentalState, after: RentalState, locale:"zh"|"en", t:(s:string)=>string, listings:Listing[]=demoListings) {
   const w=(zh:string,en:string)=>locale==="zh"?zh:en, result:string[]=[];
   const equal=(a:unknown,b:unknown)=>JSON.stringify(a)===JSON.stringify(b);
   for(const key of Object.keys(before.filters) as (keyof RentalState["filters"])[]) {
@@ -22,7 +22,7 @@ export function actionChanges(before: RentalState, after: RentalState, locale:"z
   if(before.listingId!==after.listingId)result.push(`${w("选中","Selected")} · ${listings.find(l=>l.id===after.listingId)?.name??after.listingId}`);
   const a=before.student??emptyStudentPlan(), b=after.student??emptyStudentPlan();
   if(a.destinationId!==b.destinationId)result.push(`${w("通勤目的地","Destination")} · ${buildingById(b.destinationId)?.name??w("大学","University")}`);
-  if(!equal(a.housing,b.housing))result.push(w("已更新入住日期、租期或演示库存条件","Updated move-in, lease or demo availability criteria"));
+  if(!equal(a.housing,b.housing))result.push(w("已更新入住日期、租期或可租条件","Updated move-in, lease or availability criteria"));
   if(!equal(a.expenses,b.expenses))result.push(w("已更新支出估算","Expense estimates updated"));
   if(!equal(a.compareIds,b.compareIds))result.push(w(`对比已更新 · ${b.compareIds.length} 套`,`Comparison updated · ${b.compareIds.length} homes`));
   if(!equal(a.destinations,b.destinations))result.push(w("常去地点已更新","Weekly destinations updated"));

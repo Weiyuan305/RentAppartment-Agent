@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { rentalStateSchema } from "./agent/contract";
-import { listings, type CityId } from "./rental-data";
+import { listings as demoListings, type Listing, type CityId } from "./rental-data";
 import { mapSearchAreaSchema } from "./map-search-area";
 
 export const cameraViewSchema = z.object({
@@ -20,7 +20,7 @@ const snapshotSchema = z.object({
 });
 export type BrowseSnapshot = z.infer<typeof snapshotSchema>;
 export const browseStorageKey = (city: CityId) => `campus-atlas-browse:${city}`;
-export function readBrowseSnapshot(raw: string | null, token: unknown, city: CityId): BrowseSnapshot | null {
+export function readBrowseSnapshot(raw: string | null, token: unknown, city: CityId, listings:Listing[]=demoListings): BrowseSnapshot | null {
   if (typeof token !== "string" || !raw || raw.length > 100000) return null;
   try {
     const result = snapshotSchema.safeParse(JSON.parse(raw));

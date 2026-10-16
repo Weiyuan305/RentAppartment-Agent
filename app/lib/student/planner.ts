@@ -1,9 +1,10 @@
-import { getCity, listings, type Listing } from "../rental-data";
-import { buildingById, buildingCommute, campuses } from "./catalog";
+import {knownCommute} from "../listing-commute";
+import { getCity, listings as demoListings, type Listing } from "../rental-data";
+import { buildingById, campuses } from "./catalog";
 import { emptyStudentPlan, studentPlanSchema, type StudentPlan } from "./state";
 
 export type HousingDetails = {
-  kind: "demo";
+  kind: "demo" | "merchant";
   availableFrom: string | null;
   availableUntil: string | null;
   minLeaseMonths: number | null;
@@ -13,6 +14,7 @@ export type HousingDetails = {
 };
 // These dates demonstrate filters; they are never advertised as real inventory.
 export function housingDetails(listing: Listing): HousingDetails {
+  if(listing.merchant){const m=listing.merchant;return {kind:"merchant",availableFrom:m.availableFrom,availableUntil:m.availableUntil,minLeaseMonths:m.minMonths,maxLeaseMonths:m.maxMonths,status:m.quantity>0?"available":"unavailable",updatedAt:m.updatedAt.slice(0,10)};}
   const n = Number(listing.id.split("-").at(-1));
   return {
     kind: "demo",
@@ -27,6 +29,7 @@ export function housingDetails(listing: Listing): HousingDetails {
 export function validateStudentPlan(
   input: unknown,
   cityId: string,
+  listings:Listing[]=demoListings,
 ): StudentPlan {
   const p = studentPlanSchema.parse(input ?? emptyStudentPlan());
   const validBuilding = (id: string) => buildingById(id)?.cityId === cityId;
@@ -116,8 +119,8 @@ export function monthlyCost(listing: Listing, p: StudentPlan) {
   const knownSubtotal = round(
     Object.values(items).reduce<number>((sum, v) => sum + (v ?? 0), 0),
   );
-  const oneOff = p.expenses.oneOff,
-    deposit = p.expenses.deposit;
+  const oneOff = p.expenses.oneOff ?? listing.merchant?.fees ?? null,
+    deposit = p.expenses.deposit ?? listing.merchant?.deposit ?? null;
   return {
     currency: city.currency,
     items,
@@ -134,10 +137,10 @@ export function monthlyCost(listing: Listing, p: StudentPlan) {
       "用户估算；含账单房源的水电网按已包含处理；押金单独展示，不计入月支出。",
   };
 }
-export function weeklyCommute(listingId: string, p: StudentPlan) {
+export function weeklyCommute(listingId: string, p: StudentPlan, listings:Listing[]=demoListings) {
   const destinations = p.destinations.map((d) => {
     const b = buildingById(d.buildingId)!,
-      r = buildingCommute(listingId, b.id);
+      l=listings.find(l=>l.id===listingId),r = l?knownCommute(l,b.id):undefined;
     return {
       ...d,
       name: b.name,
@@ -155,11 +158,11 @@ export function weeklyCommute(listingId: string, p: StudentPlan) {
     roundTrips: true,
   };
 }
-export function compareListings(ids: string[], p: StudentPlan) {
+export function compareListings(ids: string[], p: StudentPlan, listings:Listing[]=demoListings) {
   return ids.map((id) => {
     const l = listings.find((l) => l.id === id);
     if (!l) throw new Error("无效房源。");
-    const commute = buildingCommute(id, p.destinationId);
+    const commute = p.destinationId?knownCommute(l,p.destinationId):undefined;
     return {
       listing: l,
       housing: housingDetails(l),
@@ -172,7 +175,7 @@ export function compareListings(ids: string[], p: StudentPlan) {
             source: commute.source,
           }
         : null,
-      weekly: weeklyCommute(id, p),
+      weekly: weeklyCommute(id, p,listings),
     };
   });
 }

@@ -1,23 +1,23 @@
 "use client";
 import { ChevronDown, Footprints, Wallet } from "lucide-react";
 import { useLocale } from "@/components/locale-provider";
-import campusCommutes from "@/lib/campus-commutes.json";
+import {knownCommute} from "@/lib/listing-commute";
 import {displayCity} from "@/lib/i18n";
 import {getCity} from "@/lib/rental-data";
 import type { Listing } from "@/lib/rental-data";
 import type { StudentPlan } from "@/lib/student/state";
 import type { Filters } from "@/lib/assistant";
-import { buildingById, buildingCommute } from "@/lib/student/catalog";
+import { buildingById } from "@/lib/student/catalog";
 import { matchesHousing, monthlyCost } from "@/lib/student/planner";
 
 export default function DecisionSummary({listing,plan,filters,onPlan,expanded=false,onExpanded}:{expanded?:boolean;onExpanded?:(value:boolean)=>void;listing:Listing;plan:StudentPlan;filters?:Filters;onPlan?:()=>void}) {
   const {locale}=useLocale(),w=(zh:string,en:string)=>locale==="zh"?zh:en;
-  const cost=monthlyCost(listing,plan),route=plan.destinationId?buildingCommute(listing.id,plan.destinationId):(campusCommutes as Record<string,{durationSeconds:number;distanceMeters:number}>)[listing.id],destination=buildingById(plan.destinationId);
+  const cost=monthlyCost(listing,plan),route=knownCommute(listing,plan.destinationId),destination=buildingById(plan.destinationId);
   const money=(value:number|null)=>value===null?w("待确认","Unknown"):`${cost.currency}${value.toLocaleString("en-US",{maximumFractionDigits:2})}`;
   const conditions=[
     ...(filters?.budget?[listing.price<=filters.budget?w("租金符合预算","Rent within budget"):w("租金超出预算","Rent over budget")]:[]),
-    ...(filters?.bills?[listing.bills?w("演示含账单","Demo bills included"):w("账单另计","Bills extra")]:[]),
-    ...(plan.housing.moveIn||plan.housing.leaseMonths||plan.housing.availableOnly?[matchesHousing(listing,plan)?w("符合演示入住条件","Matches demo move-in criteria"):w("入住条件未满足或未知","Move-in criteria unmet or unknown")]:[]),
+    ...(filters?.bills?[listing.bills?w("含账单","Bills included"):w("账单另计","Bills extra")]:[]),
+    ...(plan.housing.moveIn||plan.housing.leaseMonths||plan.housing.availableOnly?[matchesHousing(listing,plan)?w("符合所填入住条件","Matches listed move-in criteria"):w("入住条件未满足或未知","Move-in criteria unmet or unknown")]:[]),
     ...(filters?.walkMinutes?[route?(Math.ceil(route.durationSeconds/60)<=filters.walkMinutes?w("步行符合条件","Walk within your limit"):w("步行超出条件","Walk exceeds your limit")):w("楼栋通勤待确认","Building commute unknown")]:[]),
     ...(filters?.safety?[w("治安待核验","Safety unverified")]:[]),
     ...(filters?.shopping?[w("购物条件待核验","Shopping needs unverified")]:[]),

@@ -19,15 +19,15 @@ export default function WalkingRoutePanel({ city, listing, status, route, onClos
       {status === "error" && <div className="route-message route-error"><p>{t("暂时无法读取这套房源的路线。")}</p><button onClick={onRetry}>{t("重新加载路线")}</button></div>}
       {route && <>
         <div className="route-metrics"><strong>{t("约")} {routeMinutes(route.durationSeconds)} <span>{t("分钟")}</span></strong><span>{displayDistance(route.distanceMeters,locale)} {t("· 步行")}</span><button onClick={onFit}>{t("查看全程")}</button></div>
-        <p className="route-note">{t("演示房源位置 · 入口待核验 · 非实时导航")}</p>
+        <p className="route-note">{listing.merchant?(locale==="zh"?"商家提供位置 · 入口待核验 · 非实时导航":"Host-provided location · Entrances unverified · Not live navigation"):t("演示房源位置 · 入口待核验 · 非实时导航")}</p>
         {(route.startOffsetMeters > 40 || route.endOffsetMeters > 40) && <p className="route-snap">{t("路线起终点已匹配附近道路：距公寓点")} {route.startOffsetMeters} {t("米，距校区点")} {route.endOffsetMeters} {t("米；偏移路段未计入。")}</p>}
         <details className="route-directions"><summary>{t("路线详情")}<span>{route.steps.length} {t("段指引")}</span></summary>
-          <p className="route-source">{t("真实步行路网 ·")} <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap</a> · <a href="https://valhalla.github.io/valhalla/" target="_blank" rel="noreferrer">Valhalla</a></p>
+          <p className="route-source">{t("真实步行路网 ·")} <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap</a> · <a href={route.source.engine==="OSRM"?"https://project-osrm.org/":"https://valhalla.github.io/valhalla/"} target="_blank" rel="noreferrer">{route.source.engine}</a></p>
           <p className="route-date">{t("路网计算于")} {new Date(route.source.calculatedAt).toLocaleDateString(locale === "en" ? "en-GB" : "zh-CN", { timeZone: "Asia/Shanghai" })} {t("· 已保存结果 · 分段指引为原文")}</p>
           <p className="route-note">{t("公寓楼门和校门尚未核验。时间为路网估计；淡色线段表示建筑遮挡下的路线延续，高度仅供三维展示。")}</p>
           <ol>{route.steps.map((step, i) => <li key={i}><span>{step.instruction}</span>{step.distanceMeters > 0 && <small>{displayDistance(step.distanceMeters,locale)}</small>}</li>)}</ol>
         </details>
-        <p className="route-attribution">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a> · Valhalla</p>
+        <p className="route-attribution">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a> · {route.source.engine}</p>
       </>}
     </div>
   </div>;

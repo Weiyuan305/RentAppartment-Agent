@@ -1,4 +1,5 @@
 "use client";
+import { useListings } from "@/components/listing-catalog-provider";
 import { useLocale } from "@/components/locale-provider";
 import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import { useChat } from "@ai-sdk/react";
@@ -8,11 +9,12 @@ import { type AgentStatus, type RentalMessage, type RentalSession, type RentalSt
 import {canRestoreSessionContext,stateForNavigation} from "@/lib/student/restore";
 import { replyNotices, retryableMessage } from "@/lib/agent/conversation";
 import { displayCity } from "@/lib/i18n";
-import { listings, type City } from "@/lib/rental-data";
+import { type City } from "@/lib/rental-data";
 import {chatActivity} from "@/lib/agent/activity";
 const AssistantMarkdown = lazy(() => import("./assistant-markdown").then(module => ({default: module.AssistantMarkdown})));
 
 export default function RentalChat({onLocateContext,city, state, uiRevision, onState, collapsed = false, headerControl, onReplyReady, preserveInitialState = false, actionReceipt, onActionClear}: {onLocateContext?:()=>void;actionReceipt?: ReactNode; onActionClear?:()=>void; preserveInitialState?: boolean; collapsed?: boolean; headerControl?: ReactNode; onReplyReady?: () => void; city: City; state: RentalState; uiRevision: number; onState: (state: RentalState, actionId?: string) => void}) {
+  const listings=useListings();
   const {t, locale} = useLocale();
   const selectedHome=listings.find(home=>home.id===state.listingId && home.cityId===state.cityId);
   const [session, setSession] = useState<RentalSession | null>(null);
@@ -25,8 +27,8 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
   const transcript = useRef<HTMLDivElement>(null);
   const composer = useRef<HTMLTextAreaElement>(null);
   const followEnd = useRef(true);
-  const current = useRef({state, uiRevision, onState, locale, onReplyReady, preserveInitialState});
-  useEffect(() => {current.current = {state, uiRevision, onState, locale, onReplyReady, preserveInitialState};}, [state, uiRevision, onState, locale, onReplyReady, preserveInitialState]);
+  const current = useRef({state, uiRevision, onState, locale, onReplyReady, preserveInitialState, listings});
+  useEffect(() => {current.current = {state, uiRevision, onState, locale, onReplyReady, preserveInitialState, listings};}, [state, uiRevision, onState, locale, onReplyReady, preserveInitialState, listings]);
   const sessionRef = useRef<RentalSession | null>(null);
   const request = useRef<{id: string; revision: number; retry?: boolean} | null>(null);
   const savedState = useRef("");
@@ -96,7 +98,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
         const restoreContext=canRestoreSessionContext(startRevision,current.current.uiRevision,current.current.preserveInitialState);
         sessionRef.current = restored; setSession(restored); setAgentStatus(payload.status); setMessages(restored.messages);
         savedState.current=JSON.stringify(restored.state);
-        if(restoreContext)current.current.onState(stateForNavigation(restored.state,current.current.state,new URLSearchParams(window.location.search)));
+        if(restoreContext)current.current.onState(stateForNavigation(restored.state,current.current.state,new URLSearchParams(window.location.search),current.current.listings));
       } catch {if (!controller.signal.aborted) setNotice("会话存储暂时不可用，请刷新页面重试。");}
     })();
     return () => {disposed.current = true; controller.abort(); void stop();};
@@ -250,6 +252,6 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
         {busy && !previewing ? <button type="button" aria-label={t("停止回复")} onClick={() => stop()}><Square size={14}/></button> : <button type="submit" disabled={!input.trim() || busy || !agentStatus?.configured || !session} aria-label={t("发送消息")}><ArrowUp size={19}/></button>}
       </div>
     </form>
-    <p className="assistant-disclaimer">{t("演示房源不可预订 · 设施可能缺漏 · 治安与营业状态未核验")}</p>
+    <p className="assistant-disclaimer">{locale==="zh"?"房源来源见详情 · 设施与安全信息未实地核验":"See listing source in details · Places and safety unverified"}</p>
   </aside>;
 }

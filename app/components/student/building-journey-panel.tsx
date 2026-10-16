@@ -85,7 +85,7 @@ export function BuildingJourneyPanel({
         <a href={building.source.url} target="_blank" rel="noreferrer">
           OSM ↗
         </a>
-        {route && <> · Valhalla · {route.source.calculatedAt.slice(0, 10)}</>}
+        {route && <> · {route.source.engine} · {route.source.calculatedAt.slice(0, 10)}</>}
       </p>
     </div>
   );

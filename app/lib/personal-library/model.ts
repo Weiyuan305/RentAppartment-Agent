@@ -3,7 +3,7 @@ import { listings } from "../rental-data";
 import { notebookSchema, type DecisionNote } from "../student/notebook";
 
 const ids = new Set(listings.map(listing => listing.id));
-export const listingIdSchema = z.string().refine(id => ids.has(id), "Unknown listing");
+export const listingIdSchema = z.string().refine(id => (ids.has(id)||/^m_[a-f0-9-]{36}_[a-f0-9]{8}$/.test(id)), "Unknown listing");
 export const revisionSchema = z.number().int().min(0).max(Number.MAX_SAFE_INTEGER);
 const owner = z.string().min(1).max(128);
 export const libraryCommand = z.discriminatedUnion("kind", [
@@ -19,7 +19,7 @@ export const emptyLibrary = ():LibraryData => ({favorites:{},notes:{}});
 export const favoriteStorageKey = "campus-atlas-saved";
 export const notebookStorageKey = "campus-atlas-notebook-v1";
 export function readFavorites(raw:string|null):string[] {
-  try {const value=JSON.parse(raw??"[]");return Array.isArray(value)?[...new Set(value.filter((id):id is string=>typeof id==="string"&&ids.has(id)))]:[];}catch{return [];}
+  try {const value=JSON.parse(raw??"[]");return Array.isArray(value)?[...new Set(value.filter((id):id is string=>typeof id==="string"&&listingIdSchema.safeParse(id).success))]:[];}catch{return [];}
 }
 /** An older refresh must never roll back an acknowledged write. */
 export function mergeLibrary(current:LibraryData, incoming:LibraryData):LibraryData {

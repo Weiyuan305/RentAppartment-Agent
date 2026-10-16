@@ -417,7 +417,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
     : routeTarget ? <WalkingRoutePanel city={city} listing={routeTarget} status={routeStatus} route={campusRoute} onClose={onCloseRoute} onRetry={retryRoute} onFit={fitCurrentRoute}/>
     : active && showListingInfo && <div className="map-selected">
       <span className="map-selected-icon"><MapPin size={16}/></span>
-      <div className="map-selected-copy"><small>{t("已选演示房源")}{!live ? t(" · 地图连接后定位") : ""}</small><div className="map-selected-main"><strong title={active.name}>{active.name}</strong><span className="map-selected-price">{priceLabel(active)} / {cityView.period}</span></div></div>
+      <div className="map-selected-copy"><small>{active.merchant?(locale==="zh"?"已选商家房源":"Selected partner home"):t("已选演示房源")}{!live ? t(" · 地图连接后定位") : ""}</small><div className="map-selected-main"><strong title={active.name}>{active.name}</strong><span className="map-selected-price">{priceLabel(active)} / {cityView.period}</span></div></div>
       <button className="map-selected-close" aria-label={locale === "zh" ? "关闭房源信息" : "Close home summary"} title={locale === "zh" ? "关闭房源信息" : "Close home summary"} onClick={onToggleListingInfo}><X size={16}/></button>
     </div>;
   // Manual coverage check at the sample campus on 2026-10-08, not a country-wide guarantee.

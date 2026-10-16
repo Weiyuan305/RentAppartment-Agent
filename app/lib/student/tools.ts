@@ -1,8 +1,9 @@
+import { merchantWalkingRoute } from "../merchant/routes";
 import { buildingCatchment } from "./catchments";
 import { tool } from "ai";
 import { z } from "zod";
 import type { RentalState } from "../agent/contract";
-import { listings } from "../rental-data";
+import { listings as demoListings, type Listing } from "../rental-data";
 import { matchesFilters } from "../assistant";
 import {
   buildingById,
@@ -30,6 +31,7 @@ export function createStudentTools(
   get: () => RentalState,
   update: (state: RentalState) => void,
   run: <T>(fn: () => T | Promise<T>) => Promise<T>,
+  listings:Listing[]=demoListings,
 ) {
   function current() {
     const s = get();
@@ -42,7 +44,7 @@ export function createStudentTools(
     };
   }
   function reconcile(s: RentalState) {
-    const p = validateStudentPlan(s.student, s.cityId),
+    const p = validateStudentPlan(s.student, s.cityId,listings),
       found = listings.filter(
         (l) => l.cityId === s.cityId && matchesFilters(l, s.filters, p),
       );
@@ -113,13 +115,13 @@ export function createStudentTools(
         "显示指定公寓ID到已选择楼栋的真实步行快照路线，并将地图起点同步为这套公寓；ID取自searchListings，用户未指定则传当前listingId。没有选择楼栋时先搜索并确认。返回真实距离/时间及入口核验状态；不得将楼栋中心称为入口。",
       inputSchema: z.object({ listingId: z.string().max(50) }),
       execute: ({ listingId }) =>
-        run(() => {
+        run(async () => {
           const { s, p } = current(),
             listing = listings.find(
               (l) => l.id === listingId && l.cityId === s.cityId,
             ),
             b = buildingById(p.destinationId),
-            r = listing && buildingCommute(listing.id, p.destinationId);
+            r = listing && (listing.merchant&&b?await merchantWalkingRoute(listing,b.id):buildingCommute(listing.id, p.destinationId));
           if (!listing) throw new Error("请选择当前城市已收录的公寓起点。");
           if (!b || !r) throw new Error("请先选择已有路线数据的校内楼栋。");
           if (!matchesFilters(listing, s.filters, p))
@@ -147,7 +149,7 @@ export function createStudentTools(
             locationType: b.locationType,
             minutes: Math.ceil(r.durationSeconds / 60),
             limitation:
-              "演示公寓起点；楼栋入口或开放条件未实地核验，路网吸附偏移未计入通勤时间。",
+              "楼栋入口或开放条件未实地核验，路网吸附偏移未计入通勤时间。",
           };
         }),
     }),
@@ -175,7 +177,7 @@ export function createStudentTools(
     }),
     compareApartments: tool({
       description:
-        "对比当前城市最多3套公寓的月支出、选定楼栋通勤、租期/日期及多个目的地的每周通勤；地图与对比清单同步。未知费用不按0，所有房源为演示。",
+        "对比当前城市最多3套公寓的月支出、选定楼栋通勤、租期/日期及多个目的地的每周通勤；地图与对比清单同步。未知费用不按0，房源来源须区分demo与merchant。",
       inputSchema: z.object({
         listingIds: z.array(z.string().max(50)).min(2).max(3),
       }),
@@ -184,19 +186,19 @@ export function createStudentTools(
           const { s, p } = current(),
             next = validateStudentPlan(
               { ...p, compareIds: listingIds },
-              s.cityId,
+              s.cityId,listings,
             );
           update({ ...s, student: next });
           return {
-            results: compareListings(listingIds, next),
+            results: compareListings(listingIds, next,listings),
             sharePath: `/?${comparisonSearch(s.cityId, next)}`,
-            inventory: "全部为不可预订的演示数据。",
+            inventory: "demo为虚构样本；merchant为商家提供，须咨询确认库存。",
           };
         }),
     }),
     updateStudentPreferences: tool({
       description:
-        "更新入住日期、租期月数、演示可租筛选，或月度水电/网络/交通/其他预算、押金、一次性费用（当前城市币种）。金额是用户假设，缺失保持未知。省略字段沿用；显式clearMoveIn/clearLease/resetExpenses清除。",
+        "更新入住日期、租期月数、已标记可租筛选，或月度水电/网络/交通/其他预算、押金、一次性费用（当前城市币种）。金额是用户假设，缺失保持未知。省略字段沿用；显式clearMoveIn/clearLease/resetExpenses清除。",
       inputSchema: z.object({
         moveIn: calendarDate.optional(),
         leaseMonths: z.number().int().min(1).max(60).optional(),
@@ -255,7 +257,7 @@ export function createStudentTools(
               : null,
             cost: selected ? monthlyCost(selected, next) : null,
             housing: next.housing,
-            inventory: "入住与可租状态为演示字段，非真实库存。",
+            inventory: "demo为虚构样本；merchant的入住日期与库存由商家提供，须联系商家确认。",
           };
         }),
     }),
@@ -268,13 +270,13 @@ export function createStudentTools(
       execute: ({ destinations }) =>
         run(() => {
           const { s, p, listing } = current(),
-            next = validateStudentPlan({ ...p, destinations }, s.cityId);
+            next = validateStudentPlan({ ...p, destinations }, s.cityId,listings);
           update({ ...s, student: next });
           return {
-            currentApartment: weeklyCommute(listing.id, next),
+            currentApartment: weeklyCommute(listing.id, next, listings),
             allApartments: listings
               .filter((l) => l.cityId === s.cityId)
-              .map((l) => ({ id: l.id, ...weeklyCommute(l.id, next) })),
+              .map((l) => ({ id: l.id, ...weeklyCommute(l.id, next, listings) })),
             assumption:
               "每次到访按公寓与目的地之间往返计算，非按顺序串联的多站行程。",
           };

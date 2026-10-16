@@ -36,7 +36,7 @@ export class RouteServiceError extends Error {
   constructor(message: string, status = 502) {super(message); this.status = status;}
 }
 export async function getAmenityRoute(listing: Listing, place: Amenity): Promise<AmenityWalkingRoute> {
-  const key = `${listing.id}:${place.id}`;
+  const key = `${listing.id}:${place.id}:${listing.lng},${listing.lat}:${place.lng},${place.lat}`;
   const now = Date.now();
   const saved = cache.get(key);
   if (saved && saved.expires > now) return saved.route;

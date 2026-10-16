@@ -1,7 +1,7 @@
 import type { RentalMessage, ReplyStatus } from "./contract";
 
 export const replyNotices: Record<ReplyStatus, string> = {
-  timeout: "回复超时（90 秒内未完成）。可以重试这条消息；已完成的地图结果会保留。",
+  timeout: "回复超时，暂时未能恢复。可以重试这条消息；已完成的地图结果会保留。",
   error: "这次回复未完成。可以重试这条消息；已完成的地图结果会保留。",
   stopped: "回复已停止，可以重试这条消息。",
 };

@@ -28,7 +28,7 @@ export function initialRentalState(cityId: RentalState["cityId"]): RentalState {
 }
 export type ReplyStatus = "timeout" | "error" | "stopped";
 export type MessageContext = {cityId: RentalState["cityId"]; listingId: string};
-export type RentalMessage = UIMessage<{replyStatus?: ReplyStatus; context?: MessageContext}, {"rental-state": {requestId: string; version: number; phase: "start" | "update"; state: RentalState}}, InferUITools<ReturnType<typeof createRentalTools>["tools"]>>;
+export type RentalMessage = UIMessage<{replyStatus?: ReplyStatus; context?: MessageContext}, {"rental-state": {requestId: string; version: number; phase: "start" | "update"; state: RentalState}; "rental-progress": {requestId: string; phase: "recovering" | "working" | "waiting"}}, InferUITools<ReturnType<typeof createRentalTools>["tools"]>>;
 export type RentalSession = {id: string; version: number; state: RentalState; messages: RentalMessage[]};
 export type AgentStatus = {configured: boolean; missing: string[]; storage: string};
 export const agentRequestSchema = z.object({

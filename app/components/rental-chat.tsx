@@ -23,6 +23,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
   const [input, setInput] = useState("");
   const [previewing, setPreviewing] = useState(false);
   const [retrying, setRetrying] = useState(false);
+  const [autoRecovering, setAutoRecovering] = useState(false);
   const end = useRef<HTMLDivElement>(null);
   const transcript = useRef<HTMLDivElement>(null);
   const composer = useRef<HTMLTextAreaElement>(null);
@@ -47,6 +48,10 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
   const chat = useChat<RentalMessage>({
     transport,
     onData: part => {
+      if (part.type === "data-rental-progress") {
+        if (!disposed.current && part.data.requestId === request.current?.id && part.data.phase !== "waiting") setAutoRecovering(part.data.phase === "recovering");
+        return;
+      }
       if (part.type !== "data-rental-state" || disposed.current) return;
       const data = part.data, active = request.current;
       if (!active || data.requestId !== active.id || data.state.cityId !== current.current.state.cityId) return;
@@ -54,7 +59,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
       if (active.revision !== current.current.uiRevision) {setNotice("页面条件已改变，本轮结果没有覆盖地图。请按当前条件重新提问。"); return;}
       const next = rentalStateSchema.parse(data.state);
       savedState.current = JSON.stringify(next);
-      if (data.phase === "start") return;
+      if (data.phase === "start") {setAutoRecovering(false); return;}
       current.current.onState(next,active.id);
     },
     onError: error => {if (!disposed.current) {setNotice(Object.values(replyNotices).includes(error.message) ? error.message : t("对话暂时无法完成，可以重试这条消息；已完成的工具结果会保留。"));current.current.onReplyReady?.();}},
@@ -155,14 +160,14 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
     await pendingSave.current;
     onActionClear?.();
     request.current = {id: crypto.randomUUID(), revision: current.current.uiRevision};
-    setInput(""); setNotice(""); chat.clearError();
+    setInput(""); setNotice(""); setAutoRecovering(false); chat.clearError();
     await chat.sendMessage({text: text.trim(),metadata:{context:{cityId:current.current.state.cityId,listingId:current.current.state.listingId}}});
   }
   async function retry() {
     if (busy || !session || !agentStatus?.configured || !retryMessage) return;
     followEnd.current=true;
     onActionClear?.();
-    setRetrying(true); setNotice("");
+    setRetrying(true); setNotice(""); setAutoRecovering(false);
     await pendingSave.current;
     try {
       // Refresh the version and lease after an errored/disconnected stream.
@@ -235,7 +240,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
         ? <Suspense key={i} fallback={<span aria-label={t("正在加载回复")}>…</span>}><AssistantMarkdown text={part.text} streaming={chat.status === "streaming" && part.state === "streaming"}/></Suspense>
         : <span key={i}>{part.text}</span> : null)}{message.parts.some(p => p.type.startsWith("tool-") && "state" in p && p.state === "output-available") && <small className="chat-tool-status">{t("已查询工具 · 地图与结果同步")}</small>}</div>)}
       <fieldset className="agent-receipt-slot" disabled={busy}>{actionReceipt}</fieldset>
-      {busy && <p className="chat-busy" role="status" aria-live="polite"><LoaderCircle size={14} className="route-spinner"/>{retrying ? t("正在重新连接…") : previewing ? t("正在查询工具…") : chatActivity(chat.messages,chat.status==="submitted",locale)}</p>}
+      {busy && <p className="chat-busy" role="status" aria-live="polite"><LoaderCircle size={14} className="route-spinner"/>{retrying ? t("正在重新连接…") : previewing ? t("正在查询工具…") : autoRecovering ? t("连接较慢，正在自动重新连接…") : chatActivity(chat.messages,chat.status==="submitted",locale)}</p>}
       {displayedNotice && <div className="chat-notice" role="status"><p>{t(displayedNotice)}</p>{!busy && retryMessage && <button type="button" className="chat-retry" onClick={() => void retry()}><RotateCcw size={13}/>{t("重试这条消息")}</button>}</div>}<div ref={end}/>
     </div></div>
     <form className="chat-form" onSubmit={e => {e.preventDefault(); void send(input);}} onPointerDown={e => {

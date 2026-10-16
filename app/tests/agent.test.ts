@@ -242,3 +242,42 @@ test("provider failure, empty completion and an explicit stop all retain a retry
     delete process.env.ATLAS_AI_BASE_URL; delete process.env.ATLAS_AI_MODEL; delete process.env.ATLAS_AI_API_KEY;
   }
 });
+
+test("automatic post-tool recovery keeps one turn, one map update and the completed tool output", async () => {
+  const api = await import("../app/api/agent/session/route"), chat = await import("../app/api/agent/chat/route");
+  const originalFetch = globalThis.fetch;
+  process.env.ATLAS_AI_BASE_URL = "http://fixture.invalid/v1"; process.env.ATLAS_AI_MODEL = "test-fixture"; process.env.ATLAS_AI_API_KEY = "test-only";
+  let calls = 0;
+  globalThis.fetch = async (_input, init) => {
+    const body = JSON.parse(String(init?.body));
+    assert.equal(body.messages.filter((m: {role: string}) => m.role === "user").length, 1);
+    calls++;
+    if (calls === 2) return new Response(JSON.stringify({error: {message: "temporary outage"}}), {status: 503});
+    if (calls === 3) assert.equal(body.messages.at(-1).role, "tool");
+    const delta = calls === 1 ? {tool_calls: [{index: 0, id: "lookup-once", type: "function", function: {name: "findNearbyAmenities", arguments: JSON.stringify({category: "convenience", radiusMeters: 500})}}]} : {content: "已恢复，地图上的便利店结果保留。"};
+    const chunk = (delta: unknown, reason: string | null) => `data: ${JSON.stringify({id: "fixture", object: "chat.completion.chunk", created: 1, model: "test-fixture", choices: [{index: 0, delta, finish_reason: reason}]})}\n\n`;
+    return new Response(chunk(delta, null) + chunk({}, calls === 1 ? "tool_calls" : "stop") + "data: [DONE]\n\n");
+  };
+  try {
+    const loaded = await api.GET(new Request("http://localhost:5174/api/agent/session?city=london"));
+    const cookie = loaded.headers.get("set-cookie")!.split(";")[0];
+    const {session} = await loaded.json() as {session: RentalSession};
+    const response = await chat.POST(new Request("http://localhost:5174/api/agent/chat", {method: "POST", headers: {cookie, origin: "http://localhost:5174", "Content-Type": "application/json"}, body: JSON.stringify({sessionId: session.id, version: session.version, state: session.state, requestId: randomUUID(), message: {id: randomUUID(), role: "user", parts: [{type: "text", text: "附近有几个便利店？"}]}})}));
+    const sse = await response.text();
+    assert.ok(sse.includes('"phase":"recovering"'));
+    assert.ok(sse.includes("已恢复"));
+    assert.ok(!sse.includes('"type":"error"'));
+    assert.equal(sse.split('"phase":"update"').length - 1, 1);
+    const saved = await store.loadSession(store.ownerHash(cookie.split("=")[1]), session.id);
+    assert.equal(calls, 3);
+    assert.equal(saved.messages.filter(m => m.role === "user").length, 1);
+    assert.equal(saved.messages.filter(m => m.role === "assistant").length, 1);
+    assert.equal(saved.messages.at(-1)?.metadata?.replyStatus, undefined);
+    assert.ok(saved.messages.every(m => m.parts.every(p => p.type !== "data-rental-progress")));
+    assert.deepEqual(saved.state.map.categories, ["convenience"]);
+    assert.equal(saved.state.map.radiusMeters, 500);
+  } finally {
+    globalThis.fetch = originalFetch;
+    delete process.env.ATLAS_AI_BASE_URL; delete process.env.ATLAS_AI_MODEL; delete process.env.ATLAS_AI_API_KEY;
+  }
+});

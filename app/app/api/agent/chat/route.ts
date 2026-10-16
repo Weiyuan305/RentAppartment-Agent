@@ -1,5 +1,5 @@
 import { getPublicCatalogue } from "@/lib/merchant/server";
-import { createAgentUIStream, createUIMessageStream, createUIMessageStreamResponse, ToolLoopAgent, isStepCount } from "ai";
+import { createAgentUIStream, createUIMessageStream, createUIMessageStreamResponse, ToolLoopAgent, isStepCount, wrapLanguageModel } from "ai";
 import { createOpenAI } from "@ai-sdk/openai";
 import { getCity } from "@/lib/rental-data";
 import { agentRequestSchema, type RentalMessage, type ReplyStatus } from "@/lib/agent/contract";
@@ -9,6 +9,7 @@ import { validateRentalState } from "@/lib/agent/catalog";
 import { createRentalTools } from "@/lib/agent/tools";
 import { acquireSession, consumeQuota, finishSession, SessionError } from "@/lib/agent/store";
 import { errorResponse, identity, readBody } from "@/lib/agent/http";
+import { modelRecovery } from "@/lib/agent/model-recovery";
 
 export async function POST(request: Request) {
   try {
@@ -35,9 +36,10 @@ export async function POST(request: Request) {
     if (messages.length > 80) {await finishSession(auth.owner, session, session.messages, state); throw new SessionError("这段对话已较长，请新建对话继续。", 400);}
     let finalState = state;
     let replyStatus: ReplyStatus | undefined;
+    let modelTimedOut = false;
     const started = Date.now(), deadline = AbortSignal.timeout(90000);
     const signal = AbortSignal.any([request.signal, deadline]);
-    const failureStatus = (): ReplyStatus => request.signal.aborted ? "stopped" : deadline.aborted ? "timeout" : "error";
+    const failureStatus = (): ReplyStatus => request.signal.aborted ? "stopped" : deadline.aborted || modelTimedOut ? "timeout" : "error";
     const city = getCity(state.cityId);
     const stream = createUIMessageStream<RentalMessage>({
       originalMessages: messages,
@@ -46,8 +48,15 @@ export async function POST(request: Request) {
         const scoped = createRentalTools(state, updated => {finalState = updated; writer.write({type: "data-rental-state", data: {requestId: body.requestId, version: session.version, phase: "update", state: updated}});},listings);
         writer.write({type: "data-rental-state", data: {requestId: body.requestId, version: session.version, phase: "start", state}});
         const provider = createOpenAI({apiKey: config.apiKey!, baseURL: config.baseURL!});
+        const recovery = modelRecovery({onEvent: event => {
+          if (event.phase === "start") modelTimedOut = false;
+          if (event.phase === "failed") modelTimedOut = event.reason === "timeout";
+          console.info("[rental-agent-model]", JSON.stringify({requestId: body.requestId, ...event}));
+          if (event.phase === "retry" || event.phase === "output") writer.write({type: "data-rental-progress", transient: true, data: {requestId: body.requestId, phase: event.phase === "retry" ? "recovering" : "working"}});
+        }});
         const agent = new ToolLoopAgent({
-          model: provider.chat(config.model!), tools: scoped.tools, stopWhen: isStepCount(5), maxOutputTokens: 2400, maxRetries: 0,
+          model: wrapLanguageModel({model: provider.chat(config.model!), middleware: recovery}), tools: scoped.tools, stopWhen: isStepCount(5), maxOutputTokens: 2400, maxRetries: 0,
+          onToolExecutionEnd: event => {console.info("[rental-agent-tool]", JSON.stringify({requestId: body.requestId, tool: event.toolCall.toolName, elapsedMs: event.toolExecutionMs, status: event.toolOutput.type}));},
           providerOptions: {openai: {parallelToolCalls: false, strictJsonSchema: false}},
           instructions: `你是远居留学生找房助手，根据最新一条用户消息的主要语言回复：中文消息使用中文，英文消息使用英文，包括工具查询后的解释。每轮重新判断，不受界面语言、历史回复或工具标签语言影响；中英混合时跟随表达请求的主要语言，保留场所专有名称。只有数字、表情等无法判断语言的消息，沿用最近一条可识别的用户消息语言；首次无法判断则使用中文。回答简短清楚。当前城市固定为${city.name}，大学是${city.university}，租金单位为${city.currency}/${city.period}。当前页面状态：${JSON.stringify(state)}。
 多轮追问结合前文和当前页面，以当前页面为准。附近默认指当前公寓直线500米，说明中心及范围；不清楚指代时先问清。
@@ -64,6 +73,9 @@ findNearbyAmenities返回完整收录数，candidates只是最近10条，不要�
           if (status !== "stopped") writer.write({type: "error", errorText: replyNotices[status]});
         };
         let hasText = false;
+        // Keep the SSE connection active while the upstream is quiet. This is
+        // transient transport data, not a persisted message or a new AI call.
+        const heartbeat = setInterval(() => {if (!signal.aborted) writer.write({type: "data-rental-progress", transient: true, data: {requestId: body.requestId, phase: "waiting"}});}, 15000);
         try {
           const agentStream = await createAgentUIStream({agent, uiMessages: messages, originalMessages: messages, onError: () => replyNotices[failureStatus()], abortSignal: signal});
           for await (const chunk of agentStream) {
@@ -77,6 +89,7 @@ findNearbyAmenities返回完整收录数，candidates只是最近10条，不要�
           }
           if (!replyStatus && !hasText) fail(failureStatus());
         } catch {fail(failureStatus());}
+        finally {clearInterval(heartbeat);}
       },
       onEnd: async ({messages: completed, responseMessage, isAborted, isCancelled, outcome}) => {
         if (!replyStatus && (isCancelled || isAborted || request.signal.aborted || hasUnfinishedText(responseMessage))) replyStatus = deadline.aborted && !request.signal.aborted ? "timeout" : "stopped";

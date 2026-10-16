@@ -16,7 +16,7 @@ export async function verifyClientAssets(origin, clientDirectory, fetchImpl = fe
     .map(file => `/_next/static/${file}`);
   assert.ok(files.length > 0, "No client build found");
   const get = path => fetchImpl(`${base}${path}`, {redirect: "error", signal: AbortSignal.timeout(30000), headers: {"Cache-Control": "no-cache"}});
-  for (const path of ["/?city=london", "/login", "/setup", "/listing/london-2"]) {
+  for (const path of ["/?city=london", "/login", "/setup", "/listing/london-2", "/merchant", "/admin", "/inquiries"]) {
     const response = await get(path);
     assert.equal(response.status, 200, `HTML ${path}: HTTP ${response.status}`);
     assert.match(response.headers.get("content-type") || "", /^text\/html/i);
@@ -42,7 +42,7 @@ export async function verifyClientAssets(origin, clientDirectory, fetchImpl = fe
       checked++;
     }
   }));
-  return {origin: base, htmlPages: 4, verifiedAssets: checked, sources};
+  return {origin: base, htmlPages: 7, verifiedAssets: checked, sources};
 }
 
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {

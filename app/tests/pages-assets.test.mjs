@@ -23,8 +23,8 @@ const bindings = (current, pages) => ({
   ASSETS: {fetch: async req => pages(new URL(req.url).pathname, req)},
 });
 
-test("sign-in and OAuth privacy pages reach the application rather than the static CDN", async () => {
-  for (const path of ["/login", "/privacy"]) {
+test("account, merchant and moderation pages reach the application rather than the static CDN", async () => {
+  for (const path of ["/login", "/privacy", "/merchant", "/admin", "/inquiries"]) {
     assert.ok(routes.include.includes(path), `${path} must be a dynamic Pages route`);
     const response = await entry.fetch(request(path), bindings(() => new Response("auth page"), () => {throw new Error("Auth pages must not use the static fallback");}));
     assert.equal(response.status, 200);

@@ -23,6 +23,10 @@
 
 No payment, contract signing, email notifications, shared merchant teams or bulk import. Address position is entered as coordinates with a map preview / external address lookup, not automatic geocoding. Nearby-place snapshots remain limited to the existing campus coverage. Platform review is not an on-site inspection or safety certification. Mobile evidence is browser viewport acceptance, not new physical-iPhone soft-keyboard acceptance. Audit records are written after successful mutations; they are not transactional with the mutation in this version. Dashboard feeds are capped (200 admin rows, 100 conversations), suitable for the current demo scale.
 
+## Public deployment follow-up
+
+The first public probe caught missing Pages route allowlist entries for `/merchant`, `/admin`, `/inquiries` (404). Added all three dynamic routes and extended the release gate from four to seven HTML entrypoints, with a routing regression test. Worker application code and the migrated schema were unaffected.
+
 ## Release order
 
 Review / local acceptance -> GitHub main -> additive D1 migration 0004 -> Worker -> Pages -> public UI and asset verification. Secrets, local databases, logs and QA fixtures are excluded from Git.

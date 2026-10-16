@@ -52,11 +52,14 @@ function DialogContent({
   children,
   showCloseButton = true,
   closeLabel = "Close",
+  onOpenAutoFocus,
+  onCloseAutoFocus,
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content> & {
   showCloseButton?: boolean
   closeLabel?: string
 }) {
+  const opener = React.useRef<HTMLElement | null>(null)
   return (
     <DialogPortal data-slot="dialog-portal">
       <DialogOverlay />
@@ -67,6 +70,23 @@ function DialogContent({
           className
         )}
         {...props}
+        onOpenAutoFocus={(event) => {
+          opener.current = document.activeElement instanceof HTMLElement ? document.activeElement : null
+          onOpenAutoFocus?.(event)
+          // Opening a mobile dialog should not summon a keyboard before the user chooses a field.
+          if (!event.defaultPrevented && window.matchMedia("(max-width: 1100px)").matches && event.target instanceof HTMLElement) {
+            event.preventDefault()
+            event.target.focus({ preventScroll: true })
+          }
+        }}
+        onCloseAutoFocus={(event) => {
+          onCloseAutoFocus?.(event)
+          const target = opener.current
+          if (!event.defaultPrevented && target && target !== document.body && target.isConnected && target.getClientRects().length) {
+            event.preventDefault()
+            target.focus({ preventScroll: true })
+          }
+        }}
       >
         {children}
         {showCloseButton && (

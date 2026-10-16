@@ -3,7 +3,7 @@ import { useLocale } from "@/components/locale-provider";
 import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
-import { ArrowRight, ArrowUpRight, ArrowUp, LoaderCircle, Sparkles, Square, RotateCcw, MapPin } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ArrowUp, ChevronDown, LoaderCircle, Sparkles, Square, RotateCcw, MapPin } from "lucide-react";
 import { type AgentStatus, type RentalMessage, type RentalSession, type RentalState, rentalStateSchema } from "@/lib/agent/contract";
 import {canRestoreSessionContext,stateForNavigation} from "@/lib/student/restore";
 import { replyNotices, retryableMessage } from "@/lib/agent/conversation";
@@ -236,8 +236,14 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
       {busy && <p className="chat-busy" role="status" aria-live="polite"><LoaderCircle size={14} className="route-spinner"/>{retrying ? t("正在重新连接…") : previewing ? t("正在查询工具…") : chatActivity(chat.messages,chat.status==="submitted",locale)}</p>}
       {displayedNotice && <div className="chat-notice" role="status"><p>{t(displayedNotice)}</p>{!busy && retryMessage && <button type="button" className="chat-retry" onClick={() => void retry()}><RotateCcw size={13}/>{t("重试这条消息")}</button>}</div>}<div ref={end}/>
     </div></div>
-    <form className="chat-form" onSubmit={e => {e.preventDefault(); void send(input);}}>
+    <form className="chat-form" onSubmit={e => {e.preventDefault(); void send(input);}} onPointerDown={e => {
+      // Keep the keyboard and button geometry stable until the tap is completed.
+      if (e.button === 0 && document.activeElement === composer.current && e.target instanceof Element && e.target.closest(".chat-dismiss-keyboard,.chat-composer button")) e.preventDefault();
+    }}>
+      <div className="chat-composer-context">
       <button type="button" className="chat-context" onClick={onLocateContext} disabled={!selectedHome} title={locale==="zh"?"在地图查看当前查询起点":"Show current query origin on map"}><MapPin size={13}/><span>{locale==="zh"?"基于":"Based on"} <strong>{selectedHome?.name??(locale==="zh"?"未选房源":"No home selected")}</strong></span><ArrowUpRight size={13}/></button>
+      <button type="button" className="chat-dismiss-keyboard" onClick={()=>composer.current?.blur()} aria-label={locale==="zh"?"收起键盘":"Dismiss keyboard"}><ChevronDown size={16}/></button>
+      </div>
       <label className="sr-only" htmlFor="chat-input">{t("描述你的理想住处")}</label>
       <div className="chat-composer">
         <textarea ref={composer} id="chat-input" value={input} onChange={e => setInput(e.target.value)} disabled={!agentStatus?.configured || !session} placeholder={agentStatus?.configured ? (locale === "zh" ? "问问附近，或说说需求…" : "Ask about homes or nearby…") : t("配置模型后，即可开始多轮 AI 对话")} maxLength={2000} onKeyDown={e => {if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {e.preventDefault(); void send(input);}}} rows={1}/>

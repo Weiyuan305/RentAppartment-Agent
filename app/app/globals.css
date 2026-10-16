@@ -522,3 +522,8 @@ button:disabled { cursor: not-allowed; }
 .auth-google-link strong{display:block;margin-top:4px;color:var(--foreground)}
 .auth-google-linked{display:flex;align-items:flex-start;gap:8px}.auth-google-linked svg{flex-shrink:0;margin-top:3px}
 .auth-link-instruction{margin-bottom:18px;font-size:13px;line-height:1.65;color:var(--muted-foreground)}
+
+/* Portaled dialogs share the keyboard-aware visible area, not the layout viewport. */
+@media(max-width:1100px){
+ [data-slot=dialog-content]{transition-property:opacity,box-shadow;top:calc(var(--input-viewport-top,0px) + var(--input-viewport-height,100dvh)/2);max-height:calc(var(--input-viewport-height,100dvh) - 24px)!important}
+}

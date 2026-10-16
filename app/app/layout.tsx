@@ -5,6 +5,7 @@ import "./globals.css";
 import "../student-experience.css";
 import { PersonalLibraryProvider } from "@/components/personal-library-provider";
 import { LocaleProvider } from "@/components/locale-provider";
+import { InputViewport } from "@/components/input-viewport";
 
 export async function generateMetadata():Promise<Metadata> {
   const english = (await cookies()).get("atlas_locale")?.value === "en";
@@ -30,7 +31,7 @@ export default async function RootLayout({
   const locale = validLocale(preferred) ? preferred : "zh";
   return (
     <html lang={locale === "en" ? "en" : "zh-CN"}>
-      <body className="antialiased"><LocaleProvider initialLocale={locale}><PersonalLibraryProvider>{children}</PersonalLibraryProvider></LocaleProvider></body>
+      <body className="antialiased"><InputViewport/><LocaleProvider initialLocale={locale}><PersonalLibraryProvider>{children}</PersonalLibraryProvider></LocaleProvider></body>
     </html>
   );
 }

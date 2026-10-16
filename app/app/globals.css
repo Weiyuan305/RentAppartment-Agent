@@ -170,6 +170,38 @@ body{margin:0;background:#f8f9fc;color:#202738;font-family:Inter,-apple-system,B
 /* Agent chat: bounded messages, visible setup and tool feedback. */
 .assistant-heading .assistant-state{margin-left:auto;white-space:nowrap}.chat-reset{color:#8c99af;padding:4px}.agent-setup{padding:14px;border:1px solid #e4e9f4;border-radius:10px;background:#f8faff;margin-bottom:16px;font-size:12px;line-height:1.8}.agent-setup>strong{font-size:13px}.agent-setup>p{color:#7c88a0;margin:6px 0}.agent-setup>a{color:#345cf0}.agent-setup .suggestions{margin:12px 0 0}.chat-tool-status{display:block;font-size:10px;color:#7b8da9;margin-top:7px}.chat-message{overflow-wrap:anywhere;white-space:pre-wrap}.chat-message:empty{display:none}.chat-busy{display:flex;align-items:center;gap:7px;color:#7689ac;font-size:12px;padding:10px 0}.chat-notice{font-size:12px;line-height:1.8;padding:10px 12px;border-radius:8px;background:#fff7e9;color:#8c6739}.chat-form textarea:disabled{color:#929bad}.chat-form>div>span{display:flex;align-items:center;gap:4px}.assistant-heading{gap:9px}
 
+.chat-busy { color: var(--ink-secondary); line-height: 1.5; }
+.chat-busy > span:last-child { min-width: 0; overflow-wrap: anywhere; }
+.chat-typing-dots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 52px;
+  gap: 4px;
+  height: 30px;
+  border-radius: 15px 15px 15px 5px;
+  background: var(--brand-soft);
+  color: var(--primary);
+}
+.chat-typing-dots > span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: .5;
+  /* A short hop followed by a rest keeps a long-running status unhurried. */
+  animation: chat-typing-hop 1200ms var(--ease-in-out, cubic-bezier(.77, 0, .175, 1)) infinite;
+}
+.chat-typing-dots > span:nth-child(2) { animation-delay: 160ms; }
+.chat-typing-dots > span:nth-child(3) { animation-delay: 320ms; }
+.assistant-panel[inert] .chat-typing-dots > span { animation-play-state: paused; }
+@keyframes chat-typing-hop {
+  0%, 40%, 100% { transform: translateY(0); opacity: .5; }
+  20% { transform: translateY(-3px); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chat-typing-dots > span { animation: none; transform: none; opacity: .7; }
+}
 .chat-message.assistant { white-space: normal; color: #526077; }
 .assistant-markdown { min-width: 0; white-space: normal; line-height: 1.85; }
 .assistant-markdown + .assistant-markdown { margin-top: .75em; }

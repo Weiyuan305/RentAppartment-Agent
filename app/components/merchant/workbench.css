@@ -589,6 +589,16 @@
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
+/* The public detail page is dark, but this facts card has a light surface. */
+.listing-detail-page .detail-information .mw-partner-details :is(h2, h3) {
+  color: #23493c;
+}
+.listing-detail-page .detail-information .mw-partner-details p {
+  color: #435e4e;
+}
+.listing-detail-page .detail-information .mw-partner-details a:focus-visible {
+  outline-color: #245d48;
+}
 .mw-partner-details dl {
   display: grid;
   grid-template-columns: 1fr 2fr;

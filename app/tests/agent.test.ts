@@ -77,8 +77,10 @@ test("SQLite sessions isolate owners/cities, reject concurrent and stale writes,
   await assert.rejects(() => store.loadSession(bob, session.id));
   assert.notEqual((await store.sessionForCity(alice, "sydney")).id, session.id);
   const acquired = await store.acquireSession(alice, session.id, session.version, session.state);
+  assert.ok((await store.loadSession(alice, session.id)).processingUntil! > Date.now(), "Recovery must see an active turn instead of replaying it");
   await assert.rejects(() => store.acquireSession(alice, session.id, session.version, session.state));
   await store.finishSession(alice, acquired, [{id: "persisted", role: "user", parts: [{type: "text", text: "test"}]}], session.state);
+  assert.equal((await store.loadSession(alice, session.id)).processingUntil, 0);
   await assert.rejects(() => store.saveState(alice, session.id, session.version, session.state));
   const output = execFileSync(process.execPath, ["--import", "tsx", "--input-type=module", "-e", `const s=await import('./lib/agent/store.ts'); console.log((await s.loadSession('${alice}','${session.id}')).messages[0].id); (await s.database()).close();`], {encoding: "utf8", env: process.env});
   assert.equal(output.trim(), "persisted");

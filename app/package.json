@@ -21,7 +21,7 @@
     "db:cloudflare:local": "wrangler d1 migrations apply ATLAS_DB --local --config cloudflare/wrangler.jsonc --persist-to .wrangler/state",
     "db:cloudflare:remote": "wrangler d1 migrations apply ATLAS_DB --remote --config cloudflare/wrangler.jsonc",
     "test:d1": "node --import tsx --test tests/d1-store.test.ts",
-    "test:agent": "node --import tsx --test tests/agent.test.ts tests/model-recovery.test.ts",
+    "test:agent": "node --import tsx --test tests/agent.test.ts tests/model-recovery.test.ts tests/chat-connection.test.ts",
     "test:agent:worker": "node --import tsx --test tests/model-recovery-worker.test.ts",
     "test:markdown": "node --import tsx --test tests/assistant-markdown.test.tsx",
     "test:health": "node --import tsx --test tests/health.test.ts",

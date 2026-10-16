@@ -480,5 +480,7 @@
   "Google 登录未完成，请重试或使用邮箱登录。": "Google sign-in did not complete. Try again or use email.",
   "加载失败，点击重试": "Could not load. Try again",
   "隐私说明": "Privacy notice",
-  "将 Google 与现有账号关联，保留收藏和历史记录。": "Link Google to your account and keep your saved homes and history."
+  "将 Google 与现有账号关联，保留收藏和历史记录。": "Link Google to your account and keep your saved homes and history.",
+  "网络连接中断，正在自动同步回复…": "Connection interrupted. Recovering your reply automatically…",
+  "连接中断，暂时未能取回回复。可以重试这条消息；已完成的地图结果会保留。": "The connection was interrupted and the reply could not be recovered. You can retry this message; completed map results are kept."
 }

@@ -8,7 +8,7 @@ export class SessionError extends Error {
 }
 type Row = {id: string; version: number; state: string; messages: string; lease: number};
 export const ownerHash = (token: string) => createHash("sha256").update(token).digest("hex");
-function decode(row: Row): RentalSession {return {id: row.id, version: row.version, state: JSON.parse(row.state), messages: JSON.parse(row.messages)};}
+function decode(row: Row): RentalSession {return {id: row.id, version: row.version, state: JSON.parse(row.state), messages: JSON.parse(row.messages), processingUntil: row.lease};}
 
 export function createStore(database: () => Promise<RentalDatabase>) {
   async function loadSession(owner: string, id: string) {

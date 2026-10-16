@@ -163,7 +163,9 @@ export function createAddressSearch(
           Accept: "application/json",
         },
         signal: AbortSignal.timeout(10000),
-        redirect: "error",
+        // Workers rejects redirect:"error" before any network request. Manual
+        // preserves the no-redirect policy because every 3xx fails the ok check.
+        redirect: "manual",
       });
       if (!response.ok)
         throw new SessionError(

@@ -256,7 +256,7 @@ export default function Workbench({
           )}
           {isPending ? (
             <p role="status">{w("正在读取账号…", "Loading account…")}</p>
-          ) : sessionError ? (
+          ) : sessionError && !session?.user ? (
             <section className="mw-card mw-empty" role="alert">
               <h2>{w("暂时无法读取账号", "Unable to load your account")}</h2>
               <p>

@@ -222,7 +222,7 @@ test("provider failure, empty completion and an explicit stop all retain a retry
           const signal = init?.signal;
           if (signal?.aborted) reject(signal.reason);
           else signal?.addEventListener("abort", () => reject(signal.reason), {once: true});
-          setTimeout(() => controller.abort(), 30);
+
         });
         return new Response(`data: ${JSON.stringify({id: "fixture", object: "chat.completion.chunk", created: 1, model: "test-fixture", choices: [{index: 0, delta: {}, finish_reason: "stop"}]})}\n\ndata: [DONE]\n\n`, {headers: {"Content-Type": "text/event-stream"}});
       };
@@ -231,6 +231,7 @@ test("provider failure, empty completion and an explicit stop all retain a retry
       const {session} = await loaded.json() as {session: RentalSession};
       const message = {id: randomUUID(), role: "user", parts: [{type: "text", text: "推荐公寓"}]};
       const response = await chat.POST(new Request(`${origin}/api/agent/chat`, {method: "POST", signal: controller.signal, headers: {cookie, origin, "Content-Type": "application/json"}, body: JSON.stringify({sessionId: session.id, version: session.version, state: session.state, requestId: randomUUID(), message})}));
+      if (scenario === "stop") await store.stopSession(store.ownerHash(cookie.split("=")[1]), session.id, message.id);
       const sse = await response.text();
       const restored = await store.loadSession(store.ownerHash(cookie.split("=")[1]), session.id);
       assert.equal(restored.messages.at(-1)?.metadata?.replyStatus, scenario === "stop" ? "stopped" : "error", sse);
@@ -281,5 +282,71 @@ test("automatic post-tool recovery keeps one turn, one map update and the comple
   } finally {
     globalThis.fetch = originalFetch;
     delete process.env.ATLAS_AI_BASE_URL; delete process.env.ATLAS_AI_MODEL; delete process.env.ATLAS_AI_API_KEY;
+  }
+});
+
+test("accepted turns survive reload before output; retries reuse the question and Stop rejects late writes", async () => {
+  const owner = store.ownerHash("lifecycle-owner");
+  const base = await store.sessionForCity(owner, "london");
+  const message = {id: "lifecycle-question", role: "user" as const, parts: [{type: "text" as const, text: "Nearby?"}]};
+  const run = await store.acquireSession(owner, base.id, base.version, base.state, {message});
+  const restored = await store.loadSession(owner, base.id);
+  assert.equal(restored.messages.at(-1)?.id, message.id);
+  assert.ok(restored.processingUntil! > Date.now());
+  assert.equal((await store.sessionForCity(owner, "sydney")).messages.length, 0);
+  const updated = {...run.state, map: {...run.state.map, categories: ["convenience" as const]}};
+  await store.checkpointState(owner, run, updated);
+  await assert.rejects(store.stopSession("other-owner", run.id, message.id));
+  assert.ok((await store.stopSession(owner, run.id, "another-question")).processingUntil! > Date.now());
+  const stopped = await store.stopSession(owner, run.id, message.id);
+  assert.equal(stopped.processingUntil, 0);
+  assert.equal(stopped.messages.at(-1)?.metadata?.replyStatus, "stopped");
+  assert.deepEqual(stopped.state.map.categories, ["convenience"]);
+  await store.finishSession(owner, run, [message], base.state);
+  assert.equal((await store.loadSession(owner, run.id)).messages.at(-1)?.metadata?.replyStatus, "stopped");
+  const retried = await store.acquireSession(owner, run.id, run.version, updated, {message: {...message, parts: [{type: "text", text: "Edited retry"}]}, retry: true});
+  assert.equal(retried.messages.filter(m => m.role === "user").length, 1);
+  assert.equal(retried.messages.at(-1)?.parts[0].type, "text");
+  assert.deepEqual(retried.messages.at(-1)?.parts, message.parts);
+  await store.finishSession(owner, retried, retried.messages, updated);
+});
+
+test("refresh/city disconnect does not cancel server generation; explicit Stop does", async () => {
+  const api = await import("../app/api/agent/session/route"), chat = await import("../app/api/agent/chat/route"), stop = await import("../app/api/agent/stop/route");
+  const originalFetch = globalThis.fetch;
+  const originalEnv = [process.env.ATLAS_AI_BASE_URL, process.env.ATLAS_AI_MODEL, process.env.ATLAS_AI_API_KEY];
+  process.env.ATLAS_AI_BASE_URL = "http://fixture.invalid/v1"; process.env.ATLAS_AI_MODEL = "test"; process.env.ATLAS_AI_API_KEY = "fixture";
+  let calls = 0;
+  const chunk = (delta: unknown, reason: string | null) => `data: ${JSON.stringify({id:"fixture",object:"chat.completion.chunk",created:1,model:"test",choices:[{index:0,delta,finish_reason:reason}]})}\n\n`;
+  globalThis.fetch = async () => {
+    calls++;
+    return new Response(new ReadableStream({start(c) {setTimeout(() => {c.enqueue(new TextEncoder().encode(chunk({content:"Saved after navigation."},null)+chunk({},"stop")+"data: [DONE]\n\n")); c.close();}, 100);}}), {headers:{"Content-Type":"text/event-stream"}});
+  };
+  const origin = "http://localhost:5174";
+  try {
+    const loaded = await api.GET(new Request(`${origin}/api/agent/session?city=london`));
+    const cookie = loaded.headers.get("set-cookie")!.split(";")[0];
+    let {session} = await loaded.json() as {session: RentalSession};
+    const load = async () => ((await (await api.GET(new Request(`${origin}/api/agent/session?city=london`,{headers:{cookie}}))).json()) as {session: RentalSession}).session;
+    for (const explicit of [false, true]) {
+      const controller = new AbortController(), id = randomUUID();
+      const response = await chat.POST(new Request(`${origin}/api/agent/chat`,{method:"POST",signal:controller.signal,headers:{cookie,origin,"Content-Type":"application/json"},body:JSON.stringify({sessionId:session.id,version:session.version,state:session.state,requestId:randomUUID(),message:{id,role:"user",parts:[{type:"text",text:"Hello"}]}})}));
+      assert.equal(response.status, 200);
+      assert.equal((await load()).messages.at(-1)?.id, id, "Question must already be durable before first token");
+      controller.abort(); await response.body!.cancel();
+      if (explicit) {
+        const result = await stop.POST(new Request(`${origin}/api/agent/stop`,{method:"POST",headers:{cookie,origin,"Content-Type":"application/json"},body:JSON.stringify({sessionId:session.id,messageId:id})}));
+        assert.equal(result.status,200);
+      }
+      await new Promise(resolve => setTimeout(resolve, 200));
+      session = await load();
+      assert.equal(session.processingUntil,0);
+      if (explicit) assert.equal(session.messages.at(-1)?.metadata?.replyStatus,"stopped");
+      else {assert.equal(session.messages.at(-1)?.metadata?.replyStatus,undefined); assert.ok(JSON.stringify(session.messages).includes("Saved after navigation."));}
+    }
+    assert.equal(calls,2,"Reload and reconciliation must not replay model calls");
+  } finally {
+    globalThis.fetch=originalFetch;
+    for (const [key,value] of ["ATLAS_AI_BASE_URL","ATLAS_AI_MODEL","ATLAS_AI_API_KEY"].map((key,i)=>[key,originalEnv[i]])) {if(value===undefined)delete process.env[key!];else process.env[key!]=value;}
   }
 });

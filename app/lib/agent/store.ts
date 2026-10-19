@@ -23,21 +23,46 @@ export function createStore(database: () => Promise<RentalDatabase>) {
     if (!row) throw new Error("Unable to create rental session.");
     return decode(row);
   }
-  async function acquireSession(owner: string, id: string, version: number, state: RentalState) {
+  async function acquireSession(owner: string, id: string, version: number, state: RentalState, turn?: {message: RentalMessage; retry?: boolean}) {
     const session = await loadSession(owner, id);
     if (session.state.cityId !== state.cityId) throw new SessionError("会话城市不匹配。", 400);
+    let messages = session.messages;
+    if (turn) {
+      const last = messages.findLastIndex(message => message.role === "user");
+      if (turn.retry) {
+        if (last < 0 || messages[last].id !== turn.message.id) throw new SessionError("只能重试最近一条消息，请刷新同步。", 400);
+        messages = messages.slice(0, last + 1);
+      } else {
+        if (messages.some(message => message.id === turn.message.id)) throw new SessionError("消息已接收，请同步会话。", 409);
+        messages = [...messages, turn.message];
+      }
+      if (messages.length > 80) throw new SessionError("这段对话已较长，请新建对话继续。", 400);
+      messages = messages.map((message, index) => index === messages.length - 1 ? {...message, metadata: {...message.metadata, context: {cityId: state.cityId, listingId: state.listingId}}} : message);
+    }
     const now = Date.now();
-    const result = await (await database()).run("UPDATE sessions SET version=version+1,state=?,lease=?,updated=? WHERE owner=? AND id=? AND version=? AND lease<?", [JSON.stringify(state), now + 120000, now, owner, id, version, now]);
+    // Accept the question and acquire its lease in one atomic write. A reload
+    // can therefore always identify an accepted turn, even before its first token.
+    const result = await (await database()).run("UPDATE sessions SET version=version+1,state=?,messages=?,lease=?,updated=? WHERE owner=? AND id=? AND version=? AND lease<?", [JSON.stringify(state), JSON.stringify(messages), now + 120000, now, owner, id, version, now]);
     if (!result.changes) throw new SessionError("会话正在处理或已在其他页面更新，请刷新后重试。");
-    return {...session, version: version + 1, state};
+    return {...session, version: version + 1, state, messages, processingUntil: now + 120000};
   }
-  async function finishSession(owner: string, session: RentalSession, messages: RentalMessage[], state: RentalState) {
+  async function finishSession(owner: string, session: RentalSession, messages: RentalMessage[], state: RentalState, cancelled = false) {
     // A stopped stream may have unfinished tool arguments. Keep completed results
     // but never send an orphaned tool call back to a provider on the next turn.
     const completed = messages.map(message => ({...message, parts: message.parts.filter(part => !part.type.startsWith("tool-") || !("state" in part) || typeof part.state !== "string" || !["input-streaming", "input-available"].includes(part.state))}))
       .filter(message => message.role !== "assistant" || message.metadata?.replyStatus || message.parts.some(part => part.type === "text" || part.type === "reasoning" || part.type.startsWith("tool-")));
     // The version prevents a timed-out request from overwriting a newer turn.
-    await (await database()).run("UPDATE sessions SET state=?,messages=?,lease=0,updated=? WHERE owner=? AND id=? AND version=?", [JSON.stringify(state), JSON.stringify(completed.slice(-100)), Date.now(), owner, session.id, session.version]);
+    await (await database()).run(`UPDATE sessions SET state=?,messages=?,lease=0,updated=? WHERE owner=? AND id=? AND version=? AND lease${cancelled ? "=0" : ">0"}`, [JSON.stringify(state), JSON.stringify(completed.slice(-100)), Date.now(), owner, session.id, session.version]);
+  }
+  async function checkpointState(owner: string, session: RentalSession, state: RentalState) {
+    await (await database()).run("UPDATE sessions SET state=? WHERE owner=? AND id=? AND version=? AND lease>?", [JSON.stringify(state), owner, session.id, session.version, Date.now()]);
+  }
+  async function stopSession(owner: string, id: string, messageId: string) {
+    const session = await loadSession(owner, id);
+    const last = session.messages.findLast(message => message.role === "user");
+    if (last?.id !== messageId || !session.processingUntil || session.processingUntil <= Date.now()) return session;
+    await finishSession(owner, session, [...session.messages, {id: randomUUID(), role: "assistant", parts: [], metadata: {replyStatus: "stopped"}}], session.state);
+    return loadSession(owner, id);
   }
   async function saveState(owner: string, id: string, version: number, state: RentalState, clear = false) {
     const session = await acquireSession(owner, id, version, state);
@@ -53,6 +78,6 @@ export function createStore(database: () => Promise<RentalDatabase>) {
       WHERE expires<=? OR count<?`, [key, now + milliseconds, now, now, now, maximum]);
     if (!result.changes) throw new SessionError("体验版请求次数已达上限，请稍后再试。", 429);
   }
-  return {database, loadSession, sessionForCity, acquireSession, finishSession, saveState, consumeQuota};
+  return {database, loadSession, sessionForCity, acquireSession, finishSession, saveState, consumeQuota, checkpointState, stopSession};
 }
-export const {database, loadSession, sessionForCity, acquireSession, finishSession, saveState, consumeQuota} = createStore(getDatabase);
+export const {database, loadSession, sessionForCity, acquireSession, finishSession, saveState, consumeQuota, checkpointState, stopSession} = createStore(getDatabase);

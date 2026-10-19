@@ -10,6 +10,8 @@
     "nodejs_compat"
   ],
   "workers_dev": true,
+  "durable_objects": {"bindings": [{"name": "ATLAS_CHAT_RUNS", "class_name": "ChatRun"}]},
+  "migrations": [{"tag": "chat-runs-v1", "new_sqlite_classes": ["ChatRun"]}],
   "d1_databases": [
     {
       "binding": "ATLAS_DB",

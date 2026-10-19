@@ -7,8 +7,9 @@ import { hasReplyText, hasUnfinishedText, replyNotices } from "@/lib/agent/conve
 import { agentConfig } from "@/lib/agent/config";
 import { validateRentalState } from "@/lib/agent/catalog";
 import { createRentalTools } from "@/lib/agent/tools";
-import { acquireSession, consumeQuota, finishSession, SessionError } from "@/lib/agent/store";
+import { acquireSession, consumeQuota, finishSession, checkpointState, loadSession, SessionError } from "@/lib/agent/store";
 import { errorResponse, identity, readBody } from "@/lib/agent/http";
+import { detachedReply } from "@/lib/agent/chat-lifetime";
 import { modelRecovery } from "@/lib/agent/model-recovery";
 
 export async function POST(request: Request) {
@@ -19,33 +20,35 @@ export async function POST(request: Request) {
     const state = validateRentalState(body.state,listings);
     await consumeQuota(`chat-owner:${auth.owner}`, 6, 60000);
     await consumeQuota("chat-global", Number(process.env.ATLAS_AI_DAILY_LIMIT) || 100, 86400000);
-    const session = await acquireSession(auth.owner, body.sessionId, body.version, state);
-    let messages: RentalMessage[];
-    if (body.retry) {
-      const index = session.messages.findLastIndex(message => message.role === "user");
-      if (index < 0 || session.messages[index].id !== body.message.id) {
-        await finishSession(auth.owner, session, session.messages, state);
-        throw new SessionError("只能重试最近一条消息，请刷新同步。", 400);
-      }
-      // Reuse the stored user message; never append a duplicate or trust edited retry text.
-      messages = session.messages.slice(0, index + 1);
-    } else messages = [...session.messages, body.message];
-    // Snapshot the server-validated origin for this attempt, including retries.
-    const context={cityId:state.cityId,listingId:state.listingId};
-    messages=messages.map((message,index)=>index===messages.length-1?{...message,metadata:{...message.metadata,context}}:message);
-    if (messages.length > 80) {await finishSession(auth.owner, session, session.messages, state); throw new SessionError("这段对话已较长，请新建对话继续。", 400);}
+    const session = await acquireSession(auth.owner, body.sessionId, body.version, state, {message: body.message, retry: body.retry});
+    const messages = session.messages;
+    const context = {cityId: state.cityId, listingId: state.listingId};
     let finalState = state;
     let replyStatus: ReplyStatus | undefined;
     let modelTimedOut = false;
     const started = Date.now(), deadline = AbortSignal.timeout(90000);
-    const signal = AbortSignal.any([request.signal, deadline]);
-    const failureStatus = (): ReplyStatus => request.signal.aborted ? "stopped" : deadline.aborted || modelTimedOut ? "timeout" : "error";
+    // Navigating/refreshing is not Stop. Only the explicit stop endpoint or
+    // the turn deadline cancels generation; the response is drained on server.
+    const stopped = new AbortController();
+    const signal = AbortSignal.any([stopped.signal, deadline]);
+    let checkingStop = false;
+    const stopWatcher = setInterval(async () => {
+      if (checkingStop) return;
+      checkingStop = true;
+      try {
+        const latest = await loadSession(auth.owner, session.id);
+        if (latest.version !== session.version || !latest.processingUntil) stopped.abort();
+      } catch { /* A transient database read must not discard the response. */ }
+      finally {checkingStop = false;}
+    }, 2000);
+    let checkpoint = Promise.resolve();
+    const failureStatus = (): ReplyStatus => stopped.signal.aborted ? "stopped" : deadline.aborted || modelTimedOut ? "timeout" : "error";
     const city = getCity(state.cityId);
     const stream = createUIMessageStream<RentalMessage>({
       originalMessages: messages,
       onError: () => "模型或工具暂时无法完成请求，请检查服务器模型配置或稍后重试。",
       execute: async ({writer}) => {
-        const scoped = createRentalTools(state, updated => {finalState = updated; writer.write({type: "data-rental-state", data: {requestId: body.requestId, version: session.version, phase: "update", state: updated}});},listings);
+        const scoped = createRentalTools(state, updated => {finalState = updated; checkpoint = checkpoint.then(() => checkpointState(auth.owner, session, updated)).catch(() => {}); writer.write({type: "data-rental-state", data: {requestId: body.requestId, version: session.version, phase: "update", state: updated}});},listings);
         writer.write({type: "data-rental-state", data: {requestId: body.requestId, version: session.version, phase: "start", state}});
         const provider = createOpenAI({apiKey: config.apiKey!, baseURL: config.baseURL!});
         const recovery = modelRecovery({onEvent: event => {
@@ -92,13 +95,18 @@ findNearbyAmenities返回完整收录数，candidates只是最近10条，不要�
         finally {clearInterval(heartbeat);}
       },
       onEnd: async ({messages: completed, responseMessage, isAborted, isCancelled, outcome}) => {
-        if (!replyStatus && (isCancelled || isAborted || request.signal.aborted || hasUnfinishedText(responseMessage))) replyStatus = deadline.aborted && !request.signal.aborted ? "timeout" : "stopped";
+        clearInterval(stopWatcher);
+        await checkpoint;
+        const latest = await loadSession(auth.owner, session.id);
+        const cancelled = latest.version === session.version && !latest.processingUntil && latest.messages.at(-1)?.metadata?.replyStatus === "stopped";
+        if (cancelled) replyStatus = "stopped";
+        if (!replyStatus && (isCancelled || isAborted || stopped.signal.aborted || hasUnfinishedText(responseMessage))) replyStatus = deadline.aborted && !stopped.signal.aborted ? "timeout" : "stopped";
         if (!replyStatus && (signal.aborted || outcome.status === "failed" || !hasReplyText(responseMessage))) replyStatus = failureStatus();
         responseMessage.metadata = {...responseMessage.metadata, context, ...(replyStatus?{replyStatus}:{})};
-        await finishSession(auth.owner, session, completed, finalState);
+        await finishSession(auth.owner, session, completed, finalState, cancelled);
         console.info("[rental-agent]", JSON.stringify({requestId: body.requestId, status: replyStatus ?? "completed", elapsedMs: Date.now() - started}));
       },
     });
-    return createUIMessageStreamResponse({stream, headers: auth.headers});
+    return detachedReply(createUIMessageStreamResponse({stream, headers: auth.headers}));
   } catch (error) {return errorResponse(error);}
 }

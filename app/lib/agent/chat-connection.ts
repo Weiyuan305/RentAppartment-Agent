@@ -62,6 +62,15 @@ export const sessionFetch = (input: RequestInfo | URL, init?: RequestInit) =>
   boundedFetch(input, init, {headersMs: 12_000, idleMs: 12_000, totalMs: 15_000});
 
 type RecoveryResult = {kind: "complete" | "incomplete" | "missing" | "superseded"; session: RentalSession};
+/** Classify an already loaded snapshot before starting any recovery timer. */
+export function storedReplyResult(session: RentalSession, messageId: string, sessionId: string): RecoveryResult | undefined {
+  if (session.id !== sessionId) return {kind: "superseded", session};
+  if (session.processingUntil && session.processingUntil > Date.now()) return;
+  const index = session.messages.findLastIndex(message => message.role === "user");
+  if (session.messages[index]?.id !== messageId) return {kind: session.messages.some(m => m.id === messageId) ? "superseded" : "missing", session};
+  const reply = session.messages.slice(index + 1).findLast(m => m.role === "assistant");
+  return {kind: reply && !reply.metadata?.replyStatus && !hasUnfinishedText(reply) && hasReplyText(reply) ? "complete" : "incomplete", session};
+}
 /** Reconcile a disconnected stream through reads only. Never replay map tools or model calls. */
 export async function recoverStoredReply({messageId, sessionId, signal: parent, load, timeoutMs = 90_000, intervalMs = 2_000}: {
   messageId: string; sessionId: string; signal: AbortSignal;
@@ -80,14 +89,8 @@ export async function recoverStoredReply({messageId, sessionId, signal: parent, 
       try {session = await interruptible(load(controller.signal), controller.signal);}
       catch (error) {if (controller.signal.aborted || !isConnectionFailure(error)) throw error;}
       if (session) {
-        if (session.id !== sessionId) return {kind: "superseded", session};
-        if (!(session.processingUntil && session.processingUntil > Date.now())) {
-          const index = session.messages.findLastIndex(message => message.role === "user");
-          const lastUser = session.messages[index];
-          if (!lastUser || lastUser.id !== messageId) return {kind: session.messages.some(m => m.id === messageId) ? "superseded" : "missing", session};
-          const reply = session.messages.slice(index + 1).findLast(m => m.role === "assistant");
-          return {kind: reply && !reply.metadata?.replyStatus && !hasUnfinishedText(reply) && hasReplyText(reply) ? "complete" : "incomplete", session};
-        }
+        const result = storedReplyResult(session, messageId, sessionId);
+        if (result) return result;
       }
       let delay: ReturnType<typeof setTimeout> | undefined;
       try {await interruptible(new Promise<void>(resolve => {delay = setTimeout(resolve, intervalMs);}), controller.signal);}

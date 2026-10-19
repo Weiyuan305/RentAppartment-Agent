@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { boundedFetch, recoverStoredReply, TransportTimeout } from "../lib/agent/chat-connection";
+import { boundedFetch, recoverStoredReply, storedReplyResult, TransportTimeout } from "../lib/agent/chat-connection";
 import { initialRentalState, type RentalSession } from "../lib/agent/contract";
 
 const session = (messages: RentalSession["messages"] = []): RentalSession => ({id:"session",version:2,state:initialRentalState("london"),messages});
@@ -46,4 +46,10 @@ test("server timeout is retained and a newer turn is never overwritten",async()=
   assert.equal((await run(session([user,{...answer,metadata:{replyStatus:"timeout"},parts:[]}]))).kind,"incomplete");
   assert.equal((await run(session([user,answer,{...user,id:"another"}]))).kind,"superseded");
   assert.equal((await run(session())).kind,"missing");
+});
+
+test("returning long after a background turn finished uses the stored result without a stale timeout", () => {
+  assert.equal(storedReplyResult(session([user, answer]), user.id, "session")?.kind, "complete");
+  assert.equal(storedReplyResult({...session([user]), processingUntil: Date.now() + 1000}, user.id, "session"), undefined);
+  assert.equal(storedReplyResult({...session([user]), processingUntil: Date.now() - 1}, user.id, "session")?.kind, "incomplete");
 });

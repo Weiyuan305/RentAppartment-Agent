@@ -1,7 +1,7 @@
 "use client";
 import { useListings } from "@/components/listing-catalog-provider";
 import { useLocale } from "@/components/locale-provider";
-import { lazy, Suspense, useEffect, useRef, useState, type ReactNode } from "react";
+import { lazy, Suspense, useEffect, useEffectEvent, useRef, useState, type ReactNode } from "react";
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { ArrowRight, ArrowUpRight, ArrowUp, ChevronDown, Sparkles, Square, RotateCcw, MapPin } from "lucide-react";
@@ -10,7 +10,7 @@ import {canRestoreSessionContext,stateForNavigation} from "@/lib/student/restore
 import { replyNotices, retryableMessage } from "@/lib/agent/conversation";
 import { displayCity } from "@/lib/i18n";
 import { type City } from "@/lib/rental-data";
-import { boundedFetch, sessionFetch, recoverStoredReply, isConnectionFailure } from "@/lib/agent/chat-connection";
+import { boundedFetch, sessionFetch, recoverStoredReply, storedReplyResult, isConnectionFailure } from "@/lib/agent/chat-connection";
 import {chatActivity} from "@/lib/agent/activity";
 const AssistantMarkdown = lazy(() => import("./assistant-markdown").then(module => ({default: module.AssistantMarkdown})));
 
@@ -29,6 +29,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
   const [connecting, setConnecting] = useState(false);
   const operation = useRef<AbortController | null>(null);
   const connectionFailed = useRef(false);
+  const synchronizing = useRef(false);
   const end = useRef<HTMLDivElement>(null);
   const transcript = useRef<HTMLDivElement>(null);
   const composer = useRef<HTMLTextAreaElement>(null);
@@ -41,7 +42,6 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
   const pendingSave = useRef<Promise<void>>(Promise.resolve());
   const disposed = useRef(false);
   // The SDK invokes this callback only when sending, never in the constructor.
-  // eslint-disable-next-line react-hooks/refs
   const [transport] = useState(() => new DefaultChatTransport<RentalMessage>({
     api: "/api/agent/chat",
     fetch: boundedFetch,
@@ -74,7 +74,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
         connectionFailed.current = true; setNetworkRecovering(true); setNotice(""); return;
       }
       setNotice(Object.values(replyNotices).includes(error.message) ? error.message : t("对话暂时无法完成，可以重试这条消息；已完成的工具结果会保留。"));current.current.onReplyReady?.();}},
-    onFinish: ({isAbort, isError}) => {if (!disposed.current) {if(isAbort)setNotice(replyNotices.stopped);else if(!isError) current.current.onReplyReady?.();}},
+    onFinish: ({isAbort, isError}) => {if (!disposed.current) {if(isAbort && !synchronizing.current)setNotice(replyNotices.stopped);else if(!isError) current.current.onReplyReady?.();}},
   });
   const {setMessages, stop} = chat;
   const busy = chat.status === "streaming" || chat.status === "submitted" || previewing || retrying || connecting || networkRecovering;
@@ -100,25 +100,67 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
     observer.observe(field);
     return () => observer.disconnect();
   }, [input]);
+  const syncSession = useEffectEvent(async (initial: boolean) => {
+    if (disposed.current || synchronizing.current || previewing) return;
+    synchronizing.current = true;
+    const wasRunning = !initial && busy;
+    const previousRequest = wasRunning ? request.current : null;
+    operation.current?.abort();
+    const controller = new AbortController();
+    operation.current = controller;
+    setConnecting(true); setNotice("");
+    const startRevision = current.current.uiRevision;
+    try {
+      // Detach only the browser stream; the explicit Stop endpoint is separate.
+      if (wasRunning) await stop();
+      controller.signal.throwIfAborted();
+      const response = await sessionFetch(`/api/agent/session?city=${city.id}`, {signal: controller.signal});
+      const payload = await response.json() as {session: RentalSession; status: AgentStatus; error?: string};
+      if (!response.ok) throw new Error(payload.error);
+      if (disposed.current || controller.signal.aborted) return;
+      const restored = payload.session;
+      const restoreContext = initial && canRestoreSessionContext(startRevision, current.current.uiRevision, current.current.preserveInitialState);
+      sessionRef.current = restored; setSession(restored); setAgentStatus(payload.status); setMessages(restored.messages); chat.clearError();
+      savedState.current = JSON.stringify(restored.state);
+      if (restoreContext) current.current.onState(stateForNavigation(restored.state, current.current.state, new URLSearchParams(window.location.search), current.current.listings));
+      const lastUser = restored.messages.findLast(message => message.role === "user");
+      if ((restored.processingUntil && restored.processingUntil > Date.now() && lastUser) || (wasRunning && previousRequest?.messageId)) {
+        request.current = previousRequest ?? {id: crypto.randomUUID(), messageId: lastUser?.id, revision: restoreContext ? startRevision : -1, startedAt: Date.now()};
+        connectionFailed.current = true;
+        setConnecting(false); setNetworkRecovering(true);
+        await recoverConnection(controller, restored);
+      }
+    } catch {
+      if (!disposed.current && !controller.signal.aborted) setNotice("连接中断，暂时未能取回回复。可以重试这条消息；已完成的地图结果会保留。");
+    } finally {
+      if (operation.current === controller) {
+        synchronizing.current = false;
+        operation.current = null;
+        if (!disposed.current) {setConnecting(false); setNetworkRecovering(false); setRetrying(false); setAutoRecovering(false);}
+      }
+    }
+  });
   useEffect(() => {
     disposed.current = false;
-    const controller = new AbortController();
-    const startRevision = current.current.uiRevision;
-    void (async () => {
-      try {
-        const response = await sessionFetch(`/api/agent/session?city=${city.id}`, {signal: controller.signal});
-        const payload = await response.json() as {session: RentalSession; status: AgentStatus; error?: string};
-        if (!response.ok) throw new Error(payload.error);
-        if (controller.signal.aborted) return;
-        const restored = payload.session as RentalSession;
-        const restoreContext=canRestoreSessionContext(startRevision,current.current.uiRevision,current.current.preserveInitialState);
-        sessionRef.current = restored; setSession(restored); setAgentStatus(payload.status); setMessages(restored.messages);
-        savedState.current=JSON.stringify(restored.state);
-        if(restoreContext)current.current.onState(stateForNavigation(restored.state,current.current.state,new URLSearchParams(window.location.search),current.current.listings));
-      } catch {if (!controller.signal.aborted) setNotice("会话存储暂时不可用，请刷新页面重试。");}
-    })();
-    return () => {disposed.current = true; controller.abort(); operation.current?.abort(); operation.current = null; void stop();};
-  }, [city.id, setMessages, stop]);
+    let mounted = true;
+    queueMicrotask(() => {if (mounted) void syncSession(true);});
+    let hidden = document.visibilityState === "hidden";
+    const visibility = () => {
+      if (document.visibilityState === "hidden") {hidden = true; return;}
+      if (hidden) {hidden = false; void syncSession(false);}
+    };
+    const resume = () => {void syncSession(false);};
+    const pageShow = (event: PageTransitionEvent) => {if (event.persisted) void syncSession(false);};
+    document.addEventListener("visibilitychange", visibility);
+    window.addEventListener("pageshow", pageShow);
+    document.addEventListener("resume", resume);
+    return () => {
+      mounted = false; disposed.current = true; synchronizing.current = false;
+      document.removeEventListener("visibilitychange", visibility); window.removeEventListener("pageshow", pageShow);
+      document.removeEventListener("resume", resume);
+      operation.current?.abort(); operation.current = null; void stop();
+    };
+  }, [city.id, stop]);
   useEffect(() => {
     const scroller = end.current?.closest<HTMLElement>(".chat-scroll");
     if (!collapsed && followEnd.current && scroller) scroller.scrollTo({top:scroller.scrollHeight,behavior:"instant"});
@@ -165,13 +207,13 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
     return () => clearTimeout(timer);
   }, [state, session, busy]);
 
-  async function recoverConnection(controller: AbortController) {
+  async function recoverConnection(controller: AbortController, snapshot?: RentalSession) {
     const active = request.current, original = sessionRef.current;
     if (!connectionFailed.current || !active?.messageId || !original || controller.signal.aborted) return;
     try {
-      const result = await recoverStoredReply({
+      const result = (snapshot && storedReplyResult(snapshot, active.messageId, original.id)) ?? await recoverStoredReply({
         messageId: active.messageId, sessionId: original.id, signal: controller.signal,
-        timeoutMs: Math.min(90_000, 150_000 - (Date.now() - active.startedAt)),
+        timeoutMs: Math.min(125_000, Math.max(90_000, (original.processingUntil ?? 0) - Date.now() + 5_000), 150_000 - (Date.now() - active.startedAt)),
         load: async signal => {
           const response = await sessionFetch(`/api/agent/session?city=${city.id}`, {signal});
           if (!response.ok) throw new Error("Session recovery unavailable");
@@ -199,6 +241,12 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
     }
   }
   function stopReply() {
+    const active = request.current, original = sessionRef.current;
+    if (original && active?.messageId) void sessionFetch("/api/agent/stop", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({sessionId: original.id, messageId: active.messageId})}).then(async response => {
+      if (!response.ok) throw new Error("Stop failed");
+      const payload = await response.json() as {session: RentalSession};
+      if (!disposed.current && request.current === active) sessionRef.current = payload.session;
+    }).catch(() => {if (!disposed.current) setNotice("暂时无法停止服务器上的回复，返回页面后会自动同步结果。");});
     operation.current?.abort();
     setNetworkRecovering(false); setConnecting(false); setRetrying(false); setAutoRecovering(false);
     setNotice(replyNotices.stopped); void stop();
@@ -301,7 +349,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
         ? <Suspense key={i} fallback={<span aria-label={t("正在加载回复")}>…</span>}><AssistantMarkdown text={part.text} streaming={chat.status === "streaming" && part.state === "streaming"}/></Suspense>
         : <span key={i}>{part.text}</span> : null)}{message.parts.some(p => p.type.startsWith("tool-") && "state" in p && p.state === "output-available") && <small className="chat-tool-status">{t("已查询工具 · 地图与结果同步")}</small>}</div>)}
       <fieldset className="agent-receipt-slot" disabled={busy}>{actionReceipt}</fieldset>
-      {busy && <p className="chat-busy" role="status" aria-live="polite" aria-atomic="true"><span className="chat-typing-dots" aria-hidden="true"><span/><span/><span/></span><span>{networkRecovering ? t("网络连接中断，正在自动同步回复…") : connecting ? t("正在连接会话…") : retrying ? t("正在重新连接…") : previewing ? t("正在查询工具…") : autoRecovering ? t("连接较慢，正在自动重新连接…") : chatActivity(chat.messages,chat.status==="submitted",locale)}</span></p>}
+      {busy && <p className="chat-busy" role="status" aria-live="polite" aria-atomic="true"><span className="chat-typing-dots" aria-hidden="true"><span/><span/><span/></span><span>{networkRecovering ? t("正在同步尚未完成的回复…") : connecting ? t("正在连接会话…") : retrying ? t("正在重新连接…") : previewing ? t("正在查询工具…") : autoRecovering ? t("连接较慢，正在自动重新连接…") : chatActivity(chat.messages,chat.status==="submitted",locale)}</span></p>}
       {displayedNotice && <div className="chat-notice" role="status"><p>{t(displayedNotice)}</p>{!busy && retryMessage && <button type="button" className="chat-retry" onClick={() => void retry()}><RotateCcw size={13}/>{t("重试这条消息")}</button>}</div>}<div ref={end}/>
     </div></div>
     <form className="chat-form" onSubmit={e => {e.preventDefault(); void send(input);}} onPointerDown={e => {

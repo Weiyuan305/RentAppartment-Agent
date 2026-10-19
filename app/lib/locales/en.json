@@ -481,6 +481,8 @@
   "加载失败，点击重试": "Could not load. Try again",
   "隐私说明": "Privacy notice",
   "将 Google 与现有账号关联，保留收藏和历史记录。": "Link Google to your account and keep your saved homes and history.",
+  "正在同步尚未完成的回复…": "Syncing your pending reply…",
+  "暂时无法停止服务器上的回复，返回页面后会自动同步结果。": "The server could not be stopped. Your reply will sync when you return.",
   "网络连接中断，正在自动同步回复…": "Connection interrupted. Recovering your reply automatically…",
   "连接中断，暂时未能取回回复。可以重试这条消息；已完成的地图结果会保留。": "The connection was interrupted and the reply could not be recovered. You can retry this message; completed map results are kept."
 }

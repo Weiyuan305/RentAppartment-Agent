@@ -1,7 +1,7 @@
 @font-face{font-family:Atlas Editorial;src:url('/fonts/design-lab/instrument-serif.ttf') format('truetype');font-weight:400;font-display:swap}
 @font-face{font-family:Atlas Editorial;src:url('/fonts/design-lab/instrument-serif-italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap}
 
-.concept-lab{--background:#f2f0e9;--surface:#fcfbf7;--surface-soft:#f2f1e9;--foreground:#233d32;--muted-foreground:#687267;--ink-secondary:#4b6053;--primary:#275944;--brand-soft:#e8eddf;--border:#dbdfd2;--success:#275944;--success-soft:#e8eddf;--control-size:36px;--control-radius:9px;--control-gap:8px;--focus-ring:var(--primary);--motion-fast:140ms;--motion-normal:240ms;--ease-in-out:cubic-bezier(.77,0,.175,1);font-family:'Atlas Manrope','PingFang SC','Microsoft YaHei',sans-serif;background:var(--background);color:var(--foreground);height:100dvh;min-height:0}
+.concept-lab{--background:#f2f0e9;--surface:#fcfbf7;--surface-soft:#f2f1e9;--foreground:#233d32;--muted-foreground:#687267;--ink-secondary:#4b6053;--primary:#275944;--brand-soft:#e8eddf;--border:#dbdfd2;--success:#275944;--success-soft:#e8eddf;--control-size:36px;--control-radius:9px;--control-gap:8px;--space-compact:8px;--space-control-inline:10px;--space-panel-inline:15px;--focus-ring:var(--primary);--motion-fast:140ms;--motion-normal:240ms;--ease-in-out:cubic-bezier(.77,0,.175,1);font-family:'Atlas Manrope','PingFang SC','Microsoft YaHei',sans-serif;background:var(--background);color:var(--foreground);height:100dvh;min-height:0}
 .concept-lab ::selection{background:#b7d6bd;color:#183a2c}
 .concept-lab :is(button,a,select,textarea,input,summary):focus-visible{outline:2px solid var(--focus-ring);outline-offset:3px}
 .concept-lab :is(button,a){transition:color 160ms ease,background-color 160ms ease,transform 160ms var(--ease-out)}
@@ -79,7 +79,11 @@
 .concept-lab :is(.photo-arrow,.photo-dots,.demo-photo){z-index:1}
 .concept-lab .photo-arrow{height:28px;width:28px;top:50%;translate:0 -50%;background:#fbfaf1eb;color:#254231}
 .concept-lab .demo-photo{background:#112c2caa;font-size:8px;color:#fff;padding:3px 5px}
-.concept-lab .listing-body{padding:13px 0 0}
+.concept-lab .listing-body{padding:13px var(--space-control-inline) 0;min-width:0}
+.concept-lab .listing-card .listing-commute{margin-inline:calc(var(--space-control-inline) * -1)}
+.concept-lab .listing-card .listing-title>button:first-child{min-width:0;text-align:left}
+.concept-lab .listing-card .listing-price-row>button{flex:none}
+.concept-lab .listing-card .listing-area,.concept-lab .listing-card .commute-estimate{overflow-wrap:anywhere}
 .concept-lab .listing-title>button:first-child{font:600 17px/1.35 'Atlas Manrope',sans-serif;letter-spacing:-.025em;color:var(--foreground)}
 .concept-lab .locate-button{border-radius:50%;color:var(--muted-foreground)}
 .concept-lab .locate-button.active{background:var(--primary);color:#f7fbf3}
@@ -266,7 +270,7 @@
 .concept-detail[data-state=open]{animation:none}
 .concept-detail>[data-slot=dialog-title]{font:400 43px/.98 'Atlas Editorial',serif;letter-spacing:-.02em;grid-column:2;grid-row:1;margin-top:30px;color:#233d32}
 .concept-detail>[data-slot=dialog-description]{grid-column:2;grid-row:2;font-size:10px;color:#62715f;margin-top:12px;margin-bottom:22px}
-.concept-detail .detail-photo-frame{grid-column:1;grid-row:1/span 5;position:relative;min-height:440px;border-radius:12px;overflow:hidden;background:#1c3c38}
+.concept-detail .detail-photo-frame{grid-column:1;grid-row:1/span 6;position:relative;min-height:440px;border-radius:12px;overflow:hidden;background:#1c3c38}
 .concept-detail .detail-photo-skeleton{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#d5e4da;font-size:12px;letter-spacing:.02em;background:linear-gradient(100deg,#1a3532 18%,#31564d 42%,#1a3532 66%);background-size:220% 100%;animation:detail-photo-shimmer 1.4s ease-in-out infinite}
 @keyframes detail-photo-shimmer{from{background-position:100% 0}to{background-position:-100% 0}}
 .concept-detail .detail-photo{position:relative;z-index:1;display:block;width:100%;height:100%;min-height:440px;object-fit:cover;border-radius:12px;max-height:580px;background:transparent}
@@ -276,7 +280,8 @@
 .concept-detail .price{font:400 36px/1 'Atlas Editorial',serif;color:#233d32}
 .concept-detail .price small{font:400 11px 'Atlas Manrope',sans-serif;color:#62715f}
 .concept-detail .detail-note{grid-column:2;grid-row:4;font-size:11px;color:#62715f;line-height:1.9;margin:22px 0;padding:0;border:0;background:transparent}
-.concept-detail .detail-actions{grid-column:2;grid-row:5;display:grid;grid-template-columns:1fr 1fr;gap:8px;align-self:end;padding-bottom:8px}
+.concept-detail .listing-commute{grid-column:2;grid-row:5;align-self:start;min-width:0}
+.concept-detail .detail-actions{grid-column:2;grid-row:6;display:grid;grid-template-columns:1fr 1fr;gap:8px;align-self:end;padding-bottom:8px}
 .concept-detail .detail-actions>a{grid-column:1/span 2}
 .concept-detail :is(.primary-button,.secondary-button){font-size:11px;padding:11px 8px;border-radius:7px;justify-content:center;min-height:40px}
 .concept-detail .primary-button{background:#275944;color:#fff}
@@ -1070,4 +1075,18 @@
  .concept-detail .detail-photo-frame{grid-column:auto;grid-row:auto;width:100%;height:210px;min-height:210px}
  .concept-detail .detail-photo{width:100%;height:210px;min-height:0;display:block}
  .concept-detail .detail-actions{padding-bottom:4px}
+}
+.concept-editorial .listing-commute{background:#f4f7f1;color:#203e33;border-color:#c5d4c2}
+.concept-editorial .listing-commute-note{color:#4d6858}
+.concept-editorial .verify-tag{background:#efe6c8;color:#5c4a12}
+/* The list header shares the card body's horizontal inset so the title, count, and sort control stay inside the panel. */
+.concept-lab .listing-panel>:is(.list-heading,.list-meta,.library-sync-status){padding-inline:var(--space-control-inline);max-width:100%;min-width:0;box-sizing:border-box}
+.concept-lab .list-heading-copy,.concept-lab .list-heading-copy h1,.concept-lab .listing-panel>.list-meta>span,.concept-lab .listing-panel>.library-sync-status p{min-width:0;overflow-wrap:anywhere}
+.concept-lab .listing-panel>.library-sync-status--compact button{flex:none;max-width:100%;white-space:normal;text-align:start}
+.concept-lab .school-switch{display:none}
+.concept-lab .assistant-heading .panel-heading-actions>button.chat-reset{width:auto;min-width:0;padding:0 8px;gap:5px;font-size:11px;font-weight:700}
+.concept-lab .assistant-heading .panel-heading-actions>button.chat-reset span{line-height:1}
+@media(max-width:600px){
+ .concept-lab .school-switch{display:inline-flex;align-items:center;flex:none;height:30px;padding:0 10px;border:1px solid #45605a;border-radius:999px;background:#203c3b;color:#ecf3e9;font:700 13px/1 "Atlas Manrope","PingFang SC",sans-serif}
+ .concept-lab .school-switch:hover,.concept-lab .school-switch:focus-visible{background:#294f45;color:#ecf3e9}
 }

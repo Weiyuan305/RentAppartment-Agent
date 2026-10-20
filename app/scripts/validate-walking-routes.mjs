@@ -24,7 +24,7 @@ for (const listing of listings) {
   assert.throws(() => parseWalkingRoute({...route, durationSeconds:NaN}, listing, city));
   points += route.coordinates.length;
 }
-assert.equal(listings.length,66);
+assert.equal(listings.length,70);
 const london = JSON.parse(readFileSync(new URL('london-1.json',root),'utf8'));
 assert.equal(london.distanceMeters,741);
 assert.equal(routeMinutes(london.durationSeconds),10);

@@ -5,7 +5,8 @@ import { lazy, Suspense, useEffect, useEffectEvent, useRef, useState, type React
 import { useChat } from "@ai-sdk/react";
 import { DefaultChatTransport } from "ai";
 import { ArrowRight, ArrowUpRight, ArrowUp, ChevronDown, Sparkles, Square, RotateCcw, MapPin } from "lucide-react";
-import { type AgentStatus, type RentalMessage, type RentalSession, type RentalState, rentalStateSchema } from "@/lib/agent/contract";
+import { initialRentalState, type AgentStatus, type RentalMessage, type RentalSession, type RentalState, rentalStateSchema } from "@/lib/agent/contract";
+import { englishRoomReply } from "@/lib/assistant-language";
 import {canRestoreSessionContext,stateForNavigation} from "@/lib/student/restore";
 import { replyNotices, retryableMessage } from "@/lib/agent/conversation";
 import { displayCity } from "@/lib/i18n";
@@ -324,10 +325,11 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
     followEnd.current=true;
     await pendingSave.current;
     const s = sessionRef.current!;
+    const fresh = initialRentalState(city.id);
     try {
-      const response = await sessionFetch("/api/agent/session", {method: "PATCH", headers: {"Content-Type": "application/json"}, body: JSON.stringify({sessionId: s.id, version: s.version, state: current.current.state, clear: true})});
+      const response = await sessionFetch("/api/agent/session", {method: "PATCH", headers: {"Content-Type": "application/json"}, body: JSON.stringify({sessionId: s.id, version: s.version, state: fresh, clear: true})});
       const payload = await response.json() as {session: RentalSession; status: AgentStatus; error?: string}; if (!response.ok) throw new Error(payload.error);
-      sessionRef.current = payload.session; onActionClear?.(); setMessages([]); setNotice(""); chat.clearError();
+      sessionRef.current = payload.session; savedState.current = JSON.stringify(payload.session.state); current.current.onState(payload.session.state); onActionClear?.(); setMessages([]); setNotice(""); chat.clearError();
     } catch {setNotice("暂时无法新建对话，请刷新重试。");}
   }
   return <aside id="workspace-chat" className="assistant-panel" inert={collapsed} aria-label={t("找房助手")}>
@@ -336,7 +338,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
       <div className="assistant-heading-copy"><h2>{t("你的找房搭子")}</h2><p title={session ? t("会话保存在服务器") : t("正在连接会话…")}>{session ? (locale === "zh" ? "云端会话" : "Cloud conversation") : t("正在连接会话…")}</p></div>
       <span className={`assistant-state ${agentStatus?.configured ? "ready" : ""}`}>{agentStatus == null ? t("正在连接会话…") : agentStatus.configured ? t("AI 已配置") : t("工具体验")}</span>
       <div className="panel-heading-actions" role="group" aria-label={locale === "zh" ? "对话操作" : "Chat actions"}>
-        <button className="chat-reset" title={t("新建对话")} aria-label={t("新建对话")} disabled={busy || !session} onClick={reset}><RotateCcw size={18}/></button>
+        <button className="chat-reset" title={t("重新开始")} aria-label={t("重新开始")} disabled={busy || !session} onClick={reset}><RotateCcw size={15}/><span>{t("重新开始")}</span></button>
         {headerControl}
       </div>
     </div>
@@ -346,7 +348,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
       {chat.messages.map(message => <div key={message.id} className={`chat-message ${message.role}`}>
         {message.role==="user" && message.metadata?.context && <small className="chat-origin">{locale==="zh"?"查询起点":"Query origin"} · {listings.find(home=>home.id===message.metadata?.context?.listingId&&home.cityId===message.metadata?.context?.cityId)?.name ?? (locale==="zh"?"原房源":"Original home")}</small>}
         {message.parts.map((part, i) => part.type === "text" && part.text ? message.role === "assistant"
-        ? <Suspense key={i} fallback={<span aria-label={t("正在加载回复")}>…</span>}><AssistantMarkdown text={part.text} streaming={chat.status === "streaming" && part.state === "streaming"}/></Suspense>
+        ? <Suspense key={i} fallback={<span aria-label={t("正在加载回复")}>…</span>}><AssistantMarkdown text={locale === "en" ? englishRoomReply(part.text) : part.text} streaming={chat.status === "streaming" && part.state === "streaming"}/></Suspense>
         : <span key={i}>{part.text}</span> : null)}{message.parts.some(p => p.type.startsWith("tool-") && "state" in p && p.state === "output-available") && <small className="chat-tool-status">{t("已查询工具 · 地图与结果同步")}</small>}</div>)}
       <fieldset className="agent-receipt-slot" disabled={busy}>{actionReceipt}</fieldset>
       {busy && <p className="chat-busy" role="status" aria-live="polite" aria-atomic="true"><span className="chat-typing-dots" aria-hidden="true"><span/><span/><span/></span><span>{networkRecovering ? t("正在同步尚未完成的回复…") : connecting ? t("正在连接会话…") : retrying ? t("正在重新连接…") : previewing ? t("正在查询工具…") : autoRecovering ? t("连接较慢，正在自动重新连接…") : chatActivity(chat.messages,chat.status==="submitted",locale)}</span></p>}

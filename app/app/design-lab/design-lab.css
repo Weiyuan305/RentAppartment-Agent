@@ -1079,6 +1079,10 @@
 .concept-editorial .listing-commute{background:#f4f7f1;color:#203e33;border-color:#c5d4c2}
 .concept-editorial .listing-commute-note{color:#4d6858}
 .concept-editorial .verify-tag{background:#efe6c8;color:#5c4a12}
+/* The list header shares the card body's horizontal inset so the title, count, and sort control stay inside the panel. */
+.concept-lab .listing-panel>:is(.list-heading,.list-meta,.library-sync-status){padding-inline:var(--space-control-inline);max-width:100%;min-width:0;box-sizing:border-box}
+.concept-lab .list-heading-copy,.concept-lab .list-heading-copy h1,.concept-lab .listing-panel>.list-meta>span,.concept-lab .listing-panel>.library-sync-status p{min-width:0;overflow-wrap:anywhere}
+.concept-lab .listing-panel>.library-sync-status--compact button{flex:none;max-width:100%;white-space:normal;text-align:start}
 .concept-lab .school-switch{display:none}
 .concept-lab .assistant-heading .panel-heading-actions>button.chat-reset{width:auto;min-width:0;padding:0 8px;gap:5px;font-size:11px;font-weight:700}
 .concept-lab .assistant-heading .panel-heading-actions>button.chat-reset span{line-height:1}

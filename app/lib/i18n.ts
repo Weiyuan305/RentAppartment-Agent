@@ -36,6 +36,20 @@ export function displayCity(city: City, locale: Locale) {
   const english = englishCities[city.id];
   return {...city,...english,name:city.english,period:city.period === "周" ? "week" : "month",neighborhoods:english.neighborhoods.length ? english.neighborhoods : city.neighborhoods};
 }
+const schoolTags: Record<City["id"], {zh: string; en: string}> = {
+  london: {zh: "UCL", en: "UCL"},
+  manchester: {zh: "曼大", en: "UoM"},
+  edinburgh: {zh: "爱大", en: "UoE"},
+  liverpool: {zh: "利大", en: "UoL"},
+  birmingham: {zh: "伯大", en: "UoB"},
+  sydney: {zh: "悉大", en: "USYD"},
+  melbourne: {zh: "墨大", en: "UniMelb"},
+  canberra: {zh: "澳国立", en: "ANU"},
+  singapore: {zh: "国大", en: "NUS"},
+  "kuala-lumpur": {zh: "马大", en: "UM"},
+  "hong-kong": {zh: "港大", en: "HKU"},
+};
+export function schoolTag(city: City, locale: Locale) { return schoolTags[city.id][locale]; }
 export function displayArea(area: string, locale: Locale) {
   if (locale === "zh") return area;
   const zh = ["西营盘","坚尼地城","石塘咀","薄扶林","上环","西环"];

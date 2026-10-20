@@ -4,9 +4,9 @@ import { cities, listings } from '../lib/rental-data.ts';
 const picked = {...emptyFilters, budget:600, roomType:'独立 Studio', walkMinutes:30};
 assert.deepEqual(listings.filter(l=>l.cityId==='sydney'&&matchesFilters(l,picked)).map(l=>l.id),['sydney-2']);
 assert.equal(listings.filter(l=>l.cityId==='sydney'&&matchesFilters(l,{...emptyFilters,budget:1})).length,0);
-assert.equal(cities.length,11);assert.equal(listings.length,66);assert.equal(new Set(listings.map(l=>l.id)).size,66);
-for(const city of cities){assert.equal(listings.filter(l=>l.cityId===city.id).length,6);}
-console.log('PASS: eleven cities / 66 unique listings; combined filtering; real campus commute filtering; empty budget results.');
+assert.equal(cities.length,11);assert.equal(listings.length,70);assert.equal(new Set(listings.map(l=>l.id)).size,70);
+for(const city of cities){assert.equal(listings.filter(l=>l.cityId===city.id).length,city.id==="manchester"?10:6);}
+console.log('PASS: eleven cities / 70 unique listings; Manchester pilot adds four demo homes; combined filtering; real campus commute filtering; empty budget results.');
 
 const { resolveMapConfig } = await import('../lib/map-config.ts');
 assert.equal(resolveMapConfig({}).provider,'cesium-ion');

@@ -158,3 +158,23 @@ body:has(.listing-detail-page){background:#122326}
   background-image:none;
  }
 }
+.listing-commute{display:grid;gap:4px;margin:10px 0 8px;padding:8px 10px;border:1px solid #45605a;border-radius:10px;background:#203c3b;color:#ecf3e9}
+.listing-commute-line{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:0;font:600 12px/1.4 "Atlas Manrope","PingFang SC",sans-serif}
+.listing-commute-line strong{font-weight:750}
+.listing-commute-note{margin:0;color:#b1c4bd;font:400 11px/1.45 "Atlas Manrope","PingFang SC",sans-serif}
+.verify-tag{display:inline-flex;align-items:center;min-height:20px;padding:0 7px;border-radius:999px;background:#173432;color:#f2d48a;font-weight:700}
+.verify-tag.is-verified{background:#c1dfc0;color:#173b30}
+.listing-viewing-button{display:flex;width:100%;align-items:center;justify-content:center;min-height:40px;margin-top:8px;padding:8px 12px;border:0;border-radius:10px;background:#c1dfc0;color:#173b30;font:700 13px/1.2 "Atlas Manrope","PingFang SC",sans-serif;cursor:pointer}
+.listing-viewing-button:hover,.listing-viewing-button:focus-visible{background:#d8ebce;color:#173b30}
+.listing-viewing-button:disabled{opacity:.55;cursor:default}
+.viewing-sheet{max-height:min(88dvh,640px);overflow:auto;border-radius:18px 18px 0 0;background:#f6f8f0;color:#203e33;font-family:"Atlas Manrope","PingFang SC",sans-serif}
+.viewing-sheet [data-slot=sheet-title]{color:#203e33;font-weight:750}
+.viewing-sheet [data-slot=sheet-description]{color:#3d5c4c}
+.viewing-sheet [data-slot=sheet-close]{color:#203e33}
+.viewing-sheet [data-slot=sheet-close]:hover{color:#203e33}
+.viewing-form{display:grid;gap:10px;padding:0 16px 20px}
+.viewing-form label{display:grid;gap:4px;font-size:12px;font-weight:700;color:#203e33}
+.viewing-form input,.viewing-form textarea{width:100%;min-height:40px;padding:8px 10px;border:1px solid #afc3a7;border-radius:8px;background:#fff;color:#203e33;font:400 14px/1.4 "Atlas Manrope","PingFang SC",sans-serif}
+.viewing-form textarea{min-height:72px;resize:vertical}
+.viewing-notice,.viewing-saved{margin:0 16px 16px;color:#203e33;font-size:14px;line-height:1.5}
+.listing-detail-page .listing-viewing-button{margin:12px 0}

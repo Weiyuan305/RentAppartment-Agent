@@ -191,6 +191,22 @@
     "durationSeconds": 975.196,
     "distanceMeters": 1362
   },
+  "manchester-7": {
+    "durationSeconds": 2327.164,
+    "distanceMeters": 3205
+  },
+  "manchester-8": {
+    "durationSeconds": 1190.431,
+    "distanceMeters": 1621
+  },
+  "manchester-9": {
+    "durationSeconds": 1271.499,
+    "distanceMeters": 1779
+  },
+  "manchester-10": {
+    "durationSeconds": 1217.15,
+    "distanceMeters": 1689
+  },
   "melbourne-1": {
     "durationSeconds": 562.749,
     "distanceMeters": 699

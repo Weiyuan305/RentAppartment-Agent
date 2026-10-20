@@ -1,5 +1,8 @@
 export const cityIds = ["london", "manchester", "edinburgh", "liverpool", "birmingham", "sydney", "melbourne", "canberra", "singapore", "kuala-lumpur", "hong-kong"] as const;
 export type CityId = typeof cityIds[number];
+/** First visit, when the URL has no city, opens the University of Manchester pilot. */
+export const defaultCityId: CityId = "manchester";
+export type VerificationState = "pending" | "verified";
 export type CountryId = "uk" | "au" | "sg" | "my" | "hk";
 export type City = { id: CityId; countryId: CountryId; name: string; english: string; country: string; flag: string; university: string; campus: string; currency: string; period: "周" | "月"; lng: number; lat: number; neighborhoods: string[]; prices: number[]; };
 export const cities: City[] = [
@@ -17,14 +20,25 @@ export const cities: City[] = [
 ];
 export const countries = (["uk", "au", "sg", "my", "hk"] as const).map(id => ({id, cities:cities.filter(city => city.countryId === id)}));
 export function citiesInCountry(id: CountryId) { return cities.filter(city => city.countryId === id); }
-export type Listing = { id: string; cityId: CityId; name: string; area: string; price: number; roomType: "独立 Studio" | "独卫单间" | "合租单间"; size: number; bills: boolean; lng: number; lat: number; photos: string[]; merchant?: {commutes?:Record<string,import("./listing-commute").CommuteSummary>;propertyId:string;name:string;address:string;floorPlans?:string[];description:string;descriptionEn:string;facilities:string[];studentOnly:boolean;guarantor:string;paymentTerms:string;cancellation:string;deposit:number;fees:number;billDetails:string;price:number;period:"week"|"month";availableFrom:string;availableUntil:string;minMonths:number;maxMonths:number;quantity:number;updatedAt:string} };
+export type Listing = { id: string; cityId: CityId; name: string; area: string; price: number; roomType: "独立 Studio" | "独卫单间" | "合租单间"; size: number; bills: boolean; lng: number; lat: number; photos: string[]; verification?: VerificationState; merchant?: {commutes?:Record<string,import("./listing-commute").CommuteSummary>;propertyId:string;name:string;address:string;floorPlans?:string[];description:string;descriptionEn:string;facilities:string[];studentOnly:boolean;guarantor:string;paymentTerms:string;cancellation:string;deposit:number;fees:number;billDetails:string;price:number;period:"week"|"month";availableFrom:string;availableUntil:string;minMonths:number;maxMonths:number;quantity:number;updatedAt:string} };
 const canberraOffsets = [[.002,.004],[-.006,.001],[.009,.007],[-.003,-.004],[.006,-.003],[.013,.002]];
 const offsets = [[.002, .004], [-.006, .001], [.009, .007], [-.003, -.004], [.006, -.01], [.013, -.002]];
-export const listings: Listing[] = cities.flatMap(city => city.prices.map((price, i) => ({
+const generatedListings: Listing[] = cities.flatMap(city => city.prices.map((price, i) => ({
   id: `${city.id}-${i+1}`, cityId: city.id, name: ["The Academic", "Chapter House", "Parkside Living", "The Greenhouse", "Union Rooms", "Atlas Residence"][i], area: city.neighborhoods[i], price,
   roomType: (["独卫单间", "独立 Studio", "合租单间", "独立 Studio", "合租单间", "独卫单间"] as const)[i], size: [19, 27, 16, 32, 14, 22][i], bills: i % 3 !== 2,
   lng: city.lng + (city.id === "canberra" ? canberraOffsets : offsets)[i][0], lat: city.lat + (city.id === "canberra" ? canberraOffsets : offsets)[i][1], photos: ["/photos/" + ["room-single.jpg", "room-desk.jpg", "interior-3.jpg", "living-1.jpg", "room-single.jpg", "room-desk.jpg"][i], "/photos/living-2.jpg", "/photos/kitchen.jpg"],
 })));
+// Fictional Manchester pilot homes near the University of Manchester. Coordinates are sample points, not real inventory.
+const manchesterPilotListings: Listing[] = [
+  { id: "manchester-7", cityId: "manchester", name: "Demo Fallowfield Court", area: "Fallowfield", price: 165, roomType: "合租单间", size: 14, bills: false, lng: -2.2158, lat: 53.4439, photos: ["/photos/room-single.jpg", "/photos/living-2.jpg", "/photos/kitchen.jpg"] },
+  { id: "manchester-8", cityId: "manchester", name: "Demo Oxford Steps", area: "City centre", price: 230, roomType: "独立 Studio", size: 26, bills: true, lng: -2.2392, lat: 53.4788, photos: ["/photos/living-1.jpg", "/photos/room-desk.jpg", "/photos/kitchen.jpg"] },
+  { id: "manchester-9", cityId: "manchester", name: "Demo Daisy Rooms", area: "Victoria Park", price: 175, roomType: "独卫单间", size: 18, bills: true, lng: -2.2205, lat: 53.4568, photos: ["/photos/room-desk.jpg", "/photos/living-2.jpg", "/photos/kitchen.jpg"] },
+  { id: "manchester-10", cityId: "manchester", name: "Demo Wilmslow House", area: "Rusholme", price: 155, roomType: "合租单间", size: 15, bills: false, lng: -2.2242, lat: 53.4546, photos: ["/photos/interior-3.jpg", "/photos/living-2.jpg", "/photos/kitchen.jpg"] },
+];
+export const listings: Listing[] = [...generatedListings, ...manchesterPilotListings];
 export function getCity(id: string) { return cities.find(c => c.id === id) ?? cities[0]; }
+export function listingVerification(listing: Pick<Listing, "verification">): VerificationState {
+  return listing.verification === "verified" ? "verified" : "pending";
+}
 export function priceLabel(listing: Listing) { const city = getCity(listing.cityId); return `${city.currency}${listing.price.toLocaleString("en-US")}`; }
 export function cityPhoto(id: CityId) { return `/photos/${id}.jpg`; }

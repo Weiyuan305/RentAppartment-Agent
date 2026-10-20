@@ -22,7 +22,7 @@ test("new cities support scoped agent sessions, photos, amenities and real commu
     assert.equal(validateRentalState(initialRentalState(city.id)).cityId,city.id);
     assert.ok(existsSync(`public${cityPhoto(city.id)}`));
     assert.ok(getAmenities(city.id).places.length>0);
-    const homes=listings.filter(l=>l.cityId===city.id);assert.equal(homes.length,6);
+    const homes=listings.filter(l=>l.cityId===city.id);assert.equal(homes.length,city.id==="manchester"?10:6);
     for(const home of homes){
       const route=parseWalkingRoute(JSON.parse(readFileSync(`public/routes/${home.id}.json`,"utf8")),home,city);
       for(const minutes of [10,20,30])assert.equal(matchesFilters(home,{...emptyFilters,walkMinutes:minutes}),route.durationSeconds<=minutes*60,`${home.id}: ${minutes} minute filter`);
@@ -42,5 +42,5 @@ test("every new apartment/building pair has a validated route and matching commu
       checked++;
     }
   }
-  assert.equal(checked,144);
+  assert.equal(checked,160);
 });

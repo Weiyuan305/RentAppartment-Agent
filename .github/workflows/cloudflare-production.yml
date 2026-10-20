@@ -1,0 +1,103 @@
+# Production deploy for the direct-upload Pages project campus-atlas-demo.
+# That project cannot be switched to Cloudflare's Git integration, so this
+# workflow builds in Actions and deploys with the repository's Wrangler scripts.
+# Worker secrets already exist on campus-atlas-demo and are not uploaded here.
+name: Deploy Cloudflare production
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cloudflare-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Build, migrate, and deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Write .env.local for the Cesium ion token
+        env:
+          VITE_CESIUM_ION_ACCESS_TOKEN: ${{ secrets.VITE_CESIUM_ION_ACCESS_TOKEN }}
+        run: |
+          if [ -z "${VITE_CESIUM_ION_ACCESS_TOKEN}" ]; then
+            echo "Missing GitHub Actions secret VITE_CESIUM_ION_ACCESS_TOKEN." >&2
+            exit 1
+          fi
+          umask 077
+          printf '%s\n' \
+            "VITE_MAP_PROVIDER=cesium-ion" \
+            "VITE_CESIUM_ION_ACCESS_TOKEN=${VITE_CESIUM_ION_ACCESS_TOKEN}" \
+            > .env.local
+
+      - name: Run repository checks
+        run: bash scripts/run-repository-checks.sh
+
+      - name: Build the Cloudflare Worker and client
+        run: npm run build:cloudflare
+
+      - name: Apply pending additive D1 migrations
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: "false"
+        run: |
+          if [ -z "${CLOUDFLARE_API_TOKEN}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID}" ]; then
+            echo "Missing CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID." >&2
+            exit 1
+          fi
+          log="${RUNNER_TEMP}/d1-migrations.txt"
+          npm exec -- wrangler d1 migrations list ATLAS_DB --remote --config cloudflare/wrangler.jsonc 2>&1 | tee "${log}"
+          if grep -q "No migrations to apply" "${log}"; then
+            echo "Remote D1 has no pending migrations."
+            exit 0
+          fi
+          shopt -s nullglob
+          files=(migrations/*.sql)
+          if [ "${#files[@]}" -eq 0 ]; then
+            echo "Pending migrations were reported, but migrations/*.sql is empty." >&2
+            exit 1
+          fi
+          node scripts/assert-additive-migrations.mjs "${files[@]}"
+          npm run db:cloudflare:remote
+
+      # deploy:cloudflare publishes the built Worker only. secrets:cloudflare is
+      # intentionally not run; Worker secrets already exist and must not be replaced.
+      - name: Deploy the Worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: "false"
+        run: npm run deploy:cloudflare
+
+      - name: Deploy Pages production and check assets
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: "false"
+        run: npm run deploy:pages
+
+      - name: Smoke test production health
+        run: node scripts/smoke-health.mjs https://campus-atlas-demo.pages.dev/api/health

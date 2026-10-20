@@ -1,5 +1,5 @@
 {
-  "notes": "Real stock/demo photos, not photographs of offered listings. All files are 1200px-wide JPEGs. Unsplash license allows free commercial/noncommercial use; attribution appreciated, not required. Do not sell unchanged images or compile a competing image service.",
+  "notes": "Real stock/demo photos, not photographs of offered listings. All files are 1200px-wide JPEGs. Unsplash license allows free commercial/noncommercial use; attribution appreciated, not required. Sydney and Melbourne are Wikimedia Commons photographs under the Creative Commons licenses named on each asset; keep that attribution. Do not sell unchanged images or compile a competing image service.",
   "assets": [
     {
       "file": "room-single.jpg",
@@ -81,13 +81,13 @@
     {
       "file": "sydney.jpg",
       "kind": "city",
-      "description": "Sydney skyline and Opera House across the harbour",
-      "photographer": "Joshua Delica",
-      "imageUrl": "https://images.unsplash.com/photo-1667992501579-b6d13aedca18?auto=format&fit=crop&w=1200&q=80",
-      "sourceUrl": "https://unsplash.com/photos/a-city-skyline-across-the-water-9FqNt_8Mg0U",
-      "license": "Unsplash License",
-      "licenseUrl": "https://unsplash.com/license",
-      "verified": "HTTP 200 image/jpeg; downloaded and visually inspected; individual source page identifies free Unsplash License."
+      "description": "Sydney Opera House and Harbour Bridge from the southeast",
+      "photographer": "DXR",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Sydney_Opera_House_and_Harbour_Bridge%2C_southeast_view_20230224_1.jpg/1280px-Sydney_Opera_House_and_Harbour_Bridge%2C_southeast_view_20230224_1.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sydney_Opera_House_and_Harbour_Bridge,_southeast_view_20230224_1.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "verified": "Wikimedia Commons file page checked 2026-10-20. Downloaded, resized to 1200px, and visually inspected: Opera House shells and Harbour Bridge, not the London skyline previously stored in this file."
     },
     {
       "file": "singapore.jpg",
@@ -169,13 +169,13 @@
     {
       "file": "melbourne.jpg",
       "kind": "city",
-      "description": "Melbourne city preview",
-      "photographer": "Urlaubstracker",
-      "imageUrl": "https://images.unsplash.com/photo-1595434971780-79d5c20c5090?auto=format&fit=crop&w=1200&q=80",
-      "sourceUrl": "https://unsplash.com/photos/city-skyline-during-day-time-dW8dOC8r7O4",
-      "license": "Unsplash License",
-      "licenseUrl": "https://unsplash.com/license",
-      "verified": "Free Unsplash source page and city location checked; downloaded and visually inspected 1200px JPEG."
+      "description": "Melbourne CBD skyline with Eureka Tower",
+      "photographer": "Ricardo Gonclaves",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Skyline_of_Melbourne_%28Feb_2021%29.jpg/1280px-Skyline_of_Melbourne_%28Feb_2021%29.jpg",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skyline_of_Melbourne_(Feb_2021).jpg",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "verified": "Wikimedia Commons file page checked 2026-10-20. Downloaded, resized to 1200px, and visually inspected: Melbourne CBD and gold-topped Eureka Tower. The previous file showed the Sydney Opera House."
     },
     {
       "file": "canberra.jpg",

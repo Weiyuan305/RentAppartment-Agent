@@ -106,7 +106,7 @@ test("HTTP session/preview guards, same-origin checks, model-not-configured resp
   assert.equal((await chat.POST(request(chatRequest))).status, 503);
   assert.equal((await chat.POST(request({...chatRequest, message: {...chatRequest.message, role: "assistant"}}))).status, 400);
 });
-test("AI SDK 7 keeps tool history when user language switches independently of UI locale (fixture model, no paid API)", async () => {
+test("AI SDK 7 keeps tool history and replies in the current UI language (fixture model, no paid API)", async () => {
   const api = await import("../app/api/agent/session/route"), chat = await import("../app/api/agent/chat/route");
   const originalFetch = globalThis.fetch;
   process.env.ATLAS_AI_BASE_URL = "http://fixture.invalid/v1"; process.env.ATLAS_AI_MODEL = "test-fixture"; process.env.ATLAS_AI_API_KEY = "test-only";
@@ -124,11 +124,11 @@ test("AI SDK 7 keeps tool history when user language switches independently of U
     const last = body.messages.at(-1);
     const nearest = String(lastUser.content).includes("nearest");
     const instructions = body.messages.find((m: {role:string}) => m.role === "system").content;
-    assert.ok(instructions.includes("根据最新一条用户消息的主要语言回复"));
-    assert.ok(instructions.includes("不受界面语言、历史回复或工具标签语言影响"));
-    assert.ok(!instructions.includes("即使历史对话或工具标签为中文"), "UI locale must not force the response language");
+    const uiEnglish = instructions.includes("当前界面语言是英文");
+    assert.ok(instructions.includes("所有面向用户的回复必须使用这种界面语言"));
+    assert.ok(!instructions.includes("不受界面语言、历史回复或工具标签语言影响"), "UI locale chooses the reply language");
     if (nearest) historySeen = body.messages.some((m: {role: string}) => m.role === "tool");
-    const delta = last.role === "tool" ? {content: nearest ? "The nearest store is now shown on the map." : "已根据工具结果同步地图。"} : {tool_calls: [{index: 0, id: randomUUID(), type: "function", function: {name: nearest ? "focusAmenity" : "findNearbyAmenities", arguments: JSON.stringify(nearest ? {} : {category: "convenience", radiusMeters: 500})}}]};
+    const delta = last.role === "tool" ? {content: uiEnglish ? (nearest ? "The nearest store is now shown on the map." : "The map is updated from the tool result.") : (nearest ? "已在地图上显示最近的一家。" : "已根据工具结果同步地图。")} : {tool_calls: [{index: 0, id: randomUUID(), type: "function", function: {name: nearest ? "focusAmenity" : "findNearbyAmenities", arguments: JSON.stringify(nearest ? {} : {category: "convenience", radiusMeters: 500})}}]};
     const chunk = (delta: unknown, reason: string | null) => `data: ${JSON.stringify({id: "fixture", object: "chat.completion.chunk", created: 1, model: "test-fixture", choices: [{index: 0, delta, finish_reason: reason}]})}\n\n`;
     return new Response(chunk(delta, null) + chunk({}, last.role === "tool" ? "stop" : "tool_calls") + "data: [DONE]\n\n", {headers: {"Content-Type": "text/event-stream"}});
   };
@@ -138,8 +138,8 @@ test("AI SDK 7 keeps tool history when user language switches independently of U
     const cookie = loaded.headers.get("set-cookie")!.split(";")[0];
     let {session} = await loaded.json() as {session: RentalSession};
     for (const {text, locale, expected} of [
-      {text: "附近500米内有几个便利店", locale: "en", expected: "已根据工具结果同步地图"},
-      {text: "Show only the nearest one.", locale: "zh", expected: "The nearest store is now shown on the map."},
+      {text: "附近500米内有几个便利店", locale: "en", expected: "The map is updated from the tool result."},
+      {text: "Show only the nearest one.", locale: "zh", expected: "已在地图上显示最近的一家。"},
     ]) {
       const response = await chat.POST(new Request(`${origin}/api/agent/chat`, {method: "POST", headers: {cookie, origin, "Content-Type": "application/json"}, body: JSON.stringify({locale, sessionId: session.id, version: session.version, state: session.state, requestId: randomUUID(), message: {id: randomUUID(), role: "user", parts: [{type: "text", text}]}})}));
       assert.equal(response.status, 200);

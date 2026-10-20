@@ -22,15 +22,30 @@ test("Manchester is the first-visit city and demo homes stay unverified", () => 
   ]);
 });
 
-test("campus commute estimates walk from the road network and labels cycle and bus", () => {
+test("a short campus trip omits a bus that is not faster than walking", () => {
   const home = listings.find(item => item.id === "manchester-1")!;
   const estimate = campusCommuteEstimate(home);
   assert.equal(estimate.walk.minutes, 9);
   assert.equal(estimate.distanceMeters, 720);
+  assert.ok(estimate.distanceMeters < 1200);
   assert.equal(estimate.cycle.minutes, 3);
-  assert.equal(estimate.bus.minutes, 11);
+  assert.equal(estimate.bus, null);
   assert.equal(estimate.walkBasis, "road-network");
   assert.equal(estimate.estimate, true);
+});
+
+test("a longer Fallowfield trip shows a bus estimate only when it is faster than walking", () => {
+  const home = listings.find(item => item.id === "manchester-7")!;
+  const estimate = campusCommuteEstimate(home);
+  assert.equal(home.area, "Fallowfield");
+  assert.equal(estimate.distanceMeters, 3205);
+  assert.equal(estimate.walk.minutes, 39);
+  assert.equal(estimate.cycle.minutes, 13);
+  assert.ok(estimate.bus);
+  assert.equal(estimate.bus.minutes, 19);
+  assert.ok(estimate.bus.minutes < estimate.walk.minutes);
+  assert.equal(estimate.bus.estimate, true);
+  assert.equal(estimate.walkBasis, "road-network");
 });
 
 test("English assistant replies drop Chinese room types", () => {

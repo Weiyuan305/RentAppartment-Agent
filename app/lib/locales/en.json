@@ -495,6 +495,8 @@
   "骑行": "Cycle",
   "步行按路网估计；骑行和公交由同一段步行距离折算，不是实时班次或骑行路网。": "Walk time is a road-network estimate. Cycle and bus times are derived from that walking distance, not a live timetable or a cycle network.",
   "直线距离折算的步行估计；骑行和公交同样只是距离折算。": "Walk, cycle and bus times are all derived from straight-line distance.",
+  "步行按路网估计；骑行由同一段步行距离折算。这段路程不显示公交，因为步行并不更慢。": "Walk time is a road-network estimate. Cycle time is derived from that walking distance. Bus time is omitted because walking is not slower.",
+  "直线距离折算的步行和骑行估计。这段路程不显示公交。": "Walk and cycle times are derived from straight-line distance. Bus time is omitted.",
   "这是演示请求。记录只留在本站，不会发送给中介、房东或经纪人。": "This is a demo request. It is stored on this site only and is not sent to an agent, landlord, or broker.",
   "姓名": "Name",
   "联系方式": "Contact",

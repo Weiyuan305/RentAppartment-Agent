@@ -158,7 +158,7 @@ body:has(.listing-detail-page){background:#122326}
   background-image:none;
  }
 }
-.listing-commute{display:grid;gap:4px;margin:10px 0 8px;padding:8px 10px;border:1px solid #45605a;border-radius:10px;background:#203c3b;color:#ecf3e9}
+.listing-commute{display:grid;gap:4px;margin:10px 0 8px;padding:var(--space-compact,8px) var(--space-control-inline,10px);border:1px solid #45605a;border-radius:10px;background:#203c3b;color:#ecf3e9;min-width:0}
 .listing-commute-line{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:0;font:600 12px/1.4 "Atlas Manrope","PingFang SC",sans-serif}
 .listing-commute-line strong{font-weight:750}
 .listing-commute-note{margin:0;color:#b1c4bd;font:400 11px/1.45 "Atlas Manrope","PingFang SC",sans-serif}

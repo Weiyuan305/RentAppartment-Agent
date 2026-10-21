@@ -126,6 +126,8 @@ test("AI SDK 7 keeps tool history and replies in the current UI language (fixtur
     const instructions = body.messages.find((m: {role:string}) => m.role === "system").content;
     const uiEnglish = instructions.includes("当前界面语言是英文");
     assert.ok(instructions.includes("所有面向用户的回复必须使用这种界面语言"));
+    assert.match(instructions, /禁止出现内部房源编号/);
+    assert.match(instructions, /manchester-5/);
     assert.ok(!instructions.includes("不受界面语言、历史回复或工具标签语言影响"), "UI locale chooses the reply language");
     if (nearest) historySeen = body.messages.some((m: {role: string}) => m.role === "tool");
     const delta = last.role === "tool" ? {content: uiEnglish ? (nearest ? "The nearest store is now shown on the map." : "The map is updated from the tool result.") : (nearest ? "已在地图上显示最近的一家。" : "已根据工具结果同步地图。")} : {tool_calls: [{index: 0, id: randomUUID(), type: "function", function: {name: nearest ? "focusAmenity" : "findNearbyAmenities", arguments: JSON.stringify(nearest ? {} : {category: "convenience", radiusMeters: 500})}}]};

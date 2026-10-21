@@ -26,6 +26,7 @@ import {
 import { getTransitJourneys } from "./transit-server";
 import { transitSources, transitDirectionsUrl } from "./transit";
 import { SessionError } from "../agent/store";
+import { listingIdReplyRule } from "../assistant-listing-ids";
 import type { TransitJourney } from "./transit";
 export function createStudentTools(
   get: () => RentalState,
@@ -177,7 +178,7 @@ export function createStudentTools(
     }),
     compareApartments: tool({
       description:
-        "对比当前城市最多3套公寓的月支出、选定楼栋通勤、租期/日期及多个目的地的每周通勤；地图与对比清单同步。未知费用不按0，房源来源须区分demo与merchant。",
+        "对比当前城市最多3套公寓的月支出、选定楼栋通勤、租期/日期及多个目的地的每周通勤；地图与对比清单同步。未知费用不按0，房源来源须区分demo与merchant。回复只用公寓名称，不要写出内部编号。",
       inputSchema: z.object({
         listingIds: z.array(z.string().max(50)).min(2).max(3),
       }),
@@ -193,6 +194,7 @@ export function createStudentTools(
             results: compareListings(listingIds, next,listings),
             sharePath: `/?${comparisonSearch(s.cityId, next)}`,
             inventory: "demo为虚构样本；merchant为商家提供，须咨询确认库存。",
+            replyRule: listingIdReplyRule,
           };
         }),
     }),

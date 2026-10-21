@@ -2,6 +2,7 @@ import { getPublicCatalogue } from "@/lib/merchant/server";
 import { createAgentUIStream, createUIMessageStream, createUIMessageStreamResponse, ToolLoopAgent, isStepCount, wrapLanguageModel } from "ai";
 import { createOpenAI } from "@ai-sdk/openai";
 import { roomTypeReplyRule, sanitizeAssistantRoomTypes } from "@/lib/assistant-language";
+import { listingIdReplyRule, scrubAssistantMessages } from "@/lib/assistant-listing-ids";
 import { displayCity } from "@/lib/i18n";
 import { getCity } from "@/lib/rental-data";
 import { agentRequestSchema, type RentalMessage, type ReplyStatus } from "@/lib/agent/contract";
@@ -64,7 +65,7 @@ export async function POST(request: Request) {
           model: wrapLanguageModel({model: provider.chat(config.model!), middleware: recovery}), tools: scoped.tools, stopWhen: isStepCount(5), maxOutputTokens: 2400, maxRetries: 0,
           onToolExecutionEnd: event => {console.info("[rental-agent-tool]", JSON.stringify({requestId: body.requestId, tool: event.toolCall.toolName, elapsedMs: event.toolExecutionMs, status: event.toolOutput.type}));},
           providerOptions: {openai: {parallelToolCalls: false, strictJsonSchema: false}},
-          instructions: `你是远居留学生找房助手。当前界面语言是${body.locale === "en" ? "英文" : "中文"}，所有面向用户的回复必须使用这种界面语言，包括工具查询之后的解释。不要因为最新用户消息、历史回复或工具标签使用了另一种语言就改用那种语言；场所专有名称保持原文。${roomTypeReplyRule()}回答简短清楚。当前城市固定为${cityView.name}，大学是${cityView.university}，租金单位为${cityView.currency}/${cityView.period}。当前页面状态：${JSON.stringify(state)}。
+          instructions: `你是远居留学生找房助手。当前界面语言是${body.locale === "en" ? "英文" : "中文"}，所有面向用户的回复必须使用这种界面语言，包括工具查询之后的解释。不要因为最新用户消息、历史回复或工具标签使用了另一种语言就改用那种语言；场所专有名称保持原文。${roomTypeReplyRule()}${listingIdReplyRule}回答简短清楚。当前城市固定为${cityView.name}，大学是${cityView.university}，租金单位为${cityView.currency}/${cityView.period}。当前页面状态：${JSON.stringify(state)}。
 多轮追问结合前文和当前页面，以当前页面为准。附近默认指当前公寓直线500米，说明中心及范围；不清楚指代时先问清。
 所有数量、地点、租金、路线和筛选必须调用工具获取，不凭记忆编造。要求地图显示/筛选时必须调用对应工具，只有工具成功才说已显示。一个工具失败时说明限制，不反复重试。
 校园楼栋用searchCampusBuildings检索；同名或学院指代不清时返回候选请用户选。selectCampusDestination设置目的地；到楼栋路线调用planCampusBuildingRoute，必须显式传公寓起点ID；用户点名另一套公寓时先用searchListings查名称和ID，回复起点必须与工具返回的origin一致，不能套用当前公寓的距离；步行范围调用showWalkingCatchment；目的地改变后searchListings按新楼栋筛选。比较公寓用compareApartments，费用和入住租期用updateStudentPreferences，多个常去楼栋用setWeeklyDestinations，公交/地铁用planPublicTransport。外部规划链接不等于本站算出公交时长，入口未核验必须说明。费用假设由用户提供，未知项不按0，押金不计入月支出。
@@ -106,7 +107,7 @@ findNearbyAmenities返回完整收录数，candidates只是最近10条，不要�
         if (!replyStatus && (isCancelled || isAborted || stopped.signal.aborted || hasUnfinishedText(responseMessage))) replyStatus = deadline.aborted && !stopped.signal.aborted ? "timeout" : "stopped";
         if (!replyStatus && (signal.aborted || outcome.status === "failed" || !hasReplyText(responseMessage))) replyStatus = failureStatus();
         responseMessage.metadata = {...responseMessage.metadata, context, ...(replyStatus?{replyStatus}:{})};
-        await finishSession(auth.owner, session, sanitizeAssistantRoomTypes(completed, body.locale), finalState, cancelled);
+        await finishSession(auth.owner, session, sanitizeAssistantRoomTypes(scrubAssistantMessages(completed, listings), body.locale), finalState, cancelled);
         console.info("[rental-agent]", JSON.stringify({requestId: body.requestId, status: replyStatus ?? "completed", elapsedMs: Date.now() - started}));
       },
     });

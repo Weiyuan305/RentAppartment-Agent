@@ -7,6 +7,8 @@ import { DefaultChatTransport } from "ai";
 import { ArrowRight, ArrowUpRight, ArrowUp, ChevronDown, Sparkles, Square, RotateCcw, MapPin } from "lucide-react";
 import { initialRentalState, type AgentStatus, type RentalMessage, type RentalSession, type RentalState, rentalStateSchema } from "@/lib/agent/contract";
 import { englishRoomReply } from "@/lib/assistant-language";
+import { scrubListingIds } from "@/lib/assistant-listing-ids";
+import { createReplyGate, type ReplyRun } from "@/lib/agent/chat-reset";
 import {canRestoreSessionContext,stateForNavigation} from "@/lib/student/restore";
 import { replyNotices, retryableMessage } from "@/lib/agent/conversation";
 import { displayCity } from "@/lib/i18n";
@@ -29,6 +31,10 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
   const [networkRecovering, setNetworkRecovering] = useState(false);
   const [connecting, setConnecting] = useState(false);
   const operation = useRef<AbortController | null>(null);
+  const gate = useRef(createReplyGate());
+  const replyRun = useRef<ReplyRun | null>(null);
+  const suspendSave = useRef(false);
+  const [discardingReply, setDiscardingReply] = useState(false);
   const connectionFailed = useRef(false);
   const synchronizing = useRef(false);
   const end = useRef<HTMLDivElement>(null);
@@ -38,14 +44,26 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
   const current = useRef({state, uiRevision, onState, locale, onReplyReady, preserveInitialState, listings});
   useEffect(() => {current.current = {state, uiRevision, onState, locale, onReplyReady, preserveInitialState, listings};}, [state, uiRevision, onState, locale, onReplyReady, preserveInitialState, listings]);
   const sessionRef = useRef<RentalSession | null>(null);
-  const request = useRef<{id: string; revision: number; retry?: boolean; messageId?: string; startedAt: number} | null>(null);
+  const request = useRef<{id: string; revision: number; retry?: boolean; messageId?: string; startedAt: number; turn: number; signal: AbortSignal} | null>(null);
   const savedState = useRef("");
   const pendingSave = useRef<Promise<void>>(Promise.resolve());
   const disposed = useRef(false);
   // The SDK invokes this callback only when sending, never in the constructor.
   const [transport] = useState(() => new DefaultChatTransport<RentalMessage>({
     api: "/api/agent/chat",
-    fetch: boundedFetch,
+    fetch: (input, init) => {
+      const run = replyRun.current;
+      const controller = new AbortController();
+      const follow = (signal?: AbortSignal | null) => {
+        if (!signal) return;
+        if (signal.aborted) controller.abort(signal.reason);
+        else signal.addEventListener("abort", () => controller.abort(signal.reason), {once: true});
+      };
+      follow(init?.signal);
+      follow(run?.signal);
+      const pending = boundedFetch(input, {...init, signal: controller.signal});
+      return run ? pending.then(response => gate.current.guard(run, response)) : pending;
+    },
     prepareSendMessagesRequest: ({messages}) => {
       const s = sessionRef.current;
       if (!s || !request.current) throw new Error(t("会话尚未就绪。"));
@@ -56,13 +74,15 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
   const chat = useChat<RentalMessage>({
     transport,
     onData: part => {
+      const active = request.current;
+      if (!active || active.turn !== gate.current.generation() || active.signal.aborted) return;
       if (part.type === "data-rental-progress") {
         if (!disposed.current && part.data.requestId === request.current?.id && part.data.phase !== "waiting") setAutoRecovering(part.data.phase === "recovering");
         return;
       }
       if (part.type !== "data-rental-state" || disposed.current) return;
-      const data = part.data, active = request.current;
-      if (!active || data.requestId !== active.id || data.state.cityId !== current.current.state.cityId) return;
+      const data = part.data;
+      if (data.requestId !== active.id || data.state.cityId !== current.current.state.cityId) return;
       if (sessionRef.current) sessionRef.current = {...sessionRef.current, version: data.version};
       if (active.revision !== current.current.uiRevision) {setNotice("页面条件已改变，本轮结果没有覆盖地图。请按当前条件重新提问。"); return;}
       const next = rentalStateSchema.parse(data.state);
@@ -70,12 +90,12 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
       if (data.phase === "start") {setAutoRecovering(false); return;}
       current.current.onState(next,active.id);
     },
-    onError: error => {if (!disposed.current) {
+    onError: error => {if (!disposed.current && request.current && request.current.turn === gate.current.generation() && !request.current.signal.aborted) {
       if (isConnectionFailure(error) && operation.current && !operation.current.signal.aborted) {
         connectionFailed.current = true; setNetworkRecovering(true); setNotice(""); return;
       }
       setNotice(Object.values(replyNotices).includes(error.message) ? error.message : t("对话暂时无法完成，可以重试这条消息；已完成的工具结果会保留。"));current.current.onReplyReady?.();}},
-    onFinish: ({isAbort, isError}) => {if (!disposed.current) {if(isAbort && !synchronizing.current)setNotice(replyNotices.stopped);else if(!isError) current.current.onReplyReady?.();}},
+    onFinish: ({isAbort, isError}) => {if (!disposed.current && request.current && request.current.turn === gate.current.generation() && !request.current.signal.aborted) {if(isAbort && !synchronizing.current)setNotice(replyNotices.stopped);else if(!isError) current.current.onReplyReady?.();}},
   });
   const {setMessages, stop} = chat;
   const busy = chat.status === "streaming" || chat.status === "submitted" || previewing || retrying || connecting || networkRecovering;
@@ -102,7 +122,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
     return () => observer.disconnect();
   }, [input]);
   const syncSession = useEffectEvent(async (initial: boolean) => {
-    if (disposed.current || synchronizing.current || previewing) return;
+    if (disposed.current || synchronizing.current || previewing || suspendSave.current) return;
     synchronizing.current = true;
     const wasRunning = !initial && busy;
     const previousRequest = wasRunning ? request.current : null;
@@ -118,7 +138,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
       const response = await sessionFetch(`/api/agent/session?city=${city.id}`, {signal: controller.signal});
       const payload = await response.json() as {session: RentalSession; status: AgentStatus; error?: string};
       if (!response.ok) throw new Error(payload.error);
-      if (disposed.current || controller.signal.aborted) return;
+      if (disposed.current || controller.signal.aborted || suspendSave.current) return;
       const restored = payload.session;
       const restoreContext = initial && canRestoreSessionContext(startRevision, current.current.uiRevision, current.current.preserveInitialState);
       sessionRef.current = restored; setSession(restored); setAgentStatus(payload.status); setMessages(restored.messages); chat.clearError();
@@ -126,7 +146,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
       if (restoreContext) current.current.onState(stateForNavigation(restored.state, current.current.state, new URLSearchParams(window.location.search), current.current.listings));
       const lastUser = restored.messages.findLast(message => message.role === "user");
       if ((restored.processingUntil && restored.processingUntil > Date.now() && lastUser) || (wasRunning && previousRequest?.messageId)) {
-        request.current = previousRequest ?? {id: crypto.randomUUID(), messageId: lastUser?.id, revision: restoreContext ? startRevision : -1, startedAt: Date.now()};
+        request.current = previousRequest ?? {id: crypto.randomUUID(), messageId: lastUser?.id, revision: restoreContext ? startRevision : -1, startedAt: Date.now(), turn: gate.current.generation(), signal: controller.signal};
         connectionFailed.current = true;
         setConnecting(false); setNetworkRecovering(true);
         await recoverConnection(controller, restored);
@@ -190,11 +210,11 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
 
   // Persist manual map/filter changes too, after a short debounce. Never race a turn.
   useEffect(() => {
-    if (!session || busy || savedState.current === JSON.stringify(state)) return;
+    if (!session || busy || suspendSave.current || savedState.current === JSON.stringify(state)) return;
     const timer = setTimeout(() => {
       pendingSave.current = pendingSave.current.then(async () => {
         const s = sessionRef.current;
-        if (!s || disposed.current) return;
+        if (!s || disposed.current || suspendSave.current) return;
         const next = current.current.state;
         try {
           const response = await sessionFetch("/api/agent/session", {method: "PATCH", headers: {"Content-Type": "application/json"}, body: JSON.stringify({sessionId: s.id, version: s.version, state: next})});
@@ -207,6 +227,14 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
     }, 600);
     return () => clearTimeout(timer);
   }, [state, session, busy]);
+  useEffect(() => {
+    if (!discardingReply) return;
+    if (chat.messages.length) setMessages([]);
+    // The chat SDK can still commit a chunk after Start over aborts the stream.
+    // Hide that external update, then release the hide once the aborted run is idle.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    if (!chat.messages.length && chat.status !== "streaming" && chat.status !== "submitted") setDiscardingReply(false);
+  }, [discardingReply, chat.messages, chat.status, setMessages]);
 
   async function recoverConnection(controller: AbortController, snapshot?: RentalSession) {
     const active = request.current, original = sessionRef.current;
@@ -221,7 +249,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
           return ((await response.json()) as {session: RentalSession}).session;
         },
       });
-      if (disposed.current || operation.current !== controller || controller.signal.aborted) return;
+      if (disposed.current || operation.current !== controller || controller.signal.aborted || suspendSave.current || request.current !== active) return;
       if (result.kind === "missing" || result.kind === "superseded") {
         setNotice(result.kind === "missing" ? "连接中断，暂时未能取回回复。可以重试这条消息；已完成的地图结果会保留。" : "会话已在其他页面更新，请刷新同步。");
         return;
@@ -236,7 +264,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
         setNotice(status ? replyNotices[status] : "上次回复未完成，可以重试这条消息。");
       }
     } catch {
-      if (!disposed.current && !controller.signal.aborted) setNotice("连接中断，暂时未能取回回复。可以重试这条消息；已完成的地图结果会保留。");
+      if (!disposed.current && !controller.signal.aborted && !suspendSave.current && request.current === active) setNotice("连接中断，暂时未能取回回复。可以重试这条消息；已完成的地图结果会保留。");
     } finally {
       if (!disposed.current && operation.current === controller) {setNetworkRecovering(false); current.current.onReplyReady?.();}
     }
@@ -252,24 +280,32 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
     setNetworkRecovering(false); setConnecting(false); setRetrying(false); setAutoRecovering(false);
     setNotice(replyNotices.stopped); void stop();
   }
+  function armReply() {
+    const run = gate.current.open();
+    replyRun.current = run;
+    return run;
+  }
   async function send(text: string) {
-    if (!text.trim() || busy || operation.current || !session || !agentStatus?.configured) return;
+    if (!text.trim() || busy || operation.current || !session || !agentStatus?.configured || suspendSave.current) return;
     const controller = new AbortController(); operation.current = controller;
     connectionFailed.current = false; setConnecting(true); followEnd.current=true;
     try {
       await pendingSave.current;
-      if (disposed.current || controller.signal.aborted) return;
+      if (disposed.current || controller.signal.aborted || suspendSave.current) return;
       onActionClear?.();
-      request.current = {id: crypto.randomUUID(), revision: current.current.uiRevision, startedAt: Date.now()};
+      const run = armReply();
+      request.current = {id: crypto.randomUUID(), revision: current.current.uiRevision, startedAt: Date.now(), turn: run.generation, signal: run.signal};
       setInput(""); setNotice(""); setAutoRecovering(false); chat.clearError(); setConnecting(false);
       await chat.sendMessage({text: text.trim(),metadata:{context:{cityId:current.current.state.cityId,listingId:current.current.state.listingId}}});
       await recoverConnection(controller);
+    } catch (error) {
+      if (!(controller.signal.aborted || replyRun.current?.signal.aborted)) throw error;
     } finally {
       if (operation.current === controller) {operation.current = null; if (!disposed.current) {setConnecting(false); setNetworkRecovering(false);}}
     }
   }
   async function retry() {
-    if (busy || operation.current || !session || !agentStatus?.configured || !retryMessage) return;
+    if (busy || operation.current || !session || !agentStatus?.configured || !retryMessage || suspendSave.current) return;
     const controller = new AbortController(); operation.current = controller;
     connectionFailed.current = false; followEnd.current=true;
     onActionClear?.(); setRetrying(true); setNotice(""); setAutoRecovering(false);
@@ -281,7 +317,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
       if (!response.ok) throw new Error(payload.error);
       if (disposed.current || controller.signal.aborted) return;
       if (payload.session.processingUntil && payload.session.processingUntil > Date.now()) {
-        request.current = {id: crypto.randomUUID(), revision: current.current.uiRevision, messageId: retryMessage.id, startedAt: Date.now()};
+        request.current = {id: crypto.randomUUID(), revision: current.current.uiRevision, messageId: retryMessage.id, startedAt: Date.now(), turn: gate.current.generation(), signal: controller.signal};
         connectionFailed.current = true; setRetrying(false); setNetworkRecovering(true);
         await recoverConnection(controller); return;
       }
@@ -290,68 +326,126 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
       sessionRef.current = payload.session;
       const alreadySaved = lastUser?.id === retryMessage.id;
       setMessages((alreadySaved ? payload.session.messages : [...payload.session.messages, retryMessage]).map(message=>message.id===retryMessage.id?{...message,metadata:{...message.metadata,context:{cityId:current.current.state.cityId,listingId:current.current.state.listingId}}}:message));
-      request.current = {id: crypto.randomUUID(), revision: current.current.uiRevision, retry: alreadySaved, startedAt: Date.now()};
+      const run = armReply();
+      request.current = {id: crypto.randomUUID(), revision: current.current.uiRevision, retry: alreadySaved, startedAt: Date.now(), turn: run.generation, signal: run.signal};
       chat.clearError(); setRetrying(false);
       await chat.regenerate({messageId: retryMessage.id});
       await recoverConnection(controller);
-    } catch {if (!disposed.current && !controller.signal.aborted) setNotice("暂时无法重试，请稍后再试或刷新同步会话。");}
+    } catch {if (!disposed.current && !controller.signal.aborted && !replyRun.current?.signal.aborted) setNotice("暂时无法重试，请稍后再试或刷新同步会话。");}
     finally {if (operation.current === controller) {operation.current = null; if (!disposed.current) {setRetrying(false); setNetworkRecovering(false);}}}
   }
   async function preview(action: string) {
-    if (busy || !session) return;
+    if (busy || !session || suspendSave.current) return;
     followEnd.current=true;
     onActionClear?.();
+    const turn = gate.current.generation();
+    const controller = new AbortController();
+    operation.current = controller;
     setPreviewing(true); setNotice("");
     await pendingSave.current;
     const s = sessionRef.current!, revision = current.current.uiRevision;
     try {
-      const response = await boundedFetch("/api/agent/preview", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({sessionId: s.id, version: s.version, state: current.current.state, locale:current.current.locale, action})}, {headersMs: 90_000, totalMs: 95_000});
+      if (controller.signal.aborted || suspendSave.current) return;
+      const response = await boundedFetch("/api/agent/preview", {method: "POST", signal: controller.signal, headers: {"Content-Type": "application/json"}, body: JSON.stringify({sessionId: s.id, version: s.version, state: current.current.state, locale:current.current.locale, action})}, {headersMs: 90_000, totalMs: 95_000});
       const payload = await response.json() as {session: RentalSession; status: AgentStatus; error?: string};
       if (!response.ok) {
         // A failed tool still releases the lease and advances the version.
         const latest = await sessionFetch(`/api/agent/session?city=${city.id}`).then(r => r.json()) as {session?: RentalSession};
-        if (!disposed.current && latest.session) sessionRef.current = latest.session;
+        if (!disposed.current && !controller.signal.aborted && latest.session) sessionRef.current = latest.session;
         throw new Error(payload.error);
       }
-      if (disposed.current) return;
+      if (disposed.current || controller.signal.aborted || turn !== gate.current.generation() || suspendSave.current) return;
       sessionRef.current = payload.session; setMessages(payload.session.messages);
       if (revision === current.current.uiRevision) {savedState.current = JSON.stringify(payload.session.state); current.current.onState(payload.session.state,crypto.randomUUID());}
       else setNotice("页面条件已改变，工具结果没有覆盖当前地图。");
-    } catch (error) {if (!disposed.current) setNotice(error instanceof Error ? error.message : t("工具暂时不可用。"));}
-    finally {if (!disposed.current) {setPreviewing(false);current.current.onReplyReady?.();}}
+    } catch (error) {if (!disposed.current && !controller.signal.aborted && !suspendSave.current) setNotice(error instanceof Error ? error.message : t("工具暂时不可用。"));}
+    finally {
+      if (operation.current === controller) operation.current = null;
+      if (!disposed.current && !suspendSave.current) {setPreviewing(false);current.current.onReplyReady?.();}
+    }
   }
   async function reset() {
-    if (!session || busy) return;
-    followEnd.current=true;
-    await pendingSave.current;
-    const s = sessionRef.current!;
+    const s = sessionRef.current;
+    if (!s || suspendSave.current) return;
+    const messageId = request.current?.messageId ?? chat.messages.findLast(message => message.role === "user")?.id;
+    const epoch = gate.current.reset();
+    request.current = null;
+    suspendSave.current = true;
+    setDiscardingReply(true);
+    operation.current?.abort();
+    operation.current = null;
+    connectionFailed.current = false;
+    setNetworkRecovering(false); setConnecting(false); setRetrying(false); setAutoRecovering(false); setPreviewing(false);
+    followEnd.current = true;
+    setInput(""); setNotice(""); chat.clearError(); setMessages([]);
     const fresh = initialRentalState(city.id);
+    savedState.current = JSON.stringify(fresh);
+    current.current.onState(fresh);
+    onActionClear?.();
+    void stop();
     try {
-      const response = await sessionFetch("/api/agent/session", {method: "PATCH", headers: {"Content-Type": "application/json"}, body: JSON.stringify({sessionId: s.id, version: s.version, state: fresh, clear: true})});
-      const payload = await response.json() as {session: RentalSession; status: AgentStatus; error?: string}; if (!response.ok) throw new Error(payload.error);
-      sessionRef.current = payload.session; savedState.current = JSON.stringify(payload.session.state); current.current.onState(payload.session.state); onActionClear?.(); setMessages([]); setNotice(""); chat.clearError();
-    } catch {setNotice("暂时无法新建对话，请刷新重试。");}
+      let latest = sessionRef.current ?? s;
+      if (messageId) {
+        const stopped = await sessionFetch("/api/agent/stop", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({sessionId: latest.id, messageId})});
+        if (stopped.ok) {
+          const payload = await stopped.json() as {session: RentalSession};
+          if (gate.current.generation() !== epoch) return;
+          sessionRef.current = payload.session;
+          latest = payload.session;
+        }
+      }
+      for (let attempt = 0; attempt < 2; attempt++) {
+        if (gate.current.generation() !== epoch) return;
+        const response = await sessionFetch("/api/agent/session", {method: "PATCH", headers: {"Content-Type": "application/json"}, body: JSON.stringify({sessionId: latest.id, version: latest.version, state: fresh, clear: true})});
+        const payload = await response.json() as {session?: RentalSession; error?: string};
+        if (response.ok && payload.session) {
+          if (gate.current.generation() !== epoch) return;
+          sessionRef.current = payload.session;
+          savedState.current = JSON.stringify(payload.session.state);
+          current.current.onState(payload.session.state);
+          setMessages([]); setNotice(""); chat.clearError();
+          return;
+        }
+        if (response.status !== 409 || attempt === 1) throw new Error(payload.error || "reset failed");
+        const reloaded = await sessionFetch(`/api/agent/session?city=${city.id}`);
+        const body = await reloaded.json() as {session?: RentalSession};
+        if (!reloaded.ok || !body.session) throw new Error(payload.error || "reset failed");
+        latest = body.session;
+        sessionRef.current = latest;
+        if (messageId && latest.processingUntil && latest.processingUntil > Date.now()) {
+          await sessionFetch("/api/agent/stop", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({sessionId: latest.id, messageId})});
+          const again = await sessionFetch(`/api/agent/session?city=${city.id}`);
+          const next = await again.json() as {session?: RentalSession};
+          if (next.session) {latest = next.session; sessionRef.current = latest;}
+        }
+      }
+    } catch {if (!disposed.current && gate.current.generation() === epoch) setNotice("暂时无法新建对话，请刷新重试。");}
+    finally {if (gate.current.generation() === epoch) suspendSave.current = false;}
   }
+  const shownMessages = discardingReply ? [] : chat.messages;
   return <aside id="workspace-chat" className="assistant-panel" inert={collapsed} aria-label={t("找房助手")}>
     <div className="assistant-heading">
       <span className="assistant-icon"><Sparkles size={20}/></span>
       <div className="assistant-heading-copy"><h2>{t("你的找房搭子")}</h2><p title={session ? t("会话保存在服务器") : t("正在连接会话…")}>{session ? (locale === "zh" ? "云端会话" : "Cloud conversation") : t("正在连接会话…")}</p></div>
       <span className={`assistant-state ${agentStatus?.configured ? "ready" : ""}`}>{agentStatus == null ? t("正在连接会话…") : agentStatus.configured ? t("AI 已配置") : t("工具体验")}</span>
       <div className="panel-heading-actions" role="group" aria-label={locale === "zh" ? "对话操作" : "Chat actions"}>
-        <button className="chat-reset" title={t("重新开始")} aria-label={t("重新开始")} disabled={busy || !session} onClick={reset}><RotateCcw size={15}/><span>{t("重新开始")}</span></button>
+        <button className="chat-reset" title={t("重新开始")} aria-label={t("重新开始")} disabled={!session} onClick={() => void reset()}><RotateCcw size={15}/><span>{t("重新开始")}</span></button>
         {headerControl}
       </div>
     </div>
     <div className="chat-scroll" aria-live="polite"><div className="chat-transcript" ref={transcript}>
-      {!chat.messages.length && <><div className="welcome"><h2>{t("从日常出发，")}<br/>{t("找到合适的新家。")}</h2><p>{t("当前以选中公寓为起点。可以问附近设施、筛选房源，再追问步行路线。")}</p></div><div className="chat-message assistant">{t("你好，未来的{city}同学 👋",{city:displayCity(city,locale).name})}<br/>{t("附近默认是距选中公寓直线 500 米，地点来自校区周边快照。")}</div></>}
+      {!shownMessages.length && <><div className="welcome"><h2>{t("从日常出发，")}<br/>{t("找到合适的新家。")}</h2><p>{t("当前以选中公寓为起点。可以问附近设施、筛选房源，再追问步行路线。")}</p></div><div className="chat-message assistant">{t("你好，未来的{city}同学 👋",{city:displayCity(city,locale).name})}<br/>{t("附近默认是距选中公寓直线 500 米，地点来自校区周边快照。")}</div></>}
       {agentStatus == null ? null : agentStatus.configured ? <div className="suggestions">{[t("这套公寓附近500米内有几个便利店？"), t("只显示最近的一家"), t("走过去怎么走？"), t("换成附近的超市"), t("筛选大学步行30分钟内的房源")].map(text => <button key={text} disabled={busy || !session} onClick={() => send(text)}>{text}<ArrowRight size={15}/></button>)}</div> : <div className="agent-setup"><strong>{t("AI 模型待配置")}</strong><p>{t("请在服务器填写 Base URL、模型名称与密钥，并重启服务。以下按钮可先体验真实工具和地图联动。")}</p><a href="/setup#agent" target="_blank" rel="noreferrer">{t("查看模型接入说明 ↗")}</a><div className="suggestions">{[["nearby", t("查询500米内便利店")], ["nearest", t("只显示最近一家")], ["route", t("显示步行路线")], ["supermarket", t("换成附近超市")], ["commute", t("显示到大学路线")]].map(([action, label]) => <button key={action} disabled={busy || !session} onClick={() => preview(action)}>{label}<ArrowRight size={15}/></button>)}</div></div>}
-      {chat.messages.map(message => <div key={message.id} className={`chat-message ${message.role}`}>
+      {shownMessages.map(message => <div key={message.id} className={`chat-message ${message.role}`}>
         {message.role==="user" && message.metadata?.context && <small className="chat-origin">{locale==="zh"?"查询起点":"Query origin"} · {listings.find(home=>home.id===message.metadata?.context?.listingId&&home.cityId===message.metadata?.context?.cityId)?.name ?? (locale==="zh"?"原房源":"Original home")}</small>}
-        {message.parts.map((part, i) => part.type === "text" && part.text ? message.role === "assistant"
-        ? <Suspense key={i} fallback={<span aria-label={t("正在加载回复")}>…</span>}><AssistantMarkdown text={locale === "en" ? englishRoomReply(part.text) : part.text} streaming={chat.status === "streaming" && part.state === "streaming"}/></Suspense>
-        : <span key={i}>{part.text}</span> : null)}{message.parts.some(p => p.type.startsWith("tool-") && "state" in p && p.state === "output-available") && <small className="chat-tool-status">{t("已查询工具 · 地图与结果同步")}</small>}</div>)}
+        {message.parts.map((part, i) => {
+          if (part.type !== "text" || !part.text) return null;
+          if (message.role !== "assistant") return <span key={i}>{part.text}</span>;
+          const reply = scrubListingIds(part.text, listings);
+          return <Suspense key={i} fallback={<span aria-label={t("正在加载回复")}>…</span>}><AssistantMarkdown text={locale === "en" ? englishRoomReply(reply) : reply} streaming={chat.status === "streaming" && part.state === "streaming"}/></Suspense>;
+        })}{message.parts.some(p => p.type.startsWith("tool-") && "state" in p && p.state === "output-available") && <small className="chat-tool-status">{t("已查询工具 · 地图与结果同步")}</small>}</div>)}
       <fieldset className="agent-receipt-slot" disabled={busy}>{actionReceipt}</fieldset>
-      {busy && <p className="chat-busy" role="status" aria-live="polite" aria-atomic="true"><span className="chat-typing-dots" aria-hidden="true"><span/><span/><span/></span><span>{networkRecovering ? t("正在同步尚未完成的回复…") : connecting ? t("正在连接会话…") : retrying ? t("正在重新连接…") : previewing ? t("正在查询工具…") : autoRecovering ? t("连接较慢，正在自动重新连接…") : chatActivity(chat.messages,chat.status==="submitted",locale)}</span></p>}
+      {busy && !discardingReply && <p className="chat-busy" role="status" aria-live="polite" aria-atomic="true"><span className="chat-typing-dots" aria-hidden="true"><span/><span/><span/></span><span>{networkRecovering ? t("正在同步尚未完成的回复…") : connecting ? t("正在连接会话…") : retrying ? t("正在重新连接…") : previewing ? t("正在查询工具…") : autoRecovering ? t("连接较慢，正在自动重新连接…") : chatActivity(chat.messages,chat.status==="submitted",locale)}</span></p>}
       {displayedNotice && <div className="chat-notice" role="status"><p>{t(displayedNotice)}</p>{!busy && retryMessage && <button type="button" className="chat-retry" onClick={() => void retry()}><RotateCcw size={13}/>{t("重试这条消息")}</button>}</div>}<div ref={end}/>
     </div></div>
     <form className="chat-form" onSubmit={e => {e.preventDefault(); void send(input);}} onPointerDown={e => {
@@ -365,7 +459,7 @@ export default function RentalChat({onLocateContext,city, state, uiRevision, onS
       <label className="sr-only" htmlFor="chat-input">{t("描述你的理想住处")}</label>
       <div className="chat-composer">
         <textarea ref={composer} id="chat-input" value={input} onChange={e => setInput(e.target.value)} disabled={!agentStatus?.configured || !session} placeholder={agentStatus?.configured ? (locale === "zh" ? "问问附近，或说说需求…" : "Ask about homes or nearby…") : t("配置模型后，即可开始多轮 AI 对话")} maxLength={2000} onKeyDown={e => {if (e.key === "Enter" && !e.shiftKey && !e.nativeEvent.isComposing) {e.preventDefault(); void send(input);}}} rows={1}/>
-        {busy && !previewing ? <button type="button" aria-label={t("停止回复")} onClick={stopReply}><Square size={14}/></button> : <button type="submit" disabled={!input.trim() || busy || !agentStatus?.configured || !session} aria-label={t("发送消息")}><ArrowUp size={19}/></button>}
+        {busy && !previewing && !discardingReply ? <button type="button" aria-label={t("停止回复")} onClick={stopReply}><Square size={14}/></button> : <button type="submit" disabled={!input.trim() || busy || !agentStatus?.configured || !session} aria-label={t("发送消息")}><ArrowUp size={19}/></button>}
       </div>
     </form>
     <p className="assistant-disclaimer">{locale==="zh"?"房源来源见详情 · 设施与安全信息未实地核验":"See listing source in details · Places and safety unverified"}</p>

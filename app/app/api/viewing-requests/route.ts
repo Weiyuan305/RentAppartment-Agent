@@ -1,20 +1,19 @@
-import { z } from "zod";
+import { viewingContactError, viewingRequestBodySchema } from "@/lib/viewing-contact";
 import { logAtlasEvent } from "@/lib/atlas-events";
-import { errorResponse, identity, readBody } from "@/lib/agent/http";
+import { errorResponse, identity, privateHeaders, readBody } from "@/lib/agent/http";
 import { getDatabase } from "@atlas/database";
 import { insertViewingRequest } from "@/lib/viewing-requests";
 
 export async function POST(request: Request) {
   try {
     const auth = await identity(request, true);
-    const body = z.object({
-      listingId: z.string().trim().min(1).max(80),
-      cityId: z.string().trim().min(1).max(40),
-      name: z.string().trim().min(1).max(80),
-      contact: z.string().trim().min(1).max(120),
-      preferredTime: z.string().trim().min(1).max(120),
-      message: z.string().trim().max(500).optional().default(""),
-    }).parse(await readBody(request));
+    const parsed = viewingRequestBodySchema.safeParse(await readBody(request));
+    if (!parsed.success) {
+      const contact = parsed.error.issues.find(issue => issue.path[0] === "contact");
+      const message = contact && contact.code !== "too_big" ? viewingContactError : "请求参数无效。";
+      return Response.json({error: message}, {status: 400, headers: privateHeaders});
+    }
+    const body = parsed.data;
     const saved = await insertViewingRequest(await getDatabase(), {
       owner: auth.owner,
       listingId: body.listingId,

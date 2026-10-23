@@ -171,7 +171,14 @@ describe("v2 signpost paint", () => {
     assert.match(css, /background:\s*#FFC800/);
     assert.match(css, /align-items:\s*baseline/);
     assert.match(css, /tabular-nums/);
+    assert.match(css, /Atkinson Hyperlegible Next/);
+    assert.match(css, /HarmonyOS Sans/);
+    assert.match(css, /MiSans/);
+    assert.match(css, /font-size:\s*28px/);
+    assert.match(css, /font-size:\s*40px/);
+    assert.match(css, /v2-num-fade/);
     assert.match(css, /prefers-reduced-motion[\s\S]*opacity:\s*1 !important/);
+    assert.doesNotMatch(css, /font-size:\s*1[01]px/);
     assert.doesNotMatch(css, /color:\s*#FFC800/i);
   });
 });

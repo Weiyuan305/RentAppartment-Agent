@@ -185,8 +185,12 @@ function drawRoute(C: typeof Cesium, viewer: Cesium.Viewer, slot: { current: Ces
         viewer.scene.requestRender();
         return positions.slice(0, count);
       }, false),
-      width: 4,
-      material: C.Color.fromCssColorString("#15181A"),
+      width: 8,
+      material: new C.PolylineOutlineMaterialProperty({
+        color: C.Color.fromCssColorString("#15181A"),
+        outlineColor: C.Color.WHITE,
+        outlineWidth: 2,
+      }),
       arcType: C.ArcType.NONE,
     },
   });

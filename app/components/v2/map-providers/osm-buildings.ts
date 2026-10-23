@@ -130,7 +130,8 @@ function revealRoute(map: MlMap, coordinates: [number, number][] | null, reduced
     if (source) source.setData(data);
     else {
       map.addSource(sourceId, { type: "geojson", data });
-      map.addLayer({ id: sourceId, type: "line", source: sourceId, paint: { "line-color": "#15181A", "line-width": 3 } });
+      map.addLayer({ id: `${sourceId}-case`, type: "line", source: sourceId, paint: { "line-color": "#FFFFFF", "line-width": 8 } });
+      map.addLayer({ id: sourceId, type: "line", source: sourceId, paint: { "line-color": "#15181A", "line-width": 4 } });
     }
   };
   if (reduced) { apply(coordinates.length); return; }

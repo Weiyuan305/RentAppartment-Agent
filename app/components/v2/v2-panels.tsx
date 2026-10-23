@@ -27,7 +27,7 @@ export function V2Detail({ listing, buildingId, locale, onClose, onBook, onCompa
       <div className="v2-sheet-body">
         <h2 id="v2-detail-title">{listing.name}</h2>
         <p className="v2-price">{priceLabel(listing)}<span> / {zh ? "周" : "wk"}</span></p>
-        <Signpost minutes={signpostMinutes(listing, buildingId)} place={signpostPlace(buildingId, locale)} />
+        <Signpost display minutes={signpostMinutes(listing, buildingId)} place={signpostPlace(buildingId, locale)} />
         <ul className="v2-facts">
           <li>{listing.roomType}</li>
           <li>{listing.size}㎡</li>

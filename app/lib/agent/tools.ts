@@ -94,20 +94,30 @@ export function createRentalTools(initial: RentalState, onState: (state: RentalS
       execute: ({destination}) => run(async () => {
         const l = listing();
         if (destination === "campus") {
-          const building=buildingById(state.student?.destinationId),buildingRoute=building?(l.merchant?await merchantWalkingRoute(l,building.id):buildingCommute(l.id,building.id)):undefined;
+          const building=buildingById(state.student?.destinationId);
+          const savedBuilding=building?buildingCommute(l.id,building.id)??l.merchant?.commutes?.[building.id]:undefined;
+          let buildingRoute=savedBuilding;
+          if(building&&l.merchant&&!buildingRoute){try{buildingRoute=await merchantWalkingRoute(l,building.id);}catch{buildingRoute=savedBuilding;}}
           if(building&&buildingRoute){
             update({...state,student:{...normalizedStudentPlan(state.student),routeBuilding:true,transitRequested:false},map:{...state.map,campusRoute:false,routePlaceId:null,selectedPlaceId:null}});
             return {destination:building.name,distanceMeters:buildingRoute.distanceMeters,minutes:routeMinutes(buildingRoute.durationSeconds),source:buildingRoute.source,limitation:"路网估计，楼栋入口/开放条件未核验"};
           }
-          const route = l.merchant?await merchantWalkingRoute(l):campusCommute(l.id);
+          const savedCampus=knownCommute(l);
+          let route=savedCampus;
+          if(l.merchant&&!route){try{route=await merchantWalkingRoute(l);}catch{route=savedCampus;}}
+          if(!route)throw new Error("没有已保存的步行路线，实时路网也没有在时限内返回。");
           update({...state,student:stopStudentRoutes(), map: {...state.map, routePlaceId: null, selectedPlaceId: null, campusRoute: true}});
           return {destination: getCity(state.cityId).university, distanceMeters: route.distanceMeters, minutes: routeMinutes(route.durationSeconds), source: route.source, limitation: "路网估计，入口偏移未计入时间"};
         }
         const place = visible().find(p => p.id === state.map.selectedPlaceId);
         if (!place) throw new Error("请先选择附近查询中的一个地点。");
-        const route = await getAmenityRoute(l, place);
-        update({...state,student:stopStudentRoutes(), map: {...state.map, routePlaceId: place.id, campusRoute: false}});
-        return {destination: place.name, distanceMeters: route.distanceMeters, minutes: routeMinutes(route.durationSeconds), startOffsetMeters: route.startOffsetMeters, endOffsetMeters: route.endOffsetMeters, source: route.source, limitation: "真实路网估计，非实时导航；公寓与场所入口待核验，入口偏移未计入时间"};
+        try {
+          const route = await getAmenityRoute(l, place);
+          update({...state,student:stopStudentRoutes(), map: {...state.map, routePlaceId: place.id, campusRoute: false}});
+          return {destination: place.name, distanceMeters: route.distanceMeters, minutes: routeMinutes(route.durationSeconds), startOffsetMeters: route.startOffsetMeters, endOffsetMeters: route.endOffsetMeters, source: route.source, limitation: "真实路网估计，非实时导航；公寓与场所入口待核验，入口偏移未计入时间"};
+        } catch {
+          return {destination: place.name, straightLineMeters: Math.round(metersBetween([l.lng, l.lat], [place.lng, place.lat])), minutes: null, source: "cached-amenity", limitation: "路网在 6 秒内没有返回。快照里只有直线距离，没有步行时间。"};
+        }
       }),
     }),
   };

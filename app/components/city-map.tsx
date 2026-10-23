@@ -9,6 +9,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type * as Cesium from "cesium";
 import { Building2, Compass, GraduationCap, MapPin, Minus, Navigation, Plus, RotateCw } from "lucide-react";
 import { cityPhoto, priceLabel, type City, type Listing } from "@/lib/rental-data";
+import { movementSeconds } from "@/lib/map-motion";
 import { resolveMapConfig } from "@/lib/map-config";
 import { useWalkingRoute } from "@/lib/use-walking-route";
 import WalkingRoutePanel from "@/components/walking-route-panel";
@@ -194,7 +195,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
       return;
     }
     if (selectedAmenity) {fitAmenities(C, viewer, [selectedAmenity], container.current); return;}
-    viewer.camera.flyToBoundingSphere(new C.BoundingSphere(C.Cartesian3.fromDegrees(active?.lng ?? city.lng,active?.lat ?? city.lat,40),80),{duration:window.matchMedia("(prefers-reduced-motion: reduce)").matches?0:1.4,offset:new C.HeadingPitchRange(0,-0.62,active?1000:2200)});
+    viewer.camera.flyToBoundingSphere(new C.BoundingSphere(C.Cartesian3.fromDegrees(active?.lng ?? city.lng,active?.lat ?? city.lat,40),80),{duration:movementSeconds(),offset:new C.HeadingPitchRange(0,-0.62,active?1000:2200)});
   }, [city, active, status, focusTick, route, selectedAmenity, amenityRouteEnabled]);
   function cameraAction(action: "in" | "out" | "rotate" | "campus") {
     const rt=runtime.current;if(!rt)return;const {C,viewer}=rt;
@@ -204,7 +205,7 @@ export default function CityMap({ city, listings, selected, onSelect, autoLoad, 
       if (route) fitWalkingRoute(C, viewer, route, container.current, viewer.camera.heading + Math.PI / 4);
       else {viewer.camera.lookAt(C.Cartesian3.fromDegrees(active?.lng??city.lng,active?.lat??city.lat,30),new C.HeadingPitchRange(viewer.camera.heading+Math.PI/4,-.65,1400));viewer.camera.lookAtTransform(C.Matrix4.IDENTITY);}
     }
-    if(action==="campus")viewer.camera.flyToBoundingSphere(new C.BoundingSphere(C.Cartesian3.fromDegrees(city.lng,city.lat,30),80),{offset:new C.HeadingPitchRange(0,-.65,1800),duration:1.2});
+    if(action==="campus")viewer.camera.flyToBoundingSphere(new C.BoundingSphere(C.Cartesian3.fromDegrees(city.lng,city.lat,30),80),{offset:new C.HeadingPitchRange(0,-.65,1800),duration:movementSeconds()});
     viewer.scene.requestRender();
   }
   function toggleAmenity(category: AmenityCategory) {

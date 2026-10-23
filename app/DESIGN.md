@@ -12,7 +12,7 @@ colors:
   brand-soft: "#294f45"
   border: "#45605a"
   floating-panel: "#102c2df2"
-  assistant-surface: "#f6f8f0f5"
+  assistant-surface: "#f6f8f0"
   assistant-ink: "#203e33"
   assistant-primary: "#275944"
   dialog-surface: "#173432"
@@ -20,8 +20,9 @@ typography:
   display: {fontFamily: "Atlas Manrope, sans-serif", fontSize: "65px", fontWeight: 400, lineHeight: 1, letterSpacing: "-.04em"}
   headline: {fontFamily: "Atlas Manrope, sans-serif", fontSize: "27px", fontWeight: 600, lineHeight: 1.1, letterSpacing: "-.04em"}
   title: {fontFamily: "Atlas Manrope, sans-serif", fontSize: "15px", fontWeight: 600, lineHeight: 1.35, letterSpacing: "-.025em"}
-  body: {fontFamily: "Atlas Manrope, PingFang SC, Microsoft YaHei, sans-serif", fontSize: "12px", lineHeight: 1.85}
-  label: {fontFamily: "Atlas Manrope, sans-serif", fontSize: "10px"}
+  body: {fontFamily: "Atlas Manrope, PingFang SC, Microsoft YaHei, sans-serif", fontSize: "14px", lineHeight: 1.55}
+  body-mobile: {fontFamily: "Atlas Manrope, PingFang SC, Microsoft YaHei, sans-serif", fontSize: "15px", lineHeight: 1.55}
+  label: {fontFamily: "Atlas Manrope, PingFang SC, Microsoft YaHei, sans-serif", fontSize: "12px"}
   map-price: {fontFamily: "Atlas Manrope, PingFang SC, sans-serif", fontSize: "13px", fontWeight: 600, lineHeight: "19px", letterSpacing: "-.02em"}
   map-place: {fontFamily: "Atlas Manrope, PingFang SC, sans-serif", fontSize: "12px", fontWeight: 600, lineHeight: "19px", letterSpacing: "-.02em"}
 rounded:
@@ -36,9 +37,9 @@ spacing:
   panel-gap: "20px"
   workspace-block: "22px"
 components:
-  route-button: {backgroundColor: "#264a41", textColor: "#e0efda", rounded: "{rounded.control}", padding: "8px 10px", height: "34px"}
-  route-button-selected: {backgroundColor: "{colors.primary}", textColor: "#173b30", rounded: "{rounded.control}", padding: "8px 10px", height: "34px"}
-  route-button-selected-hover: {backgroundColor: "#d8ebce", textColor: "#173b30"}
+  route-button: {backgroundColor: "transparent", textColor: "#d9e9ce", borderColor: "#6b8b7c", rounded: "{rounded.control}", padding: "8px 10px", height: "40px"}
+  route-button-selected: {backgroundColor: "transparent", textColor: "#d9e9ce", borderColor: "#6b8b7c", rounded: "{rounded.control}", padding: "8px 10px", height: "40px"}
+  viewing-button: {backgroundColor: "{colors.primary}", textColor: "#173b30", rounded: "8px", padding: "10px 14px", height: "48px"}
   filter: {backgroundColor: "#1b3535", textColor: "#e0ece0", rounded: "{rounded.control}", height: "34px"}
   floating-panel: {backgroundColor: "{colors.floating-panel}", textColor: "{colors.foreground}", rounded: "{rounded.floating-panel}", padding: "20px 15px 0"}
   assistant-panel: {backgroundColor: "{colors.assistant-surface}", textColor: "{colors.assistant-ink}", rounded: "{rounded.floating-panel}"}
@@ -78,10 +79,10 @@ components:
 2026-10-15 选定 Logo B「相邻」：两个同形、旋转 180° 的实心圆角图形，中间保留贯通留白。`components/brand-mark.tsx` 是共用 SVG，首页及登录页共用；不使用位图、描边、渐变或底座。
 工作区深色页头使用黄绿色 `#d2eb58`，桌面 43px、≤600px 32px；登录页使用同一亮色，手机 34px，配合现有深色背景。设计实验室 A 的浅色页头沿用深绿单色。名称、文案、链接和地图工具图标保持原样。标志不依赖 Campus Atlas 字母，允许未来单独调整品牌名称。
 
-英文及工作区正文使用自托管 Atlas Manrope（Manrope，400/600/800）；中文回退 PingFang SC / Microsoft YaHei。城市大标题、列表标题、房源标题与助手正文分别使用 frontmatter 的 display / headline / title / body。
+英文及工作区正文使用自托管 Atlas Manrope（Manrope，400/600/800）；中文回退 PingFang SC / Microsoft YaHei。城市大标题、列表标题、房源标题与助手正文分别使用 frontmatter 的 display / headline / title / body。任何中文不小于 12px。正文为 14px；宽度 ≤600px 时正文为 15px。
 中文桌面列表标题为 27px / 1.3、600；价格为 Manrope 25px / 1、600。详情标题为 Manrope 34px / 1.1、600；目的地选择弹层仍沿用现有衬线标题，不据此扩展整站字体规范。
 来源及 OFL 许可见[字体清单](public/fonts/design-lab/sources.json)。
-地图价格使用 13px / 19px、600；学校与已选设施使用 12px / 19px、600。≤600px 时价格为 12px，学校与设施为 11px；继续沿用 Atlas Manrope，数字等宽，不增加字体。
+地图价格使用 13px / 19px、600；学校与已选设施使用 12px / 19px、600。≤600px 时价格、学校与设施仍不小于 12px；继续沿用 Atlas Manrope，数字等宽，不增加字体。
 
 ## Layout
 桌面工作区为 `306px minmax(0,1fr) 310px`，间距 20px，内边距 `22px 20px`；地图铺满工作区，两侧浮层位于地图之上。宽度 ≥1500px 时两侧改为 330px、内边距 24px。
@@ -97,9 +98,9 @@ components:
 控件 5px、照片 10px、工作浮层 14px、详情 16px；桌面详情照片为 12px。键盘焦点为当前局部主色的 2px 外轮廓、偏移 4px；收藏、定位与筛选保留按下语义。
 
 ## Components
-路线按钮以柔和深绿为默认底，选中后浅绿填充；桌面精细指针悬停强化状态。导航使用紧凑分段填充，手机改为三栏切换；房源信息标签以文字与间隔点呈现，照片房型标签保留小型浅色底。
+房源卡与详情弹层只有「预约看房」一个浅绿主按钮。路线与「打开完整详情」为透明底、描边的次要操作；选中房源后路线仍保持次要样式。导航使用紧凑分段填充，手机改为三栏切换；房源信息标签以文字与间隔点呈现，照片房型标签保留小型浅色底。国家切换使用内联 SVG 旗帜，不使用会在 Windows 上显示为字母的旗帜 emoji。
 助手输入保留浅色背景、9px 圆角、12px 内边距及独立深绿发送按钮。地图、聊天、API、认证、筛选、收藏与数据继续复用既有实现。
-照片点击打开当前照片对应详情；开合飞行动效使用 WAAPI（280ms，`cubic-bezier(0.77,0,0.175,1)`），真实路线按既有坐标逐段显现（900ms），相机适配 1.2s。减少动态效果时不创建飞行副本、路线立即完整呈现、相机时长为 0；重复动画与卸载清理旧动画和副本。
+动效时长共用 `--motion-fast` 160ms、`--motion-normal` 280ms、`--motion-move` 与 `--ease-out` / `--ease-in-out`。普通过渡不超过 320ms。照片点击打开当前照片对应详情；开合飞行动效使用 WAAPI（读取 `--motion-normal`，缓动 `--ease-in-out`）。真实路线按既有坐标逐段显现（`--motion-route` 900ms）。相机移动读取 `--motion-move`，不超过 320ms。`prefers-reduced-motion` 将 `--motion-move` 与 `--motion-route` 设为 0，取消大位移、视差和路线绘制，并保留短的透明度与颜色反馈；不创建飞行副本，路线立即完整呈现。重复动画与卸载清理旧动画和副本。
 照片保留“风格参考”，房源保留虚构演示、不可预订说明；[照片来源](public/photos/sources.json)及 Cesium / Google 署名继续保留。
 地图价格、学校和已选设施使用原生 DOM 按钮与 Lucide SVG，8px 圆角、33px 高；默认米白底，当前房源为深绿底米白字，学校帽形图标为 `#9b793e`，设施图标沿用类别色。标签随 Cesium `postRender` 投影到整数 CSS 像素，地形高度最多每 500ms 重新采样；当前房源集最多显示 8 个原生标签，保留点击与键盘操作。未选设施为 32px SVG 徽章，源图按 3 倍尺寸生成，单层描边；紧凑聚合从 2 个设施起，保留原拾取 ID。
 已选设施与当前价格相碰时，只移动设施标签；候选位置必须位于视口内并避让设施工具、信息卡和价格。细引线与地面点仍指向原坐标，点击回调保持原设施。画布启用原生像素密度、初始化缩放上限为 2 倍，保留硬件抗锯齿并关闭 FXAA；这不构成帧率承诺。

@@ -1,0 +1,10 @@
+{
+  "file": "/v2/manchester-massing.geojson",
+  "bytes": 368260,
+  "features": 1193,
+  "idProperty": "id",
+  "bbox": [-2.242, 53.46, -2.226, 53.472],
+  "collectedAt": "2026-10-23",
+  "source": "OpenStreetMap building footprints via Overpass, simplified and committed as a static asset. Each feature has a stable id for whole-building highlight. The browser loads this file from FALLBACK_CITY_MODEL.url and never calls Overpass or Cesium ion. A later 3D Tiles model replaces that one URL.",
+  "license": "ODbL 1.0"
+}

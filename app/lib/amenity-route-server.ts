@@ -2,6 +2,7 @@ import type { Amenity } from "./amenities.ts";
 import type { Listing } from "./rental-data.ts";
 import { metersBetween, parseAmenityWalkingRoute, type AmenityWalkingRoute } from "./walking-route.ts";
 import { consumeQuota, database, SessionError } from "./agent/store";
+import { OVERSEAS_FAILFAST_MS } from "./overseas-failfast";
 
 export const amenityRouteEndpoint = "https://routing.openstreetmap.de/routed-foot/route/v1/foot";
 type OsrmStep = { name?: string; distance: number; geometry: { coordinates: [number, number][] }; maneuver: { type: string; modifier?: string } };
@@ -54,7 +55,7 @@ export async function getAmenityRoute(listing: Listing, place: Amenity): Promise
       await consumeQuota("routing-upstream", 1, 1100);
       await consumeQuota("routing-global", 100, 86400000);
       const url = `${amenityRouteEndpoint}/${listing.lng},${listing.lat};${place.lng},${place.lat}?overview=full&geometries=geojson&steps=true&alternatives=false`;
-      const response = await fetch(url, {headers:{"User-Agent":"CampusAtlas-RentalPreview/0.1", "X-Client-Id":"campus-atlas-rental-preview"},signal:AbortSignal.timeout(20000)});
+      const response = await fetch(url, {headers:{"User-Agent":"CampusAtlas-RentalPreview/0.1", "X-Client-Id":"campus-atlas-rental-preview"},signal:AbortSignal.timeout(OVERSEAS_FAILFAST_MS)});
       if (response.status === 429) throw new RouteServiceError("步行路线服务繁忙，请稍后再试。", 429);
       if (!response.ok) throw new RouteServiceError("步行路线服务暂时不可用，请稍后再试。");
       const result = normalizeAmenityRoute(await response.json(), listing, place);

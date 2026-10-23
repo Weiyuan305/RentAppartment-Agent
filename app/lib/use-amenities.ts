@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import type { City } from "@/lib/rental-data";
 import { parseCityAmenities, type CityAmenities } from "@/lib/amenities";
+import { failFastSignal } from "@/lib/overseas-failfast";
 
 const cache = new Map<string, CityAmenities>();
 export function useAmenities(city: City, enabled: boolean) {
@@ -15,7 +16,7 @@ export function useAmenities(city: City, enabled: boolean) {
       try {
         let data = cache.get(city.id);
         if (!data) {
-          const response = await fetch(`/amenities/${city.id}.json`, { signal: controller.signal });
+          const response = await fetch(`/amenities/${city.id}.json`, { signal: failFastSignal(controller.signal) });
           if (!response.ok) throw new Error("Amenities unavailable");
           data = parseCityAmenities(await response.json(), city);
           cache.set(city.id, data);

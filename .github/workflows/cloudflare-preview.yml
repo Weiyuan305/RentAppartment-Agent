@@ -1,0 +1,152 @@
+# Pull-request Pages preview for the direct-upload project campus-atlas-demo.
+# Direct-upload projects cannot be switched to Cloudflare's Git integration.
+# This workflow does not deploy the production Worker. Pages HTML and /api/*
+# still call that Worker through the ATLAS_APP service binding, so a preview
+# URL does not run this pull request's Worker code.
+name: Deploy Cloudflare Pages preview
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: cloudflare-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    name: Build and deploy Pages preview
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Write .env.local for the Cesium ion token
+        env:
+          VITE_CESIUM_ION_ACCESS_TOKEN: ${{ secrets.VITE_CESIUM_ION_ACCESS_TOKEN }}
+        run: |
+          if [ -z "${VITE_CESIUM_ION_ACCESS_TOKEN}" ]; then
+            echo "Missing GitHub Actions secret VITE_CESIUM_ION_ACCESS_TOKEN." >&2
+            exit 1
+          fi
+          umask 077
+          printf '%s\n' \
+            "VITE_MAP_PROVIDER=cesium-ion" \
+            "VITE_CESIUM_ION_ACCESS_TOKEN=${VITE_CESIUM_ION_ACCESS_TOKEN}" \
+            > .env.local
+
+      - name: Run repository checks
+        run: bash scripts/run-repository-checks.sh
+
+      - name: Build the Cloudflare Worker and client
+        run: npm run build:cloudflare
+
+      - name: Deploy the Pages preview
+        id: pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WRANGLER_SEND_METRICS: "false"
+          PREVIEW_BRANCH: ${{ github.head_ref }}
+          WRANGLER_OUTPUT_FILE_PATH: ${{ runner.temp }}/pages-deploy.json
+        run: |
+          if [ -z "${CLOUDFLARE_API_TOKEN}" ] || [ -z "${CLOUDFLARE_ACCOUNT_ID}" ]; then
+            echo "Missing CLOUDFLARE_API_TOKEN or CLOUDFLARE_ACCOUNT_ID." >&2
+            exit 1
+          fi
+          if [ -z "${PREVIEW_BRANCH}" ] || [ "${PREVIEW_BRANCH}" = "main" ]; then
+            echo "Refusing to publish a preview for branch '${PREVIEW_BRANCH}'." >&2
+            exit 1
+          fi
+          node scripts/prepare-pages.mjs
+          npm exec -- wrangler pages deploy \
+            --cwd cloudflare/pages \
+            --project-name campus-atlas-demo \
+            --branch "${PREVIEW_BRANCH}" \
+            --commit-dirty=true
+          node scripts/read-pages-preview.mjs
+
+      - name: Comment the preview URL
+        uses: actions/github-script@v9
+        env:
+          PREVIEW_ALIAS: ${{ steps.pages.outputs.alias }}
+          PREVIEW_URL: ${{ steps.pages.outputs.url }}
+          PREVIEW_BRANCH: ${{ github.head_ref }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        with:
+          script: |
+            const alias = process.env.PREVIEW_ALIAS || "";
+            const deploymentUrl = process.env.PREVIEW_URL || "";
+            const previewUrl = alias || deploymentUrl;
+            const marker = "<!-- campus-atlas-pages-preview -->";
+            if (!previewUrl) {
+              core.setFailed("Missing Pages preview URL.");
+              return;
+            }
+            const body = [
+              marker,
+              "### Cloudflare Pages preview",
+              "",
+              `Preview URL: ${previewUrl}`,
+              deploymentUrl && deploymentUrl !== previewUrl ? `Deployment URL: ${deploymentUrl}` : null,
+              "",
+              `Branch \`${process.env.PREVIEW_BRANCH}\` at \`${process.env.HEAD_SHA}\`.`,
+              "",
+              "This is a public direct-upload Pages deployment for this pull request. It does not deploy the Worker `campus-atlas-demo`, and it does not change Worker secrets or remote D1.",
+              "",
+              "Pages sends HTML and `/api/*` to the production Worker through the `ATLAS_APP` service binding in `app/cloudflare/pages/entry.mjs`. The preview URL therefore still runs the production Worker, production D1, and the production HTML release. Files from this preview are only a fallback for `/_next/static/*` when the Worker does not already have that asset. Worker, API, and database changes in this pull request are not exercised here; they ship from the push to `main`.",
+              "",
+              "Direct-upload Pages projects cannot be switched to Cloudflare's Git integration, so this preview is published by GitHub Actions with `wrangler pages deploy`.",
+            ].filter((line) => line !== null).join("\n");
+            const { owner, repo } = context.repo;
+            const issue_number = context.payload.pull_request.number;
+            let existing = null;
+            for (let page = 1; ; page += 1) {
+              const { data } = await github.rest.issues.listComments({
+                owner,
+                repo,
+                issue_number,
+                per_page: 100,
+                page,
+              });
+              existing = data.find((comment) => comment.body?.includes(marker)) ?? null;
+              if (existing || data.length < 100) break;
+            }
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: existing.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number,
+                body,
+              });
+            }

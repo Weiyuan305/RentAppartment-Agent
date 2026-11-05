@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import type { Listing } from "./rental-data";
 import type { Amenity } from "./amenities";
+import { failFastSignal } from "./overseas-failfast";
 import { parseAmenityWalkingRoute, type AmenityWalkingRoute } from "./walking-route";
 const cache = new Map<string, {data:AmenityWalkingRoute; expires:number}>();
 export function useAmenityRoute(listing: Listing | undefined, place: Amenity | undefined, enabled: boolean) {
@@ -17,7 +18,7 @@ export function useAmenityRoute(listing: Listing | undefined, place: Amenity | u
         const saved = cache.get(key);
         let data = saved && saved.expires > Date.now() ? saved.data : undefined;
         if (!data) {
-          const response = await fetch(`/api/amenity-route?${new URLSearchParams({city:listing.cityId,listing:listing.id,place:place.id})}`, {signal:controller.signal});
+          const response = await fetch(`/api/amenity-route?${new URLSearchParams({city:listing.cityId,listing:listing.id,place:place.id})}`, {signal:failFastSignal(controller.signal)});
           const payload = await response.json();
           if (!response.ok) {
             const error = payload as {error?:unknown};

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { getCity, type Listing } from "@/lib/rental-data";
+import { failFastSignal } from "@/lib/overseas-failfast";
 import { parseWalkingRoute, parseAmenityWalkingRoute, type WalkingRoute } from "@/lib/walking-route";
 
 const cache = new Map<string, WalkingRoute>();
@@ -15,7 +16,7 @@ export function useWalkingRoute(listing: Listing | undefined) {
       try {
         let data = cache.get(listing!.id);
         if (!data) {
-          const response = await fetch(listing!.merchant?`/api/merchant/route?listing=${listing!.id}`:`/routes/${listing!.id}.json`, { signal: controller.signal });
+          const response = await fetch(listing!.merchant?`/api/merchant/route?listing=${listing!.id}`:`/routes/${listing!.id}.json`, { signal: failFastSignal(controller.signal) });
           if (!response.ok) throw new Error("Route unavailable");
           const raw=await response.json(),city=getCity(listing!.cityId);
           data = listing!.merchant?parseAmenityWalkingRoute(raw,listing!,{id:`university:${city.id}`,lng:city.lng,lat:city.lat}):parseWalkingRoute(raw, listing!,city);

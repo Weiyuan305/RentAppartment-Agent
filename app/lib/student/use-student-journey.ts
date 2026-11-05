@@ -7,6 +7,7 @@ import {
   type CampusBuilding,
   type CampusRoute,
 } from "./catalog";
+import { failFastSignal } from "../overseas-failfast";
 import type { TransitJourney } from "./transit";
 export function useBuildingRoute(
   listing: Listing | undefined,
@@ -27,7 +28,7 @@ export function useBuildingRoute(
     if (!key || !listing || !building) return;
     const controller = new AbortController();
     fetch(listing.merchant?`/api/merchant/route?${new URLSearchParams({listing:listing.id,building:building.id})}`:buildingRouteUrl(listing.id, building.id), {
-      signal: controller.signal,
+      signal: failFastSignal(controller.signal),
     })
       .then((r) => {
         if (!r.ok) throw new Error("楼栋路线未收录，请选择其他目的地。");
@@ -87,7 +88,7 @@ export function useTransitJourney(
     const controller = new AbortController();
     fetch(
       `/api/student?${new URLSearchParams({ kind: "transit", city: listing.cityId, listing: listing.id, building: building.id })}`,
-      { signal: controller.signal },
+      { signal: failFastSignal(controller.signal) },
     )
       .then(async (r) => {
         const data = (await r.json()) as {

@@ -94,12 +94,32 @@ export function createRentalTools(initial: RentalState, onState: (state: RentalS
       execute: ({destination}) => run(async () => {
         const l = listing();
         if (destination === "campus") {
-          const building=buildingById(state.student?.destinationId),buildingRoute=building?(l.merchant?await merchantWalkingRoute(l,building.id):buildingCommute(l.id,building.id)):undefined;
-          if(building&&buildingRoute){
+          const building=buildingById(state.student?.destinationId);
+          const savedBuilding = building ? knownCommute(l, building.id) ?? (l.merchant ? undefined : buildingCommute(l.id, building.id)) : undefined;
+          if(building&&savedBuilding){
             update({...state,student:{...normalizedStudentPlan(state.student),routeBuilding:true,transitRequested:false},map:{...state.map,campusRoute:false,routePlaceId:null,selectedPlaceId:null}});
-            return {destination:building.name,distanceMeters:buildingRoute.distanceMeters,minutes:routeMinutes(buildingRoute.durationSeconds),source:buildingRoute.source,limitation:"路网估计，楼栋入口/开放条件未核验"};
+            return {destination:building.name,distanceMeters:savedBuilding.distanceMeters,minutes:routeMinutes(savedBuilding.durationSeconds),source:savedBuilding.source,limitation:"路网估计，楼栋入口/开放条件未核验"};
           }
-          const route = l.merchant?await merchantWalkingRoute(l):campusCommute(l.id);
+          if (building && l.merchant) {
+            try {
+              const route = await merchantWalkingRoute(l, building.id);
+              update({...state,student:{...normalizedStudentPlan(state.student),routeBuilding:true,transitRequested:false},map:{...state.map,campusRoute:false,routePlaceId:null,selectedPlaceId:null}});
+              return {destination:building.name,distanceMeters:route.distanceMeters,minutes:routeMinutes(route.durationSeconds),source:route.source,limitation:"路网估计，楼栋入口/开放条件未核验"};
+            } catch { throw new Error("实时路网没有在 6 秒内响应，已保存的通勤里也没有这条。"); }
+          }
+          const savedCampus = knownCommute(l, null);
+          if (savedCampus) {
+            update({...state,student:stopStudentRoutes(), map: {...state.map, routePlaceId: null, selectedPlaceId: null, campusRoute: true}});
+            return {destination: getCity(state.cityId).university, distanceMeters: savedCampus.distanceMeters, minutes: routeMinutes(savedCampus.durationSeconds), source: savedCampus.source, limitation: "路网估计，入口偏移未计入时间"};
+          }
+          if (l.merchant) {
+            try {
+              const route = await merchantWalkingRoute(l);
+              update({...state,student:stopStudentRoutes(), map: {...state.map, routePlaceId: null, selectedPlaceId: null, campusRoute: true}});
+              return {destination: getCity(state.cityId).university, distanceMeters: route.distanceMeters, minutes: routeMinutes(route.durationSeconds), source: route.source, limitation: "路网估计，入口偏移未计入时间"};
+            } catch { throw new Error("实时路网没有在 6 秒内响应，已保存的通勤里也没有这条。"); }
+          }
+          const route = campusCommute(l.id);
           update({...state,student:stopStudentRoutes(), map: {...state.map, routePlaceId: null, selectedPlaceId: null, campusRoute: true}});
           return {destination: getCity(state.cityId).university, distanceMeters: route.distanceMeters, minutes: routeMinutes(route.durationSeconds), source: route.source, limitation: "路网估计，入口偏移未计入时间"};
         }

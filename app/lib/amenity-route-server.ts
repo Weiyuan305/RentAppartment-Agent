@@ -54,7 +54,8 @@ export async function getAmenityRoute(listing: Listing, place: Amenity): Promise
       await consumeQuota("routing-upstream", 1, 1100);
       await consumeQuota("routing-global", 100, 86400000);
       const url = `${amenityRouteEndpoint}/${listing.lng},${listing.lat};${place.lng},${place.lat}?overview=full&geometries=geojson&steps=true&alternatives=false`;
-      const response = await fetch(url, {headers:{"User-Agent":"CampusAtlas-RentalPreview/0.1", "X-Client-Id":"campus-atlas-rental-preview"},signal:AbortSignal.timeout(20000)});
+      // China connections often hang instead of failing. Give up quickly and let callers use saved routes.
+      const response = await fetch(url, {headers:{"User-Agent":"CampusAtlas-RentalPreview/0.1", "X-Client-Id":"campus-atlas-rental-preview"},signal:AbortSignal.timeout(6000)});
       if (response.status === 429) throw new RouteServiceError("步行路线服务繁忙，请稍后再试。", 429);
       if (!response.ok) throw new RouteServiceError("步行路线服务暂时不可用，请稍后再试。");
       const result = normalizeAmenityRoute(await response.json(), listing, place);

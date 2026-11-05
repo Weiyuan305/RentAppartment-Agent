@@ -52,5 +52,6 @@ next-env.d.ts
 
 # Generated from installed Cesium package
 /public/cesium/
+/public/guided/maplibre-gl-worker.mjs
 !.env.example
 !.env.agent.example

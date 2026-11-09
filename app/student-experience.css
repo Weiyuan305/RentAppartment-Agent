@@ -87,7 +87,7 @@ body:has(.listing-detail-page){background:#122326}
  .auth-page .auth-header{padding-inline:16px;gap:8px}
  .auth-page .auth-header .brand{font-size:18px;gap:8px}
  .auth-page .auth-header .brand-mark{width:34px;height:34px;flex-shrink:0}
- .auth-page .auth-header .brand-en{font-size:8px;letter-spacing:1.5px}
+ .auth-page .auth-header .brand-en{font-size:12px;letter-spacing:1.5px}
  .auth-page .language-switch>svg{display:none}
  .listing-detail-page>header{gap:12px;padding-bottom:24px}
  .listing-detail-page>header>a{min-height:44px}
@@ -107,7 +107,7 @@ body:has(.listing-detail-page){background:#122326}
  .student-compare-dialog .student-compare-table{min-width:0;table-layout:fixed;width:100%;font-size:12px}.student-compare-dialog .student-compare-table :is(th,td){min-width:0;width:auto;padding:12px 6px;overflow-wrap:anywhere}.student-compare-dialog .student-compare-table tr>:first-child{width:26%;position:sticky;left:0;background:#e9efdf;color:#38563e;z-index:1}.student-compare-dialog .student-compare-table thead tr>:first-child{z-index:2}.student-compare-dialog .student-compare-table [data-mobile-hidden=true]{display:none}.student-compare-dialog .student-compare-table th button{float:none;display:flex;align-items:center;justify-content:center;min-height:36px;min-width:36px;margin-top:4px}.student-compare-dialog .student-table-wrap{max-height:48dvh}
  .auth-page .auth-form-panel{padding-top:30px}.auth-page .auth-header{gap:12px}.auth-page .auth-header .brand{font-size:18px;letter-spacing:0}.auth-page .auth-form-wrap h2{font-size:30px}.listing-detail-page .detail-gallery>img{height:260px}.listing-detail-page .detail-information h2{font-size:20px}
 }
-@media(prefers-reduced-motion:reduce){.listing-dossier *, .decision-summary *, .auth-page *, .listing-detail-page *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@media(prefers-reduced-motion:reduce){.listing-dossier, .decision-summary, .auth-page, .listing-detail-page{scroll-behavior:auto}.listing-dossier *, .decision-summary *, .auth-page *, .listing-detail-page *{animation:none !important}}
 .dossier-dialog{display:flex;flex-direction:column;overflow:hidden}.dossier-dialog>[data-slot=dialog-title]{padding-right:30px;flex:none;outline:none}.dossier-dialog>[data-slot=dialog-description]{flex:none}.dossier-dialog .listing-dossier{display:flex;flex-direction:column;min-height:0;overflow:hidden}.dossier-dialog .dossier-scroll{overflow-y:auto;overscroll-behavior:contain;min-height:0;padding-right:4px}.dossier-dialog .viewing-notebook{margin-top:0}.dossier-switch{display:flex;gap:8px;flex:none;border-bottom:1px solid #c6d5c0;padding-bottom:12px;margin-bottom:18px}.dossier-switch button{flex:1;min-height:44px;background:transparent;border:1px solid transparent;border-radius:6px;color:#4d6858;font-size:14px;padding:8px}.dossier-switch button[aria-pressed=true]{background:#e0ead6;color:#294f3e;border-color:#bdcfb3}.dossier-dialog :is(button,input,select,textarea,a):focus-visible{outline:2px solid #3c7556;outline-offset:3px}.dossier-dialog [data-slot=dialog-close]{width:32px;height:32px;display:grid;place-items:center;top:10px;right:10px}
 @media(max-width:600px){.viewing-checks label{grid-template-columns:minmax(0,1fr) 140px}}
 
@@ -161,7 +161,7 @@ body:has(.listing-detail-page){background:#122326}
 .listing-commute{display:grid;gap:4px;margin:10px 0 8px;padding:var(--space-compact,8px) var(--space-control-inline,10px);border:1px solid #45605a;border-radius:10px;background:#203c3b;color:#ecf3e9;min-width:0}
 .listing-commute-line{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:0;font:600 12px/1.4 "Atlas Manrope","PingFang SC",sans-serif}
 .listing-commute-line strong{font-weight:750}
-.listing-commute-note{margin:0;color:#b1c4bd;font:400 11px/1.45 "Atlas Manrope","PingFang SC",sans-serif}
+.listing-commute-note{margin:0;color:#b1c4bd;font:400 12px/1.45 "Atlas Manrope","PingFang SC",sans-serif}
 .verify-tag{display:inline-flex;align-items:center;min-height:20px;padding:0 7px;border-radius:999px;background:#173432;color:#f2d48a;font-weight:700}
 .verify-tag.is-verified{background:#c1dfc0;color:#173b30}
 .listing-viewing-button{display:flex;width:100%;align-items:center;justify-content:center;min-height:40px;margin-top:8px;padding:8px 12px;border:0;border-radius:10px;background:#c1dfc0;color:#173b30;font:700 13px/1.2 "Atlas Manrope","PingFang SC",sans-serif;cursor:pointer}

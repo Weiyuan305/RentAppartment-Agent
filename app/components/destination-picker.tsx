@@ -4,6 +4,7 @@ import { ArrowRight, ChevronLeft } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useLocale } from "@/components/locale-provider";
 import { displayCity } from "@/lib/i18n";
+import { CountryFlag } from "@/components/country-flag";
 import { cities, countries, citiesInCountry, cityPhoto, type CityId, type CountryId } from "@/lib/rental-data";
 
 type Props = {
@@ -28,7 +29,7 @@ export default function DestinationPicker({open, onOpenChange, onSelect, variant
         {countries.map(group => {
           const representative = group.cities[0];
           return <button key={group.id} onClick={() => setCountry(group.id)}>
-            <span>{representative.flag}</span>
+            <CountryFlag countryId={representative.countryId}/>
             <strong>{displayCity(representative, locale).country}</strong>
             <span className="country-choice-meta"><small>{group.cities.length} {w("座城市", group.cities.length === 1 ? "city" : "cities")}</small><ArrowRight size={17}/></span>
           </button>;

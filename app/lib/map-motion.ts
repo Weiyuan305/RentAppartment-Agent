@@ -3,9 +3,20 @@ import {readMapViewport} from "./map-viewport";
 
 export function mapTravelDuration(meters: number, reduced = false) {
   if(reduced)return 0;
-  if(meters<300)return .28;
-  if(meters<1500)return .4;
-  return meters<6000 ? .6 : .85;
+  if(meters<300)return .16;
+  if(meters<1500)return .22;
+  return meters<6000 ? .28 : .32;
+}
+
+/** Movement duration in seconds. Zero when reduced motion clears --motion-move. */
+export function movementSeconds() {
+  return Math.min(0.32, Math.max(0, cssMillis("--motion-move", 160) / 1000));
+}
+
+export function cssMillis(name: string, fallback: number) {
+  if (typeof document === "undefined") return fallback;
+  const value = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue(name));
+  return Number.isFinite(value) ? value : fallback;
 }
 
 export function mapMotion(C: typeof Cesium, viewer: Cesium.Viewer, target: Cesium.Cartesian3) {

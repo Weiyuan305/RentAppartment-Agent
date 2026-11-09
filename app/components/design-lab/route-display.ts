@@ -1,7 +1,7 @@
 import type * as Cesium from "cesium";
 import { metersBetween, type WalkingRoute } from "@/lib/walking-route";
 
-import {mapMotion} from "@/lib/map-motion";
+import {cssMillis, mapMotion} from "@/lib/map-motion";
 import {readMapViewport} from "@/lib/map-viewport";
 
 type Engine = typeof Cesium;
@@ -67,7 +67,8 @@ export function drawConceptRoute(C: Engine, viewer: Cesium.Viewer, tiles: Cesium
   anchors.push(coordinates.length - 1);
 
   let positions = coordinates.map(p => C.Cartesian3.fromDegrees(p[0],p[1],2));
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const revealMs = cssMillis("--motion-route", 900);
+  const reduce = revealMs <= 0 || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let count = reduce ? positions.length : 2;
   const line = viewer.entities.add({ id: "walking-route:path", polyline: {
     positions: positions.slice(0,count),
@@ -87,7 +88,7 @@ export function drawConceptRoute(C: Engine, viewer: Cesium.Viewer, tiles: Cesium
   const started = performance.now();
   const reveal = () => {
     if (viewer.isDestroyed()) return;
-    const progress = Math.min(1,(performance.now()-started)/900);
+    const progress = Math.min(1,(performance.now()-started)/Math.max(revealMs, 1));
     count = Math.max(2,Math.ceil(positions.length*progress));
     line.polyline!.positions = new C.ConstantProperty(positions.slice(0,count));
     markers[1].show = progress === 1;

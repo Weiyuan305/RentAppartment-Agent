@@ -1,4 +1,5 @@
 import type * as Cesium from "cesium";
+import { movementSeconds } from "./map-motion";
 import { metersBetween, type WalkingRoute } from "./walking-route";
 
 type Engine = typeof Cesium;
@@ -16,7 +17,7 @@ export function fitWalkingRoute(C: Engine, viewer: Cesium.Viewer, route: Walking
   const aspect = bounds ? bounds.width / bounds.height : 1;
   const range = Math.max(1100, sphere.radius * 1.35 / (tangent * Math.max(.15, Math.min(1 - covered - topCovered, aspect * 0.85))));
   viewer.camera.flyToBoundingSphere(sphere, {
-    duration: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 1.2,
+    duration: movementSeconds(),
     offset: new C.HeadingPitchRange(heading, -1.25, range),
     complete: () => {
       if (viewer.isDestroyed()) return;
